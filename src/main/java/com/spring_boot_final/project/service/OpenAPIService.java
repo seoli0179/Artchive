@@ -17,6 +17,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
 import java.net.*;
+import java.nio.charset.StandardCharsets;
 import java.sql.Date;
 import java.util.ArrayList;
 
@@ -25,7 +26,6 @@ import java.util.ArrayList;
 @Slf4j
 public class OpenAPIService {
 
-    @Autowired
     @Qualifier("IExhbnDAO")
     IExhbnDAO dao;
 
@@ -42,13 +42,13 @@ public class OpenAPIService {
         String rows = "200";
         String realmCode = "D000"; //A000 연극 / B000 음악(콘서드, 뮤직컬 등) / C000 무용 / D000 미술 /E000 건축 /G000 영상 / H000 문학 / I000 문화정책 / J000 축제문화공간/ L000 기타
 
-        String urlString = urlName + "?" + URLEncoder.encode("serviceKey", "UTF-8") + "=" + serviceKey + /*Service Key*/
-                "&" + URLEncoder.encode("sortStdr", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8") + /*1:등록일, 2:공연명, 3:지역*/
-                "&" + URLEncoder.encode("from", "UTF-8") + "=" + URLEncoder.encode(from, "UTF-8") +
-                "&" + URLEncoder.encode("to", "UTF-8") + "=" + URLEncoder.encode(to, "UTF-8") +
-                "&" + URLEncoder.encode("realmCode", "UTF-8") + "=" + URLEncoder.encode(realmCode, "UTF-8") +
-                "&" + URLEncoder.encode("cPage", "UTF-8") + "=" + URLEncoder.encode(cPage, "UTF-8") +
-                "&" + URLEncoder.encode("rows", "UTF-8") + "=" + URLEncoder.encode(rows, "UTF-8"); /*3~100*/
+        String urlString = urlName + "?" + URLEncoder.encode("serviceKey", StandardCharsets.UTF_8) + "=" + serviceKey + /*Service Key*/
+                "&" + URLEncoder.encode("sortStdr", StandardCharsets.UTF_8) + "=" + URLEncoder.encode("1", StandardCharsets.UTF_8) + /*1:등록일, 2:공연명, 3:지역*/
+                "&" + URLEncoder.encode("from", StandardCharsets.UTF_8) + "=" + URLEncoder.encode(from, StandardCharsets.UTF_8) +
+                "&" + URLEncoder.encode("to", StandardCharsets.UTF_8) + "=" + URLEncoder.encode(to, StandardCharsets.UTF_8) +
+                "&" + URLEncoder.encode("realmCode", StandardCharsets.UTF_8) + "=" + URLEncoder.encode(realmCode, StandardCharsets.UTF_8) +
+                "&" + URLEncoder.encode("cPage", StandardCharsets.UTF_8) + "=" + URLEncoder.encode(cPage, StandardCharsets.UTF_8) +
+                "&" + URLEncoder.encode("rows", StandardCharsets.UTF_8) + "=" + URLEncoder.encode(rows, StandardCharsets.UTF_8); /*3~100*/
 
         URL url = new URL(urlString);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -117,8 +117,8 @@ public class OpenAPIService {
         String serviceKey = "XTmkU7f37X2FaI%2BIR%2BWSva%2F2qnhC21txDXcnGRaIed1ekKJC%2Fl2VT1SwfV2Fph9HCGAJfQ1IICQIg3KJF9rD%2Bw%3D%3D";
         //int seq = 210962;
 
-        String urlString = urlName + "?" + URLEncoder.encode("serviceKey", "UTF-8") + "=" + serviceKey + /*Service Key*/
-                "&" + URLEncoder.encode("seq", "UTF-8") + "=" + URLEncoder.encode(String.valueOf(seq), "UTF-8");
+        String urlString = urlName + "?" + URLEncoder.encode("serviceKey", StandardCharsets.UTF_8) + "=" + serviceKey + /*Service Key*/
+                "&" + URLEncoder.encode("seq", StandardCharsets.UTF_8) + "=" + URLEncoder.encode(String.valueOf(seq), StandardCharsets.UTF_8);
 
         URL url = new URL(urlString);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
