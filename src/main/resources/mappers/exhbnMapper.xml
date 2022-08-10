@@ -24,7 +24,8 @@
         <![CDATA[
         SELECT *
         FROM exhbn
-        order by exhbnId
+        WHERE exhbnPrice1 = 0
+        ORDER BY exhbnId DESC
         ]]>
     </select>
 

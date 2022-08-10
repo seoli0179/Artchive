@@ -10,7 +10,6 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="<c:url value='/'/>">
     <script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
     <script src="<c:url value='/js/exhbnAllDataView.js'/>"></script>
     <title>Title</title>
