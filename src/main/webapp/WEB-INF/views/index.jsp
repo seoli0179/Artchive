@@ -1,17 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+         pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<link href="<c:url value='css/common.css' /> " rel="stylesheet"
-	type="text/css">
-<script src="<c:url value='js/jquery-3.6.0.min.js' /> "></script>
-<title>index</title>
+    <meta charset="UTF-8">
+    <script src="<c:url value='/js/jquery-3.6.0.min.js' /> "></script>
+    <title>index</title>
 </head>
 <body>
-	<h3>index 페이지 입니다</h3>
+<h3>index 페이지 입니다</h3>
 </body>
 </html>
