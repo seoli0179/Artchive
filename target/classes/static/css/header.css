@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+/* 모든 컨텐츠를 포함하는 box */
+#wrap {
+	width:1910px;
+	background-color:#ffffff;
+	position:relative;
+}
+
+/*header*/
+header{
+	background-color:#eeeeee;
+	padding : 0px;
+}
+
+header #visual img{
+	width:100%;
+	height: 940px;
+}
+
+
+/*logoBox*/
+	
+header #logoBox { 
+	position : absolute; 
+	left: 30px;
+	top: 0;
+	}
+	
+header #logoBox{
+	width: 200px;
+	line-height: 70px; 
+	/* border : 1px solid rgba(255,255,255,0.5); */
+	height:70px;
+	text-align:center;
+	/* border : solid 1px white; */
+}
+
+header #logoBox > a {
+	font-size : 25px;
+	color : #fff;
+	text-decoration : none;
+	font-weight : bold;
+}
+
+/*loginBox*/
+	
+header #loginBox > ul{
+	position : absolute; 
+	right: 30px;
+	top: 0;
+	display : flex;
+	width:200px;
+	height:70px;
+	list-style: none;
+	/* border : solid 1px white; */
+}
+
+header #loginBox > ul li{
+	flex:1;
+	line-height: 70px; 
+	/* border : 1px solid rgba(255,255,255,0.5); */ 
+	height:70px;
+	text-align:center;
+}
+
+header #loginBox > ul li a {
+	font-size : 14px;
+	color : #fff;
+	text-decoration : none;
+	font-weight : bold;
+}
+
+header #loginBox ul>  li > a > img {
+	position : absolute; 
+	top: 25px;
+}
+
+/*headerBox*/
+
+header #headerBox {
+	position: absolute;
+	left : 0;
+	top : 0px;
+	width:100%;
+	padding:  0 232px;
+	box-sizing : border-box;
+}
+
+header #headerBox nav > ul > li > a {
+	font-size : 14px;
+	color : #fff;
+	text-decoration : none;
+	font-weight : bold;
+	width: 160px;
+	height: 70px;
+	display : block;
+	line-height:70px;
+}
+
+header #headerBox nav > ul {text-align:center;}
+
+header #headerBox nav > ul > li {display: inline-block;}
+
+/*** 메인 메뉴 고정 ***/
+/* 윈도우 스크롤시 메인메뉴 고정 */
+.mainMenuFixed{
+	position: fixed;
+	top:0px;
+}
+
+/* 메인메뉴 색상 변경 */
+.mainMenuChange{
+	background-color:#ffffff;
+	color: black;
+}
+
+
+
+

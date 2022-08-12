@@ -20,7 +20,7 @@
 		
 		<!-- detail main -->
 		<main id="detail-wrap">
-			<div id="cover-container" class="cover-img" style="background-image : url('https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=890&q=80');
+			<div id="cover-container" class="cover-img" style="background-image : url('${exhbn.exhbnImgUrl}');
 			">
 				<div class="cover-heading">
 					<div class="cover-text">
@@ -30,10 +30,10 @@
 							</a>
 						</div>
 						<div class="cover-header">
-							<header>전시</header>
+							<header>${exhbn.exhbnTitle}</header>
 						</div>
 						<div class="cover-date">
-							<span>0000. 00. 00 ~ 0000. 00. 00</span>
+							<span><fmt:formatDate value = "${exhbn.exhbnStartDate}" type ="date" pattern="yyyy. MM. dd"/> ~ <fmt:formatDate value = "${exhbn.exhbnEndDate}" type ="date" pattern="yyyy. MM. dd"/></span>
 						</div>
 					</div>
 					<!-- .cover-text -->
@@ -52,7 +52,7 @@
 					</p>
 					<div id="poster-container">
 						<div class="poster-box">
-							<img class="poster" src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=890&q=80">
+							<img class="poster" src="${exhbn.exhbnImgUrl}">
 						</div>
 					</div>
 				</div>
@@ -63,7 +63,7 @@
 								<span>기간</span>
 							</div>
 							<div class="context-content">
-								<span>2022년 6월 10일(금)<br/>~ 2022년 9월 25일(일)</span>
+								<span><fmt:formatDate value = "${exhbn.exhbnStartDate}" type ="date" pattern="yyyy년 MM월 dd일(E)"/><br/>~ <fmt:formatDate value = "${exhbn.exhbnEndDate}" type ="date" pattern="yyyy년 MM월 dd일(E)"/></span>
 							</div>
 						</div>
 						<div id="pay" class="context-box">
@@ -71,7 +71,7 @@
 								<span>관람료</span>
 							</div>
 							<div class="context-content">
-								<span>일반 5,000원, 중고생 4,000원<br/>* 현대 카드 결제 시 20% 즉시 할인<br/>* M포인트 100% 사용가능(할인 및 포인트 사용 중복 적용 불가)</span>
+								<span>${exhbn.exhbnPrice}<br/>* 현대 카드 결제 시 20% 즉시 할인<br/>* M포인트 100% 사용가능(할인 및 포인트 사용 중복 적용 불가)</span>
 							</div>
 						</div>
 						<div id="reservation" class="context-box">
@@ -90,7 +90,7 @@
 								<span>장소</span>
 							</div>
 							<div class="context-content">
-								<span>현대카드 스토리지<br/>서울시 서울구 서울동 00-00</span>
+								<span>${exhbn.exhbnPlace}<br/>${exhbn.exhbnPlaceAddr}</span>
 							</div>
 						</div>
 						<div id="time" class="context-box">
@@ -106,7 +106,7 @@
 								<span>문의</span>
 							</div>
 							<div class="context-content">
-								<span>00 - 0000 - 0000</span>
+								<span>${exhbn.exhbnPhone}</span>
 							</div>
 						</div>
 					</div>
@@ -115,7 +115,7 @@
 				</div>
 				<!-- .context-container -->
 				<div id="button-box">
-					<button class="white-btn" onclick="location.href='#'">자세히 보기</button>
+					<button class="white-btn" onclick="location.href='${exhbn.exhbnUrl}'">자세히 보기</button>
 					<button class="black-btn" onclick="location.href='#'">관심전시추가</button>
 				</div>
 				<div id="map-box">

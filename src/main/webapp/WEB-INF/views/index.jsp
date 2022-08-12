@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>  
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
@@ -18,11 +18,11 @@
 	</head>
 	<body>
 		<div id="wrap">
-		
+
 		<!-- top으로 이동 -->
 		 <c:import url="/WEB-INF/views/layout/top.jsp" />
-		
-           
+
+
            	<div id="banner">
            		<div id="bannerText1" class="bannerText">
 	           		<ul>
@@ -40,12 +40,12 @@
 					</ul>
            		</div>
            	</div><!-- banner -->
-           	
+
            	<div id="exhibition">
 	           		<ul>
 	           			<li>지금 하고 있는 전시</li>
 	           		</ul>
-	           		
+
 	           		<div id="exhibitionMore">
 		           		<ul>
 		           			<li><a href="#">MORE ></a></li>
@@ -59,7 +59,7 @@
            			<li><a href="#">2022.00.00-2022.00.00</a></li>
            		</ul>
            		</div>
-           		
+
            		<div id="exhibitionImg2" class="exhibitionImg">
            		<ul>
            			<li><img src="<c:url value='/image/banner.jpg'/>"></li>
@@ -67,7 +67,7 @@
            			<li><a href="#">2022.00.00-2022.00.00</a></li>
            		</ul>
            		</div>
-           		
+
            		<div id="exhibitionImg3" class="exhibitionImg">
            		<ul>
            			<li><img src="<c:url value='/image/banner.jpg'/>"></li>
@@ -75,22 +75,22 @@
            			<li><a href="#">2022.00.00-2022.00.00</a></li>
            		</ul>
            		</div>
-           		
+
            		<div id="exhibitionImg4" class="exhibitionImg">
            		<ul>
            			<li><img src="<c:url value='/image/banner.jpg'/>"></li>
            			<li><a href="#">전시회명4</a></li>
            			<li><a href="#">2022.00.00-2022.00.00</a></li>
            		</ul>
-           		
+
            		</div>
            	</div><!-- exhibition -->
-           	
+
            	<div id="exhibition2">
 	           		<ul>
 	           			<li>UserName님에게 추천하는 전시</li>
 	           		</ul>
-	           		
+
 	           	<div id="exhibitionMore2">
 	           		<ul>
 	           			<li><a href="#">MORE ></a></li>
@@ -104,7 +104,7 @@
            			<li><a href="#">2022.00.00-2022.00.00</a></li>
            		</ul>
            		</div>
-           		
+
            		<div id="exhibition2Img2" class="exhibition2Img">
            		<ul>
            			<li><img src="<c:url value='/image/banner.jpg'/>"></li>
@@ -112,7 +112,7 @@
            			<li><a href="#">2022.00.00-2022.00.00</a></li>
            		</ul>
            		</div>
-           		
+
            		<div id="exhibition2Img3" class="exhibition2Img">
            		<ul>
            			<li><img src="<c:url value='/image/banner.jpg'/>"></li>
@@ -120,7 +120,7 @@
            			<li><a href="#">2022.00.00-2022.00.00</a></li>
            		</ul>
            		</div>
-           		
+
            		<div id="exhibition2Img4" class="exhibition2Img">
            		<ul>
            			<li><img src="<c:url value='/image/banner.jpg'/>"></li>
@@ -130,7 +130,7 @@
 
            		</div>
            	</div><!-- exhibition -->
-           	
+
            	<div id="recommended">
            		<div id="recommended1" >
 	           		<ul>
@@ -146,7 +146,7 @@
 	           			</ul>
 	           		</div>
            		</div>
-           		
+
            		<div id="recommended2">
 	           		<ul>
 						<li>
@@ -161,7 +161,7 @@
 	           			</ul>
 	           		</div>
            		</div>
-           		
+
            		<div id="recommended3">
 	           		<ul>
 						<li>
@@ -176,12 +176,12 @@
 	           			</ul>
 	           		</div>
            		</div>
-           		
+
            	</div><!-- Recommended-->
-           
+
           <!-- bottom 이동 -->
           <c:import url="/WEB-INF/views/layout/bottom.jsp" />
-           	
-       </div> <!-- wrap -->      
+
+       </div> <!-- wrap -->
 	</body>
 </html>
