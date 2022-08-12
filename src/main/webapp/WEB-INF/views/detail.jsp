@@ -8,6 +8,7 @@
 		<meta charset="UTF-8">
 		<title>전시명</title>
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
+		<script src="<c:url value='/js/detail.js'/>"></script>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/detail.css'/>"/>
 	</head>
@@ -131,9 +132,66 @@
 			<!-- .contents-container -->
 			<div id="review-container">
 				<h2>Reviews.</h2>
-				<div class="review-box">
-				
-				</div>
+				<article class="review-box">
+					<div class="review" style="background-image: url();">
+					</div>
+					<div class="post-meta">
+					</div>
+				</article>
+				<article class="review-box">
+					<div class="review" style="background-image: url();">
+					</div>
+					<div class="post-meta">
+					</div>
+				</article>
+				<article class="review-box">
+					<div class="review" style="background-image: url();">
+					</div>
+					<div class="post-meta">
+					</div>
+				</article>
+				<article class="review-box">
+					<div class="review" style="background-image: url();">
+					</div>
+					<div class="post-meta">
+					</div>
+				</article>
+				<article class="review-box">
+					<div class="review" style="background-image: url();">
+					</div>
+					<div class="post-meta">
+					</div>
+				</article>
+				<article class="review-box">
+					<div class="review" style="background-image: url();">
+					</div>
+					<div class="post-meta">
+					</div>
+				</article>
+				<article class="review-box">
+					<div class="review" style="background-image: url();">
+					</div>
+					<div class="post-meta">
+					</div>
+				</article>
+				<article class="review-box">
+					<div class="review" style="background-image: url();">
+					</div>
+					<div class="post-meta">
+					</div>
+				</article>
+				<article class="review-box">
+					<div class="review" style="background-image: url();">
+					</div>
+					<div class="post-meta">
+					</div>
+				</article>
+				<article class="review-box">
+					<div class="review" style="background-image: url();">
+					</div>
+					<div class="post-meta">
+					</div>
+				</article>
 			</div>
 		</main>
 		
