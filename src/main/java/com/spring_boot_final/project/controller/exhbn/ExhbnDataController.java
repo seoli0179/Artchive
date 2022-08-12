@@ -1,7 +1,6 @@
 package com.spring_boot_final.project.controller.exhbn;
 
 import com.spring_boot_final.project.service.ExhbnService;
-import com.spring_boot_final.project.service.OpenAPIService;
 import com.spring_boot_final.project.model.ExhbnVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +12,9 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@RestController
+
 @Slf4j
+@RestController
 public class ExhbnDataController {
 
     @Autowired
@@ -22,12 +22,12 @@ public class ExhbnDataController {
 
     @RequestMapping("/insertDate")
     public void insertDate() throws IOException, ParserConfigurationException, SAXException {
-        service.insertApiToDb("20220601","20221231","1","200");
+        service.insertApiToDB("20220601","20221231","1","200");
     }
 
     @RequestMapping("/selectAllDate")
     public ArrayList<ExhbnVO> selectAllDate() {
-        ArrayList<ExhbnVO> allData = service.exhbnSelectAllData();
+        ArrayList<ExhbnVO> allData = service.selectAllData();
         return allData;
     }
 

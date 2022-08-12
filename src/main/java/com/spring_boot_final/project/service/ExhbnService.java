@@ -20,15 +20,15 @@ public class ExhbnService {
     @Qualifier("IExhbnDAO")
     IExhbnDAO dao;
 
-    public ArrayList<ExhbnVO> exhbnSelectAllData(){
+    public ArrayList<ExhbnVO> selectAllData(){
         return dao.selectAllExhbn();
     }
 
-    public ExhbnVO exhbnSelectDetailData(int id){
+    public ExhbnVO selectDetailData(int id){
         return dao.selectExhbn(id);
     }
 
-    public void insertApiToDb(String from, String to, String cPage, String rows) throws IOException, ParserConfigurationException, SAXException {
+    public void insertApiToDB(String from, String to, String cPage, String rows) throws IOException, ParserConfigurationException, SAXException {
         openAPIService.exhbnListRequest(from, to, cPage, rows);
     }
 

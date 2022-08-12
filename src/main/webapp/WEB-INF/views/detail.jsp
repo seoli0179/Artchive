@@ -19,7 +19,7 @@
 		
 		<!-- detail main -->
 		<main id="detail-wrap">
-			<div id="cover-container" class="cover-img" style="background-image : url('https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=890&q=80');
+			<div id="cover-container" class="cover-img" style="background-image : url('${exhbn.exhbnImgUrl}');
 			">
 				<div class="cover-heading">
 					<div class="cover-text">

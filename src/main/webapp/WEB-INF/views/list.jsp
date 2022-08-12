@@ -90,78 +90,18 @@
 		<!-- 전시 리스트 -->
 		<div class="list con">
 		   <ul class="row">
-		      <li class="cell">
-		         <div class="img-box">
-		            <img src="http://cdn.monews.co.kr/news/photo/202004/209977_61736_1124.jpg" alt="">
-		         </div>
-		         <section>
-		            <div class="ex-place">대구미술관</div>
-		            <div class="ex-title">몸의 현재</div>
-		            <div class="ex-period">2022.08.11~ 2022.09.14</div>
-		         </section>
-		      </li>
-		
-		      <li class="cell">
-		         <div class="img-box">
-		            <img
-		               src="https://artmuseum.daegu.go.kr/DATA/upload/images/201303040353117715.jpg"
-		               alt="">
-		         </div>
-		         <section>
-		
-		            <div class="ex-place">대구미술관</div>
-		            <div class="ex-title">몸의 현재</div>
-		            <div class="ex-period">2022.07.14 ~ 2022.08.30 </div>
-		         </section>
-		      </li>
-		      <li class="cell">
-		         <div class="img-box">
-		            <img
-		               src="http://cdn.monews.co.kr/news/photo/202004/209977_61736_1124.jpg"
-		               alt="">
-		         </div>
-		         <section>
-		            <div class="ex-place">분당서울대병원</div>
-		            <div class="ex-title">바람</div>
-		            <div class="ex-period">2022.08.02 ~ 2022.08.20</div>
-		         </section>
-		      </li>
-		      <li class="cell">
-		         <div class="img-box">
-		            <img
-		               src="http://cdn.monews.co.kr/news/photo/202004/209977_61736_1124.jpg"
-		               alt="">
-		         </div>
-		         <section>
-		            <div class="ex-place">전시회</div>
-		            <div class="ex-title">제목</div>
-		            <div class="ex-period">기간</div>
-		         </section>
-		      </li>
-		      <li class="cell">
-		         <div class="img-box">
-		            <img
-		               src="http://www.mjeonbuk.com/news/photo/202203/16875_16629_519.jpg"
-		               alt="">
-		         </div>
-		         <section>
-		            <div class="ex-place">전주 우진문화공간</div>
-		            <div class="ex-title">신예작가전시회</div>
-		            <div class="ex-period">2022.07.30 ~ 2022.08.20</div>
-		         </section>
-		      </li>
-		      <li class="cell">
-		         <div class="img-box">
-		            <img
-		               src="https://www.ibabynews.com/news/photo/202008/88021_36985_2623.jpg"
-		               alt="">
-		         </div>
-		         <section>
-		            <div class="ex-place">서울어린이대공원</div>
-		            <div class="ex-title">동물원</div>
-		            <div class="ex-period">2022.08.02 ~ 2022.09.01</div>
-		         </section>
-		      </li>
+			   <c:forEach var="exhbn" items="${exhbnList}" varStatus="status">
+				   <li class="cell">
+					   <div class="img-box">
+						   <a href="/detail/${exhbn.exhbnId}"><img src="${exhbn.exhbnImgUrl}" alt=""></a>
+					   </div>
+					   <section>
+						   <div class="ex-place">${exhbn.exhbnPlace}</div>
+						   <div class="ex-title">${exhbn.exhbnTitle}</div>
+						   <div class="ex-period"><fmt:formatDate value = "${exhbn.exhbnStartDate}" type ="date" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value = "${exhbn.exhbnEndDate}" type ="date" pattern="yyyy.MM.dd"/></div>
+					   </section>
+				   </li>
+			   </c:forEach>
 			</ul>
 		</div>
 	</main>
