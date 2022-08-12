@@ -34,7 +34,7 @@ CREATE TABLE `exhbn` (
   `exhbnStartDate` datetime DEFAULT NULL,
   `exhbnEndDate` datetime DEFAULT NULL,
   `exhbnPrice` text,
-  `exhbnPrice1` int DEFAULT '',
+  `exhbnPrice1` int DEFAULT 0,
   `exhbnContent` text,
   `exhbnPhone` text,
   `exhbnWriter` varchar(100) DEFAULT '',
