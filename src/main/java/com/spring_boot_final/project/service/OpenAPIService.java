@@ -129,7 +129,7 @@ public class OpenAPIService {
         }
         rd.close();
         conn.disconnect();
-        log.error(sb.toString());
+        //log.error(sb.toString());
         return exhbnDetailRequest_xmlParsing(sb.toString());
     }
 
