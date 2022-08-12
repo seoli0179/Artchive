@@ -1,5 +1,6 @@
-package com.spring_boot_final.project.controller;
+package com.spring_boot_final.project.controller.exhbn;
 
+import com.spring_boot_final.project.service.ExhbnService;
 import com.spring_boot_final.project.service.OpenAPIService;
 import com.spring_boot_final.project.model.ExhbnVO;
 import lombok.extern.slf4j.Slf4j;
@@ -14,14 +15,14 @@ import java.util.ArrayList;
 
 @RestController
 @Slf4j
-public class OpenAPIController {
+public class ExhbnDataController {
 
     @Autowired
-    OpenAPIService service;
+    ExhbnService service;
 
     @RequestMapping("/insertDate")
     public void insertDate() throws IOException, ParserConfigurationException, SAXException {
-        service.exhbnListRequest();
+        service.insertApiToDb("20220601","20221231","1","200");
     }
 
     @RequestMapping("/selectAllDate")

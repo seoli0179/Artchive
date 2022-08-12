@@ -7,7 +7,7 @@
 
     <!-- Create -->
 
-    <insert id="insertExhbn" parameterType="com.spring_boot_final.project.vo.ExhbnVO">
+    <insert id="insertExhbn" parameterType="com.spring_boot_final.project.model.ExhbnVO">
         <![CDATA[
         INSERT INTO exhbn (exhbnId, exhbnTitle, exhbnStartDate, exhbnEndDate, exhbnPlace, exhbnArea, exhbnPrice,
                            exhbnUrl, exhbnPhone, exhbnImgUrl, gpsX, gpsY, exhbnPlaceUrl, exhbnPlaceAddr)
@@ -20,7 +20,7 @@
 
     <!-- Read -->
 
-    <select id="selectAllExhbn" resultType="com.spring_boot_final.project.vo.ExhbnVO">
+    <select id="selectAllExhbn" resultType="com.spring_boot_final.project.model.ExhbnVO">
         <![CDATA[
         SELECT *
         FROM exhbn
@@ -29,12 +29,11 @@
         ]]>
     </select>
 
-    <select id="selectExhbn" parameterType="int" resultType="com.spring_boot_final.project.vo.ExhbnVO">
+    <select id="selectExhbn" parameterType="int" resultType="com.spring_boot_final.project.model.ExhbnVO">
         <![CDATA[
         SELECT *
         FROM exhbn
-        where exhbnId = #{exhbnId}
-        order by exhbnId
+        WHERE exhbnId = #{exhbnId}
         ]]>
     </select>
 
@@ -48,7 +47,7 @@
 
     <!-- Update -->
 
-    <update id="updateExhbn" parameterType="com.spring_boot_final.project.vo.ExhbnVO">
+    <update id="updateExhbn" parameterType="com.spring_boot_final.project.model.ExhbnVO">
         <![CDATA[
         UPDATE exhbn
         SET exhbnTitle         = #{exhbnTitle},

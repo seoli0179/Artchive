@@ -33,8 +33,7 @@
         <![CDATA[
         SELECT *
         FROM exhbn
-        where exhbnId = #{exhbnId}
-        order by exhbnId
+        WHERE exhbnId = #{exhbnId}
         ]]>
     </select>
 

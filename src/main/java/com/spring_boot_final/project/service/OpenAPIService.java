@@ -1,9 +1,7 @@
 package com.spring_boot_final.project.service;
 
-import com.spring_boot_final.project.dao.IExhbnDAO;
 import com.spring_boot_final.project.model.ExhbnVO;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -25,20 +23,13 @@ import java.util.ArrayList;
 @Slf4j
 public class OpenAPIService {
 
-    @Qualifier("IExhbnDAO")
-    IExhbnDAO dao;
-
-    public ArrayList<ExhbnVO> exhbnSelectAllData(){
-        return dao.selectAllExhbn();
-    }
-
-    public void exhbnListRequest() throws IOException, ParserConfigurationException, SAXException {
+    public void exhbnListRequest(String from, String to, String cPage, String rows) throws IOException, ParserConfigurationException, SAXException {
         String urlName = "http://www.culture.go.kr/openapi/rest/publicperformancedisplays/realm";
         String serviceKey = "XTmkU7f37X2FaI%2BIR%2BWSva%2F2qnhC21txDXcnGRaIed1ekKJC%2Fl2VT1SwfV2Fph9HCGAJfQ1IICQIg3KJF9rD%2Bw%3D%3D";
-        String from = "20220601";
-        String to = "20221231";
-        String cPage = "1";
-        String rows = "200";
+        //String from = "20220601";
+        //String to = "20221231";
+        //String cPage = "1";
+        //String rows = "200";
         String realmCode = "D000"; //A000 연극 / B000 음악(콘서드, 뮤직컬 등) / C000 무용 / D000 미술 /E000 건축 /G000 영상 / H000 문학 / I000 문화정책 / J000 축제문화공간/ L000 기타
 
         String urlString = urlName + "?" + URLEncoder.encode("serviceKey", StandardCharsets.UTF_8) + "=" + serviceKey + /*Service Key*/
@@ -96,13 +87,14 @@ public class OpenAPIService {
                 Element eElement = (Element) nNode;
 
                 int seq = Integer.parseInt(eElement.getElementsByTagName("seq").item(0).getTextContent());
-
-                if(dao.existExhbn(seq) < 1){
+                /*
+                if (dao.existExhbn(seq) < 1) {
 
                     System.out.println("번호  : " + eElement.getElementsByTagName("seq").item(0).getTextContent());
                     ExhbnVO vo = exhbnDetailRequest(seq);
                     dao.insertExhbn(vo);
                 }
+                 */
             }
 
 
@@ -243,7 +235,6 @@ public class OpenAPIService {
         return vo;
 
     }
-
 
 
 }
