@@ -9,14 +9,14 @@
 		<title>전시명</title>
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		<script src="<c:url value='/js/detail.js'/>"></script>
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/reset.css'/>"/>
+		<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/detail.css'/>"/>
 	</head>
 	<body>
-		<!-- top -->
-		<div class="top">
-		</div>
+		<!-- top으로 이동 -->
+		 <%-- <c:import url="/WEB-INF/views/layout/top.jsp" /> --%>
 		
 		<!-- detail main -->
 		<main id="detail-wrap">
@@ -71,7 +71,7 @@
 								<span>관람료</span>
 							</div>
 							<div class="context-content">
-								<span>${exhbn.exhbnPrice}<br/>* 현대 카드 결제 시 20% 즉시 할인<br/>* M포인트 100% 사용가능(할인 및 포인트 사용 중복 적용 불가)</span>
+								<span>${exhbn.exhbnPrice}</span>
 							</div>
 						</div>
 						<div id="reservation" class="context-box">
@@ -115,7 +115,7 @@
 				</div>
 				<!-- .context-container -->
 				<div id="button-box">
-					<button class="white-btn" onclick="location.href='${exhbn.exhbnUrl}'">자세히 보기</button>
+					<button class="white-btn" onclick="window.open('${exhbn.exhbnUrl}')">자세히 보기</button>
 					<button class="black-btn" onclick="location.href='#'">관심전시추가</button>
 				</div>
 				<div id="map-box">
@@ -131,68 +131,75 @@
 				<!-- .tag-box -->
 			</div>
 			<!-- .contents-container -->
-			<div id="review-container">
+			<div class="sub-title">
+				<i class="fa-solid fa-chevron-left" id="prevBtn"></i>
 				<h2>Reviews.</h2>
-				<article class="review-box">
-					<div class="review" style="background-image: url();">
-					</div>
-					<div class="post-meta">
-					</div>
-				</article>
-				<article class="review-box">
-					<div class="review" style="background-image: url();">
-					</div>
-					<div class="post-meta">
-					</div>
-				</article>
-				<article class="review-box">
-					<div class="review" style="background-image: url();">
-					</div>
-					<div class="post-meta">
-					</div>
-				</article>
-				<article class="review-box">
-					<div class="review" style="background-image: url();">
-					</div>
-					<div class="post-meta">
-					</div>
-				</article>
-				<article class="review-box">
-					<div class="review" style="background-image: url();">
-					</div>
-					<div class="post-meta">
-					</div>
-				</article>
-				<article class="review-box">
-					<div class="review" style="background-image: url();">
-					</div>
-					<div class="post-meta">
-					</div>
-				</article>
-				<article class="review-box">
-					<div class="review" style="background-image: url();">
-					</div>
-					<div class="post-meta">
-					</div>
-				</article>
-				<article class="review-box">
-					<div class="review" style="background-image: url();">
-					</div>
-					<div class="post-meta">
-					</div>
-				</article>
-				<article class="review-box">
-					<div class="review" style="background-image: url();">
-					</div>
-					<div class="post-meta">
-					</div>
-				</article>
-				<article class="review-box">
-					<div class="review" style="background-image: url();">
-					</div>
-					<div class="post-meta">
-					</div>
-				</article>
+				<i class="fa-solid fa-chevron-right" id="nextBtn"></i>
+				<br>
+			</div>
+			<div id="review-container">
+				<div class="sliding-box animate">
+					<article class="review-box">
+						<div class="review" style="background-image: url('https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MTlfMTcz%2FMDAxNjU4MjE0MDA5NzA2.RQIp62kBmC4ga2po4F9bPFVv_zU7SvOpq5HEC6YwxwAg.7wg5PGHrpntbSgzPO1QVaYSlZLB9a1icbkV0P1jwTD0g.JPEG.sojinee%2FIMG_3839.jpg&type=sc960_832');">
+						</div>
+						<div class="post-meta">
+						</div>
+					</article>
+					<article class="review-box">
+						<div class="review" style="background-image: url('https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDRfNDQg%2FMDAxNjU2ODYxOTc3NzU5.j94kBnRw4XjI4afwSPjBr-SeDkI3oQPggRaSbWiqRXAg.287rvxF364vL5Jh9-LnM1eTTiNycFYuWrMW25FCzflcg.JPEG.tmmoist%2FIMG_8135.jpg&type=sc960_832');">
+						</div>
+						<div class="post-meta">
+						</div>
+					</article>
+					<article class="review-box">
+						<div class="review" style="background-image: url('https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDRfMTE2%2FMDAxNjU2OTQ2NjYzNTQ4.vVys-ye8ToMlHbcU2E9qPWmNsS7EamggZ4pNZFi8osMg.Q7CtuzauRA-HhsUQEpfll0pPZBhvXNlqWitO3C8waGcg.JPEG.slom0702%2FIMG_8999.jpg&type=sc960_832');">
+						</div>
+						<div class="post-meta">
+						</div>
+					</article>
+					<article class="review-box">
+						<div class="review" style="background-image: url('https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDEyMDZfMTk5%2FMDAxNjA3MjQxMjg3NTg4.jDFINP11b1dAvSkZVwaQ_ukzOGseCV5q5JG6GouS39gg.UXiyWlG_w9JHPo134aTLrfAjFaEgeRcqROUlt7f9VFwg.JPEG.tjrdmsgp%2FKakaoTalk_20201206_141123966_21.jpg&type=sc960_832');">
+						</div>
+						<div class="post-meta">
+						</div>
+					</article>
+					<article class="review-box">
+						<div class="review" style="background-image: url('https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTEyMjBfMTQy%2FMDAxNjQwMDA0OTA1NjE3.JUUk0eEyaPipy79Fh22TuZ2dVRv2Jmo-V1a-t0-OrAEg.Jau6WVx7C0WPV1h1fbyI2KBhK3sGOCt7ULDKjPpKAMQg.JPEG.subeen__%2FIMG_6669.jpg&type=sc960_832');">
+						</div>
+						<div class="post-meta">
+						</div>
+					</article>
+					<article class="review-box">
+						<div class="review" style="background-image: url();">
+						</div>
+						<div class="post-meta">
+						</div>
+					</article>
+					<article class="review-box">
+						<div class="review" style="background-image: url();">
+						</div>
+						<div class="post-meta">
+						</div>
+					</article>
+					<article class="review-box">
+						<div class="review" style="background-image: url();">
+						</div>
+						<div class="post-meta">
+						</div>
+					</article>
+					<article class="review-box">
+						<div class="review" style="background-image: url();">
+						</div>
+						<div class="post-meta">
+						</div>
+					</article>
+					<article class="review-box">
+						<div class="review" style="background-image: url();">
+						</div>
+						<div class="post-meta">
+						</div>
+					</article>
+				</div>
 			</div>
 		</main>
 		
