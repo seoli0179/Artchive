@@ -1,9 +1,8 @@
 package com.spring_boot_final.project.service;
 
 import com.spring_boot_final.project.dao.IExhbnDAO;
-import com.spring_boot_final.project.vo.ExhbnVO;
+import com.spring_boot_final.project.model.ExhbnVO;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;

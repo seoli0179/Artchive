@@ -1,4 +1,4 @@
-package com.spring_boot_final.project.vo;
+package com.spring_boot_final.project.model;
 
 import com.spring_boot_final.project.state.ViewState;
 import lombok.*;

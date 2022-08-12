@@ -12,9 +12,9 @@ public class HelloController {
 		return "index";
 	}
 
-	@RequestMapping("/list")
+	@RequestMapping("/detail")
 	public String list() {
-		return "exhibList";
+		return "detail";
 	}
 
 }
