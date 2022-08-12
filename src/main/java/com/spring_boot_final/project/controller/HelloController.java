@@ -11,6 +11,17 @@ public class HelloController {
 		System.out.println("index 페이지 열림");
 		return "index";
 	}
+	
+	// detail test page view
+	@RequestMapping("/detailTestView")
+	public String detailTestView() {
+		return "detail";
+	}
+	// detail test page view
+	@RequestMapping("/listTestView")
+	public String listTestView() {
+		return "list";
+	}
 
 	@RequestMapping("/detail")
 	public String list() {
