@@ -23,9 +23,4 @@ public class HelloController {
 		return "list";
 	}
 
-	@RequestMapping("/detail")
-	public String list() {
-		return "detail";
-	}
-
 }
