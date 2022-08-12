@@ -9,6 +9,7 @@
 		<title>전시명</title>
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		<script src="<c:url value='/js/detail.js'/>"></script>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/detail.css'/>"/>
 	</head>

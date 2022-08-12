@@ -1,0 +1,87 @@
+@charset "UTF-8";
+
+
+/*banner*/
+
+.bannerText{
+	display: flex;
+ 	justify-content: center;
+  	align-items:center;
+}
+
+/*bannerText1*/
+
+#bannerText1{
+	width : 300px;
+	position : absolute;
+	top : 380px;
+	left: 800px;
+}
+
+
+#bannerText1 > ul > li {
+	text-align : center;
+	list-style: none;
+	font-size : 12px;
+	color : #fff;
+}
+
+/*bannerText2*/
+
+#bannerText2{
+	width : 400px;
+	position : absolute;
+	top : 420px;
+	left: 750px;
+}
+
+#bannerText2 > ul > li {
+	text-align : center;
+	list-style: none;
+	font-size : 40px;
+	color : #fff;
+	font-weight : bold;
+}
+
+/*bannerText3*/
+
+#bannerText3{
+	width : 200px;
+	height: 40px;
+	position : absolute;
+	top : 500px;
+	left: 848px;
+	border : solid 0.1px rgba(255,255,255,0.7);
+}
+
+#bannerText3 > ul > li {
+	text-align : center;
+	list-style: none;
+	font-size : 13px;
+	color : #fff;
+	font-weight : bold;
+	color : #fff;
+	text-decoration : none;
+	font-weight : bold;
+}
+
+#bannerText3 > ul > li > a {
+	color : #fff;
+	text-decoration : none;
+	font-weight : bold;
+}
+
+/* #bannerText3 > ul > li > a:hover {
+	color : black;
+	background-color:#fff;
+} */
+
+#bannerText3:hover{
+	color : black;
+	background-color:#fff;
+} 
+
+#bannerText3:hover a {
+	color : black;
+	background-color:#fff;
+}
