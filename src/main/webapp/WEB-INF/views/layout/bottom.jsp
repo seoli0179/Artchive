@@ -7,6 +7,8 @@
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/footer.css'/>">
+		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
+		<script src="<c:url value='/js/header.js'/>"></script>
 	</head>
 	<body>
 	 <footer>
@@ -27,8 +29,11 @@
 	       			<li>CONTACT</li>
 	       			<li>NEWSLETTER</li>
 	       			<li>PRESS</li>
+	       			<li><img src="<c:url value='/image/up-arrow.png'/>"></li>
 	       		</ul>
+	       	
 	       	</nav>
+	       	
        		</div>
        	</div><!-- footerBox -->
        	
