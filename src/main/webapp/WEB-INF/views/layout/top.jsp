@@ -6,7 +6,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/header.css'/>">
+		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/header2.css'/>">
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		<script src="<c:url value='/js/header.js'/>"></script>
 		<script type="text/javascript"></script>
@@ -20,7 +21,7 @@
         	<div id="headerBox">
         		<nav>
         				<ul>
-        					<li><a href="#">menu1</a></li>
+        					<li><a href="<c:url value='/list'/>">전시검색</a></li>
         					<li><a href="#">menu2</a></li>
         					<li><a href="#">menu3</a></li>
         					<li><a href="#">menu4</a></li>
@@ -31,14 +32,13 @@
         	
         	<div id="loginBox">
         		<ul>
-        			<li><a href="#"><img src="<c:url value='/image/search.png'/>" id="searchImg"></a></li>
+        			<li><a href="#"><img src="<c:url value='/image/searchBlack.png'/>" id="searchImg"></a></li>
         			<li><a href="#">JOIN</a></li>
         			<li><a href="#">LOGIN</a></li>
         		</ul>
         	</div> <!-- loginBox -->
         	</div> <!-- mainMenu -->
         	
-        		<div id="visual"><img src="<c:url value='/image/banner.jpg'/>"></div>
             </header>
 	</body>
 </html>

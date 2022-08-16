@@ -20,20 +20,30 @@ footer #footerBoxRight nav > ul > li {
 #footerBox{
 	/* width:1900px; */
     min-width: 1080px;
-	height: 45px;
+	height: 50px;
 }
 
 footer #footerBox{line-height: 45px; }
 
 footer #footerBoxLeft{
-	position : absolute;
-	left: 20px; 
-	bottom: 0;
+	width : 500px;
+	margin-left : 50px;
+	float: left;
+	line-height : 50px;
 	}
 
 footer #footerBoxRight{
 
-	position : absolute; 
-	right: 20px; 
-	bottom: 0;
+	width : 500px;
+	margin-right : 50px;
+	float: right;
+	line-height : 50px;
+}
+
+footer #footerBoxRight nav > ul > li > img {
+	position : relative;
+	top : 5px;
+	left : 5px;
+	width: 20px;
+	height: 20px;
 }
