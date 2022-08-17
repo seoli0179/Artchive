@@ -14,7 +14,7 @@
     <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
     <script src="<c:url value='/js/user/join.js'/>"></script>
     <script src="https://kit.fontawesome.com/8ab5776cfb.js" crossorigin="anonymous"></script><!-- 아이콘 -->
-    <title>Title</title>
+    <title>Join</title>
 </head>
 <body>
 <section class="login-form">
@@ -79,7 +79,7 @@
         </div>
     </form>
     <div class="caption back">
-        <a id="btn_back">Back</a>
+        <a id="btn_back">Home</a>
     </div>
     <br>
     <hr>
@@ -88,7 +88,7 @@
             height="45" alt=""></div>
     <div class="caption">
         Already a user?
-        <a> Login</a>
+        <a href="<c:url value="/login"/> "> Login</a>
     </div>
 </section>
 </body>

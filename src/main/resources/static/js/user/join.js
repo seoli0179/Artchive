@@ -57,7 +57,11 @@ $(document).ready(function () {
     });
 
     $('#btn_back').on('click', function () {
-        state = (state == 0) ? 0 : state - 1;
+        if (state == 0 || state == 3) {
+            location.href = "/";
+        } else {
+            state--;
+        }
         stateController(state);
     });
 
@@ -84,6 +88,7 @@ function stateController(state) {
         $('.progressbar>li:eq(3)').removeClass('active');
 
         $('#btn_next').val("NEXT");
+        $('#btn_back').text("Home");
 
     } else if (state == 1) {
         $('.id').hide();
@@ -101,6 +106,7 @@ function stateController(state) {
         $('.progressbar>li:eq(3)').removeClass('active');
 
         $('#btn_next').val("NEXT");
+        $('#btn_back').text("Back");
 
     } else if (state == 2) {
         $('.id').hide();
@@ -118,6 +124,7 @@ function stateController(state) {
         $('.progressbar>li:eq(3)').removeClass('active');
 
         $('#btn_next').val("COMPLETE");
+        $('#btn_back').text("Back");
 
     } else if (state == 3) {
         $('.id').hide();
@@ -129,14 +136,13 @@ function stateController(state) {
         $('.gender').hide();
         $('.complete').show();
 
-        $('.back').hide();
-
         $('.progressbar>li:eq(0)').addClass('active');
         $('.progressbar>li:eq(1)').addClass('active');
         $('.progressbar>li:eq(2)').addClass('active');
         $('.progressbar>li:eq(3)').addClass('active');
 
         $('#btn_next').val("Login");
+        $('#btn_back').text("Home");
 
 
     } else if (state == 4) {

@@ -16,4 +16,9 @@ public class UserViewController {
         return "user/join";
     }
 
+    @RequestMapping("find")
+    public String find(){
+        return "user/find";
+    }
+
 }
