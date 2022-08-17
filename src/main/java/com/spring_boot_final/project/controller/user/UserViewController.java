@@ -11,4 +11,9 @@ public class UserViewController {
         return "user/login";
     }
 
+    @RequestMapping("join")
+    public String join(){
+        return "user/join";
+    }
+
 }

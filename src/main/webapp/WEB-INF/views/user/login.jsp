@@ -33,7 +33,7 @@
     </form>
     <div class="caption">
         <span><a href="">ID/PW 찾기</a></span><span> | </span>
-        <span><a href="">회원가입</a></span>
+        <span><a href="/join">회원가입</a></span>
     </div>
     <br>
     <hr>
