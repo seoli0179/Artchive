@@ -18,22 +18,24 @@ body {
 
 body::before {
     content: "";
-    position: absolute; z-index: 1;
+    position: absolute;
+    z-index: 1;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(0,0,0,.7);
+    background-color: rgba(0, 0, 0, .7);
 }
 
 .login-form {
     position: relative;
     z-index: 2;
-    background-color:#f6f6f6;
-    padding:40px 25px 40px 25px;
+    background-color: #f6f6f6;
+    padding: 40px 25px 40px 25px;
     border-radius: 10px;
 }
-.login-form h1{
+
+.login-form h1 {
     font-size: 32px;
     color: #202020;
     text-align: center;
@@ -42,12 +44,14 @@ body::before {
 
 .int-area {
     width: 400px;
-    padding-bottom:10px;
+    padding-bottom: 10px;
     position: relative;
 }
+
 .int-area:first-child {
     margin-top: 0;
 }
+
 .int-area input {
     width: 100%;
     padding: 20px 10px 10px;
@@ -58,6 +62,7 @@ body::before {
     color: #000;
     outline: none;
 }
+
 .int-area label {
     cursor: text;
     position: absolute;
@@ -67,11 +72,13 @@ body::before {
     color: #999;
     transition: top .5s ease;
 }
+
 .int-area label.warning {
     color: red !important;
     animation: warning .3s ease;
     animation-iteration-count: 3;
 }
+
 @keyframes warning {
     0% {
         transform: translateX(-8px);
@@ -86,17 +93,21 @@ body::before {
         transform: translateX(8px);
     }
 }
+
 .int-area input:focus + label,
 .int-area input:valid + label {
     top: 0;
-    font-size: 13px; color: #166cea;
+    font-size: 13px;
+    color: #166cea;
 }
 
 .btn-area {
     margin-top: 30px;
 }
-.btn-area button {
-    width: 100%; height: 50px;
+
+.btn-area input {
+    width: 100%;
+    height: 50px;
     background: #166cea;
     color: #fff;
     font-size: 20px;
@@ -104,6 +115,7 @@ body::before {
     border-radius: 25px;
     cursor: pointer;
 }
+
 .btn-area button:hover {
     background: #3282f6;
 }
@@ -112,6 +124,7 @@ body::before {
     margin-top: 20px;
     text-align: center;
 }
+
 .caption a, span {
     font-size: 15px;
     color: #999;
@@ -123,7 +136,7 @@ body::before {
     margin-top: 20px;
 }
 
-.sns img{
+.sns img {
     margin-left: 10px;
     cursor: pointer;
 }

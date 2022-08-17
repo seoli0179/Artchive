@@ -12,6 +12,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/user/login.css'/>">
     <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
+    <script src="<c:url value='/js/user/login.js'/>"></script>
     <title>Login</title>
 </head>
 <body>
@@ -27,7 +28,7 @@
             <label for="pw">PASSWORD</label>
         </div>
         <div class="btn-area">
-            <button id="btn" type="submit">LOGIN</button>
+            <input id="btn" type="button" value="LOGIN">
         </div>
     </form>
     <div class="caption">
