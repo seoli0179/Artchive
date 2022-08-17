@@ -6,10 +6,11 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
-		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/header2.css'/>">
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/search2.css'/>">
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		<script src="<c:url value='/js/header.js'/>"></script>
+		<script src="<c:url value='/js/search.js'/>"></script>
 		<script type="text/javascript"></script>
 	</head>
 	<body>
@@ -37,6 +38,15 @@
         			<li><a href="#">LOGIN</a></li>
         		</ul>
         	</div> <!-- loginBox -->
+        	
+        	<div id="searchBox">
+				<form>
+					<input type="text" id="searchMessage" name="searchMessage" size="120"  placeholder="검색어를 입력하세요."/>
+					<input type="submit" id="searchBtn" value="검색">
+					<img src="<c:url value='/image/x.png'/>">
+				</form>
+			</div><!-- searchBox -->
+        	
         	</div> <!-- mainMenu -->
         	
             </header>
