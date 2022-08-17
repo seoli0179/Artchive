@@ -20,12 +20,12 @@ public class ExhbnDataController {
     @Autowired
     ExhbnService service;
 
-    @RequestMapping("/insertDate")
+    @RequestMapping("/exhbn/insertDate")
     public void insertDate() throws IOException, ParserConfigurationException, SAXException {
         service.insertApiToDB("20220601","20221231","1","200");
     }
 
-    @RequestMapping("/selectAllDate")
+    @RequestMapping("/exhbn/selectAllDate")
     public ArrayList<ExhbnVO> selectAllDate() {
         ArrayList<ExhbnVO> allData = service.selectAllData();
         return allData;
