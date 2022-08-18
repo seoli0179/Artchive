@@ -17,6 +17,7 @@
     <title>Title</title>
 </head>
 <body>
+<c:import url="/WEB-INF/views/layout/top.jsp"></c:import>
 <div class="wrapper">
     <article id="slideShow">
         <!-- 슬라이드 쇼  -->
@@ -103,5 +104,6 @@
         </div>
     </section>
 </div>
+<c:import url="/WEB-INF/views/layout/bottom.jsp"></c:import>
 </body>
 </html>

@@ -17,6 +17,7 @@
     <title>Title</title>
 </head>
 <body>
+<c:import url="/WEB-INF/views/layout/top.jsp"></c:import>
 <div class="wrapper">
 
     <section>
@@ -194,5 +195,6 @@ Leave a Comment...
         </div>
     </section>
 </div>
+<c:import url="/WEB-INF/views/layout/bottom.jsp"></c:import>
 </body>
 </html>
