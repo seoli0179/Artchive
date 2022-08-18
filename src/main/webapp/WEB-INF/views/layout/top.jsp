@@ -32,11 +32,21 @@
         	</div> <!-- headerBox -->
         	
         	<div id="loginBox">
-        		<ul>
-        			<li><a href="#"><img src="<c:url value='/image/searchBlack.png'/>" id="searchImg"></a></li>
-        			<li><a href="/join">JOIN</a></li>
-        			<li><a href="/login">LOGIN</a></li>
-        		</ul>
+
+				<c:if test="${empty sessionScope.sid }">
+					<ul>
+						<li><a href="#"><img src="<c:url value='/image/searchBlack.png'/>" id="searchImg"></a></li>
+						<li><a href="/join">JOIN</a></li>
+						<li><a href="/login">LOGIN</a></li>
+					</ul>
+				</c:if>
+				<c:if test="${not empty sessionScope.sid }">
+					<ul>
+						<li><a href="#"><img src="<c:url value='/image/searchBlack.png'/>" id="searchImg"></a></li>
+						<li><a href="<c:url value="/subPage/myPage"/>">${sessionScope.username}</a></li>
+						<li><a href="<c:url value="/logout2"/>">LOGOUT</a></li>
+					</ul>
+				</c:if>
         	</div> <!-- loginBox -->
         	
         	<div id="searchBox">
