@@ -4,7 +4,7 @@
 
 <html>
     <head>
-        <title>전시 관람 준비</title>
+        <title>arTchive / 전시 코스</title>
         <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
     <%--    <script src="<c:url value='/js/course.js'/>"></script>--%>
         <script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
@@ -60,7 +60,7 @@
                 <div class="exhbnList-box">
                     <c:forEach items="${exhbnList}" var="exhbn" end="4">
                         <div class="exhbn-item">
-                            <a href="/detail/${exhbn.exhbnId}"><img class="exhbn-poster" src="${exhbn.exhbnImgUrl}" alt="전시포스터"></a>
+                            <a href="<c:url value='/detail/${exhbn.exhbnId}'/>"><img class="exhbn-poster" src="${exhbn.exhbnImgUrl}" alt="전시포스터"></a>
                             <div class="poster-box">
                                 <span class="ex-title">${exhbn.exhbnTitle}</span>
                             </div>
@@ -69,7 +69,7 @@
                 </div>
                 <div class="selected">
                     <div><span class="big-text">{username}님이 선택한 <strong>{전시명}</strong>부터 </span></div>
-                    <div><button class="black-btn">코스짜러 가기</button></div>
+                    <div><a href="<c:url value='/course/detailCourse'/>"><button class="black-btn">코스짜러 가기</button></a></div>
                 </div>
                 <br>
             </div>
