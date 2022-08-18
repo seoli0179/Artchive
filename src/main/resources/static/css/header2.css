@@ -104,7 +104,14 @@ header #headerBox nav > ul > li > a {
 
 header #headerBox nav > ul {text-align:center;}
 
-header #headerBox nav > ul > li {display: inline-block;}
+header #headerBox nav > ul > li {
+	display: inline-block;
+}
+	
+header #headerBox nav > ul > li{
+min-width: 0px;
+width : 15%;
+}
 
 /*** 메인 메뉴 고정 ***/
 /* 윈도우 스크롤시 메인메뉴 고정 */

@@ -91,8 +91,8 @@ header #headerBox {
 	position: absolute;
 	left : 0;
 	top : 0px;
-	width:100%;
-	padding:  0 232px;
+	width: 100%;
+	padding:  0 20%;
 	box-sizing : border-box;
 	/* border : solid 3px white; */
 }
@@ -102,16 +102,27 @@ header #headerBox nav > ul > li > a {
 	color : #fff;
 	text-decoration : none;
 	font-weight : bold;
-	width: 160px;
 	height: 70px;
 	display : block;
 	line-height:70px;
-
+	min-width: 0px;
+	width : 80px;
 }
 
-header #headerBox nav > ul {text-align:center;}
 
-header #headerBox nav > ul > li {display: inline-block;}
+header #headerBox nav > ul {
+	text-align:center;
+	}
+
+header #headerBox nav > ul > li {
+	display: inline-block;
+	/* border :solid 2px white; */
+	}
+	
+header #headerBox nav > ul > li{
+	min-width: 0px;
+	width : 15%;
+}
 
 /*** 메인 메뉴 고정 ***/
 /* 윈도우 스크롤시 메인메뉴 고정 */
