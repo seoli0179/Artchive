@@ -49,3 +49,11 @@ footer #footerBoxRight nav > ul > li > img {
 	width: 20px;
 	height: 20px;
 }
+
+/* 푸터 하단 고정 */
+footer {
+	height:20%;
+	position:relative;
+	transform :translateY(-100%);
+}
+
