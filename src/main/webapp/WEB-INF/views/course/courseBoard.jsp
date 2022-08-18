@@ -54,6 +54,7 @@
                     </div>
                 </div>
                 <!-- .searchAreaBox -->
+                <!-- borad-gallery -->
                 <div class="course-box board-gallery-view">
                     <div class="post-container">
                         <div class="post-img-box">
@@ -63,9 +64,7 @@
                             <h3>혼자 사색하며 즐기기 좋은 전시</h3>
                         </div>
                         <div class="post-content-box">
-                            <p>
-                                간단한 메모사항 뚜루루루루루ㅜㅁ 만약 적지 않은 경우, {전시회명}+{식당 등이 나옴} 양이 너무 많을 경우 점점으로 표시 ..
-                            </p>
+                            간단한 메모사항 뚜루루루루루ㅜㅁ 만약 적지 않은 경우, {전시회명}+{식당 등이 나옴} 양이 너무 많을 경우 점점으로 표시 ..
                         </div>
                         <div class="post-tag-box">
 
