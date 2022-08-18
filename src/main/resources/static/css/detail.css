@@ -1,7 +1,6 @@
 @charset "UTF-8";
 
 #detail-wrap {
-	position: absolute;
 	width:100%;
 	min-width: 1080px;
 	height:100%;
@@ -232,6 +231,7 @@
 
 #review-container{
 	position:relative;
+	height:fit-content;
 }
 
 .sliding-box {
