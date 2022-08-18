@@ -108,7 +108,7 @@ body::before {
 .btn-area input {
     width: 100%;
     height: 50px;
-    background: #166cea;
+    background: black;
     color: #fff;
     font-size: 20px;
     border: none;
@@ -116,8 +116,8 @@ body::before {
     cursor: pointer;
 }
 
-.btn-area button:hover {
-    background: #3282f6;
+.btn-area input:hover {
+    background: #5b5b5b;
 }
 
 .caption {

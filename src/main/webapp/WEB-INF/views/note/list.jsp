@@ -10,6 +10,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>">
+    <link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/note/list.css'/>">
     <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
     <script src="<c:url value='/js/note/list.js'/>"></script>
@@ -17,6 +19,7 @@
     <title>arTchive / 게시판</title>
 </head>
 <body>
+<c:import url="/WEB-INF/views/layout/top.jsp"></c:import>
 <div class="wrapper">
     <article id="slideShow">
         <!-- 슬라이드 쇼  -->
@@ -103,5 +106,6 @@
         </div>
     </section>
 </div>
+<c:import url="/WEB-INF/views/layout/bottom.jsp"></c:import>
 </body>
 </html>
