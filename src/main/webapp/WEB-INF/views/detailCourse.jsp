@@ -19,7 +19,7 @@
 		<!-- top으로 이동 -->
 		<c:import url="/WEB-INF/views/layout/top.jsp" />
 		
-		
+		<div class="wrapper">
 		<div id="couseHeader" class="couseHeaderImg" style="background-image : url('https://cdn.imweb.me/thumbnail/20220405/fb85ea780e919.jpeg');">
 				
 				<div id="headerTextBox">
@@ -166,7 +166,7 @@
 				 </div>
 				</div><!-- recommendCourse -->
            		
-		
+		</div><!-- wrapper -->
 		 <!-- bottom 이동 -->
          <c:import url="/WEB-INF/views/layout/bottom.jsp" />
 	</body>
