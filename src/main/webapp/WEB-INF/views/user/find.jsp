@@ -70,7 +70,7 @@
             height="45" alt=""></div>
     <div class="caption">
         Already a user?
-        <a> Login</a>
+        <a href="<c:url value="/login"/> "> Login</a>
     </div>
 </section>
 </body>
