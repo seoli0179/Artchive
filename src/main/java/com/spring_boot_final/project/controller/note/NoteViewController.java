@@ -6,14 +6,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class NoteViewController {
 
-    @RequestMapping("/note/list")
+    @RequestMapping("subPage/note/list")
     public String list(){
-        return "note/list";
+        return "subPage/note/list";
     }
 
-    @RequestMapping("/note/detail")
+    @RequestMapping("subPage/note/detail")
     public String detail(){
-        return "note/detail";
+        return "subPage/note/detail";
     }
 
 }

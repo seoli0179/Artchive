@@ -24,7 +24,7 @@ public class ExhbnViewController {
         ExhbnVO vo = service.selectDetailData(id);
         model.addAttribute("exhbn",vo);
 
-        return "detail";
+        return "/subPage/detail/detail";
     }
 
     // detail page view
@@ -34,25 +34,25 @@ public class ExhbnViewController {
         ArrayList<ExhbnVO> vo = service.selectAllData();
         model.addAttribute("exhbnList",vo);
 
-        return "list";
+        return "subPage/list/list";
     }
 
     // course page view
-    @RequestMapping("/course")
+    @RequestMapping("/subPage/course")
     public String courseView(Model model) {
 
         ArrayList<ExhbnVO> vo = service.selectAllData();
         model.addAttribute("exhbnList",vo);
 
-        return "course/courseMain";
+        return "/subPage/course/courseMain";
 
     // course board view
-    }@RequestMapping("/course/board")
+    }@RequestMapping("subPage/course/board")
     public String courseBoardView(Model model) {
 
         ArrayList<ExhbnVO> vo = service.selectAllData();
         model.addAttribute("exhbnList",vo);
 
-        return "course/courseBoard";
+        return "subPage/course/courseBoard";
     }
 }

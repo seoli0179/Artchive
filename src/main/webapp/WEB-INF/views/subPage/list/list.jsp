@@ -90,8 +90,8 @@
 		   <ul class="row">
 			   <c:forEach var="exhbn" items="${exhbnList}" varStatus="status">
 				   <li class="cell">
-					   <div class="img-box">
-						   <a href="/detail/${exhbn.exhbnId}"><img src="${exhbn.exhbnImgUrl}" alt=""></a>
+					   <div class="img-box"> 
+						   <a href="<c:url value='/exhbn/detail'/>/${exhbn.exhbnId}"><img src="${exhbn.exhbnImgUrl}" alt=""></a>
 					   </div>
 					   <section id="ex-all">
 						   <div class="ex-place">${exhbn.exhbnPlace}</div>

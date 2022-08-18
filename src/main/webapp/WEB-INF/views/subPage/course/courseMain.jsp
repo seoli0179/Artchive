@@ -60,7 +60,7 @@
                 <div class="exhbnList-box">
                     <c:forEach items="${exhbnList}" var="exhbn" end="4">
                         <div class="exhbn-item">
-                            <a href="/detail/${exhbn.exhbnId}"><img class="exhbn-poster" src="${exhbn.exhbnImgUrl}" alt="전시포스터"></a>
+                            <a href="/exhbn/detail/${exhbn.exhbnId}"><img class="exhbn-poster" src="${exhbn.exhbnImgUrl}" alt="전시포스터"></a>
                             <div class="poster-box">
                                 <span class="ex-title">${exhbn.exhbnTitle}</span>
                             </div>
