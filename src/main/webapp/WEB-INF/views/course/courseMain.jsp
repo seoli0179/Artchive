@@ -54,7 +54,7 @@
                         <span>{username}님이 좋아할 것 같아요.</span>
                     </div>
                     <div class="viewmore-box">
-                        <a href="<c:url value='/list'/>"><span class="viewmore">더보기 ></span></a>
+                        <a href="<c:url value='/exhbn/list'/>"><span class="viewmore">더보기 ></span></a>
                     </div>
                 </div>
                 <div class="exhbnList-box">
@@ -92,7 +92,7 @@
                         <span>최근 ArTchive 유저들이 좋아한 코스를 살펴보세요!</span>
                     </div>
                     <div class="viewmore-box">
-                        <a href="<c:url value='/courseBoard'/>"><span class="viewmore">더보기 ></span></a>
+                        <a href="<c:url value='/course/board'/>"><span class="viewmore">더보기 ></span></a>
                     </div>
                 </div>
                 <div class="courseList-box">
