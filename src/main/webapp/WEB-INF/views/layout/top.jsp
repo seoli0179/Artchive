@@ -34,8 +34,8 @@
         	<div id="loginBox">
         		<ul>
         			<li><a href="#"><img src="<c:url value='/image/searchBlack.png'/>" id="searchImg"></a></li>
-        			<li><a href="#">JOIN</a></li>
-        			<li><a href="#">LOGIN</a></li>
+        			<li><a href="/join">JOIN</a></li>
+        			<li><a href="/login">LOGIN</a></li>
         		</ul>
         	</div> <!-- loginBox -->
         	
