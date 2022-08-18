@@ -283,18 +283,14 @@
 	transition: all 0.5s;
 }
 .hi {
-
 	margin-botton : 10px;
 }
 #container-deatil-search {
 	width: 1080px;
-	border-color: ;
-	border-width: ;
-	border-style: ;
+	/*border-color: ;*/
+	/*border-width: ;*/
+	/*border-style: ;*/
 	padding: 20px;
-
-
-
 }
 .exsearchcontainer1{
 	heigh : 100vh;
@@ -303,8 +299,6 @@
 	flex-wrap: nowrap;
 	justify-content: space-between;
 	margin-right:auto;
-
-
 }
 
 .item1{
