@@ -47,7 +47,7 @@ public class ExhbnViewController {
         return "course/courseMain";
 
     // course board view
-    }@RequestMapping("/courseBoard")
+    }@RequestMapping("/course/board")
     public String courseBoardView(Model model) {
 
         ArrayList<ExhbnVO> vo = service.selectAllData();
