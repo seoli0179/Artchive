@@ -20,10 +20,12 @@ footer #footerBoxRight nav > ul > li {
 #footerBox{
 	/* width:1900px; */
     min-width: 1080px;
-	height: 50px;
+	/* height: 50px; */
+	border-top : solid 2px rgba(0, 0, 0, 0.05);
+	z-index : 500;
 }
 
-footer #footerBox{line-height: 45px; }
+footer #footerBox{line-height: 45px;}
 
 footer #footerBoxLeft{
 	width : 500px;
