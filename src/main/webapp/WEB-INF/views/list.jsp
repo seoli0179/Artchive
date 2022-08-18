@@ -7,95 +7,93 @@
 <head>
 <meta charset="UTF-8">
 <title>리스트 페이지</title>
-<link href="<c:url value='/tools/reset.css' /> " rel="stylesheet" type="text/css">
-<link href="<c:url value='/css/common.css' /> " rel="stylesheet" type="text/css">
-<link href="<c:url value='/css/list.css' /> " rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>">
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/list.css'/>">
 <script src="<c:url value='/js/jquery-3.6.0.min.js' /> "></script>
 <script src="<c:url value='/js/list.js' />"></script>
 </head>
 
 <body>
 	<!-- top -->
-	<div class="top">
-	</div>
-	<!-- .top -->
-	
-	<main id="list-wrap">
-	<!-- title  -->
-	<div class="tt">
-	   <h1 class="title">현재 전시</h1>
-	</div>
-	<!-- .title -->
-
-	<!-- 검색창 -->
-	<div class="searchArea">
-   		<div class="searchWrap">
-      		<div class="searchInputArea">
-         		<input type="type" id="searchText" name="searchText" class="input searchInput" title="검색어 입력" placeholder="작품명 또는 작가명 검색">
-		        <button type="button" class="black-btn">검색</button>
-	        	<button type="button" class="white-btn">상세검색</button>
-     		</div>
-		    <br>
-		    <hr>
-		<!-- 지역 -->
-		<div class="location">
-			<div class="subFixed">
-            	<div class="tabList">
-                     <ul id="exhbitionArea" class="banner-slide swiper-wrapper">
-                        <li>
-	                        <a href="전체사이트" class="careActive"> <i class="icon cateAll"></i>
-	                           <span>전체</span><span class="hide"></span>
-	                        </a>
-		                </li>
-		                <li class="swiper-slide swiper-slide-active" style="margin-right: 10px;">
-		                	<a href="전체사이트" class="careActive"> <i class="icon cateAll"></i>
-		                           <span>수도권</span> <span class="hide"></span>
-		                    </a>
-		                </li>
-		                <li class="swiper-slide swiper-slide-active" style="margin-right: 10px;">
-	                        <a href="충청사이트" class="careActive"> <i class="icon cateAll"></i>
-	                           <span>충청</span> <span class="hide"></span>
-	                        </a>
-	                  	</li>
-	                 	<li class="swiper-slide swiper-slide-active" style="margin-right: 10px;">
-	                        <a href="전라사이트" class="careActive"> <i class="icon cateAll"></i>
-	                           <span>전라</span> <span class="hide"></span>
-	                        </a>
-	                  	</li>
-		                <li class="swiper-slide swiper-slide-active" style="margin-right: 10px;">
-		                     <a href="경상사이트" class="careActive"> <i class="icon cateAll"></i>
-		                        <span>경상</span> <span class="hide"></span>
-		                     </a>
-		                </li>
-		                <li class="swiper-slide swiper-slide-active" style="margin-right: 10px;">
-		                      <a href="강원" class="careActive"> <i class="icon cateAll"></i>
-		                         <span>강원</span> <span class="hide"></span>
-		                      </a>
-		                </li>
-		             </ul>
-           		</div>
-           		<!-- .tabList -->
-         	</div>
-         	<!-- .subFixed -->
-      </div>
-      <!-- .location -->
-		<!-- btn-container -->
-		<div id="btn-container">
-			<button type="button" class="" onclick="fn_searchText();">현재전시</button>
-			<button type="button" class="" onclick="fn_searchText();">예정전시</button>
-			<button type="button" class="" onclick="fn_searchText();">지난전시</button>
+	<c:import url="/WEB-INF/views/layout/top.jsp" />
+		
+		<!-- 검색창 -->
+		<div id="searchMainTitle">
+			<ul>
+				<li>전시 검색</li>
+			</ul>
+			<div id="searchMainBox">
+				<input type="text" id="searchTEXT" name="searchMessage" size="120"  placeholder="검색어를 입력하세요."/>
+				<input type="button" id="SearchBtn" value="검색"/>
+				<input type="button" id="detailSearchBtn" value="상세검색"/>
+			</div>
 		</div>
-		<!-- .btn-container -->
+		
+		<!-- area -->
+		<div id="searchAreaBox">
+			<div id="searchArea">
+				<div id="allArea" class="AREA">
+					<ul>
+						<li>전체</li>
+					</ul>
+				</div>
+				<div id="capitalArea" class="AREA">
+					<ul>
+						<li>수도권</li>
+					</ul>
+				</div>
+				<div id="busanArea" class="AREA">
+					<ul>
+						<li>부산</li>
+					</ul>
+				</div>
+				<div id="jejuArea" class="AREA">
+					<ul>
+						<li>제주</li>
+					</ul>
+				</div>
+				<div id="kangwonArea" class="AREA">
+					<ul>
+						<li>강원</li>
+					</ul>
+				</div>
+				<div id="jeonArea" class="AREA">
+					<ul>
+						<li>전라도</li>
+					</ul>
+				</div>
+				
+				<div id="kyeongArea" class="AREA">
+					<ul>
+						<li>경상도</li>
+					</ul>
+				</div>
+				
+				<div id="etcArea" class="AREA">
+					<ul>
+						<li>기타지역</li>
+					</ul>
+				</div>
 
+			</div><!-- searchArea -->
+			
+			<div id="ExhibitionBOX">
+				<input type="button" class="exhibitionABC" id="exhibitionA" value="현재전시"/>
+				<input type="button" class="exhibitionABC" id="exhibitionB" value="예정전시"/>
+				<input type="button" class="exhibitionABC" id="exhibitionC" value="지난전시"/>
+			</div>
+		</div>
+		
 		<!-- 전시 리스트 -->
-		<div class="list con">
+		<div class="list-con">
 		   <ul class="row">
 			   <c:forEach var="exhbn" items="${exhbnList}" varStatus="status">
 				   <li class="cell">
 					   <div class="img-box">
 						   <a href="/detail/${exhbn.exhbnId}"><img src="${exhbn.exhbnImgUrl}" alt=""></a>
 					   </div>
-					   <section>
+					   <section id="ex-all">
 						   <div class="ex-place">${exhbn.exhbnPlace}</div>
 						   <div class="ex-title">${exhbn.exhbnTitle}</div>
 						   <div class="ex-period"><fmt:formatDate value = "${exhbn.exhbnStartDate}" type ="date" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value = "${exhbn.exhbnEndDate}" type ="date" pattern="yyyy.MM.dd"/></div>
@@ -104,11 +102,11 @@
 			   </c:forEach>
 			</ul>
 		</div>
-	</main>
 	<!-- .list-wrap -->
 	
 	<!-- footer -->
-	<!-- .footer -->
+	<c:import url="/WEB-INF/views/layout/bottom.jsp" />
+	<!-- footer -->
 
 </body>
 </html>

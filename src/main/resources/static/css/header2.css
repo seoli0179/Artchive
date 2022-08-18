@@ -3,11 +3,7 @@
 
 
 /*header*/
-header{
-	background-color:#eeeeee;
-	padding : 0px;
-	height : 2000px;
-}
+
 
 #mainMenu {
 	height:70px;
@@ -34,7 +30,7 @@ header #logoBox{
 
 header #logoBox > a {
 	font-size : 25px;
-	color : #black;
+	color : #000;
 	text-decoration : none;
 	font-weight : bold;
 }
@@ -86,6 +82,7 @@ header #headerBox {
 	width:100%;
 	padding:  0 232px;
 	box-sizing : border-box;
+	/* box-shadow:0 3px 0px 0px rgba(0, 0, 0, 0.05); */
 }
 
 header #headerBox nav > ul > li > a {
@@ -118,6 +115,9 @@ header #headerBox nav > ul > li {display: inline-block;}
 	box-shadow:0 3px 0px 0px rgba(0, 0, 0, 0.05);}
 	/* offset-x | offset-y | blur-radius | spread-radius | color */
 
+ #mainMenu {
+	z-index : 500;
+}
 
 
 

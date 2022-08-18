@@ -8,7 +8,7 @@
 	border-bottom : solid 2px rgba(0, 0, 0, 0.1);
  	/* box-shadow:0 3px 0px 0px rgba(0, 0, 0, 0.5); */
  	line-height: 25px;
- 	border-radius:10px 10px 0px 0px;
+ 	border-radius:12px 12px 0px 0px;
 }
 
 #chatHeader button {
@@ -93,7 +93,7 @@
 	position : absolute;
 	position: fixed;
 	right : 15px;
-	top : 40%;
+	top : 37%;
 	width : 310px;
 	height : 527px;
 	box-shadow: 0 2px 3px 3px rgba(0, 0, 0, 0.1);
@@ -115,7 +115,7 @@
 	position : absolute;
 	position: fixed;
 	right : 30px;
-	top : 850px;
+	top : 830px;
 	width : 80px;
 	height : 80px;
 	filter: drop-shadow(2px 3px 3px rgba(0, 0, 0, 0.1)); /* 이미지에 그림자 효과 */
