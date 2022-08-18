@@ -3,11 +3,14 @@
 
 
 /*header*/
+
 header{
 	background-color:#eee;
 	padding : 0px;
 	height : auto;
 }
+
+
 
 #mainMenu {
 	height:70px;
@@ -118,6 +121,9 @@ header #headerBox nav > ul > li {display: inline-block;}
 	box-shadow:0 3px 0px 0px rgba(0, 0, 0, 0.05);}
 	/* offset-x | offset-y | blur-radius | spread-radius | color */
 
+ #mainMenu {
+	z-index : 500;
+}
 
 
 

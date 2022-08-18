@@ -98,3 +98,12 @@ list-style: none;
 	color : #fff;
 	font-weight : bold;
 }
+
+.description > ul > li {
+	margin: 8px 0;
+}
+
+.Exhibiiton-Name > a{
+	font-size : 20px;
+	font-weight : bold;
+}

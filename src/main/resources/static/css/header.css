@@ -2,9 +2,14 @@
 
 /* 모든 컨텐츠를 포함하는 box */
 #wrap {
-	width:1910px;
+	/* width:1910px; */
 	background-color:#ffffff;
 	position:relative;
+}
+
+/* mainMenu */
+#mainMenu {
+	width: 100%
 }
 
 /*header*/
@@ -23,17 +28,21 @@ header #visual img{
 	
 header #logoBox { 
 	position : absolute; 
-	left: 30px;
+	left: 3%;
 	top: 0;
 	}
 	
 header #logoBox{
-	width: 200px;
-	line-height: 70px; 
+	width: 10%;
+	line-height: 75px; 
 	/* border : 1px solid rgba(255,255,255,0.5); */
-	height:70px;
-	text-align:center;
-	/* border : solid 1px white; */
+	height:75px;
+	/* text-align:left; */
+	z-index : 300;
+}
+
+header #logoBox a {
+	padding : 30px;
 }
 
 header #logoBox > a {
@@ -53,7 +62,7 @@ header #loginBox > ul{
 	width:200px;
 	height:70px;
 	list-style: none;
-	/* border : solid 1px white; */
+	/* border : solid 2px white; */
 }
 
 header #loginBox > ul li{
@@ -85,6 +94,7 @@ header #headerBox {
 	width:100%;
 	padding:  0 232px;
 	box-sizing : border-box;
+	/* border : solid 3px white; */
 }
 
 header #headerBox nav > ul > li > a {
@@ -96,6 +106,7 @@ header #headerBox nav > ul > li > a {
 	height: 70px;
 	display : block;
 	line-height:70px;
+
 }
 
 header #headerBox nav > ul {text-align:center;}
@@ -105,16 +116,27 @@ header #headerBox nav > ul > li {display: inline-block;}
 /*** 메인 메뉴 고정 ***/
 /* 윈도우 스크롤시 메인메뉴 고정 */
 .mainMenuFixed{
-	position: fixed;
-	top:0px;
+  position: fixed;
+  top: 0;
+  /* width: 100% */
+ /*  left: 0; */
+ right: 0;
 }
 
 /* 메인메뉴 색상 변경 */
 .mainMenuChange{
-	background-color:#ffffff;
 	color: black;
 }
 
+/* 메인 메뉴 맨 앞으로 */
+ #mainMenu {
+	z-index : 200;
+}
+
+.boxshadow{
+	box-shadow:0 3px 0px 0px rgba(0, 0, 0, 0.05);}
+	/* offset-x | offset-y | blur-radius | spread-radius | color */
 
 
+/* 검색 버튼 눌러도 스크롤 현재 위치 */
 

@@ -32,10 +32,12 @@
 	list-style: none;
 	height: 140px;
 	line-height: 140px;
-	font-size : 18px;
+	/* font-size : 18px; */
+	font-size: 1.3rem;
 	font-weight : bold;
 	width: 1440px;
 	color : #5E5E5E;
+	
 }
 
 
@@ -126,7 +128,8 @@
 	list-style: none;
 	height: 140px;
 	line-height: 140px;
-	font-size : 18px;
+	/* font-size : 18px; */
+	font-size: 1.3rem;
 	font-weight : bold;
 	width: 1000px;
 	color : #5E5E5E;

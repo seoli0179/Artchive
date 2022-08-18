@@ -18,7 +18,7 @@ public class ExhbnViewController {
     ExhbnService service;
 
     // detail page view
-    @GetMapping("/detail/{id}")
+    @GetMapping("/exhbn/detail/{id}")
     public String detailTestView(@PathVariable int id, Model model) {
 
         ExhbnVO vo = service.selectDetailData(id);
@@ -28,12 +28,31 @@ public class ExhbnViewController {
     }
 
     // detail page view
-    @RequestMapping("/list")
+    @RequestMapping("/exhbn/list")
     public String listTestView(Model model) {
 
         ArrayList<ExhbnVO> vo = service.selectAllData();
         model.addAttribute("exhbnList",vo);
 
         return "list";
+    }
+
+    // course page view
+    @RequestMapping("/course")
+    public String courseView(Model model) {
+
+        ArrayList<ExhbnVO> vo = service.selectAllData();
+        model.addAttribute("exhbnList",vo);
+
+        return "course/courseMain";
+
+    // course board view
+    }@RequestMapping("/courseBoard")
+    public String courseBoardView(Model model) {
+
+        ArrayList<ExhbnVO> vo = service.selectAllData();
+        model.addAttribute("exhbnList",vo);
+
+        return "course/courseBoard";
     }
 }
