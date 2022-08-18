@@ -45,12 +45,14 @@
 .board-gallery-view {
     display: flex;
     padding-bottom: 20px;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 .post-container {
-    margin: 10px 0;
+    margin: 25px 0;
     border: 2px black solid;
-    width: 28%;
-    height: 350px;
+    width: 29%;
+    height: 400px;
 }
 
 .post-img-box {
@@ -87,4 +89,9 @@
 
 .post-react-box {
     display: flex;
+    padding: 0 10px;
+}
+
+.post-react-box i {
+    margin: 0 5px 0 15px;
 }
