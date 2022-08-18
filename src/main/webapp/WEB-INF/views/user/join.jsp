@@ -14,7 +14,7 @@
     <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
     <script src="<c:url value='/js/user/join.js'/>"></script>
     <script src="https://kit.fontawesome.com/8ab5776cfb.js" crossorigin="anonymous"></script><!-- 아이콘 -->
-    <title>Join</title>
+    <title>arTchive / 회원가입</title>
 </head>
 <body>
 <section class="login-form">

@@ -16,7 +16,7 @@
     <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
     <script src="<c:url value='/js/note/detail.js'/>"></script>
     <script src="https://kit.fontawesome.com/8ab5776cfb.js" crossorigin="anonymous"></script><!-- 아이콘 -->
-    <title>Title</title>
+    <title>arTchive / SpringBoot에서 비동기 Multi-thread 개발</title>
 </head>
 <body>
 <c:import url="/WEB-INF/views/layout/top.jsp"></c:import>

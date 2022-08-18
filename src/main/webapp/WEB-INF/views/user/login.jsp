@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/user/login.css'/>">
     <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
     <script src="<c:url value='/js/user/login.js'/>"></script>
-    <title>Login</title>
+    <title>arTchive / 로그인</title>
 </head>
 <body>
 <section class="login-form">

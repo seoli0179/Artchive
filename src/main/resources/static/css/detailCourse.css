@@ -46,23 +46,36 @@
 }
 
 #courseToggle {
-	float: left;
-	margin-left : 12.6%;
-	margin-top : 2%;
-	
-} 
+	position : relative;
+	top : 0%;
+	left : 13%;
+	/* border : 2px red solid; */
+	width : 25%;
+	font-size : 22px;
+	height : 100%;
+
+}
 
 #courseToggle > ul > li {
 	float: left;
-	margin-left : 10px;
-	font-size : 20px;
+	/* border : 2px black solid; */
 	
+} 
+
+#toggleText {
+	position : absolute;
+	top:45%;
+	left: 35%;
+	font-size : 22px;
+	font-weight : bold;
 }
 
 #editCourse{
 	float: right;
 	margin-right : 10%;
 	margin-top : 25px;
+	position :relative;
+	bottom :100%;
 }
 
 #CourseTag{
@@ -82,6 +95,9 @@
 
 #courseMainText {
 	height: 100px;
+	margin-top : 0%;
+	/* border : 1px blue solid; */
+	padding-bottom : 0.8%;
 } 
 
 /*editCourseBtn*/
@@ -365,8 +381,8 @@ font-weight : bold;
 /**recommendCourse**/
 
 #recommendCourse{
-	margin-left: 13.1%;
-	width : 78%;
+	margin-left: 11.5%;
+	width : 80%;
 	height : 350px;
 }
 
@@ -398,3 +414,4 @@ font-weight : bold;
 	margin-left : 35%;
 	margin-top : 80%;
 } 
+

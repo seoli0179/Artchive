@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+#course-wrap {
+    width:100%;
+    min-width: 1080px;
+    min-height: auto;
+    background-color: rgba(255,255,255,1);
+    --web-view-name: coursepage;
+    --web-view-id: coursepage;
+    --web-scale-on-resize: true;
+    --web-enable-deep-linking: true;
+    position: relative;
+}
+
+.search-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tablist-box {
+    display: flex;
+}
+
+.tablist-box .tab-box {
+    margin: 5px;
+}
+
+.tablist-box button {
+    color: rgb(0,0,0,0.6);
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 5px 10px;
+    border: none;
+    background-color: transparent;
+}
+
+.courseboard-search-box {
+    width:40%;
+    min-height: 0;
+}
+.courseboard-searchbar {
+    width: 100%;
+}
+
+.board-gallery-view {
+    display: flex;
+    padding-bottom: 20px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.post-container {
+    margin: 25px 0;
+    border: 2px black solid;
+    width: 29%;
+    height: 400px;
+}
+
+.post-img-box {
+    width: 100%;
+    height: 40%;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-blend-mode: multiply;
+}
+.post-title-box {
+    margin: 0 auto;
+    width: 90%;
+    padding: 15px 0 5px 0;
+    font-weight: 700;
+}
+
+.post-content-box {
+    margin: 0 auto;
+    padding: 5px 0;
+    width: 90%;
+    height: 25%;
+    overflow: hidden;
+    line-height: 1.3rem;
+}
+
+.post-footer-box {
+    padding: 0 15px 5px 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.post-writer-box {
+    width: 45%;
+    overflow: visible;
+}
+
+.post-react-box {
+    display: flex;
+    padding: 0 10px;
+}
+
+.post-react-box i {
+    margin: 0 5px 0 15px;
+}

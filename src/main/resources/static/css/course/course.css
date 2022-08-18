@@ -3,7 +3,7 @@
 #course-container {
     width:100%;
     min-width: 1080px;
-    min-height: auto
+    min-height: auto;
     background-color: rgba(255,255,255,1);
     --web-view-name: coursepage;
     --web-view-id: coursepage;
@@ -20,7 +20,7 @@
 .course-box {
     margin:50px 85px;
     line-height: 2.3rem;
-    border-bottom: black 1px solid;
+    border-bottom: black 2px solid;
 }
 
 /* 가이드 박스 */

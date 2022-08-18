@@ -1,0 +1,201 @@
+@charset "UTF-8";
+
+/* myPageWithdraw.css */
+
+/* 전체 틀 */
+.wrapper {
+	margin: 0 auto;
+	width:1080px;
+	/*  푸터 하단 고정 */
+	height:auto;
+	min-height: 100%;
+	padding-bottom: 25%;
+}
+
+section {
+	display:flex;
+	justify-content:space-between;
+	margin-top:10%;
+	
+}
+
+section nav {
+	display:flex;
+	margin-right:10%;
+	width:30%;
+}
+
+
+
+.tabMenu {
+	width:100%;
+}
+
+.tabMenu li {
+	margin-top:10%;
+}
+
+.tabMenu li a {
+	color:#949494;
+	font-size:20px;
+}
+
+.tabMenu li:first-child a {
+	color:#000;
+	text-align: left;
+	font-weight:bold;
+	font-size:24px;
+	letter-spacing: 0px;
+	opacity: 1;
+}
+
+.tabMenu li:nth-child(2) a, .tabMenu li a:hover {
+	color:#000;
+	font-weight:bold;
+}
+
+
+.myPageBox {
+	width:100%;
+}
+
+.myPageBox h2 {
+	font-size:40px;
+	color:#000;
+	margin-bottom:2%;
+}
+
+/* 선 */
+.line {
+	border:1px solid #000;
+}
+
+/* 사용자 */
+.userBox {
+	margin:5% 0 3% 0;
+	background:#F6F6F6;
+	padding:5% 2%;
+	width:100%;
+}
+
+/* 회원 탈퇴 */
+.userBox h2 {
+	font-size:24px;
+	font-weight:bold;
+	text-align:left;
+	margin-bottom:3%;
+	text-align:center;
+}
+
+/* 회원 탈퇴 안내 문구 */
+.userBox a {
+	font-size:15px;
+	color:#949494;
+	text-align:left;
+}
+
+
+.myExhbn {
+	margin:5% 0;
+	width:100%;
+}
+
+/* 본인 확인 */
+.myExhbn h2 {
+	font-weight:bold;
+	font-size:28px;
+	margin-bottom:3%;
+}
+
+
+/* 테이블 */
+.tableBox {
+	margin-top:3%;
+}
+
+table {
+	width:100%;
+	display: -webkit-box;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	border-top :2px solid #000;
+	border-bottom :2px solid #000;
+}
+
+tbody {
+	display:flex;
+}
+
+table th {
+	font-weight:bold;
+	background:#F6F6F6;
+	padding:20% 15%;
+	height:auto;
+	line-height:auto;
+	text-align:center;	
+	width:100%;
+}
+
+
+table td {
+	display:flex;
+	text-align:center;
+	width:100%;
+	padding:3% 15% 1% 15%;
+	margin-left:10%;
+}
+
+table th, td {
+	display:block;
+	items-align:center;
+	vertical-align:middle;
+	text-align:center;
+}
+
+tbody>tr>td>input[type="text"], tbody>tr>td>input[type="password"] {
+	width:500px;
+	padding:1% 2%;
+	font-size:15px;
+	font-color:#000;
+}
+
+/* select 박스 초기화 */
+select {
+  -moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+select {
+  width:80%;
+  font-size: 15px;
+  background-color: #fff;
+  border: 1px solid #aaa;
+  border-radius: 1px;
+  padding:1% 0% 1% 2%;
+  margin-bottom:1%;
+}
+
+
+input[type="reset"], input[type="submit"] {
+	width:200px;
+	border:none;
+	color:#fff;
+	background:#000;
+	border-radius:30px;
+	padding:0.8% 0;
+	font-size:15px;
+	height:auto;
+	line-height:auto;
+	margin:3% 0;
+}
+
+input[type="reset"] {
+	background:red;
+	margin:5% 0 0 3%;
+}
+
+.buttonBox {
+	margin:0 auto;
+	text-align:center;
+}

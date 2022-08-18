@@ -6,12 +6,13 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>arTchive / {코스 제목(글제목)}</title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/chatbot.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/detailCourse.css'/>">
-		<script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/toggle.css'/>">
+		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		<script type="text/javascript"></script>
 	</head>
 	<body>
@@ -46,8 +47,13 @@
            		
            		<div id="courseToggle">
            			<ul>
-           				<li>toggle</li>
-           				<li>공개여부</li>
+           				<li id="toggleBox">
+	           				<input type="checkbox" id="toggle" hidden>
+	           				<label for="toggle" class="toggleSwitch">
+							  <span class="toggleButton"></span>
+							</label>
+           				</li>
+           				<li id="toggleText">공개여부</li>
            			</ul>
            		</div><!-- courseToggle -->
            		
