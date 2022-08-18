@@ -5,18 +5,21 @@
   Time: 오후 5:56
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>">
+    <link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/note/detail.css'/>">
     <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
     <script src="<c:url value='/js/note/detail.js'/>"></script>
     <script src="https://kit.fontawesome.com/8ab5776cfb.js" crossorigin="anonymous"></script><!-- 아이콘 -->
-    <title>Title</title>
+    <title>arTchive / SpringBoot에서 비동기 Multi-thread 개발</title>
 </head>
 <body>
+<c:import url="/WEB-INF/views/layout/top.jsp"></c:import>
 <div class="wrapper">
 
     <section>
@@ -194,5 +197,6 @@ Leave a Comment...
         </div>
     </section>
 </div>
+<c:import url="/WEB-INF/views/layout/bottom.jsp"></c:import>
 </body>
 </html>

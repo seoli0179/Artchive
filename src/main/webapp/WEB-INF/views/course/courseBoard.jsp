@@ -4,7 +4,7 @@
 
 <html>
     <head>
-        <title>전시 코스 게시판</title>
+        <title>arTchive / 전시 코스 게시판</title>
         <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
         <%--    <script src="<c:url value='/js/course.js'/>"></script>--%>
         <script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
@@ -27,56 +27,211 @@
                 <!-- area -->
                 <div id="searchAreaBox">
                     <div id="searchArea">
-                        <div id="allArea" class="AREA">
+                        <div id="allView" class="AREA">
                             <ul>
-                                <li>전체</li>
+                                <li>탐색</li>
                             </ul>
                         </div>
-                        <div id="capitalArea" class="AREA">
+                        <div id="lateView" class="AREA">
                             <ul>
-                                <li>수도권</li>
+                                <li>최신순</li>
                             </ul>
                         </div>
-                        <div id="busanArea" class="AREA">
+                        <div id="mostView" class="AREA">
                             <ul>
-                                <li>부산</li>
+                                <li>조회순</li>
                             </ul>
                         </div>
-                        <div id="jejuArea" class="AREA">
+                        <div id="likeView" class="AREA">
                             <ul>
-                                <li>제주</li>
+                                <li>좋아요순</li>
                             </ul>
                         </div>
-                        <div id="kangwonArea" class="AREA">
-                            <ul>
-                                <li>강원</li>
-                            </ul>
-                        </div>
-                        <div id="jeonArea" class="AREA">
-                            <ul>
-                                <li>전라도</li>
-                            </ul>
-                        </div>
-
-                        <div id="kyeongArea" class="AREA">
-                            <ul>
-                                <li>경상도</li>
-                            </ul>
-                        </div>
-
-                        <div id="etcArea" class="AREA">
-                            <ul>
-                                <li>기타지역</li>
-                            </ul>
-                        </div>
-
                     </div><!-- searchArea -->
                     <!-- .tablist -->
                     <div class="searchbar-box courseboard-search-box">
                         <input class="big-searchbar courseboard-searchbar" type="text" placeholder="원하는 주제로 검색해 보세요.">
                     </div>
                 </div>
-                <!--  -->
+                <!-- .searchAreaBox -->
+                <!-- borad-gallery -->
+                <div class="course-box board-gallery-view">
+                    <div class="post-container">
+                        <div class="post-img-box">
+
+                        </div>
+                        <div class="post-title-box">
+                            <h3>혼자 사색하며 즐기기 좋은 전시</h3>
+                        </div>
+                        <div class="post-content-box">
+                            간단한 메모사항 뚜루루루루루ㅜㅁ 만약 적지 않은 경우, {전시회명}+{식당 등이 나옴} 양이 너무 많을 경우 점점으로 표시 ..
+                        </div>
+                        <div class="post-tag-box">
+
+                        </div>
+                        <div class="post-footer-box">
+                            <div class="post-writer-box">
+                                <span>{작성자 닉네임}</span>
+                            </div>
+                            <div class="post-react-box">
+                                <div class="post-view-box">
+                                    <i class="fa-solid fa-heart" style="color:red;"></i>
+                                    <span>48</span>
+                                </div>
+                                <div class="post-like-box">
+                                    <i class="fa-solid fa-message" style="color:black;"></i>
+                                    <span>1234</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-container">
+                        <div class="post-img-box">
+
+                        </div>
+                        <div class="post-title-box">
+                            <h3>혼자 사색하며 즐기기 좋은 전시</h3>
+                        </div>
+                        <div class="post-content-box">
+                            간단한 메모사항 뚜루루루루루ㅜㅁ 만약 적지 않은 경우, {전시회명}+{식당 등이 나옴} 양이 너무 많을 경우 점점으로 표시 ..
+                        </div>
+                        <div class="post-tag-box">
+
+                        </div>
+                        <div class="post-footer-box">
+                            <div class="post-writer-box">
+                                <span>{작성자 닉네임}</span>
+                            </div>
+                            <div class="post-react-box">
+                                <div class="post-view-box">
+                                    <i class="fa-solid fa-heart" style="color:red;"></i>
+                                    <span>48</span>
+                                </div>
+                                <div class="post-like-box">
+                                    <i class="fa-solid fa-message" style="color:black;"></i>
+                                    <span>1234</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-container">
+                        <div class="post-img-box">
+
+                        </div>
+                        <div class="post-title-box">
+                            <h3>혼자 사색하며 즐기기 좋은 전시</h3>
+                        </div>
+                        <div class="post-content-box">
+                            간단한 메모사항 뚜루루루루루ㅜㅁ 만약 적지 않은 경우, {전시회명}+{식당 등이 나옴} 양이 너무 많을 경우 점점으로 표시 ..
+                        </div>
+                        <div class="post-tag-box">
+
+                        </div>
+                        <div class="post-footer-box">
+                            <div class="post-writer-box">
+                                <span>{작성자 닉네임}</span>
+                            </div>
+                            <div class="post-react-box">
+                                <div class="post-view-box">
+                                    <i class="fa-solid fa-heart" style="color:red;"></i>
+                                    <span>48</span>
+                                </div>
+                                <div class="post-like-box">
+                                    <i class="fa-solid fa-message" style="color:black;"></i>
+                                    <span>1234</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-container">
+                        <div class="post-img-box">
+
+                        </div>
+                        <div class="post-title-box">
+                            <h3>혼자 사색하며 즐기기 좋은 전시</h3>
+                        </div>
+                        <div class="post-content-box">
+                            간단한 메모사항 뚜루루루루루ㅜㅁ 만약 적지 않은 경우, {전시회명}+{식당 등이 나옴} 양이 너무 많을 경우 점점으로 표시 ..
+                        </div>
+                        <div class="post-tag-box">
+
+                        </div>
+                        <div class="post-footer-box">
+                            <div class="post-writer-box">
+                                <span>{작성자 닉네임}</span>
+                            </div>
+                            <div class="post-react-box">
+                                <div class="post-view-box">
+                                    <i class="fa-solid fa-heart" style="color:red;"></i>
+                                    <span>48</span>
+                                </div>
+                                <div class="post-like-box">
+                                    <i class="fa-solid fa-message" style="color:black;"></i>
+                                    <span>1234</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-container">
+                        <div class="post-img-box">
+
+                        </div>
+                        <div class="post-title-box">
+                            <h3>혼자 사색하며 즐기기 좋은 전시</h3>
+                        </div>
+                        <div class="post-content-box">
+                            간단한 메모사항 뚜루루루루루ㅜㅁ 만약 적지 않은 경우, {전시회명}+{식당 등이 나옴} 양이 너무 많을 경우 점점으로 표시 ..
+                        </div>
+                        <div class="post-tag-box">
+
+                        </div>
+                        <div class="post-footer-box">
+                            <div class="post-writer-box">
+                                <span>{작성자 닉네임}</span>
+                            </div>
+                            <div class="post-react-box">
+                                <div class="post-view-box">
+                                    <i class="fa-solid fa-heart" style="color:red;"></i>
+                                    <span>48</span>
+                                </div>
+                                <div class="post-like-box">
+                                    <i class="fa-solid fa-message" style="color:black;"></i>
+                                    <span>1234</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-container">
+                        <div class="post-img-box">
+
+                        </div>
+                        <div class="post-title-box">
+                            <h3>혼자 사색하며 즐기기 좋은 전시</h3>
+                        </div>
+                        <div class="post-content-box">
+                            간단한 메모사항 뚜루루루루루ㅜㅁ 만약 적지 않은 경우, {전시회명}+{식당 등이 나옴} 양이 너무 많을 경우 점점으로 표시 ..
+                        </div>
+                        <div class="post-tag-box">
+
+                        </div>
+                        <div class="post-footer-box">
+                            <div class="post-writer-box">
+                                <span>{작성자 닉네임}</span>
+                            </div>
+                            <div class="post-react-box">
+                                <div class="post-view-box">
+                                    <i class="fa-solid fa-heart" style="color:red;"></i>
+                                    <span>48</span>
+                                </div>
+                                <div class="post-like-box">
+                                    <i class="fa-solid fa-message" style="color:black;"></i>
+                                    <span>1234</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- .post-container -->
+                </div>
             </main>
 
             <!-- bottom 이동 -->

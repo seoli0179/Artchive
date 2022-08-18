@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring_boot_final.project.dao.IUserDAO">
+
+    <!-- Create -->
+
+    <insert id="insertUser" parameterType="com.spring_boot_final.project.model.UserVO">
+        <![CDATA[
+        INSERT INTO user (userId, userPw, userEmail, userNickname, userGender, userBirth)
+        VALUES (#{userId}, #{userPw}, #{userEmail}, #{userNickname}, #{userGender}, #{userBirth})
+        ]]>
+    </insert>
+
+    <!-- Read -->
+
+    <select id="selectUser" parameterType="com.spring_boot_final.project.model.UserVO" resultType="com.spring_boot_final.project.model.UserVO">
+        <![CDATA[
+        SELECT *
+        FROM user
+        WHERE userId = #{userId}
+        ]]>
+    </select>
+
+    <!-- Update -->
+
+    <!-- Delete -->
+
+
+</mapper>

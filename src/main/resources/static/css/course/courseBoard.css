@@ -41,3 +41,57 @@
 .courseboard-searchbar {
     width: 100%;
 }
+
+.board-gallery-view {
+    display: flex;
+    padding-bottom: 20px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.post-container {
+    margin: 25px 0;
+    border: 2px black solid;
+    width: 29%;
+    height: 400px;
+}
+
+.post-img-box {
+    width: 100%;
+    height: 40%;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-blend-mode: multiply;
+}
+.post-title-box {
+    margin: 0 auto;
+    width: 90%;
+    padding: 15px 0 5px 0;
+    font-weight: 700;
+}
+
+.post-content-box {
+    margin: 0 auto;
+    padding: 5px 0;
+    width: 90%;
+    height: 25%;
+    overflow: hidden;
+    line-height: 1.3rem;
+}
+
+.post-footer-box {
+    padding: 0 15px 5px 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.post-writer-box {
+    width: 45%;
+    overflow: visible;
+}
+
+.post-react-box {
+    display: flex;
+    padding: 0 10px;
+}
+
+.post-react-box i {
+    margin: 0 5px 0 15px;
+}

@@ -127,6 +127,25 @@ function stateController(state) {
         $('#btn_back').text("Back");
 
     } else if (state == 3) {
+        $.ajax({
+            type: "POST",
+            url: "/user/insertUser",
+            data: {
+                "id": $('#id').val(),
+                "pw": $('#pw').val(),
+                "email": $('#email').val(),
+                "nickname": $('#nickname').val(),
+                "gender": $("input[name='gender']:checked").val(),
+                "birth": $('#birth').val()
+            },
+            success: function (data) {
+                console.log('success');
+            },
+            error: function () {
+                console.log('fail');
+            }
+        });
+
         $('.id').hide();
         $('.pw').hide();
         $('.email').hide();
