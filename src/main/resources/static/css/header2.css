@@ -1,0 +1,125 @@
+@charset "UTF-8";
+
+
+
+/*header*/
+header{
+	background-color:#eee;
+	padding : 0px;
+	height : auto;
+}
+
+#mainMenu {
+	height:70px;
+	background-color : white;
+}
+
+/*logoBox*/
+	
+header #logoBox { 
+	position : absolute; 
+	left: 30px;
+	top: 0;
+	}
+	
+header #logoBox{
+	width: 200px;
+	line-height: 70px; 
+	/* border : 1px solid rgba(255,255,255,0.5); */
+	height:70px;
+	text-align:center;
+	/* border : solid 1px white; */
+	z-index :100;
+}
+
+header #logoBox > a {
+	font-size : 25px;
+	color : #000;
+	text-decoration : none;
+	font-weight : bold;
+}
+
+/*loginBox*/
+
+header #loginBox > ul{
+	position : absolute; 
+	right: 30px;
+	top: 0;
+	display : flex;
+	width:200px;
+	height:70px;
+	list-style: none;
+	/* border : solid 1px black; */
+}
+
+header #loginBox > ul li{
+	flex:1;
+	line-height: 70px; 
+	/* border : 1px solid rgba(255,255,255,0.5); */ 
+	height:70px;
+	text-align:center;
+}
+
+header #loginBox > ul li a {
+	font-size : 14px;
+	color : #000;
+	text-decoration : none;
+	font-weight : bold;
+}
+
+header #loginBox ul>  li > a > img {
+	position : absolute; 
+	top: 25px;
+	right : 140px;
+	width: 24px;
+	height: 24px;
+}
+
+
+
+/*headerBox*/
+
+header #headerBox {
+	position: absolute;
+	left : 0;
+	top : 0px;
+	width:100%;
+	padding:  0 232px;
+	box-sizing : border-box;
+}
+
+header #headerBox nav > ul > li > a {
+	font-size : 14px;
+	color : #000;
+	text-decoration : none;
+	font-weight : bold;
+	width: 160px;
+	height: 70px;
+	display : block;
+	line-height:70px;
+}
+
+header #headerBox nav > ul {text-align:center;}
+
+header #headerBox nav > ul > li {display: inline-block;}
+
+/*** 메인 메뉴 고정 ***/
+/* 윈도우 스크롤시 메인메뉴 고정 */
+
+.mainMenuFixed{
+  position: fixed;
+  top: 0;
+  /* width: 100% */
+  left: 0;
+  right: 0;
+}
+
+.boxshadow{
+	box-shadow:0 3px 0px 0px rgba(0, 0, 0, 0.05);}
+	/* offset-x | offset-y | blur-radius | spread-radius | color */
+
+
+
+
+
+
