@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
- @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 
-tabList {
+.tabList {
 	display:flex;
 }
 
-tabList ul, li {
+.tabList ul, li {
 	display:inline-block;
     justify-content: left;
 }
@@ -16,7 +16,7 @@ tabList ul, li {
 	min-width:260px;
 	margin:1%;
 	width:20%;
-	hight:20%;
+	height:20%;
 }
 
 .cell img {

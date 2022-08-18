@@ -31,7 +31,7 @@
         	<div id="headerBox">
         		<nav>
         				<ul>
-        					<li><a class="color" href="<c:url value='/list'/>">전시검색</a></li>
+        					<li><a class="color" href="<c:url value='/exhbn/list'/>">전시검색</a></li>
         					<li><a class="color" href="<c:url value='/index2'/>">menu2</a></li>
         					<li><a class="color" href="<c:url value='/course'/>">전시코스</a></li>
         					<li><a class="color" href="#">menu4</a></li>
