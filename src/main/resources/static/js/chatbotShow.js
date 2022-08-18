@@ -6,7 +6,7 @@
  	$('#chatImage img')
 	.on('click',function(){
 		$('#chatImage img').fadeOut(300);
-		$('#chatbotTest').slideDown(1000);
+		$('#chatbotTest').slideDown(700);
 	});
 	
 	$('#map_jeju').on('click',function(){
@@ -23,7 +23,7 @@
 	$('#btnClose')
 	.on('click',function(){
 		$('#chatImage img').fadeIn(2000);
-		$('#chatbotTest').slideUp(1000);
+		$('#chatbotTest').slideUp(700);
 	});
 	
 	/*$('#chatImage img')

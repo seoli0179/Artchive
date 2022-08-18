@@ -18,7 +18,7 @@ public class ExhbnViewController {
     ExhbnService service;
 
     // detail page view
-    @GetMapping("/detail/{id}")
+    @GetMapping("/exhbn/detail/{id}")
     public String detailTestView(@PathVariable int id, Model model) {
 
         ExhbnVO vo = service.selectDetailData(id);
@@ -28,7 +28,7 @@ public class ExhbnViewController {
     }
 
     // detail page view
-    @RequestMapping("/list")
+    @RequestMapping("/exhbn/list")
     public String listTestView(Model model) {
 
         ArrayList<ExhbnVO> vo = service.selectAllData();

@@ -5,11 +5,12 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
+		<title>Insert title here</title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/header2.css'/>">
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/search2.css'/>">
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		<script src="<c:url value='/js/header.js'/>"></script>
-		<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
+		<script src="<c:url value='/js/search.js'/>"></script>
 		<script type="text/javascript"></script>
 	</head>
 	<body>
@@ -23,7 +24,7 @@
         				<ul>
         					<li><a href="<c:url value='/list'/>">전시검색</a></li>
         					<li><a href="#">menu2</a></li>
-        					<li><a href="/course">전시코스</a></li>
+        					<li><a href="#">menu3</a></li>
         					<li><a href="#">menu4</a></li>
         					<li><a href="#">menu5</a></li>
         				</ul>		
@@ -33,10 +34,19 @@
         	<div id="loginBox">
         		<ul>
         			<li><a href="#"><img src="<c:url value='/image/searchBlack.png'/>" id="searchImg"></a></li>
-        			<li><a href="#">JOIN</a></li>
-        			<li><a href="#">LOGIN</a></li>
+        			<li><a href="/join">JOIN</a></li>
+        			<li><a href="/login">LOGIN</a></li>
         		</ul>
         	</div> <!-- loginBox -->
+        	
+        	<div id="searchBox">
+				<form>
+					<input type="text" id="searchMessage" name="searchMessage" size="120"  placeholder="검색어를 입력하세요."/>
+					<input type="submit" id="searchBtn" value="검색">
+					<img src="<c:url value='/image/x.png'/>">
+				</form>
+			</div><!-- searchBox -->
+        	
         	</div> <!-- mainMenu -->
         	
             </header>

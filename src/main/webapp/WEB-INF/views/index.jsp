@@ -6,7 +6,6 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>arTchive</title>
-		<%-- <link rel="stylesheet" type="text/css" href="<c:url value='/css/header.css'/>"> --%>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/header.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
@@ -14,9 +13,11 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/exhibition.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/recommended.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/chatbot.css'/>">
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/search.css'/>">
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		<script src="<c:url value='/js/indexHeader.js'/>"></script>
 		<script src="<c:url value='/js/chatbotShow.js'/>"></script>
+		<script src="<c:url value='/js/search.js'/>"></script>
 		<script type="text/javascript"></script>
 	</head>
 	<body>
@@ -42,11 +43,19 @@
         	<div id="loginBox">
         		<ul>
         			<li><a href="#"><img src="<c:url value='/image/search.png'/>" id="searchImg"></a></li>
-        			<li><a class="color" href="#">JOIN</a></li>
-        			<li><a class="color" href="#">LOGIN</a></li>
+        			<li><a class="color" href="/join">JOIN</a></li>
+        			<li><a class="color" href="/login">LOGIN</a></li>
         		</ul>
         	</div> <!-- loginBox -->
-        	<%-- <div id="visual"><img src="<c:url value='/image/banner.jpg'/>"></div> --%>
+        	
+        	<div id="searchBox">
+				<div>
+					<input type="text" id="searchMessage" name="searchMessage" size="120"  placeholder="검색어를 입력하세요."/>
+					<input type="button" id="searchBtn" value="검색">
+					<img src="<c:url value='/image/whiteX.png'/>">
+				</div>
+			</div><!-- searchBox -->
+        	
         	</div> <!-- mainMenu -->
         	
         		<div id="visual"><img src="<c:url value='/image/banner.jpg'/>"></div>
@@ -74,7 +83,7 @@
            		</div>
            	</div><!-- banner -->
 
-           	<div id="exhibition">
+           	<div id="exhibition" class="h2">
 	           		<ul>
 	           			<li>지금 하고 있는 전시</li>
 	           		</ul>
