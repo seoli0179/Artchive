@@ -8,7 +8,6 @@
 		<title>arTchive</title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/header2.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/search2.css'/>">
-		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		<script src="<c:url value='/js/header.js'/>"></script>
 		<script src="<c:url value='/js/search.js'/>"></script>
 		<script type="text/javascript"></script>
