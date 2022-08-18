@@ -6,7 +6,7 @@
 <html>
 	<head>
 	<meta charset="UTF-8">
-		<title>마이페이지 - 활동 내역 댓글</title>
+		<title>arTchive / 마이페이지 - 활동 내역 댓글</title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPageComment.css'/>"/>
 		

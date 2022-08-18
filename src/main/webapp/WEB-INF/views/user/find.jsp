@@ -14,7 +14,7 @@
     <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
     <script src="<c:url value='/js/user/find.js'/>"></script>
     <script src="https://kit.fontawesome.com/8ab5776cfb.js" crossorigin="anonymous"></script><!-- 아이콘 -->
-    <title>Title</title>
+    <title>arTchive / 로그인 - ID/PW 찾기</title>
 </head>
 <body>
 <section class="login-form">

@@ -6,7 +6,7 @@
 <html>
 	<head>
 	<meta charset="UTF-8">
-		<title>마이페이지</title>
+		<title>arTchive / 마이페이지</title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPageWithdraw.css'/>"/>
 		
