@@ -10,8 +10,9 @@
         <script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
         <link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>"/>
-        <link rel="stylesheet" type="text/css" href="<c:url value='/css/course.css'/>"/>
-        <link rel="stylesheet" type="text/css" href="<c:url value='/css/courseBoard.css'/>"/>
+        <link rel="stylesheet" type="text/css" href="<c:url value='/css/course/course.css'/>"/>
+        <link rel="stylesheet" type="text/css" href="<c:url value='/css/list.css'/>"/>
+        <link rel="stylesheet" type="text/css" href="<c:url value='/css/course/courseBoard.css'/>"/>
     </head>
     <body>
         <div id="course-wrap">
@@ -23,29 +24,53 @@
                     <h1 class="h1">관람 코스 모아보기</h1>
                     <span>다른 사람들이 기획한 관람 코스들을 모아봅니다.</span>
                 </div>
-                <div class="course-box search-box">
-                    <div class="tablist-box">
-                        <div class="tab-box">
-                            <button>
-                                <h3><span>탐색</span></h3>
-                            </button>
+                <!-- area -->
+                <div id="searchAreaBox">
+                    <div id="searchArea">
+                        <div id="allArea" class="AREA">
+                            <ul>
+                                <li>전체</li>
+                            </ul>
                         </div>
-                        <div class="tab-box">
-                            <button>
-                                <h3><span>최신순</span></h3>
-                            </button>
+                        <div id="capitalArea" class="AREA">
+                            <ul>
+                                <li>수도권</li>
+                            </ul>
                         </div>
-                        <div class="tab-box">
-                            <button>
-                                <h3><span>조회순</span></h3>
-                            </button>
+                        <div id="busanArea" class="AREA">
+                            <ul>
+                                <li>부산</li>
+                            </ul>
                         </div>
-                        <div class="tab-box">
-                            <button>
-                                <h3><span>좋아요순</span></h3>
-                            </button>
+                        <div id="jejuArea" class="AREA">
+                            <ul>
+                                <li>제주</li>
+                            </ul>
                         </div>
-                    </div>
+                        <div id="kangwonArea" class="AREA">
+                            <ul>
+                                <li>강원</li>
+                            </ul>
+                        </div>
+                        <div id="jeonArea" class="AREA">
+                            <ul>
+                                <li>전라도</li>
+                            </ul>
+                        </div>
+
+                        <div id="kyeongArea" class="AREA">
+                            <ul>
+                                <li>경상도</li>
+                            </ul>
+                        </div>
+
+                        <div id="etcArea" class="AREA">
+                            <ul>
+                                <li>기타지역</li>
+                            </ul>
+                        </div>
+
+                    </div><!-- searchArea -->
                     <!-- .tablist -->
                     <div class="searchbar-box courseboard-search-box">
                         <input class="big-searchbar courseboard-searchbar" type="text" placeholder="원하는 주제로 검색해 보세요.">
