@@ -1,4 +1,11 @@
 @charset "UTF-8";
+/*
+<input type="checkbox" id="toggle" hidden>
+<label for="toggle" class="toggleSwitch">
+  <span class="toggleButton"></span>
+</label>
+*/
+
 
 .toggleSwitch {
   width: 6rem;
