@@ -1,0 +1,189 @@
+@charset "UTF-8";
+
+#course-container {
+    width:100%;
+    min-width: 1080px;
+    min-height: auto
+    background-color: rgba(255,255,255,1);
+    --web-view-name: coursepage;
+    --web-view-id: coursepage;
+    --web-scale-on-resize: true;
+    --web-enable-deep-linking: true;
+    position: relative;
+}
+
+#course-container>div {
+    left:13%;
+    /*border: red 1px solid;*/
+}
+
+.course-box {
+    margin:50px 85px;
+    line-height: 2.3rem;
+    border-bottom: black 1px solid;
+}
+
+/* 가이드 박스 */
+.guide-contents {
+    width:12%;
+    height:12%;
+    text-align: center;
+    margin:20px;
+    margin-bottom: 70px;
+}
+
+.guide-contents img {
+    width:60px;
+    height:60px;
+    margin: 10px;
+}
+
+.guide-img-box {
+    display: flex;
+    justify-content: center;
+}
+.guide-box h2 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.guide-box h3 {
+    font-weight: bold;
+}
+.guide-box .small-text {
+    font-size: small;
+    line-height: 1.2rem;
+    color: #3B3B3B;
+}
+
+/* 전시부터 정하기 */
+.box-title-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.viewmore-box {
+    display: flex;
+    align-items: end;
+}
+/* 전시리스트 */
+.exhbnList-box {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 30%;
+    margin:20px 0 30px 0 ;
+}
+
+.exhbn-item {
+    width:19%;
+    height: 100%;
+    overflow: hidden;
+    display: inline-block;
+}
+.exhbn-poster {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+.exhbn-poster:hover {
+    object-fit: contain;
+    transition-duration: 1s;
+}
+
+.poster-box{
+    width: 100%;
+    height: 100%;
+}
+.selected {
+    display: flex;
+    justify-content: center;
+    margin:10px;
+    margin-bottom:10px;
+}
+
+/* search-box */
+.big-text {
+    font-size: 1.4rem;
+    margin-right: 20px;
+}
+
+.big-text strong {
+    font-weight: 600;
+}
+
+.searchbar-box {
+    display: block;
+    width:100%;
+    min-height: 100px;
+    position: relative;
+}
+
+.big-searchbar {
+    width:40%;
+    min-width: 300px;
+    height: 40px;
+    padding: 4px 16px;
+    border: 2px black solid;
+    border-radius: 10px;
+    position: absolute;
+}
+
+.searchbar-btn {
+    height: 40px;
+    position: absolute;
+    left:40.5%;
+}
+
+/* 후기리스트 */
+.courseList-box {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin:20px 0 30px 0 ;
+}
+
+.course-item {
+    width:25%;
+    height: fit-content;
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+}
+.coursepost-thumb {
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.coursepost-box{
+    color: #fff;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    /*visibility: hidden;*/
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.coursepost-box span {
+    bottom:10%;
+    left:5%;
+    width: 90%;
+    position: absolute;
+    line-height: 1.2rem;
+    font-weight: 600;
+}
+
+.coursepost-box .like-logo {
+    top:10%;
+    right:5%;
+    text-align: right;
+    width:90%;
+    position: absolute;
+}
+
+.noborder {
+    border: none;
+}

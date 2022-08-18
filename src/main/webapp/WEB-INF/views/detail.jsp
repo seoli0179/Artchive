@@ -6,7 +6,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>전시명</title>
+		<title>${exhbn.exhbnTitle}</title>
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		<script src="<c:url value='/js/detail.js'/>"></script>
 		<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
@@ -30,7 +30,7 @@
 							</a>
 						</div>
 						<div class="cover-header">
-							<header>${exhbn.exhbnTitle}</header>
+							<h1>${exhbn.exhbnTitle}</h1>
 						</div>
 						<div class="cover-date">
 							<span><fmt:formatDate value = "${exhbn.exhbnStartDate}" type ="date" pattern="yyyy. MM. dd"/> ~ <fmt:formatDate value = "${exhbn.exhbnEndDate}" type ="date" pattern="yyyy. MM. dd"/></span>

@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded",function(){
 	    updateWidth();
         setInitialPos();
         setTimeout(function(){
-            slides.classList.add('animate');
+            slides.classList.remove('animate');
         },100);
 	}
 
@@ -61,15 +61,19 @@ document.addEventListener("DOMContentLoaded",function(){
     }
     
     function moveSlide(num) {
-    	slides.classList.remove('animate');
+    	slides.classList.add('animate');
         slides.style.left = - (num)*slideWidth +'px';
+        slides.style.transition = `${0.5}s ease-out`;
+
         currentIdx = num;
-        if (currentIdx == slideCount){
+        if (currentIdx == slideCount+1){
+            slides.style.transition = `${0}s ease-out`;
             slides.style.left = "0px";
             currentIdx = 0;
         }
 
-        if (currentIdx == -slideCount){
+        if (currentIdx == -slideCount-1){
+            slides.style.transition = `${0}s ease-out`;
             slides.style.left = "0px";
             currentIdx = 0;
         }
