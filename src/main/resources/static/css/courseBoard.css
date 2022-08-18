@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+#course-wrap {
+    width:100%;
+    min-width: 1080px;
+    min-height: auto;
+    background-color: rgba(255,255,255,1);
+    --web-view-name: coursepage;
+    --web-view-id: coursepage;
+    --web-scale-on-resize: true;
+    --web-enable-deep-linking: true;
+    position: relative;
+}
+
+.search-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tablist-box {
+    display: flex;
+}
+
+.tablist-box .tab-box {
+    margin: 5px;
+}
+
+.tablist-box button {
+    color: rgb(0,0,0,0.6);
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 5px 10px;
+    border: none;
+    background-color: transparent;
+}
+
+.courseboard-search-box {
+    width:40%;
+    min-height: 0;
+}
+.courseboard-searchbar {
+    width: 100%;
+}

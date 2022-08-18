@@ -36,4 +36,23 @@ public class ExhbnViewController {
 
         return "list";
     }
+
+    // course page view
+    @RequestMapping("/course")
+    public String courseView(Model model) {
+
+        ArrayList<ExhbnVO> vo = service.selectAllData();
+        model.addAttribute("exhbnList",vo);
+
+        return "course/courseMain";
+
+    // course board view
+    }@RequestMapping("/courseBoard")
+    public String courseBoardView(Model model) {
+
+        ArrayList<ExhbnVO> vo = service.selectAllData();
+        model.addAttribute("exhbnList",vo);
+
+        return "course/courseBoard";
+    }
 }
