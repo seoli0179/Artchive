@@ -4,6 +4,13 @@
 
 /*header*/
 
+header{
+	background-color:#eee;
+	padding : 0px;
+	height : auto;
+}
+
+
 
 #mainMenu {
 	height:70px;
@@ -58,7 +65,7 @@ header #loginBox > ul li{
 
 header #loginBox > ul li a {
 	font-size : 14px;
-	color : #black;
+	color : #000;
 	text-decoration : none;
 	font-weight : bold;
 }
@@ -82,12 +89,11 @@ header #headerBox {
 	width:100%;
 	padding:  0 232px;
 	box-sizing : border-box;
-	/* box-shadow:0 3px 0px 0px rgba(0, 0, 0, 0.05); */
 }
 
 header #headerBox nav > ul > li > a {
 	font-size : 14px;
-	color : #black;
+	color : #000;
 	text-decoration : none;
 	font-weight : bold;
 	width: 160px;
