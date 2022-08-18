@@ -132,7 +132,7 @@
 	margin-left :20px;
 	background-color: #fff;
 	height : 85%;
-	width : 20%;
+	width : 100px;
 	border: 2px solid #1A1A1A;
 	border-radius: 15px;
 	color: #3B3B3B;
@@ -166,6 +166,7 @@
 	height : 85%;
 	display: inline-block;
 	font-size : 20px;
+	color : #949494;
 }
 
 .AREA{
@@ -180,9 +181,7 @@
 }
 
 .AREA>ul>li:hover {
-	text-decoration-line: underline;
-	text-decoration-style: solid;
-	text-decoration-thickness: 3px;
+	color : #000;
 }
 
 /*img-box*/
@@ -284,18 +283,14 @@
 	transition: all 0.5s;
 }
 .hi {
-
 	margin-botton : 10px;
 }
 #container-deatil-search {
 	width: 1080px;
-	border-color: ;
-	border-width: ;
-	border-style: ;
+	/*border-color: ;*/
+	/*border-width: ;*/
+	/*border-style: ;*/
 	padding: 20px;
-
-
-
 }
 .exsearchcontainer1{
 	heigh : 100vh;
@@ -304,8 +299,6 @@
 	flex-wrap: nowrap;
 	justify-content: space-between;
 	margin-right:auto;
-
-
 }
 
 .item1{
@@ -322,8 +315,6 @@
 
 
 }
-
-
 
 .exsearchcontainer3{
 	heigh : 100vh;

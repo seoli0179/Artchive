@@ -252,7 +252,7 @@
 			<div id="chatImage">
 			<img src="<c:url value='/image/chatbot.png'/>">
 			</div>
-		
+			
           <!-- bottom 이동 -->
           <c:import url="/WEB-INF/views/layout/bottom.jsp" />
 

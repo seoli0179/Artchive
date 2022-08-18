@@ -49,3 +49,9 @@ footer #footerBoxRight nav > ul > li > img {
 	width: 20px;
 	height: 20px;
 }
+
+footer{
+  height: 1%;
+  position : relative;
+  transform : translateY(-100%);
+}
