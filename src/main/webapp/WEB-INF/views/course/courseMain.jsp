@@ -6,7 +6,7 @@
     <head>
         <title>arTchive / 전시 코스</title>
         <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
-    <%--    <script src="<c:url value='/js/course.js'/>"></script>--%>
+        <script src="<c:url value='/js/course/course.js'/>"></script>
         <script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
         <link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>"/>
@@ -51,28 +51,32 @@
                 <div class="box-title-box">
                     <div>
                         <h2 class="h2">전시부터 정하기</h2>
-                        <span>{username}님이 좋아할 것 같아요.</span>
+                        <span>가고싶은 전시의 이름을 눌러 선택하세요.</span>
                     </div>
                     <div class="viewmore-box">
                         <a href="<c:url value='/exhbn/list'/>"><span class="viewmore">더보기 ></span></a>
                     </div>
                 </div>
-                <div class="exhbnList-box">
+                <section class="exhbnList-box">
                     <c:forEach items="${exhbnList}" var="exhbn" end="4">
-                        <div class="exhbn-item">
-                            <a href="<c:url value='/detail/${exhbn.exhbnId}'/>"><img class="exhbn-poster" src="${exhbn.exhbnImgUrl}" alt="전시포스터"></a>
-                            <div class="poster-box">
-                                <span class="ex-title">${exhbn.exhbnTitle}</span>
+                        <div class="exhbnEach-box">
+                            <div class="exhbn-item">
+                                <a href="<c:url value='/exhbn/detail/${exhbn.exhbnId}'/>"><img class="exhbn-poster" src="${exhbn.exhbnImgUrl}" alt="전시포스터"></a>
+                            </div>
+                            <div class="caption-box">
+                                <input type="radio" class="courseSelect" id="courseExhbnSelect-${exhbn.exhbnId}" name="courseExhbnSelect" value="${exhbn.exhbnTitle}">
+                                <label class="ex-title" for="courseExhbnSelect-${exhbn.exhbnId}">${exhbn.exhbnTitle}</label>
                             </div>
                         </div>
                     </c:forEach>
-                </div>
-                <div class="selected">
-                    <div><span class="big-text">{username}님이 선택한 <strong>{전시명}</strong>부터 </span></div>
-                    <div><a href="<c:url value='/course/detailCourse'/>"><button class="black-btn">코스짜러 가기</button></a></div>
+                </section>
+                <div class="selected" id="selected">
+                    <div><span class="big-text">{username}님이 선택한 <strong id="selectedExhbn">{전시명}</strong>부터 </span></div>
+                    <div><a href="<c:url value='/course/detailCourse'/>"><button type="submit" class="black-btn">코스짜러 가기</button></a></div>
                 </div>
                 <br>
             </div>
+    <!-- 테마 코스 찾기 -->
             <div class="course-box search-box">
                 <div class="box-title-box">
                     <div>
@@ -81,7 +85,8 @@
                     </div>
                 </div>
                 <div class="searchbar-box">
-                    <input class="big-searchbar" type="text" placeholder="원하는 주제로 검색해 보세요.">
+                    <input class="big-searchbar" type="text">
+                    <input class="inner-searchbar" type="search" placeholder="원하는 주제로 검색해 보세요.">
                     <input class="black-btn searchbar-btn" type="button" value="검색">
                 </div>
             </div>
