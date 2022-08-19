@@ -24,6 +24,9 @@ $(document).ready(function () {
         }
     });
 
+    $('#write_btn').on('click',function (){
+        location.href="/note/write";
+    })
 
 
 });
