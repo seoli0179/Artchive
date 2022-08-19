@@ -12,9 +12,36 @@
     position: relative;
 }
 
+#searchAreaBox {
+    display: flex;
+    justify-content: space-between;
+}
+
+#searchArea {
+    width: 40%;
+}
+
 .search-box {
     display: flex;
     justify-content: space-between;
+    align-items: start;
+    margin-top:0;
+    margin-bottom: 10px;
+}
+
+.tag-box #tagList {
+    margin-top:0;
+}
+.courseBoard-searchBtn {
+    width: 30%;
+    min-width: 150px;
+    margin-left: 10px;
+    height: 59px;
+    margin-top:0;
+}
+
+#tag-caution {
+    margin-top:-95px;
 }
 
 .tablist-box {
@@ -35,7 +62,8 @@
 }
 
 .courseboard-search-box {
-    width:40%;
+    display: inline-block;
+    width:60%;
     min-height: 0;
 }
 .courseboard-searchbar {

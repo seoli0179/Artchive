@@ -21,20 +21,21 @@
     margin:50px 85px;
     line-height: 2.3rem;
     border-bottom: black 2px solid;
+    padding: 20px 0;
 }
 
 /* 가이드 박스 */
 .guide-contents {
-    width:12%;
-    height:12%;
+    width:15%;
+    height:15%;
     text-align: center;
     margin:20px;
     margin-bottom: 70px;
 }
 
 .guide-contents img {
-    width:60px;
-    height:60px;
+    width:80px;
+    height:80px;
     margin: 10px;
 }
 
@@ -57,7 +58,7 @@
 }
 
 /* 전시부터 정하기 */
-#tagSearchCourse .box-title-box {
+.title-box {
     display: flex;
     justify-content: space-between;
 }
@@ -134,7 +135,7 @@
     justify-content: center;
     margin:20px;
     padding: 10px;
-    margin-bottom:10px;
+    margin-bottom:0px;
     visibility: hidden;
 }
 
@@ -151,18 +152,13 @@
 .searchbar-box {
     display: flex;
     width:100%;
-    min-height: 100px;
+    height: 70px;
 }
 
 .searchbar-border {
     width: 90%;
     min-width: 300px;
     height: 80%;
-    border-radius: 10px;
-}
-
-.tag-box {
-    border: 1px blue;
 }
 
 .tag-box :where(li, li i) {
@@ -173,7 +169,7 @@
 .tag-box ul {
     display: flex;
     border: 2px black solid;
-    /*border: 1px solid #a6a6a6;*/
+    height: 47px;
     padding: 4px;
     border-radius: 10px;
     margin: 12px 0;
@@ -209,6 +205,7 @@
     outline: none;
     padding: 5px;
     font-size:1.0rem;
+    background-color: transparent;
 }
 
 .searchbar-btn {
@@ -217,6 +214,18 @@
     margin-left: 10px;
     height: 59px;
     align-self: auto;
+}
+
+#tag-caution {
+    font-size: 0.9rem;
+    color: red;
+    padding: 0 10px;
+    margin-bottom: 30px;
+    visibility: hidden;
+}
+
+#tag-caution .vibration {
+    animation: vibration .1s infinite;
 }
 
 /* 후기리스트 */

@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="course-box recommand-exhb">
-                <div class="box-title-box">
+                <div class="title-box">
                     <div>
                         <h2 class="h2">전시부터 정하기</h2>
                         <span>가고싶은 전시의 이름을 눌러 선택하세요.</span>
@@ -78,7 +78,7 @@
             </div>
     <!-- 테마 코스 찾기 -->
             <section id="tagSearchCourse" class="course-box search-box">
-                <div class="box-title-box">
+                <div class="title-box">
                     <div>
                         <h2 class="h2">테마 코스 찾기</h2>
                         <span>누구랑 어떤 하루를 보내고 싶나요?</span>
@@ -92,9 +92,10 @@
                     </div>
                     <input class="black-btn searchbar-btn" type="button" value="검색">
                 </div>
+                <div id="tag-caution" class="vibration">태그는 3개까지만 선택할 수 있습니다.</div>
             </section>
             <section id="famousCourse" class="course-box noborder">
-                <div class="box-title-box">
+                <div class="title-box">
                     <div>
                         <h2 class="h2">인기 코스</h2>
                         <span>최근 ArTchive 유저들이 좋아한 코스를 살펴보세요!</span>
