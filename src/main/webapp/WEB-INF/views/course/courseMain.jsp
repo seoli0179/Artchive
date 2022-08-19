@@ -77,7 +77,7 @@
                 <br>
             </div>
     <!-- 테마 코스 찾기 -->
-            <div class="course-box search-box">
+            <section id="tagSearchCourse" class="course-box search-box">
                 <div class="box-title-box">
                     <div>
                         <h2 class="h2">테마 코스 찾기</h2>
@@ -85,12 +85,15 @@
                     </div>
                 </div>
                 <div class="searchbar-box">
-                    <input class="big-searchbar" type="text">
-                    <input class="inner-searchbar" type="search" placeholder="원하는 주제로 검색해 보세요.">
+                    <div class="searchbar-border tag-box" type="text">
+                        <ul id="tagList">
+                            <input class="inner-searchbar" id="inner-searchbar" type="text" placeholder="검색 태그를 입력하세요.">
+                        </ul>
+                    </div>
                     <input class="black-btn searchbar-btn" type="button" value="검색">
                 </div>
-            </div>
-            <div class="course-box noborder">
+            </section>
+            <section id="famousCourse" class="course-box noborder">
                 <div class="box-title-box">
                     <div>
                         <h2 class="h2">인기 코스</h2>
@@ -113,7 +116,7 @@
                         </div>
                     </c:forEach>
                 </div>
-            </div>
+            </section>
         </main>
 
         <!-- bottom 이동 -->
