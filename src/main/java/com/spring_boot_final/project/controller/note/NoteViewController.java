@@ -16,4 +16,9 @@ public class NoteViewController {
         return "note/detail";
     }
 
+    @RequestMapping("/note/write")
+    public String write(){
+        return "note/write";
+    }
+
 }
