@@ -146,3 +146,8 @@ textarea {
 .fa-heart {
     cursor: pointer;
 }
+
+#back:hover {
+    color: #5b5b5b;
+    cursor: pointer;
+}
