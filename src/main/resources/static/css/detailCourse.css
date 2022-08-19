@@ -2,16 +2,6 @@ w@charset "UTF-8";
 
 /* header 부분 */
 
-#couseHeader{
-	height : 400px;
-	background-position: 0% 100%;
-	background-size: 100%;
-	background-attachment:fixed;
-	background-repeat: no-repeat;
-	position: relative;
-    background-blend-mode: multiply;
-    background-color: rgba(0, 0, 0, 0.5);
-}
 
 #headerText1 ul> li {
 	font-size : 15px;
@@ -32,25 +22,33 @@ w@charset "UTF-8";
 .headerText{	
 	text-align : center;
 	line-height : 60px; 
-	
+	color : #fff;
 }
 
 #headerTextBox {
 	/* border : solid 3px #fff; */
 	padding-top : 5%;
+	padding-bottom : 5%;
+	 
+	background-position: 0% 100%;
+	background-size: 100%;
+	background-attachment:fixed;
+	background-repeat: no-repeat;
+	position: relative;
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* Main 내용 부분 */
-#couseMain{
-	height : 800px;
+#courseMain{
+	height : 28%;
 }
 
 #courseToggle {
-	position : relative;
-	top : 0%;
-	left : 13%;
+	margin-top : 0;
+	margin-left : 11%;
 	/* border : 2px red solid; */
-	width : 25%;
+	width : 50%;
 	font-size : 22px;
 	height : 100%;
 
@@ -63,9 +61,13 @@ w@charset "UTF-8";
 } 
 
 #toggleText {
-	position : absolute;
+/* 	position : absolute;
 	top:45%;
-	left: 35%;
+	left: 35%; */
+	margin-left : 0%;
+	height : 113px;
+	max-height : 113px;
+	line-height : 113px;
 	font-size : 22px;
 	font-weight : bold;
 }
@@ -73,7 +75,7 @@ w@charset "UTF-8";
 #editCourse{
 	float: right;
 	margin-right : 10%;
-	margin-top : 25px;
+	margin-top : 1.8%;
 	position :relative;
 	bottom :100%;
 }
@@ -81,7 +83,7 @@ w@charset "UTF-8";
 #CourseTag{
 	margin-left : 12.3%;
 	height : 80px;
-	
+	margin-top : 1%;
 }
 
 #tagMain{
@@ -90,7 +92,7 @@ w@charset "UTF-8";
 
 #CourseTag > ul > li {
 	float: left;
-	margin-left : 15px;
+	margin-left : 1%;
 }
 
 #courseMainText {
@@ -118,21 +120,21 @@ w@charset "UTF-8";
 /**  courseMain **/
 #courseMain{
 	height:700px;
-	
+	/* border : solid 2px red; */
 }
 
 #course{
 	float :left;
 	margin: 0 auto;
-	height:600px;
-	width: 750px;
-	margin-left : 248px;
+	height:86%;
+	width: 40%;
+	margin-left : 12.9%;
 }
 
 #courseMap{
 	float : right;
 	margin: 0 auto;
-	height:600px;
+	height:86%;
 	width: 35%;
 	margin-right : 8.6%;
 	background-color : #eeeeee;
@@ -141,15 +143,15 @@ w@charset "UTF-8";
 #courseIcon{
 	float :left;
 	margin: 0 auto;
-	height:600px;
-	width :80px;
+	height:100%;
+	width :10%;
 }
 
 #courseDelete{
 	float : right;
 	margin: 0 auto;
-	height:600px;
-	width: 50px;
+	height:100%;
+	width: 8%;
 }
 
 /*courseIcon*/
@@ -208,8 +210,8 @@ w@charset "UTF-8";
 /*courseText*/
 #courseText{
 	float :left;
-	width : 500px;
-	height : 600px;
+	width : 40%;
+	height : 100%;
 	margin-left : 50px;
 }
 
@@ -281,7 +283,7 @@ font-weight : bold;
 	float : left;
 	border-left : solid 4px black;
 	position : absolute;
-	left : 286px;
+	left : 15%;
 	z-index : -1;
 }
 
@@ -310,7 +312,7 @@ font-weight : bold;
 
 #searchCourse{
 	height : 150px;
-	margin-left : 248px;
+	margin-left : 13%;
 	/* border : 2px blue solid; */
 }
 
@@ -326,7 +328,7 @@ font-weight : bold;
 	border : solid 2px black;
 	border-radius:10px;
 	height : 40px;
-	
+	width : 50%;
     min-width: 300px;
     height: 40px;
     padding: 4px 16px;
@@ -384,34 +386,26 @@ font-weight : bold;
 	margin-left: 11.5%;
 	width : 80%;
 	height : 350px;
+	margin-bottom : 50px;
 }
 
 .courseAdd {
-	margin-left : 2%;
+	margin-left : 2.5%;
 	float : left;
 	width : 22%;
 	height : 95%;
 	background-color : #eeeeee;
 	margin-bottom : 5%;
+	
 } 
 
-#courseAddBtn1 {
-	margin-left : 35%;
-	margin-top : 80%;
-} 
 
-#courseAddBtn2 {
-	margin-left : 35%;
-	margin-top : 80%;
-} 
+.wrapper{
+	height : auto;
+}
 
-#courseAddBtn3 {
-	margin-left : 35%;
-	margin-top : 80%;
-} 
-
-#courseAddBtn4 {
-	margin-left : 35%;
-	margin-top : 80%;
-} 
-
+.courseAddBtn{
+	margin-top : 78%;
+	text-align : center;
+	width : 98%;
+}

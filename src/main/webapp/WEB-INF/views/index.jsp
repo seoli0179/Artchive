@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -75,6 +76,7 @@
 
 
            	<div id="banner">
+           	
            		<div id="bannerText1" class="bannerText">
 	           		<ul>
 						<li>전시회 코스 추천 받기</li>
@@ -85,102 +87,168 @@
 						<li>전시회 추천 받기</li>
 					</ul>
            		</div>
+           		
+				<div id=" ">
            		<div id="bannerText3" class="bannerText">
            			<ul>
 						<li><a href="#">Get a Recommendation</a></li>
 					</ul>
            		</div>
+				</div>
+				
            	</div><!-- banner -->
+           	
+           	<div id="exhibitionAll">
 
-           	<div id="exhibition" class="h2">
+           	<div id="exhibition">
+           		<div class="exMaintext">
 	           		<ul>
-	           			<li>지금 하고 있는 전시</li>
+	           			<li class="MainText">지금 하고 있는 전시</li>
+	           			<li class="exhibitionMore"><a href="#">MORE ></a></li>
 	           		</ul>
+				</div>
+				
 
-	           		<div id="exhibitionMore">
-		           		<ul>
-		           			<li><a href="#">MORE ></a></li>
-		           		</ul>
-	           		</div>
+           		<div id="exhibitionBox1" class="exhibitionBox" OnClick="location.href ='http://URL주소'" style="cursor:pointer;">
+           		<div id="exhibitionImg1" class="exhibitionImg">
+           		 <ul>
+           		 	<li>
+           		 		<img src="<c:url value='/image/banner.jpg'/>">
+           		 	</li>
+           		 </ul>
+           		 </div><!-- exhibitionImg -->
+           		 <div class= "exhibitionText" > 
+           		 	<ul>
+	           			<li class="exName"><a href="#">전시회명1</a></li>
+	           			<li class="exPeriod"><a href="#">2022.00.00-2022.00.00</a></li>
+           		 	</ul>
+           		 </div><!-- exhibitionText -->
+           		 </div> <!-- exhibitionBox -->
 
-          		<div id="exhibitionImg1" class="exhibitionImg">
-           		<ul>
-           			<li><img src="<c:url value='/image/banner.jpg'/>"><a href="<c:url value='/detail'/>"></a></li>
-           			<li><a href="<c:url value='/detail'/>">전시회명1</a></li>
-           			<li><a href="#">2022.00.00-2022.00.00</a></li>
-           		</ul>
-           		</div>
-
+           		<div id="exhibitionBox2" class="exhibitionBox">
            		<div id="exhibitionImg2" class="exhibitionImg">
-           		<ul>
-           			<li><img src="<c:url value='/image/banner.jpg'/>"></li>
-           			<li><a href="#">전시회명2</a></li>
-           			<li><a href="#">2022.00.00-2022.00.00</a></li>
-           		</ul>
-           		</div>
+           		 <ul>
+           		 	<li>
+           		 		<img src="<c:url value='/image/banner.jpg'/>">
+           		 	</li>
+           		 </ul>
+           		 </div><!-- exhibitionImg -->
+           		 <div class= "exhibitionText">
+           		 	<ul>
+	           			<li class="exName"><a href="#">전시회명1</a></li>
+	           			<li class="exPeriod"><a href="#">2022.00.00-2022.00.00</a></li>
+           		 	</ul>
+           		 </div><!-- exhibitionText -->
+           		 </div> <!-- exhibitionBox -->
 
-           		<div id="exhibitionImg3" class="exhibitionImg">
-           		<ul>
-           			<li><img src="<c:url value='/image/banner.jpg'/>"></li>
-           			<li><a href="#">전시회명3</a></li>
-           			<li><a href="#">2022.00.00-2022.00.00</a></li>
-           		</ul>
-           		</div>
+           		<div id="exhibitionBox3" class="exhibitionBox">
+           		<div id="exhibitionImg1" class="exhibitionImg">
+           		 <ul>
+           		 	<li>
+           		 		<img src="<c:url value='/image/banner.jpg'/>">
+           		 	</li>
+           		 </ul>
+           		 </div><!-- exhibitionImg -->
+           		 <div class= "exhibitionText">
+           		 	<ul>
+	           			<li class="exName"><a href="#">전시회명1</a></li>
+	           			<li class="exPeriod"><a href="#">2022.00.00-2022.00.00</a></li>
+           		 	</ul>
+           		 </div><!-- exhibitionText -->
+           		 </div> <!-- exhibitionBox -->
 
-           		<div id="exhibitionImg4" class="exhibitionImg">
-           		<ul>
-           			<li><img src="<c:url value='/image/banner.jpg'/>"></li>
-           			<li><a href="#">전시회명4</a></li>
-           			<li><a href="#">2022.00.00-2022.00.00</a></li>
-           		</ul>
+           		<div id="exhibitionBox" class="exhibitionBox">
+           		<div id="exhibitionImg1" class="exhibitionImg">
+           		 <ul>
+           		 	<li>
+           		 		<img src="<c:url value='/image/banner.jpg'/>">
+           		 	</li>
+           		 </ul>
+           		 </div><!-- exhibitionImg -->
+           		 <div class= "exhibitionText">
+           		 	<ul>
+	           			<li class="exName"><a href="#">전시회명1</a></li>
+	           			<li class="exPeriod"><a href="#">2022.00.00-2022.00.00</a></li>
+           		 	</ul>
+           		 </div><!-- exhibitionText -->
+           		 </div> <!-- exhibitionBox -->
 
-           		</div>
            	</div><!-- exhibition -->
-
-           	<div id="exhibition2">
+			
+           		<div id="exhibition2">
+           		<div class="exMaintext">
 	           		<ul>
-	           			<li>UserName님에게 추천하는 전시</li>
+	           			<li class="MainText">추천하는 전시</li>
+	           			<li class="exhibitionMore"><a href="#">MORE ></a></li>
 	           		</ul>
+				</div>
+				
+           		<div id="exhibitionBox1" class="exhibitionBox">
+           		<div id="exhibitionImg1" class="exhibitionImg">
+           		 <ul>
+           		 	<li>
+           		 		<img src="<c:url value='/image/banner.jpg'/>">
+           		 	</li>
+           		 </ul>
+           		 </div><!-- exhibitionImg -->
+           		 <div class= "exhibitionText">
+           		 	<ul>
+	           			<li class="exName"><a href="#">전시회명1</a></li>
+	           			<li class="exPeriod"><a href="#">2022.00.00-2022.00.00</a></li>
+           		 	</ul>
+           		 </div><!-- exhibitionText -->
+           		 </div> <!-- exhibitionBox -->
 
-	           	<div id="exhibitionMore2">
-	           		<ul>
-	           			<li><a href="#">MORE ></a></li>
-	           		</ul>
-	           	</div>
+           		<div id="exhibitionBox2" class="exhibitionBox">
+           		<div id="exhibitionImg2" class="exhibitionImg">
+           		 <ul>
+           		 	<li>
+           		 		<img src="<c:url value='/image/banner.jpg'/>">
+           		 	</li>
+           		 </ul>
+           		 </div><!-- exhibitionImg -->
+           		 <div class= "exhibitionText">
+           		 	<ul>
+	           			<li class="exName"><a href="#">전시회명1</a></li>
+	           			<li class="exPeriod"><a href="#">2022.00.00-2022.00.00</a></li>
+           		 	</ul>
+           		 </div><!-- exhibitionText -->
+           		 </div> <!-- exhibitionBox -->
 
-          		<div id="exhibition2Img1" class="exhibition2Img" OnClick="location.href ='http://URL주소'" style="cursor:pointer;">
-           		<ul>
-           			<li><img src="<c:url value='/image/banner.jpg'/>"></li>
-           			<li><a href="#">전시회명1</a></li>
-           			<li><a href="#">2022.00.00-2022.00.00</a></li>
-           		</ul>
-           		</div>
+           		<div id="exhibitionBox3" class="exhibitionBox">
+           		<div id="exhibitionImg1" class="exhibitionImg">
+           		 <ul>
+           		 	<li>
+           		 		<img src="<c:url value='/image/banner.jpg'/>">
+           		 	</li>
+           		 </ul>
+           		 </div><!-- exhibitionImg -->
+           		 <div class= "exhibitionText">
+           		 	<ul>
+	           			<li class="exName"><a href="#">전시회명1</a></li>
+	           			<li class="exPeriod"><a href="#">2022.00.00-2022.00.00</a></li>
+           		 	</ul>
+           		 </div><!-- exhibitionText -->
+           		 </div> <!-- exhibitionBox -->
 
-           		<div id="exhibition2Img2" class="exhibition2Img">
-           		<ul>
-           			<li><img src="<c:url value='/image/banner.jpg'/>"></li>
-           			<li><a href="#">전시회명2</a></li>
-           			<li><a href="#">2022.00.00-2022.00.00</a></li>
-           		</ul>
-           		</div>
+           		<div id="exhibitionBox" class="exhibitionBox">
+           		<div id="exhibitionImg1" class="exhibitionImg">
+           		 <ul>
+           		 	<li>
+           		 		<img src="<c:url value='/image/banner.jpg'/>">
+           		 	</li>
+           		 </ul>
+           		 </div><!-- exhibitionImg -->
+           		 <div class= "exhibitionText">
+           		 	<ul>
+	           			<li class="exName"><a href="#">전시회명1</a></li>
+	           			<li class="exPeriod"><a href="#">2022.00.00-2022.00.00</a></li>
+           		 	</ul>
+           		 </div><!-- exhibitionText -->
+           		 </div> <!-- exhibitionBox -->
 
-           		<div id="exhibition2Img3" class="exhibition2Img">
-           		<ul>
-           			<li><img src="<c:url value='/image/banner.jpg'/>"></li>
-           			<li><a href="#">전시회명3</a></li>
-           			<li><a href="#">2022.00.00-2022.00.00</a></li>
-           		</ul>
-           		</div>
-
-           		<div id="exhibition2Img4" class="exhibition2Img">
-           		<ul>
-           			<li><img src="<c:url value='/image/banner.jpg'/>"></li>
-           			<li><a href="#">전시회명4</a></li>
-           			<li><a href="#">2022.00.00-2022.00.00</a></li>
-           		</ul>
-
-           		</div>
-           	</div><!-- exhibition -->
+           	</div><!-- exhibition2 -->
+           	</div><!-- exhibitionAll -->
 
            	<div id="recommended">
            		<div id="recommended1" >
@@ -201,7 +269,7 @@
            		<div id="recommended2">
 	           		<ul>
 						<li>
-						<img src="<c:url value='/image/recommended2.jpg'/>">
+							<img src="<c:url value='/image/recommended2.jpg'/>">
 						</li>
 	           		</ul>
 	           		<div id="description2" class="description">

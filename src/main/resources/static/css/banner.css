@@ -3,6 +3,8 @@
 
 /*banner*/
 
+
+
 .bannerText{
 	display: flex;
  	justify-content: center;
@@ -11,47 +13,50 @@
 
 /*bannerText1*/
 
-#bannerText1{
-	width : 300px;
-	position : absolute;
-	top : 380px;
-	left: 800px;
-}
-
 
 #bannerText1 > ul > li {
 	text-align : center;
 	list-style: none;
 	font-size : 12px;
 	color : #fff;
+	position : absolute;
+	top : 12.2%;
+	left: 0%;
+	width : 100%;
 }
 
 /*bannerText2*/
 
-#bannerText2{
-	width : 400px;
+/* #bannerText2{
 	position : absolute;
-	top : 420px;
-	left: 750px;
+	top : 14%;
+	left: 42.5%;
 }
-
+ */
 #bannerText2 > ul > li {
 	text-align : center;
 	list-style: none;
 	font-size : 40px;
 	color : #fff;
 	font-weight : bold;
+	position : absolute;
+	top : 14%;
+	left : 0%;
+	width : 100%;
 }
 
 /*bannerText3*/
 
 #bannerText3{
-	width : 200px;
-	height: 40px;
+	width : 100%;
+	height : 1.5%;
 	position : absolute;
-	top : 500px;
-	left: 848px;
-	border : solid 0.1px rgba(255,255,255,0.7);
+	top : 16.5%;
+	left: 0%;
+}
+
+#bannerText3 > ul{
+	width : 200px;
 }
 
 #bannerText3 > ul > li {
@@ -63,6 +68,10 @@
 	color : #fff;
 	text-decoration : none;
 	font-weight : bold;
+	border : solid 0.1px rgba(255,255,255,0.7);
+	line-height: 45px;
+	width : 100%;
+	
 }
 
 #bannerText3 > ul > li > a {
@@ -71,17 +80,12 @@
 	font-weight : bold;
 }
 
-/* #bannerText3 > ul > li > a:hover {
-	color : black;
-	background-color:#fff;
-} */
 
-#bannerText3:hover{
+#bannerText3 > ul > li:hover {
 	color : black;
 	background-color:#fff;
 } 
 
-#bannerText3:hover a {
+#bannerText3 > ul > li:hover a {
 	color : black;
-	background-color:#fff;
 }

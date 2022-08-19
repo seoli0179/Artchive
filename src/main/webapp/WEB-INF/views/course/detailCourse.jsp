@@ -20,9 +20,9 @@
 		<c:import url="/WEB-INF/views/layout/top.jsp" />
 		
 		<div class="wrapper">
-		<div id="couseHeader" class="couseHeaderImg" style="background-image : url('https://cdn.imweb.me/thumbnail/20220405/fb85ea780e919.jpeg');">
+		<div id="courseHeader" class="courseHeaderImg">
 				
-				<div id="headerTextBox">
+				<div id="headerTextBox" style="background-image : url('https://cdn.imweb.me/thumbnail/20220405/fb85ea780e919.jpeg');">
 				<div id="headerText1" class="headerText">
 	           		<ul>
 						<li>{전시회 이름}</li>
@@ -41,7 +41,7 @@
            		</div><!-- headerTextBox -->
            		</div><!-- courseHeader -->
            		
-           		<div id="CouseMenu">
+           		<div id="CourseMenu">
            		
            		<div id="courseMainText">
            		
@@ -150,19 +150,27 @@
 				
 				<div id = "recommendCourse">
 				 <div class="courseAdd">
-				 	<input type="button" class="white-btn" id="courseAddBtn1" value="장소 추가">
+				 	<div class="courseAddBtn">
+				 		<input type="button" class="white-btn" id="courseAddBtn1" value="장소 추가">
+				 	</div>
 				 </div>
 				 
-				 <div class="courseAdd">
-				 	<input type="button" class="white-btn" id="courseAddBtn2" value="장소 추가">
+				  <div class="courseAdd">
+				 	<div class="courseAddBtn">
+				 		<input type="button" class="white-btn" id="courseAddBtn1" value="장소 추가">
+				 	</div>
 				 </div>
 				 
-				 <div class="courseAdd">
-				 	<input type="button" class="white-btn" id="courseAddBtn3" value="장소 추가">
+				  <div class="courseAdd">
+				 	<div class="courseAddBtn">
+				 		<input type="button" class="white-btn" id="courseAddBtn1" value="장소 추가">
+				 	</div>
 				 </div>
 				 
-				 <div class="courseAdd">
-				 	<input type="button" class="white-btn" id="courseAddBtn4" value="장소 추가">
+				  <div class="courseAdd">
+				 	<div class="courseAddBtn">
+				 		<input type="button" class="white-btn" id="courseAddBtn1" value="장소 추가">
+				 	</div>
 				 </div>
 				</div><!-- recommendCourse -->
            		
