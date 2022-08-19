@@ -1,24 +1,61 @@
 package com.spring_boot_final.project.controller.note;
 
+import com.spring_boot_final.project.model.NoteVO;
+import com.spring_boot_final.project.service.NoteService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 
 @Controller
 public class NoteViewController {
 
+    @Autowired
+    NoteService service;
+
     @RequestMapping("/note/list")
-    public String list(){
+    public String list(Model model) {
+
+        ArrayList<NoteVO> vo = service.selectNoteList();
+
+        for (int i = 0; i < vo.size(); i++) {
+            String tagRemove = vo.get(i).getNote().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
+            vo.get(i).setNote(tagRemove.substring(0, (tagRemove.length() < 120 ? tagRemove.length() : 120)));
+        }
+
+        model.addAttribute("list", vo);
         return "note/list";
     }
 
-    @RequestMapping("/note/detail")
-    public String detail(){
+    @RequestMapping("/note/detail/{noteId}")
+    public String detail(
+            @PathVariable int noteId,
+            Model model
+            ) {
+
+        model.addAttribute("note",service.selectNote(noteId));
+
         return "note/detail";
     }
 
     @RequestMapping("/note/write")
-    public String write(){
+    public String write() {
         return "note/write";
+    }
+
+    @RequestMapping("/note/update/{noteId}")
+    public String update(
+            @PathVariable int noteId,
+            Model model
+    ) {
+
+        model.addAttribute("note",service.selectNote(noteId));
+
+        return "note/update";
     }
 
 }

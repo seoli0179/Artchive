@@ -18,17 +18,18 @@ $(document).ready(function () {
         window.history.back();
     });
 
-    $('#write').on('click', function () {
+    $('#update').on('click', function () {
         $.ajax({
             type: "POST",
-            url: "/note/createNote",
+            url: "/note/updateNote",
             data: {
                 "title": $('#title').val(),
                 "category": $('#category option:selected').val(),
+                "noteId":$('#noteId').val(),
                 "note": $('#summernote').summernote('code')
             },
             success: function (data) {
-                alert("작성 완료!");
+                alert("수정 완료!");
                 location.href = "/note/list";
             },
             error: function () {

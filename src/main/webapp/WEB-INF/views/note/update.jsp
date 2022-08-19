@@ -12,28 +12,29 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>">
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
-    <link rel="stylesheet" type="text/css" href="<c:url value='/css/note/write.css'/>">
+    <link rel="stylesheet" type="text/css" href="<c:url value='/css/note/update.css'/>">
     <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
-    <script src="<c:url value='/js/note/write.js'/>"></script>
+    <script src="<c:url value='/js/note/update.js'/>"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script src="https://kit.fontawesome.com/8ab5776cfb.js" crossorigin="anonymous"></script>
-    <title>arTchive / SpringBoot에서 비동기 Multi-thread 개발</title>
+    <title>arTchive /${note.noteTitle}</title>
 </head>
 <body>
 <c:import url="/WEB-INF/views/layout/top.jsp"></c:import>
 <div class="wrapper">
+    <input type="hidden" id="noteId" value="${note.noteId}">
     <div class="filter_box">
         <div class="back">
             <i id="back" class="fa-solid fa-arrow-left fa-2xl"></i>
         </div>
     </div>
     <div class="title">
-        <h1>글쓰기</h1>
+        <h1>글 수정</h1>
     </div>
     <div class="write-box">
         <div class="title">
-            <input type="text" id="title" placeholder="제목 입력">
+            <input type="text" id="title" value="${note.noteTitle}" placeholder="제목 입력">
         </div>
         <div class="category">
             <select name="category" id="category">
@@ -42,10 +43,13 @@
             </select>
         </div>
         <div class="summernote-box">
-            <div id="summernote"></div>
+            <div id="summernote">${note.note}</div>
         </div>
         <div class="btn-area">
-            <input type="button" id="write" value="등록">
+            <input type="button" id="update" value="수정">
+        </div>
+        <div class="btn-area">
+            <input type="button" id="delete" value="삭제">
         </div>
     </div>
 </div>
