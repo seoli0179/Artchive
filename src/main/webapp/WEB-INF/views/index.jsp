@@ -25,7 +25,7 @@
 		<div id="wrap">
 	
 		<header>
-			<div id="mainMenu">
+			<div id="mainMenu"> 
     
        		<div id="logoBox"><a class="color" href="<c:url value='/'/>">arTchive</a></div><!-- ✚ -->
         	
