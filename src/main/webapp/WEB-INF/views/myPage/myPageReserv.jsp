@@ -43,8 +43,7 @@
 					
 					<a class="explain"><span>Name</span>님의 지난 일주일간의 티켓 예매내역입니다.</a>
 					<div class="reservConfirmBox">
-						<a>조회기간 선택 | </a>
-						<a>기간별 | </a>
+						<a>조회 기간 선택 | </a>
 						<div class="periodSearch">
 							<a href="<c:url value=''/>">7일</a>
 							<a href="<c:url value=''/>">15일</a>
@@ -53,8 +52,8 @@
 							<a href="<c:url value=''/>">3개월</a>
 						</div> <!-- "periodSearch" -->
 						
-						<div class="">
-							<a>주문일자별 |</a>
+						<a>주문 일자 |</a>
+						<div class="orderDateBox">
 							<select id="컬럼명" name="컬럼명" class="form-control">
 							  <option value="">년</option>
 							  <c:forEach var="i" begin="2020" end="2030">
@@ -76,7 +75,7 @@
 							  </c:forEach>
 							</select>
 							<input type="submit" value="검색">							
-						</div> <!--  -->
+						</div> <!-- orderDateBox -->
 					</div> <!-- reservConfirmBox -->
 				
 				<div class="tableBox">
