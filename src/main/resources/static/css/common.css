@@ -15,27 +15,7 @@ body {
     overflow: hidden;
     background: #fff;
     color:black;
-    /*font-size: 1rem;*/
     overflow-y:scroll;
-}
-
-p {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-size: 1rem;
-    line-height: 30px;
-	text-align: left;
-	font-style: normal;
-	font-weight: normal;
-}
-
-a {
-	color: #000;
-    text-decoration:underline dotted 1px;
-    text-decoration-color:#1A2EA7;
 }
 
 .h1 {
