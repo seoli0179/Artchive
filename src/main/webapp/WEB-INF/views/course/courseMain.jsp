@@ -20,7 +20,7 @@
 
         <main id="course-container">
             <div class="course-box main-title-box">
-                <h1 class="h1">전시 관람 준비</h1>
+                <h1 class="h1">Plan</h1>
                 <span>오늘 더 멋지게 예술을 즐겨요!</span>
             </div>
             <div class="course-box guide-box">
