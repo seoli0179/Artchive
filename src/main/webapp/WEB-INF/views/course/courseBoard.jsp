@@ -25,7 +25,7 @@
 
             <main id="course-container">
                 <div class="course-box main-title-box">
-                    <h1 class="h1">관람 코스 모아보기</h1>
+                    <h1 class="h1">Courses</h1>
                     <span>다른 사람들이 기획한 관람 코스들을 모아봅니다.</span>
                 </div>
                 <!-- area -->
@@ -68,7 +68,7 @@
                 <!-- .searchAreaBox -->
                 <!-- borad-gallery -->
                 <div class="course-box board-gallery-view">
-                    <div class="post-container">
+                    <div class="post-container" style="cursor: pointer;" onclick="location.href='/course/detailCourse';">
                         <div class="post-img-box">
 
                         </div>
@@ -83,7 +83,36 @@
                         </div>
                         <div class="post-footer-box">
                             <div class="post-writer-box">
-                                <span>{작성자 닉네임}</span>
+                                by&nbsp;<span class="userName">작성자명${note.userNickname}</span>
+                            </div>
+                            <div class="post-react-box">
+                                <div class="post-view-box">
+                                    <i class="fa-solid fa-heart" style="color:black;"></i>
+                                    <span>48</span>
+                                </div>
+                                <div class="post-like-box">
+                                    <i class="fa-solid fa-message" style="color:black;"></i>
+                                    <span>1234</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-container"  style="cursor: pointer;" onclick="location.href='/course/detailCourse';">
+                        <div class="post-img-box">
+
+                        </div>
+                        <div class="post-title-box">
+                            <h3>혼자 사색하며 즐기기 좋은 전시</h3>
+                        </div>
+                        <div class="post-content-box">
+                            간단한 메모사항 뚜루루루루루ㅜㅁ 만약 적지 않은 경우, {전시회명}+{식당 등이 나옴} 양이 너무 많을 경우 점점으로 표시 ..
+                        </div>
+                        <div class="post-tag-box">
+
+                        </div>
+                        <div class="post-footer-box">
+                            <div class="post-writer-box">
+                                by&nbsp;<span class="userName">작성자명${note.userNickname}</span>
                             </div>
                             <div class="post-react-box">
                                 <div class="post-view-box">
@@ -112,7 +141,7 @@
                         </div>
                         <div class="post-footer-box">
                             <div class="post-writer-box">
-                                <span>{작성자 닉네임}</span>
+                                by&nbsp;<span class="userName">작성자명${note.userNickname}</span>
                             </div>
                             <div class="post-react-box">
                                 <div class="post-view-box">
@@ -141,7 +170,7 @@
                         </div>
                         <div class="post-footer-box">
                             <div class="post-writer-box">
-                                <span>{작성자 닉네임}</span>
+                                by&nbsp;<span class="userName">작성자명${note.userNickname}</span>
                             </div>
                             <div class="post-react-box">
                                 <div class="post-view-box">
@@ -170,7 +199,7 @@
                         </div>
                         <div class="post-footer-box">
                             <div class="post-writer-box">
-                                <span>{작성자 닉네임}</span>
+                                by&nbsp;<span class="userName">작성자명${note.userNickname}</span>
                             </div>
                             <div class="post-react-box">
                                 <div class="post-view-box">
@@ -199,36 +228,7 @@
                         </div>
                         <div class="post-footer-box">
                             <div class="post-writer-box">
-                                <span>{작성자 닉네임}</span>
-                            </div>
-                            <div class="post-react-box">
-                                <div class="post-view-box">
-                                    <i class="fa-solid fa-heart" style="color:red;"></i>
-                                    <span>48</span>
-                                </div>
-                                <div class="post-like-box">
-                                    <i class="fa-solid fa-message" style="color:black;"></i>
-                                    <span>1234</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post-container">
-                        <div class="post-img-box">
-
-                        </div>
-                        <div class="post-title-box">
-                            <h3>혼자 사색하며 즐기기 좋은 전시</h3>
-                        </div>
-                        <div class="post-content-box">
-                            간단한 메모사항 뚜루루루루루ㅜㅁ 만약 적지 않은 경우, {전시회명}+{식당 등이 나옴} 양이 너무 많을 경우 점점으로 표시 ..
-                        </div>
-                        <div class="post-tag-box">
-
-                        </div>
-                        <div class="post-footer-box">
-                            <div class="post-writer-box">
-                                <span>{작성자 닉네임}</span>
+                                by&nbsp;<span class="userName">작성자명${note.userNickname}</span>
                             </div>
                             <div class="post-react-box">
                                 <div class="post-view-box">

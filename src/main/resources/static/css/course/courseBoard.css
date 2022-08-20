@@ -78,8 +78,9 @@
 }
 .post-container {
     margin: 25px 0;
-    border: 2px black solid;
     width: 29%;
+    border-top: 2px black solid;
+    border-bottom: 2px black solid;
     height: 400px;
 }
 
