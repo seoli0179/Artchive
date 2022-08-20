@@ -21,11 +21,11 @@
         	<div id="headerBox">
         		<nav>
         				<ul>
-        					<li><a href="<c:url value='/exhbn/list'/>">전시검색</a></li>
-        					<li><a href="#">menu2</a></li>
-        					<li><a href="<c:url value='/course'/>">전시코스</a></li>
-        					<li><a href="<c:url value="/note/list"/> ">게시판</a></li>
-        					<li><a href="#">menu5</a></li>
+        					<li><a href="<c:url value='/exhbn/list'/>">Search</a></li>
+        					<li><a href="<c:url value='/course'/>">Plan</a></li>
+        					<li><a href="<c:url value='/course/board'/>">Courses</a></li>
+        					<li><a href="<c:url value="/note/list"/> ">Community</a></li>
+        					<li><a href="<c:url value="/note/list"/> ">Event</a></li>
         				</ul>		
         		</nav>
         	</div> <!-- headerBox -->
