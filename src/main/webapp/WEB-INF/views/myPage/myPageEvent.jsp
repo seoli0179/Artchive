@@ -44,9 +44,8 @@
 					
 					<div class="area">
 						<a href="<c:url value=''/>">전체</a>
-						<a href="<c:url value=''/>">서울</a>
-						<a href="<c:url value=''/>">경기</a>
-						<a href="<c:url value=''/>">청주</a>
+						<a href="<c:url value=''/>">진행중</a>
+						<a href="<c:url value=''/>">진행완료</a>
 					</div>
 					
 					<div class="wholeExpbnBox">

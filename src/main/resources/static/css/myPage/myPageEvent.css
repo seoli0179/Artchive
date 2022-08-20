@@ -119,6 +119,15 @@ section nav {
 	object-fit:cover;
 }
 
+.courseBox {
+	margin-left:4%;
+}
+
+.courseBox:first-child {
+	margin-left:0;	
+}
+
+
 .courseBox a {
 	margin-top:2%;
 	display:flex;
@@ -170,6 +179,7 @@ section nav {
 	display:flex;
 	justify-content:space-between;
 	margin-bottom:3%;
+	
 }
 
 .contents {
