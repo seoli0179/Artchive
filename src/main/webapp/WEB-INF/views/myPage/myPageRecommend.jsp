@@ -7,8 +7,8 @@
 	<head>
 	<meta charset="UTF-8">
 		<title>arTchive / 마이페이지 - 추천 콘텐츠 </title>
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/reset.css'/>"/>
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPageRecommend.css'/>"/>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/myPageRecommend.css'/>"/>
 		
 		<script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
 	</head>
@@ -20,13 +20,12 @@
 			<nav>
 				<ul class="tabMenu">
 					<li><a>마이페이지</a></li>
-					<li><a href="<c:url value='/subPage/myPage'/>">홈</a></li>
-					<li><a href="<c:url value='/subPage/myPageCheck'/>">개인정보 수정</a></li>
-					<li><a href="<c:url value='/subPage/myPageRecommend'/>">추천 콘텐츠</a></li>
-					<li><a href="<c:url value='/subPage/myPageLike'/>">스크랩 / 좋아요</a></li>
-					<li><a href="<c:url value='/subPage/myPageCourse'/>">내 전시</a></li>
-					<li><a href="<c:url value='/subPage/myPageActive'/>">활동 내역</a></li>
-					<li><a href="<c:url value='/subPage/myPageReserv'/>">예매 내역</a></li>
+					<li><a href="<c:url value='/myPage/myPageHome'/>">홈</a></li>
+					<li><a href="<c:url value='/myPage/myPageCheck'/>">개인정보 수정</a></li>
+					<li><a href="<c:url value='/myPage/myPageRecommend'/>">추천 콘텐츠</a></li>
+					<li><a href="<c:url value='/myPage/myPageScrap'/>">내 전시</a></li>
+					<li><a href="<c:url value='/myPage/myPageActive'/>">활동 내역</a></li>
+					<li><a href="<c:url value='/myPage/myPageReserv'/>">예매 내역</a></li>
 				</ul>
 			</nav>	
 			
@@ -34,13 +33,13 @@
 				<div class="myExhbn">
 					<div class="contentsBox">
 						<div class="contents"><h2>추천 콘텐츠</h2></div>
-						<div class="setting"><a href="<c:url value=''/>">설정</a></div>
+						<div class="setting"><a href="<c:url value='/myPage/myPageCustomized'/>">설정</a></div>
 					</div> <!-- contentsBox -->
 					<p class="line">
 					
 					<div class="titleBox">
-						<a href="<c:url value='/subPage/myPage'/>">전시</a>
-						<a href="<c:url value='/subPage/myPageLike'/>">이벤트</a>
+						<a href="<c:url value='/myPage/myPageRecommend'/>">전시</a>
+						<a href="<c:url value='/myPage/myPageEvent'/>">이벤트</a>
 					</div><!-- titleBox -->
 					
 					<div class="area">
