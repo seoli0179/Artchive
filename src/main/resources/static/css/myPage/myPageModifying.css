@@ -9,7 +9,7 @@
 	/*  푸터 하단 고정 */
 	height:auto;
 	min-height: 100%;
-	padding-bottom: 25%;
+	padding-bottom: 20%;
 }
 
 section {
@@ -92,18 +92,6 @@ section nav {
 	border:1px solid #000;
 }
 
-.myExhbn {
-	margin:5% 0;
-	width:100%;
-}
-
-/* 본인 확인 */
-.myExhbn h2 {
-	font-weight:bold;
-	font-size:28px;
-	margin-bottom:3%;
-}
-
 
 /* 테이블 */
 .tableBox {
@@ -133,21 +121,50 @@ table th {
 	width:100%;
 }
 
+table th:first-child {
+	padding-top:50%;
+}
+
+
+table th:nth-child(4) {
+	padding-top:25%;
+}
+
+table th:last-child {
+	padding-top:35%;
+	padding-bottom:40%;
+}
+
+
+table th, td {
+	display:block;
+}
+
 
 table td {
 	display:flex;
 	text-align:center;
 	width:100%;
-	padding:3% 15% 1% 15%;
-	margin-left:10%;
+	margin-left:30%;
+	padding:2% 0 3%;
 }
 
-table th, td {
-	display:block;
-	items-align:center;
-	vertical-align:middle;
-	text-align:center;
+table td:first-child  {
+	padding-top:8.5%;
 }
+
+table td:nth-child(3) {
+	padding:3% 0 2%;
+}
+
+table td:nth-child(4) {
+	margin-top:2%;
+}
+
+table td:last-child {
+	padding-top:2%;
+}
+
 
 .pwMentBox input[type="password"] {
 	display:flex;
@@ -174,25 +191,12 @@ tbody>tr>td>input[type="text"], tbody>tr>td>input[type="password"] {
 }
 
 
-/* select 박스 초기화 */
-select {
-  -moz-appearance: none;
-	-webkit-appearance: none;
-	appearance: none;
+.buttonBox {
+	margin:0 auto;
+	text-align:center;
 }
 
-select {
-  width:80%;
-  font-size: 15px;
-  background-color: #fff;
-  border: 1px solid #aaa;
-  border-radius: 1px;
-  padding:1% 0% 1% 2%;
-  margin-bottom:1%;
-}
-
-
-input[type="reset"], input[type="submit"] {
+.submitBtn, .resetBtn {
 	width:200px;
 	border:none;
 	color:#fff;
@@ -205,12 +209,18 @@ input[type="reset"], input[type="submit"] {
 	margin:3% 0;
 }
 
-input[type="reset"] {
+.resetBtn {
 	background:red;
 	margin:5% 0 0 3%;
 }
 
-.buttonBox {
-	margin:0 auto;
-	text-align:center;
+.nameInput, .emailInput {
+	background:#ececec;
+	border:0.5px solid #000;
+	
+}
+
+.pwInput {
+	background:#e8f0fe;
+	border:0.5px solid #000;
 }

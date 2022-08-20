@@ -24,7 +24,7 @@
         					<li><a href="<c:url value='/exhbn/list'/>">전시검색</a></li>
         					<li><a href="#">menu2</a></li>
         					<li><a href="<c:url value='/course'/>">전시코스</a></li>
-        					<li><a href="#">menu4</a></li>
+        					<li><a href="<c:url value="/note/list"/> ">게시판</a></li>
         					<li><a href="#">menu5</a></li>
         				</ul>		
         		</nav>
@@ -42,7 +42,7 @@
 				<c:if test="${not empty sessionScope.sid }">
 					<ul>
 						<li><a href="#"><img src="<c:url value='/image/searchBlack.png'/>" id="searchImg"></a></li>
-						<li><a href="<c:url value="/subPage/myPage"/>">${sessionScope.username}</a></li>
+						<li><a href="<c:url value="/myPage/myPageHome"/>">${sessionScope.username}</a></li>
 						<li><a href="<c:url value="/logout2"/>">LOGOUT</a></li>
 					</ul>
 				</c:if>

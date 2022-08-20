@@ -6,9 +6,9 @@
 <html>
 	<head>
 	<meta charset="UTF-8">
-		<title>arTchive / 마이페이지 - 활동 내역 댓글</title>
+		<title>arTchive / 마이페이지 스크랩</title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/myPageComment.css'/>"/>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/myPageScrap.css'/>"/>
 		
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 	</head>
@@ -30,13 +30,13 @@
 			</nav>	
 			
 			<div class="myPageBox">
-				<h2>활동 내역</h2>
-				<p class="line">
-					
 				<div class="myExhbn">
+					<h2>내 전시</h2>
+					<p class="line">
 					<div class="titleBox">
-						<a href="<c:url value='/myPage/myPageActive'/>">게시글</a>
-						<a href="<c:url value='/myPage/myPageComment'/>">댓글</a>
+						<a href="<c:url value='/myPage/myPageScrap'/>">스크랩</a>
+						<a href="<c:url value='/myPage/myPageLike'/>">좋아요</a>
+						<a href="<c:url value='/myPage/myPageCourse'/>">코스</a>
 					</div><!-- titleBox -->
 				
 				<div class="tableBox">
@@ -52,7 +52,10 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td colspan="4">작성한 댓글 내역이 없습니다.</td>
+								<td>전시</td>
+								<td>히토 슈타이얼 - 데이터의 바다</td>
+								<td>2022.01.03</td>
+								<td><button>삭제</button></td>
 							</tr>
 						</tbody>
 					</table>
