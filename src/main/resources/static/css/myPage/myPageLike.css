@@ -9,7 +9,7 @@
 	/*  푸터 하단 고정 */
 	height:auto;
 	min-height: 100%;
-	padding-bottom: 20%;
+	padding-bottom: 25%;
 }
 
 section {
@@ -47,7 +47,7 @@ section nav {
 	opacity: 1;
 }
 
-.tabMenu li:nth-child(2) a, .tabMenu li a:hover {
+.tabMenu li:nth-child(5) a, .tabMenu li a:hover {
 	color:#000;
 	font-weight:bold;
 }
@@ -118,6 +118,9 @@ a.ModifyInfo {
 	font-size:28px;
 	margin-bottom:3%;
 	
+}
+.titleBox {
+	margin-top:3%;
 }
 
 /* 스크랩, 좋아요, 코스 */
