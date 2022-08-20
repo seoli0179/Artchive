@@ -28,7 +28,8 @@
                u.userNickname
         from note n,
              user u
-        where n.noteId = #{noteId};
+        where n.noteId = #{noteId}
+          and n.userId = u.userId;
         ]]>
     </select>
 
