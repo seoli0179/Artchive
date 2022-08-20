@@ -9,7 +9,7 @@
 	/*  푸터 하단 고정 */
 	height:auto;
 	min-height: 100%;
-	padding-bottom: 25%;
+	padding-bottom: 20%;
 }
 
 section {
@@ -24,7 +24,6 @@ section nav {
 	margin-right:10%;
 	width:30%;
 }
-
 
 
 .tabMenu {
