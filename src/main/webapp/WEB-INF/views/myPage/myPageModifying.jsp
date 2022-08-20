@@ -7,10 +7,10 @@
 	<head>
 	<meta charset="UTF-8">
 		<title>arTchive / 마이페이지 - 개인정보 수정(기본 정보)</title>
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/reset.css'/>"/>
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPageModifying.css'/>"/>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/myPageModifying.css'/>"/>
 		
-		<script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
+		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 	</head>
 	<body>
 		<div class="wrapper">
@@ -20,23 +20,21 @@
 			<nav>
 				<ul class="tabMenu">
 					<li><a>마이페이지</a></li>
-					<li><a href="<c:url value='/subPage/myPage'/>">홈</a></li>
-					<li><a href="<c:url value='/subPage/myPageCheck'/>">개인정보 수정</a></li>
-					<li><a href="<c:url value='/subPage/myPageRecommend'/>">추천 콘텐츠</a></li>
-					<li><a href="<c:url value='/subPage/myPageLike'/>">스크랩 / 좋아요</a></li>
-					<li><a href="<c:url value='/subPage/myPageCourse'/>">내 전시</a></li>
-					<li><a href="<c:url value='/subPage/myPageActive'/>">활동 내역</a></li>
-					<li><a href="<c:url value='/subPage/myPageReserv'/>">예매 내역</a></li>
+					<li><a href="<c:url value='/myPage/myPageHome'/>">홈</a></li>
+					<li><a href="<c:url value='/myPage/myPageCheck'/>">개인정보 수정</a></li>
+					<li><a href="<c:url value='/myPage/myPageRecommend'/>">추천 콘텐츠</a></li>
+					<li><a href="<c:url value='/myPage/myPageScrap'/>">내 전시</a></li>
+					<li><a href="<c:url value='/myPage/myPageActive'/>">활동 내역</a></li>
+					<li><a href="<c:url value='/myPage/myPageReserv'/>">예매 내역</a></li>
 				</ul>
 			</nav>	
 			<div class="myPageBox">
 				<h2>개인정보 수정</h2>
 					<p class="line">
 				<div class="titleBox">
-						<a href="<c:url value='/subPage/myPageModifying'/>">기본 정보</a>
-						<a href="<c:url value='/subPage/myPageCustomized'/>">맞춤 정보</a>
+						<a href="<c:url value='/myPage/myPageModifying'/>">기본 정보</a>
+						<a href="<c:url value='/myPage/myPageCustomized'/>">맞춤 정보</a>
 				</div><!-- titleBox -->
-				<div class="myExhbn">
 				<form>
 				
 				<div class="tableBox">
@@ -53,26 +51,25 @@
 					
 						<tbody>
 							<tr>
-								<td><input type="text" placeholder="이름" readonly></td>
-								<td><input type="text" placeholder="email@address.com" readonly></td>
-								<td><input type="text" placeholder="닉네임 입력(6~20자)">
+								<td><input type="text" class="nameInput" placeholder="이름" readonly ></td>
+								<td><input type="text" class="emailInput" placeholder="email@address.com" readonly ></td>
+								<td><input type="text" class="nicknameInput" placeholder="닉네임 입력(6~20자)">
 								<td>
 									<div class="pwMentBox">
-										<input type="password" placeholder="비밀번호를 입력하세요.">
+										<input type="password" class="pwInput" placeholder="비밀번호를 입력하세요." >
 										<span>※ 8자~20자 이내의 영문자, 숫자, 특수문자를 혼용하여 입력해주세요.</span>
 									</div>
 								</td>
-								<td><input type="password" placeholder="비밀번호를 다시 한 번 입력하세요."></td>
+								<td><input type="password" class="pwConfirmInput" placeholder="비밀번호를 다시 한 번 입력하세요." ></td>
 							</tr>
 						</tbody>
 					</table>
 						<div class="buttonBox"> 
-							<input type="submit" value="저장">
-							<input type="reset" value="취소">
+							<input type="submit" class="submitBtn" value="저장">
+							<input type="reset" class="resetBtn" value="취소">
 						</div> <!-- buttonBox -->
 					</div><!--tableBox -->
 					</form>
-				</div> <!-- myExhbn -->
 			</div> <!-- myPageBox -->
 		</section>
 		 </div> <!-- wrapper -->

@@ -6,9 +6,9 @@
 <html>
 	<head>
 	<meta charset="UTF-8">
-		<title>arTchive / 마이페이지 - 추천 콘텐츠 </title>
+		<title>arTchive / 마이페이지 - 이벤트 </title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/myPageRecommend.css'/>"/>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/myPageEvent.css'/>"/>
 		
 		<script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
 	</head>
@@ -68,14 +68,6 @@
 							<a>2022-08-14</a> 	
 						</div> <!-- courseBox -->
 						
-						<div class="courseBox">
-							<div class="imageBox">
-								<img src="<c:url value='/image/banner.jpg'/>">
-							</div> <!-- imageBox -->
-							<a>서울</a>
-							<a>히토 슈타이얼 - 데이터의 바다</a>
-							<a>2022-08-14</a> 	
-						</div> <!-- courseBox -->
 					</div> <!-- wholeExpbnBox -->
 					
 				</div> <!-- myExhbn -->

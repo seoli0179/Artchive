@@ -7,10 +7,10 @@
 	<head>
 	<meta charset="UTF-8">
 		<title>arTchive / 마이페이지 - 코스 </title>
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/reset.css'/>"/>
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPageCourse.css'/>"/>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/myPageCourse.css'/>"/>
 		
-		<script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
+		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 	</head>
 	<body>
 		<div class="wrapper">
@@ -20,23 +20,23 @@
 			<nav>
 				<ul class="tabMenu">
 					<li><a>마이페이지</a></li>
-					<li><a href="<c:url value='/subPage/myPage'/>">홈</a></li>
-					<li><a href="<c:url value='/subPage/myPageCheck'/>">개인정보 수정</a></li>
-					<li><a href="<c:url value='/subPage/myPageRecommend'/>">추천 콘텐츠</a></li>
-					<li><a href="<c:url value='/subPage/myPageLike'/>">스크랩 / 좋아요</a></li>
-					<li><a href="<c:url value='/subPage/myPageCourse'/>">내 전시</a></li>
-					<li><a href="<c:url value='/subPage/myPageActive'/>">활동 내역</a></li>
-					<li><a href="<c:url value='/subPage/myPageReserv'/>">예매 내역</a></li>
+					<li><a href="<c:url value='/myPage/myPageHome'/>">홈</a></li>
+					<li><a href="<c:url value='/myPage/myPageCheck'/>">개인정보 수정</a></li>
+					<li><a href="<c:url value='/myPage/myPageRecommend'/>">추천 콘텐츠</a></li>
+					<li><a href="<c:url value='/myPage/myPageScrap'/>">내 전시</a></li>
+					<li><a href="<c:url value='/myPage/myPageActive'/>">활동 내역</a></li>
+					<li><a href="<c:url value='/myPage/myPageReserv'/>">예매 내역</a></li>
 				</ul>
 			</nav>	
 			
 			<div class="myPageBox">
 				<div class="myExhbn">
 					<h2>내 전시</h2>
+					<p class="line">
 					<div class="titleBox">
-						<a href="<c:url value='/subPage/myPage'/>">스크랩</a>
-						<a href="<c:url value='/subPage/myPageLike'/>">좋아요</a>
-						<a href="<c:url value='/subPage/myPageCourse'/>">코스</a>
+						<a href="<c:url value='/myPage/myPageScrap'/>">스크랩</a>
+						<a href="<c:url value='/myPage/myPageLike'/>">좋아요</a>
+						<a href="<c:url value='/myPage/myPageCourse'/>">코스</a>
 					</div><!-- titleBox -->
 				
 				<div class="tableBox">
