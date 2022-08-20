@@ -43,6 +43,7 @@
 }
 
 #searchTEXT{
+	width : 60%;
 	height: 42px;
 	/* min-width: 300px; */
 	padding: 4px 16px;
@@ -122,7 +123,7 @@
 /*ExhibitionBOX*/
 #ExhibitionBOX{
 	/* 	border : solid 2px blue; */
-	width : 30%;
+	width : 40%;
 	float:right;
 	text-align : center;
 	height : 85%;
@@ -160,7 +161,7 @@
 /*searchArea*/
 #searchArea{
 	/* border : solid 2px blue; */
-	width : 60%;
+	width : 59%;
 	float:left;
 	text-align : center;
 	height : 85%;

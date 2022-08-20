@@ -12,9 +12,10 @@
 }
 
 #searchMessage {
+	width : 50%;
 	height : 48px;
 	line-height : 70px;
-	margin-top : 10px;
+	margin-top : 0.5%;
 	margin-left : 27%;
 	padding-left: 1%;
 	border : none;

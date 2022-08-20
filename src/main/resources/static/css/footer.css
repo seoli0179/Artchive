@@ -28,7 +28,7 @@ footer #footerBoxRight nav > ul > li {
 footer #footerBox{line-height: 45px;}
 
 footer #footerBoxLeft{
-	width : 500px;
+	width : 50%;
 	margin-left : 50px;
 	float: left;
 	line-height : 50px;
@@ -36,7 +36,7 @@ footer #footerBoxLeft{
 
 footer #footerBoxRight{
 
-	width : 500px;
+	width : 30%;
 	margin-right : 50px;
 	float: right;
 	line-height : 50px;
