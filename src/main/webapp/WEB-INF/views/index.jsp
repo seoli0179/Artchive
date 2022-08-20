@@ -35,7 +35,7 @@
         					<li><a class="color" href="<c:url value='/exhbn/list'/>">전시검색</a></li>
         					<li><a class="color" href="<c:url value='/index2'/>">menu2</a></li>
         					<li><a class="color" href="<c:url value='/course'/>">전시코스</a></li>
-        					<li><a class="color" href="#">menu4</a></li>
+        					<li><a class="color" href="<c:url value="/note/list"/> ">게시판</a></li>
         					<li><a class="color" href="#">menu5</a></li>
         				</ul>		
         		</nav>
