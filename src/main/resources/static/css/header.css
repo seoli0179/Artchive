@@ -107,11 +107,13 @@ header #headerBox nav > ul > li > a {
 	line-height:70px;
 	min-width: 0px;
 	width : 80px;
+	text-align:center;
 }
 
 
 header #headerBox nav > ul {
 	text-align:center;
+	margin-left : 7.5%
 	}
 
 header #headerBox nav > ul > li {

@@ -2,223 +2,94 @@
 
 /* exhibition */
 
-#exhibition{
-	height: 600px;
-	background-color: #fff;
-	/* display: inline-block; */
-	border-bottom : solid 1px #eeeeee;
+#exhibitionAll{
+	height : 1200px;
 }
 
-#exhibition > div {
+#exhibition{
+	width : 100%;
+	height: 47%;
+	background-color: #fff;
 	display: inline-block;
 }
-
-#exhibition div > ul > li >img {
-	/* margin-top: 20px; */
-	width: 300px;
-	height: 300px;
-	text-align:center;
-}
-
-#exhibition div > ul > li {
-	margin-top: 13px;
-	font-weight : bold;
-}
-
-#exhibition > ul > li  {
-	position : relative;
-	left : 13%;
-	/* border : solid 2px black; */
-	list-style: none;
-	height: 140px;
-	line-height: 140px;
-	/* font-size : 18px; */
-	font-size: 1.3rem;
-	font-weight : bold;
-	width: 1440px;
-	color : #5E5E5E;
-	
-}
-
-
-#exhibition div > ul > li > img {
-	text-align:center;
-	text-decoration : none;
-	list-style: none;
-} 
-
-#exhibition div > ul > li {
-	text-align: left;
-	list-style: none;
-	}
-	
-#exhibition div > ul > li > a {
-	
-}
-
-/* #exhibition  ul > li {display: inline-block;} */
-
-
-.exhibitionImg {
-	text-align:center;
-	margin: auto;
-	/* border : solid 2px white; */
-	width : 300px;
-}
-
-#exhibitionImg1{
-	position : absolute;
-	left : 13%;
-}
-
-#exhibitionImg1 > div {
-	position : relative;
-	margin-left : 150px;
-}
-
-#exhibitionImg2{
-	position : absolute;
-	left : 33%;
-}
-
-#exhibitionImg3{
-	position : absolute;
-	left : 53%;
-}
-
-#exhibitionImg4{
-	position : absolute;
-	left : 73%;
-}
-
-.exhibitionImg > ul > li > a {
-	color : #666666;
-	text-decoration : none;
-	font-size : 14px;
-}
-
-/*** exhibition2 ***/
 
 #exhibition2{
-	height: 600px;
+	width : 100%;
+	height: 47%;
 	background-color: #fff;
-	/* display: inline-block; */
-}
-
-#exhibition2 > div {
 	display: inline-block;
 }
 
-#exhibition2 div > ul > li >img {
-	/* margin-top: 20px; */
-	width: 300px;
-	height: 300px;
-	text-align:center;
+.exhibitionBox{
+	height: 60%;
+	width : 15%;
+	display : inline-block;
+	margin-left :4%;
+	margin-top : 4%
 }
 
-#exhibition2 div > ul > li {
-	margin-top: 13px;
+#exhibitionBox1{
+	margin-left : 13%;
+}
+
+.exhibitionImg {
+	height : 80%;
+	width : 100%;
+	background-color : #eeeeee;
+}
+
+.exhibitionImg > ul > li > img{
+	height : 270px;
+	width : 100%;
+}
+
+
+
+.exMaintext {
+	margin-left : 13%;
+	margin-top : 4%;
+	float : left;
+	width : 73%;
+}
+
+.exMaintext > ul >  li  {
+	width : 30%;
+}
+
+.exhibitionText {
+	margin-top : 4%;
+}
+
+.exhibitionText > ul > li{
+	margin-top : 2%;
+}
+
+.MainText{
+	float : left;
+	font-size : 24px;
 	font-weight : bold;
 }
 
-#exhibition2 > ul > li  {
-	position : relative;
-	left : 13%;
-	/* border : solid 2px black; */
-	list-style: none;
-	height: 140px;
-	line-height: 140px;
-	/* font-size : 18px; */
-	font-size: 1.3rem;
+.exName > a{
+	font-size : 18px;
 	font-weight : bold;
-	width: 1000px;
-	color : #5E5E5E;
-
 }
 
-
-#exhibition2 div > ul > li > img {
-	text-align:center;
-	text-decoration : none;
-	list-style: none;
-} 
-
-#exhibition2 div > ul > li {
-	text-align: left;
-	list-style: none;
-	}
-	
-#exhibition2 div > ul > li > a {
-	
-}
-
-/* #exhibition  ul > li {display: inline-block;} */
-
-
-.exhibition2Img {
-	text-align:center;
-	margin: auto;
-	/* border : solid 2px white; */
-	width : 300px;
-}
-
-#exhibition2Img1{
-	position : absolute;
-	left : 13%;
-}
-
-#exhibition2Img1 > div {
-	position : relative;
-	margin-left : 150px;
-}
-
-#exhibition2Img2{
-	position : absolute;
-	left : 33%;
-}
-
-#exhibition2Img3{
-	position : absolute;
-	left : 53%;
-}
-
-#exhibition2Img4{
-	position : absolute;
-	left : 73%;
-}
-
-.exhibition2Img > ul > li > a {
-	color : #666666;
-	text-decoration : none;
-	font-size : 14px;
+.exPeriod > a{
+	font-size : 16px;
+	font-weight : bold;
+	color : #949494;
 }
 
 /** exhibitionMore **/
 
-#exhibitionMore{
-	text-decoration : none;
-	position : absolute;
-	top: 32.3%;
-	right : 11.5%;
-	color : #666666;
-	font-size : 16px;
-	
+.exhibitionMore {
+	float : right;
+	text-align : right;
+	font-size : 18px;
+	font-weight : bold;
+	margin-top : 0.2%
 }
 
-#exhibitionMore ul > li > a{
-	text-decoration : none;
-	font-size : 14px;
-	color : #666666;
-}
+.exhibitionMore > a{color : #949494; height : 100%;}
 
-#exhibitionMore2{
-	position : absolute;
-	top: 51.6%;
-	right : 11.5%;
-}
-
-#exhibitionMore2 ul > li > a {
-	text-decoration : none;
-	font-size : 14px;
-	color : #666666;
-}

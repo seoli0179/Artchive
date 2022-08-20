@@ -93,13 +93,16 @@
 	position : absolute;
 	position: fixed;
 	right : 15px;
-	top : 37%;
+	/* top : 37%; */
+	bottom : 5%; 
 	width : 310px;
-	height : 527px;
+	height : 500px;
 	box-shadow: 0 2px 3px 3px rgba(0, 0, 0, 0.1);
 	/* offset-x | offset-y | blur-radius | spread-radius | color */
 	background-color : #fff;
 	border-radius: 12px;
+	z-index : 500;
+	padding-bottom : 25px;
 }
 
 #chatBox {
@@ -110,15 +113,14 @@
 	background:#ebebeb;
 }
 
-/* chatbot 이미지 */
-#chatImage img{
-	position : absolute;
-	position: fixed;
-	right : 30px;
-	top : 830px;
-	width : 80px;
-	height : 80px;
-	filter: drop-shadow(2px 3px 3px rgba(0, 0, 0, 0.1)); /* 이미지에 그림자 효과 */
+#chatImage img {
+    position: absolute;
+    position: fixed;
+    right: 2%;
+    top: 84%;
+    width: auto;
+    height: 10%;
+    filter: drop-shadow(2px 3px 3px rgba(0, 0, 0, 0.1));
 }
 
 input:focus {
