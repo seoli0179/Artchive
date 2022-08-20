@@ -6,7 +6,7 @@
     <head>
         <title>arTchive / 전시 코스 게시판</title>
         <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
-        <%--    <script src="<c:url value='/js/course.js'/>"></script>--%>
+        <script src="<c:url value='/js/course/course.js'/>"></script>
         <script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
         <link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>"/>
@@ -25,7 +25,7 @@
                     <span>다른 사람들이 기획한 관람 코스들을 모아봅니다.</span>
                 </div>
                 <!-- area -->
-                <div id="searchAreaBox">
+                <section id="searchAreaBox">
                     <div id="searchArea">
                         <div id="allView" class="AREA">
                             <ul>
@@ -49,10 +49,18 @@
                         </div>
                     </div><!-- searchArea -->
                     <!-- .tablist -->
-                    <div class="searchbar-box courseboard-search-box">
-                        <input class="big-searchbar courseboard-searchbar" type="text" placeholder="원하는 주제로 검색해 보세요.">
+                    <div class="courseboard-search-box">
+                        <div class="searchbar-box">
+                            <div class="searchbar-border tag-box" type="text">
+                                <ul id="tagList">
+                                    <input class="inner-searchbar" id="inner-searchbar" type="text" placeholder="검색 태그를 입력하세요.">
+                                </ul>
+                            </div>
+                            <input class="black-btn courseBoard-searchBtn" type="button" value="검색">
+                        </div>
+                        <div id="tag-caution" class="vibration">태그는 3개까지만 선택할 수 있습니다.</div>
                     </div>
-                </div>
+                </section>
                 <!-- .searchAreaBox -->
                 <!-- borad-gallery -->
                 <div class="course-box board-gallery-view">

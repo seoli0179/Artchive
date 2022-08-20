@@ -26,11 +26,11 @@
 
 /* 유나 */
 #searchMainTitle {
-	margin-top : 40px;
-	width : 91%;
+	margin-left : 85px;
+	margin-top : 50px;
+	width: 88%;
 	height : 150px;
 	border-bottom : solid 2px black;
-	margin-left : 4%;
 	font-size : 25px;
 	font-weight : bold;
 }
@@ -111,11 +111,11 @@
 }
 
 #searchAreaBox {
+	margin-left : 85px;
 	margin-top : 20px;
-	width : 91%;
+	width: 88%;
 	height : 70px;
 	border-bottom : solid 2px black;
-	margin-left : 4%;
 	font-size : 25px;
 	font-weight : bold;
 }

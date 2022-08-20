@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -53,46 +54,27 @@
             </div>
         </div>
         <div class="list_box">
-            <hr>
-            <div class="content">
-                <div class="scrap">
-                    <div class="like"><i class="fa-solid fa-heart"></i>7</div>
-                    <div><i class="fa-solid fa-message"></i>5</div>
-                </div>
-                <div class="summary">
-                    <div class="title">
-                        ${title}
+            <c:forEach var="note" items="${list}">
+                <hr>
+                <div class="content">
+                    <div class="scrap">
+                        <div class="like"><i class="fa-solid fa-heart"></i>${note.noteLike}</div>
+                        <div><i class="fa-solid fa-message"></i>${note.noteCommentNum}</div>
                     </div>
-                    <div class="preview">
-                        ${preview}
-                    </div>
-                    <div class="info">
-                        by&nbsp;<div class="userName">username</div>&nbsp;&middot;&nbsp;<div class="createdAt">08-17
-                    </div>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div class="content">
-                <div class="scrap">
-                    <div class="like"><i id="like" class="fa-solid fa-heart"></i>7</div>
-                    <div><i class="fa-solid fa-message"></i>5</div>
-                </div>
-                <div class="summary">
-                    <div class="title">
-                        <a href="#">SpringBoot에서 비동기 Multi-thread 개발</a>
-                    </div>
-                    <div class="preview">
-                        일반적으로 클라이언트와 통신하는 어플리케이션 서버에서 스레드(thread)를 사용하는 건 흔한 일입니다
-
-                        접속한 여러개의 각 클라이언트가 요청하는 Request에 대하여 각각 스레드를 생성하여 비동기로 처리하여 시스템 자원 활용을 높이고 빠른 응답처리를 해야하기 때문입니다
-                    </div>
-                    <div class="info">
-                        by&nbsp;<div class="username">username</div>&nbsp;&middot;&nbsp;<div class="createdAt">08-17
-                    </div>
+                    <div class="summary">
+                        <div class="title">
+                                <a href="<c:url value="/note/detail/${note.noteId}"/>">${note.noteTitle}</a>
+                        </div>
+                        <div class="preview">
+                                ${note.note}
+                        </div>
+                        <div class="info">
+                            by&nbsp;<div class="userName">${note.userNickname}</div>&nbsp;&middot;&nbsp;<div class="createdAt"><fmt:formatDate pattern="MM-dd" value="${note.noteCreatedDate }" />
+                        </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </c:forEach>
             <hr>
         </div>
         <div class="nav">

@@ -10,7 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/chatbot.css'/>">
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/detailCourse.css'/>">
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/detailCourse.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/toggle.css'/>">
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		<script type="text/javascript"></script>
