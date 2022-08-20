@@ -13,6 +13,7 @@ header{
 
 
 #mainMenu {
+	width: 100%;
 	height:70px;
 	background-color : white;
 }
@@ -21,13 +22,13 @@ header{
 	
 header #logoBox { 
 	position : absolute; 
-	left: 30px;
+	left: 3%;
 	top: 0;
 	}
 	
 header #logoBox{
-	width: 200px;
-	line-height: 70px; 
+	width: 10%;
+	line-height: 75px; 
 	/* border : 1px solid rgba(255,255,255,0.5); */
 	height:70px;
 	text-align:center;
@@ -40,6 +41,7 @@ header #logoBox > a {
 	color : #000;
 	text-decoration : none;
 	font-weight : bold;
+	padding : 30px;
 }
 
 /*loginBox*/
@@ -87,7 +89,7 @@ header #headerBox {
 	left : 0;
 	top : 0px;
 	width:100%;
-	padding:  0 232px;
+	padding:  0 20%;
 	box-sizing : border-box;
 }
 
@@ -96,13 +98,13 @@ header #headerBox nav > ul > li > a {
 	color : #000;
 	text-decoration : none;
 	font-weight : bold;
-	width: 160px;
+	width : 80px;
 	height: 70px;
 	display : block;
 	line-height:70px;
 }
 
-header #headerBox nav > ul {text-align:center;}
+header #headerBox nav > ul {text-align:center; margin-left : 7.5%}
 
 header #headerBox nav > ul > li {
 	display: inline-block;
