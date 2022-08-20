@@ -5,9 +5,13 @@
 <html>
     <head>
         <title>arTchive / 전시 코스 게시판</title>
+        <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet">
         <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
+        <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
         <script src="<c:url value='/js/course/course.js'/>"></script>
+        <script src="<c:url value='/js/course/autocomplete.js'/>"></script>
         <script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
+
         <link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
         <link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>"/>
         <link rel="stylesheet" type="text/css" href="<c:url value='/css/course/course.css'/>"/>
