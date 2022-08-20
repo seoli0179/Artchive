@@ -143,12 +143,11 @@ section nav {
 
 .reservConfirmBox {
 	border:1px solid #aaa;
-	margin-top:5%;
+	margin-top:3%;
 	display:flex;
 	justify-content:space-between;
 	background:#eee;
 	padding:3% 5% 2% 5%;
-	margin-bottom:3%;
 	align-items:center;
 	width:90%;
 }
@@ -157,9 +156,7 @@ section nav {
 	display:flex;
 	width:40%;
 	align-items:center;
-	
 }
-
 	
 .periodSearch a {
 	margin-left:4%;
