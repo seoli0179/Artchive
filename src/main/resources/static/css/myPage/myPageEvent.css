@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* myPageCourse.css */
+/* myPageEvent.css */
 
 /* 전체 틀 */
 .wrapper {
@@ -25,8 +25,6 @@ section nav {
 	width:30%;
 }
 
-
-
 .tabMenu {
 	width:100%;
 }
@@ -49,7 +47,7 @@ section nav {
 	opacity: 1;
 }
 
-.tabMenu li:nth-child(5) a, .tabMenu li a:hover {
+.tabMenu li:nth-child(4) a, .tabMenu li a:hover {
 	color:#000;
 	font-weight:bold;
 }
@@ -68,9 +66,10 @@ section nav {
 /* 내 전시 */
 .myExhbn {
 	margin:5% 0;
+	
 }
 
-.myExhbn h2 {
+.contents h2 {
 	font-weight:bold;
 	font-size:28px;
 	margin-bottom:3%;
@@ -78,7 +77,7 @@ section nav {
 }
 
 .titleBox {
-	margin-top:3%;
+	margin-top:5%;
 }
 
 /* 스크랩, 좋아요, 코스 */
@@ -98,33 +97,6 @@ section nav {
 .titleBox a:hover {
 	color:#000;
 	font-weight:bold;
-}
-/* 테이블 */
-.tableBox {
-	margin-top:3%;
-}
-
-table {
-	width:100%;
-}
-
-table th {
-	border-top:2px solid #000;
-	border-bottom :2px solid #000;
-	font-weight:bold;
-	background:#F6F6F6;
-	padding:3% 0;
-	height:auto;
-	line-height:auto;
-	text-align:center;	
-}
-
-
-table td {
-	text-align:center;
-	padding:3% 0;
-	items-align:center;
-	border-bottom :2px solid #000;
 }
 
 /* 전시회 코스 정보 */
@@ -169,3 +141,66 @@ table td {
 	color:#949494;
 	font-weight:bold;
 } 
+
+/* 버튼 */
+.area {
+	display:flex;	
+}
+
+.area a {
+	border:1px solid #000;
+	border-radius:30px;
+	width:100px;
+	background:#fff;
+	color:#000;
+	text-align:center;
+	padding:1% 0;
+	margin-left:2%;
+	margin-top:3%;
+	height:auto;
+}
+
+.area a:first-child,.area a:hover {
+	background:#000;
+	color:#fff;
+}
+
+
+.contentsBox {
+	display:flex;
+	justify-content:space-between;
+	margin-bottom:3%;
+}
+
+.contents {
+	display:flex;
+	items-align:center;
+}
+
+.setting {
+	display:flex;
+	width:10%;
+}
+
+.setting a {
+	border:1px solid #000;
+	border-radius:10px;
+	background:#fff;
+	text-align:center;
+	padding:10% 15%;
+	vertical-align:middle;
+	font-size:15px;
+
+}
+
+.setting a:hover {
+	color:#fff;
+	background:#000;
+}
+
+
+.wholeExpbnBox {
+	display:flex;
+	margin-right:10%;
+}
+

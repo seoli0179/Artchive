@@ -9,7 +9,7 @@
 	/*  푸터 하단 고정 */
 	height:auto;
 	min-height: 100%;
-	padding-bottom: 20%;
+	padding-bottom: 30%;
 }
 
 section {
@@ -49,7 +49,7 @@ section nav {
 	opacity: 1;
 }
 
-.tabMenu li:nth-child(7) a, .tabMenu li a:hover {
+.tabMenu li:nth-child(6) a, .tabMenu li a:hover {
 	color:#000;
 	font-weight:bold;
 }
