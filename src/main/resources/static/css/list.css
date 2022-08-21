@@ -12,12 +12,12 @@
 	justify-content: left;
 }
 
-.cell {
+/* .cell {
 	min-width:260px;
 	margin:1%;
 	width:20%;
 	height:20%;
-}
+} */
 
 .cell img {
 	width:100%;
@@ -188,32 +188,36 @@
 /*img-box*/
 
 .img-box {
-	border-bottom : solid 2px black;
-	border-top : solid 2px black;
 	text-align : center;
 	/* border : solid 2px red; */
 	width : 100%;
-	height: 380px;
+	height: 45vh;
 }
 
 .img-box> a >img {
 	text-align : center;
-	width: 80%;
+	width: 100%;
 }
 
 .cell{
 	width : 20%;
-	margin-left : 3%;
+	margin-left : 4%;
 	margin-top : 3%;
-	height : 530px;
+	height : 570px;
 	float:left;
-	/* border-bottom : solid 2px black; */
 }
+
 
 .list-con{
 	width : 92%;
 	margin-left : 4%;
 }
+
+.list-con::after {
+  content: "";
+  display: block;
+  clear: both;
+}/* float:left 때문에 자식 인식 못함 */
 
 #ex-all{
 	margin-top : 4%;
@@ -229,6 +233,7 @@
 	font-size : 22px;
 	font-weight : bold;
 	margin-top : 4%;
+	line-height : 30px;
 }
 
 .ex-period{
