@@ -205,12 +205,12 @@
 	display:inline-block;
 	width:100%;
 	margin:0 auto;
-	text-align:center;
+	text-align:right;
 }
 
-#button-box button {
+#button-box button, input {
 	display:inline-block;
-	margin:1%;
+	margin:3px;
 }
 
 #map-box {
@@ -264,7 +264,7 @@
     background-position: 50% 50%;
 }
 
-
+/* tag (조회버전) */
 .tag-box {
 	margin: 5px;
 	display: flex;
@@ -295,3 +295,4 @@
 	background: #000000;
 	padding: 4px 16px 4px 16px;
 }
+/* .tag (조회버전) */

@@ -115,13 +115,17 @@
 				</div>
 				<!-- .context-container -->
 				<div id="button-box">
-					<button class="white-btn" onclick="window.open('${exhbn.exhbnUrl}')">자세히 보기</button>
-					<button class="black-btn" onclick="location.href='#'">관심전시추가</button>
+					<form action="#">
+						<button class="white-btn-big" onclick="window.open('${exhbn.exhbnUrl}')">자세히 보기</button>
+						<button class="white-btn-big" onclick="location.href='#'">관심전시추가</button>
+						<button class="black-btn-big" onclick="#">이 전시로 코스 짜기</button>
+					</form>
 				</div>
 				<div id="map-box">
 					<div class="map">
 					</div>
 				</div>
+				<!-- tag -->
 				<div class="tag-box">
 					<h3>Tag. </h3>
 					<ul class="tagList">
