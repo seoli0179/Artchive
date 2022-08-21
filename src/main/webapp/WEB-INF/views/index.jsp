@@ -43,16 +43,17 @@
         	
         	<div id="loginBox">
 				<c:if test="${empty sessionScope.sid }">
-					<ul>
+					<ul id="beforeLogin">
 						<li class="mainSearch"><a href="#"><img src="<c:url value='/image/search.png'/>" id="searchImg"></a></li>
 						<li><a class="color" href="<c:url value="/join"/>">JOIN</a></li>
 						<li class="loginLogout"><a class="color" href="<c:url value="/login"/>">LOGIN</a></li>
 					</ul>
 				</c:if>
 				<c:if test="${not empty sessionScope.sid }">
-					<ul>
+					<ul id="afterLogin">
 						<li class="mainSearch"><a href="#"><img src="<c:url value='/image/search.png'/>" id="searchImg"></a></li>
 						<li class="userName"><a class="color">${sessionScope.username}</a></li>
+						<li class="mypage"><a class="color" href="<c:url value='/myPage/myPageHome'/>">MYPAGE</a></li>
 						<li><a class="color" href="<c:url value="/logout2"/>">LOGOUT</a></li>
 					</ul>
 				</c:if>
@@ -174,8 +175,9 @@
            		 </div> <!-- exhibitionBox -->
 
            	</div><!-- exhibition -->
-			
-           		<div id="exhibition2">
+           	
+           	<c:if test="${empty sessionScope.sid }">
+					<div id="exhibition2">
            		<div class="exMaintext">
 	           		<ul>
 	           			<li class="MainText">추천하는 전시</li>
@@ -247,7 +249,86 @@
            		 </div><!-- exhibitionText -->
            		 </div> <!-- exhibitionBox -->
 
-           	</div><!-- exhibition2 -->
+           	</div><!-- exhibition2 -->	
+			</c:if>
+			
+			<c:if test="${not empty sessionScope.sid }">
+					<div id="exhibition2">
+           		<div class="exMaintext">
+	           		<ul>
+	           			<li class="exUserName">${sessionScope.username}</li>
+	           			<li class="MainText">님에게 추천하는 전시</li>
+	           			<li class="exhibitionMore"><a href="#">MORE ></a></li>
+	           		</ul>
+				</div>
+				
+           		<div id="exhibitionBox1" class="exhibitionBox">
+           		<div id="exhibitionImg1" class="exhibitionImg">
+           		 <ul>
+           		 	<li>
+           		 		<img src="<c:url value='/image/testImage.jpg'/>">
+           		 	</li>
+           		 </ul>
+           		 </div><!-- exhibitionImg -->
+           		 <div class= "exhibitionText">
+           		 	<ul>
+	           			<li class="exName"><a href="#">전시회명1</a></li>
+	           			<li class="exPeriod"><a href="#">2022.00.00-2022.00.00</a></li>
+           		 	</ul>
+           		 </div><!-- exhibitionText -->
+           		 </div> <!-- exhibitionBox -->
+
+           		<div id="exhibitionBox2" class="exhibitionBox">
+           		<div id="exhibitionImg2" class="exhibitionImg">
+           		 <ul>
+           		 	<li>
+           		 		<img src="<c:url value='/image/testImage.jpg'/>">
+           		 	</li>
+           		 </ul>
+           		 </div><!-- exhibitionImg -->
+           		 <div class= "exhibitionText">
+           		 	<ul>
+	           			<li class="exName"><a href="#">전시회명1</a></li>
+	           			<li class="exPeriod"><a href="#">2022.00.00-2022.00.00</a></li>
+           		 	</ul>
+           		 </div><!-- exhibitionText -->
+           		 </div> <!-- exhibitionBox -->
+
+           		<div id="exhibitionBox3" class="exhibitionBox">
+           		<div id="exhibitionImg1" class="exhibitionImg">
+           		 <ul>
+           		 	<li>
+           		 		<img src="<c:url value='/image/testImage.jpg'/>">
+           		 	</li>
+           		 </ul>
+           		 </div><!-- exhibitionImg -->
+           		 <div class= "exhibitionText">
+           		 	<ul>
+	           			<li class="exName"><a href="#">전시회명1</a></li>
+	           			<li class="exPeriod"><a href="#">2022.00.00-2022.00.00</a></li>
+           		 	</ul>
+           		 </div><!-- exhibitionText -->
+           		 </div> <!-- exhibitionBox -->
+
+           		<div id="exhibitionBox" class="exhibitionBox">
+           		<div id="exhibitionImg1" class="exhibitionImg">
+           		 <ul>
+           		 	<li>
+           		 		<img src="<c:url value='/image/testImage.jpg'/>">
+           		 	</li>
+           		 </ul>
+           		 </div><!-- exhibitionImg -->
+           		 <div class= "exhibitionText">
+           		 	<ul>
+	           			<li class="exName"><a href="#">전시회명1</a></li>
+	           			<li class="exPeriod"><a href="#">2022.00.00-2022.00.00</a></li>
+           		 	</ul>
+           		 </div><!-- exhibitionText -->
+           		 </div> <!-- exhibitionBox -->
+
+           	</div><!-- exhibition2 -->	
+			</c:if>
+           	
            	</div><!-- exhibitionAll -->
 
            	<div id="recommended">

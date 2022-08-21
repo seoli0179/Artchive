@@ -55,20 +55,27 @@ header #logoBox > a {
 
 /*loginBox*/
 
+
 	
 header #loginBox > ul{
 	position : absolute; 
 	right: 30px;
 	top: 0;
 	display : flex;
-	width:13%;
+	/* width:13%; */
 	height:70px;
 	list-style: none;
-	/* border : solid 1px #fff; */
+}
+
+#afterLogin{
+	width:20%;
+}
+
+#beforeLogin{
+	width:13%;
 }
 
 header #loginBox > ul li{
-	width:100%;
 	flex:1;
 	line-height: 70px; 
 	/* border : 1px solid rgba(255,255,255,0.5); */ 

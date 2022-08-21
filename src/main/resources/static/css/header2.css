@@ -51,9 +51,17 @@ header #loginBox > ul{
 	right: 30px;
 	top: 0;
 	display : flex;
-	width:13%;
+	/* width:13%; */
 	height:70px;
 	list-style: none;
+}
+
+#afterLogin{
+	width:20%;
+}
+
+#beforeLogin{
+	width:13%;
 }
 
 header #loginBox > ul li{
