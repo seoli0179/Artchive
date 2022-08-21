@@ -29,8 +29,10 @@
 		// 스크롤되는 문서의 top이 #headerBox 이상이면 메인메뉴 고정되고 그림자 표시
 		if($(document).scrollTop()>=$('#headerBox').height()){
 			 $('.color').css("color" , "#000");
+			 $('.userName').css("color" , "#000");
 		}else{
 			$('.color').css("color" , "#fff");
+			$('.userName').css("color" , "#fff");
 		}
 	});
 	

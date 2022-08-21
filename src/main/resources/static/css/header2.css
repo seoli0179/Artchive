@@ -51,33 +51,43 @@ header #loginBox > ul{
 	right: 30px;
 	top: 0;
 	display : flex;
-	width:200px;
+	width:13%;
 	height:70px;
 	list-style: none;
-	/* border : solid 1px black; */
 }
 
 header #loginBox > ul li{
+	width:100%;
 	flex:1;
 	line-height: 70px; 
 	/* border : 1px solid rgba(255,255,255,0.5); */ 
 	height:70px;
 	text-align:center;
+	display: inline-block;
 }
 
 header #loginBox > ul li a {
+	margin-left : 10px;
+	width:100%;
 	font-size : 14px;
 	color : #000;
 	text-decoration : none;
 	font-weight : bold;
+	
+	border: solid 1px #fff; /* 없어지면 돋보기 이미지가 올라감 ... 왜 ..? */
 }
 
-header #loginBox ul>  li > a > img {
-	position : absolute; 
-	top: 25px;
-	right : 140px;
-	width: 24px;
-	height: 24px;
+.mainSearch {
+	height : 100%;
+	margin-top : 6px;
+	/* border: solid 1px blue; */
+}
+
+.userName{
+	white-space: nowrap; 	/* 아래줄로 내려가는걸 막음 */
+	text-overflow: ellipsis;  /*... 만들기 */
+	overflow: hidden;  		/* 영역을 감춤 */
+	color : #000;
 }
 
 
