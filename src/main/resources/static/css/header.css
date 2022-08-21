@@ -28,8 +28,9 @@ header #visual img{
 	
 header #logoBox { 
 	position : absolute; 
-	left: 3%;
+	left: 4%;
 	top: 0;
+	/* border : solid 1px #fff; */
 	}
 	
 header #logoBox{
@@ -37,12 +38,7 @@ header #logoBox{
 	line-height: 75px; 
 	/* border : 1px solid rgba(255,255,255,0.5); */
 	height:75px;
-	/* text-align:left; */
 	z-index : 300;
-}
-
-header #logoBox a {
-	padding : 30px;
 }
 
 header #logoBox > a {
@@ -53,16 +49,25 @@ header #logoBox > a {
 }
 
 /*loginBox*/
+
+
 	
 header #loginBox > ul{
 	position : absolute; 
-	right: 30px;
+	right: 3%;
 	top: 0;
 	display : flex;
-	width:200px;
+	/* width:13%; */
 	height:70px;
 	list-style: none;
-	/* border : solid 2px white; */
+}
+
+#afterLogin{
+	width:20%;
+}
+
+#beforeLogin{
+	width:13%;
 }
 
 header #loginBox > ul li{
@@ -71,18 +76,29 @@ header #loginBox > ul li{
 	/* border : 1px solid rgba(255,255,255,0.5); */ 
 	height:70px;
 	text-align:center;
+	display: inline-block;
 }
 
+
 header #loginBox > ul li a {
+	margin-left : 10px;
+	width:100%;
 	font-size : 14px;
 	color : #fff;
 	text-decoration : none;
 	font-weight : bold;
 }
 
-header #loginBox ul>  li > a > img {
-	position : absolute; 
-	top: 25px;
+.mainSearch {
+	height : 100%;
+	margin-top : 6px;
+}
+
+.userName{
+	white-space: nowrap; 	/* 아래줄로 내려가는걸 막음 */
+	text-overflow: ellipsis;  /*... 만들기 */
+	overflow: hidden;  		/* 영역을 감춤 */
+	color : #fff;
 }
 
 /*headerBox*/
@@ -94,7 +110,7 @@ header #headerBox {
 	width: 100%;
 	padding:  0 20%;
 	box-sizing : border-box;
-	/* border : solid 3px white; */
+	/* border : solid 1px #fff; */
 }
 
 header #headerBox nav > ul > li > a {
