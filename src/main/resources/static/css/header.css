@@ -28,7 +28,7 @@ header #visual img{
 	
 header #logoBox { 
 	position : absolute; 
-	left: 3%;
+	left: 4%;
 	top: 0;
 	/* border : solid 1px #fff; */
 	}
@@ -39,10 +39,6 @@ header #logoBox{
 	/* border : 1px solid rgba(255,255,255,0.5); */
 	height:75px;
 	z-index : 300;
-}
-
-header #logoBox a {
-	padding : 30px;
 }
 
 header #logoBox > a {
@@ -58,7 +54,7 @@ header #logoBox > a {
 	
 header #loginBox > ul{
 	position : absolute; 
-	right: 30px;
+	right: 3%;
 	top: 0;
 	display : flex;
 	/* width:13%; */

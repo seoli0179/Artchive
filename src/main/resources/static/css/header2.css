@@ -22,8 +22,9 @@ header{
 	
 header #logoBox { 
 	position : absolute; 
-	left: 3%;
+	left: 4%;
 	top: 0;
+	border : solid red 2px;
 	}
 	
 header #logoBox{
@@ -40,14 +41,13 @@ header #logoBox > a {
 	color : #000;
 	text-decoration : none;
 	font-weight : bold;
-	padding : 30px;
 }
 
 /*loginBox*/
 
 header #loginBox > ul{
 	position : absolute; 
-	right: 30px;
+	right: 3%;
 	top: 0;
 	display : flex;
 	/* width:13%; */
