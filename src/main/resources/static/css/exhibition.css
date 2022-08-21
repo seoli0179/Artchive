@@ -36,11 +36,26 @@
 	height : 80%;
 	width : 100%;
 	background-color : #eeeeee;
+	overflow: hidden;
+}
+
+.exhibitionImg > ul{
+	height : 100%;
+	width : 100%;
+}
+
+.exhibitionImg > ul > li {
+	height : 100%;
+	width : 100%;
 }
 
 .exhibitionImg > ul > li > img{
-	height : 270px;
+	height : 100%;
 	width : 100%;
+	max-width: 100%;
+  	display: block;
+  	object-fit: cover;
+
 }
 
 
@@ -53,7 +68,7 @@
 }
 
 .exMaintext > ul >  li  {
-	width : 30%;
+	/* width : 30%; */
 }
 
 .exhibitionText {
@@ -65,9 +80,10 @@
 }
 
 .MainText{
-	float : left;
+	/* float : left; */
 	font-size : 24px;
 	font-weight : bold;
+	display : inline-block;
 }
 
 .exName > a{
@@ -81,6 +97,19 @@
 	font-weight : bold;
 	color : #949494;
 	 text-decoration:none;
+}
+
+.exUserName{
+	font-size : 24px;
+	font-weight : bold;
+	/* width : 15%; */ /* 주석 풀면 밑에 텍스트 생략 적용됨 */
+	float : left;
+	
+	/* 보류 */
+	white-space: nowrap; 	/* 아래줄로 내려가는걸 막음 */
+	text-overflow: ellipsis;  /*... 만들기 */
+	overflow: hidden;  
+	/* 보류 */
 }
 
 /** exhibitionMore **/
