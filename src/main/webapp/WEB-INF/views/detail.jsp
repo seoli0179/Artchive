@@ -16,7 +16,7 @@
 	</head>
 	<body>
 		<!-- top으로 이동 -->
-		 <%-- <c:import url="/WEB-INF/views/layout/top.jsp" /> --%>
+		<c:import url="/WEB-INF/views/layout/top.jsp" />
 		
 		<!-- detail main -->
 		<main id="detail-wrap">
@@ -202,7 +202,8 @@
 				</div>
 			</div>
 		</main>
-		
-		<!-- bottom -->
+
+		<!-- bottom 이동 -->
+		<c:import url="/WEB-INF/views/layout/bottom.jsp" />
 	</body>
 </html>
