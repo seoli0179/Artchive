@@ -66,14 +66,13 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     }
 
-function createTag(){
-    ul.querySelectorAll("li").forEach(li => li.remove())
-    tags.slice().reverse().forEach(tag =>{
-        let liTag = `<li class="li-item"> ${tag} <i class="fa-solid fa-xmark closeBtn" onclick="remove(this, '${tag}')"></i></li>`;
-        ul.insertAdjacentHTML("afterbegin",liTag); // tag 추가
-    });
-}
-
+    function createTag(){
+        ul.querySelectorAll("li").forEach(li => li.remove())
+        tags.slice().reverse().forEach(tag =>{
+            let liTag = `<li class="li-item"> ${tag} <i class="fa-solid fa-xmark closeBtn" onclick="remove(this, '${tag}')"></i></li>`;
+            ul.insertAdjacentHTML("afterbegin",liTag); // tag 추가
+        });
+    }
 
 
 }); // .document.eventlistner

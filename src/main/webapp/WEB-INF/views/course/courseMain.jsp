@@ -5,9 +5,17 @@
 <html>
     <head>
         <title>arTchive / 전시 코스</title>
+        <!-- jquery -->
         <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
-        <script src="<c:url value='/js/course/course.js'/>"></script>
+        <!-- jquery-ui -->
+        <script src="http://code.jquery.com/ui/1.13.2/jquery-ui.js" ></script>
+        <link href="http://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css" rel="Stylesheet">
+        <!-- icon-kit -->
         <script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
+
+        <script src="<c:url value='/js/course/course.js'/>"></script>
+        <script src="<c:url value='/js/course/autocomplete.js'/>"></script>
+
         <link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
         <link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>"/>
         <link rel="stylesheet" type="text/css" href="<c:url value='/css/course/course.css'/>"/>
@@ -19,7 +27,7 @@
 
         <main id="course-container">
             <div class="course-box main-title-box">
-                <h1 class="h1">전시 관람 준비</h1>
+                <h1 class="h1">Plan</h1>
                 <span>오늘 더 멋지게 예술을 즐겨요!</span>
             </div>
             <div class="course-box guide-box">
