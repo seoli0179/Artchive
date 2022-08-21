@@ -122,18 +122,20 @@
 					<div class="map">
 					</div>
 				</div>
-				<div id="tag-box">
-					<span class="tag-label">Tag. </span>
-					<span><a href="#">태그1</a>
-					<a href="#">태그1</a>
-					<a href="#">태그1</a></span>
+				<div class="tag-box">
+					<h3>Tag. </h3>
+					<ul class="tagList">
+						<li class="tagItem">tag1</li>
+						<li>tag2</li>
+						<li>tag3</li>
+					</ul>
 				</div>
 				<!-- .tag-box -->
 			</div>
 			<!-- .contents-container -->
 			<div class="sub-title">
 				<i class="fa-solid fa-chevron-left" id="prevBtn"></i>
-				<h2>Reviews.</h2>
+				<h2>Reviews</h2>
 				<i class="fa-solid fa-chevron-right" id="nextBtn"></i>
 				<br>
 			</div>
