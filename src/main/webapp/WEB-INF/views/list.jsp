@@ -9,40 +9,28 @@
 	<title>리스트 페이지</title>
 	<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>">
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
+	<!-- icon kit -->
+	<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/list.css'/>">
-	<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/courseBoard.css'/>"/>
-	<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/course.css'/>"/>
+
 	<script src="<c:url value='/tools/jquery-3.6.0.min.js' /> "></script>
 	<%-- <script src="<c:url value='/js/list.js' />"></script>
-     --%>
-     </head>
+     --%></head>
 
 <body>
 <!-- top -->
 <c:import url="/WEB-INF/views/layout/top.jsp" />
 
 <!-- 검색창 -->
-	<div class="course-box main-title-box">
-                    <h1 class="h1">Search</h1>
-                    <span>관심 있는 전시를 검색해보세요.</span>
-	                    <div class="courseboard-search-box">
-	                        <div class="searchbar-box">
-	                            <div class="searchbar-border tag-box" type="text">
-	                                <ul id="tagList">
-	                                    <input class="inner-searchbar" id="inner-searchbar" type="text" placeholder="검색어를 입력하세요.">
-	                                </ul>
-	                                <div id="filterList" style="position: relative;">
-	
-	                                </div>
-	                            </div>
-	                            <input class="black-btn courseBoard-searchBtn" type="button" value="검색">
-	                            <input id="show" class="white-btn detailSearch courseBoard-searchBtn" type="button" value="상세검색">
-	                            <!-- <button id="show" class="white-btn detailSearch">상세검색</button> -->
-	                        </div>
-	                        <div id="tag-caution" class="vibration">태그는 3개까지만 선택할 수 있습니다.</div>
-	                    </div>
+<div id="searchMainTitle">
+	<ul>
+		<li>전시 검색</li>
+	</ul>
+	<div id="searchMainBox">
+		<input type="text" id="searchTEXT" name="searchMessage" size="120"  placeholder="검색어를 입력하세요."/>
+		<input type="button" id="SearchBtn" value="검색"/>
 		<!-- 팝업 시작 -->
-		<!-- <button id="show" class="white-btn detailSearch">상세검색</button> -->
+		<button id="show" class="white-btn">상세검색</button>
 		<div class="background">
 			<div class="window">
 				<div class="popup">
@@ -92,17 +80,21 @@
 										<br>
 										<ul>
 											<li><label><input type="checkbox" name="ex-place"
-															  value="ex-place1" checked> 지역1</label></li>
+															  value="ex-place1" checked>전체</label></li>
 											<li><label><input type="checkbox" name="ex-place"
-															  value="ex-place2"> 지역2</label></li>
+															  value="ex-place2">수도권</label></li>
 											<li><label><input type="checkbox" name="ex-place"
-															  value="ex-place3"> 지역3</label></li>
+															  value="ex-place3">부산</label></li>
 											<li><label><input type="checkbox" name="ex-place"
-															  value="ex-place4"> 지역4</label></li>
+															  value="ex-place4">제주</label></li>
 											<li><label><input type="checkbox" name="ex-place"
-															  value="ex-place5"> 지역5</label></li>
+															  value="ex-place5">강원</label></li>
 											<li><label><input type="checkbox" name="ex-place"
-															  value="ex-place6"> 지역6</label></li>
+															  value="ex-place6">전라도</label></li>
+											<li><label><input type="checkbox" name="ex-place"
+															  value="ex-place6">경상도</label></li>
+											<li><label><input type="checkbox" name="ex-place"
+															  value="ex-place6">기타</label></li>
 										</ul>
 									</fieldset>
 								</form>
@@ -183,56 +175,43 @@
 <!-- area -->
 <div id="searchAreaBox">
 	<div id="searchArea">
-		<div id="allArea" class="AREA">
+		<div id="allArea" class="AREA tabTag selected">
 			<ul>
-				<li><a href="#">전체</a></li>
+				<li><a href="#"><i class="fa-solid fa-border-all"></i>전체</a></li>
 			</ul>
 		</div>
-		<div id="capitalArea" class="AREA">
+		<div id="capitalArea" class="AREA tabTag">
 			<ul>
-				<li><a href="#">수도권</a></li>
+				<li><a href="#"><i class="fa-solid fa-landmark"></i>박물관</a></li>
 			</ul>
 		</div>
-		<div id="busanArea" class="AREA">
+		<div id="busanArea" class="AREA tabTag">
 			<ul>
-				<li><a href="#">부산</a></li>
+				<li><a href="#"><i class="fa-solid fa-panorama"></i>미술전시</a></li>
 			</ul>
 		</div>
-		<div id="jejuArea" class="AREA">
+		<div id="jejuArea" class="AREA tabTag">
 			<ul>
-				<li><a href="#">제주</a></li>
+				<li><a href="#"><i class="fa-solid fa-bullhorn"></i>축제</a></li>
 			</ul>
 		</div>
-		<div id="kangwonArea" class="AREA">
+		<div id="kangwonArea" class="AREA tabTag">
 			<ul>
-				<li><a href="#">강원</a></li>
+				<li><a href="#"><i class="fa-solid fa-apple-whole"></i>교육·체험</a></li>
 			</ul>
 		</div>
-		<div id="jeonArea" class="AREA">
+		<div id="jeonArea" class="AREA tabTag">
 			<ul>
-				<li><a href="#">전라도</a></li>
+				<li><a href="#"><i class="fa-solid fa-list-ul"></i>기타</a></li>
 			</ul>
 		</div>
-
-		<div id="kyeongArea" class="AREA">
-			<ul>
-				<li><a href="#">경상도</a></li>
-			</ul>
-		</div>
-
-		<div id="etcArea" class="AREA">
-			<ul>
-				<li><a href="#">기타지역</a></li>
-			</ul>
-		</div>
-
 	</div><!-- searchArea -->
 
-	<div id="ExhibitionBOX">
-		<input type="button" class="exhibitionABC" id="exhibitionA" value="현재전시"/>
-		<input type="button" class="exhibitionABC" id="exhibitionB" value="예정전시"/>
-		<input type="button" class="exhibitionABC" id="exhibitionC" value="지난전시"/>
-	</div>
+	<%--	<div id="ExhibitionBOX">--%>
+	<%--		<input type="button" class="exhibitionABC" id="exhibitionA" value="현재전시"/>--%>
+	<%--		<input type="button" class="exhibitionABC" id="exhibitionB" value="예정전시"/>--%>
+	<%--		<input type="button" class="exhibitionABC" id="exhibitionC" value="지난전시"/>--%>
+	<%--	</div>--%>
 </div>
 
 <!-- 전시 리스트 -->
