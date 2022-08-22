@@ -15,9 +15,28 @@
 }
 
 /* mainMenu */
-#mainMenu {
-	width: 100%
+
+#mainMenuBox{
+	width: 100%;
+	height : 70px;
+	position:absolute;
+	position: fixed;
 }
+
+#mainMenu {
+	width: 100%;
+	height : 70px;
+	position:absolute;
+	top : 0;
+	left : 50%;
+	transform: translate(-50%, 0%);
+	
+	max-width : 1390px;
+	margin: 0;
+	min-width : 1080px;
+	border : solid red 1px;
+}
+
 
 /*header*/
 header{
@@ -34,17 +53,14 @@ header #visual img{
 /*logoBox*/
 	
 header #logoBox { 
-	position : absolute; 
-	left: 4%;
-	top: 0;
-	/* border : solid 1px #fff; */
+	float : left;
+	border : solid blue 1px;
 	}
 	
 header #logoBox{
 	width: 10%;
-	line-height: 75px; 
-	/* border : 1px solid rgba(255,255,255,0.5); */
-	height:75px;
+	line-height: 70px; 
+	height:70px;
 	z-index : 300;
 }
 
@@ -52,44 +68,40 @@ header #logoBox > a {
 	font-size : 25px;
 	color : #fff;
 	text-decoration : none;
-	/*font-weight : bold;*/
 	font-family: 'establishRetrosansOTF';
 }
 
 /*loginBox*/
 
-
 	
 header #loginBox > ul{
-	position : absolute; 
-	right: 3%;
-	top: 0;
 	display : flex;
-	/* width:13%; */
 	height:70px;
 	list-style: none;
+	
 }
 
-#afterLogin{
+header #afterLogin {
+	margin-left: 75%;
+	width:25%;
+}
+
+header #beforeLogin{
+	margin-left: 80%;
 	width:20%;
 }
 
-#beforeLogin{
-	width:13%;
-}
-
 header #loginBox > ul li{
+	border : solid blue 1px;
 	flex:1;
 	line-height: 70px; 
-	/* border : 1px solid rgba(255,255,255,0.5); */ 
 	height:70px;
 	text-align:center;
 	display: inline-block;
+
 }
 
-
 header #loginBox > ul li a {
-	margin-left : 10px;
 	width:100%;
 	font-size : 14px;
 	color : #fff;
@@ -112,13 +124,9 @@ header #loginBox > ul li a {
 /*headerBox*/
 
 header #headerBox {
-	position: absolute;
-	left : 0;
-	top : 0px;
-	width: 100%;
-	padding:  0 20%;
+	float : left;
+	justify-content: space-between;
 	box-sizing : border-box;
-	/* border : solid 1px #fff; */
 }
 
 header #headerBox nav > ul > li > a {
@@ -130,34 +138,29 @@ header #headerBox nav > ul > li > a {
 	display : block;
 	line-height:70px;
 	min-width: 0px;
-	width : 80px;
 	text-align:center;
+	padding-right : 20px;
 }
 
 
 header #headerBox nav > ul {
 	text-align:center;
-	margin-left : 7.5%
 	}
 
 header #headerBox nav > ul > li {
 	display: inline-block;
-	/* border :solid 2px white; */
+	border : solid red 1px;
 	}
 	
-header #headerBox nav > ul > li{
-	min-width: 0px;
-	width : 15%;
-}
 
 /*** 메인 메뉴 고정 ***/
 /* 윈도우 스크롤시 메인메뉴 고정 */
 .mainMenuFixed{
-  position: fixed;
-  top: 0;
+  	position: fixed;
+ 	top: 0;
   /* width: 100% */
- /*  left: 0; */
- right: 0;
+	left: 0;
+	right: 0;
 }
 
 /* 메인메뉴 색상 변경 */
