@@ -17,8 +17,12 @@
     justify-content: space-between;
 }
 
-#searchArea {
-    width: 40%;
+.AREA{
+	margin-left : 2.5%;
+}
+
+.tabList >ul> li {
+	margin-top : 2%;
 }
 
 .search-box {
@@ -30,14 +34,15 @@
 }
 
 .tag-box #tagList {
-    margin-top:0;
+   margin-bottom: 1.8rem;
 }
 .courseBoard-searchBtn {
-    width: 30%;
-    min-width: 150px;
+    width: 110px;
+    /* min-width: 150px; */
     margin-left: 10px;
     height: 59px;
-    margin-top:0;
+    margin-top : 12px;
+    
 }
 
 #tag-caution {
@@ -62,7 +67,7 @@
 }
 
 .courseboard-search-box {
-    display: inline-block;
+    /* display: inline-block; */
     width:60%;
     min-height: 0;
 }

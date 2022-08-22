@@ -32,6 +32,20 @@
                 <div class="course-box main-title-box">
                     <h1 class="h1">Courses</h1>
                     <span>다른 사람들이 기획한 관람 코스들을 모아봅니다.</span>
+	                    <div class="courseboard-search-box">
+	                        <div class="searchbar-box">
+	                            <div class="searchbar-border tag-box" type="text">
+	                                <ul id="tagList">
+	                                    <input class="inner-searchbar" id="inner-searchbar" type="text" placeholder="검색 태그를 입력하세요.">
+	                                </ul>
+	                                <div id="filterList" style="position: relative;">
+	
+	                                </div>
+	                            </div>
+	                            <input class="black-btn courseBoard-searchBtn" type="button" value="검색">
+	                        </div>
+	                        <div id="tag-caution" class="vibration">태그는 3개까지만 선택할 수 있습니다.</div>
+	                    </div>
                 </div>
                 <!-- area -->
                 <section id="searchAreaBox">
@@ -53,7 +67,7 @@
                         </div>
                     </div><!-- searchArea -->
                     <!-- .tablist -->
-                    <div class="courseboard-search-box">
+                    <!-- <div class="courseboard-search-box">
                         <div class="searchbar-box">
                             <div class="searchbar-border tag-box" type="text">
                                 <ul id="tagList">
@@ -66,7 +80,7 @@
                             <input class="black-btn courseBoard-searchBtn" type="button" value="검색">
                         </div>
                         <div id="tag-caution" class="vibration">태그는 3개까지만 선택할 수 있습니다.</div>
-                    </div>
+                    </div> -->
                 </section>
                 <!-- .searchAreaBox -->
                 <!-- borad-gallery -->

@@ -30,24 +30,28 @@
 	margin-left : 4%;
 	margin-right : 4%;
 	margin-top : 50px;
-	height : 150px;
+	/* height : 150px; */
 	border-bottom : solid 2px black;
-	font-size : 25px;
-	font-weight : bold;
+	line-height: 2.3rem;
+	padding: 20px 0;
 }
 
+/* .subTitle{
+	font-size : 1rem;
+} */
+
 #searchMainBox{
-	margin-top : 1%;
+	/* margin-top : 1%; */
 	padding-top : 0.8%;
 	height: 60%;
 	line-height : 100%;
 }
 
 #searchTEXT{
-	width : 60%;
-	height: 42px;
-	/* min-width: 300px; */
-	padding: 4px 16px;
+	width : 53%;
+	height: 40px;
+	padding: 7.4px;
+    font-size:1.0rem;
 	border: 2px black solid;
 	border-radius: 10px;
 }
@@ -55,15 +59,16 @@
 /* #SearchBtn */
 
 #SearchBtn{
-	height: 54px;
+	height: 62px;
 	width : 80px;
-	border: 2px solid #1A1A1A;
-	border-radius: 15px;
+	border: 2px solid #000;
+	border-radius: 10px;
 	background-color: #000;
 	color: #fff;
 	font-size: 16px;
 	font-weight: 600;
 	margin: 0;
+	margin-left : 10px;
 	display: inline-block;
 	position : relative;
 	top : 0.5%;
@@ -136,7 +141,7 @@
 	height : 85%;
 	width : 100px;
 	border: 2px solid #1A1A1A;
-	border-radius: 15px;
+	border-radius: 10px;
 	color: #3B3B3B;
 	display: inline-block;
 	font-size: 16px;
@@ -251,15 +256,21 @@
 	height: 54px;
 	width: 90px;
 	border: 2px solid #1A1A1A;
-	border-radius: 15px;
-	font-size: 15px;
+	border-radius: 10px;
+	font-size: 16px;
 	font-weight: 600;
 	margin: 0;
 	display: inline-block;
 	position: relative;
 	top: 0.5%;
-
+	margin-left : 10px;
 }
+
+.detailSearch{
+	height: 62px;
+	/* width : 80px; */
+}
+
 .background {
 	position: fixed;
 	top: 0;
