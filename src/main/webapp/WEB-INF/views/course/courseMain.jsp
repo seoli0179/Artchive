@@ -80,7 +80,7 @@
                 </section>
                 <div class="selected" id="selected">
                     <div><span class="big-text">{username}님이 선택한 <strong id="selectedExhbn">{전시명}</strong>부터 </span></div>
-                    <div><a href="<c:url value='/course/detailCourse'/>"><button type="submit" class="black-btn">코스짜러 가기</button></a></div>
+                    <div><a href="<c:url value='/course/detail'/>"><button type="submit" class="black-btn">코스짜러 가기</button></a></div>
                 </div>
                 <br>
             </div>
@@ -116,7 +116,7 @@
                     <c:forEach items="${exhbnList}" var="exhbn" end="3">
                         <div class="course-item">
                             <div>
-                                <a href="/detail/${exhbn.exhbnId}"><img class="coursepost-thumb" src="${exhbn.exhbnImgUrl}" alt="전시포스터"></a>
+                                <a href="<c:url value='/exhbn/detail/${exhbn.exhbnId}'/>"><img class="coursepost-thumb" src="${exhbn.exhbnImgUrl}" alt="전시포스터"></a>
                             </div>
                             <div class="coursepost-box">
                                 <span class="ex-title">${exhbn.exhbnTitle}</span>

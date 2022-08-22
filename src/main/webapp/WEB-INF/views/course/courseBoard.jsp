@@ -71,7 +71,7 @@
                 <!-- .searchAreaBox -->
                 <!-- borad-gallery -->
                 <div class="course-box board-gallery-view">
-                    <div class="post-container" style="cursor: pointer;" onclick="location.href='/course/detailCourse';">
+                    <div class="post-container" style="cursor: pointer;" onclick="location.href='/course/board';">
                         <div class="post-img-box">
 
                         </div>
@@ -100,7 +100,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="post-container"  style="cursor: pointer;" onclick="location.href='/course/detailCourse';">
+                    <div class="post-container"  style="cursor: pointer;" onclick="location.href='/course/board';">
                         <div class="post-img-box">
 
                         </div>

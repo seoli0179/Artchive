@@ -37,13 +37,13 @@ public class CourseViewController {
     }
 
     // course !!!test!!!
-    @RequestMapping("/course/detailCourse")
+    @RequestMapping("/course/detail")
     public String courseDetailView(Model model) {
 
         ArrayList<ExhbnVO> vo = service.selectAllData();
         model.addAttribute("exhbnList",vo);
 
-        return "course/detailCourse";
+        return "course/courseDetailView";
     }
 
 }
