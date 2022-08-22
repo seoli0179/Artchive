@@ -36,19 +36,19 @@
                 <!-- area -->
                 <section id="searchAreaBox">
                     <div id="searchArea">
-                        <div id="lateView" class="AREA">
+                        <div id="lateView" class="AREA selected">
                             <ul>
-                                <li>최신순</li>
+                                <li><a href="#">최신순</a></li>
                             </ul>
                         </div>
                         <div id="mostView" class="AREA">
                             <ul>
-                                <li>조회순</li>
+                                <li><a href="#">조회순</a></li>
                             </ul>
                         </div>
                         <div id="likeView" class="AREA">
                             <ul>
-                                <li>좋아요순</li>
+                                <li><a href="#">좋아요순</a></li>
                             </ul>
                         </div>
                     </div><!-- searchArea -->
@@ -71,7 +71,7 @@
                 <!-- .searchAreaBox -->
                 <!-- borad-gallery -->
                 <div class="course-box board-gallery-view">
-                    <div class="post-container" style="cursor: pointer;" onclick="location.href='/course/detailCourse';">
+                    <div class="post-container" style="cursor: pointer;" onclick="location.href='/course/board';">
                         <div class="post-img-box">
 
                         </div>
@@ -100,7 +100,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="post-container"  style="cursor: pointer;" onclick="location.href='/course/detailCourse';">
+                    <div class="post-container"  style="cursor: pointer;" onclick="location.href='/course/board';">
                         <div class="post-img-box">
 
                         </div>
