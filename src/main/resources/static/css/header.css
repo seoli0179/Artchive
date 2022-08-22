@@ -1,5 +1,12 @@
 @charset "UTF-8";
 
+@font-face {
+	font-family: 'establishRetrosansOTF';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112@1.0/establishRetrosansOTF.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
 /* 모든 컨텐츠를 포함하는 box */
 #wrap {
 	/* width:1910px; */
@@ -45,7 +52,8 @@ header #logoBox > a {
 	font-size : 25px;
 	color : #fff;
 	text-decoration : none;
-	font-weight : bold;
+	/*font-weight : bold;*/
+	font-family: 'establishRetrosansOTF';
 }
 
 /*loginBox*/
