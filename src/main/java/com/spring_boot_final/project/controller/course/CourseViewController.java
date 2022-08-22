@@ -45,5 +45,13 @@ public class CourseViewController {
 
         return "course/courseDetailView";
     }
+    @RequestMapping("/course/detail/edit")
+    public String courseDetailEdit(Model model) {
+
+        ArrayList<ExhbnVO> vo = service.selectAllData();
+        model.addAttribute("exhbnList",vo);
+
+        return "course/courseDetailEdit";
+    }
 
 }
