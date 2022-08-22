@@ -108,54 +108,67 @@ section nav {
 
 
 /* 테이블 */
-.tableBox {
-	margin-top:3%;
-}
-
-table {
-	width:100%;
-	display: -webkit-box;
+ .tableBox {
+ 	width:100%;
 	overflow-x: hidden;
 	overflow-y: hidden;
-	border-top :2px solid #000;
+ 	margin-top:3%;
+ 	border-top :2px solid #000;
 	border-bottom :2px solid #000;
-}
+ }
+ 
+ .infoBox {
+ 	display:flex;
+ 	justify-content:space-between;
+ 	align-items:center;
+ 	width:100%;
+ }
+ 
 
-tbody {
+.itemsBox {
 	display:flex;
+	background:#F6F6F6;
+	width:20%;
+	text-align:center;
 }
 
-table th {
-	font-weight:bold;
-	background:#F6F6F6;
+ .itemsBox>span {
+ 	font-weight:bold;
 	padding:20% 15%;
 	height:auto;
 	line-height:auto;
-	text-align:center;	
-	width:100%;
-}
-
-
-table td {
-	display:flex;
 	text-align:center;
-	width:100%;
-	padding:3% 15% 1% 15%;
-	margin-left:10%;
+	width:100%;	
+ }
+
+.inputBox {
+	margin-right:15%;
 }
 
-table th, td {
-	display:block;
-	items-align:center;
-	vertical-align:middle;
+/* 비밀번호 확인 */
+.inputBox a {
+	font-size:12px;
+	color:#aaa;
+}
+/*  이름, 이메일*/
+.nameInput, .emailInput {
+	background:#ececec;
+	border:0.5px solid #000;
+	
+}
+
+.pwInput {
+	background:#e8f0fe;
+	border:0.5px solid #000;
+	margin-bottom:2%;
+}
+
+/* 버튼 */
+
+/* 버튼 박스 */
+.buttonBox {
+	margin:0 auto;
 	text-align:center;
-}
-
-tbody>tr>td>input[type="text"], tbody>tr>td>input[type="password"] {
-	width:500px;
-	padding:1% 2%;
-	font-size:15px;
-	font-color:#000;
 }
 
 /* select 박스 초기화 */
@@ -165,17 +178,18 @@ select {
 	appearance: none;
 }
 
-select {
-  width:80%;
+.reason {
+  width:435px;
   font-size: 15px;
   background-color: #fff;
   border: 1px solid #aaa;
+  padding:2% 4%;
   border-radius: 1px;
-  padding:1% 0% 1% 2%;
   margin-bottom:1%;
+  margin-left:7%;
 }
 
-
+/* 제출, 초기화 버튼 */
 input[type="reset"], input[type="submit"] {
 	width:200px;
 	border:none;
@@ -189,12 +203,19 @@ input[type="reset"], input[type="submit"] {
 	margin:3% 0;
 }
 
+/* 초기화 버튼 */
 input[type="reset"] {
 	background:red;
 	margin:5% 0 0 3%;
 }
 
-.buttonBox {
-	margin:0 auto;
-	text-align:center;
+input[type="text"], input[type="password"] {
+	width:400px;
+	padding:2% 4%;
+	font-size:15px;
+	font-color:#000;
+}
+
+input[type="reset"]:hover, input[type="submit"]:hover {
+	opacity:0.5;
 }

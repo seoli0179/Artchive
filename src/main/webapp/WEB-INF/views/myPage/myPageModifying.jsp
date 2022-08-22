@@ -35,40 +35,43 @@
 						<a href="<c:url value='/myPage/myPageModifying'/>">기본 정보</a>
 						<a href="<c:url value='/myPage/myPageCustomized'/>">맞춤 정보</a>
 				</div><!-- titleBox -->
-				<form>
 				
-				<div class="tableBox">
-					<table>
-						<thead>
-							<tr>
-								<th>이름</th>
-								<th>아이디</th>
-								<th>닉네임</th>
-								<th>비밀번호</th>
-								<th>비밀번호 확인</th>
-							</tr>
-						</thead>
-					
-						<tbody>
-							<tr>
-								<td><input type="text" class="nameInput" placeholder="이름" readonly ></td>
-								<td><input type="text" class="emailInput" placeholder="email@address.com" readonly ></td>
-								<td><input type="text" class="nicknameInput" placeholder="닉네임 입력(6~20자)">
-								<td>
-									<div class="pwMentBox">
-										<input type="password" class="pwInput" placeholder="비밀번호를 입력하세요." >
-										<span>※ 8자~20자 이내의 영문자, 숫자, 특수문자를 혼용하여 입력해주세요.</span>
-									</div>
-								</td>
-								<td><input type="password" class="pwConfirmInput" placeholder="비밀번호를 다시 한 번 입력하세요." ></td>
-							</tr>
-						</tbody>
-					</table>
+				<form>
+					<div class="tableBox">
+						<div class="infoBox">
+							<div class="itemsBox"><span>이름</span></div>
+							<div class="inputBox"><input type="text" class="nameInput" placeholder="이름" readonly ></div>	
+						</div> <!-- infoBox -->
+						
+						<div class="infoBox">
+							<div class="itemsBox"><span>아이디</span></div>
+							<div class="inputBox"><input type="text" class="emailInput" placeholder="email@address.com" readonly ></div>	
+						</div> <!-- infoBox -->
+						
+						<div class="infoBox">
+							<div class="itemsBox"><span>닉네임</span></div>
+							<div class="inputBox"><input type="text" class="nicknameInput" placeholder="닉네임 입력(6~20자)"></div>	
+						</div> <!-- infoBox -->
+						
+						<div class="infoBox">
+							<div class="itemsBox"><span>비밀번호</span></div>
+							<div class="inputBox">
+									<input type="password" class="pwInput" placeholder="비밀번호를 입력하세요." ><br>
+									<a class="pwMent">※ 8자~20자 이내의 영문자, 숫자, 특수문자를 혼용하여 입력해주세요.</a>
+							</div>	
+						</div> <!-- infoBox -->
+						
+						<div class="infoBox">
+							<div class="itemsBox"><span>비밀번호 확인</span></div>
+							<div class="inputBox"><input type="password" class="pwConfirmInput" placeholder="비밀번호를 다시 한 번 입력하세요." ></div>	
+						</div> <!-- infoBox -->
+							
+					</div> <!-- tableBox -->
+				
 						<div class="buttonBox"> 
 							<input type="submit" class="submitBtn" value="저장">
 							<input type="reset" class="resetBtn" value="취소">
 						</div> <!-- buttonBox -->
-					</div><!--tableBox -->
 					</form>
 			</div> <!-- myPageBox -->
 		</section>

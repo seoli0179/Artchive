@@ -40,41 +40,47 @@
 				<p class="line">
 				<div class="myExhbn">
 					<h2>본인 확인을 위하여 아래 정보를 입력해주세요.</h2>
+				
 				<form>
-				<div class="tableBox">
-					<table>
-						<thead>
-							<tr>
-								<th>아이디</th>
-								<th>이름</th>
-								<th>비밀번호 확인</th>
-								<th>탈퇴 사유</th>
-							</tr>
-						</thead>
-					
-						<tbody>
-							<tr>
-								<td><input type="text" placeholder="email@address.com" readonly></td>
-								<td><input type="text" placeholder="이름" readonly></td>
-								<td><input type="password" placeholder="비밀번호를 다시 한 번 입력하세요."></td>
-								<td>
-								  <select required>
+					<div class="tableBox">
+						
+						<div class="infoBox">
+							<div class="itemsBox"><span>아이디</span></div>
+							<div class="inputBox"><input type="text" class="emailInput" placeholder="email@address.com" readonly ></div>	
+						</div> <!-- infoBox -->
+						
+						<div class="infoBox">
+							<div class="itemsBox"><span>이름</span></div>
+							<div class="inputBox"><input type="text" class="nameInput" placeholder="이름" readonly ></div>	
+						</div> <!-- infoBox -->
+						
+						<div class="infoBox">
+							<div class="itemsBox"><span>비밀번호 확인</span></div>
+							<div class="inputBox"><input type="password" class="pwConfirmInput" placeholder="비밀번호를 다시 한 번 입력하세요." ></div>	
+						</div> <!-- infoBox -->
+							
+							
+						<div class="infoBox">
+							<div class="itemsBox"><span>탈퇴 사유</span></div>
+							<div class="inputBox"> 
+								<select class="reason" required>
 								   	<option value="1">ID변경</option>
 										<option value="2">서비스 이용 불편</option>
 										<option value="3">개인정보 누출 우려</option>
 										<option value="4">시스템 장애</option>
 										<option value="5">기타</option>
 								  </select>
-								</td>
-							</tr>
-						</tbody>
-					</table>
+							</div>	
+						</div> <!-- infoBox -->
+							
+					</div> <!-- tableBox -->
+				
 						<div class="buttonBox"> 
-							<input type="submit" value="탈퇴 신청">
-							<input type="reset" value="취소">
+							<input type="submit" class="submitBtn" value="탈퇴 신청">
+							<input type="reset" class="resetBtn" value="취소">
 						</div> <!-- buttonBox -->
-					</div><!--tableBox -->
 					</form>
+				
 				</div> <!-- myExhbn -->
 			</div> <!-- myPageBox -->
 		</section>
