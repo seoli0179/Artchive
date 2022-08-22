@@ -167,7 +167,10 @@
 	height : 85%;
 	display: inline-block;
 	font-size : 20px;
-	color : #949494;
+}
+
+#searchArea > .selected a {
+	color: black;
 }
 
 .AREA{
@@ -176,12 +179,13 @@
 	margin-top : 1%;
 	margin-left : 2%;
 }
-
+.AREA a{
+	color : #949494;
+}
 .AREA > ul >li {
 	margin-top : 6px;
 }
-
-.AREA>ul>li:hover {
+.AREA>ul>li a:hover {
 	color : #000;
 }
 
