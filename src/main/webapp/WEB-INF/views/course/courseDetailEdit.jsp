@@ -9,7 +9,9 @@
 		<title>arTchive / {코스 제목(글제목)}</title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/chatbot.css'/>">
+		<!-- icon-kit -->
+		<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
+
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/courseDetail.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/toggle.css'/>">
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
@@ -37,101 +39,115 @@
 
 			<!-- courseMain -->
 			<section id="courseMenu">
+				<div></div>
            		<div id="courseMainText">
-					<div class="toggle-box hidden">
-						<ul>
-							<li id="toggleBox">
-								<input type="checkbox" id="toggle" hidden>
-								<label for="toggle" class="toggleSwitch">
-								  <span class="toggleButton"></span>
-								</label>
-							</li>
-							<li id="toggleText">공개여부</li>
-						</ul>
-					</div><!-- courseToggle -->
-
-           		<div id="editCourse">
-           			<input type="button" id="editCourseBtn"  class="white-btn" value="수정">
-           		</div> <!-- editCourse -->
-           		
+					<button id="editCourseBtn" class="white-btn"><a href="<c:url value='/course/detail/edit'/>">수정</a></button>
+					<button class="black-btn"><a href="<c:url value='/course/detail/edit'/>">삭제</a></button>
+						<input type="button" id="like-btn"  class="white-btn" value="좋아요">
+						<input type="button" id="scrap-btn"  class="black-btn" value="스크랩">
            		</div><!-- courseMainText -->
-           		
-           		<div id="CourseTag">
-           			<ul>
-           				<li id="tagMain">관련 태그</li>
-           				<li>혼자 보러가기 좋은 전시</li>
-           				<li>혼밥하기 좋은 곳</li>
-           				<li>조용한 카페</li>
-           			</ul>
-           		</div> <!-- editCourseBtn -->
 			</section><!-- courseMenu -->
-           		
-           		<div id="courseMain">
-           		
-	           		<div id="course">
-	           			<div id="courseLine"></div>
-	           			<div id="courseIcon">
-	           				<div id="courseStart"></div>
-	           				<div id="number1"><ul><li>1</li></ul></div>
-	           				<div id="number2"><ul><li>2</li></ul></div>
-	           				<div id="number3"><ul><li>3</li></ul></div>
-	           				<div id="courseEnd"></div>
-	           			</div>
-	           			
-	           			<div id="courseText">
-	           				<div id="StartText">
-	           					<ul>
-	           						<li>일정시작</li>
-	           					</ul>
-	           				</div><!-- StartText -->
-	           				
-	           				<div id="exhibitionName">
-	           					<ul>
-		           					<li id="exhibitionText">전시명</li>
-		           					<li>서울시 00구 00동</li>
-	           					</ul>
-	           				</div><!-- exhibitionName -->
-	           				
-	           				<div id="restaurantName">
-	           					<ul>
-		           					<li id="restaurantText">식당명</li>
-		           					<li>서울시 00구 00동</li>
-	           					</ul>
-	           				</div><!-- restaurantName -->
-	           				
-	           				<div id="cafeName">
-	           					<ul>
-		           					<li id="cafeText">카페명</li>
-		           					<li>서울시 00구 00동</li>
-	           					</ul>
-	           				</div><!-- cafeName -->
-	           				
-	           				<div id="EndText">
-	           					<ul>
-	           						<li>일정끝</li>
-	           					</ul>
-	           				</div><!-- EndText -->
-	           			</div><!-- courseText -->
-	           			
-	           			<div id="courseDelete">
-		           			<div id="deleteEx">
-		           				<img src="<c:url value='/image/minus.png'/>">
-		           			</div>
-		           			<div id="deleteRes">
-		           				<img src="<c:url value='/image/minus.png'/>">
-		           			</div>
-		           			<div id="deleteCafe">
-		           				<img src="<c:url value='/image/minus.png'/>">
-		           			</div>
-	           			</div>
-	           		</div><!-- Course -->
-	           		
-					<div id="courseMap">
-					 
-					 </div><!-- courseMap -->
-					 
-				</div><!-- courseMain -->
-				
+
+			<!-- courseMain -->
+			<article id="courseMain">
+				<section class="tag-box-view">
+					<h3>관련 태그</h3>
+					<ul>
+						<li>혼자 보러가기 좋은 전시</li>
+						<li>혼밥하기 좋은 곳</li>
+						<li>조용한 카페</li>
+					</ul>
+				</section> <!-- editCourseBtn -->
+				<section id="course">
+					<section id="timeline-container">
+						<div class="timeline-course-container">
+							<div class="route-row" id="startPoint">
+								<div class="line down"></div>
+								<div class="left">
+									<div class="dot"></div>
+								</div>
+								<div class="content explain">Start ...</div>
+							</div>
+							<div class="route-row">
+								<div class="line"></div>
+								<div class="left">
+									<div class="mainCourse-dot">1</div>
+								</div>
+								<div class="content">
+									<div class="where">
+										<h3 class="where-title">전시관</h3>
+										<div class="address">주소주소주소</div>
+									</div>
+								</div>
+<%--								<div class="delete">--%>
+<%--									<img src="<c:url value='/image/minus.png'/>">--%>
+<%--								</div>--%>
+							</div>
+							<div class="route-row">
+								<div class="line"></div>
+								<div class="left">
+									<div class="subCourse-dot">2</div>
+								</div>
+								<div class="content">
+									<div class="where">
+										<h3 class="where-title">식당</h3>
+										<div class="address">주소주소주소</div>
+									</div>
+								</div>
+								<%--								<div class="delete">--%>
+								<%--									<img src="<c:url value='/image/minus.png'/>">--%>
+								<%--								</div>--%>
+							</div><div class="route-row">
+								<div class="line"></div>
+								<div class="left">
+									<div class="subCourse-dot">3</div>
+								</div>
+								<div class="content">
+									<div class="where">
+										<h3 class="where-title">산책로</h3>
+										<div class="address">주소주소주소</div>
+									</div>
+								</div>
+								<%--								<div class="delete">--%>
+								<%--									<img src="<c:url value='/image/minus.png'/>">--%>
+								<%--								</div>--%>
+							</div><div class="route-row">
+								<div class="line"></div>
+								<div class="left">
+									<div class="subCourse-dot">4</div>
+								</div>
+								<div class="content">
+									<div class="where">
+										<h3 class="where-title">카페</h3>
+										<div class="address">주소주소주소</div>
+									</div>
+								</div>
+								<%--								<div class="delete">--%>
+								<%--									<img src="<c:url value='/image/minus.png'/>">--%>
+								<%--								</div>--%>
+							</div>
+							<div class="route-row" id="endPoint">
+								<div class="line up"></div>
+								<div class="left">
+									<div class="dot"></div>
+								</div>
+								<div class="content explain">End ...</div>
+							</div>
+						</div>
+					</section>
+					<section id="courseMap">
+						map
+					</section><!-- courseMap -->
+				</section><!-- Course -->
+			</article><!-- courseMain -->
+			<section class="share">
+				<i class="fa-solid fa-envelope fa-xl"></i>
+				<i class="fa-brands fa-twitter fa-xl"></i>
+				<i class="fa-brands fa-facebook fa-xl"></i>
+				<i class="fa-solid fa-share-nodes fa-xl"></i>
+			</section>
+
+			<section id="searchMap-container">
 				<div id="searchCourse">
 					<ul>
 						<li>Search.</li>
@@ -164,9 +180,9 @@
 				 		<input type="button" class="white-btn" id="courseAddBtn1" value="장소 추가">
 				 	</div>
 				 </div>
-				</div><!-- recommendCourse -->
-           		
-		</main><!-- wrapper -->
+				</div>
+			</section>
+		</main>
 
 		 <!-- bottom 이동 -->
          <c:import url="/WEB-INF/views/layout/bottom.jsp" />
