@@ -10,24 +10,39 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>">
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/list.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/courseBoard.css'/>"/>
+	<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/course.css'/>"/>
 	<script src="<c:url value='/tools/jquery-3.6.0.min.js' /> "></script>
 	<%-- <script src="<c:url value='/js/list.js' />"></script>
-     --%></head>
+     --%>
+     </head>
 
 <body>
 <!-- top -->
 <c:import url="/WEB-INF/views/layout/top.jsp" />
 
 <!-- 검색창 -->
-<div id="searchMainTitle">
-	<ul>
-		<li>전시 검색</li>
-	</ul>
-	<div id="searchMainBox">
-		<input type="text" id="searchTEXT" name="searchMessage" size="120"  placeholder="검색어를 입력하세요."/>
-		<input type="button" id="SearchBtn" value="검색"/>
+	<div class="course-box main-title-box">
+                    <h1 class="h1">Search</h1>
+                    <span>관심 있는 전시를 검색해보세요.</span>
+	                    <div class="courseboard-search-box">
+	                        <div class="searchbar-box">
+	                            <div class="searchbar-border tag-box" type="text">
+	                                <ul id="tagList">
+	                                    <input class="inner-searchbar" id="inner-searchbar" type="text" placeholder="검색어를 입력하세요.">
+	                                </ul>
+	                                <div id="filterList" style="position: relative;">
+	
+	                                </div>
+	                            </div>
+	                            <input class="black-btn courseBoard-searchBtn" type="button" value="검색">
+	                            <input id="show" class="white-btn detailSearch courseBoard-searchBtn" type="button" value="상세검색">
+	                            <!-- <button id="show" class="white-btn detailSearch">상세검색</button> -->
+	                        </div>
+	                        <div id="tag-caution" class="vibration">태그는 3개까지만 선택할 수 있습니다.</div>
+	                    </div>
 		<!-- 팝업 시작 -->
-		<button id="show" class="white-btn">상세검색</button>
+		<!-- <button id="show" class="white-btn detailSearch">상세검색</button> -->
 		<div class="background">
 			<div class="window">
 				<div class="popup">
@@ -170,44 +185,44 @@
 	<div id="searchArea">
 		<div id="allArea" class="AREA">
 			<ul>
-				<li>전체</li>
+				<li><a href="#">전체</a></li>
 			</ul>
 		</div>
 		<div id="capitalArea" class="AREA">
 			<ul>
-				<li>수도권</li>
+				<li><a href="#">수도권</a></li>
 			</ul>
 		</div>
 		<div id="busanArea" class="AREA">
 			<ul>
-				<li>부산</li>
+				<li><a href="#">부산</a></li>
 			</ul>
 		</div>
 		<div id="jejuArea" class="AREA">
 			<ul>
-				<li>제주</li>
+				<li><a href="#">제주</a></li>
 			</ul>
 		</div>
 		<div id="kangwonArea" class="AREA">
 			<ul>
-				<li>강원</li>
+				<li><a href="#">강원</a></li>
 			</ul>
 		</div>
 		<div id="jeonArea" class="AREA">
 			<ul>
-				<li>전라도</li>
+				<li><a href="#">전라도</a></li>
 			</ul>
 		</div>
 
 		<div id="kyeongArea" class="AREA">
 			<ul>
-				<li>경상도</li>
+				<li><a href="#">경상도</a></li>
 			</ul>
 		</div>
 
 		<div id="etcArea" class="AREA">
 			<ul>
-				<li>기타지역</li>
+				<li><a href="#">기타지역</a></li>
 			</ul>
 		</div>
 
