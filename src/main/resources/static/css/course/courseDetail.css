@@ -1,9 +1,5 @@
 @charset "UTF-8";
 
-#courseMain div {
-	border: red 1px solid;
-}
-
 #courseDetail-wrap {
 	height : 100%;
 	min-width: 1080px;
@@ -16,24 +12,20 @@
 		font-size : 15px;
 		color : #fff;
 	}
-
 	#header-postTitle h1 {
 		font-size : 42px;
 		font-weight : bold;
 		color : #fff;
 	}
-
 	#header-postDate ul> li {
 		font-size : 15px;
 		color : #fff;
 	}
-
 	.headerText{
 		text-align : center;
 		line-height : 60px;
 		color : #fff;
 	}
-
 	#headerTextBox {
 		/* border : solid 3px #fff; */
 		padding-top : 5%;
@@ -55,7 +47,6 @@
 		display: flex;
 		justify-content: space-between;
 	}
-
 	.toggle {
 		margin-top : 0;
 		margin-left : 11%;
@@ -64,16 +55,11 @@
 		font-size : 22px;
 		height : 100%;
 	}
-
 	#courseToggle > ul > li {
 		float: left;
 		/* border : 2px black solid; */
 	}
-
 	#toggleText {
-		/* 	position : absolute;
-			top:45%;
-			left: 35%; */
 		margin-left : 0%;
 		height : 113px;
 		max-height : 113px;
@@ -81,19 +67,11 @@
 		font-size : 22px;
 		font-weight : bold;
 	}
-
 	#editCourseBtn-box{
 		width:100px;
 		height: fit-content;
 		padding: 20px;
 		text-align: end;
-	}
-
-/* Main 내용 부분 */
-	#courseMain{
-		width: 1080px;
-		margin: 0 auto;
-		height : 28%;
 	}
 
 /* tag (조회버전) */
@@ -102,18 +80,15 @@
 		display: flex;
 		padding:10px 0;
 	}
-
 	.tag-box-view h3 {
 		font-weight: bold;
 		display: inline-block;
 		margin: auto 0;
 		margin-right: 10px;
 	}
-
 	.tag-box-view ul {
 		display: flex;
 	}
-
 	.tag-box-view ul li {
 		height: 20px;
 		line-height: 20px;
@@ -126,44 +101,170 @@
 		background: #000000;
 		padding: 4px 16px 4px 16px;
 	}
-
-
-#tagMain{
-	font-weight : bold;
-}
-
-#CourseTag > ul > li {
-	float: left;
-	margin-left : 1%;
-}
-
-
-
-
-
+	#tagMain{
+		font-weight : bold;
+	}
 
 /**  courseMain **/
 #courseMain{
-	height:700px;
-	/* border : solid 2px red; */
+	width: 1080px;
+	margin: 20px auto;
 }
 
-#course{
-	float :left;
-	margin: 0 auto;
-	height:86%;
-	width: 40%;
-	margin-left : 12.9%;
+/* course timeline	*/
+#course {
+	width: 100%;
+	height: 100%;
+	min-height: 300px;
+	display: flex;
+	justify-content: space-between;
+}
+
+#timeline-container {
+	width:60%;
+	height: 100%;
+	min-height:300px;
+	overflow: visible;
+}
+
+#timeline-container #timeline-box {
+	width:100%;
+	border: 1px blue solid;
+}
+
+#timeline-container .timeline-course-container {
+	width: 100%;
+	height: inherit;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.route-row {
+	display: flex;
+	height: 84px;
+	position: relative;
+}
+
+#startPoint, #endPoint {
+	display: flex;
+	height: 52px;
+}
+
+.route-row .line {
+	position: absolute;
+	width: 2px;
+	left: 50px;
+	z-index: 0;
+	top:0;
+	bottom: 0;
+	transition:height .1s ease;
+	background-color: #dedede;
+}
+.route-row .line.down {
+	top:50%
+}
+.route-row .line.up {
+	bottom:50%
+}
+
+.route-row .left {
+	width:92px;
+	min-height: 52px;
+	max-height: 100px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+.route-row .left .dot {
+	position: absolute;
+	left:51px;
+	top:50%;
+	transform: translate(-50%,-50%);
+	width:12px;
+	height: 12px;
+	background-color: #000000;
+	z-index: 3;
+	border-radius: 50%;
+}
+.route-row .left .mainCourse-dot {
+	background: black;
+	position: absolute;
+	left:29px;
+	top:25%;
+	/*tansform:translate(-50%,-50%);*/
+	width:40px;
+	height: 40px;
+	border-radius: 50%;
+	z-index: 3;
+	font-weight: 700;
+	line-height: 40px;
+	text-align: center;
+	color: white;
+	border: 2px black solid;
+}
+
+.route-row .left .subCourse-dot {
+	background: white;
+	position: absolute;
+	border: 2px black solid;
+	left:29px;
+	top:25%;
+	width:40px;
+	height: 40px;
+	border-radius: 50%;
+	z-index: 3;
+	font-weight: 700;
+	line-height: 40px;
+	text-align: center;
+	color: black;
+}
+
+.route-row .content.explain {
+	height: 100%;
+	align-items: center;
+	justify-content: flex-start;
+	display: flex;
+	overflow: hidden;
+	font-size: 0.8rem;
+	font-weight: 700;
+}
+.route-row .content {
+	height: 100%;
+	align-items: center;
+	justify-content: flex-start;
+	display: flex;
+	overflow: hidden;
+	line-height: 1.5rem;
+}
+
+.where-title {
+	font-weight: bold;
+	font-size: 1.2rem;
+	margin: 2px 0;
+}
+.address {
+	color: #3B3B3B;
 }
 
 #courseMap{
-	float : right;
-	margin: 0 auto;
-	height:86%;
+	justify-self: right;
 	width: 35%;
-	margin-right : 8.6%;
+	height: 50%;
+	min-width: 300px;
+	min-height: 300px;
 	background-color : #eeeeee;
 }
+
+/* share */
+	.share {
+		width: 1080px;
+		margin: 20px auto;
+		text-align: right;
+	}
+	.share i {
+		margin: 5px;
+	}
 
 #courseIcon{
 	float :left;
@@ -177,50 +278,6 @@
 	margin: 0 auto;
 	height:100%;
 	width: 8%;
-}
-
-/*courseIcon*/
-
-#courseStart{
-	width: 20px;
-	height: 20px;
-	border : solid black 1px;
-	margin:0 auto; 
-	border-radius:100px;
-	background-color : #000;
-}
-
-#number1{
-	width: 60px;
-	height: 60px;
-	border : solid black 2px;
-	margin:0 auto; 
-	margin-top : 93px;
-	border-radius:100px;
-	background-color : #000;
-	z-index : 200;
-}
-
-#number2{
-	width: 60px;
-	height: 60px;
-	border : solid black 2px;
-	margin:0 auto;
-	margin-top : 93px; 
-	border-radius:100px;
-	background-color : #fff;
-	z-index : 200;
-}
-
-#number3{
-	width: 60px;
-	height: 60px;
-	border : solid black 2px;
-	margin:0 auto; 
-	margin-top : 93px;
-	border-radius:100px;
-	background-color : #fff;
-	z-index : 200;
 }
 
 #courseEnd{
@@ -240,85 +297,21 @@
 	margin-left : 50px;
 }
 
-#StartText > ul > li {
-	margin-top : 3px;
-	font-size:15px;
-}
-
-#exhibitionName > ul{
-	margin-top : 110px;
-}
-
-#exhibitionName > ul> li {
-	margin-top : 10px;
-}
-
-#restaurantName > ul {
-	margin-top : 110px;
-}
-
-#restaurantName > ul> li {
-	margin-top : 10px;
-}
-
-#cafeName > ul {
-margin-top : 110px;
-}
-
-#cafeName > ul> li {
-	margin-top : 10px;
-}
-
-#EndText > ul {
-	margin-top : 105px;
-	font-size:15px;
-}
-
 #exhibitionText {font-size:18px; font-weight : bold;}
 
 #restaurantText {font-size:18px; font-weight : bold;}
 
 #cafeText {font-size:18px; font-weight : bold;}
 
-#number1 > ul > li {
-text-align : center;
-line-height : 58px;
-font-size:18px;
-color : #fff;
-font-weight : bold;
-}
-
-#number2 > ul > li {
-text-align : center;
-line-height : 58px;
-font-size:18px;
-font-weight : bold;
-}
-
-#number3 > ul > li {
-text-align : center;
-line-height : 58px;
-font-size:18px;
-font-weight : bold;
-
-}
-
-#courseLine{
-	height : 600px;
-	float : left;
-	border-left : solid 4px black;
-	position : absolute;
-	left : 14.8%;
-	z-index : -1;
-}
-
 /* deleteCourse*/
 
-#deleteEx{
+.delete{
+	position: absolute;
 	width : 40px;
-	height: 40px;
-	text-align : center;
-	margin-top :133px;
+	height: 100%;
+	align-items: center;
+	right:0;
+	display: flex;
  }
 
 #deleteRes{
@@ -335,10 +328,14 @@ font-weight : bold;
 	margin-top :113px;
 }
 
+/* search */
+#searchMap-container {
+	width: 1080px;
+	margin:0 auto;
+}
+
 #searchCourse{
 	height : 150px;
-	margin-left : 13%;
-	/* border : 2px blue solid; */
 }
 
 #searchCourse ul > li {
@@ -347,18 +344,13 @@ font-weight : bold;
 }
 
 #courseSearch{
-	padding-left : 10px;
 	margin-top : 30px;
-	border :none;
-	border : solid 2px black;
 	border-radius:10px;
 	height : 40px;
 	width : 50%;
     min-width: 300px;
-    height: 40px;
     padding: 4px 16px;
     border: 2px black solid;
-    border-radius: 10px;
 }
 
 #CourseSearchBtn{
@@ -406,26 +398,19 @@ font-weight : bold;
 }
 
 /**recommendCourse**/
-
 #recommendCourse{
-	margin-left: 11.5%;
-	width : 80%;
+	width : 100%;
 	height : 350px;
 	margin-bottom : 50px;
+	display: flex;
+	justify-content: space-around;
 }
 
 .courseAdd {
-	margin-left : 2.5%;
-	float : left;
-	width : 22%;
-	height : 95%;
+	width : 24%;
+	height : 90%;
 	background-color : #eeeeee;
-	margin-bottom : 5%;
-	
 } 
-
-
-
 
 .courseAddBtn{
 	margin-top : 78%;
@@ -433,3 +418,11 @@ font-weight : bold;
 	width : 98%;
 }
 
+.back i {
+	cursor: pointer;
+}
+
+.back i:hover {
+	cursor: pointer;
+	color: #5b5b5b;
+}

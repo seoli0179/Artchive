@@ -6,7 +6,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>arTchive</title>
+		<title>Artchive</title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/header.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
@@ -27,7 +27,7 @@
 		<header>
 			<div id="mainMenu"> 
     
-       		<div id="logoBox"><a class="color" href="<c:url value='/'/>">arTchive</a></div><!-- ✚ -->
+       		<div id="logoBox"><a class="color" href="<c:url value='/'/>">Artchive</a></div><!-- ✚ -->
         	
         	<div id="headerBox">
         		<nav>
