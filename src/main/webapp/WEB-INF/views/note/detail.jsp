@@ -52,9 +52,7 @@
                 </div>
                 <div class="comment-write">
                   <textarea id="story" name="story"
-                            rows="5" cols="33">
-Leave a Comment...
-</textarea>
+                            rows="5" cols="33" placeholder="Leave a Comment..."></textarea>
                     <input class="post" type="button" value="Post">
                 </div>
                 <div class="comment-num">2 comments</div>
