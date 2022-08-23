@@ -40,9 +40,11 @@
         </div>
     </article>
     <section>
-        <div class="search_box">
-            <input class="search_bar" id="search" type="search">
-            <i class="fa-solid fa-magnifying-glass search_btn"></i>
+           <!--  <input class="search_bar" id="search" type="search">
+            <i class="fa-solid fa-magnifying-glass search_btn"></i> -->
+         <div id="searchMainBox">
+      		<input type="text" id="searchTEXT" name="searchMessage" size="120"  placeholder="검색어를 입력하세요."/>
+      		<input type="button" class="black-btn" id="" value="검색"/>
         </div>
         <div class="filter_box">
             <ul>

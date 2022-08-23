@@ -29,7 +29,7 @@
             <c:import url="/WEB-INF/views/layout/top.jsp" />
 
             <main id="course-container">
-                <div class="course-box main-title-box">
+                <div id="course-box" class="course-box main-title-box">
                     <h1 class="h1">Courses</h1>
                     <span>다른 사람들이 기획한 관람 코스들을 모아봅니다.</span>
 	                    <div class="courseboard-search-box">

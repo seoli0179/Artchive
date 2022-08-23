@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+body {
+	min-width: 1080px;
+	max-width: 1390px;
+	margin: 0 auto;
+}
+
 #course-container {
     width:100%;
     min-width: 1080px;
@@ -10,22 +16,24 @@
     --web-scale-on-resize: true;
     --web-enable-deep-linking: true;
     position: relative;
+    
+    margin-bottom : 20px;
 }
-
-/*#course-container>div {*/
-/*    !*left:13%;*!*/
-/*    !*border: red 1px solid;*!*/
-/*}*/
 
 .course-box {
     /* margin:50px 85px; */
-   	margin-left : 4%;
-   	margin-right : 4%;
+   /* 	margin-left : 4%;
+   	margin-right : 4%; */
    	margin-top : 50px;
     line-height: 2.3rem;
     border-bottom: black 2px solid;
     padding: 20px 0;
 
+}
+
+#course-box{
+	margin-left : 0%;
+   	margin-right : 0%;
 }
 
 /* 가이드 박스 */
