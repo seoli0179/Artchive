@@ -22,6 +22,7 @@
                n.userId,
                n.noteTitle,
                n.note,
+               n.pageViewState,
                n.noteLike,
                n.noteCommentNum,
                n.noteCreatedDate,
@@ -66,6 +67,14 @@
     </update>
 
     <!-- Delete -->
+    <update id="deleteNote" parameterType="com.spring_boot_final.project.model.NoteVO">
+        <![CDATA[
+        UPDATE note
+        SET pageViewState = 'DELETE'
+        WHERE noteId = #{noteId}
+          AND userId = #{userId}
+        ]]>
+    </update>
 
 
 </mapper>

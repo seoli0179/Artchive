@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 
 @RestController
 public class NoteDataController {
@@ -60,6 +59,25 @@ public class NoteDataController {
         vo.setUserId(session.getAttribute("sid").toString());
 
         service.updateNote(vo);
+
+        return "SUCCESS";
+    }
+
+    @RequestMapping("/note/deleteNote")
+    public String deleteNote(
+            @RequestParam("noteId") int noteId,
+            HttpSession session
+    ) {
+
+        if (session.getAttribute("sid") == null) {
+            return "FAIL";
+        }
+
+        NoteVO vo = new NoteVO();
+        vo.setNoteId(noteId);
+        vo.setUserId(session.getAttribute("sid").toString());
+
+        service.deleteNote(vo);
 
         return "SUCCESS";
     }

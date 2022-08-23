@@ -15,4 +15,6 @@ public interface INoteDAO {
 
     NoteVO selectNote(int noteId);
 
+    void deleteNote(NoteVO vo);
+
 }

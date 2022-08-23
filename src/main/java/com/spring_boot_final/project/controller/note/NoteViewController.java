@@ -3,12 +3,14 @@ package com.spring_boot_final.project.controller.note;
 import com.spring_boot_final.project.model.NoteVO;
 import com.spring_boot_final.project.service.CommentService;
 import com.spring_boot_final.project.service.NoteService;
+import com.spring_boot_final.project.state.ViewState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 
 @Controller
@@ -38,10 +40,16 @@ public class NoteViewController {
     public String detail(
             @PathVariable int noteId,
             Model model
-            ) {
+    ) {
 
-        model.addAttribute("note", noteService.selectNote(noteId));
-        model.addAttribute("commentList",commentService.selectComment(noteId));
+        NoteVO note = noteService.selectNote(noteId);
+
+        if (note.getPageViewState() != ViewState.POST) {
+            return "error";
+        }
+
+        model.addAttribute("note", note);
+        model.addAttribute("commentList", commentService.selectComment(noteId));
 
         return "note/detail";
     }
@@ -54,10 +62,19 @@ public class NoteViewController {
     @RequestMapping("/note/update/{noteId}")
     public String update(
             @PathVariable int noteId,
+            HttpSession session,
             Model model
     ) {
 
-        model.addAttribute("note", noteService.selectNote(noteId));
+        if (session.getAttribute("sid") == null)
+            return "error";
+
+        NoteVO vo = noteService.selectNote(noteId);
+
+        if (!vo.getUserId().equals(session.getAttribute("sid").toString()))
+            return "error";
+
+        model.addAttribute("note", vo);
 
         return "note/update";
     }
