@@ -17,18 +17,6 @@ body {
 	justify-content: left;
 }
 
-/* .cell {
-	min-width:260px;
-	margin:1%;
-	width:20%;
-	height:20%;
-} */
-
-.cell img {
-	width:100%;
-	height:100%;
-}
-
 /* 유나 */
 
 #searchMainTitle {
@@ -172,7 +160,7 @@ body {
 /*}*/
 #searchArea .tabTag:hover {
 	background-color: #000;
-	width:140px;
+	min-width:140px;
 	height: 50px;
 	line-height: 40px;
 	border-radius: 50px;
@@ -214,37 +202,51 @@ body {
 
 .img-box {
 	text-align : center;
-	width : 100%;
-	height: 320px;
+	margin: 10px auto;
+	width : 90%;
+	height: 300px;
 }
 
-.img-box> a >img {
-	text-align : center;
+.list-con {
+	display: flex;
+	/*clear: both;*/
 	height: 100%;
+	max-width: 1390px;
+	flex-wrap: wrap;
+}/* float:left 때문에 자식 인식 못함 */
+
+.list-con .row {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.cell{
+	width : 25%;
+	height : 400px;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding: 10px;
+	padding-bottom: 20px;
+	margin: 20px;
+	border-radius: 10px;
+}
+.cell img {
+	width: 100%;
+	height:100%;
+	text-align : center;
 	object-fit: cover;
 	overflow: hidden;
 }
 
-.img-box:hover a >img {
-	text-align : center;
+.cell:hover {
+	box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+	transition: 0.5s ease;
+}
+.cell:hover img {
 	object-fit: contain;
 }
-
-.cell{
-	width : 20%;
-	margin-left : 4%;
-	margin-top : 3%;
-	height : 570px;
-	float:left;
-}
-
-
-
-.list-con::after {
-	content: "";
-	display: block;
-	clear: both;
-}/* float:left 때문에 자식 인식 못함 */
 
 #ex-all{
 	margin-top : 4%;
@@ -252,22 +254,28 @@ body {
 }
 
 .ex-place{
-	font-size : 16px;
-	font-weight : bold;
+	font-size : 0.9rem;
+	color: #3B3B3B;
+	text-align: center;
 }
 
 .ex-title{
-	font-size : 22px;
-	font-weight : bold;
-	margin-top : 4%;
-	line-height : 30px;
+	display: flex;
+	font-size : 1.0rem;
+	line-height : 1.3rem;
+	height: 40px;
+	overflow: hidden;
+	font-weight: bold;
+	padding: 4px;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
 }
 
 .ex-period{
-	font-size : 18px;
-	margin-top : 3%;
+	font-size : 0.9rem;
 	color : #808080;
-	font-weight : bold;
+	text-align: center;
 }
 
 .white-btn{
