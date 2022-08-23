@@ -26,9 +26,7 @@
 #searchBox img {
 	width: 15px;
 	height: 15px;
-	position:absolute;
-	right : 3%;
-	top : 40%;
+	margin-left :3%;
 	
 }
 
