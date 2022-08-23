@@ -14,9 +14,10 @@
 	</head>
 	<body>
 		<header>
+		<div id="mainMenuBox">	
 			<div id="mainMenu">
     
-       		<div id="logoBox"><a href="<c:url value='/'/>">arTchive</a></div><!-- ✚ -->
+       		<div id="logoBox"><a href="<c:url value='/'/>">Artchive</a></div><!-- ✚ -->
         	
         	<div id="headerBox">
         		<nav>
@@ -48,16 +49,19 @@
 					</ul>
 				</c:if>
         	</div> <!-- loginBox -->
-        	
-        	<div id="searchBox">
-				<form>
-					<input type="text" id="searchMessage" name="searchMessage" size="120"  placeholder="검색어를 입력하세요."/>
-					<input type="submit" id="searchBtn" value="검색">
-					<img src="<c:url value='/image/x.png'/>">
-				</form>
-			</div><!-- searchBox -->
+        		
         	
         	</div> <!-- mainMenu -->
+        	
+        		<div id="searchBox">
+					<div>
+						<input type="text" id="searchMessage" name="searchMessage" size="120"  placeholder="검색어를 입력하세요."/>
+						<input type="button" id="searchBtn" value="검색">
+						<img src="<c:url value='/image/X.png'/>">
+					</div>
+				</div><!-- searchBox -->
+        	
+        	</div><!-- mainMenuBox -->
         	
             </header>
 	</body>
