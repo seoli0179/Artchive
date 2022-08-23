@@ -34,7 +34,7 @@ header #logoBox {
 	}
 	
 header #logoBox{
-	width: 12%;
+	width: 10%;
 	line-height: 75px; 
 	/* border : 1px solid rgba(255,255,255,0.5); */
 	height:70px;
@@ -117,16 +117,21 @@ header #headerBox nav > ul > li > a {
 	height: 70px;
 	display : block;
 	line-height:70px;
-	min-width: 0px;
-	padding-right : 35px;
+	padding : 0 20px;
 }
 
-header #headerBox nav > ul {text-align:center;}
+header #headerBox nav > ul {
+	text-align:center;
+	display: flex;
+}
 
 header #headerBox nav > ul > li {
 	display: inline-block;
 }
-	
+
+#headerBox i {
+	margin-left: 10px;
+}
 
 /*** 메인 메뉴 고정 ***/
 /* 윈도우 스크롤시 메인메뉴 고정 */
@@ -147,6 +152,23 @@ header #headerBox nav > ul > li {
 }
 
 
+.dropdownMenu {
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+	z-index: 500;
+}
+.dropdownMenu li {
+	padding: 10px 15px;
+	text-align: left;
+}
+.dropdownMenu li:hover {
+	background-color: black;
+}
+.dropdownMenu li:hover a {
+	color: white;
+}
 
 
 
