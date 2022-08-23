@@ -49,14 +49,7 @@
 					</ul>
 				</c:if>
         	</div> <!-- loginBox -->
-        	
-        <%-- 	<div id="searchBox">
-				<form>
-					<input type="text" id="searchMessage" name="searchMessage" size="120"  placeholder="검색어를 입력하세요."/>
-					<input type="submit" id="searchBtn" value="검색">
-					<img src="<c:url value='/image/x.png'/>">
-				</form>
-			</div><!-- searchBox --> --%>
+        		
         	
         	</div> <!-- mainMenu -->
         	
@@ -64,7 +57,7 @@
 					<div>
 						<input type="text" id="searchMessage" name="searchMessage" size="120"  placeholder="검색어를 입력하세요."/>
 						<input type="button" id="searchBtn" value="검색">
-						<img src="<c:url value='/image/whiteX.png'/>">
+						<img src="<c:url value='/image/X.png'/>">
 					</div>
 				</div><!-- searchBox -->
         	
