@@ -38,6 +38,8 @@ $(document).ready(function () {
                     alert("오류 발생!");
                 }
             });
+        } else {
+            alert("게시글 제목을 입력해 주세요!");
         }
     });
 
