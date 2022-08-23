@@ -11,6 +11,9 @@ public interface ICommentDAO {
 
     void updateComment(CommentVO vo);
 
-    ArrayList<CommentVO> selectComment(int noteId);
+    ArrayList<CommentVO> selectCommentList(int noteId);
+    CommentVO selectComment(int commentId);
+
+    void deleteComment(CommentVO vo);
 
 }

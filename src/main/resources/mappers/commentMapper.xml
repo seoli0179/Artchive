@@ -16,7 +16,7 @@
 
     <!-- Read -->
 
-    <select id="selectComment" parameterType="int" resultType="com.spring_boot_final.project.model.CommentVO">
+    <select id="selectCommentList" parameterType="int" resultType="com.spring_boot_final.project.model.CommentVO">
         <![CDATA[
         select c.commentId,
                c.noteId,
@@ -29,7 +29,16 @@
              user u
         where c.noteId = #{noteId}
           and c.userId = u.userId
+          and c.pageViewState = 'POST'
         order by c.commentCreatedDate desc;
+        ]]>
+    </select>
+
+    <select id="selectComment" parameterType="int" resultType="com.spring_boot_final.project.model.CommentVO">
+        <![CDATA[
+        select *
+        from comment
+        where commentId = #{commentId};
         ]]>
     </select>
 
@@ -45,6 +54,15 @@
     </update>
 
     <!-- Delete -->
+
+    <update id="deleteComment" parameterType="com.spring_boot_final.project.model.CommentVO">
+        <![CDATA[
+        UPDATE comment
+        SET pageViewState='DELETE'
+        WHERE commentId = #{commentId}
+          AND userId = #{userId}
+        ]]>
+    </update>
 
 
 </mapper>

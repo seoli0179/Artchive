@@ -1,9 +1,7 @@
 package com.spring_boot_final.project.service;
 
 import com.spring_boot_final.project.dao.ICommentDAO;
-import com.spring_boot_final.project.dao.INoteDAO;
 import com.spring_boot_final.project.model.CommentVO;
-import com.spring_boot_final.project.model.NoteVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -25,8 +23,16 @@ public class CommentService {
         dao.updateComment(vo);
     }
 
-    public ArrayList<CommentVO> selectComment(int noteId) {
-        return dao.selectComment(noteId);
+    public ArrayList<CommentVO> selectCommentList(int noteId) {
+        return dao.selectCommentList(noteId);
+    }
+
+    public CommentVO selectComment(int commentId) {
+        return dao.selectComment(commentId);
+    }
+
+    public void deleteComment(CommentVO vo) {
+        dao.deleteComment(vo);
     }
 
 }

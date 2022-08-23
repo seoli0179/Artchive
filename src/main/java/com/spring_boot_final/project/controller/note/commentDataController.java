@@ -34,4 +34,30 @@ public class commentDataController {
 
         return "SUCCESS";
     }
+
+    @RequestMapping("/comment/deleteComment")
+    public String deleteComment(
+            @RequestParam("commentId") String commentId,
+            HttpSession session
+    ){
+
+        if(session.getAttribute("sid") == null)
+            return "FAIL";
+
+        CommentVO vo = service.selectComment(Integer.parseInt(commentId));
+
+        if(!vo.getUserId().equals(session.getAttribute("sid").toString())) {
+            return "FAIL";
+        }
+
+        vo = new CommentVO();
+        vo.setCommentId(Integer.parseInt(commentId));
+        vo.setUserId(session.getAttribute("sid").toString());
+
+        service.deleteComment(vo);
+
+        return "SUCCESS";
+    }
+
+
 }

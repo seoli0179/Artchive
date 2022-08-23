@@ -49,7 +49,7 @@ public class NoteViewController {
         }
 
         model.addAttribute("note", note);
-        model.addAttribute("commentList", commentService.selectComment(noteId));
+        model.addAttribute("commentList", commentService.selectCommentList(noteId));
 
         return "note/detail";
     }

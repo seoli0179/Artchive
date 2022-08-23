@@ -17,6 +17,7 @@
     <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
     <script src="<c:url value='/js/note/detail.js'/>"></script>
     <script src="<c:url value='/js/comment/create.js'/>"></script>
+    <script src="<c:url value='/js/comment/delete.js'/>"></script>
     <script src="https://kit.fontawesome.com/8ab5776cfb.js" crossorigin="anonymous"></script><!-- 아이콘 -->
     <title>arTchive / ${note.noteTitle}</title>
 </head>
@@ -68,8 +69,8 @@
                     <div class="comment-num">${commentList.size()} comments</div>
                     <div class="comment-list">
                         <c:forEach var="comment" items="${commentList}">
-                            <input type="hidden" id="commentId${comment.commentId}" value="${commentId}">
                             <div class="comment">
+                                <input type="hidden" id="commentId${comment.commentId}" value="${commentId}">
                                 <div class="comment-scrap">
                                     <div class="like"><i class="fa-solid fa-heart" style="color:Red"></i>7</div>
                                 </div>
@@ -78,6 +79,12 @@
                                         <div class="username">${comment.userNickname}</div>&nbsp;&middot;&nbsp;
                                         <div class="createdAt"><fmt:formatDate pattern="MM-dd"
                                                                                value="${comment.commentCreatedDate }"/></div>
+                                        <div class="deleteComment">
+                                            <c:if test="${sessionScope.sid == comment.userId}">
+                                                <input type="button" onclick="deleteComment(${comment.commentId})"
+                                                       value="삭제">
+                                            </c:if>
+                                        </div>
                                     </div>
                                     <div class="comment-body" style="white-space: pre-line;"><c:out
                                             value="${comment.comment}" escapeXml="false"></c:out></div>
