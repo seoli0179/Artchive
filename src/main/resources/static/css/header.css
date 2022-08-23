@@ -91,7 +91,7 @@ header #beforeLogin{
 
 header #loginBox > ul li{
 	flex:1;
-	line-height: 70px; 
+	line-height:75px; 
 	height:70px;
 	text-align:center;
 	display: inline-block;
@@ -103,7 +103,6 @@ header #loginBox > ul li a {
 	font-size : 16px;
 	color : #fff;
 	text-decoration : none;
-	font-weight : bold;
 }
 
 .mainSearch {
@@ -116,6 +115,7 @@ header #loginBox > ul li a {
 	text-overflow: ellipsis;  /*... 만들기 */
 	overflow: hidden;  		/* 영역을 감춤 */
 	color : #fff;
+	font-weight : bold;
 }
 
 /*headerBox*/
@@ -130,10 +130,9 @@ header #headerBox nav > ul > li > a {
 	font-size : 16px;
 	color : #fff;
 	text-decoration : none;
-	font-weight : bold;
 	height: 70px;
 	display : block;
-	line-height:70px;
+	line-height:75px;
 	min-width: 0px;
 	padding-right : 35px;
 }

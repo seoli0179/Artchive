@@ -35,7 +35,7 @@ header #logoBox {
 	
 header #logoBox{
 	width: 12%;
-	line-height: 70px; 
+	line-height: 75px; 
 	/* border : 1px solid rgba(255,255,255,0.5); */
 	height:70px;
 	/* border : solid 1px white; */
@@ -83,7 +83,6 @@ header #loginBox > ul li a {
 	font-size : 16px;
 	color : #000;
 	text-decoration : none;
-	font-weight : bold;
 	
 	border: solid 1px #fff; /* 없어지면 돋보기 이미지가 올라감 ... 왜 ..? */
 }
@@ -99,6 +98,7 @@ header #loginBox > ul li a {
 	text-overflow: ellipsis;  /*... 만들기 */
 	overflow: hidden;  		/* 영역을 감춤 */
 	color : #000;
+	font-weight : bold;
 }
 
 
@@ -114,7 +114,6 @@ header #headerBox nav > ul > li > a {
 	font-size : 16px;
 	color : #000;
 	text-decoration : none;
-	font-weight : bold;
 	height: 70px;
 	display : block;
 	line-height:70px;
