@@ -10,6 +10,8 @@
     --web-scale-on-resize: true;
     --web-enable-deep-linking: true;
     position: relative;
+    
+    margin-bottom : 20px;
 }
 
 /*#course-container>div {*/
