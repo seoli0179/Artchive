@@ -21,10 +21,7 @@ body {
 }
 
 .course-box {
-    /* margin:50px 85px; */
-   /* 	margin-left : 4%;
-   	margin-right : 4%; */
-   	margin-top : 50px;
+   	margin-top : 10px;
     line-height: 2.3rem;
     border-bottom: black 2px solid;
     padding: 20px 0;
