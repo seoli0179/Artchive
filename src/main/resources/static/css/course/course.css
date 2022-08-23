@@ -10,7 +10,6 @@ body {
     width:100%;
     min-width: 1080px;
     min-height: auto;
-    background-color: rgba(255,255,255,1);
     --web-view-name: coursepage;
     --web-view-id: coursepage;
     --web-scale-on-resize: true;

@@ -71,11 +71,17 @@
                 <li>Popular</li>
             </ul>
             <div class="write_box">
-                <input id="write_btn" class="white-btn" type="button" value="작성">
+                <c:if test="${not empty sessionScope.sid}">
+                    <input id="write_btn" class="write_btn" type="button" value="작성">
+                </c:if>
+                <c:if test="${empty sessionScope.sid}">
+                    <input id="write_btn" class="write_btn" type="button" value="작성" disabled>
+                </c:if>
             </div>
         </div>
         <div class="list_box">
             <c:forEach var="note" items="${list}">
+                <hr>
                 <div class="content">
                     <div class="scrap">
                         <div class="like"><i class="fa-solid fa-heart"></i>${note.noteLike}</div>
@@ -95,6 +101,7 @@
                     </div>
                 </div>
             </c:forEach>
+            <hr>
         </div>
         <div class="nav">
             <div class="nav_btn"><</div>
