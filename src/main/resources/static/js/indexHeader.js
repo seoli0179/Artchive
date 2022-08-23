@@ -4,22 +4,22 @@
  
   $(document).ready(function() {
 	// 윈도우 스크롤시 메인 메뉴 고정 
-	$(window).on('scroll',function(){
+		/*$(window).on('scroll',function(){
 		if($(document).scrollTop()>=$('#headerBox').height()){
-			$('#mainMenu').addClass('mainMenuFixed');
+			$('#mainMenuBox').addClass('mainMenuFixed');
 		}else{
-			$('#mainMenu').removeClass('mainMenuFixed');
+			$('#mainMenuBox').removeClass('mainMenuFixed');
 		}
-	});
+	});*/
 	
 	/* 메뉴 배경 색상변경 */
 	$(window).on('scroll',function(){
 		// 스크롤되는 문서의 top이 #headerBox 이상이면 메인메뉴 고정되고 그림자 표시
 		if($(document).scrollTop()>=$('#headerBox').height()){
-			$('#headerBox').css("background" , "#fff");
+			$('#mainMenuBox').css("background" , "#fff");
 			$('#searchBtn').css("background" , "#000");
 		}else{
-			$('#headerBox').css("background" , "");
+			$('#mainMenuBox').css("background" , "");
 			$('#searchBtn').css("background" , "");
 		}
 	});
@@ -39,9 +39,9 @@
 	$(window).on('scroll',function(){
 		// 스크롤되는 문서의 top 그림자 표시
 		if($(document).scrollTop()>=$('#headerBox').height()){
-			$('#headerBox').addClass('boxshadow');
+			$('#mainMenuBox').addClass('boxshadow');
 		}else{
-			$('#headerBox').removeClass('boxshadow');
+			$('#mainMenuBox').removeClass('boxshadow');
 		}
 	});
 	

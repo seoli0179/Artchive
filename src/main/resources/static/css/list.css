@@ -85,19 +85,6 @@ body {
 	transform: translateY(0);
 }
 
-#detailSearchBtn{
-	background-color: #fff;
-	height: 54px;
-	width : 100px;
-	border: 2px solid #1A1A1A;
-	border-radius: 15px;
-	color: #3B3B3B;
-	display: inline-block;
-	font-size: 16px;
-	font-weight: 600;
-	position : relative;
-	top : 0.5%;
-}
 
 #detailSearchBtn:disabled {
 	pointer-events: none;
@@ -284,16 +271,18 @@ body {
 }
 
 .white-btn{
-	height: 54px;
-	width: 90px;
+	height: 59px;
+	width: 100px;
 	border: 2px solid #1A1A1A;
-	border-radius: 15px;
+	border-radius: 10px;
 	font-size: 15px;
 	font-weight: 600;
 	margin: 0;
+	
 	display: inline-block;
-	position: relative;
-	top: 0.5%;
+	margin-left : 10px;
+	margin-top : 12px;
+	
 
 }
 .background {

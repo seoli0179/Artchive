@@ -25,6 +25,7 @@
 		<div id="wrap">
 	
 		<header>
+		<div id="mainMenuBox">
 			<div id="mainMenu"> 
     
        		<div id="logoBox"><a class="color" href="<c:url value='/'/>">Artchive</a></div><!-- ✚ -->
@@ -59,6 +60,7 @@
 				</c:if>
         	</div> <!-- loginBox -->
         	
+        	</div> <!-- mainMenu -->
         	<div id="searchBox">
 				<div>
 					<input type="text" id="searchMessage" name="searchMessage" size="120"  placeholder="검색어를 입력하세요."/>
@@ -66,14 +68,10 @@
 					<img src="<c:url value='/image/whiteX.png'/>">
 				</div>
 			</div><!-- searchBox -->
-        	
-        	</div> <!-- mainMenu -->
+        	</div><!-- mainMenuBox -->
         	
         		<div id="visual"><img src="<c:url value='/image/banner.jpg'/>"></div>
             </header>
-		
-		<!-- top으로 이동 -->
-		<%--  <c:import url="/WEB-INF/views/layout/top.jsp" /> --%>
 
 
            	<div id="banner">
