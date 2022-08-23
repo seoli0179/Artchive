@@ -18,8 +18,37 @@
 }
 
 .AREA{
-	margin-left : 2.5%;
+	text-align : center;
+	line-height : 40px;
+	width : 140px;
 }
+
+.AREA:hover {
+	background-color: #000;
+	width:140px;
+	height: 50px;
+	line-height: 40px;
+	border-radius: 50px;
+	display: flex;
+	justify-content: center;
+	padding-bottom: 6px;
+}
+
+.AREA:hover a {
+	color : #fff;
+}
+
+#searchArea .selected {
+	background-color: #000;
+	width:140px;
+	height: 50px;
+	line-height: 40px;
+	border-radius: 50px;
+	display: flex;
+	justify-content: center;
+	padding-bottom: 6px;
+}
+
 
 .tabList >ul> li {
 	margin-top : 2%;

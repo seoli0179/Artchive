@@ -155,9 +155,8 @@ body {
 .AREA > ul >li {
 	margin-top : 6px;
 }
-/*.AREA>ul>li a:hover {*/
-/*	color : #000000;*/
-/*}*/
+
+
 #searchArea .tabTag:hover {
 	background-color: #000;
 	min-width:140px;
