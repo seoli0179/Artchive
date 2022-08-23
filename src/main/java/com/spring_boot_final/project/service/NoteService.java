@@ -31,4 +31,8 @@ public class NoteService {
         return dao.selectNote(noteId);
     }
 
+    public void deleteNote(NoteVO vo) {
+        dao.deleteNote(vo);
+    }
+
 }

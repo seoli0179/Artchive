@@ -22,13 +22,15 @@
                n.userId,
                n.noteTitle,
                n.note,
+               n.pageViewState,
                n.noteLike,
                n.noteCommentNum,
                n.noteCreatedDate,
                u.userNickname
         from note n,
              user u
-        where n.noteId = #{noteId};
+        where n.noteId = #{noteId}
+          and n.userId = u.userId;
         ]]>
     </select>
 
@@ -65,6 +67,14 @@
     </update>
 
     <!-- Delete -->
+    <update id="deleteNote" parameterType="com.spring_boot_final.project.model.NoteVO">
+        <![CDATA[
+        UPDATE note
+        SET pageViewState = 'DELETE'
+        WHERE noteId = #{noteId}
+          AND userId = #{userId}
+        ]]>
+    </update>
 
 
 </mapper>

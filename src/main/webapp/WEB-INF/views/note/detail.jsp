@@ -16,6 +16,8 @@
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/note/detail.css'/>">
     <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
     <script src="<c:url value='/js/note/detail.js'/>"></script>
+    <script src="<c:url value='/js/comment/create.js'/>"></script>
+    <script src="<c:url value='/js/comment/delete.js'/>"></script>
     <script src="https://kit.fontawesome.com/8ab5776cfb.js" crossorigin="anonymous"></script><!-- 아이콘 -->
     <title>arTchive / ${note.noteTitle}</title>
 </head>
@@ -30,7 +32,12 @@
                 <i id="back" class="fa-solid fa-arrow-left fa-2xl"></i>
             </div>
             <div class="write_box">
-                <input id="write_btn" class="write_btn" type="button" value="수정">
+                <c:if test="${sessionScope.sid == note.userId}">
+                    <input id="write_btn" class="write_btn" type="button" value="수정">
+                </c:if>
+                <c:if test="${sessionScope.sid != note.userId}">
+                    <input id="write_btn" class="write_btn" type="button" value="수정" disabled>
+                </c:if>
             </div>
         </div>
         <div class="content">
@@ -43,49 +50,47 @@
                     ${note.noteTitle}
                 </div>
                 <div class="info">
-                    by&nbsp;<div class="username">${note.userNickname}</div>&nbsp;&middot;&nbsp;<div class="createdAt"><fmt:formatDate pattern="MM-dd" value="${note.noteCreatedDate }" /></div>
+                    by&nbsp;<div class="username">${note.userNickname}</div>&nbsp;&middot;&nbsp;<div class="createdAt">
+                    <fmt:formatDate pattern="MM-dd" value="${note.noteCreatedDate }"/></div>
                 </div>
                 <div class="content-body">
                     <article class="content-text" itemprop="articleBody">
                         ${note.note}
                     </article>
                 </div>
-                <div class="comment-write">
-                  <textarea id="story" name="story"
-                            rows="5" cols="33">
-Leave a Comment...
-</textarea>
-                    <input class="post" type="button" value="Post">
-                </div>
-                <div class="comment-num">2 comments</div>
-                <div class="comment-list">
-                    <div class="comment">
-                        <div class="comment-scrap">
-                            <div class="like"><i class="fa-solid fa-heart" style="color:Red"></i>7</div>
-                        </div>
-                        <div class="comment-summary">
-                            <div class="info">
-                                <div class="username">username</div>&nbsp;&middot;&nbsp;
-                                <div class="createdAt">08-17</div>
-                            </div>
-                            <div class="comment-body">
-                                고생하셨습니다~!^^
-                            </div>
-                        </div>
+                <c:if test="${not empty sessionScope.sid}">
+                    <div class="comment-write">
+                        <textarea id="comment" name="story"
+                                  rows="5" cols="33" placeholder="Leave a Comment..."></textarea>
+                        <input id="commentPost" class="post" type="button" value="Post">
                     </div>
-                    <div class="comment">
-                        <div class="comment-scrap">
-                            <div class="like"><i class="fa-solid fa-heart" style="color:Black"></i>7</div>
-                        </div>
-                        <div class="comment-summary">
-                            <div class="info">
-                                <div class="username">username</div>&nbsp;&middot;&nbsp;
-                                <div class="createdAt">08-17</div>
+                </c:if>
+                <div class="comment-box" id="comment-box">
+                    <div class="comment-num">${commentList.size()} comments</div>
+                    <div class="comment-list">
+                        <c:forEach var="comment" items="${commentList}">
+                            <div class="comment">
+                                <input type="hidden" id="commentId${comment.commentId}" value="${commentId}">
+                                <div class="comment-scrap">
+                                    <div class="like"><i class="fa-solid fa-heart" style="color:Red"></i>7</div>
+                                </div>
+                                <div class="comment-summary">
+                                    <div class="info">
+                                        <div class="username">${comment.userNickname}</div>&nbsp;&middot;&nbsp;
+                                        <div class="createdAt"><fmt:formatDate pattern="MM-dd"
+                                                                               value="${comment.commentCreatedDate }"/></div>
+                                        <div class="deleteComment">
+                                            <c:if test="${sessionScope.sid == comment.userId}">
+                                                <input type="button" onclick="deleteComment(${comment.commentId})"
+                                                       value="삭제">
+                                            </c:if>
+                                        </div>
+                                    </div>
+                                    <div class="comment-body" style="white-space: pre-line;"><c:out
+                                            value="${comment.comment}" escapeXml="false"></c:out></div>
+                                </div>
                             </div>
-                            <div class="comment-body">
-                                재미난 프로젝트군요!! 화이팅입니다 :)
-                            </div>
-                        </div>
+                        </c:forEach>
                     </div>
                 </div>
             </div>

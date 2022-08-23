@@ -52,7 +52,12 @@
                 <li>Popular</li>
             </ul>
             <div class="write_box">
-                <input id="write_btn" class="white-btn" type="button" value="작성">
+                <c:if test="${not empty sessionScope.sid}">
+                    <input id="write_btn" class="write_btn" type="button" value="작성">
+                </c:if>
+                <c:if test="${empty sessionScope.sid}">
+                    <input id="write_btn" class="write_btn" type="button" value="작성" disabled>
+                </c:if>
             </div>
         </div>
         <div class="list_box">

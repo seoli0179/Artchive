@@ -28,7 +28,7 @@ CREATE TABLE `note` (
   `pageViewState` varchar(50) DEFAULT 'POST',
   `category` varchar(50) NOT NULL,
   `noteTitle` varchar(150) DEFAULT NULL,
-  `note` text,
+  `note` longtext,
   `noteLike` int DEFAULT '0',
   `noteCommentNum` int DEFAULT '0',
   `noteCreatedDate` datetime DEFAULT CURRENT_TIMESTAMP,
