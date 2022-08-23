@@ -16,7 +16,8 @@ body {
     background: #fff;
     color:black;
     overflow-y:scroll;
-    
+    position:relative;
+    z-index:1
 }
 
 .h1 {
