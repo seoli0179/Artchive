@@ -4,8 +4,8 @@
  
   $(document).ready(function() {
 	// 윈도우 스크롤시 메인 메뉴 고정 
-	/*$(window).on('scroll',function(){
-		if($(document).scrollTop()>=$('#mainMenuBox').height()){
+		/*$(window).on('scroll',function(){
+		if($(document).scrollTop()>=$('#headerBox').height()){
 			$('#mainMenuBox').addClass('mainMenuFixed');
 		}else{
 			$('#mainMenuBox').removeClass('mainMenuFixed');
