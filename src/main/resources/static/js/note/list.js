@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     var movedIndex = 0;
 
-    setInterval(() => moveSlide(movedIndex++), 5000);
+    setInterval(() => moveSlide(movedIndex++), 4000);
 
     function moveSlide(movedIndex) {
         console.log(movedIndex);
