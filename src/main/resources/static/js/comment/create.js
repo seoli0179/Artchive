@@ -9,7 +9,7 @@ $(document).ready(function () {
                 "comment": $('#comment').val()
             },
             success: function (data) {
-                if ("SUCCESS") {
+                if (data == "SUCCESS") {
                     alert("작성 완료!");
                     $("#comment").val("");
                     $("#comment-box").load(window.location.href + " #comment-box > *"); //띄어쓰기 주의!!!
