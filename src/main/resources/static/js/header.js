@@ -15,9 +15,9 @@
 	$(window).on('scroll',function(){
 		// 스크롤되는 문서의 top 그림자 표시
 		if($(document).scrollTop()>=$('#headerBox').height()){
-			$('#mainMenu').addClass('boxshadow');
+			$('#mainMenuBox').addClass('boxshadow');
 		}else{
-			$('#mainMenu').removeClass('boxshadow');
+			$('#mainMenuBox').removeClass('boxshadow');
 		}
 	});
 	
