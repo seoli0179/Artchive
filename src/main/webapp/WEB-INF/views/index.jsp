@@ -60,6 +60,7 @@
 				</c:if>
         	</div> <!-- loginBox -->
         	
+        	</div> <!-- mainMenu -->
         	<div id="searchBox">
 				<div>
 					<input type="text" id="searchMessage" name="searchMessage" size="120"  placeholder="검색어를 입력하세요."/>
@@ -67,8 +68,6 @@
 					<img src="<c:url value='/image/whiteX.png'/>">
 				</div>
 			</div><!-- searchBox -->
-        	
-        	</div> <!-- mainMenu -->
         	</div><!-- mainMenuBox -->
         	
         		<div id="visual"><img src="<c:url value='/image/banner.jpg'/>"></div>

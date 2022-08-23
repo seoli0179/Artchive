@@ -6,18 +6,18 @@
 	// 윈도우 스크롤시 메인 메뉴 고정 
 	$(window).on('scroll',function(){
 		if($(document).scrollTop()>=$('#headerBox').height()){
-			$('#mainMenu').addClass('mainMenuFixed');
+			$('#mainMenuBox').addClass('mainMenuFixed');
 		}else{
-			$('#mainMenu').removeClass('mainMenuFixed');
+			$('#mainMenuBox').removeClass('mainMenuFixed');
 		}
 	});
 	
 	$(window).on('scroll',function(){
 		// 스크롤되는 문서의 top 그림자 표시
 		if($(document).scrollTop()>=$('#headerBox').height()){
-			$('#headerBox').addClass('boxshadow');
+			$('#mainMenu').addClass('boxshadow');
 		}else{
-			$('#headerBox').removeClass('boxshadow');
+			$('#mainMenu').removeClass('boxshadow');
 		}
 	});
 	

@@ -34,7 +34,6 @@
 	max-width : 1390px;
 	margin: 0;
 	min-width : 1080px;
-	border : solid red 1px;
 }
 
 
@@ -54,11 +53,10 @@ header #visual img{
 	
 header #logoBox { 
 	float : left;
-	border : solid blue 1px;
 	}
 	
 header #logoBox{
-	width: 10%;
+	width: 12%;
 	line-height: 70px; 
 	height:70px;
 	z-index : 300;
@@ -92,7 +90,6 @@ header #beforeLogin{
 }
 
 header #loginBox > ul li{
-	border : solid blue 1px;
 	flex:1;
 	line-height: 70px; 
 	height:70px;
@@ -130,7 +127,7 @@ header #headerBox {
 }
 
 header #headerBox nav > ul > li > a {
-	font-size : 14px;
+	font-size : 16px;
 	color : #fff;
 	text-decoration : none;
 	font-weight : bold;
@@ -138,8 +135,7 @@ header #headerBox nav > ul > li > a {
 	display : block;
 	line-height:70px;
 	min-width: 0px;
-	text-align:center;
-	padding-right : 20px;
+	padding-right : 35px;
 }
 
 
@@ -149,7 +145,6 @@ header #headerBox nav > ul {
 
 header #headerBox nav > ul > li {
 	display: inline-block;
-	border : solid red 1px;
 	}
 	
 
@@ -169,7 +164,7 @@ header #headerBox nav > ul > li {
 }
 
 /* 메인 메뉴 맨 앞으로 */
- #mainMenu {
+ #mainMenuBox {
 	z-index : 200;
 }
 
