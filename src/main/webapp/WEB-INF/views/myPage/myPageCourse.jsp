@@ -8,6 +8,7 @@
 	<meta charset="UTF-8">
 		<title>arTchive / 마이페이지 - 코스 </title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/myPageCourse.css'/>"/>
 		
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
@@ -58,8 +59,8 @@
 								<td>2022.01.03</td>
 								<td>2022.01.05</td>
 								<td>
-									<button>수정</button>
-									<button>삭제</button>
+									<button class="white-btn">수정</button>
+									<button class="white-btn">삭제</button>
 								</td>
 							</tr>
 						</tbody>

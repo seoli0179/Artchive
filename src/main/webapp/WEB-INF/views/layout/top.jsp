@@ -21,11 +21,11 @@
         	<div id="headerBox">
         		<nav>
         				<ul>
-        					<li><a href="<c:url value='/exhbn/list'/>">전시검색</a></li>
-        					<li><a href="#">menu2</a></li>
-        					<li><a href="<c:url value='/course'/>">전시코스</a></li>
-        					<li><a href="<c:url value="/note/list"/> ">게시판</a></li>
-        					<li><a href="#">menu5</a></li>
+        					<li><a href="<c:url value='/exhbn/list'/>">Search</a></li>
+        					<li><a href="<c:url value='/course'/>">Plan</a></li>
+        					<li><a href="<c:url value='/course/board'/>">Courses</a></li>
+        					<li><a href="<c:url value="/note/list"/> ">Community</a></li>
+        					<li><a href="<c:url value="/note/list"/> ">Event</a></li>
         				</ul>		
         		</nav>
         	</div> <!-- headerBox -->
@@ -33,17 +33,18 @@
         	<div id="loginBox">
 
 				<c:if test="${empty sessionScope.sid }">
-					<ul>
-						<li><a href="#"><img src="<c:url value='/image/searchBlack.png'/>" id="searchImg"></a></li>
-						<li><a href="/join">JOIN</a></li>
-						<li><a href="/login">LOGIN</a></li>
+					<ul id="beforeLogin">
+						<li class="mainSearch"><a href="#"><img src="<c:url value='/image/searchBlack.png'/>" id="searchImg"></a></li>
+						<li><a class="color" href="<c:url value="/join"/>">JOIN</a></li>
+						<li class="loginLogout"><a class="color" href="<c:url value="/login"/>">LOGIN</a></li>
 					</ul>
 				</c:if>
 				<c:if test="${not empty sessionScope.sid }">
-					<ul>
-						<li><a href="#"><img src="<c:url value='/image/searchBlack.png'/>" id="searchImg"></a></li>
-						<li><a href="<c:url value="/myPage/myPageHome"/>">${sessionScope.username}</a></li>
-						<li><a href="<c:url value="/logout2"/>">LOGOUT</a></li>
+					<ul id="afterLogin">
+						<li class="mainSearch"><a href="#"><img src="<c:url value='/image/searchBlack.png'/>" id="searchImg"></a></li>
+						<li class="userName"><a class="color">${sessionScope.username}</a></li>
+						<li class="mypage"><a href="<c:url value='/myPage/myPageHome'/>">MYPAGE</a></li>
+						<li><a class="color" href="<c:url value="/logout2"/>">LOGOUT</a></li>
 					</ul>
 				</c:if>
         	</div> <!-- loginBox -->

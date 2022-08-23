@@ -18,10 +18,14 @@
 /*}*/
 
 .course-box {
-    margin:50px 85px;
+    /* margin:50px 85px; */
+   	margin-left : 4%;
+   	margin-right : 4%;
+   	margin-top : 50px;
     line-height: 2.3rem;
     border-bottom: black 2px solid;
     padding: 20px 0;
+
 }
 
 /* 가이드 박스 */
@@ -152,11 +156,11 @@
 .searchbar-box {
     display: flex;
     width:100%;
-    height: 70px;
+    /* height: 70px; */
 }
 
 .searchbar-border {
-    width: 90%;
+    width: 75%;
     min-width: 300px;
     height: 80%;
 }

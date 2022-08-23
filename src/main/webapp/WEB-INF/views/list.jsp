@@ -9,7 +9,10 @@
 	<title>리스트 페이지</title>
 	<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>">
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
+	<!-- icon kit -->
+	<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/list.css'/>">
+
 	<script src="<c:url value='/tools/jquery-3.6.0.min.js' /> "></script>
 	<%-- <script src="<c:url value='/js/list.js' />"></script>
      --%></head>
@@ -77,17 +80,21 @@
 										<br>
 										<ul>
 											<li><label><input type="checkbox" name="ex-place"
-															  value="ex-place1" checked> 지역1</label></li>
+															  value="ex-place1" checked>전체</label></li>
 											<li><label><input type="checkbox" name="ex-place"
-															  value="ex-place2"> 지역2</label></li>
+															  value="ex-place2">수도권</label></li>
 											<li><label><input type="checkbox" name="ex-place"
-															  value="ex-place3"> 지역3</label></li>
+															  value="ex-place3">부산</label></li>
 											<li><label><input type="checkbox" name="ex-place"
-															  value="ex-place4"> 지역4</label></li>
+															  value="ex-place4">제주</label></li>
 											<li><label><input type="checkbox" name="ex-place"
-															  value="ex-place5"> 지역5</label></li>
+															  value="ex-place5">강원</label></li>
 											<li><label><input type="checkbox" name="ex-place"
-															  value="ex-place6"> 지역6</label></li>
+															  value="ex-place6">전라도</label></li>
+											<li><label><input type="checkbox" name="ex-place"
+															  value="ex-place6">경상도</label></li>
+											<li><label><input type="checkbox" name="ex-place"
+															  value="ex-place6">기타</label></li>
 										</ul>
 									</fieldset>
 								</form>
@@ -168,56 +175,43 @@
 <!-- area -->
 <div id="searchAreaBox">
 	<div id="searchArea">
-		<div id="allArea" class="AREA">
+		<div id="allArea" class="AREA tabTag selected">
 			<ul>
-				<li>전체</li>
+				<li><a href="#"><i class="fa-solid fa-border-all"></i>전체</a></li>
 			</ul>
 		</div>
-		<div id="capitalArea" class="AREA">
+		<div id="capitalArea" class="AREA tabTag">
 			<ul>
-				<li>수도권</li>
+				<li><a href="#"><i class="fa-solid fa-landmark"></i>박물관</a></li>
 			</ul>
 		</div>
-		<div id="busanArea" class="AREA">
+		<div id="busanArea" class="AREA tabTag">
 			<ul>
-				<li>부산</li>
+				<li><a href="#"><i class="fa-solid fa-panorama"></i>미술전시</a></li>
 			</ul>
 		</div>
-		<div id="jejuArea" class="AREA">
+		<div id="jejuArea" class="AREA tabTag">
 			<ul>
-				<li>제주</li>
+				<li><a href="#"><i class="fa-solid fa-bullhorn"></i>축제</a></li>
 			</ul>
 		</div>
-		<div id="kangwonArea" class="AREA">
+		<div id="kangwonArea" class="AREA tabTag">
 			<ul>
-				<li>강원</li>
+				<li><a href="#"><i class="fa-solid fa-apple-whole"></i>교육·체험</a></li>
 			</ul>
 		</div>
-		<div id="jeonArea" class="AREA">
+		<div id="jeonArea" class="AREA tabTag">
 			<ul>
-				<li>전라도</li>
+				<li><a href="#"><i class="fa-solid fa-list-ul"></i>기타</a></li>
 			</ul>
 		</div>
-
-		<div id="kyeongArea" class="AREA">
-			<ul>
-				<li>경상도</li>
-			</ul>
-		</div>
-
-		<div id="etcArea" class="AREA">
-			<ul>
-				<li>기타지역</li>
-			</ul>
-		</div>
-
 	</div><!-- searchArea -->
 
-	<div id="ExhibitionBOX">
-		<input type="button" class="exhibitionABC" id="exhibitionA" value="현재전시"/>
-		<input type="button" class="exhibitionABC" id="exhibitionB" value="예정전시"/>
-		<input type="button" class="exhibitionABC" id="exhibitionC" value="지난전시"/>
-	</div>
+	<%--	<div id="ExhibitionBOX">--%>
+	<%--		<input type="button" class="exhibitionABC" id="exhibitionA" value="현재전시"/>--%>
+	<%--		<input type="button" class="exhibitionABC" id="exhibitionB" value="예정전시"/>--%>
+	<%--		<input type="button" class="exhibitionABC" id="exhibitionC" value="지난전시"/>--%>
+	<%--	</div>--%>
 </div>
 
 <!-- 전시 리스트 -->

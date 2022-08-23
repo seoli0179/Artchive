@@ -16,7 +16,7 @@
 	</head>
 	<body>
 		<!-- top으로 이동 -->
-		 <%-- <c:import url="/WEB-INF/views/layout/top.jsp" /> --%>
+		<c:import url="/WEB-INF/views/layout/top.jsp" />
 		
 		<!-- detail main -->
 		<main id="detail-wrap">
@@ -115,25 +115,31 @@
 				</div>
 				<!-- .context-container -->
 				<div id="button-box">
-					<button class="white-btn" onclick="window.open('${exhbn.exhbnUrl}')">자세히 보기</button>
-					<button class="black-btn" onclick="location.href='#'">관심전시추가</button>
+					<form action="#">
+						<button class="white-btn-big" onclick="window.open('${exhbn.exhbnUrl}')">자세히 보기</button>
+						<button class="white-btn-big" onclick="location.href='#'">관심전시추가</button>
+						<button class="black-btn-big" onclick="#">이 전시로 코스 짜기</button>
+					</form>
 				</div>
 				<div id="map-box">
 					<div class="map">
 					</div>
 				</div>
-				<div id="tag-box">
-					<span class="tag-label">Tag. </span>
-					<span><a href="#">태그1</a>
-					<a href="#">태그1</a>
-					<a href="#">태그1</a></span>
+				<!-- tag -->
+				<div class="tag-box">
+					<h3>Tag. </h3>
+					<ul class="tagList">
+						<li class="tagItem">tag1</li>
+						<li>tag2</li>
+						<li>tag3</li>
+					</ul>
 				</div>
 				<!-- .tag-box -->
 			</div>
 			<!-- .contents-container -->
 			<div class="sub-title">
 				<i class="fa-solid fa-chevron-left" id="prevBtn"></i>
-				<h2>Reviews.</h2>
+				<h2>Reviews</h2>
 				<i class="fa-solid fa-chevron-right" id="nextBtn"></i>
 				<br>
 			</div>
@@ -202,7 +208,8 @@
 				</div>
 			</div>
 		</main>
-		
-		<!-- bottom -->
+
+		<!-- bottom 이동 -->
+		<c:import url="/WEB-INF/views/layout/bottom.jsp" />
 	</body>
 </html>
