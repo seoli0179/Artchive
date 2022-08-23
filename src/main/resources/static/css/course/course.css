@@ -10,7 +10,6 @@ body {
     width:100%;
     min-width: 1080px;
     min-height: auto;
-    background-color: rgba(255,255,255,1);
     --web-view-name: coursepage;
     --web-view-id: coursepage;
     --web-scale-on-resize: true;
@@ -21,9 +20,6 @@ body {
 }
 
 .course-box {
-    /* margin:50px 85px; */
-   /* 	margin-left : 4%;
-   	margin-right : 4%; */
    	margin-top : 50px;
     line-height: 2.3rem;
     border-bottom: black 2px solid;
