@@ -185,7 +185,7 @@ body {
 /*}*/
 #searchArea .tabTag:hover {
 	background-color: #000;
-	width:140px;
+	min-width:140px;
 	height: 50px;
 	line-height: 40px;
 	border-radius: 50px;
