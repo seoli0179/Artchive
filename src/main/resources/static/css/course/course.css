@@ -10,6 +10,8 @@
     --web-scale-on-resize: true;
     --web-enable-deep-linking: true;
     position: relative;
+    
+    margin-bottom : 20px;
 }
 
 /*#course-container>div {*/
@@ -26,6 +28,11 @@
     border-bottom: black 2px solid;
     padding: 20px 0;
 
+}
+
+#course-box{
+	margin-left : 0%;
+   	margin-right : 0%;
 }
 
 /* 가이드 박스 */

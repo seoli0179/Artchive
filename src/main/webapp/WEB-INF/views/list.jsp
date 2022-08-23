@@ -9,6 +9,8 @@
 	<title>리스트 페이지</title>
 	<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>">
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/courseBoard.css'/>"/>
+	<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/course.css'/>"/>
 	<!-- icon kit -->
 	<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/list.css'/>">
@@ -22,15 +24,27 @@
 <c:import url="/WEB-INF/views/layout/top.jsp" />
 
 <!-- 검색창 -->
-<div id="searchMainTitle">
-	<ul>
-		<li>전시 검색</li>
-	</ul>
-	<div id="searchMainBox">
-		<input type="text" id="searchTEXT" name="searchMessage" size="120"  placeholder="검색어를 입력하세요."/>
-		<input type="button" id="SearchBtn" value="검색"/>
+	<div id="course-box" class="course-box main-title-box">
+                    <h1 class="h1">Search</h1>
+                    <span>관심있는 전시를 검색해보세요.</span>
+	                    <div class="courseboard-search-box">
+	                        <div class="searchbar-box">
+	                            <div class="searchbar-border tag-box" type="text">
+	                                <ul id="tagList">
+	                                    <input class="inner-searchbar" id="inner-searchbar" type="text" placeholder="검색어를 입력하세요.">
+	                                </ul>
+	                                <div id="filterList" style="position: relative;">
+	
+	                                </div>
+	                            </div>
+	                            <input class="black-btn courseBoard-searchBtn" type="button" value="검색">
+	                            <input id="show" class="white-btn detailSearch courseBoard-searchBtn" type="button" value="상세검색">
+	                        </div>
+	                        <div id="tag-caution" class="vibration">태그는 3개까지만 선택할 수 있습니다.</div>
+	                    </div>
+                </div>
 		<!-- 팝업 시작 -->
-		<button id="show" class="white-btn">상세검색</button>
+		<!-- <button id="show" class="white-btn">상세검색</button> -->
 		<div class="background">
 			<div class="window">
 				<div class="popup">
