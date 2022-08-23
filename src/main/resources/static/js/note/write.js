@@ -19,23 +19,28 @@ $(document).ready(function () {
     });
 
     $('#write').on('click', function () {
-        $.ajax({
-            type: "POST",
-            url: "/note/createNote",
-            data: {
-                "title": $('#title').val(),
-                "category": $('#category option:selected').val(),
-                "note": $('#summernote').summernote('code')
-            },
-            success: function (data) {
-                alert("작성 완료!");
-                location.href = "/note/list";
-            },
-            error: function () {
-                console.log('fail');
-                alert("오류 발생!");
-            }
-        });
+        if ($('#title').val().length > 3) {
+            $.ajax({
+                type: "POST",
+                url: "/note/createNote",
+                data: {
+                    "title": $('#title').val(),
+                    "category": $('#category option:selected').val(),
+                    "note": $('#summernote').summernote('code')
+                },
+                success: function (data) {
+                    alert("작성 완료!");
+                    location.href = "/note/list";
+                },
+                error: function () {
+                    console.log('fail');
+                    alert("오류 발생!");
+                }
+            });
+        } else {
+            alert("게시글 제목을 입력해 주세요!");
+        }
+
     });
 
 });

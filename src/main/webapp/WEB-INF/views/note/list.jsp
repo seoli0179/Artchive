@@ -62,6 +62,7 @@
         </div>
         <div class="list_box">
             <c:forEach var="note" items="${list}">
+                <hr>
                 <div class="content">
                     <div class="scrap">
                         <div class="like"><i class="fa-solid fa-heart"></i>${note.noteLike}</div>
@@ -81,6 +82,7 @@
                     </div>
                 </div>
             </c:forEach>
+            <hr>
         </div>
         <div class="nav">
             <div class="nav_btn"><</div>
