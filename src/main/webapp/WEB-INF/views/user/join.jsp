@@ -10,6 +10,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/user/join.css'/>">
     <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
     <script src="<c:url value='/js/user/join.js'/>"></script>
@@ -17,8 +19,13 @@
     <title>arTchive / 회원가입</title>
 </head>
 <body>
+
+<!-- top으로 이동 -->
+<c:import url="/WEB-INF/views/layout/top.jsp" />
+
+<div id="joinPage">
 <section class="login-form">
-    <h1>회원가입</h1>
+    <h1 class="joinTitle">Join</h1>
     <div class="container">
         <ul class="progressbar">
             <li class="active">Id/Pw</li>
@@ -57,9 +64,9 @@
         <div class="int-area gender">
             <label style="top:5px;">성별</label>
         </div>
-        <div class="gender" style="padding-top:17px;padding-left:12px;">
-            <label><input type="radio" name="gender" value="M" checked>남</label>&nbsp;&nbsp;&nbsp;&nbsp;
-            <label><input type="radio" name="gender" value="F">여</label>
+        <div class="gender" style="padding-top:17px;">
+            <label><input class="genderRadio" type="radio" name="gender" value="M" checked> 남</label>&nbsp;&nbsp;&nbsp;&nbsp;
+            <label><input class="genderRadio" type="radio" name="gender" value="F"> 여</label>
         </div>
         <br>
         <div class="int-area birth">
@@ -83,13 +90,24 @@
     </div>
     <br>
     <hr>
-    <div class="sns"><img
-            src="https://w7.pngwing.com/pngs/367/789/png-transparent-social-media-youtube-facebook-f8-social-network-social-media-text-trademark-logo.png"
-            height="45" alt=""></div>
+     <div class="sns">
+		<ul>
+			<li><img src="<c:url value='/image/facebook.png'/>"></li>
+			<li><img src="<c:url value='/image/instagram.png'/>"></li>
+			<li><img src="<c:url value='/image/twitter.png'/>"></li>
+			<%-- <li><img src="<c:url value='/image/github.png'/>"></li> --%>
+		</ul>
+	</div>
+	
     <div class="caption">
         Already a user?
         <a href="<c:url value="/login"/> "> Login</a>
     </div>
 </section>
+</div>
+
+	<!-- bottom 이동 -->
+    <c:import url="/WEB-INF/views/layout/bottom.jsp" />
+
 </body>
 </html>
