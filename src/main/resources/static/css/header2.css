@@ -35,14 +35,14 @@ header #logoBox {
 	
 header #logoBox{
 	width: 12%;
-	line-height: 75px; 
+	/* line-height: 75px;  */
 	/* border : 1px solid rgba(255,255,255,0.5); */
 	height:70px;
-	/* border : solid 1px white; */
 	z-index :100;
 }
 
 header #logoBox > a {
+	line-height: 78px;
 	font-size : 25px;
 	color : #000;
 	text-decoration : none;
