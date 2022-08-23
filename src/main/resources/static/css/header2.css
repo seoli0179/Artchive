@@ -116,7 +116,7 @@ header #headerBox nav > ul > li > a {
 	text-decoration : none;
 	height: 70px;
 	display : block;
-	line-height:70px;
+	line-height:75px;
 	min-width: 0px;
 	padding-right : 35px;
 }
