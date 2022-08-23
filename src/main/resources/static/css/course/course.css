@@ -28,6 +28,11 @@
 
 }
 
+#course-box{
+	margin-left : 0%;
+   	margin-right : 0%;
+}
+
 /* 가이드 박스 */
 .guide-contents {
     width:15%;
