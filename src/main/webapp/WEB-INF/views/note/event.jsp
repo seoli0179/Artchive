@@ -13,11 +13,11 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>">
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
-    <link rel="stylesheet" type="text/css" href="<c:url value='/css/note/list.css'/>">
+    <link rel="stylesheet" type="text/css" href="<c:url value='/css/note/event.css'/>">
     <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
     <script src="<c:url value='/js/note/list.js'/>"></script>
     <script src="https://kit.fontawesome.com/8ab5776cfb.js" crossorigin="anonymous"></script><!-- 아이콘 -->
-    <title>arTchive / 게시판</title>
+    <title>arTchive / event 게시판</title>
 </head>
 <body>
 <c:import url="/WEB-INF/views/layout/top.jsp"></c:import>
@@ -89,6 +89,9 @@
                     <div class="summary">
                         <div class="title">
                                 <a href="<c:url value="/note/detail/${note.noteId}"/>">${note.noteTitle}</a>
+                                  <div id="progress">
+	                				<span>진행중</span>
+	               				 </div>	
                         </div>
                         <div class="preview">
                                 ${note.note}
@@ -102,6 +105,7 @@
             </c:forEach>
             
         </div>
+        
         <div class="nav">
             <div class="nav_btn"><</div>
             <div class="nav_btn nav_active">1</div>

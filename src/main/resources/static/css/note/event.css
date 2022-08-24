@@ -264,3 +264,18 @@ body {
 /* #searchMainBox{
 	text-align : center;
 } */
+
+#progress{
+	width : 57px;
+	height : 35px;
+/* 	border : 1px black solid; */
+	float : right;
+	text-align : center;
+	line-height : 35px;
+	font-weight : bold;
+	font-size : 14px;
+	
+	border-radius: 10px;
+	color : #000;
+	background-color : #E5E7EB;
+}

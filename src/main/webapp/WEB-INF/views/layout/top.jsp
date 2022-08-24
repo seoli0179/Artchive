@@ -10,24 +10,43 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/search2.css'/>">
 		<script src="<c:url value='/js/header.js'/>"></script>
 		<script src="<c:url value='/js/search.js'/>"></script>
+		<script src="<c:url value='/js/module/dropdown.js'/>"></script>
+		<!-- icon kit -->
+		<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 		<script type="text/javascript"></script>
 	</head>
 	<body>
 		<header>
-		<div id="mainMenuBox">	
+		<div id="mainMenuBox">
 			<div id="mainMenu">
     
        		<div id="logoBox"><a href="<c:url value='/'/>">Artchive</a></div><!-- ✚ -->
         	
         	<div id="headerBox">
         		<nav>
-        				<ul>
-        					<li><a href="<c:url value='/exhbn/list'/>">Search</a></li>
-        					<li><a href="<c:url value='/course'/>">Plan</a></li>
-        					<li><a href="<c:url value='/course/board'/>">Courses</a></li>
-        					<li><a href="<c:url value="/note/list"/> ">Community</a></li>
-        					<li><a href="<c:url value="/note/list"/> ">Event</a></li>
-        				</ul>		
+					<ul>
+						<li class="dropdown"><a class="color" href="<c:url value='/exhbn/list'/>">Search<i class="fa-solid fa-angle-down"></i></a>
+							<ul class="dropdownMenu">
+								<li><a href="/exhbn/list">현재전시</a></li>
+								<li><a href="#">지난전시</a></li>
+								<li><a href="#">예정전시</a></li>
+							</ul>
+						</li>
+						<li class="dropdown"><a class="color" href="<c:url value='/course'/>">Courses<i class="fa-solid fa-angle-down"></i></a>
+							<ul class="dropdownMenu">
+								<li><a href="<c:url value='/course'/>">코스짜기</a></li>
+								<li><a href="<c:url value='/course/board'/>">칼럼</a></li>
+								<li><a href="<c:url value='/course/board'/>">게시판</a></li>
+							</ul>
+						</li>
+						<li class="dropdown"><a class="color" href="<c:url value="/note/list"/> ">Board<i class="fa-solid fa-angle-down"></i></a>
+							<ul class="dropdownMenu">
+								<li><a href="#">공지사항</a></li>
+								<li><a href="#">자유게시판</a></li>
+								<li><a href="<c:url value='/note/event'/>">이벤트</a></li>
+							</ul>
+						</li>
+					</ul>
         		</nav>
         	</div> <!-- headerBox -->
         	

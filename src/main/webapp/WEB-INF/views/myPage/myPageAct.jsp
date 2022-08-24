@@ -6,10 +6,10 @@
 <html>
 	<head>
 	<meta charset="UTF-8">
-		<title>arTchive / 마이페이지 - 코스</title>
+		<title>arTchive / 마이페이지 - 활동내역(게시글)</title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>"/>
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/myPageCourse.css'/>"/>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/myPageAct.css'/>"/>
 		<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		
@@ -40,12 +40,11 @@
 			
 			<div class="myPageBox">
 		
-				<h2>내 전시</h2>
+				<h2>활동 내역</h2>
 					<p class="line">
 				<div class="titleBox">
-					<a href="<c:url value='/myPage/myPageScrap'/>">스크랩</a>
-					<a href="<c:url value='/myPage/myPageLike'/>">좋아요</a>
-					<a href="<c:url value='/myPage/myPageCourse'/>">코스</a>
+					<a href="<c:url value='/myPage/myPageAct'/>">게시글</a>
+					<a href="<c:url value='/myPage/myPageComment'/>">댓글</a>
 				</div><!-- titleBox -->
 				
 				<div class="tableBox">
@@ -55,7 +54,6 @@
 								<th>구분</th>
 								<th>제목</th>
 								<th>등록 날짜</th>
-								<th>수정일</th>
 								<th>상태</th>
 							</tr>
 							
@@ -63,28 +61,14 @@
 						<tbody>
 							<tr>
 								<td>전시</td>
-								<td>성수 전시회 코스</td>
+								<td>히토 슈타이얼 - 데이터의 바다</td>
 								<td>2022.01.03</td>
-								<td>2022.01.05</td>
-								<td>
-									<button class="white-btn">수정</button>
-									<button class="white-btn">삭제</button>
-								</td>
+								<td><button class="white-btn">삭제</button></td>
 							</tr>
 						</tbody>
 					</table>
 					</div><!--tableBox -->
-					
-					<div class="courseBox">
-						<div class="imageBox">
-							<img src="<c:url value='/image/banner.jpg'/>">
-						</div> <!-- imageBox -->
-						<a>서울</a>
-						<a>히토 슈타이얼 - 데이터의 바다</a>
-						<a>2022-08-14</a> 	
-					</div> <!-- courseBox -->
-					
-					
+				
 			</div> <!-- myPageBox -->
             </div>
         </main>

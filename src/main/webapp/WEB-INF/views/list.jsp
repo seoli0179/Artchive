@@ -11,7 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/courseBoard.css'/>"/>
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/course.css'/>"/>
-	
+
 	<!-- icon kit -->
 	<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/list.css'/>">
@@ -288,14 +288,16 @@
 	<ul class="row">
 		<c:forEach var="exhbn" items="${exhbnList}" varStatus="status">
 			<li class="cell">
-				<div class="img-box">
-					<a href="/exhbn/detail/${exhbn.exhbnId}"><img src="${exhbn.exhbnImgUrl}" alt=""></a>
-				</div>
-				<section id="ex-all">
-					<div class="ex-place">${exhbn.exhbnPlace}</div>
-					<div class="ex-title">${exhbn.exhbnTitle}</div>
-					<div class="ex-period"><fmt:formatDate value = "${exhbn.exhbnStartDate}" type ="date" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value = "${exhbn.exhbnEndDate}" type ="date" pattern="yyyy.MM.dd"/></div>
-				</section>
+				<a href="/exhbn/detail/${exhbn.exhbnId}">
+					<div class="img-box">
+						<img src="${exhbn.exhbnImgUrl}" alt="">
+					</div>
+					<section id="ex-all">
+						<div class="ex-place">${exhbn.exhbnPlace}</div>
+						<div class="ex-title">${exhbn.exhbnTitle}</div>
+						<div class="ex-period"><fmt:formatDate value = "${exhbn.exhbnStartDate}" type ="date" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value = "${exhbn.exhbnEndDate}" type ="date" pattern="yyyy.MM.dd"/></div>
+					</section>
+				</a>
 			</li>
 		</c:forEach>
 	</ul>

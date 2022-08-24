@@ -26,7 +26,7 @@
 			<section id="courseHeader" class="courseHeaderImg">
 				<div id="headerTextBox" style="background-image : url('https://cdn.imweb.me/thumbnail/20220405/fb85ea780e919.jpeg');">
 					<div id="header-exhbnTitle" class="headerText">
-						<ul><li>{전시회 이름}</li></ul>
+						<input class="exhbn-title" type="text" value="전시회명" readonly>
 					</div>
 					<div id="header-postTitle" class="headerText">
 						<h1>{코스 제목(글제목)}<h1>
@@ -41,10 +41,8 @@
 			<section id="courseMenu">
 				<div></div>
            		<div id="courseMainText">
-					<button id="editCourseBtn" class="white-btn"><a href="<c:url value='/course/detail/edit'/>">수정</a></button>
-					<button class="black-btn"><a href="<c:url value='/course/detail/edit'/>">삭제</a></button>
-						<input type="button" id="like-btn"  class="white-btn" value="좋아요">
-						<input type="button" id="scrap-btn"  class="black-btn" value="스크랩">
+					<input type="button" id="editBtn"  class="white-btn" value="수정">
+					<input type="button" id="deleteBtn"  class="black-btn" value="삭제">
            		</div><!-- courseMainText -->
 			</section><!-- courseMenu -->
 
@@ -52,11 +50,13 @@
 			<article id="courseMain">
 				<section class="tag-box-view">
 					<h3>관련 태그</h3>
-					<ul>
-						<li>혼자 보러가기 좋은 전시</li>
-						<li>혼밥하기 좋은 곳</li>
-						<li>조용한 카페</li>
-					</ul>
+					<div>
+						<ul>
+							<li>혼자 보러가기 좋은 전시</li>
+							<li>혼밥하기 좋은 곳</li>
+							<li>조용한 카페</li>
+						</ul>
+					</div>
 				</section> <!-- editCourseBtn -->
 				<section id="course">
 					<section id="timeline-container">

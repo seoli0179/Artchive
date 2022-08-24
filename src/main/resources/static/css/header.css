@@ -53,10 +53,10 @@ header #visual img{
 	
 header #logoBox { 
 	float : left;
-	}
+}
 	
 header #logoBox{
-	width: 12%;
+	width: 10%;
 	line-height: 70px; 
 	height:70px;
 	z-index : 300;
@@ -131,20 +131,40 @@ header #headerBox nav > ul > li > a {
 	color : #fff;
 	text-decoration : none;
 	height: 70px;
-	display : block;
 	line-height:75px;
-	min-width: 0px;
-	padding-right : 35px;
+	padding : 0 20px;
 }
 
 
 header #headerBox nav > ul {
 	text-align:center;
-	}
+	display: flex;
+}
 
 header #headerBox nav > ul > li {
 	display: inline-block;
-	}
+}
+
+#headerBox i {
+	margin-left: 10px;
+}
+
+.dropdownMenu {
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	z-index: 500;
+}
+.dropdownMenu li {
+	padding: 10px 15px;
+	text-align: left;
+}
+.dropdownMenu li:hover {
+	background-color: black;
+}
+.dropdownMenu li:hover a {
+	color: white;
+}
 	
 
 /*** 메인 메뉴 고정 ***/
@@ -163,7 +183,7 @@ header #headerBox nav > ul > li {
 
 /* 메인 메뉴 맨 앞으로 */
  #mainMenuBox {
-	z-index : 200;
+	z-index : 500;
 }
 
 .boxshadow{

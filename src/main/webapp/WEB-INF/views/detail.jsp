@@ -9,6 +9,8 @@
 		<title>arTchive / ${exhbn.exhbnTitle}</title>
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		<script src="<c:url value='/js/detail.js'/>"></script>
+		<script src="<c:url value='/js/note/detail.js'/>"></script>
+		<!-- icon-kit -->
 		<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>"/>
@@ -43,6 +45,9 @@
 			<!-- .detail-img-container -->
 			
 			<div id="contents-container">
+				<div class="back" onclick="goBack();">
+					<i id="back" class="fa-solid fa-arrow-left fa-2xl"></i>
+				</div>
 				<div id="summary-container">
 					<p>
 					현대카드 스토리지에서는 뉴욕 MoMA (The Museum of Modern Art, New York)의 미디어 & 퍼포먼스 소장품 전시, ＜Pervasive Light: Works from MoMA’s Media and Performance Collection (스며드는 빛: 뉴욕 MoMA 미디어 & 퍼포먼스 컬렉션)＞가 진행 중이다.
