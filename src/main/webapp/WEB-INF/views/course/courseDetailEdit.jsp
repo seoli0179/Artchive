@@ -50,17 +50,15 @@
 			<article id="courseMain">
 				<section class="tag-box-view">
 					<h3>관련 태그</h3>
-					<div>
-						<ul>
-							<li>혼자 보러가기 좋은 전시</li>
-							<li>혼밥하기 좋은 곳</li>
-							<li>조용한 카페</li>
+					<div class="tag-box-edit">
+						<ul id="tagList">
+							<input class="inner-searchbar" id="inner-searchbar" type="text">
 						</ul>
 					</div>
 				</section> <!-- editCourseBtn -->
 				<section id="course">
 					<section id="timeline-container">
-						<div class="timeline-course-container">
+						<ul id="sortable" class="timeline-course-container">
 							<div class="route-row" id="startPoint">
 								<div class="line down"></div>
 								<div class="left">
