@@ -242,6 +242,26 @@
 	display: flex;
 	overflow: hidden;
 	line-height: 1.5rem;
+	margin:0 15px;
+}
+.memo-box {
+	margin: 5px;
+	width: 55%;
+	height: 100%;
+	display: flex;
+	align-content: center;
+	visibility: hidden;
+}
+
+.route-row .content .place-memo-input {
+	border: none;
+	background-color: rgba(0,0,0,0.1);
+	border-radius: 5px;
+	width: 100%;
+	min-width: 100px;
+	height: 50%;
+	padding: 10px;
+	text-align: left;
 }
 
 .where-title {
@@ -318,7 +338,25 @@
 	align-items: center;
 	right:0;
 	display: flex;
+	opacity: 0;
  }
+
+.moveHandler {
+	margin-left: 0;
+	display: flex;
+	align-items: center;
+}
+.moveHandler {
+	opacity: 0;
+}
+
+.route-row:hover .delete{
+	opacity: 0.7;
+}
+
+.route-row:hover .moveHandler {
+	opacity: 0.7;
+}
 
 #deleteRes{
 	width : 40px;
@@ -447,7 +485,7 @@
 }
 
 /* 수정모드 input */
-input {
+.editInput {
 	box-sizing: border-box;
 	font-family: inherit;
 	font-size: 14px;
@@ -459,15 +497,28 @@ input {
 	outline: 2px solid transparent;
 	outline-offset: -2px;
 	width: 100%;
-	height: 40px;
 	border: none;
 	border-bottom: 1px solid #8d8d8d;
-	background-color: rgba(255,255,255,0.1);
+	background-color: transparent;
 	padding: 0 16px;
-	color: #161616;
+	/*color: #161616;*/
 	transition: background-color 70ms cubic-bezier(.2, 0, .38, .9), outline 70ms cubic-bezier(.2, 0, .38, .9);
 }
-input:focus{
-	outline: 2px solid #0f62fe;
+.editInput:focus{
+	border-bottom: dotted 2px #ffffff;
 	outline-offset: -2px;
+}
+
+/* 디테일 */
+#headerTextBox .editInput {
+	text-align: center;
+	width: fit-content;
+	color: #ffffff;
+	height: fit-content;
+	padding: 5px;
+}
+
+#headerTextBox #post-title {
+	font-size: 2.0rem;
+	font-weight: 400;
 }

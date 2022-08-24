@@ -13,9 +13,13 @@
 		<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/courseDetail.css'/>">
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/tagBox.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/toggle.css'/>">
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
-		<script type="text/javascript"></script>
+		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+		<script src="<c:url value='/js/course/course.js'/>"></script>
+		<script src="<c:url value='/js/course/autocomplete.js'/>"></script>
+		<script src="<c:url value='/js/course/courseEdit.js'/>"></script>
 	</head>
 	<body>
 		<!-- top으로 이동 -->
@@ -26,13 +30,13 @@
 			<section id="courseHeader" class="courseHeaderImg">
 				<div id="headerTextBox" style="background-image : url('https://cdn.imweb.me/thumbnail/20220405/fb85ea780e919.jpeg');">
 					<div id="header-exhbnTitle" class="headerText">
-						<input class="exhbn-title" type="text" value="전시회명" readonly>
+						<input class="exhbn-title editInput" type="text" value="전시회명" readonly> <i class="fa-solid fa-magnifying-glass"></i>
 					</div>
 					<div id="header-postTitle" class="headerText">
-						<h1>{코스 제목(글제목)}<h1>
+						<input id="post-title" class="editInput h1" type="text" placeholder="제목을 입력하세요.">
 					</div>
 					<div id="header-postDate" class="headerText">
-						<ul><li>{날짜}</li></ul>
+<%--						<input id="exhbn-date" class="">--%>
 					</div>
            		</div><!-- .headerTextBox -->
 			</section><!-- .courseHeader -->
@@ -41,8 +45,8 @@
 			<section id="courseMenu">
 				<div></div>
            		<div id="courseMainText">
-					<input type="button" id="editBtn"  class="white-btn" value="수정">
-					<input type="button" id="deleteBtn"  class="black-btn" value="삭제">
+					<input type="reset" id="editBtn"  class="white-btn" value="삭제">
+					<input type="submit" id="deleteBtn"  class="black-btn" value="저장">
            		</div><!-- courseMainText -->
 			</section><!-- courseMenu -->
 
@@ -66,7 +70,10 @@
 								</div>
 								<div class="content explain">Start ...</div>
 							</div>
-							<div class="route-row">
+							<li draggable="true" class="route-row ui-state-default">
+								<div class="moveHandler">
+									<i class="fa-solid fa-bars moveHandlerBtn"></i>
+								</div>
 								<div class="line"></div>
 								<div class="left">
 									<div class="mainCourse-dot">1</div>
@@ -77,11 +84,14 @@
 										<div class="address">주소주소주소</div>
 									</div>
 								</div>
-<%--								<div class="delete">--%>
-<%--									<img src="<c:url value='/image/minus.png'/>">--%>
-<%--								</div>--%>
-							</div>
-							<div class="route-row">
+								<div class="content memo-box">
+									<textarea class="place-memo-input" placeholder="메모를 입력하세요."></textarea>
+								</div>
+								<div class="delete">
+									<img src="<c:url value='/image/minus.png'/>">
+								</div>
+							</li>
+							<li draggable="true" class="route-row ui-state-default">
 								<div class="line"></div>
 								<div class="left">
 									<div class="subCourse-dot">2</div>
@@ -92,10 +102,14 @@
 										<div class="address">주소주소주소</div>
 									</div>
 								</div>
-								<%--								<div class="delete">--%>
-								<%--									<img src="<c:url value='/image/minus.png'/>">--%>
-								<%--								</div>--%>
-							</div><div class="route-row">
+								<div class="content memo-box">
+									<textarea class="place-memo-input" placeholder="메모를 입력하세요."></textarea>
+								</div>
+								<div class="delete">
+									<img src="<c:url value='/image/minus.png'/>">
+								</div>
+							</li>
+							<li draggable="true" class="route-row ui-state-default">
 								<div class="line"></div>
 								<div class="left">
 									<div class="subCourse-dot">3</div>
@@ -106,10 +120,14 @@
 										<div class="address">주소주소주소</div>
 									</div>
 								</div>
-								<%--								<div class="delete">--%>
-								<%--									<img src="<c:url value='/image/minus.png'/>">--%>
-								<%--								</div>--%>
-							</div><div class="route-row">
+								<div class="content memo-box">
+										<textarea class="place-memo-input" placeholder="메모를 입력하세요."></textarea>
+								</div>
+								<div class="delete">
+									<img src="<c:url value='/image/minus.png'/>">
+								</div>
+							</li>
+							<li draggable="true" class="route-row ui-state-default">
 								<div class="line"></div>
 								<div class="left">
 									<div class="subCourse-dot">4</div>
@@ -120,10 +138,11 @@
 										<div class="address">주소주소주소</div>
 									</div>
 								</div>
-								<%--								<div class="delete">--%>
-								<%--									<img src="<c:url value='/image/minus.png'/>">--%>
-								<%--								</div>--%>
-							</div>
+								<div class="delete">
+									<i class="fa-solid fa-pen portlet-toggle"></i>
+									<img src="<c:url value='/image/minus.png'/>">
+								</div>
+							</li>
 							<div class="route-row" id="endPoint">
 								<div class="line up"></div>
 								<div class="left">
@@ -131,19 +150,13 @@
 								</div>
 								<div class="content explain">End ...</div>
 							</div>
-						</div>
+						</ul>
 					</section>
 					<section id="courseMap">
 						map
 					</section><!-- courseMap -->
 				</section><!-- Course -->
 			</article><!-- courseMain -->
-			<section class="share">
-				<i class="fa-solid fa-envelope fa-xl"></i>
-				<i class="fa-brands fa-twitter fa-xl"></i>
-				<i class="fa-brands fa-facebook fa-xl"></i>
-				<i class="fa-solid fa-share-nodes fa-xl"></i>
-			</section>
 
 			<section id="searchMap-container">
 				<div id="searchCourse">

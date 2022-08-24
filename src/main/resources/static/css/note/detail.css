@@ -6,7 +6,8 @@ body {
 .wrapper {
     margin: 0 auto;
     width:1080px;
-    min-height: 88%;
+    min-height: 85%;
+    padding-bottom: 20px;
 }
 
 .fa-solid {
