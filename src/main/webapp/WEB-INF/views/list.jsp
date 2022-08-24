@@ -65,14 +65,31 @@
 		<div class="window">
 			<div class="popup">
 				<!-- <button id="close" class="close-btn"> -->
- 				<img src="../image/close.png" alt="" class="close-btn" id="close">
+					<div class ="searchTitleLine">
+						<h1 id="subTitle-ex">Artchive 전시 상세 검색</h1>
+						<img src="../image/close.png" alt="" class="close-btn" id="close">
+					</div>
+ 				
  				<!-- Close icons created by ariefstudio - Flaticon -->
 				
 <!-- 				</button>
- -->				<div id="container-deatil-search"></div>
-						<!-- 상세 검색 라디오 버튼 -->
-						<p class="subttitle-1">Artchive 전시 상세 검색</p>
-											<hr>
+<!--  -->				<div id="container-deatil-search">
+ 							<span class="subttitle">관심있는 전시를 검색해보세요.</span>
+	                    		<div class="courseboard-search-box">
+	                      			 <div class="searchbar-box">
+	                          			  <div class="searchbar-border tag-box" type="text">
+	                               			 <ul id="tagList">
+	                                 			   <input class="inner-searchbar" id="inner-searchbar" type="text" placeholder="검색어를 입력하세요.">
+	                               				</ul>
+	                               			 <div id="filterList" style="position: relative;">
+	                               		 	 </div>
+	                            			</div>
+	                       			 </div>
+	                        		<div id="tag-caution" class="vibration">태그는 3개까지만 선택할 수 있습니다.</div>
+	                  		  </div>
+						</div>
+					<!-- 상세 검색 라디오 버튼 -->
+						
 					
 								<div class="container-list">
 									<div class="exsearchcontainer">
@@ -94,12 +111,12 @@
 															<input type="radio" id="this-month" onclick='getRadioText(event)' 
 															name="search-when" value="this-month"> 
 																<label for="this-month">이번달</label>
+															<br>
 															<input type="radio" id="self-select" onclick='getRadioText(event)' 
 															name="search-when" value="self-select"> 
 																<label for="self-select">직접선택</label>
 														</div>
 												
-								<br>
 													<p class="subttitle"></p>
 														<br>
 													<label for="from"></label>
@@ -118,21 +135,21 @@
 																<br>
 														<div class = "item2-1">
 															<ul>
-																<li><label><input type="checkbox" name="ex-place"  onclick='getCheckboxValue4()' 
+																<li class="where-ex"><label><input type="checkbox" name="ex-place"  onclick='getCheckboxValue4()' 
 																		value="서울" > 서울</label></li>
-																<li><label><input type="checkbox" name="ex-place"  onclick='getCheckboxValue4()' 
+																<li class="where-ex"><label><input type="checkbox" name="ex-place"  onclick='getCheckboxValue4()' 
 																		value="경인"> 경인</label></li>
-																<li><label><input type="checkbox" name="ex-place" onclick='getCheckboxValue4()' 
+																<li class="where-ex"><label><input type="checkbox" name="ex-place" onclick='getCheckboxValue4()' 
 																		value="부산"> 부산</label></li>
-																<li><label><input type="checkbox" name="ex-place" onclick='getCheckboxValue4()' 
+																<li class="where-ex"><label><input type="checkbox" name="ex-place" onclick='getCheckboxValue4()' 
 																		value="제주"> 제주</label></li>
-																<li><label><input type="checkbox" name="ex-place" onclick='getCheckboxValue4()' 
+																<li class="where-ex"><label><input type="checkbox" name="ex-place" onclick='getCheckboxValue4()' 
 																		value="강원"> 강원</label></li>
-																<li><label><input type="checkbox" name="ex-place" onclick='getCheckboxValue4()' 
+																<li class="where-ex"><label><input type="checkbox" name="ex-place" onclick='getCheckboxValue4()' 
 																		value="전라"> 전라</label></li>
-																<li><label><input type="checkbox" name="ex-place" onclick='getCheckboxValue4()'
+																<li class="where-ex"><label><input type="checkbox" name="ex-place" onclick='getCheckboxValue4()'
 																		value="경상"> 경상</label></li>
-																<li><label><input type="checkbox" name="ex-place" onclick='getCheckboxValue4()'
+																<li class="where-ex"><label><input type="checkbox" name="ex-place" onclick='getCheckboxValue4()'
 																		value="기타지역"> 기타지역</label></li>
 															</ul>
 														</div>
@@ -145,11 +162,11 @@
 														<p class="subttitle">가격은 ?</p>
 																	<br>
 												<div class = "exprice">
-													<input type="radio" id="price-free" onclick='getRadioText2(event)' name="ex-price"	value="price-free"> 
+													<input type="radio" id="price-free" class="price-ex" onclick='getRadioText2(event)' name="ex-price"	value="price-free"> 
 														<label for="price-free">무료</label> 
-													<input type="radio" id="price" onclick='getRadioText2(event)' name="ex-price" value="price"> 
+													<input type="radio" id="price" class="price-ex" onclick='getRadioText2(event)' name="ex-price" value="price"> 
 														<label for="price">유료</label>
-													<input type="radio" id="idc" onclick='getRadioText2(event)' name="ex-price" value="idc">
+													<input type="radio" id="idc" class="price-ex" onclick='getRadioText2(event)' name="ex-price" value="idc">
 														<label for="idc">전체</label>
 												</div>
 													</fieldset>
@@ -162,9 +179,9 @@
 																	<br>
 								
 															<div class = "exprice">
-																<input type="radio" id="upcoming-ex" onclick='getRadioText3(event)' name="abcd1"	value="price-free" "> 
+																<input type="radio" id="upcoming-ex" class="period-ex" onclick='getRadioText3(event)' name="abcd1"	value="price-free" "> 
 																	<label for="upcoming-ex">예전 전시</label> 
-																<input type="radio" id="pre-ex" onclick='getRadioText3(event)' name="abcd1" value="price"> 
+																<input type="radio" id="pre-ex" class="period-ex"onclick='getRadioText3(event)' name="abcd1" value="price"> 
 																	<label for="pre-ex">예정된 전시</label>
 								
 															</div>
@@ -176,23 +193,23 @@
 							
 		</div>
 							
-								<div class="exsearchcontainer5">
+								<div class="exsearchcontainer2">
 										<div class="exsearch item5">
 										<!-- <p> -->
 											<p id="firstTxt">어떤 전시관람이 궁금하신가요?</p>
 												<!-- </p> -->
 																<br>
 													<ul class="barList" id="search-view">
-														<li>
+														<li class="barlist-result">
 															<div id='result'>  </div>
 														</li>
-														<li>
+														<li class="barlist-result">
 															<div id='result4'></div>
 														</li>
-														<li>
+														<li class="barlist-result">
 															<div id='result2'></div>
 														</li>
-														<li>
+														<li class="barlist-result">
 															<div id='result3'></div>
 														</li>
 								
