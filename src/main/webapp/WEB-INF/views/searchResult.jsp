@@ -77,6 +77,7 @@
 				<div class="container-list">
 					<div class="exsearchcontainer1">
 						<div class="exsearch item1">
+						
 							<form id="detail-search" class="">
 
 								<fieldset id="extrip-day">
@@ -97,15 +98,13 @@
 										name="search-when" value="self-select"> <label for="self-select">직접선택</label>
 									</div>
 								</fieldset>
-							</form>
 							<!-- 기간 설정 -->
 							<br>
-					
 							
 						</div>
 						<div class="exsearch item2">
-							<form method="get" action="form-action.html">
-								<fieldset>
+<!-- 							<form method="get" action="form-action.html">
+ -->								<fieldset>
 									<p class="subttitle">어떤 지역으로 가시나요?</p>
 									<br>
 									<ul>
@@ -127,7 +126,6 @@
 												value="기타지역"> 기타지역</label></li>
 									</ul>
 								</fieldset>
-							</form>
 
 						</div>
 						<div class="exsearch item3">
@@ -262,6 +260,8 @@
 
 
 				</div>
+								</form>
+				
 				<div>
 					<div></div>
 				</div>
@@ -317,7 +317,7 @@
 </div>
 
 <!-- 전시 리스트 -->
-<p>검색결과</p>
+<p class="subttitle">검색결과</p>
 <div class="list-con">
 	<ul class="row">
 		<c:forEach var="exhbn" items="${exhbnList}" varStatus="status">
