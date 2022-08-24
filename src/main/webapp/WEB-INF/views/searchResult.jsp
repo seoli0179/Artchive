@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -248,10 +249,11 @@
 						
 						<div class="exsearch item6">
 						<!-- <p> -->
-						<button type="button" id="SearchBtn" value="검색" onclick="location.href='searchResult'">검색</button>
+							<button type="button" id="SearchBtn" value="검색" onclick="location.href='searchResult'">검색</button>
+						
 <!-- 							<input type="submit" id="SearchBtn" value="검색"> 
-<!--  -->							<input type="reset" class="white-btn" value="초기화">
- -->								<!-- </p> -->
+ -->							<input type="reset" class="white-btn" value="초기화">
+								<!-- </p> -->
 						</div>							
 						
 					</div>
@@ -315,6 +317,7 @@
 </div>
 
 <!-- 전시 리스트 -->
+<p>검색결과</p>
 <div class="list-con">
 	<ul class="row">
 		<c:forEach var="exhbn" items="${exhbnList}" varStatus="status">
@@ -445,5 +448,7 @@
 	    = result;
 	}
   </script>
+</body>
+</html>
 </body>
 </html>
