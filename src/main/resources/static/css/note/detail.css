@@ -6,6 +6,7 @@ body {
 .wrapper {
     margin: 0 auto;
     width:1080px;
+    padding-bottom: 30%;
 }
 
 .fa-solid {
@@ -86,6 +87,8 @@ body {
 .info {
     display: flex;
     margin-bottom: 20px;
+    align-items: center;
+    justify-content:space-between;
 }
 
 .comment-write{
@@ -131,6 +134,7 @@ textarea {
     padding-bottom: 20px;
     border: 1px solid gray;
     border-radius: 5px;
+    width: 98%;
 }
 
 .comment-scrap {
@@ -150,4 +154,8 @@ textarea {
 #back:hover {
     color: #5b5b5b;
     cursor: pointer;
+}
+
+.deleteBtn {
+	margin-right:20px;
 }
