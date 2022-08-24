@@ -25,7 +25,7 @@
         SELECT *
         FROM exhbn
         WHERE exhbnPrice1 = 0
-        ORDER BY exhbnId DESC
+        ORDER BY exhbnId DESC limit 9
         ]]>
     </select>
 
