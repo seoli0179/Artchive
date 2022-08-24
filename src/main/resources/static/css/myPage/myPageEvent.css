@@ -2,94 +2,94 @@
 
 /* myPageEvent.css */
 
+@font-face {
+	font-family: 'establishRetrosansOTF';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112@1.0/establishRetrosansOTF.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.logo {
+    font-family: 'establishRetrosansOTF';
+    font-size: 40px;
+    color: #000;
+    text-decoration: none;
+}
+
 /* 전체 틀 */
 .wrapper {
-	margin: 0 auto;
-	width:1080px;
 	/*  푸터 하단 고정 */
-	height:auto;
-	min-height: 100%;
-	padding-bottom: 20%;
+	padding-bottom: 25%;
+	max-width : 1390px;
+	margin: 0 auto;
+	min-width : 1080px;
 }
 
-section {
-	display:flex;
-	justify-content:space-between;
-	margin-top:10%;
-	
+#course-container {
+    width:100%;
+    min-width: 1080px;
+    min-height: auto;
+    background-color: rgba(255,255,255,1);
+    --web-view-name: coursepage;
+    --web-view-id: coursepage;
+    --web-scale-on-resize: true;
+    --web-enable-deep-linking: true;
+    position: relative;
 }
 
-section nav {
+.course-box {
+    margin-top: 50px;
+    line-height: 2.3rem;
+    border-bottom: black 2px solid;
+    padding: 20px 0;
+    display:flex;
+}
+
+
+.course-box>nav {
 	display:flex;
-	margin-right:10%;
 	width:30%;
+
 }
 
+/* 탭 메뉴 */
 .tabMenu {
 	width:100%;
+	border-right:2px solid #aaa;
 }
 
 .tabMenu li {
-	margin-top:10%;
+	margin-top:15%;
 }
+
+.tabMenu li:first-child {
+	margin:0;
+} 
 
 .tabMenu li a {
 	color:#949494;
 	font-size:20px;
 }
 
-.tabMenu li:first-child a {
-	color:#000;
-	text-align: left;
-	font-weight:bold;
-	font-size:24px;
-	letter-spacing: 0px;
-	opacity: 1;
-}
 
-.tabMenu li:nth-child(4) a, .tabMenu li a:hover {
+.tabMenu li:nth-child(6) a, .tabMenu li a:hover {
 	color:#000;
 	font-weight:bold;
 }
 
-
-.myPageBox {
-	width:100%;
-}
-
-
-/* 선 */
-.line {
-	border:1px solid #000;
-}
-
-/* 내 전시 */
-.myExhbn {
-	margin:5% 0;
-	
-}
-
-.contents h2 {
-	font-weight:bold;
-	font-size:28px;
-	margin-bottom:3%;
-	
-}
-
-.titleBox {
-	margin-top:5%;
-}
-
-/* 스크랩, 좋아요, 코스 */
 .titleBox a {
 	font-weight:bold;
-	font-size:28px;
+	font-size:20px;
 	margin-left:3%;
 	color:#949494;
 	
 }
 
-/* course  */
+/* 개인정보 수정 */
+.titleBox {
+	margin-top:3%;
+}
+
 .titleBox a:last-child {
 	color:#000;
 }
@@ -99,57 +99,10 @@ section nav {
 	font-weight:bold;
 }
 
-/* 전시회 코스 정보 */
-.courseBox {
-	margin-top:5%;
-}
-
-/* 이미지 */
-.imageBox {
-	width:180px;
-	height:250px;
-	overflow:hidden;
+.wholeExpbnBox {
 	display:flex;
-	items-align:center;
+	margin-right:10%;
 }
-
-.imageBox img {
-	width:100%;
-	height:100%;
-	object-fit:cover;
-}
-
-.courseBox {
-	margin-left:4%;
-}
-
-.courseBox:first-child {
-	margin-left:0;	
-}
-
-
-.courseBox a {
-	margin-top:2%;
-	display:flex;
-} 
-
-.courseBox a:nth-child(2) {
-	font-size:15px;
-	color:#000;
-	font-weight:bold;
-} 
-
-.courseBox a:nth-child(3) {
-	font-size:21px;
-	color:#000;
-	font-weight:bold;
-} 
-
-.courseBox a:nth-child(4) {
-	font-size:15px;
-	color:#949494;
-	font-weight:bold;
-} 
 
 /* 버튼 */
 .area {
@@ -175,42 +128,94 @@ section nav {
 }
 
 
+.myPageBox {
+	width:100%;
+	height:auto;
+	min-height:100%;
+	margin-left:2%;
+}
+
+/* 추천 콘텐츠 */
+.myPageBox h2 {
+	font-size:28px;
+	color:#000;
+	margin-bottom:2%;
+}
+
+/* 선 */
+.line {
+	border:1px solid #000;
+}
+
+/* 추천 콘텐츠 박스 */
+.wholeExpbnBox {
+	display:flex;
+	margin-right:10%;
+}
+
+/* 추천 콘텐츠 */
 .contentsBox {
 	display:flex;
 	justify-content:space-between;
-	margin-bottom:3%;
-	
+	margin-bottom:2%;
+	align-items: center;
 }
 
+/* 콘텐츠 내용 */
 .contents {
 	display:flex;
 	items-align:center;
 }
 
+/* 설정 버튼 */
 .setting {
 	display:flex;
 	width:10%;
 }
 
-.setting a {
-	border:1px solid #000;
-	border-radius:10px;
-	background:#fff;
-	text-align:center;
-	padding:10% 15%;
-	vertical-align:middle;
-	font-size:15px;
 
+/* 전시회 코스 정보 */
+.courseBox {
+	margin:5% 5% 10%;
 }
 
-.setting a:hover {
-	color:#fff;
-	background:#000;
-}
-
-
-.wholeExpbnBox {
+/* 이미지 */
+.imageBox {
+	width:180px;
+	height:250px;
+	overflow:hidden;
 	display:flex;
-	margin-right:10%;
+	items-align:center;
 }
+
+.imageBox img {
+	width:100%;
+	height:100%;
+	object-fit:cover;
+}
+
+.courseBox a {
+	display:flex;
+} 
+/* 지역 */
+.courseBox a:nth-child(2) {
+	font-size:15px;
+	color:#000;
+	font-weight:bold;
+	margin-top: 2%;
+} 
+
+/* 제목  */
+.courseBox a:nth-child(3) {
+	font-size:21px;
+	color:#000;
+	font-weight:bold;
+} 
+
+/* 날짜 */
+.courseBox a:nth-child(4) {
+	font-size:15px;
+	color:#949494;
+	font-weight:bold;
+} 
 
