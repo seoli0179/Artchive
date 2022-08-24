@@ -2,66 +2,113 @@
 
 /* myPageCheck.css */
 
+@font-face {
+	font-family: 'establishRetrosansOTF';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112@1.0/establishRetrosansOTF.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.logo {
+    font-family: 'establishRetrosansOTF';
+    font-size: 40px;
+    color: #000;
+    text-decoration: none;
+}
+
 /* 전체 틀 */
 .wrapper {
-	margin: 0 auto;
-	width:1080px;
 	/*  푸터 하단 고정 */
-	height:auto;
-	min-height: 100%;
-	padding-bottom: 20%;
+	padding-bottom: 25%;
+	max-width : 1390px;
+	margin: 0 auto;
+	min-width : 1080px;
 }
 
-section {
-	display:flex;
-	justify-content:space-between;
-	margin-top:10%;
-	
+#course-container {
+    width:100%;
+    min-width: 1080px;
+    min-height: auto;
+    background-color: rgba(255,255,255,1);
+    --web-view-name: coursepage;
+    --web-view-id: coursepage;
+    --web-scale-on-resize: true;
+    --web-enable-deep-linking: true;
+    position: relative;
 }
 
-section nav {
+.course-box {
+    margin-top: 50px;
+    line-height: 2.3rem;
+    border-bottom: black 2px solid;
+    padding: 20px 0;
+    display:flex;
+}
+
+
+.course-box>nav {
 	display:flex;
-	margin-right:10%;
 	width:30%;
+
 }
 
-
-
+/* 탭 메뉴 */
 .tabMenu {
 	width:100%;
+	border-right:2px solid #aaa;
 }
 
 .tabMenu li {
-	margin-top:10%;
+	margin-top:15%;
 }
+
+.tabMenu li:first-child {
+	margin:0;
+} 
 
 .tabMenu li a {
 	color:#949494;
 	font-size:20px;
 }
 
-.tabMenu li:first-child a {
-	color:#000;
-	text-align: left;
-	font-weight:bold;
-	font-size:24px;
-	letter-spacing: 0px;
-	opacity: 1;
-}
 
-.tabMenu li:nth-child(3) a, .tabMenu li a:hover {
+.tabMenu li:nth-child(2) a, .tabMenu li a:hover {
 	color:#000;
 	font-weight:bold;
 }
 
+.titleBox a {
+	font-weight:bold;
+	font-size:20px;
+	margin-left:3%;
+	color:#949494;
+	
+}
+
+/* 개인정보 수정 */
+.titleBox {
+	margin-top:3%;
+}
+
+.titleBox a:first-child {
+	color:#000;
+}
+
+.titleBox a:hover {
+	color:#000;
+	font-weight:bold;
+}
 
 .myPageBox {
 	width:100%;
-	
+	height:auto;
+	min-height:100%;
+	margin-left:2%;
 }
-/* 개인정보 확인 */
+
+/* 기본 정보, 맞춤 정보 */
 .myPageBox h2 {
-	font-size:40px;
+	font-size:28px;
 	color:#000;
 	margin-bottom:2%;
 }
@@ -71,169 +118,137 @@ section nav {
 	border:1px solid #000;
 }
 
-/* 사용자 */
-.userBox {
-	margin:5% 0 3% 0;
-	background:#F6F6F6;
-	padding:5% 2%;
-	width:100%;
+/* 테이블 */
+ .tableBox {
+ 	width:100%;
+	overflow-x: hidden;
+	overflow-y: hidden;
+ 	margin-top:3%;
+ }
+ 
+ /* 정보 */
+ .infoBox {
+ 	display:flex;
+ 	width:100%;
+ 	align-items:center;
+ 	vertical-align:middle;
+ 	text-align:center;
+ 	margin-left: 13%;
+ }
+ 
+ .ment {
+ 	margin-top:1%;
+ }
+.warning {
+	padding: 10px 5px;
+    line-height: 14px;
+    font-size: 13px;
+    color: #ef3e42;
 }
-
-/* 개인정보 확인 */
-.userBox h2 {
-	font-size:24px;
-	font-weight:bold;
-	text-align:left;
-	margin-bottom:3%;
+/* 항목 */
+.itemsBox {
+	display:flex;
+	width:20%;
 	text-align:center;
 }
 
-
-.myExhbn {
-	margin:5% 0;
-	width:100%;
-	text-align:center;
-	background:#F6F6F6;
-}
-
-
-/* select 박스 초기화 */
-select {
-  -moz-appearance: none;
-	-webkit-appearance: none;
-	appearance: none;
-}
-
-
-form {
-	margin-top:20%;
-}
-
-input[type="text"], input[type="password"] {
-	width:400px;
-	font-size:15px;
-	font-color:#000;
-	margin:2% 0;
-	padding:2% 0 2% 2%;
-	border:none;
-} 
-
-
-input[type="password"] {
-	background:rgb(232, 240, 254);
-}
-
-.loginBtn {
-	width:400px;
-	border:none;
-	color:#fff;
-	background:#000;
-	border-radius:30px;
-	padding:0.8% 0;
-	font-size:15px;
+ .itemsBox>span {
+ 	font-weight:bold;
+	padding:20% 15%;
 	height:auto;
 	line-height:auto;
-	margin:3% 0;
+	text-align:left;
+	width:100%;	
+	color:#aaa;
+ }
+
+ .itemsBox>span:hover {
+ 	color:#000;
+ }
+
+.inputBox {
+	display:flex;
+	margin-right:15%;
+	width:50%;
 }
 
-.loginBtn:hover {
-	color:#fff;
-	background:#5fa8d3;
+
+/* 입력창 */
+.nameInput, .numberInput, .nicknameInput, .emailInput {
+	width: 40%;
+    height: 40px;
+    padding-left: 8px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    box-sizing: border-box;
+    vertical-align: top;
+    font-size: 15px;
+    color: #202020;
+}
+
+/* 설명 */
+.explain {
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: #aaa;
+}
+
+
+/* 버튼 */
+.buttonBox {
+	margin:0 auto;
+	text-align:center;
+	margin-top:6%;
+}
+
+.white-btn, .black-btn {
+	width:200px;
+	font-size:15px;
+	margin-left:5%;
+}
+
+.centerBox {
+	margin:0 auto;
+	text-align:center;
+	margin: 10% 0 0;
+	
+}
+
+
+.centerBox>span {
+	font-size:20px;
+}
+
+.red {
+    color: #ef3e42;
+    font-size:20px;
+}
+
+span.caution {
+	margin-top: 12px;
+    font-size: 13px;
+    color: #707070;
+}
+
+.pwCfrmInput {
+	width: 80%;
+    height: 40px;
+    padding-left: 8px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    box-sizing: border-box;
+    vertical-align: top;
+    font-size: 15px;
+    color: #202020;
 }
 
 
 .searchBox {
-	margin-bottom:3%;
+	margin:0 auto;
+	margin:3% 0;
+	text-align:center;
 }
 
-.searchBox a {
+.searchBox>a {
 	font-size:15px;
 }
-
-
-.input{
-	position:ralative; 
-	height:3.13 em;
-	margin:0 auto;
-	width:400px;
-	
-}
-
-
-.inpuEventBox { 
-	position:relative; 
-	width:100%; 
-	height:3.13em; 
-	margin-top:40px;
-	
-} 
-
-.inpuEventBox input { 
-	box-sizing:border-box;
-	background:#F6F6F6; 
-	padding:20px 0 0; 
-	width:100%; 
-	height:100%; 
-	border:0 none; 
-	color:#595f63; 
-	outline:none; 
-}
-
-.inpuEventBox label { 
-	position:absolute; 
-	left:0%; 
-	bottom:0; 
-	width:100%; 
-	height:100%; 
-	border-bottom:1px solid #000; 
-	text-align:left; 
-	pointer-events:none; 
-	font-family: 'Jua', sans-serif;
-}
-
-.inpuEventBox label:after { 
-	content:""; 
-	position:absolute; 
-	left:0;
-	bottom:-1px; 
-	width:0; 
-	height:100%; 
-	border-bottom:3px solid #5fa8d3; 
-	transition:all .3s ease; 
-} 
-
-/* 파란색 가로줄 */
-.inpuEventBox label span { 
-	position:absolute; 
-	left:0; 
-	bottom:5px; 
-	transition:all .3s ease; 
-} 
-
-.inpuEventBox input:focus + label span, .inpuEventBox input:valid + label span { 
-	transform:translateY(-150%); 
-	font-size:0.88em; 
-	color:#5fa8d3; 
-} 
-
-/*  input에 글을 입력하고 포커스가 지나간 상태에서 제어하려면 valid 선택자를 써야한다. */
-/* 포커스 될 때 label span(name)이 위로 올라감 */
-.inpuEventBox input:focus + label::after, .inpuEventBox input:valid + label::after { 
-	width:100%; 
-	transform:translateX(0); 
-} 
-
-
-.myExhbn>form>h1 {
-	margin-bottom:10%;
-}
-
-.myExhbn>form>h1>a {
-	font-size : 40px;
-	color : #000;
-	text-decoration : none;
-	font-weight : bold;
-	
-}
-
-

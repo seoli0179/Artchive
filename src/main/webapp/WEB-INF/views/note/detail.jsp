@@ -76,12 +76,15 @@
                                 </div>
                                 <div class="comment-summary">
                                     <div class="info">
-                                        <div class="username">${comment.userNickname}</div>&nbsp;&middot;&nbsp;
-                                        <div class="createdAt"><fmt:formatDate pattern="MM-dd"
+                                        <div>
+                                        	<div class="username">${comment.userNickname}</div>&nbsp;&middot;&nbsp;
+                                        	<div class="createdAt"><fmt:formatDate pattern="MM-dd"
                                                                                value="${comment.commentCreatedDate }"/></div>
+                                        </div>
+                                        
                                         <div class="deleteComment">
                                             <c:if test="${sessionScope.sid == comment.userId}">
-                                                <input type="button" onclick="deleteComment(${comment.commentId})"
+                                                <input type="button" class="deleteBtn black-btn" onclick="deleteComment(${comment.commentId})"
                                                        value="삭제">
                                             </c:if>
                                         </div>

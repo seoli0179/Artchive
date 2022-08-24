@@ -31,15 +31,15 @@ public class MypageController {
     }
     
     // 코스 view
-    @RequestMapping("myPage/myPageRecommend")
-    public String myPageRecommend() {
-        return "myPage/myPageRecommend";
-    }
-    
-    // 추천 콘텐츠 view
     @RequestMapping("myPage/myPageCourse")
     public String myPageCourse() {
         return "myPage/myPageCourse";
+    }
+    
+    // 추천 콘텐츠 view
+    @RequestMapping("myPage/myPageRecmd")
+    public String myPageRecmd() {
+        return "myPage/myPageRecmd";
     }
     
     // 추천 콘텐츠 이벤트 view
@@ -49,9 +49,9 @@ public class MypageController {
     }
     
     // 활동 내역 게시글 view
-    @RequestMapping("myPage/myPageActive")
-    public String myPageActive() {
-        return "myPage/myPageActive";
+    @RequestMapping("myPage/myPageAct")
+    public String myPageAct() {
+        return "myPage/myPageAct";
     }
     
     // 활동 내역 댓글 view
@@ -60,12 +60,12 @@ public class MypageController {
         return "myPage/myPageComment";
     }
     
-    // 예매 내역 댓글 view
-    @RequestMapping("myPage/myPageReserv")
-    public String myPageReserv() {
-        return "myPage/myPageReserv";
-    }
-    
+//    // 예매 내역 댓글 view
+//    @RequestMapping("myPage/myPageReserv")
+//    public String myPageReserv() {
+//        return "myPage/myPageReserv";
+//    }
+//    
     // 회원 정보 확인 view
     @RequestMapping("myPage/myPageCheck")
     public String myPageCheck() {
@@ -73,30 +73,22 @@ public class MypageController {
     }
     
     // 회원 기본 정보 수정 view
-    @RequestMapping("myPage/myPageModifying")
-    public String myPageModifying() {
-        return "myPage/myPageModifying";
+    @RequestMapping("myPage/myPageEdit")
+    public String myPageEdit() {
+        return "myPage/myPageEdit";
     }
-    
     
     // 회원 맞춤 정보 수정 view
-    @RequestMapping("myPage/myPageCustomized")
-    public String myPageCustomized() {
-        return "myPage/myPageCustomized";
+    @RequestMapping("myPage/myPageCustom")
+    public String myPageCustom() {
+        return "myPage/myPageCustom";
     }
     
-    // 회원 맞춤 정보2 수정 view
-    @RequestMapping("myPage/myPageCustomized2")
-    public String myPageCustomized2() {
-        return "myPage/myPageCustomized2";
+    // 회원 비밀번호 변경 view
+    @RequestMapping("myPage/myPagePw")
+    public String myPagePw() {
+        return "myPage/myPagePw";
     }
-    
-    // 회원 맞춤 정보3 수정 view
-    @RequestMapping("myPage/myPageCustomized3")
-    public String myPageCustomized3() {
-        return "myPage/myPageCustomized3";
-    }
-    
     
     // 회원 탈퇴 view
     @RequestMapping("myPage/myPageWithdraw")
