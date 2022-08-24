@@ -1,40 +1,38 @@
 @charset "UTF-8";
 
-
 #container-deatil-search {
 	width: 1080px;
 	/*border-color: ;*/
 	/*border-width: ;*/
 	/*border-style: ;*/
 	padding: 10px;
-	
 }
 
-
-
-.container-list{
-/* 	display: flex;
+.container-list {
+	/* 	display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     margin-top: 50px;
     padding: 30px 40px;
     border-top: 1px solid #999;
-    background-color: #f6f6f6; */	
+    background-color: #f6f6f6; */
+	
 }
 
-.exsearchcontainer{
-	heigh : 250px;
-	display : flex;
+.exsearchcontainer {
+	heigh: 250px;
+	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: space-around;
 	margin-top: 50px;
 }
 
-.item1{
-	width: 300px;	
+.item1 {
+	width: 300px;
 }
+
 .item2 {
 	width: 300px;
 }
@@ -50,52 +48,78 @@
 .item5 {
 	
 }
-.where-ex{
-	margin:2%;
-}
-.price-ex{
-margin:2%;
-}
-.period-ex{
-margin:2%;	
-}
-.list-radio input{
-margin:2%;	
+
+.price-ex {
+	margin: 2%;
 }
 
-.hasDatepicker{
-	width:90px;
+.period-ex {
+	margin: 2%;
+}
+.exprice{
+	margin: 2%;
 }
 
+.list-radio input {
+	margin: 2%;
+}
+
+.hasDatepicker {
+	width: 90px;
+}
+
+.list-radio {
+	padding-top: 4px;
+}
+
+.where-ex {
+	padding-top: 4px;
+	margin: 2%;
+}
+.expriod{
+		margin: 2%;
+		padding-top: 4px;
+	}
+	.exprice{
+	margin: 2%;
+	padding-top: 4px;
+	}
 /* 값 받아오는 곳 + 검색/리셋 */
-.exsearchcontainer2{
+.exsearchcontainer2 {
 	display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-top: 20px;
-    padding: 30px 40px;
-    border-top: 1px solid #999;
-    background-color: #f6f6f6;	
-   margin-top: 3%;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin-top: 20px;
+	padding: 30px 40px;
+	border-top: 1px solid #999;
+	background-color: #f6f6f6;
+	margin-top: 3%;
 }
 /* 서브제목과 닫기버튼 */
-.searchTitleLine{
-   padding-bottom: 25px;
-    margin-bottom: 25px;
-    border-bottom: 1px solid #000;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: rgb(0, 0, 0);
+.searchTitleLine {
+	padding-bottom: 25px;
+	margin-bottom: 25px;
+	border-bottom: 1px solid #000;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: rgb(0, 0, 0);
 }
-.close-btn{
- position: absolute;
-    top: 18px;
-    right: 20px;
-    width: 30px;
-    height: 30px;
-    cursor: pointer; 
-    margin-top: 15px;   
+
+.close-btn {
+	position: absolute;
+	top: 18px;
+	right: 20px;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	margin-top: 15px;
+}
+
+.tabList ul, li {
+	display: inline-block;
+	justify-content: left;
+	min-width: 80px;
 }
 
 .background {
@@ -110,6 +134,7 @@ margin:2%;
 	z-index: -1;
 	opacity: 0;
 }
+
 .show {
 	opacity: 1;
 	z-index: 1000;
@@ -128,8 +153,8 @@ margin:2%;
 	background-color: #ffffff;
 	box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
 	width: 1150px;
-	height: 550px;
-	transform: translate(-50%, -40%);
+	min-height: 550px;
+	height: 65vh;
 	border-width: 0px;
 	padding: 20px;
 	border-radius: 10px;
@@ -139,29 +164,31 @@ margin:2%;
 	transform: translate(-50%, -50%);
 	transition: all 0.5s;
 }
-#subTitle-ex{
-	font-size : 30px;
+
+#subTitle-ex {
+	font-size: 30px;
 	font-weight: 600;
 	margin-top: 1%;
 	margin-left: 1%;
 }
 
-.subttitle{
-	font-size : 20px;
+.subttitle {
+	font-size: 20px;
 	font-weight: 600;
-	}
-
-.subttitle2{
-		font-size : 20px;
-	    font-weight: 600;
 }
-.barlist-result{
+
+.subttitle2 {
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.barlist-result {
 	font-weight: 700;
 	font-size: 20px;
 	margin: 5px;
 }
 
-	.white-btn2{
+.white-btn2 {
 	height: 54px;
 	width: 80px;
 	border: 2px solid #1A1A1A;
