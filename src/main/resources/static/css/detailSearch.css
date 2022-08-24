@@ -29,22 +29,22 @@
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: space-around;
-	margin-top: 50px;
+	padding: 10px;
 }
 
 .item1{
-	width: 300px;	
+	width: 26%;
 }
 .item2 {
-	width: 300px;
+	width: 26%;
 }
 
 .item3 {
-	width: 200px;
+	width: 18%;
 }
 
 .item4 {
-	width: 200px;
+	width: 18%;
 }
 
 .item5 {
@@ -128,8 +128,8 @@ margin:2%;
 	background-color: #ffffff;
 	box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
 	width: 1150px;
-	height: 550px;
-	transform: translate(-50%, -40%);
+	min-height: 550px;
+	height: 65vh;
 	border-width: 0px;
 	padding: 20px;
 	border-radius: 10px;
