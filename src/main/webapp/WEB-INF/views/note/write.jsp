@@ -29,7 +29,7 @@
         </div>
     </div>
     <div class="title">
-        <h1>글쓰기</h1>
+        <h1>Post</h1>
     </div>
     <div class="write-box">
         <div class="title">
