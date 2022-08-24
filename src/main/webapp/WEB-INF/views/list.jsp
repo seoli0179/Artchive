@@ -11,7 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/courseBoard.css'/>"/>
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/course.css'/>"/>
-
+	
 	<!-- icon kit -->
 	<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/list.css'/>">
@@ -132,8 +132,7 @@
 													<form method="get" action="form-action.html">
 														<fieldset>
 															<p class="subttitle">어떤 지역으로 가시나요?</p>
-																<br>
-														<div class = "item2-1">
+														<div class = "list-radio">
 															<ul>
 																<li class="where-ex"><label><input type="checkbox" name="ex-place"  onclick='getCheckboxValue4()' 
 																		value="서울" > 서울</label></li>
@@ -160,7 +159,6 @@
 											<div class="exsearch item3">
 													<fieldset>
 														<p class="subttitle">가격은 ?</p>
-																	<br>
 												<div class = "exprice">
 													<input type="radio" id="price-free" class="price-ex" onclick='getRadioText2(event)' name="ex-price"	value="price-free"> 
 														<label for="price-free">무료</label> 
@@ -176,7 +174,7 @@
 											<div class="exsearch item4">
 													<fieldset>
 														<p class="subttitle">전시 범위</p>
-																	<br>
+																	
 								
 															<div class = "exprice">
 																<input type="radio" id="upcoming-ex" class="period-ex" onclick='getRadioText3(event)' name="abcd1"	value="price-free" "> 
@@ -198,7 +196,6 @@
 										<!-- <p> -->
 											<p id="firstTxt">어떤 전시관람이 궁금하신가요?</p>
 												<!-- </p> -->
-																<br>
 													<ul class="barList" id="search-view">
 														<li class="barlist-result">
 															<div id='result'>  </div>
@@ -212,8 +209,6 @@
 														<li class="barlist-result">
 															<div id='result3'></div>
 														</li>
-								
-														
 													</ul>
 															<br>
 													<em>이런 조건을 찾으셨군요? 검색해 드릴게요!</em>
@@ -288,16 +283,14 @@
 	<ul class="row">
 		<c:forEach var="exhbn" items="${exhbnList}" varStatus="status">
 			<li class="cell">
-				<a href="/exhbn/detail/${exhbn.exhbnId}">
-					<div class="img-box">
-						<img src="${exhbn.exhbnImgUrl}" alt="">
-					</div>
-					<section id="ex-all">
-						<div class="ex-place">${exhbn.exhbnPlace}</div>
-						<div class="ex-title">${exhbn.exhbnTitle}</div>
-						<div class="ex-period"><fmt:formatDate value = "${exhbn.exhbnStartDate}" type ="date" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value = "${exhbn.exhbnEndDate}" type ="date" pattern="yyyy.MM.dd"/></div>
-					</section>
-				</a>
+				<div class="img-box">
+					<a href="/exhbn/detail/${exhbn.exhbnId}"><img src="${exhbn.exhbnImgUrl}" alt=""></a>
+				</div>
+				<section id="ex-all">
+					<div class="ex-place">${exhbn.exhbnPlace}</div>
+					<div class="ex-title">${exhbn.exhbnTitle}</div>
+					<div class="ex-period"><fmt:formatDate value = "${exhbn.exhbnStartDate}" type ="date" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value = "${exhbn.exhbnEndDate}" type ="date" pattern="yyyy.MM.dd"/></div>
+				</section>
 			</li>
 		</c:forEach>
 	</ul>
