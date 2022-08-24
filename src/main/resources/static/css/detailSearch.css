@@ -1,30 +1,11 @@
 @charset "UTF-8";
 
-
 #container-deatil-search {
 	width: 1080px;
-	/*border-color: ;*/
-	/*border-width: ;*/
-	/*border-style: ;*/
 	padding: 10px;
-	
-}
-
-
-
-.container-list{
-/* 	display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-top: 50px;
-    padding: 30px 40px;
-    border-top: 1px solid #999;
-    background-color: #f6f6f6; */	
 }
 
 .exsearchcontainer{
-	heigh : 250px;
 	display : flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
@@ -47,45 +28,38 @@
 	width: 18%;
 }
 
-.item5 {
-	
-}
 .where-ex{
 	margin:2%;
 }
 .price-ex{
-margin:2%;
+	margin:2%;
 }
 .period-ex{
-margin:2%;	
+	margin:2%;
 }
 .list-radio input{
-margin:2%;	
+	margin:2%;
 }
-
 .hasDatepicker{
 	width:90px;
 }
 
 /* 값 받아오는 곳 + 검색/리셋 */
-.exsearchcontainer2{
+.exsearchcontainer2 {
 	display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: 20px;
     padding: 30px 40px;
     border-top: 1px solid #999;
-    background-color: #f6f6f6;	
-   margin-top: 3%;
+    background-color: #f6f6f6;
+	margin-top: 3%;
 }
 /* 서브제목과 닫기버튼 */
 .searchTitleLine{
    padding-bottom: 25px;
     margin-bottom: 25px;
     border-bottom: 1px solid #000;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
     border-bottom-color: rgb(0, 0, 0);
 }
 .close-btn{
@@ -128,9 +102,8 @@ margin:2%;
 	background-color: #ffffff;
 	box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
 	width: 1150px;
-	min-height: 550px;
+	min-height: 500px;
 	height: 65vh;
-	border-width: 0px;
 	padding: 20px;
 	border-radius: 10px;
 }
@@ -139,6 +112,7 @@ margin:2%;
 	transform: translate(-50%, -50%);
 	transition: all 0.5s;
 }
+
 #subTitle-ex{
 	font-size : 30px;
 	font-weight: 600;
@@ -161,7 +135,7 @@ margin:2%;
 	margin: 5px;
 }
 
-	.white-btn2{
+.white-btn2{
 	height: 54px;
 	width: 80px;
 	border: 2px solid #1A1A1A;
