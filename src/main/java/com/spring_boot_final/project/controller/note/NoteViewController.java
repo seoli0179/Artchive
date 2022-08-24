@@ -35,6 +35,20 @@ public class NoteViewController {
         model.addAttribute("list", vo);
         return "note/list";
     }
+    
+    @RequestMapping("/note/event")
+    public String event(Model model) {
+
+        ArrayList<NoteVO> vo = noteService.selectNoteList();
+
+        for (int i = 0; i < vo.size(); i++) {
+            String tagRemove = vo.get(i).getNote().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
+            vo.get(i).setNote(tagRemove.substring(0, (tagRemove.length() < 120 ? tagRemove.length() : 120)));
+        }
+
+        model.addAttribute("list", vo);
+        return "note/event";
+    }
 
     @RequestMapping("/note/detail/{noteId}")
     public String detail(
