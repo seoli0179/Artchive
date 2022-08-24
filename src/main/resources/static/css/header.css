@@ -183,7 +183,7 @@ header #headerBox nav > ul > li {
 
 /* 메인 메뉴 맨 앞으로 */
  #mainMenuBox {
-	z-index : 200;
+	z-index : 500;
 }
 
 .boxshadow{

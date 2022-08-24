@@ -17,7 +17,7 @@
 	</head>
 	<body>
 		<header>
-		<div id="mainMenuBox">	
+		<div id="mainMenuBox">
 			<div id="mainMenu">
     
        		<div id="logoBox"><a href="<c:url value='/'/>">Artchive</a></div><!-- ✚ -->
@@ -27,7 +27,7 @@
 					<ul>
 						<li class="dropdown"><a class="color" href="<c:url value='/exhbn/list'/>">Search<i class="fa-solid fa-angle-down"></i></a>
 							<ul class="dropdownMenu">
-								<li><a href="#">현재전시</a></li>
+								<li><a href="/exhbn/list">현재전시</a></li>
 								<li><a href="#">지난전시</a></li>
 								<li><a href="#">예정전시</a></li>
 							</ul>
@@ -41,7 +41,7 @@
 						</li>
 						<li class="dropdown"><a class="color" href="<c:url value="/note/list"/> ">Board<i class="fa-solid fa-angle-down"></i></a>
 							<ul class="dropdownMenu">
-								<li><a href="#">공지</a></li>
+								<li><a href="#">공지사항</a></li>
 								<li><a href="#">자유게시판</a></li>
 								<li><a href="<c:url value='/note/event'/>">이벤트</a></li>
 							</ul>

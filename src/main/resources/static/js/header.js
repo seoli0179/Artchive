@@ -25,4 +25,16 @@
 	$('#footerBoxRight img').on('click',function(){
 		$('html, body').animate({scrollTop:0}, 500);
 	});
+
+	 $('.dropdown').each(function(){
+		 $(this).find('.dropdownMenu').hide();
+	 });
+
+	 // 드랍다운
+	 $('.dropdown').hover(function(){
+			 $(this).find('.dropdownMenu').slideDown();
+		 },
+		 function(){
+			 $(this).find('.dropdownMenu').slideUp();
+		 });
 });

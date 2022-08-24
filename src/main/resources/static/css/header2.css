@@ -153,6 +153,9 @@ header #headerBox nav > ul > li {
 	z-index : 500;
 }
 
+ .dropdown {
+	 z-index: 500;
+ }
 
 .dropdownMenu {
 	background-color: white;

@@ -203,3 +203,16 @@ body {
     box-shadow: none;
     transform: translateY(0);
 }
+
+.back {
+    width: fit-content;
+}
+
+.back i {
+    cursor: pointer;
+}
+
+.back i:hover {
+    cursor: pointer;
+    color: #5b5b5b;
+}
