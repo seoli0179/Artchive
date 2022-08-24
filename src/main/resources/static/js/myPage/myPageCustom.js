@@ -1,5 +1,5 @@
 /**
- *  myPageCustomized.js
+ *  myPageCustom.js
  */
  
  
