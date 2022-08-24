@@ -21,7 +21,7 @@
 		<script src="<c:url value='/js/course/autocomplete.js'/>"></script>
 		<script src="<c:url value='/js/course/courseEdit.js'/>"></script>
 	</head>
-	<body>
+	<body id="courseDetailEdit">
 		<!-- top으로 이동 -->
 		<c:import url="/WEB-INF/views/layout/top.jsp" />
 		
@@ -92,6 +92,9 @@
 								</div>
 							</li>
 							<li draggable="true" class="route-row ui-state-default">
+								<div class="moveHandler">
+									<i class="fa-solid fa-bars moveHandlerBtn"></i>
+								</div>
 								<div class="line"></div>
 								<div class="left">
 									<div class="subCourse-dot">2</div>
@@ -110,6 +113,9 @@
 								</div>
 							</li>
 							<li draggable="true" class="route-row ui-state-default">
+								<div class="moveHandler">
+									<i class="fa-solid fa-bars moveHandlerBtn"></i>
+								</div>
 								<div class="line"></div>
 								<div class="left">
 									<div class="subCourse-dot">3</div>
@@ -128,6 +134,9 @@
 								</div>
 							</li>
 							<li draggable="true" class="route-row ui-state-default">
+								<div class="moveHandler">
+									<i class="fa-solid fa-bars moveHandlerBtn"></i>
+								</div>
 								<div class="line"></div>
 								<div class="left">
 									<div class="subCourse-dot">4</div>

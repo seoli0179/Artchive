@@ -522,3 +522,8 @@
 	font-size: 2.0rem;
 	font-weight: 400;
 }
+
+/* 자동완성 위치 */
+#courseDetailEdit #ui-id-1 {
+	left:-1000px;
+}
