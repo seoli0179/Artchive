@@ -1,7 +1,9 @@
 package com.spring_boot_final.project.controller.note;
 
 import com.spring_boot_final.project.model.NoteVO;
+import com.spring_boot_final.project.service.CommentService;
 import com.spring_boot_final.project.service.NoteService;
+import com.spring_boot_final.project.state.ViewState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,12 +17,15 @@ import java.util.ArrayList;
 public class NoteViewController {
 
     @Autowired
-    NoteService service;
+    NoteService noteService;
+
+    @Autowired
+    CommentService commentService;
 
     @RequestMapping("/note/list")
     public String list(Model model) {
 
-        ArrayList<NoteVO> vo = service.selectNoteList();
+        ArrayList<NoteVO> vo = noteService.selectNoteList();
 
         for (int i = 0; i < vo.size(); i++) {
             String tagRemove = vo.get(i).getNote().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
@@ -35,9 +40,16 @@ public class NoteViewController {
     public String detail(
             @PathVariable int noteId,
             Model model
-            ) {
+    ) {
 
-        model.addAttribute("note",service.selectNote(noteId));
+        NoteVO note = noteService.selectNote(noteId);
+
+        if (note.getPageViewState() != ViewState.POST) {
+            return "error";
+        }
+
+        model.addAttribute("note", note);
+        model.addAttribute("commentList", commentService.selectCommentList(noteId));
 
         return "note/detail";
     }
@@ -50,10 +62,19 @@ public class NoteViewController {
     @RequestMapping("/note/update/{noteId}")
     public String update(
             @PathVariable int noteId,
+            HttpSession session,
             Model model
     ) {
 
-        model.addAttribute("note",service.selectNote(noteId));
+        if (session.getAttribute("sid") == null)
+            return "error";
+
+        NoteVO vo = noteService.selectNote(noteId);
+
+        if (!vo.getUserId().equals(session.getAttribute("sid").toString()))
+            return "error";
+
+        model.addAttribute("note", vo);
 
         return "note/update";
     }
