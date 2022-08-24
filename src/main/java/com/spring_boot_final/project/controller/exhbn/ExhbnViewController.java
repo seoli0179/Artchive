@@ -36,6 +36,16 @@ public class ExhbnViewController {
 
         return "list";
     }
+    
+    // detail page view
+    @RequestMapping("/exhbn/searchResult")
+    public String ResultTestView(Model model) {
+
+        ArrayList<ExhbnVO> vo = service.selectAllData();
+        model.addAttribute("exhbnList",vo);
+
+        return "searchResult";
+    }
 
 
 }
