@@ -6,10 +6,10 @@
 <html>
 	<head>
 	<meta charset="UTF-8">
-		<title>arTchive / 마이페이지 - 코스</title>
+		<title>arTchive / 마이페이지 - 비밀번호 변경</title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>"/>
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/myPageCourse.css'/>"/>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/myPagePw.css'/>"/>
 		<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		
@@ -40,53 +40,47 @@
 			
 			<div class="myPageBox">
 		
-				<h2>내 전시</h2>
-					<p class="line">
-				<div class="titleBox">
-					<a href="<c:url value='/myPage/myPageScrap'/>">스크랩</a>
-					<a href="<c:url value='/myPage/myPageLike'/>">좋아요</a>
-					<a href="<c:url value='/myPage/myPageCourse'/>">코스</a>
-				</div><!-- titleBox -->
+				<h2>비밀번호 변경</h2>
+				<p class="line">
 				
-				<div class="tableBox">
-					<table>
-						<thead>
-							<tr>
-								<th>구분</th>
-								<th>제목</th>
-								<th>등록 날짜</th>
-								<th>수정일</th>
-								<th>상태</th>
-							</tr>
+				
+				<form>
+					<div class="tableBox">
+						<div class="centerBox">
+							<h2 class="h2"><a class="logo" href="<c:url value='/'/>">Artchive</a></h2>
+							<span>주기적인 <span class="red">비밀번호 변경</span>을 통해<br>
+							개인정보를 안전하게 보호하세요.
 							
-						</thead>
-						<tbody>
-							<tr>
-								<td>전시</td>
-								<td>성수 전시회 코스</td>
-								<td>2022.01.03</td>
-								<td>2022.01.05</td>
-								<td>
-									<button class="white-btn">수정</button>
-									<button class="white-btn">삭제</button>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					</div><!--tableBox -->
-					
-					<div class="courseBox">
-						<div class="imageBox">
-							<img src="<c:url value='/image/banner.jpg'/>">
-						</div> <!-- imageBox -->
-						<a>서울</a>
-						<a>히토 슈타이얼 - 데이터의 바다</a>
-						<a>2022-08-14</a> 	
-					</div> <!-- courseBox -->
-					
-					
+						</div> <!-- centerBox -->
+							
+						<div class="infoBox">
+							<div class="inputBox"></div>	
+						</div> <!-- infoBox -->
+						
+						<div class="newPwBox">
+							<div class="pwBox">
+								<input type="text" class="pwInput" name="userPw" placeholder="새 비밀번호">
+							</div>
+							<div class="red">영문, 숫자, 특수문자 8~12자로 입력해주세요</div>
+							
+							<div class="pwCfmBox">
+								<input type="text" class="pwCfmInput" name="userPwCfm" placeholder="새 비밀번호 확인">
+								<div class="explain">비밀번호는 8~12자 이내로 영문(대,소문자), 숫자, 특수문자 3가지 조합<br> 중 2가지 이상을 조합하셔서 만드시면 됩니다.</div>
+							</div>	
+						</div>
+						<div class="buttonBox"> 
+							<input type="submit" class="black-btn" value="확인">
+							<input type="reset" class="white-btn" value="취소">
+						</div> <!-- buttonBox -->
+					</div> <!-- tableBox -->
+						<div class="searchBox">
+							<a href="<c:url value=''/>">아이디 찾기 | </a>
+							<a href="<c:url value=''/>">비밀번호 찾기 | </a>
+							<a href="<c:url value=''/>">회원가입</a>
+						</div> <!--  searchBox -->
+					</form>
 			</div> <!-- myPageBox -->
-            </div>
+            </div> <!-- course-box guide-box -->
         </main>
         
 		</section>

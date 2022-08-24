@@ -43,7 +43,7 @@
 							<ul class="dropdownMenu">
 								<li><a href="#">공지사항</a></li>
 								<li><a href="#">자유게시판</a></li>
-								<li><a href="#">이벤트</a></li>
+								<li><a href="<c:url value='/note/event'/>">이벤트</a></li>
 							</ul>
 						</li>
 					</ul>
