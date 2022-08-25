@@ -501,7 +501,6 @@
 	border-bottom: 1px solid #8d8d8d;
 	background-color: transparent;
 	padding: 0 16px;
-	/*color: #161616;*/
 	transition: background-color 70ms cubic-bezier(.2, 0, .38, .9), outline 70ms cubic-bezier(.2, 0, .38, .9);
 }
 .editInput:focus{
