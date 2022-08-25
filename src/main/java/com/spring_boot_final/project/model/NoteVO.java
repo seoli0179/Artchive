@@ -20,6 +20,15 @@ public class NoteVO {
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date noteUpdatedDate;
     private String userNickname;
+    private boolean noteLikeCheck;
+
+    public boolean getNoteLikeCheck() {
+        return noteLikeCheck;
+    }
+
+    public void setNoteLikeCheck(boolean noteLikeCheck) {
+        this.noteLikeCheck = noteLikeCheck;
+    }
 
     public NoteVO() {
     }

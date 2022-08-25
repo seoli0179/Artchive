@@ -14,6 +14,13 @@
         ]]>
     </insert>
 
+    <insert id="insertNoteLike" parameterType="com.spring_boot_final.project.model.NoteVO">
+        <![CDATA[
+        INSERT into noteLike(noteId, userId)
+        values (#{noteId}, #{userId});
+        ]]>
+    </insert>
+
     <!-- Read -->
 
     <select id="selectNote" parameterType="int" resultType="com.spring_boot_final.project.model.NoteVO">
@@ -53,6 +60,15 @@
         ]]>
     </select>
 
+    <select id="selectNoteLike" parameterType="com.spring_boot_final.project.model.NoteVO" resultType="int">
+        <![CDATA[
+        select count(*)
+        from noteLike
+        where noteId = #{noteId}
+          and userId = #{userId};
+        ]]>
+    </select>
+
     <!-- Update -->
 
     <update id="updateNote" parameterType="com.spring_boot_final.project.model.NoteVO">
@@ -66,7 +82,24 @@
         ]]>
     </update>
 
+    <update id="updateNoteLikeUp" parameterType="int">
+        <![CDATA[
+        UPDATE note
+        SET noteLike=noteLike+1
+        WHERE noteId = #{noteId}
+        ]]>
+    </update>
+
+    <update id="updateNoteLikeDown" parameterType="int">
+        <![CDATA[
+        UPDATE note
+        SET noteLike=noteLike-1
+        WHERE noteId = #{noteId}
+        ]]>
+    </update>
+
     <!-- Delete -->
+
     <update id="deleteNote" parameterType="com.spring_boot_final.project.model.NoteVO">
         <![CDATA[
         UPDATE note
@@ -75,6 +108,15 @@
           AND userId = #{userId}
         ]]>
     </update>
+
+    <delete id="deleteNoteLike" parameterType="com.spring_boot_final.project.model.NoteVO">
+        <![CDATA[
+        delete
+        from noteLike
+        where noteId = #{noteId}
+          and userId = #{userId};
+        ]]>
+    </delete>
 
 
 </mapper>

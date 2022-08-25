@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/note/detail.css'/>">
     <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
     <script src="<c:url value='/js/note/detail.js'/>"></script>
+    <script src="<c:url value='/js/note/like.js'/>"></script>
     <script src="<c:url value='/js/comment/create.js'/>"></script>
     <script src="<c:url value='/js/comment/delete.js'/>"></script>
     <script src="https://kit.fontawesome.com/8ab5776cfb.js" crossorigin="anonymous"></script><!-- 아이콘 -->
@@ -42,8 +43,16 @@
         </div>
         <div class="content">
             <div class="scrap">
-                <div class="like"><i id="like" class="fa-solid fa-heart"></i>${note.noteLike}</div>
-                <div><i class="fa-solid fa-message"></i>${note.noteCommentNum}</div>
+                <div class="like">
+                    <c:if test="${note.noteLikeCheck}">
+                        <i id="like" class="fa-solid fa-heart" style="color:Red;"></i>
+                    </c:if>
+                    <c:if test="${not note.noteLikeCheck}">
+                        <i id="like" class="fa-solid fa-heart" style="color:Black;"></i>
+                    </c:if>
+                    <span id="likeNum">${note.noteLike}</span>
+                </div>
+                <div><i class="fa-solid fa-message" style="margin-right: 4px;"></i>${note.noteCommentNum}</div>
             </div>
             <div class="summary">
                 <div class="title">

@@ -83,7 +83,12 @@
             <c:forEach var="note" items="${list}">
                 <div class="content">
                     <div class="scrap">
-                        <div class="like"><i class="fa-solid fa-heart"></i>${note.noteLike}</div>
+                        <c:if test="${note.noteLikeCheck}">
+                            <div class="like"><i class="fa-solid fa-heart" style="color:red;"></i>${note.noteLike}</div>
+                        </c:if>
+                        <c:if test="${not note.noteLikeCheck}">
+                            <div class="like"><i class="fa-solid fa-heart" style="color:black;"></i>${note.noteLike}</div>
+                        </c:if>
                         <div><i class="fa-solid fa-message"></i>${note.noteCommentNum}</div>
                     </div>
                     <div class="summary">

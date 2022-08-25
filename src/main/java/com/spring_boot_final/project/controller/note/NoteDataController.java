@@ -82,4 +82,25 @@ public class NoteDataController {
         return "SUCCESS";
     }
 
+    @RequestMapping("/note/noteLike")
+    public String noteLike(
+            @RequestParam("noteId") int noteId,
+            HttpSession session
+    ) {
+
+        if (session.getAttribute("sid") == null)
+            return "FALSE";
+
+        NoteVO vo = new NoteVO();
+        vo.setNoteId(noteId);
+        vo.setUserId(session.getAttribute("sid").toString());
+
+        if (service.noteLike(vo)) {
+            return "TRUE";
+        } else {
+            return "FALSE";
+        }
+
+    }
+
 }

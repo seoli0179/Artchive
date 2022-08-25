@@ -30,6 +30,7 @@ public class NoteViewController {
         for (int i = 0; i < vo.size(); i++) {
             String tagRemove = vo.get(i).getNote().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
             vo.get(i).setNote(tagRemove.substring(0, (tagRemove.length() < 120 ? tagRemove.length() : 120)));
+            vo.get(i).setNoteLikeCheck(noteService.noteLikeCheck(vo.get(i)));
         }
 
         model.addAttribute("list", vo);
@@ -44,6 +45,7 @@ public class NoteViewController {
         for (int i = 0; i < vo.size(); i++) {
             String tagRemove = vo.get(i).getNote().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
             vo.get(i).setNote(tagRemove.substring(0, (tagRemove.length() < 120 ? tagRemove.length() : 120)));
+            vo.get(i).setNoteLikeCheck(noteService.noteLikeCheck(vo.get(i)));
         }
 
         model.addAttribute("list", vo);
@@ -61,6 +63,8 @@ public class NoteViewController {
         if (note.getPageViewState() != ViewState.POST) {
             return "error";
         }
+
+        note.setNoteLikeCheck(noteService.noteLikeCheck(note));
 
         model.addAttribute("note", note);
         model.addAttribute("commentList", commentService.selectCommentList(noteId));

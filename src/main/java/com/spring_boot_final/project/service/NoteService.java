@@ -24,7 +24,18 @@ public class NoteService {
     }
 
     public ArrayList<NoteVO> selectNoteList() {
-        return dao.selectNoteList();
+
+        ArrayList<NoteVO> vo = dao.selectNoteList();
+
+        for (int i = 0; i < vo.size(); i++) {
+            if (dao.selectNoteLike(vo.get(i)) > 0) {
+                vo.get(i).setNoteLikeCheck(true);
+            }else {
+                vo.get(i).setNoteLikeCheck(false);
+            }
+        }
+
+        return vo;
     }
 
     public NoteVO selectNote(int noteId) {
@@ -33,6 +44,27 @@ public class NoteService {
 
     public void deleteNote(NoteVO vo) {
         dao.deleteNote(vo);
+    }
+
+    public boolean noteLike(NoteVO vo) {
+        System.out.println(dao.selectNoteLike(vo));
+        if (dao.selectNoteLike(vo) > 0) {
+            dao.updateNoteLikeDown(vo.getNoteId());
+            dao.deleteNoteLike(vo);
+            return false;
+        } else {
+            dao.updateNoteLikeUp(vo.getNoteId());
+            dao.insertNoteLike(vo);
+            return true;
+        }
+    }
+
+    public boolean noteLikeCheck(NoteVO vo) {
+        if (dao.selectNoteLike(vo) > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
