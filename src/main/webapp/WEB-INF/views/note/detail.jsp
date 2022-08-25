@@ -65,7 +65,7 @@
                     ${note.noteTitle}
                 </div>
                 <div class="info">
-                    by&nbsp;<div class="username">${note.userNickname}</div>&nbsp;&middot;&nbsp;<div class="createdAt">
+                    <br><div class="username"> ${note.userNickname}</div>&nbsp;&nbsp;<div class="createdAt">
                     <fmt:formatDate pattern="MM-dd" value="${note.noteCreatedDate }"/></div>
                 </div>
                 <div class="content-body">
@@ -107,11 +107,12 @@
                                     </div>
                                 </div>
                                 <div class="comment-summary">
-                                    <div class="info">
-                                        <div>
-                                            <div class="username">${comment.userNickname}</div>&nbsp;&middot;&nbsp;
-                                            <div class="createdAt"><fmt:formatDate pattern="MM-dd"
-                                                                                   value="${comment.commentCreatedDate }"/></div>
+                                
+                                    <div class="infoBox">
+                                    	<div class="info">
+                                        	<div class="username">${comment.userNickname}</div>&nbsp;&nbsp;
+                                        	<div class="createdAt"><fmt:formatDate pattern="MM-dd"
+                                                                               value="${comment.commentCreatedDate }"/></div>
                                         </div>
 
                                         <div class="deleteComment">
