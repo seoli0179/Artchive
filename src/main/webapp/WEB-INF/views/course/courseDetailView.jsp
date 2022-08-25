@@ -14,7 +14,9 @@
 
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/courseDetail.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/toggle.css'/>">
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/note/detail.css'/>">
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
+		<script src="<c:url value='/js/note/detail.js'/>"></script>
 		<script type="text/javascript"></script>
 	</head>
 	<body>
@@ -39,11 +41,13 @@
 
 			<!-- courseMain -->
 			<section id="courseMenu">
-				<div></div>
-           		<div id="courseMainText">
-						<input type="button" id="editCourseBtn"  class="white-btn" value="수정">
-						<input type="button" id="like-btn"  class="white-btn" value="좋아요">
-						<input type="button" id="scrap-btn"  class="black-btn" value="스크랩">
+				<div class="back goleft" onclick="goBack();">
+					<i id="back" class="fa-solid fa-arrow-left fa-2xl"></i>
+				</div>
+           		<div id="courseMainBtn-Box">
+					<input type="button" id="editCourseBtn"  class="white-btn" value="수정">
+					<input type="button" id="like-btn"  class="white-btn" value="좋아요">
+					<input type="button" id="scrap-btn"  class="black-btn" value="스크랩">
            		</div><!-- courseMainText -->
 			</section><!-- courseMenu -->
 
@@ -146,39 +150,42 @@
 				<i class="fa-solid fa-share-nodes fa-xl"></i>
 			</section>
 
-			<section id="searchMap-container">
-				<div id="searchCourse">
-					<ul>
-						<li>Search.</li>
-					</ul>
-					<input type="text" id="courseSearch" name="searchMessage" size="120"  placeholder="검색어를 입력하세요."/>
-					<input type="button" id="CourseSearchBtn" value="검색">
+			<section id="comment">
+				<div class="comment-write">
+                  <textarea id="story" name="story" rows="5" cols="33" placeholder="Leave a Comment">
+				  </textarea>
+					<input class="post" type="button" value="Post">
 				</div>
-				
-				<div id = "recommendCourse">
-				 <div class="courseAdd">
-				 	<div class="courseAddBtn">
-				 		<input type="button" class="white-btn" id="courseAddBtn1" value="장소 추가">
-				 	</div>
-				 </div>
-				 
-				  <div class="courseAdd">
-				 	<div class="courseAddBtn">
-				 		<input type="button" class="white-btn" id="courseAddBtn1" value="장소 추가">
-				 	</div>
-				 </div>
-				 
-				  <div class="courseAdd">
-				 	<div class="courseAddBtn">
-				 		<input type="button" class="white-btn" id="courseAddBtn1" value="장소 추가">
-				 	</div>
-				 </div>
-				 
-				  <div class="courseAdd">
-				 	<div class="courseAddBtn">
-				 		<input type="button" class="white-btn" id="courseAddBtn1" value="장소 추가">
-				 	</div>
-				 </div>
+				<div class="comment-num">2 comments</div>
+				<div class="comment-list">
+					<div class="comment">
+						<div class="comment-scrap">
+							<div class="like"><i class="fa-solid fa-heart" style="color:Red"></i>7</div>
+						</div>
+						<div class="comment-summary">
+							<div class="info">
+								<div class="username">username</div>&nbsp;&middot;&nbsp;
+								<div class="createdAt">08-17</div>
+							</div>
+							<div class="comment-body">
+								코멘트 내용
+							</div>
+						</div>
+					</div>
+					<div class="comment">
+						<div class="comment-scrap">
+							<div class="like"><i class="fa-solid fa-heart" style="color:Black"></i>7</div>
+						</div>
+						<div class="comment-summary">
+							<div class="info">
+								<div class="username">username</div>&nbsp;&middot;&nbsp;
+								<div class="createdAt">08-17</div>
+							</div>
+							<div class="comment-body">
+								코멘트 내용
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
 		</main>

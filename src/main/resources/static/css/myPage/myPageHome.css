@@ -2,167 +2,91 @@
 
 /* myPageHome.css */
 
+@font-face {
+	font-family: 'establishRetrosansOTF';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112@1.0/establishRetrosansOTF.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.logo {
+    font-family: 'establishRetrosansOTF';
+    font-size: 40px;
+    color: #000;
+    text-decoration: none;
+}
+
 /* 전체 틀 */
 .wrapper {
-	margin: 0 auto;
-	width:1080px;
 	/*  푸터 하단 고정 */
-	height:auto;
-	min-height: 100%;
-	padding-bottom: 20%;
+	padding-bottom: 25%;
+	max-width : 1390px;
+	margin: 0 auto;
+	min-width : 1080px;
 }
 
-section {
-	display:flex;
-	justify-content:space-between;
-	margin-top:10%;
-	
+#course-container {
+    width:100%;
+    min-width: 1080px;
+    min-height: auto;
+    background-color: rgba(255,255,255,1);
+    --web-view-name: coursepage;
+    --web-view-id: coursepage;
+    --web-scale-on-resize: true;
+    --web-enable-deep-linking: true;
+    position: relative;
 }
 
-section nav {
-	display:flex;
-	margin-right:10%;
-	width:30%;
+.course-box {
+   	margin-top: 50px;
+    line-height: 2.3rem;
+    border-bottom: black 2px solid;
+    padding: 20px 0;
 }
 
-
-.tabMenu {
-	width:100%;
+/* 가이드 박스 */
+.guide-contents {
+    width:15%;
+    height:15%;
+    text-align: center;
+    margin:20px;
+    margin-bottom: 70px;
 }
 
-.tabMenu li {
-	margin-top:10%;
+.guide-contents>a>img {
+    width:80px;
+    height:80px;
+    margin: 10px;
 }
 
-.tabMenu li a {
-	color:#949494;
-	font-size:20px;
+.guide-contents img {
+    width:80px;
+    height:80px;
+    margin: 10px;
 }
 
-.tabMenu li:first-child a {
-	color:#000;
-	text-align: left;
-	font-weight:bold;
-	font-size:24px;
-	letter-spacing: 0px;
-	opacity: 1;
+.guide-img-box {
+    display: flex;
+    justify-content: center;
+}
+.guide-box .h2 {
+    margin-bottom: 15px;
+    text-align: center;
+    margin-bottom:5%;
 }
 
-.tabMenu li:nth-child(2) a, .tabMenu li a:hover {
-	color:#000;
-	font-weight:bold;
+.guide-box>p.h3 {
+    font-weight: bold;
+}
+.guide-box .small-text {
+    font-size: small;
+    line-height: 1.2rem;
+    color: #3B3B3B;
+    width:100%;
 }
 
-
-.myPageBox {
-	width:100%;
-}
-
-.myPageBox h2 {
-	font-size:40px;
-	color:#000;
-	margin-bottom:2%;
-}
-
-/* 선 */
-.line {
-	border:1px solid #000;
-}
-
-/* 사용자 */
-.userBox {
-	margin:5% 0 3% 0;
-}
-
-/* 사용자 이름 */
-.userBox h2 {
-	font-size:32px;
-	font-weight:bold;
-	text-align:left;
-	margin-bottom:2%;
-}
-
-/* 사용자 주소 */
-.userBox a {
-	font-size:18px;
-	color:#949494;
-	text-align:left;
-}
-
-.buttonBox {
-	margin-left:10%;
-}
-
-a.ModifyInfo, a.withdraw {
-	border: 1px solid #707070;
-	border-radius:50px;
-	font-size:12px;
-	padding:5px 10px;
-	color:#000;
-}
-
-a.ModifyInfo:hover, a.withdraw:hover {
-	color:#fff;
-	background:#000;
-}
-
-a.ModifyInfo {
-	margin-right:0.5%;
-}
-/* 내 전시 */
-.myExhbn {
-	margin:5% 0;
-}
-
-.myExhbn h2 {
-	font-weight:bold;
-	font-size:28px;
-	margin-bottom:3%;
-	
-}
-
-/* 스크랩, 좋아요, 코스 */
-.titleBox a {
-	font-weight:bold;
-	font-size:28px;
-	margin-left:3%;
-	color:#949494;
-	
-}
-
-/* default 스크랩  */
-.titleBox a:first-child {
-	color:#000;
-}
-
-.titleBox a:hover {
-	color:#000;
-	font-weight:bold;
-}
-/* 테이블 */
-.tableBox {
-	margin-top:3%;
-}
-
-table {
-	width:100%;
-}
-
-table th {
-	border-top:2px solid #000;
-	border-bottom :2px solid #000;
-	font-weight:bold;
-	background:#F6F6F6;
-	padding:3% 0;
-	height:auto;
-	line-height:auto;
-	text-align:center;	
+.items:hover {
+	opacity:0.5;
 }
 
 
-table td {
-	text-align:center;
-	padding:3% 0;
-	items-align:center;
-	border-bottom :2px solid #000;
-}
