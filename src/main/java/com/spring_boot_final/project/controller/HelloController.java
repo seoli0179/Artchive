@@ -23,11 +23,5 @@ public class HelloController {
 	public String viewDetail() {
 		return "detail";
 	}
-	
-	
-	// searchResult 페이지 열기 요청 처리
-		@RequestMapping("/exhbn/searchResult")
-		public String viewsearchResult() {
-			return "searchResult";
-}
+
 }

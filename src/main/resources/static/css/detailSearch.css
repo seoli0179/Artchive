@@ -2,60 +2,45 @@
 
 #container-deatil-search {
 	width: 1080px;
-	/*border-color: ;*/
-	/*border-width: ;*/
-	/*border-style: ;*/
 	padding: 10px;
 }
 
-.container-list {
-	/* 	display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-top: 50px;
-    padding: 30px 40px;
-    border-top: 1px solid #999;
-    background-color: #f6f6f6; */
-	
-}
-
-.exsearchcontainer {
-	heigh: 250px;
-	display: flex;
+.exsearchcontainer{
+	display : flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: space-around;
-	margin-top: 50px;
+	padding: 10px;
 }
 
-.item1 {
-	width: 300px;
+.item1{
+	width: 26%;
 }
 
 .item2 {
-	width: 300px;
+	width: 26%;
 }
 
 .item3 {
-	width: 200px;
+	width: 18%;
 }
 
 .item4 {
-	width: 200px;
+	width: 18%;
 }
 
-.item5 {
-	
+.where-ex{
+	margin:2%;
+}
+
+.hasDatepicker{
+	width:90px;
 }
 
 .price-ex {
 	margin: 2%;
 }
 
-.period-ex {
-	margin: 2%;
-}
 .exprice{
 	margin: 2%;
 }
@@ -98,18 +83,15 @@
 }
 /* 서브제목과 닫기버튼 */
 .searchTitleLine {
+	display: flex;
+	justify-content: space-between;
 	padding-bottom: 25px;
 	margin-bottom: 25px;
 	border-bottom: 1px solid #000;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
 	border-bottom-color: rgb(0, 0, 0);
 }
 
 .close-btn {
-	position: absolute;
-	top: 18px;
-	right: 20px;
 	width: 30px;
 	height: 30px;
 	cursor: pointer;
@@ -148,8 +130,7 @@
 }
 
 .popup {
-	position: absolute;
-	transform: translate(-50%, -50%);
+	margin:7% auto;
 	background-color: #ffffff;
 	box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
 	width: 1150px;
@@ -161,7 +142,6 @@
 }
 
 .show .popup {
-	transform: translate(-50%, -50%);
 	transition: all 0.5s;
 }
 
@@ -170,6 +150,8 @@
 	font-weight: 600;
 	margin-top: 1%;
 	margin-left: 1%;
+	display: flex;
+	justify-content: space-between;
 }
 
 .subttitle {

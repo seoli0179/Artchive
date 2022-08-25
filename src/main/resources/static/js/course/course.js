@@ -24,22 +24,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
     let removeBtns = document.getElementsByClassName("closeBtn");
 
-    // for (let i=0; i<removeBtns.length; i++) {
-    //     removeBtns[i].addEventListener('click', function (){
-    //         console.log(this);
-    //         let removeTags = document.getElementsByClassName("li-item");
-    //         let value = removeTags[i].innerText;
-    //         let index = tags.indexOf(value);
-    //         console.log(index);
-    //         tags = [...tags.slice(0,index), ...tags.slice(index+1)]; // 태그 삭제
-    //         this.parentElement.remove();
-    //     });
-    // }
-
-    // for (let i=0; i<removeBtns.length; i++) {
-    //     removeBtns[i].addEventListener('click', remove);
-    // }
-
     function remove(element, tag) {
         let index = tags.indexOf(tag);
         tags = [...tags.slice(0,index), ...tags.slice(index+1)]; // 태그 삭제
