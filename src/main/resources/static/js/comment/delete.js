@@ -9,11 +9,16 @@ function deleteComment(commentId) {
             type: "POST",
             url: "/comment/deleteComment",
             data: {
-                "commentId": commentId
+                "commentId": commentId,
+                "noteId" : $('#noteId').val()
             }, success: function (data) {
                 if (data == "SUCCESS") {
                     alert("삭제 완료!");
                     $("#comment-box").load(window.location.href + " #comment-box > *"); //띄어쓰기 주의!!!
+
+                    var commentNum = $('#commentNumMain').text();
+                    commentNum *= 1;
+                    $("#commentNumMain").text(--commentNum);
                 } else {
                     alert("삭제 실패!");
                 }

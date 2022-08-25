@@ -118,6 +118,22 @@
         ]]>
     </update>
 
+    <update id="updateNoteCommentUp" parameterType="int">
+<![CDATA[
+        UPDATE note
+        SET noteCommentNum=noteCommentNum + 1
+        WHERE noteId = #{noteId}
+        ]]>
+    </update>
+
+    <update id="updateNoteCommentDown" parameterType="int">
+<![CDATA[
+        UPDATE note
+        SET noteCommentNum=noteCommentNum - 1
+        WHERE noteId = #{noteId}
+        ]]>
+    </update>
+
     <!-- Delete -->
 
     <update id="deleteNote" parameterType="com.spring_boot_final.project.model.NoteVO">

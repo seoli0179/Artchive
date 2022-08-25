@@ -84,4 +84,12 @@ public class NoteService {
         return dao.selectNoteCount(map);
     }
 
+    public void updateNoteCommentUp(int noteId){
+        dao.updateNoteCommentUp(noteId);
+    }
+
+    public void updateNoteCommentDown(int noteId){
+        dao.updateNoteCommentDown(noteId);
+    }
+
 }
