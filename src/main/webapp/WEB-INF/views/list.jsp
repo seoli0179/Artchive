@@ -191,29 +191,29 @@
 							
 		</div>
 							
-								<div class="exsearchcontainer2">
-										<div class="exsearch item5">
-										<!-- <p> -->
-											<p id="firstTxt">어떤 전시관람이 궁금하신가요?</p>
-												<!-- </p> -->
-													<ul class="barList" id="search-view">
-														<li class="barlist-result">
-															<div id='result'>  </div>
-														</li>
-														<li class="barlist-result">
-															<div id='result4'></div>
-														</li>
-														<li class="barlist-result">
-															<div id='result2'></div>
-														</li>
-														<li class="barlist-result">
-															<div id='result3'></div>
-														</li>
-													</ul>
-															<br>
-													<em>이런 조건을 찾으셨군요? 검색해 드릴게요!</em>
-								
-									</div>
+		<div class="exsearchcontainer2">
+				<div class="exsearch item5">
+				<!-- <p> -->
+					<p id="firstTxt">어떤 전시관람이 궁금하신가요?</p>
+						<!-- </p> -->
+							<ul class="barList" id="search-view">
+								<li class="barlist-result">
+									<div id='result'>  </div>
+								</li>
+								<li class="barlist-result">
+									<div id='result4'></div>
+								</li>
+								<li class="barlist-result">
+									<div id='result2'></div>
+								</li>
+								<li class="barlist-result">
+									<div id='result3'></div>
+								</li>
+							</ul>
+									<br>
+							<em>이런 조건을 찾으셨군요? 검색해 드릴게요!</em>
+
+			</div>
 								
 						
 											<div class="exsearch item6">

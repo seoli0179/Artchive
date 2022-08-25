@@ -19,8 +19,8 @@
 
         <link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
         <link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>"/>
-        <link rel="stylesheet" type="text/css" href="<c:url value='/css/course/course.css'/>"/>
         <link rel="stylesheet" type="text/css" href="<c:url value='/css/list.css'/>"/>
+        <link rel="stylesheet" type="text/css" href="<c:url value='/css/course/course.css'/>"/>
         <link rel="stylesheet" type="text/css" href="<c:url value='/css/course/courseBoard.css'/>"/>
     </head>
     <body>
