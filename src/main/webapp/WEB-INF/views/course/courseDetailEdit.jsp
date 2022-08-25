@@ -14,7 +14,7 @@
 
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/courseDetail.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/tagBox.css'/>">
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/toggle.css'/>">
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/module/toggle.css'/>">
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 		<script src="<c:url value='/js/course/course.js'/>"></script>
@@ -43,10 +43,16 @@
 
 			<!-- courseMain -->
 			<section id="courseMenu">
-				<div></div>
+				<div id="courseToggle">
+					<input type="checkbox" id="toggle" hidden>
+					<label for="toggle" class="toggleSwitch">
+						<span class="toggleButton"></span>
+					</label>
+					<span id="toggleText">공개여부</span>
+				</div>
            		<div id="courseMainText">
 					<input type="reset" id="editBtn"  class="white-btn" value="삭제">
-					<input type="submit" id="deleteBtn"  class="black-btn" value="저장">
+					<input type="submit" id="submitBtn"  class="black-btn" value="저장">
            		</div><!-- courseMainText -->
 			</section><!-- courseMenu -->
 
