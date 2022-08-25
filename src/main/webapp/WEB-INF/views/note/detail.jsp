@@ -19,6 +19,7 @@
     <script src="<c:url value='/js/note/like.js'/>"></script>
     <script src="<c:url value='/js/comment/create.js'/>"></script>
     <script src="<c:url value='/js/comment/delete.js'/>"></script>
+    <script src="<c:url value='/js/comment/like.js'/>"></script>
     <script src="https://kit.fontawesome.com/8ab5776cfb.js" crossorigin="anonymous"></script><!-- 아이콘 -->
     <title>arTchive / ${note.noteTitle}</title>
 </head>
@@ -86,7 +87,24 @@
                             <div class="comment">
                                 <input type="hidden" id="commentId${comment.commentId}" value="${commentId}">
                                 <div class="comment-scrap">
-                                    <div class="like"><i class="fa-solid fa-heart" style="color:Red"></i>7</div>
+                                    <div class="like">
+                                        <c:if test="${not empty sessionScope.sid}">
+                                            <c:if test="${comment.commentLikeCheck}">
+                                                <i id="commentLike${comment.commentId}" class="fa-solid fa-heart"
+                                                   onclick="commentLikeClick(${comment.commentId})" style="color:red;"></i>
+                                            </c:if>
+                                            <c:if test="${not comment.commentLikeCheck}">
+                                                <i id="commentLike${comment.commentId}" class="fa-solid fa-heart"
+                                                   onclick="commentLikeClick(${comment.commentId})" style="color:black;"></i>
+                                            </c:if>
+                                            <span id="commentNum${comment.commentId}">${comment.commentLike}</span>
+                                        </c:if>
+                                        <c:if test="${empty sessionScope.sid}">
+                                            <i class="fa-solid fa-heart"
+                                               style="color:black"></i>
+                                            <span>${comment.commentLike}</span>
+                                        </c:if>
+                                    </div>
                                 </div>
                                 <div class="comment-summary">
                                     <div class="info">

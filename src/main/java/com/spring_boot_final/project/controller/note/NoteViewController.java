@@ -1,5 +1,6 @@
 package com.spring_boot_final.project.controller.note;
 
+import com.spring_boot_final.project.model.CommentVO;
 import com.spring_boot_final.project.model.NoteVO;
 import com.spring_boot_final.project.service.CommentService;
 import com.spring_boot_final.project.service.NoteService;
@@ -72,8 +73,16 @@ public class NoteViewController {
         if (session.getAttribute("sid") != null)
             note.setNoteLikeCheck(noteService.noteLikeCheck(note, session.getAttribute("sid").toString()));
 
+        ArrayList<CommentVO> comment = commentService.selectCommentList(noteId);
+
+        if (session.getAttribute("sid") != null) {
+            for (int i = 0; i < comment.size(); i++) {
+                comment.get(i).setCommentLikeCheck(commentService.noteLikeCheck(comment.get(i), session.getAttribute("sid").toString()));
+            }
+        }
+
         model.addAttribute("note", note);
-        model.addAttribute("commentList", commentService.selectCommentList(noteId));
+        model.addAttribute("commentList", comment);
 
         return "note/detail";
     }

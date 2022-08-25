@@ -14,6 +14,13 @@
         ]]>
     </insert>
 
+    <insert id="insertCommentLike" parameterType="com.spring_boot_final.project.model.CommentVO">
+        <![CDATA[
+        INSERT into commentLike(commentId, userId)
+        values (#{commentId}, #{userId});
+        ]]>
+    </insert>
+
     <!-- Read -->
 
     <select id="selectCommentList" parameterType="int" resultType="com.spring_boot_final.project.model.CommentVO">
@@ -42,6 +49,15 @@
         ]]>
     </select>
 
+    <select id="selectCommentLike" parameterType="com.spring_boot_final.project.model.CommentVO" resultType="int">
+        <![CDATA[
+        select count(*)
+        from commentLike
+        where commentId = #{commentId}
+          and userId = #{userId};
+        ]]>
+    </select>
+
     <!-- Update -->
 
     <update id="updateComment" parameterType="com.spring_boot_final.project.model.CommentVO">
@@ -50,6 +66,22 @@
         SET comment=#{comment}
         WHERE commentId = #{commentId}
           AND userId = #{userId}
+        ]]>
+    </update>
+
+    <update id="updateCommentLikeUp" parameterType="int">
+        <![CDATA[
+        UPDATE comment
+        SET commentLike=commentLike+1
+        WHERE commentId = #{commentId}
+        ]]>
+    </update>
+
+    <update id="updateCommentLikeDown" parameterType="int">
+        <![CDATA[
+        UPDATE comment
+        SET commentLike=commentLike-1
+        WHERE commentId = #{commentId}
         ]]>
     </update>
 
@@ -63,6 +95,15 @@
           AND userId = #{userId}
         ]]>
     </update>
+
+    <delete id="deleteCommentLike" parameterType="com.spring_boot_final.project.model.CommentVO">
+        <![CDATA[
+        delete
+        from commentLike
+        where commentId = #{commentId}
+          and userId = #{userId};
+        ]]>
+    </delete>
 
 
 </mapper>
