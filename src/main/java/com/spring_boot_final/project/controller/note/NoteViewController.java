@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -25,11 +26,20 @@ public class NoteViewController {
 
     @RequestMapping("/note/list")
     public String list(
+            @RequestParam int page,
+            @RequestParam String category,
+            @RequestParam String sort,
+            @RequestParam String keyword,
             HttpSession session,
             Model model
     ) {
 
-        ArrayList<NoteVO> vo = noteService.selectNoteList();
+        category = category.toUpperCase();
+
+        System.out.println(category + " " + page);
+        System.out.println(sort + " " + keyword);
+
+        ArrayList<NoteVO> vo = noteService.selectNoteList(category, page, sort, keyword);
 
         for (int i = 0; i < vo.size(); i++) {
             String tagRemove = vo.get(i).getNote().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
@@ -40,21 +50,10 @@ public class NoteViewController {
         }
 
         model.addAttribute("list", vo);
+        model.addAttribute("maxDataNum", noteService.selectNoteCount(category, keyword) - 1);
+        if (category.equals("EVENT"))
+            return "note/event";
         return "note/list";
-    }
-
-    @RequestMapping("/note/event")
-    public String event(Model model) {
-
-        ArrayList<NoteVO> vo = noteService.selectNoteList();
-
-        for (int i = 0; i < vo.size(); i++) {
-            String tagRemove = vo.get(i).getNote().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
-            vo.get(i).setNote(tagRemove.substring(0, (tagRemove.length() < 120 ? tagRemove.length() : 120)));
-        }
-
-        model.addAttribute("list", vo);
-        return "note/event";
     }
 
     @RequestMapping("/note/detail/{noteId}")

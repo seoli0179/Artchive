@@ -2,11 +2,12 @@ package com.spring_boot_final.project.service;
 
 import com.spring_boot_final.project.dao.INoteDAO;
 import com.spring_boot_final.project.model.NoteVO;
+import com.spring_boot_final.project.state.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.util.*;
 
 @Service
 public class NoteService {
@@ -23,15 +24,21 @@ public class NoteService {
         dao.updateNote(vo);
     }
 
-    public ArrayList<NoteVO> selectNoteList() {
+    public ArrayList<NoteVO> selectNoteList(String category, int page, String sort, String keyword) {
 
-        ArrayList<NoteVO> vo = dao.selectNoteList();
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("category", category);
+        map.put("page", --page * 10);
+        map.put("sort", sort);
+        map.put("keyword", keyword);
 
-        for (int i = 0; i < vo.size(); i++) {
-            if (dao.selectNoteLike(vo.get(i)) > 0) {
-                vo.get(i).setNoteLikeCheck(true);
-            }else {
-                vo.get(i).setNoteLikeCheck(false);
+        ArrayList<NoteVO> vo = dao.selectNoteListFilter(map);
+
+        for (NoteVO noteVO : vo) {
+            if (dao.selectNoteLike(noteVO) > 0) {
+                noteVO.setNoteLikeCheck(true);
+            } else {
+                noteVO.setNoteLikeCheck(false);
             }
         }
 
@@ -66,6 +73,15 @@ public class NoteService {
         } else {
             return false;
         }
+    }
+
+    public int selectNoteCount(String category, String keyword){
+
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("category", category);
+        map.put("keyword", keyword);
+
+        return dao.selectNoteCount(map);
     }
 
 }
