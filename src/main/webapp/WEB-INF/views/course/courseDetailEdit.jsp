@@ -56,7 +56,7 @@
 					<h3>관련 태그</h3>
 					<div class="tag-box-edit">
 						<ul id="tagList">
-							<input class="inner-searchbar" id="inner-searchbar" type="text">
+							<input class="inner-searchbar" id="inner-searchbar" type="text" placeholder="태그를 입력하세요.">
 						</ul>
 					</div>
 				</section> <!-- editCourseBtn -->
