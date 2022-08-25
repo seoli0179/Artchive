@@ -15,12 +15,15 @@ public class NoteVO {
     private String note;
     private int noteLike;
     private int noteCommentNum;
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date noteCreatedDate;
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date noteUpdatedDate;
     private String userNickname;
     private boolean noteLikeCheck;
+
+    public NoteVO() {
+    }
 
     public boolean getNoteLikeCheck() {
         return noteLikeCheck;
@@ -28,9 +31,6 @@ public class NoteVO {
 
     public void setNoteLikeCheck(boolean noteLikeCheck) {
         this.noteLikeCheck = noteLikeCheck;
-    }
-
-    public NoteVO() {
     }
 
     public int getNoteId() {

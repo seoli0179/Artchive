@@ -5,7 +5,7 @@ $(document).ready(function () {
     setInterval(() => moveSlide(movedIndex++), 4000);
 
     function moveSlide(movedIndex) {
-        console.log(movedIndex);
+        //console.log(movedIndex);
         movedIndex = movedIndex % 5;
         //슬라이드 이동
         var moveLeft = -(movedIndex * 1000); // 왼쪽으로 이동 거리
