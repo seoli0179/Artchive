@@ -45,7 +45,6 @@ document.addEventListener("DOMContentLoaded", function(){
                 }
                 createTag();
             }
-
             e.target.value = ""; // 내용 지우기
         }
     }
@@ -60,10 +59,10 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 }); // .document.eventlistner
-
-let tags = [];
-function remove(element, tag) {
-    let index = tags.indexOf(tag);
-    tags = [...tags.slice(0,index), ...tags.slice(index+1)]; // 태그 삭제
-    element.parentElement.remove(); // li 삭제
-}
+//
+// let tags = [];
+// function remove(element, tag) {
+//     let index = tags.indexOf(tag);
+//     tags = [...tags.slice(0,index), ...tags.slice(index+1)]; // 태그 삭제
+//     element.parentElement.remove(); // li 삭제
+// }

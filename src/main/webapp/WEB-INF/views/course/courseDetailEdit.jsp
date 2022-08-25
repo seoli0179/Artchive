@@ -68,104 +68,23 @@
 				</section> <!-- editCourseBtn -->
 				<section id="course">
 					<section id="timeline-container">
+						<div class="route-row" id="startPoint">
+							<div class="line down"></div>
+							<div class="left">
+								<div class="dot"></div>
+							</div>
+							<div class="content explain">Start ...</div>
+						</div>
 						<ul id="sortable" class="timeline-course-container">
-							<div class="route-row" id="startPoint">
-								<div class="line down"></div>
-								<div class="left">
-									<div class="dot"></div>
-								</div>
-								<div class="content explain">Start ...</div>
-							</div>
-							<li draggable="true" class="route-row ui-state-default">
-								<div class="moveHandler">
-									<i class="fa-solid fa-bars moveHandlerBtn"></i>
-								</div>
-								<div class="line"></div>
-								<div class="left">
-									<div class="mainCourse-dot">1</div>
-								</div>
-								<div class="content">
-									<div class="where">
-										<h3 class="where-title">전시관</h3>
-										<div class="address">주소주소주소</div>
-									</div>
-								</div>
-								<div class="content memo-box">
-									<textarea class="place-memo-input" placeholder="메모를 입력하세요."></textarea>
-								</div>
-								<div class="delete">
-									<img src="<c:url value='/image/minus.png'/>">
-								</div>
-							</li>
-							<li draggable="true" class="route-row ui-state-default">
-								<div class="moveHandler">
-									<i class="fa-solid fa-bars moveHandlerBtn"></i>
-								</div>
-								<div class="line"></div>
-								<div class="left">
-									<div class="subCourse-dot">2</div>
-								</div>
-								<div class="content">
-									<div class="where">
-										<h3 class="where-title">식당</h3>
-										<div class="address">주소주소주소</div>
-									</div>
-								</div>
-								<div class="content memo-box">
-									<textarea class="place-memo-input" placeholder="메모를 입력하세요."></textarea>
-								</div>
-								<div class="delete">
-									<img src="<c:url value='/image/minus.png'/>">
-								</div>
-							</li>
-							<li draggable="true" class="route-row ui-state-default">
-								<div class="moveHandler">
-									<i class="fa-solid fa-bars moveHandlerBtn"></i>
-								</div>
-								<div class="line"></div>
-								<div class="left">
-									<div class="subCourse-dot">3</div>
-								</div>
-								<div class="content">
-									<div class="where">
-										<h3 class="where-title">산책로</h3>
-										<div class="address">주소주소주소</div>
-									</div>
-								</div>
-								<div class="content memo-box">
-										<textarea class="place-memo-input" placeholder="메모를 입력하세요."></textarea>
-								</div>
-								<div class="delete">
-									<img src="<c:url value='/image/minus.png'/>">
-								</div>
-							</li>
-							<li draggable="true" class="route-row ui-state-default">
-								<div class="moveHandler">
-									<i class="fa-solid fa-bars moveHandlerBtn"></i>
-								</div>
-								<div class="line"></div>
-								<div class="left">
-									<div class="subCourse-dot">4</div>
-								</div>
-								<div class="content">
-									<div class="where">
-										<h3 class="where-title">카페</h3>
-										<div class="address">주소주소주소</div>
-									</div>
-								</div>
-								<div class="delete">
-									<i class="fa-solid fa-pen portlet-toggle"></i>
-									<img src="<c:url value='/image/minus.png'/>">
-								</div>
-							</li>
-							<div class="route-row" id="endPoint">
-								<div class="line up"></div>
-								<div class="left">
-									<div class="dot"></div>
-								</div>
-								<div class="content explain">End ...</div>
-							</div>
+							<!-- li 삽입 공간 -->
 						</ul>
+						<div class="route-row" id="endPoint">
+							<div class="line up"></div>
+							<div class="left">
+								<div class="dot"></div>
+							</div>
+							<div class="content explain">End ...</div>
+						</div>
 					</section>
 					<section id="courseMap">
 						map
