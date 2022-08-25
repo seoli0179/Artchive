@@ -59,7 +59,8 @@ public class NoteService {
         }
     }
 
-    public boolean noteLikeCheck(NoteVO vo) {
+    public boolean noteLikeCheck(NoteVO vo, String userId) {
+        vo.setUserId(userId);
         if (dao.selectNoteLike(vo) > 0) {
             return true;
         } else {

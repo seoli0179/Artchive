@@ -23,20 +23,25 @@ public class NoteViewController {
     CommentService commentService;
 
     @RequestMapping("/note/list")
-    public String list(Model model) {
+    public String list(
+            HttpSession session,
+            Model model
+    ) {
 
         ArrayList<NoteVO> vo = noteService.selectNoteList();
 
         for (int i = 0; i < vo.size(); i++) {
             String tagRemove = vo.get(i).getNote().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
             vo.get(i).setNote(tagRemove.substring(0, (tagRemove.length() < 120 ? tagRemove.length() : 120)));
-            vo.get(i).setNoteLikeCheck(noteService.noteLikeCheck(vo.get(i)));
+
+            if (session.getAttribute("sid") != null)
+                vo.get(i).setNoteLikeCheck(noteService.noteLikeCheck(vo.get(i), session.getAttribute("sid").toString()));
         }
 
         model.addAttribute("list", vo);
         return "note/list";
     }
-    
+
     @RequestMapping("/note/event")
     public String event(Model model) {
 
@@ -45,7 +50,6 @@ public class NoteViewController {
         for (int i = 0; i < vo.size(); i++) {
             String tagRemove = vo.get(i).getNote().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
             vo.get(i).setNote(tagRemove.substring(0, (tagRemove.length() < 120 ? tagRemove.length() : 120)));
-            vo.get(i).setNoteLikeCheck(noteService.noteLikeCheck(vo.get(i)));
         }
 
         model.addAttribute("list", vo);
@@ -55,6 +59,7 @@ public class NoteViewController {
     @RequestMapping("/note/detail/{noteId}")
     public String detail(
             @PathVariable int noteId,
+            HttpSession session,
             Model model
     ) {
 
@@ -64,7 +69,8 @@ public class NoteViewController {
             return "error";
         }
 
-        note.setNoteLikeCheck(noteService.noteLikeCheck(note));
+        if (session.getAttribute("sid") != null)
+            note.setNoteLikeCheck(noteService.noteLikeCheck(note, session.getAttribute("sid").toString()));
 
         model.addAttribute("note", note);
         model.addAttribute("commentList", commentService.selectCommentList(noteId));
