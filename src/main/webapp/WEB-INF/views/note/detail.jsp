@@ -58,7 +58,7 @@
                     </c:if>
                     <span id="likeNum">${note.noteLike}</span>
                 </div>
-                <div><i class="fa-solid fa-message" style="margin-right: 4px;"></i>${note.noteCommentNum}</div>
+                <div><i class="fa-solid fa-message" style="margin-right: 4px;"></i><span id="commentNumMain">${note.noteCommentNum}</span></div>
             </div>
             <div class="summary">
                 <div class="title">

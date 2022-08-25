@@ -31,4 +31,7 @@ public interface INoteDAO {
 
     void deleteNote(NoteVO vo);
 
+    void updateNoteCommentUp(int noteId);
+    void updateNoteCommentDown(int noteId);
+
 }

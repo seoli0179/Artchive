@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+    $('#searchTEXT').val(getParameterByName('keyword'));
+
     if (getParameterByName('sort') == 'new') {
         $('#filter_innerbox').append("<li onclick=\"sortMove('new')\" class=\"filter-active\">New</li>")
         $('#filter_innerbox').append("<li onclick=\"sortMove('popular')\" class=\"\">Popular</li>")
