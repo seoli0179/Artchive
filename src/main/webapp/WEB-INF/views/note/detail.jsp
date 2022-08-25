@@ -16,8 +16,10 @@
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/note/detail.css'/>">
     <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
     <script src="<c:url value='/js/note/detail.js'/>"></script>
+    <script src="<c:url value='/js/note/like.js'/>"></script>
     <script src="<c:url value='/js/comment/create.js'/>"></script>
     <script src="<c:url value='/js/comment/delete.js'/>"></script>
+    <script src="<c:url value='/js/comment/like.js'/>"></script>
     <script src="https://kit.fontawesome.com/8ab5776cfb.js" crossorigin="anonymous"></script><!-- 아이콘 -->
     <title>arTchive / ${note.noteTitle}</title>
 </head>
@@ -42,8 +44,21 @@
         </div>
         <div class="content">
             <div class="scrap">
-                <div class="like"><i id="like" class="fa-solid fa-heart"></i>${note.noteLike}</div>
-                <div><i class="fa-solid fa-message"></i>${note.noteCommentNum}</div>
+                <div class="like">
+                    <c:if test="${not empty sessionScope.sid}">
+                        <c:if test="${note.noteLikeCheck}">
+                            <i id="like" class="fa-solid fa-heart" style="color:Red;"></i>
+                        </c:if>
+                        <c:if test="${not note.noteLikeCheck}">
+                            <i id="like" class="fa-solid fa-heart" style="color:Black;"></i>
+                        </c:if>
+                    </c:if>
+                    <c:if test="${empty sessionScope.sid}">
+                        <i class="fa-solid fa-heart" style="color:Black;"></i>
+                    </c:if>
+                    <span id="likeNum">${note.noteLike}</span>
+                </div>
+                <div><i class="fa-solid fa-message" style="margin-right: 4px;"></i><span id="commentNumMain">${note.noteCommentNum}</span></div>
             </div>
             <div class="summary">
                 <div class="title">
@@ -72,19 +87,38 @@
                             <div class="comment">
                                 <input type="hidden" id="commentId${comment.commentId}" value="${commentId}">
                                 <div class="comment-scrap">
-                                    <div class="like"><i class="fa-solid fa-heart" style="color:Red"></i>7</div>
+                                    <div class="like">
+                                        <c:if test="${not empty sessionScope.sid}">
+                                            <c:if test="${comment.commentLikeCheck}">
+                                                <i id="commentLike${comment.commentId}" class="fa-solid fa-heart"
+                                                   onclick="commentLikeClick(${comment.commentId})" style="color:red;"></i>
+                                            </c:if>
+                                            <c:if test="${not comment.commentLikeCheck}">
+                                                <i id="commentLike${comment.commentId}" class="fa-solid fa-heart"
+                                                   onclick="commentLikeClick(${comment.commentId})" style="color:black;"></i>
+                                            </c:if>
+                                            <span id="commentNum${comment.commentId}">${comment.commentLike}</span>
+                                        </c:if>
+                                        <c:if test="${empty sessionScope.sid}">
+                                            <i class="fa-solid fa-heart"
+                                               style="color:black"></i>
+                                            <span>${comment.commentLike}</span>
+                                        </c:if>
+                                    </div>
                                 </div>
                                 <div class="comment-summary">
+                                
                                     <div class="infoBox">
                                     	<div class="info">
                                         	<div class="username">${comment.userNickname}</div>&nbsp;&nbsp;
                                         	<div class="createdAt"><fmt:formatDate pattern="MM-dd"
                                                                                value="${comment.commentCreatedDate }"/></div>
                                         </div>
-                                        
+
                                         <div class="deleteComment">
                                             <c:if test="${sessionScope.sid == comment.userId}">
-                                                <input type="button" class="deleteBtn black-btn" onclick="deleteComment(${comment.commentId})"
+                                                <input type="button" class="deleteBtn black-btn"
+                                                       onclick="deleteComment(${comment.commentId})"
                                                        value="삭제">
                                             </c:if>
                                         </div>

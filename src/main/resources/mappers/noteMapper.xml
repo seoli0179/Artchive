@@ -14,6 +14,13 @@
         ]]>
     </insert>
 
+    <insert id="insertNoteLike" parameterType="com.spring_boot_final.project.model.NoteVO">
+        <![CDATA[
+        INSERT into noteLike(noteId, userId)
+        values (#{noteId}, #{userId});
+        ]]>
+    </insert>
+
     <!-- Read -->
 
     <select id="selectNote" parameterType="int" resultType="com.spring_boot_final.project.model.NoteVO">
@@ -34,29 +41,58 @@
         ]]>
     </select>
 
-    <select id="selectNoteList" resultType="com.spring_boot_final.project.model.NoteVO">
+    <select id="selectNoteCount" parameterType="hashmap" resultType="int">
         <![CDATA[
+        select count(*)
+        from note
+        where category = #{category}
+          and noteTitle like CONCAT('%', #{keyword}, '%')
+          and pageViewState = 'POST'
+        ]]>
+    </select>
+
+    <select id="selectNoteListFilter" parameterType="hashmap" resultType="com.spring_boot_final.project.model.NoteVO">
         select n.noteId,
-               n.userId,
-               n.noteTitle,
-               n.note,
-               n.noteLike,
-               n.noteCommentNum,
-               n.noteCreatedDate,
-               u.userNickname
+        n.userId,
+        n.noteTitle,
+        n.note,
+        n.noteLike,
+        n.noteCommentNum,
+        n.noteCreatedDate,
+        u.userNickname
         from note n,
-             user u
+        user u
         where n.userId = u.userId
-          and n.category = 'FREE'
-          and n.pageViewState = 'POST'
-        ORDER BY n.noteCreatedDate DESC;
+        and n.category = #{category}
+        and n.pageViewState = 'POST'
+        and n.noteTitle like CONCAT('%', #{keyword}, '%')
+        <choose>
+            <when test="sort == 'new'">
+                order by n.noteCreatedDate DESC
+            </when>
+            <when test="sort == 'popular'">
+                order by n.noteLike DESC
+            </when>
+            <otherwise>
+                order by n.noteCreatedDate DESC
+            </otherwise>
+        </choose>
+        limit 10 offset #{page};
+    </select>
+
+    <select id="selectNoteLike" parameterType="com.spring_boot_final.project.model.NoteVO" resultType="int">
+<![CDATA[
+        select count(*)
+        from noteLike
+        where noteId = #{noteId}
+          and userId = #{userId};
         ]]>
     </select>
 
     <!-- Update -->
 
     <update id="updateNote" parameterType="com.spring_boot_final.project.model.NoteVO">
-        <![CDATA[
+<![CDATA[
         UPDATE note
         SET category=#{category},
             noteTitle=#{noteTitle},
@@ -66,15 +102,57 @@
         ]]>
     </update>
 
+    <update id="updateNoteLikeUp" parameterType="int">
+<![CDATA[
+        UPDATE note
+        SET noteLike=noteLike + 1
+        WHERE noteId = #{noteId}
+        ]]>
+    </update>
+
+    <update id="updateNoteLikeDown" parameterType="int">
+<![CDATA[
+        UPDATE note
+        SET noteLike=noteLike - 1
+        WHERE noteId = #{noteId}
+        ]]>
+    </update>
+
+    <update id="updateNoteCommentUp" parameterType="int">
+<![CDATA[
+        UPDATE note
+        SET noteCommentNum=noteCommentNum + 1
+        WHERE noteId = #{noteId}
+        ]]>
+    </update>
+
+    <update id="updateNoteCommentDown" parameterType="int">
+<![CDATA[
+        UPDATE note
+        SET noteCommentNum=noteCommentNum - 1
+        WHERE noteId = #{noteId}
+        ]]>
+    </update>
+
     <!-- Delete -->
+
     <update id="deleteNote" parameterType="com.spring_boot_final.project.model.NoteVO">
-        <![CDATA[
+<![CDATA[
         UPDATE note
         SET pageViewState = 'DELETE'
         WHERE noteId = #{noteId}
           AND userId = #{userId}
         ]]>
     </update>
+
+    <delete id="deleteNoteLike" parameterType="com.spring_boot_final.project.model.NoteVO">
+<![CDATA[
+        delete
+        from noteLike
+        where noteId = #{noteId}
+          and userId = #{userId};
+        ]]>
+    </delete>
 
 
 </mapper>
