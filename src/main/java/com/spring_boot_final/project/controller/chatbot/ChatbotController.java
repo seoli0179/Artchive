@@ -11,17 +11,10 @@ import com.spring_boot_final.project.service.ChatbotService;
 @RestController
 public class ChatbotController {
 	
-	// Chatbot Service
-	@RequestMapping("/chatbot")
-	public String chatResult(@RequestParam("message") String message) throws IOException {
-		return ChatbotService.main(message);
-	}
-	
-	/*
-	 * // JSON 형태 그대로 반환
-	 * 
-	 * @RequestMapping("/chatbotJSON") public String
-	 * chatbotJSON(@RequestParam("message") String message) throws IOException {
-	 * return ChatbotService.mainJSON(message); }
-	 */
+	 // JSON 형태 그대로 반환
+	  
+	  @RequestMapping("/chatbotJSON") public String
+	  chatbotJSON(@RequestParam("message") String message) throws IOException {
+	  return ChatbotService.mainJSON(message); }
+	 
 }
