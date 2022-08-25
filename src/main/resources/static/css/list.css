@@ -15,6 +15,7 @@ body {
 .tabList ul, li {
 	display:inline-block;
 	justify-content: left;
+	min-width: 80px;
 }
 
 /* 유나 */
