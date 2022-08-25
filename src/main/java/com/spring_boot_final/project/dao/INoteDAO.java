@@ -11,9 +11,16 @@ public interface INoteDAO {
 
     void updateNote(NoteVO vo);
 
+    void updateNoteLikeUp(int noteId);
+    void updateNoteLikeDown(int noteId);
+
     ArrayList<NoteVO> selectNoteList();
 
     NoteVO selectNote(int noteId);
+
+    int selectNoteLike(NoteVO vo);
+    void insertNoteLike(NoteVO vo);
+    void deleteNoteLike(NoteVO vo);
 
     void deleteNote(NoteVO vo);
 
