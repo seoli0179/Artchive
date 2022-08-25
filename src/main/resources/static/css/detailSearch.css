@@ -83,18 +83,15 @@
 }
 /* 서브제목과 닫기버튼 */
 .searchTitleLine {
+	display: flex;
+	justify-content: space-between;
 	padding-bottom: 25px;
 	margin-bottom: 25px;
 	border-bottom: 1px solid #000;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
 	border-bottom-color: rgb(0, 0, 0);
 }
 
 .close-btn {
-	position: absolute;
-	top: 18px;
-	right: 20px;
 	width: 30px;
 	height: 30px;
 	cursor: pointer;
@@ -133,8 +130,7 @@
 }
 
 .popup {
-	position: absolute;
-	transform: translate(-50%, -50%);
+	margin:7% auto;
 	background-color: #ffffff;
 	box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
 	width: 1150px;
@@ -146,7 +142,6 @@
 }
 
 .show .popup {
-	transform: translate(-50%, -50%);
 	transition: all 0.5s;
 }
 
@@ -155,6 +150,8 @@
 	font-weight: 600;
 	margin-top: 1%;
 	margin-left: 1%;
+	display: flex;
+	justify-content: space-between;
 }
 
 .subttitle {
