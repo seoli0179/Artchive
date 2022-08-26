@@ -31,7 +31,7 @@ $(document).ready(function () {
                 },
                 success: function (data) {
                     alert("수정 완료!");
-                    location.href = "/note/list";
+                    window.history.back();
                 },
                 error: function () {
                     console.log('fail');
