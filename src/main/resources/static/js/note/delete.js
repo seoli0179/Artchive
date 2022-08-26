@@ -8,7 +8,7 @@ $(document).ready(function () {
             },
             success: function (data) {
                 alert("삭제 완료!");
-                location.href = "/note/list";
+                window.history.go(-2);
             },
             error: function () {
                 console.log('fail');

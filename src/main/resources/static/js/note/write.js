@@ -30,7 +30,7 @@ $(document).ready(function () {
                 },
                 success: function (data) {
                     alert("작성 완료!");
-                    location.href = "/note/list";
+                    window.history.back();
                 },
                 error: function () {
                     console.log('fail');
