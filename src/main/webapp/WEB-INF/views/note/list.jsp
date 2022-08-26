@@ -100,7 +100,7 @@
                                 ${note.note}
                         </div>
                         <div class="info">
-                            by&nbsp;<div class="userName">${note.userNickname}</div>&nbsp;&middot;&nbsp;<div
+                            <br><div class="userName">${note.userNickname}</div>&nbsp;&nbsp;<div
                                 class="createdAt"><fmt:formatDate pattern="MM-dd" value="${note.noteCreatedDate }"/>
                         </div>
                         </div>
