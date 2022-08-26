@@ -2,6 +2,7 @@
  *  detailView
  */
  
+// 로드시 맵 활성화, 마커
 window.onload = function(){
 	
 	var container = document.getElementById('courseMap'); //지도를 담을 영역의 DOM 레퍼런스
@@ -11,7 +12,7 @@ window.onload = function(){
 }; // options
 
 	var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
-
+	
 	// 지도를 클릭한 위치에 표출할 마커입니다
 	var marker = new kakao.maps.Marker({ 
     // 지도 중심좌표에 마커를 생성합니다 
@@ -31,13 +32,19 @@ window.onload = function(){
     // 마커 위치를 클릭한 위치로 옮깁니다
     marker.setPosition(latlng);
     
+    var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
+    message += '경도는 ' + latlng.getLng() + ' 입니다';
+   	
+   	console.log(message)
+      
 	}); // addListener
 	
 	
 } // window.onload
-
-	function setCenter() { 
 	
+	
+	// 지도 중심 좌표 이동
+	function setCenter() { 
 	
 	var container = document.getElementById('courseMap'); //지도를 담을 영역의 DOM 레퍼런스
 	var options = { //지도를 생성할 때 필요한 기본 옵션
@@ -72,10 +79,17 @@ window.onload = function(){
     // 마커 위치를 클릭한 위치로 옮깁니다
     marker.setPosition(latlng);
     
+    var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
+    message += '경도는 ' + latlng.getLng() + ' 입니다';
+   	
+   	console.log(message);
+    
 	}); // addListener
     
-}
-			
+} // setCenter
+
+
+
 	
     
 	

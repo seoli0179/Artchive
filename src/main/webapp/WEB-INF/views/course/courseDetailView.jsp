@@ -146,7 +146,9 @@
 					
 					</section><!-- courseMap -->
 					 	<p>
-    						<button onclick="setCenter()">지도 중심좌표 이동시키기</button> 
+    						<button onclick="setCenter()">지도 중심좌표 이동시키기</button>
+   							 <button onclick="hideMarkers()">마커 감추기</button>
+    						<button onclick="showMarkers()">마커 보이기</button>
 						</p>
 					</section><!-- Course -->
 			
