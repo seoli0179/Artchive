@@ -144,12 +144,10 @@ body {
 
 .preview {
     color: gray;
-    padding-bottom: 10px;
     line-height:30px;
 }
 
 .info {
-    display: flex;
 }
 
 .nav {
