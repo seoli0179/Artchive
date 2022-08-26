@@ -18,6 +18,7 @@
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		<script src="<c:url value='/js/indexHeader.js'/>"></script>
 		<script src="<c:url value='/js/chatbotShow.js'/>"></script>
+		<script src="<c:url value='/js/chatbot.js'/>"></script>
 		<script src="<c:url value='/js/module/dropdown.js'/>"></script>
 		<script src="<c:url value='/js/search.js'/>"></script>
 		<!-- icon kit -->
@@ -52,9 +53,9 @@
 						</li>
 						<li class="dropdown"><a class="color" href="<c:url value="/note/list"/> ">Board<i class="fa-solid fa-angle-down"></i></a>
 							<ul class="dropdownMenu">
-								<li><a href="#">공지</a></li>
-								<li><a href="#">자유게시판</a></li>
-								<li><a href="<c:url value='/note/event'/>">이벤트</a></li>
+								<li><a href="<c:url value='/note/list?category=notice&page=1&sort=new&keyword='/>">공지</a></li>
+								<li><a href="<c:url value='/note/list?category=free&page=1&sort=new&keyword='/>">자유게시판</a></li>
+								<li><a href="<c:url value='/note/list?category=event&page=1&sort=new&keyword='/>">이벤트</a></li>
 							</ul>
 						</li>
 					</ul>

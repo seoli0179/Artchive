@@ -6,8 +6,7 @@ body {
 .wrapper {
     margin: 0 auto;
     width:1080px;
-    min-height: 88%;
-    padding-bottom: 30px;
+    padding-bottom: 30%;
 }
 
 .fa-solid {
@@ -66,9 +65,9 @@ body {
 }
 
 .title {
-    padding-bottom: 5px;
     font-weight: bold;
     font-size: 20px;
+    padding-bottom: 20px;
 }
 
 .title a {
@@ -85,11 +84,15 @@ body {
     padding-bottom: 10px;
 }
 
+.infoBox {
+	 display: flex;
+	 justify-content:space-between;
+	 align-items: center;
+}
+
 .info {
-    display: flex;
     margin-bottom: 20px;
-    align-items: center;
-    justify-content:space-between;
+    
 }
 
 .comment-write{

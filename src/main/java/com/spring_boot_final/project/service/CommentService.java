@@ -2,6 +2,7 @@ package com.spring_boot_final.project.service;
 
 import com.spring_boot_final.project.dao.ICommentDAO;
 import com.spring_boot_final.project.model.CommentVO;
+import com.spring_boot_final.project.model.NoteVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -33,6 +34,28 @@ public class CommentService {
 
     public void deleteComment(CommentVO vo) {
         dao.deleteComment(vo);
+    }
+
+    public boolean commentLike(CommentVO vo) {
+        System.out.println(dao.selectCommentLike(vo));
+        if (dao.selectCommentLike(vo) > 0) {
+            dao.updateCommentLikeDown(vo.getCommentId());
+            dao.deleteCommentLike(vo);
+            return false;
+        } else {
+            dao.updateCommentLikeUp(vo.getCommentId());
+            dao.insertCommentLike(vo);
+            return true;
+        }
+    }
+
+    public boolean noteLikeCheck(CommentVO vo, String userId) {
+        vo.setUserId(userId);
+        if (dao.selectCommentLike(vo) > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

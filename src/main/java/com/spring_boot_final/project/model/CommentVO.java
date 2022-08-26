@@ -18,6 +18,15 @@ public class CommentVO {
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date commentUpdatedDate;
     private String userNickname;
+    private boolean commentLikeCheck;
+
+    public boolean isCommentLikeCheck() {
+        return commentLikeCheck;
+    }
+
+    public void setCommentLikeCheck(boolean commentLikeCheck) {
+        this.commentLikeCheck = commentLikeCheck;
+    }
 
     public CommentVO() {
     }
