@@ -68,11 +68,6 @@
 							<input type="reset" class="white-btn" value="취소">
 						</div> <!-- buttonBox -->
 					</div> <!-- tableBox -->
-						<div class="searchBox">
-							<a href="<c:url value=''/>">아이디 찾기 | </a>
-							<a href="<c:url value=''/>">비밀번호 찾기 | </a>
-							<a href="<c:url value=''/>">회원가입</a>
-						</div> <!--  searchBox -->
 					</form>
 			</div> <!-- myPageBox -->
             </div> <!-- course-box guide-box -->
