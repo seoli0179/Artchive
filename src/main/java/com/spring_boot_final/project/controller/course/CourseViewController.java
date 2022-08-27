@@ -1,11 +1,15 @@
 package com.spring_boot_final.project.controller.course;
 
+import com.spring_boot_final.project.model.CourseVO;
 import com.spring_boot_final.project.model.ExhbnVO;
+import com.spring_boot_final.project.service.CourseService;
 import com.spring_boot_final.project.service.ExhbnService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 
@@ -14,6 +18,8 @@ public class CourseViewController {
 
     @Autowired
     ExhbnService service;
+    @Autowired
+    CourseService courseService;
 
     // course page view
     @RequestMapping("/course")
@@ -27,11 +33,11 @@ public class CourseViewController {
         // course board view
     }
 
-    @RequestMapping("/course/board")
-    public String courseBoardView(Model model) {
-
-        ArrayList<ExhbnVO> vo = service.selectAllData();
-        model.addAttribute("exhbnList",vo);
+    // course list view
+    @RequestMapping("/course/list")
+    public String selectCourse(Model model) {
+        ArrayList<CourseVO> vo = courseService.selectCourse();
+        model.addAttribute("courseList",vo);
 
         return "course/courseBoard";
     }
