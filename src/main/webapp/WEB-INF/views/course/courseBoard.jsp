@@ -85,180 +85,37 @@
                 <!-- .searchAreaBox -->
                 <!-- borad-gallery -->
                 <div class="course-box board-gallery-view">
-                    <div class="post-container" style="cursor: pointer;" onclick="location.href='/course/board';">
-                        <div class="post-img-box">
+                    <c:forEach var="li" items="${courseList}">
+                        <div class="post-container" style="cursor: pointer;" onclick="location.href='/course/list/${li.courseId}';">
+                            <div class="post-img-box">
 
-                        </div>
-                        <div class="post-title-box">
-                            <h3>혼자 사색하며 즐기기 좋은 전시</h3>
-                        </div>
-                        <div class="post-content-box">
-                            간단한 메모사항 뚜루루루루루ㅜㅁ 만약 적지 않은 경우, {전시회명}+{식당 등이 나옴} 양이 너무 많을 경우 점점으로 표시 ..
-                        </div>
-                        <div class="post-tag-box">
-
-                        </div>
-                        <div class="post-footer-box">
-                            <div class="post-writer-box">
-                                by&nbsp;<span class="userName">작성자명${note.userNickname}</span>
                             </div>
-                            <div class="post-react-box">
-                                <div class="post-view-box">
-                                    <i class="fa-solid fa-heart" style="color:black;"></i>
-                                    <span>48</span>
-                                </div>
-                                <div class="post-like-box">
-                                    <i class="fa-solid fa-message" style="color:black;"></i>
-                                    <span>1234</span>
-                                </div>
+                            <div class="post-title-box">
+                                <h3>${li.courseTitle}</h3>
                             </div>
-                        </div>
-                    </div>
-                    <div class="post-container"  style="cursor: pointer;" onclick="location.href='/course/board';">
-                        <div class="post-img-box">
-
-                        </div>
-                        <div class="post-title-box">
-                            <h3>혼자 사색하며 즐기기 좋은 전시</h3>
-                        </div>
-                        <div class="post-content-box">
-                            간단한 메모사항 뚜루루루루루ㅜㅁ 만약 적지 않은 경우, {전시회명}+{식당 등이 나옴} 양이 너무 많을 경우 점점으로 표시 ..
-                        </div>
-                        <div class="post-tag-box">
-
-                        </div>
-                        <div class="post-footer-box">
-                            <div class="post-writer-box">
-                                by&nbsp;<span class="userName">작성자명${note.userNickname}</span>
+                            <div class="post-content-box">
+                                    <b>${li.exhbnTitle}</b>에 대한 <b>${li.userNickname}</b>님의 코스
                             </div>
-                            <div class="post-react-box">
-                                <div class="post-view-box">
-                                    <i class="fa-solid fa-heart" style="color:red;"></i>
-                                    <span>48</span>
+                            <div class="post-tag-box">
+                                ${li.courseTag}
+                            </div>
+                            <div class="post-footer-box">
+                                <div class="post-writer-box">
+                                    by&nbsp;<span class="userName"> ${li.userNickname}</span>&nbsp;·&nbsp;<fmt:formatDate pattern="MM-dd" value="${li.createdAt }"/>
                                 </div>
-                                <div class="post-like-box">
-                                    <i class="fa-solid fa-message" style="color:black;"></i>
-                                    <span>1234</span>
+                                <div class="post-react-box">
+                                    <div class="post-view-box">
+                                        <i class="fa-solid fa-heart" style="color:black;"></i>
+                                        <span>${li.courseLike}</span>
+                                    </div>
+                                    <div class="post-like-box">
+                                        <i class="fa-solid fa-message" style="color:black;"></i>
+                                        <span>${li.courseView}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="post-container">
-                        <div class="post-img-box">
-
-                        </div>
-                        <div class="post-title-box">
-                            <h3>혼자 사색하며 즐기기 좋은 전시</h3>
-                        </div>
-                        <div class="post-content-box">
-                            간단한 메모사항 뚜루루루루루ㅜㅁ 만약 적지 않은 경우, {전시회명}+{식당 등이 나옴} 양이 너무 많을 경우 점점으로 표시 ..
-                        </div>
-                        <div class="post-tag-box">
-
-                        </div>
-                        <div class="post-footer-box">
-                            <div class="post-writer-box">
-                                by&nbsp;<span class="userName">작성자명${note.userNickname}</span>
-                            </div>
-                            <div class="post-react-box">
-                                <div class="post-view-box">
-                                    <i class="fa-solid fa-heart" style="color:red;"></i>
-                                    <span>48</span>
-                                </div>
-                                <div class="post-like-box">
-                                    <i class="fa-solid fa-message" style="color:black;"></i>
-                                    <span>1234</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post-container">
-                        <div class="post-img-box">
-
-                        </div>
-                        <div class="post-title-box">
-                            <h3>혼자 사색하며 즐기기 좋은 전시</h3>
-                        </div>
-                        <div class="post-content-box">
-                            간단한 메모사항 뚜루루루루루ㅜㅁ 만약 적지 않은 경우, {전시회명}+{식당 등이 나옴} 양이 너무 많을 경우 점점으로 표시 ..
-                        </div>
-                        <div class="post-tag-box">
-
-                        </div>
-                        <div class="post-footer-box">
-                            <div class="post-writer-box">
-                                by&nbsp;<span class="userName">작성자명${note.userNickname}</span>
-                            </div>
-                            <div class="post-react-box">
-                                <div class="post-view-box">
-                                    <i class="fa-solid fa-heart" style="color:red;"></i>
-                                    <span>48</span>
-                                </div>
-                                <div class="post-like-box">
-                                    <i class="fa-solid fa-message" style="color:black;"></i>
-                                    <span>1234</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post-container">
-                        <div class="post-img-box">
-
-                        </div>
-                        <div class="post-title-box">
-                            <h3>혼자 사색하며 즐기기 좋은 전시</h3>
-                        </div>
-                        <div class="post-content-box">
-                            간단한 메모사항 뚜루루루루루ㅜㅁ 만약 적지 않은 경우, {전시회명}+{식당 등이 나옴} 양이 너무 많을 경우 점점으로 표시 ..
-                        </div>
-                        <div class="post-tag-box">
-
-                        </div>
-                        <div class="post-footer-box">
-                            <div class="post-writer-box">
-                                by&nbsp;<span class="userName">작성자명${note.userNickname}</span>
-                            </div>
-                            <div class="post-react-box">
-                                <div class="post-view-box">
-                                    <i class="fa-solid fa-heart" style="color:red;"></i>
-                                    <span>48</span>
-                                </div>
-                                <div class="post-like-box">
-                                    <i class="fa-solid fa-message" style="color:black;"></i>
-                                    <span>1234</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post-container">
-                        <div class="post-img-box">
-
-                        </div>
-                        <div class="post-title-box">
-                            <h3>혼자 사색하며 즐기기 좋은 전시</h3>
-                        </div>
-                        <div class="post-content-box">
-                            간단한 메모사항 뚜루루루루루ㅜㅁ 만약 적지 않은 경우, {전시회명}+{식당 등이 나옴} 양이 너무 많을 경우 점점으로 표시 ..
-                        </div>
-                        <div class="post-tag-box">
-
-                        </div>
-                        <div class="post-footer-box">
-                            <div class="post-writer-box">
-                                by&nbsp;<span class="userName">작성자명${note.userNickname}</span>
-                            </div>
-                            <div class="post-react-box">
-                                <div class="post-view-box">
-                                    <i class="fa-solid fa-heart" style="color:red;"></i>
-                                    <span>48</span>
-                                </div>
-                                <div class="post-like-box">
-                                    <i class="fa-solid fa-message" style="color:black;"></i>
-                                    <span>1234</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </c:forEach>
                     <!-- .post-container -->
                 </div>
             </main>
