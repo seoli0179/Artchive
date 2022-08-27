@@ -6,10 +6,10 @@
 <html>
 	<head>
 	<meta charset="UTF-8">
-		<title>arTchive / 마이페이지 - 활동내역(댓글)</title>
+		<title>arTchive / 마이페이지 - 좋아요</title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>"/>
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/myPageComment.css'/>"/>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/like.css'/>"/>
 		<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		
@@ -28,23 +28,24 @@
             <div class="course-box guide-box">
                 <nav>
 					<ul class="tabMenu">
-						<li><a href="<c:url value='/myPage/myPageHome'/>"><i class="fa-solid fa-house"></i> 홈</a></li>
-						<li><a href="<c:url value='/myPage/myPageCheck'/>"><i class="fa-solid fa-gears"></i> 개인정보 수정</a></li>
-						<li><a href="<c:url value='/myPage/myPagePw'/>"><i class="fa-solid fa-unlock-keyhole"></i> 비밀번호 변경</a></li>
-						<li><a href="<c:url value='/myPage/myPageScrap'/>">	<i class="fa-solid fa-photo-film"></i> 내 전시</a></li>
-						<li><a href="<c:url value='/myPage/myPageAct'/>"><i class="fa-solid fa-pen"></i> 활동 내역</a></li>
-						<li><a href="<c:url value='/myPage/myPageRecmd'/>"><i class="fa-solid fa-star"></i> 추천 콘텐츠</a></li>
-						<li><a href="<c:url value='/myPage/myPageWithdraw'/>"><i class="fa-solid fa-right-from-bracket"></i> 회원 탈퇴</a></li>
+						<li><a href="<c:url value='/myPage/home/${sessionScope.sid}'/>"><i class="fa-solid fa-house"></i> 홈</a></li>
+						<li><a href="<c:url value='/myPage/check'/>"><i class="fa-solid fa-gears"></i> 개인정보 수정</a></li>
+						<li><a href="<c:url value='/myPage/pwChange'/>"><i class="fa-solid fa-unlock-keyhole"></i> 비밀번호 설정</a></li>
+						<li><a href="<c:url value='/myPage/scrap'/>">	<i class="fa-solid fa-photo-film"></i> 내 전시</a></li>
+						<li><a href="<c:url value='/myPage/actHistory'/>"><i class="fa-solid fa-pen"></i> 활동 내역</a></li>
+						<li><a href="<c:url value='/myPage/recmd'/>"><i class="fa-solid fa-star"></i> 추천 콘텐츠</a></li>
+						<li><a href="<c:url value='/myPage/withdraw'/>"><i class="fa-solid fa-right-from-bracket"></i> 회원 탈퇴</a></li>
 					</ul>
 				</nav>
 			
 			<div class="myPageBox">
 		
-				<h2>활동 내역</h2>
+				<h2>내 전시</h2>
 					<p class="line">
 				<div class="titleBox">
-					<a href="<c:url value='/myPage/myPageAct'/>">게시글</a>
-					<a href="<c:url value='/myPage/myPageComment'/>">댓글</a>
+					<a href="<c:url value='/myPage/scrap'/>">스크랩</a>
+					<a href="<c:url value='/myPage/like'/>">좋아요</a>
+					<a href="<c:url value='/myPage/mpCourse'/>">코스</a>
 				</div><!-- titleBox -->
 				
 				<div class="tableBox">
@@ -60,7 +61,7 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td colspan="4">작성한 댓글 내역이 없습니다.</td>
+								<td colspan="4">등록된 내역이 없습니다.</td>
 							</tr>
 						</tbody>
 					</table>

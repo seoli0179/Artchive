@@ -9,10 +9,10 @@
 		<title>arTchive / 마이페이지 - 맞춤정보 수정</title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>"/>
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/myPageEdit.css'/>"/>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/edit.css'/>"/>
 		<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
-		<script src="<c:url value='/js/myPage/myPageEdit.js'/>"></script>
+		<script src="<c:url value='/js/myPage/edit.js'/>"></script>
 		
 	</head>
 	<body>
@@ -30,13 +30,13 @@
             <div class="course-box guide-box">
                 <nav>
 					<ul class="tabMenu">
-						<li><a href="<c:url value='/myPage/myPageHome'/>"><i class="fa-solid fa-house"></i> 홈</a></li>
-						<li><a href="<c:url value='/myPage/myPageCheck'/>"><i class="fa-solid fa-gears"></i> 개인정보 수정</a></li>
-						<li><a href="<c:url value='/myPage/myPagePw'/>"><i class="fa-solid fa-unlock-keyhole"></i> 비밀번호 변경</a></li>
-						<li><a href="<c:url value='/myPage/myPageScrap'/>">	<i class="fa-solid fa-photo-film"></i> 내 전시</a></li>
-						<li><a href="<c:url value='/myPage/myPageAct'/>"><i class="fa-solid fa-pen"></i> 활동 내역</a></li>
-						<li><a href="<c:url value='/myPage/myPageRecmd'/>"><i class="fa-solid fa-star"></i> 추천 콘텐츠</a></li>
-						<li><a href="<c:url value='/myPage/myPageWithdraw'/>"><i class="fa-solid fa-right-from-bracket"></i> 회원 탈퇴</a></li>
+						<li><a href="<c:url value='/myPage/home/${sessionScope.sid}'/>"><i class="fa-solid fa-house"></i> 홈</a></li>
+						<li><a href="<c:url value='/myPage/check'/>"><i class="fa-solid fa-gears"></i> 개인정보 수정</a></li>
+						<li><a href="<c:url value='/myPage/pwChange'/>"><i class="fa-solid fa-unlock-keyhole"></i> 비밀번호 설정</a></li>
+						<li><a href="<c:url value='/myPage/scrap'/>">	<i class="fa-solid fa-photo-film"></i> 내 전시</a></li>
+						<li><a href="<c:url value='/myPage/actHistory'/>"><i class="fa-solid fa-pen"></i> 활동 내역</a></li>
+						<li><a href="<c:url value='/myPage/recmd'/>"><i class="fa-solid fa-star"></i> 추천 콘텐츠</a></li>
+						<li><a href="<c:url value='/myPage/withdraw'/>"><i class="fa-solid fa-right-from-bracket"></i> 회원 탈퇴</a></li>
 					</ul>
 				</nav>
 			
@@ -45,8 +45,8 @@
 				<h2>개인정보 수정</h2>
 					<p class="line">
 				<div class="titleBox">
-					<a href="<c:url value='/myPage/myPageEdit'/>">기본 정보</a>
-					<a href="<c:url value='/myPage/myPageCustom'/>">맞춤 정보</a>
+					<a href="<c:url value='/myPage/edit'/>">기본 정보</a>
+					<a href="<c:url value='/myPage/custom'/>">맞춤 정보</a>
 				</div><!-- titleBox -->
 					<form>
 					<div class="tableBox">
@@ -56,14 +56,14 @@
 							
 						<div class="infoBox">
 							<div class="itemsBox"><span>아이디</span></div>
-							<div class="inputBox">userId</div>
+							<div class="inputBox">${user.userId}</div>
 							
 						</div> <!-- infoBox -->
 						
 						<!-- 이름 -->
 						<div class="infoBox">
 							<div class="itemsBox"><span>이름</span></div>
-							<div class="inputBox">userName</div>	
+							<div class="inputBox">1 <%-- ${user.userName} --%></div>	
 							<input type="button" class="nameBtn white-btn edit" value="수정">
 						</div> <!-- infoBox -->
 						
@@ -77,7 +77,7 @@
 						<!-- 휴대폰 번호 -->
 						<div class="infoBox">
 							<div class="itemsBox"><span>휴대폰 번호</span></div>
-							<div class="inputBox">userNum</div>	
+							<div class="inputBox">1<%-- ${user.userNum} --%></div>	
 							<input type="button" class="numberBtn white-btn edit" value="수정">
 						</div> <!-- infoBox -->
 						
@@ -90,7 +90,7 @@
 						<!-- 닉네임  -->
 						<div class="infoBox">
 							<div class="itemsBox"><span>닉네임</span></div>
-							<div class="inputBox">userNickName</div>	
+							<div class="inputBox">${user.userNickname}</div>	
 							<input type="button" class="nicknameBtn white-btn edit" value="수정">
 						</div> <!-- infoBox -->
 						
@@ -103,7 +103,7 @@
 						<!-- 이메일 -->
 						<div class="infoBox">
 							<div class="itemsBox"><span>이메일</span></div>
-							<div class="inputBox">userEmail</div>
+							<div class="inputBox">${user.userEmail}</div>
 							<input type="button" class="emailBtn white-btn edit" value="수정">
 						</div> <!-- infoBox -->
 						
@@ -123,7 +123,7 @@
 						
 						<div class="infoBox">
 							<div class="itemsBox"><span>생년월일</span></div>
-							<div class="inputBox">userBirth</div>	
+							<div class="inputBox">${user.userBirth}</div>	
 						</div> <!-- infoBox -->
 						
 						<div class="infoBox">
@@ -149,11 +149,6 @@
 						</div> <!-- buttonBox -->
 					</div> <!-- tableBox -->
 						
-						<div class="searchBox">
-							<a href="<c:url value=''/>">아이디 찾기 | </a>
-							<a href="<c:url value=''/>">비밀번호 찾기 | </a>
-							<a href="<c:url value=''/>">회원가입</a>
-						</div> <!--  searchBox -->
 					</form>
 			</div> <!-- myPageBox -->
             </div>
