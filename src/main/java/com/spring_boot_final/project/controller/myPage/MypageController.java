@@ -56,6 +56,7 @@ public class MypageController {
  	@ResponseBody
  	@RequestMapping("/myPage/updateUser")
  	public String myPageEditView(
+ 								@RequestParam("userId") String userId,
  								@RequestParam("userName") String userName,
  								@RequestParam("userNum") String userNum,
  								@RequestParam("userNickname") String userNickname,
@@ -65,6 +66,7 @@ public class MypageController {
  		UserVO vo = new UserVO();
  		String userEmail = userEmail1 + "@" +  userEmail2;
  		
+ 		vo.setUserId(userId);
  		vo.setUserName(userName);
  		vo.setUserNum(userNum);
  		vo.setUserNickname(userNickname);
@@ -74,7 +76,10 @@ public class MypageController {
  		userService.updateUser(vo);
  		
  		// 세션저장
+ 		session.setAttribute("userId",vo.getUserId());
+ 		session.setAttribute("userNum", vo.getUserNum());
  		session.setAttribute("userNickname", vo.getUserNickname());
+ 		session.setAttribute("userEmail", vo.getUserEmail());
  					
  		return "SUCCESS";
  	}
