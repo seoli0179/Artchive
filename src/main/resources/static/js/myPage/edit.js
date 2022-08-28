@@ -99,6 +99,7 @@
 	var chkNum = $('#userNum').val();
 	var chkNickName = $('#userNickname').val();
 	
+
 	$("#editFrm").on('submit', function(){
 		// 기본 기능 중단
 		event.preventDefault();
@@ -116,7 +117,7 @@
 		   	// 변화가 없을 때
 			alert("수정할 항목이 없습니다.");
 			return false;
-		}
+		} // if 
 	
  		
  		var formData = new FormData($('#editFrm')[0]);
@@ -132,7 +133,7 @@
 				// 성공 시 결과 받음
 				if(result == "SUCCESS"){
 					alert("수정되었습니다.");
-					location.href="/myPage/home/" + $('#userId').val();
+					location.href="/myPage/edit/" + $('#userId').val();
 				}
 			},
 			error:function(){
@@ -142,6 +143,29 @@
  		}); 
  	});
 	
+/* 
+	$('#editFrm').on('submit', function () {
+       
+            $.ajax({
+                type: "POST",
+                url:"/myPage/updateUser/",
+                data: {
+                    "userName": $('#userName').val(),
+                    "userNum": $('#userNum').val(),
+                    "userNickname": $('#userNickname').val(),
+                    "userEmail": $('#userEmail').val()
+                },
+                success: function (data) {
+                    alert("수정 완료!");
+                    window.history.back();
+                },
+                error: function () {
+                    console.log('fail');
+                    alert("오류 발생!");
+                }
+            });
+        
+    });  */
 	
 }); // document.ready
 	
