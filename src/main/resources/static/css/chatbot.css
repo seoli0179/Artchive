@@ -59,7 +59,8 @@
 	padding:3px 5px;
 	word-break:break-all;
 	display:block; 
-	max-width:200px; margin-bottom: 10px;
+	max-width:200px; 
+	margin-bottom: 5px;
 	border-radius:0px 10px 10px 10px
 }
 							 
@@ -89,7 +90,7 @@
 
 
 #chatbotTest{
-	display:none;	/* 안 보임. 차지하고 있는 영역도 없음 */
+	display:none; 	/* 안 보임. 차지하고 있는 영역도 없음 */
 	position : absolute;
 	position: fixed;
 	right : 15px;
@@ -128,4 +129,45 @@ input:focus {
 	}
 	
 
+.msgBox.receive.chatbotUrl a {
+	color : #000;
+	font-size : 15px;
+}
 
+.msgBox.receive.chatbotUrl{
+	background:#fff;
+	float:left;
+	font-size : 15px;
+	padding: 10px 10px 10px 10px;
+	word-break:break-all;
+	display:block; 
+	max-width:200px; margin-bottom: 10px;
+	border-radius: 10px;
+	border : 1px solid #000;
+	
+}
+
+.chatbotImg {
+	padding : 10px;
+	background : #fff;
+	border-radius: 10px;
+	width : 160px;
+	height : 210px;
+	float:left;
+	text-align : center;
+	line-height : 290px;
+}
+
+#chatbotTitle{
+	font-size : 16px;
+	font-weight : bold;
+}
+
+.subtitle{
+	padding-left: 10px;
+}
+
+#linkImage img {
+	width: 10px;
+	height: 10px;
+}
