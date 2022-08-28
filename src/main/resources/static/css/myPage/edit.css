@@ -200,6 +200,16 @@
     color: #202020;
 }
 
+.idInput {
+	border:none;
+	font-size: 15px;
+	color: #202020;
+}
+
+.nameInput:focus, .numberInput:focus, .nicknameInput:focus, .emailInput:focus	{
+	background:rgb(232, 240, 254);
+}
+
 .emailInput {
 	width:25%;
 }
@@ -228,6 +238,7 @@
 	margin:0 auto;
 	text-align:center;
 	margin-top:10%;
+	margin-bottom: 10%;
 }
 
 .white-btn, .black-btn {
