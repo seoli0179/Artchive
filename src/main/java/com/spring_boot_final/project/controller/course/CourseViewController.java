@@ -43,14 +43,15 @@ public class CourseViewController {
     }
 
     // course !!!test!!!
-    @RequestMapping("/course/detail")
-    public String courseDetailView(Model model) {
+    @RequestMapping("/course/{courseId}")
+    public String selectCoursePost(@RequestParam int courseId, Model model) {
 
-        ArrayList<ExhbnVO> vo = service.selectAllData();
-        model.addAttribute("exhbnList",vo);
+        CourseVO vo = courseService.selectCoursePost();
+        model.addAttribute("course",vo);
 
         return "course/courseDetailView";
     }
+
     @RequestMapping("/course/detail/edit")
     public String courseDetailEdit(Model model) {
 
