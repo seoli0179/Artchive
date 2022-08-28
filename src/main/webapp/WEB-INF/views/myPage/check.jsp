@@ -12,6 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/check.css'/>"/>
 		<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
+		<script src="<c:url value='/js/myPage/check.js'/>"></script>
 		
 	</head>
 	<body>
@@ -60,7 +61,7 @@
 						
 						<div class="infoBox">
 							<div class="itemsBox"><span>비밀번호</span></div>
-								<div class="inputBox"><input type="password" class="pwCfrmInput" required></div>
+								<div class="inputBox"><input type="password" id="userPw" name="userPw" class="pwCfrmInput" required></div>
 						</div> <!-- infoBox -->
 						
 						<div class="buttonBox"> 

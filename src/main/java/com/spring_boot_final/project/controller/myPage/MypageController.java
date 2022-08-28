@@ -1,20 +1,26 @@
 package com.spring_boot_final.project.controller.myPage;
 
+
+
+import java.io.IOException;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.spring_boot_final.project.model.UserVO;
-import com.spring_boot_final.project.service.ExhbnService;
 import com.spring_boot_final.project.service.UserService;
 
 @Controller
 public class MypageController {
 	
-	@Autowired
-    ExhbnService service;
 	
 	@Autowired
 	UserService userService;
@@ -29,24 +35,51 @@ public class MypageController {
     @RequestMapping("myPage/home/{userId}")
     public String viewMyPage(@PathVariable String userId, Model model) {
     	
-    	UserVO vo = userService.selectUser2(userId);
+    	UserVO vo = userService.selectUserView(userId);
 		
 		model.addAttribute("user", vo);
     	return "myPage/home";
     }
     
     
-    // 마이페이지 view
+    // 마이페이지 편집 view
     @RequestMapping("myPage/edit/{userId}")
     public String viewMyPageEdit(@PathVariable String userId, Model model) {
     	
-    	UserVO vo = userService.selectUser2(userId);
+    	UserVO vo = userService.selectUserView(userId);
 		
 		model.addAttribute("user", vo);
     	return "myPage/edit";
     }
- 
-	
+    
+    // 마이페이지 수정(항목 수정)
+ 	@ResponseBody
+ 	@RequestMapping("/myPage/updateUser")
+ 	public String myPageEditView(
+ 								@RequestParam("userName") String userName,
+ 								@RequestParam("userNum") String userNum,
+ 								@RequestParam("userNickname") String userNickname,
+ 								@RequestParam("userEmail1") String userEmail1,
+ 								@RequestParam("userEmail2") String userEmail2,
+ 								HttpSession session) throws IOException {
+ 		UserVO vo = new UserVO();
+ 		String userEmail = userEmail1 + "@" +  userEmail2;
+ 		
+ 		vo.setUserName(userName);
+ 		vo.setUserNum(userNum);
+ 		vo.setUserNickname(userNickname);
+ 		vo.setUserEmail(userEmail);
+ 		
+ 		// 항목 수정
+ 		userService.updateUser(vo);
+ 		
+ 		// 세션저장
+ 		session.setAttribute("userNickname", vo.getUserNickname());
+ 					
+ 		return "SUCCESS";
+ 	}
+    
+   
     // 스크랩 view
     @RequestMapping("myPage/scrap")
     public String myPageScrap() {
