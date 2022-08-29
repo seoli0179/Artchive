@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* myPageEdit.css */
+/* myPagePw.css */
 
 @font-face {
 	font-family: 'establishRetrosansOTF';
@@ -71,8 +71,7 @@
 	font-size:20px;
 }
 
-
-.tabMenu li:nth-child(2) a, .tabMenu li a:hover {
+.tabMenu li:nth-child(3) a, .tabMenu li a:hover {
 	color:#000;
 	font-weight:bold;
 }
@@ -133,7 +132,7 @@
  	align-items:center;
  	vertical-align:middle;
  	text-align:center;
- 	margin-top:4%;
+ 	margin-left: 13%;
  }
  
  .ment {
@@ -154,7 +153,7 @@
 
  .itemsBox>span {
  	font-weight:bold;
-	padding: 0 15%;
+	padding:20% 15%;
 	height:auto;
 	line-height:auto;
 	text-align:left;
@@ -172,52 +171,10 @@
 	width:50%;
 }
 
-.radioStyle {
-	display:inline-block;
-}
-
-.woman {
-	margin-left:10%;
-}
-
-/* toggle */
-.nameBox, .numberBox, .nicknameBox, .emailBox {
-	margin-left:20%;
-	width:100%;
-	display:none;
-}
-
-/* 입력창 */
-.nameInput, .numberInput, .nicknameInput, .emailInput {
-	width: 40%;
-    height: 40px;
-    padding-left: 8px;
-    border: 1px solid #ddd;
-    border-radius: 2px;
-    box-sizing: border-box;
-    vertical-align: top;
-    font-size: 15px;
-    color: #202020;
-}
-
-.emailInput {
-	width:25%;
-}
-
-.emailAddress {
-	width: 15%;
-    height: 40px;
-    padding-left: 8px;
-    border: 1px solid #ddd;
-    border-radius: 2px;
-    box-sizing: border-box;
-    vertical-align: top;
-    font-size: 15px;
-    color: #202020;
-}
 
 /* 설명 */
 .explain {
+    margin-bottom: 10px;
     font-size: 13px;
     color: #aaa;
 }
@@ -227,7 +184,8 @@
 .buttonBox {
 	margin:0 auto;
 	text-align:center;
-	margin-top:10%;
+	margin-top:6%;
+	margin-bottom: 10%;
 }
 
 .white-btn, .black-btn {
@@ -236,23 +194,75 @@
 	margin-left:5%;
 }
 
-/* 수정 버튼 */
-.edit {
-	width:8%;
-}
-
-.searchBox {
+.centerBox {
 	margin:0 auto;
 	text-align:center;
+	margin: 10% 0 0;
+	
+}
+
+.newPwBox {
 	margin-top:3%;
-	margin-bottom:4%;
+	margin-left:30%;
+}
+
+.pwCfmBox {
+	margin-top:3%;
+}
+
+
+.centerBox>span {
+	font-size:20px;
+}
+
+span.red {
+    color: #ef3e42;
+    font-size:20px;
+}
+
+span.caution {
+	margin-top: 12px;
+    font-size: 13px;
+    color: #707070;
+}
+
+.pwInput, .pwCfmInput {
+	width: 64%;
+    height: 40px;
+    padding-left: 8px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    box-sizing: border-box;
+    vertical-align: top;
+    font-size: 15px;
+    color: #202020;
+}
+
+
+/* 아이디, 비밀번호 찾기 / 회원가입 */
+.searchBox {
+	margin:0 auto;
+	margin:3% 0;
+	text-align:center;
+}
+
+.searchBox>a {
+	font-size:15px;
 }
 
 .searchBox a:hover {
 	font-weight:bold;
 }
 
-.centerBox {
-	text-align:center;
-	margin: 3% 0 0;
+/* 설명 */
+.explain {
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: #aaa;
+}
+
+.red {
+    color: #ef3e42;
+    font-size: 13px;
+    word-break:break-all;
 }

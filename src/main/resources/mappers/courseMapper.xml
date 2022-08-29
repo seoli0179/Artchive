@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring_boot_final.project.dao.ICourseDAO">
+
+    <!-- read -->
+    <select id="selectCourse" resultType="com.spring_boot_final.project.model.CourseVO">
+    <![CDATA[
+        select * from course inner join exhbn on course.exhbnId = exhbn.exhbnId inner join user on course.userId = user.userId;
+        ]]>
+    </select>
+
+    <select id="selectCoursePost" parameterType="int" resultType="com.spring_boot_final.project.model.CourseVO">
+        <![CDATA[
+        select * from course inner join exhbn on course.exhbnId = exhbn.exhbnId inner join user on course.userId = user.userId
+        WHERE courseId=${courseId};
+        ]]>
+    </select>
+
+</mapper>

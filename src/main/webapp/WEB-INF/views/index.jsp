@@ -18,7 +18,7 @@
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		<script src="<c:url value='/js/indexHeader.js'/>"></script>
 		<script src="<c:url value='/js/chatbotShow.js'/>"></script>
-		<script src="<c:url value='/js/chatbot.js'/>"></script>
+		<script src="<c:url value='/js/chatbot2.js'/>"></script>
 		<script src="<c:url value='/js/module/dropdown.js'/>"></script>
 		<script src="<c:url value='/js/search.js'/>"></script>
 		<!-- icon kit -->
@@ -74,7 +74,7 @@
 					<ul id="afterLogin">
 						<li class="mainSearch"><a href="#"><img src="<c:url value='/image/search.png'/>" id="searchImg"></a></li>
 						<li class="userName"><a class="color">${sessionScope.username}</a></li>
-						<li class="mypage"><a class="color" href="<c:url value='/myPage/myPageHome'/>">MYPAGE</a></li>
+						<li class="mypage"><a href="<c:url value='/myPage/home/${sessionScope.sid}'/>">MYPAGE</a></li>
 						<li><a class="color" href="<c:url value="/logout2"/>">LOGOUT</a></li>
 					</ul>
 				</c:if>

@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* myPageWithdraw.css */
+/* myPageCheck.css */
 
 @font-face {
 	font-family: 'establishRetrosansOTF';
@@ -72,7 +72,7 @@
 }
 
 
-.tabMenu li:last-child a, .tabMenu li a:hover {
+.tabMenu li:nth-child(2) a, .tabMenu li a:hover {
 	color:#000;
 	font-weight:bold;
 }
@@ -154,7 +154,7 @@
 
  .itemsBox>span {
  	font-weight:bold;
-	padding: 10% 15%;
+	padding:20% 15%;
 	height:auto;
 	line-height:auto;
 	text-align:left;
@@ -199,7 +199,7 @@
 	margin:0 auto;
 	text-align:center;
 	margin-top:6%;
-	margin-bottom:4%;
+	margin-bottom: 10%;
 }
 
 .white-btn, .black-btn {
@@ -211,9 +211,10 @@
 .centerBox {
 	margin:0 auto;
 	text-align:center;
-	margin: 10% 0 3%;
+	margin: 10% 0 0;
 	
 }
+
 
 .centerBox>span {
 	font-size:20px;
@@ -230,7 +231,7 @@ span.caution {
     color: #707070;
 }
 
-.pwCfrmInput, .reasonSelect {
+.pwCfrmInput {
 	width: 80%;
     height: 40px;
     padding-left: 8px;
@@ -242,3 +243,14 @@ span.caution {
     color: #202020;
 }
 
+
+.searchBox {
+	margin:0 auto;
+	margin:3% 0;
+	text-align:center;
+	
+}
+
+.searchBox>a {
+	font-size:15px;
+}

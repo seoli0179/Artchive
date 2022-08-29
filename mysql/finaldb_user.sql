@@ -58,3 +58,13 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2022-08-18 15:47:51
+
+
+
+-- column 추가 (상종)
+alter table user add column userName varchar(50);
+alter table user add column userNum varchar(100);
+
+INSERT INTO `user` VALUES ('user2','$2a$10$aDVD6uxBlmaY2g0TBTR0MORVNp4Rg5I9a0iDpAdLNij86wdABhdry','user@email.com','테스트계정','M','1998-01-04','USER','2022-08-18 14:45:50','2022-08-18 14:45:50', '최상종', '010-3617-9409');
+
+
