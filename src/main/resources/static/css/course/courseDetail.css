@@ -56,18 +56,21 @@
 		font-size : 22px;
 		height : 100%;
 	}
-	#courseToggle > ul > li {
-		float: left;
-		/* border : 2px black solid; */
+	#courseToggle {
+		display: flex;
+		justify-content: left;
+		align-items: start;
+		max-height: 50px;
 	}
+
 	#toggleText {
-		margin-left : 0%;
-		height : 113px;
-		max-height : 113px;
-		line-height : 113px;
-		font-size : 22px;
+		margin-left : 20px;
+		height : 2rem;
+		line-height : 2rem;
+		font-size : 1.2rem;
 		font-weight : bold;
 	}
+
 	#editCourseBtn-box{
 		width:100px;
 		height: fit-content;
@@ -167,6 +170,10 @@
 	transition:height .1s ease;
 	background-color: #dedede;
 }
+.hiddenLine .line {
+	opacity: 0;
+}
+
 .route-row .line.down {
 	top:50%
 }
