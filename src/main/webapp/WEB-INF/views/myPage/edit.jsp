@@ -71,7 +71,7 @@
 						
 						<div class="nameBox">
 							<div class="explain">개명하신 경우 본인인증하시면 이름이 변경됩니다.</div>
-							<input type="text" id="userName" name="userName" class="nameInput" placeholder="이름 입력">
+							<input type="text" id="userName" name="userName" class="nameInput" placeholder="이름 입력" value="${user.userName}">
 							<div class="explain">
 							<i class="fa-solid fa-circle-info"></i> 이동통신사 및 신용평가기관 모두 변경된 이름으로 등록되어 있는지 확인 후 진행해주세요.</div>
 						</div>
@@ -83,9 +83,10 @@
 							<input type="button" class="numberBtn white-btn edit" value="수정">
 						</div> <!-- infoBox -->
 						
+						<!-- toggle -->
 						<div class="numberBox">
 							<div class="explain">휴대폰번호 변경을 위해 인증이 필요합니다.</div>
-							<input type="text" class="numberInput" id="userNum" name="userNum" placeholder="변경 휴대폰 번호(-없이 입력)">
+							<input type="text" class="numberInput" id="userNum" name="userNum" placeholder="변경 휴대폰 번호(-없이 입력)" value="${user.userNum}">
 							<div class="warning">휴대폰번호를 입력해주세요. (-없이 입력)</div>
 						</div>
 						
@@ -98,7 +99,7 @@
 						
 						<div class="nicknameBox">
 							<div class="explain">한글 1~10자, 영문 대소문자 2~20자, 숫자를 사용할 수 있습니다.(혼용가능)</div>
-							<input type="text" id="userNickname" name="userNickname" class="nicknameInput" placeholder="닉네임 입력">
+							<input type="text" id="userNickname" name="userNickname" class="nicknameInput" placeholder="닉네임 입력" value="${user.userNickname}">
 							<div class="warning">중복되지 않은 별명으로 변경해주세요.</div>
 						</div>
 						
@@ -131,13 +132,13 @@
 							<div class="itemsBox"><span>성별</span></div>
 							<div class="inputBox">
 								<div class="radioStyle">
-									<input type="radio" name="gender" value="men" class="men" checked>
+									<input type="radio" name="userGender" value="M" class="men" <c:if test="${user.userGender eq 'M'}">checked</c:if>>
 									<label for="men">남</label>
 									
 								</div> <!-- radioStyle -->
 								
 								<div class="woman">
-									<input type="radio" name="gender" class="women" value="women" >
+									<input type="radio" name="userGender" value="F" class="women" <c:if test="${user.userGender eq 'F'}">checked</c:if>>
 									<label for="women">여</label>
 								</div>
 								
