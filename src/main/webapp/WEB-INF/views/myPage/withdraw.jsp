@@ -12,6 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/withdraw.css'/>"/>
 		<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
+		<script src="<c:url value='/js/myPage/withdraw.js'/>"></script>
 		
 	</head>
 	<body>
@@ -43,7 +44,6 @@
 				<h2>회원 탈퇴</h2>
 				<p class="line">
 				
-				
 				<form>
 					<div class="tableBox">
 						<div class="centerBox">
@@ -55,17 +55,17 @@
 							
 						<div class="infoBox">
 							<div class="itemsBox"><span>아이디</span></div>
-							<div class="inputBox">userId</div>	
+							<div class="inputBox">${user.userId}</div>	
 						</div> <!-- infoBox -->
 						
 						<div class="infoBox">
 							<div class="itemsBox"><span>이름</span></div>
-							<div class="inputBox">userName</div>	
+							<div class="inputBox">${user.userName}</div>	
 						</div> <!-- infoBox -->
 						
 						<div class="infoBox">
 							<div class="itemsBox"><span>비밀번호 확인</span></div>
-								<div class="inputBox"><input type="password" class="pwCfrmInput" required></div>
+								<div class="inputBox"><input type="password" id="userPw" name="userPw" class="pwCfrmInput" required></div>
 						</div> <!-- infoBox -->
 						
 						<div class="infoBox">
@@ -84,7 +84,7 @@
 					</div> <!-- tableBox -->
 					
 						<div class="buttonBox"> 
-							<input type="submit" class="black-btn" value="확인">
+							<input type="submit" id="quitUser" class="black-btn" value="확인">
 							<input type="reset" class="white-btn" value="취소">
 						</div> <!-- buttonBox -->
 					

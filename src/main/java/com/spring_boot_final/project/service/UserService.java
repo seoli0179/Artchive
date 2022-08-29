@@ -31,4 +31,9 @@ public class UserService {
  	public void updateUser(UserVO vo) {
  		dao.updateUser(vo);
  	}
+ 	
+ 	// 마이페이지 탈퇴
+ 	public void quitUser(String id) {
+ 		dao.quitUser(id);
+ 	}
 }

@@ -20,8 +20,11 @@
         <![CDATA[
         SELECT *
         FROM user
-        WHERE userId = #{userId}
+        WHERE userId = #{userId} 
         ]]>
+       	
+       	<!--  1:정상 2:탈퇴 -->
+        <!-- and userState !=2 -->
     </select>
     
     <select id="selectUserView" parameterType="com.spring_boot_final.project.model.UserVO" resultType="com.spring_boot_final.project.model.UserVO">
@@ -47,6 +50,18 @@
 	</update> 
 	
     <!-- Delete -->
-
+	<!-- 마이페이지 회원 탈퇴 -->
+	<!-- <update id="quitUser" parameterType="String">
+		UPDATE user
+		   SET userState = 2
+		 WHERE userId = #{userId}, userPw = #{userPw}	   
+	</update> -->
+	
+	<update id="quitUser" parameterType="string">
+  		update user
+  		set userState = 2
+  		WHERE userId = #{userId}
+  	</update>	
+	
 
 </mapper>

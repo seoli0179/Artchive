@@ -24,8 +24,19 @@ public class UserVO {
     // 유저 이름, 전화번호 추가
     private String userName;
     private String userNum;
+
+    // 유저 상태 추가 1:정상 2:탈퇴
+    private String userState;
     
-    public UserVO() {
+    public String getUserState() {
+		return userState;
+	}
+
+	public void setUserState(String userState) {
+		this.userState = userState;
+	}
+
+	public UserVO() {
     }
     
     public UserVO(String userId, String userPw, String userEmail, String userNickname, String userGender,

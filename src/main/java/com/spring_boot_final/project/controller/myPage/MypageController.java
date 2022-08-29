@@ -7,6 +7,7 @@ import java.io.IOException;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,13 +25,16 @@ public class MypageController {
 	@Autowired
 	UserService userService;
 	
+	 @Autowired
+	 PasswordEncoder encoder;
+	
 	// 마이페이지 view
     @RequestMapping("myPage/home")
     public String myPageView() {
         return "myPage/home";
     }
     
-    // 마이페이지 view
+    // 마이페이지 home view
     @RequestMapping("myPage/home/{userId}")
     public String viewMyPage(@PathVariable String userId, Model model) {
     	
@@ -50,6 +54,7 @@ public class MypageController {
 		String[] email = email1.split("@");
 		email1 = email[0]; 
     	
+		
 		System.out.println(email1);
 		
 		model.addAttribute("user", vo);
@@ -100,6 +105,36 @@ public class MypageController {
  		return "SUCCESS";
  	}
     
+ 	// 마이페이지 회원 탈퇴 view
+    @RequestMapping("myPage/withdraw/{userId}")
+    public String viewMyPagewithdraw(@PathVariable String userId, Model model) {
+    	
+    	UserVO vo = userService.selectUserView(userId);
+		
+		model.addAttribute("user", vo);
+    	return "myPage/withdraw";
+    }
+ 	
+ 	// 마이페이지 회원 탈퇴
+ 	@ResponseBody
+ 	@RequestMapping("/myPage/quitUser")
+ 	public String viewQuitUser(@RequestParam("userPw") String userPw,
+ 							   HttpSession session) {
+ 		
+ 		String userId = session.getAttribute("sid").toString();
+ 		
+ 		UserVO vo = userService.selectUserView(userId);
+
+        System.out.println(vo.getUserPw());
+ 		
+ 		if (vo == null || !encoder.matches(userPw, vo.getUserPw())) 
+ 		return "FAIL";
+ 		
+ 		// 탈퇴
+ 		userService.quitUser(userId);
+ 		session.invalidate();
+ 		return "SUCCESS";
+ 	}
    
     // 스크랩 view
     @RequestMapping("myPage/scrap")
