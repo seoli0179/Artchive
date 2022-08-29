@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -26,15 +27,15 @@
 		<main id="courseDetail-wrap">
 			<!-- headerTextBox -->
 			<section id="courseHeader" class="courseHeaderImg">
-				<div id="headerTextBox" style="background-image : url('https://cdn.imweb.me/thumbnail/20220405/fb85ea780e919.jpeg');">
+				<div class="headerTextBox" style="background-image : url('${course.exhbnImgUrl}');">
 					<div id="header-exhbnTitle" class="headerText">
-						<ul><li>{전시회 이름}</li></ul>
+						<ul><li>${course.exhbnTitle}</li></ul>
 					</div>
 					<div id="header-postTitle" class="headerText">
-						<h1>{코스 제목(글제목)}<h1>
+						<h1>${course.courseTitle}<h1>
 					</div>
 					<div id="header-postDate" class="headerText">
-						<ul><li>{날짜}</li></ul>
+						<ul><li><fmt:formatDate value="${course.createdAt}" pattern="yyyy. MM. dd. E"></fmt:formatDate></li></ul>
 					</div>
            		</div><!-- .headerTextBox -->
 			</section><!-- .courseHeader -->
@@ -45,7 +46,7 @@
 					<i id="back" class="fa-solid fa-arrow-left fa-2xl"></i>
 				</div>
            		<div id="courseMainBtn-Box">
-					<input type="button" id="editCourseBtn"  class="white-btn" value="수정">
+					<input type="button" id="editCourseBtn"  class="white-btn" value="수정" onclick="location.href='<c:url value="/course/${course.courseId}/edit"/>'">
 					<input type="button" id="like-btn"  class="white-btn" value="좋아요">
 					<input type="button" id="scrap-btn"  class="black-btn" value="스크랩">
            		</div><!-- courseMainText -->
@@ -55,86 +56,56 @@
 			<article id="courseMain">
 				<section class="tag-box-view">
 					<h3>관련 태그</h3>
-					<ul>
-						<li>혼자 보러가기 좋은 전시</li>
-						<li>혼밥하기 좋은 곳</li>
-						<li>조용한 카페</li>
+					<ul id="tagList">
+						<c:forTokens var="taglist" items="${course.courseTag}" delims=";;">
+							<li><c:out value="${taglist}"/></li>
+						</c:forTokens>
 					</ul>
 				</section> <!-- editCourseBtn -->
 				<section id="course">
 					<section id="timeline-container">
 						<div class="timeline-course-container">
 							<div class="route-row" id="startPoint">
-								<div class="line down"></div>
-								<div class="left">
-									<div class="dot"></div>
+								<div class="left-side">
+									<div class="line down"></div>
+									<div class="left">
+										<div class="dot"></div>
+									</div>
+									<div class="content explain">Start ...</div>
 								</div>
-								<div class="content explain">Start ...</div>
 							</div>
-							<div class="route-row">
-								<div class="line"></div>
-								<div class="left">
-									<div class="mainCourse-dot">1</div>
-								</div>
-								<div class="content">
-									<div class="where">
-										<h3 class="where-title">전시관</h3>
-										<div class="address">주소주소주소</div>
+							<c:forEach var="site" items="${siteName}" varStatus="status">
+								<div class="route-row">
+									<div class="left-side">
+										<div class="line"></div>
+										<div class="left">
+											<div class="mainCourse-dot">${status.count}</div>
+										</div>
+										<div class="content">
+											<div class="where">
+												<h3 class="where-title">${site}</h3>
+												<div class="address">${siteAddress[status.index]}</div>
+											</div>
+										</div>
+									</div>
+									<div class="memo-box">
+										<span class="small-text">${siteMemo[status.index]}</span>
 									</div>
 								</div>
-<%--								<div class="delete">--%>
-<%--									<img src="<c:url value='/image/minus.png'/>">--%>
-<%--								</div>--%>
-							</div>
-							<div class="route-row">
-								<div class="line"></div>
-								<div class="left">
-									<div class="subCourse-dot">2</div>
-								</div>
-								<div class="content">
-									<div class="where">
-										<h3 class="where-title">식당</h3>
-										<div class="address">주소주소주소</div>
-									</div>
-								</div>
-								<%--								<div class="delete">--%>
-								<%--									<img src="<c:url value='/image/minus.png'/>">--%>
-								<%--								</div>--%>
-							</div><div class="route-row">
-								<div class="line"></div>
-								<div class="left">
-									<div class="subCourse-dot">3</div>
-								</div>
-								<div class="content">
-									<div class="where">
-										<h3 class="where-title">산책로</h3>
-										<div class="address">주소주소주소</div>
-									</div>
-								</div>
-								<%--								<div class="delete">--%>
-								<%--									<img src="<c:url value='/image/minus.png'/>">--%>
-								<%--								</div>--%>
-							</div><div class="route-row">
-								<div class="line"></div>
-								<div class="left">
-									<div class="subCourse-dot">4</div>
-								</div>
-								<div class="content">
-									<div class="where">
-										<h3 class="where-title">카페</h3>
-										<div class="address">주소주소주소</div>
-									</div>
-								</div>
-								<%--								<div class="delete">--%>
-								<%--									<img src="<c:url value='/image/minus.png'/>">--%>
-								<%--								</div>--%>
-							</div>
+							</c:forEach>
 							<div class="route-row" id="endPoint">
-								<div class="line up"></div>
-								<div class="left">
-									<div class="dot"></div>
+								<div class="left-side">
+									<div class="line up"></div>
+									<div class="left">
+										<div class="dot"></div>
+									</div>
+									<div class="content explain">End ...</div>
 								</div>
-								<div class="content explain">End ...</div>
+							</div>
+							<div class="memo-box">
+								<span class="small-text">
+									<fmt:formatDate value="${course.updatedAt}" pattern="yyyy. MM. dd. E"/>요일에 마지막으로 수정되었습니다.
+								</span>
 							</div>
 						</div>
 					</section>
