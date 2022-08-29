@@ -29,7 +29,7 @@ public class UserVO {
     }
     
     public UserVO(String userId, String userPw, String userEmail, String userNickname, String userGender,
-			Date userBirth, String userName, String userNum) {
+			Date userBirth) {
 		super();
 		this.userId = userId;
 		this.userPw = userPw;
@@ -37,14 +37,8 @@ public class UserVO {
 		this.userNickname = userNickname;
 		this.userGender = userGender;
 		this.userBirth = userBirth;
-		this.userName = userName;
-		this.userNum = userNum;
 	}
     
-    // 모름 UserDateController 에러나서 추가함
-	public UserVO(String id, String encode, String email, String nickname, String gender, Date parse) {
-		// TODO Auto-generated constructor stub
-	}
 
 	public String getUserId() {
 		return userId;

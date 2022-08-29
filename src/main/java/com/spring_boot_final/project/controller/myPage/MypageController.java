@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.spring_boot_final.project.model.UserVO;
 import com.spring_boot_final.project.service.UserService;
@@ -47,8 +46,19 @@ public class MypageController {
     public String viewMyPageEdit(@PathVariable String userId, Model model) {
     	
     	UserVO vo = userService.selectUserView(userId);
+		String email1 = vo.getUserEmail();
+		String[] email = email1.split("@");
+		email1 = email[0]; 
+    	
+		System.out.println(email1);
 		
 		model.addAttribute("user", vo);
+		model.addAttribute("email1", email1);
+		String email2 = "@" + email[1];
+		
+		System.out.println(email2);
+		
+		model.addAttribute("email2", email2);
     	return "myPage/edit";
     }
     
@@ -62,6 +72,7 @@ public class MypageController {
  								@RequestParam("userNickname") String userNickname,
  								@RequestParam("userEmail1") String userEmail1,
  								@RequestParam("userEmail2") String userEmail2,
+ 								@RequestParam("userGender") String userGender,
  								HttpSession session) throws IOException {
  		UserVO vo = new UserVO();
  		String userEmail = userEmail1 + "@" +  userEmail2;
@@ -71,6 +82,7 @@ public class MypageController {
  		vo.setUserNum(userNum);
  		vo.setUserNickname(userNickname);
  		vo.setUserEmail(userEmail);
+ 		vo.setUserGender(userGender);
  		
  		// 항목 수정
  		userService.updateUser(vo);
@@ -80,7 +92,11 @@ public class MypageController {
  		session.setAttribute("userNum", vo.getUserNum());
  		session.setAttribute("userNickname", vo.getUserNickname());
  		session.setAttribute("userEmail", vo.getUserEmail());
- 					
+ 		
+ 		System.out.println(userNum);
+ 		System.out.println(userEmail);
+ 		System.out.println(userGender);
+ 		
  		return "SUCCESS";
  	}
     
