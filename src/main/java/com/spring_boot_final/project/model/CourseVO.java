@@ -5,11 +5,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.util.Date;
 
 public class CourseVO {
-    private String courseId;
+    private int courseId;
     private String userId;
     private String userNickname;
     private String exhbnId;
     private String exhbnTitle;
+    private String exhbnImgUrl;
+    private String exhbnUrl;
     private String courseTitle;
     private String courseTag;
     private int courseView;
@@ -22,12 +24,13 @@ public class CourseVO {
     private Date updatedAt;
     private String courseSitesArr;
     private String courseAddressArr;
+    private String courseMemoArr;
 
-    public String getCourseId() {
+    public int getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(String courseId) {
+    public void setCourseId(int courseId) {
         this.courseId = courseId;
     }
 
@@ -45,6 +48,22 @@ public class CourseVO {
 
     public void setExhbnId(String exhbnId) {
         this.exhbnId = exhbnId;
+    }
+
+    public String getExhbnImgUrl() {
+        return exhbnImgUrl;
+    }
+
+    public void setExhbnImgUrl(String exhbnImgUrl) {
+        this.exhbnImgUrl = exhbnImgUrl;
+    }
+
+    public String getExhbnUrl() {
+        return exhbnUrl;
+    }
+
+    public void setExhbnUrl(String exhbnUrl) {
+        this.exhbnUrl = exhbnUrl;
     }
 
     public String getCourseTitle() {
@@ -141,5 +160,13 @@ public class CourseVO {
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getCourseMemoArr() {
+        return courseMemoArr;
+    }
+
+    public void setCourseMemoArr(String courseMemoArr) {
+        this.courseMemoArr = courseMemoArr;
     }
 }

@@ -8,5 +8,5 @@ import java.util.ArrayList;
 @Component
 public interface ICourseDAO {
     public ArrayList<CourseVO> selectCourse();
-    public CourseVO selectCoursePost();
+    public CourseVO selectCoursePost(int courseId);
 }

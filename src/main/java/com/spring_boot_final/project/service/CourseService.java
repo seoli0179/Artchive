@@ -17,6 +17,8 @@ public class CourseService {
 
    public ArrayList<CourseVO> selectCourse() {
         return dao.selectCourse();
-    };
-   public CourseVO selectCoursePost() {return dao.selectCoursePost();};
+    }
+   public final CourseVO selectCoursePost(int courseId) {
+       return dao.selectCoursePost(courseId);
+   }
 }
