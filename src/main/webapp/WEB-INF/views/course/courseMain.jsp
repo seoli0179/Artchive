@@ -59,7 +59,7 @@
                 <div class="title-box">
                     <div>
                         <h2 class="h2">전시부터 정하기</h2>
-                        <span>가고싶은 전시의 이름을 눌러 선택하세요.</span>
+                        <span>가고싶은 전시의 이름을 눌러 선택하세요. 포스터를 누르면 상세 정보를 확인할 수 있습니다.</span>
                     </div>
                     <div class="viewmore-box">
                         <a href="<c:url value='/exhbn/list'/>"><span class="viewmore">더보기 ></span></a>
@@ -79,8 +79,18 @@
                     </c:forEach>
                 </section>
                 <div class="selected" id="selected">
-                    <div><span class="big-text">{username}님이 선택한 <strong id="selectedExhbn">{전시명}</strong>부터 </span></div>
-                    <div><a href="<c:url value='/course/detail'/>"><button type="submit" class="black-btn">코스짜러 가기</button></a></div>
+                        <div>
+                            <c:if test="${not empty sessionScope.sid}">
+                                <span class="big-text">${sessionScope.username} 님이
+                                </span>
+                            </c:if>
+                            <span class="big-text">선택한 <strong id="selectedExhbn">{전시명}</strong>부터 </span></div>
+                    <c:if test="${not empty sessionScope.sid}">
+                        <div><a href="<c:url value='/course/detail'/>"><button type="submit" class="black-btn">코스짜러 가기</button></a></div>
+                    </c:if>
+                    <c:if test="${empty sessionScope.sid}">
+                        <div><button type="submit" class="black-btn notLogin">코스짜러 가기</button></div>
+                    </c:if>
                 </div>
                 <br>
             </div>
@@ -109,7 +119,7 @@
                         <span>최근 ArTchive 유저들이 좋아한 코스를 살펴보세요!</span>
                     </div>
                     <div class="viewmore-box">
-                        <a href="<c:url value='/course/board'/>"><span class="viewmore">더보기 ></span></a>
+                        <a href="<c:url value='/course/list'/>"><span class="viewmore">더보기 ></span></a>
                     </div>
                 </div>
                 <div class="courseList-box">

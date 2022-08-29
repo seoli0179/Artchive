@@ -85,8 +85,8 @@
                 <!-- .searchAreaBox -->
                 <!-- borad-gallery -->
                 <div class="course-box board-gallery-view">
-                    <c:forEach var="li" items="${courseList}">
-                        <div class="post-container" style="cursor: pointer;" onclick="location.href='/course/list/${li.courseId}';">
+                    <c:forEach var="li" items="${courseList}" varStatus="statusNm">
+                        <div class="post-container" style="cursor: pointer;" onclick="location.href='/course/${li.courseId}';">
                             <div class="post-img-box">
 
                             </div>
@@ -97,7 +97,9 @@
                                     <b>${li.exhbnTitle}</b>에 대한 <b>${li.userNickname}</b>님의 코스
                             </div>
                             <div class="post-tag-box">
-                                ${li.courseTag}
+                                <c:forTokens var="taglist" items="${li.courseTag}" delims=";;">
+                                    <div class="post-tag"><c:out value="${taglist}"/></div>
+                                </c:forTokens>
                             </div>
                             <div class="post-footer-box">
                                 <div class="post-writer-box">

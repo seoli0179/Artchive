@@ -20,6 +20,7 @@
 		<script src="<c:url value='/js/course/course.js'/>"></script>
 		<script src="<c:url value='/js/course/autocomplete.js'/>"></script>
 		<script src="<c:url value='/js/course/courseEdit.js'/>"></script>
+		<script src="<c:url value='/js/course/deleteCourse.js'/>"></script>
 	</head>
 	<body id="courseDetailEdit">
 		<!-- top으로 이동 -->
@@ -28,15 +29,16 @@
 		<main id="courseDetail-wrap">
 			<!-- headerTextBox -->
 			<section id="courseHeader" class="courseHeaderImg">
-				<div id="headerTextBox" style="background-image : url('https://cdn.imweb.me/thumbnail/20220405/fb85ea780e919.jpeg');">
+				<div class="headerTextBox" style="background-image : url('${course.exhbnImgUrl}');">
 					<div id="header-exhbnTitle" class="headerText">
-						<input class="exhbn-title editInput" type="text" value="전시회명" readonly> <i class="fa-solid fa-magnifying-glass"></i>
+						<input class="exhbn-title editInput" type="text" value="${course.exhbnTitle}" readonly> <i class="fa-solid fa-magnifying-glass"></i>
 					</div>
 					<div id="header-postTitle" class="headerText">
-						<input id="post-title" class="editInput h1" type="text" placeholder="제목을 입력하세요.">
+						<input id="courseTitle" name="courseTitle" class="post-title editInput h1" type="text" placeholder="제목을 입력하세요." value="${course.courseTitle}">
 					</div>
 					<div id="header-postDate" class="headerText">
-<%--						<input id="exhbn-date" class="">--%>
+						<input id="updatedAt" name="updatedAt" value="${course.updatedAt}" hidden>
+						<input id="courseId" name="courseId" value="${course.courseId}" hidden>
 					</div>
            		</div><!-- .headerTextBox -->
 			</section><!-- .courseHeader -->
@@ -62,6 +64,9 @@
 					<h3>관련 태그</h3>
 					<div class="tag-box-edit">
 						<ul id="tagList">
+							<c:forTokens var="taglist" items="${course.courseTag}" delims=";;">
+								<li><c:out value="${taglist}"/></li>
+							</c:forTokens>
 							<input class="inner-searchbar" id="inner-searchbar" type="text" placeholder="태그를 입력하세요.">
 						</ul>
 					</div>
@@ -69,21 +74,25 @@
 				<section id="course">
 					<section id="timeline-container">
 						<div class="route-row" id="startPoint">
-							<div class="line down"></div>
-							<div class="left">
-								<div class="dot"></div>
+							<div class="left-side">
+								<div class="line down"></div>
+								<div class="left">
+									<div class="dot"></div>
+								</div>
+								<div class="content explain">Start ...</div>
 							</div>
-							<div class="content explain">Start ...</div>
 						</div>
 						<ul id="sortable" class="timeline-course-container">
 							<!-- li 삽입 공간 -->
 						</ul>
 						<div class="route-row" id="endPoint">
-							<div class="line up"></div>
-							<div class="left">
-								<div class="dot"></div>
+							<div class="left-side">
+								<div class="line up"></div>
+								<div class="left">
+									<div class="dot"></div>
+								</div>
+								<div class="content explain">End ...</div>
 							</div>
-							<div class="content explain">End ...</div>
 						</div>
 					</section>
 					<section id="courseMap">

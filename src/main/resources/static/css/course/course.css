@@ -33,15 +33,19 @@ body {
 }
 
 /* 가이드 박스 */
-.guide-contents {
+.guide-box {
+    padding: 50px 0 80px 0;
+    margin-bottom: 20px;
+}
+
+.guide-box .guide-contents {
     width:15%;
     height:15%;
     text-align: center;
-    margin:20px;
-    margin-bottom: 70px;
+    margin:40px 20px;
 }
 
-.guide-contents img {
+.guide-box .guide-contents img {
     width:80px;
     height:80px;
     margin: 10px;
@@ -66,6 +70,11 @@ body {
 }
 
 /* 전시부터 정하기 */
+.recommand-exhb {
+    padding: 50px 0;
+    margin-bottom: 20px;
+}
+
 .title-box {
     display: flex;
     justify-content: space-between;
@@ -74,9 +83,10 @@ body {
 .viewmore-box {
     display: flex;
     align-items: end;
+    width: fit-content;
 }
 /* 전시리스트 */
-.exhbnList-box {
+.recommand-exhb .exhbnList-box {
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -87,6 +97,11 @@ body {
 .exhbnEach-box {
     width: 19%;
     position: relative;
+    border-radius: 15px;
+}
+
+.exhbnEach-box:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
 }
 
 .exhbn-item {
@@ -99,43 +114,45 @@ body {
     width:100%;
     height:100%;
     object-fit:cover;
+    border-radius: 15px;
 }
 .exhbn-poster:hover {
     object-fit:contain;
 }
 
-
 .caption-box{
-    width: 95%;
+    width: 90%;
     font-weight: 600;
     overflow: hidden;
-    padding: 5px 10px;
     position: absolute;
-    left: 2.5%;
+    right: 2.5%;
     bottom: 5%;
+    text-align: right;
+    display: flex;
+    justify-content: center;
 }
-
 .caption-box input[type=radio]{
-    display: none;
+    visibility: hidden;
 }
 .caption-box input[type=radio]+label{
     display: inline-block;
     cursor: pointer;
-    min-height: 24px;
-    width: 90%;
+    max-height: 50px;
+    max-width: 100%;
     border: 1px solid #333;
-    line-height: 24px;
+    border-radius: 50px;
+    line-height: 1.2rem;
+    margin:auto;
     text-align: center;
-    font-weight:bold;
-    font-size:13px;
+    align-self: end;
+    font-weight: 300;
+    font-size:0.8rem;
+    padding: 8px 15px;
+    background-color: #000000;
+    color: #ffffff;
 }
-.caption-box input[type=radio]+label{
-    background-color: #fff;
-    color: #333;
-}
-.caption-box input[type=radio]:checked+label{
-    background-color: #333;
-    color: #fff;
+.caption-box:hover input[type=radio]+label {
+    background-color: #3B3B3B;
 }
 
 #selected {
@@ -150,7 +167,7 @@ body {
 /* search-box */
 .big-text {
     font-size: 1.4rem;
-    margin: 10px 20px;
+    margin: 10px 0px;
 }
 
 .big-text strong {
@@ -290,3 +307,4 @@ body {
 .noborder {
     border: none;
 }
+
