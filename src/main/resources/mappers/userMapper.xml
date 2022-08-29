@@ -16,35 +16,51 @@
 
     <!-- Read -->
 
-    <select id="selectUser" parameterType="com.spring_boot_final.project.model.UserVO" resultType="com.spring_boot_final.project.model.UserVO">
+    <select id="selectUser" parameterType="com.spring_boot_final.project.model.UserVO"
+            resultType="com.spring_boot_final.project.model.UserVO">
         <![CDATA[
         SELECT *
         FROM user
         WHERE userId = #{userId}
         ]]>
     </select>
-    
-      <select id="selectUserView" parameterType="com.spring_boot_final.project.model.UserVO" resultType="com.spring_boot_final.project.model.UserVO">
+
+    <select id="selectUserFormEmail" parameterType="string" resultType="com.spring_boot_final.project.model.UserVO">
+        <![CDATA[
+        SELECT *
+        FROM user
+        WHERE userEmail = #{userEmail}
+        ]]>
+    </select>
+
+    <select id="selectUserView" parameterType="com.spring_boot_final.project.model.UserVO"
+            resultType="com.spring_boot_final.project.model.UserVO">
         <![CDATA[
         SELECT *
         FROM user
         WHERE userId = #{userId}
         ]]>
     </select>
-    
+
 
     <!-- Update -->
-	
-	<!-- 마이페이지 편집 수정 -->
-	<update id="updateUser" parameterType="com.spring_boot_final.project.model.UserVO">
-		UPDATE user
-		   SET userName=#{userName}, 
-		   	   userNum=#{userNum},
-		   	   userNickname=#{userNickname},
-		   	   userEmail=#{userEmail}
-		 WHERE userId=#{userId} 	   
-	</update> 
-	
+
+    <!-- 마이페이지 편집 수정 -->
+    <update id="updateUser" parameterType="com.spring_boot_final.project.model.UserVO">
+        UPDATE user
+        SET userName=#{userName},
+            userNum=#{userNum},
+            userNickname=#{userNickname},
+            userEmail=#{userEmail}
+        WHERE userId = #{userId}
+    </update>
+
+    <update id="updateUserPw" parameterType="com.spring_boot_final.project.model.UserVO">
+        UPDATE user
+        SET userPw=#{userPw}
+        WHERE userId = #{userId}
+    </update>
+
     <!-- Delete -->
 
 
