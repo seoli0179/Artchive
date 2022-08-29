@@ -65,7 +65,7 @@
 	                    </a>   
                     </div>
                      <div class="guide-contents">
-						<a class="items" href="<c:url value='/myPage/withdraw'/>">                      
+						<a class="items" href="<c:url value='/myPage/withdraw/${sessionScope.sid}'/>">                      
 	                        <img class="guide-img" alt="회원 탈퇴" src="<c:url value='/image/logout.png'/>">
 	                        <p class="h3">회원 탈퇴</p>
 	                    </a>   
