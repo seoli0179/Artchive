@@ -49,6 +49,15 @@
 		 WHERE userId=#{userId} 	   
 	</update> 
 	
+	
+	<!-- 비밀번호 수정 -->
+  	<update id="updatePw" parameterType="com.spring_boot_final.project.model.UserVO">
+		UPDATE user
+		   SET userPw = #{userPw}
+		 WHERE userId = #{userId} 	   
+	</update>
+	
+	
     <!-- Delete -->
 	<!-- 마이페이지 회원 탈퇴 -->
 	<!-- <update id="quitUser" parameterType="String">
