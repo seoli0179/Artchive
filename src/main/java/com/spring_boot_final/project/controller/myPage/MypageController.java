@@ -128,7 +128,7 @@ public class MypageController {
 		}
 		
     }
-  
+ 	
  	
  	// 마이페이지 비밀번호 설정 view
   	@ResponseBody
@@ -234,6 +234,12 @@ public class MypageController {
         return "myPage/check";
     }
     
+ // 회원 정보 확인 view
+    @RequestMapping("myPage/check2")
+    public String myPageCheck2() {
+        return "myPage/check2";
+    }
+    
     
     // 회원 맞춤 정보 수정 view
     @RequestMapping("myPage/custom")
@@ -247,5 +253,6 @@ public class MypageController {
         return "myPage/pwChange";
     }
     
+ 
 
 }
