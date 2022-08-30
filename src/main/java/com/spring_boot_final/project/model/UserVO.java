@@ -27,7 +27,7 @@ public class UserVO {
 
     // 유저 상태 추가 1:정상 2:탈퇴
     private String userState;
-    
+
     public String getUserState() {
 		return userState;
 	}
@@ -49,7 +49,6 @@ public class UserVO {
 		this.userGender = userGender;
 		this.userBirth = userBirth;
 	}
-    
 
 	public String getUserId() {
 		return userId;

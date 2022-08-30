@@ -6,7 +6,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>arTchive / {코스 제목(글제목)}</title>
+		<title>arTchive / ${course.courseTitle}</title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
 		<!-- icon-kit -->
@@ -17,7 +17,6 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/module/toggle.css'/>">
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-		<script src="<c:url value='/js/course/course.js'/>"></script>
 		<script src="<c:url value='/js/course/autocomplete.js'/>"></script>
 		<script src="<c:url value='/js/course/courseEdit.js'/>"></script>
 		<script src="<c:url value='/js/course/deleteCourse.js'/>"></script>
@@ -46,11 +45,11 @@
 			<!-- courseMain -->
 			<section id="courseMenu">
 				<div id="courseToggle">
-					<input type="checkbox" id="toggle" hidden>
-					<label for="toggle" class="toggleSwitch">
+					<input type="checkbox" class="toggle" id="courseStatus" hidden checked>
+					<label for="courseStatus" class="toggleSwitch">
 						<span class="toggleButton"></span>
 					</label>
-					<span id="toggleText">공개여부</span>
+						<span id="toggleText">공개</span>
 				</div>
            		<div id="courseMainText">
 					<input type="reset" id="editBtn"  class="white-btn" value="삭제">
@@ -65,7 +64,7 @@
 					<div class="tag-box-edit">
 						<ul id="tagList">
 							<c:forTokens var="taglist" items="${course.courseTag}" delims=";;">
-								<li><c:out value="${taglist}"/></li>
+								<li class="li-item tagItem" value="${taglist}"> ${taglist} <i class="fa-solid fa-xmark closeBtn" onclick="remove(this, '${taglist}')"></i></li>
 							</c:forTokens>
 							<input class="inner-searchbar" id="inner-searchbar" type="text" placeholder="태그를 입력하세요.">
 						</ul>

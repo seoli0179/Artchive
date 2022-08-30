@@ -85,14 +85,15 @@
 }
 .tag-box-edit input {
     border: none;
+    resize: none;
 }
 .tag-box-edit input:focus {
     border-bottom: dotted 2px #000000;
-    outline-offset: -2px;
+    outline-color: mediumspringgreen;
 }
 
 .tag-box-edit ul li {
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: white;
     font-weight: 300;
     list-style: none;

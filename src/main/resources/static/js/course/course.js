@@ -1,6 +1,16 @@
 $( function() {
     // Handler when the DOM is fully loaded
 
+    // 태그 배열 초기화
+    let tagItem = document.getElementsByClassName("tagItem");
+    getTags();
+    function getTags() {
+        for(let i=0; i<tagItem.length; i++){
+            tags.push(tagItem[i].textContent);
+        }
+        console.log(tags)
+    }
+
     // 선택된 전시명으로 코스짜기 버튼
     const selectBtn = document.getElementsByClassName("courseSelect");
     const textBox = document.getElementById("selectedExhbn");
@@ -24,12 +34,6 @@ $( function() {
 
     let removeBtns = document.getElementsByClassName("closeBtn");
 
-    function remove(element, tag) {
-        let index = tags.indexOf(tag);
-        tags = [...tags.slice(0,index), ...tags.slice(index+1)]; // 태그 삭제
-        element.parentElement.remove(); // li 삭제
-    }
-
     function addTag(e){
         if (e.key == "Enter") {
             let tag = e.target.value.replace(/\s+/g, ' '); // 태그에서 다수 공백 삭제
@@ -52,9 +56,10 @@ $( function() {
     function createTag(){
         ul.querySelectorAll("li").forEach(li => li.remove())
         tags.slice().reverse().forEach(tag =>{
-            let liTag = `<li class="li-item"> ${tag} <i class="fa-solid fa-xmark closeBtn" onclick="remove(this, '${tag}')"></i></li>`;
-            ul.insertAdjacentHTML("afterbegin",liTag); // tag 추가
+            let liTag = `<li class="li-item tagItem" value="${tag}"> ${tag} <i class="fa-solid fa-xmark closeBtn" onclick="remove(this, '${tag}')"></i></li>`;
+            input.insertAdjacentHTML("beforebegin",liTag); // tag 추가
         });
+        console.log(tags)
     }
 
 
