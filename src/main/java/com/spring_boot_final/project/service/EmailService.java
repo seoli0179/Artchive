@@ -104,8 +104,6 @@ public class EmailService {
                                 "Artchive\n" +
                                 "\n" +
                                 "※본 메일은 자동응답 메일이므로 본 메일에 회신하지 마시기 바랍니다. ");
-
-
                 return true;
             }
         } else {
