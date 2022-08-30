@@ -18,7 +18,13 @@ public interface IUserDAO {
     // 마이페이지 수정
   	void updateUser(UserVO vo);
   	
+  	
+	// 비밀번호 수정
+ 	void updatePw(UserVO vo);
+  	
   	// 마이페이지 탈퇴
  	void quitUser(String id);
+ 	
+ 
 
 }

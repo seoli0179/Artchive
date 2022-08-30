@@ -12,6 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/pwChange.css'/>"/>
 		<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
+		<script src="<c:url value='/js/myPage/pwChange.js'/>"></script>
 		
 	</head>
 	<body>
@@ -30,11 +31,11 @@
 					<ul class="tabMenu">
 						<li><a href="<c:url value='/myPage/home/${sessionScope.sid}'/>"><i class="fa-solid fa-house"></i> 홈</a></li>
 						<li><a href="<c:url value='/myPage/check'/>"><i class="fa-solid fa-gears"></i> 개인정보 수정</a></li>
-						<li><a href="<c:url value='/myPage/pwChange'/>"><i class="fa-solid fa-unlock-keyhole"></i> 비밀번호 설정</a></li>
+						<li><a href="<c:url value='/myPage/pwChange/${sessionScope.sid}'/>"><i class="fa-solid fa-unlock-keyhole"></i> 비밀번호 설정</a></li>
 						<li><a href="<c:url value='/myPage/scrap'/>">	<i class="fa-solid fa-photo-film"></i> 내 전시</a></li>
 						<li><a href="<c:url value='/myPage/actHistory'/>"><i class="fa-solid fa-pen"></i> 활동 내역</a></li>
 						<li><a href="<c:url value='/myPage/recmd'/>"><i class="fa-solid fa-star"></i> 추천 콘텐츠</a></li>
-						<li><a href="<c:url value='/myPage/withdraw'/>"><i class="fa-solid fa-right-from-bracket"></i> 회원 탈퇴</a></li>
+						<li><a href="<c:url value='/myPage/withdraw/${sessionScope.sid}'/>"><i class="fa-solid fa-right-from-bracket"></i> 회원 탈퇴</a></li>
 					</ul>
 				</nav>
 			
@@ -44,7 +45,7 @@
 				<p class="line">
 				
 				
-				<form>
+				<form method="post" id="editFrm" class="editFrm" name="editFrm">
 					<div class="tableBox">
 						<div class="centerBox">
 							<h2 class="h2"><a class="logo" href="<c:url value='/'/>">Artchive</a></h2>
@@ -59,18 +60,19 @@
 						
 						<div class="newPwBox">
 							<div class="pwBox">
-								<input type="text" class="pwInput" name="userPw" placeholder="새 비밀번호">
+								<input type="password" class="pwInput" id="userPw" name="userPw" placeholder="새 비밀번호" required>
 							</div>
-							<div class="red">영문, 숫자, 특수문자 8~12자로 입력해주세요</div>
+							<div class="red">영문, 숫자, 특수문자 8~20자로 입력해주세요</div>
 							
 							<div class="pwCfmBox">
-								<input type="text" class="pwCfmInput" name="userPwCfm" placeholder="새 비밀번호 확인">
-								<div class="explain">비밀번호는 8~12자 이내로 영문(대,소문자), 숫자, 특수문자 3가지 조합<br> 중 2가지 이상을 조합하셔서 만드시면 됩니다.</div>
+								<input type="password" class="pwCfmInput" id="userPwCfm" name="userPwCfm" placeholder="새 비밀번호 확인" required>
+								<div class="explain">비밀번호는 8~20자 이내로 영문(대,소문자), 숫자, 특수문자 3가지 조합 중
+													<br> 2가지 이상을 조합하셔서 만드시면 됩니다.</div>
 							</div>	
 						</div>
 						<div class="buttonBox"> 
-							<input type="submit" class="black-btn" value="확인">
-							<input type="reset" class="white-btn" value="취소">
+							<input type="button" id="editBtn" class="submitBtn black-btn" value="확인">
+							<input type="reset" class="resetBtn white-btn" value="취소">
 						</div> <!-- buttonBox -->
 					</div> <!-- tableBox -->
 						
