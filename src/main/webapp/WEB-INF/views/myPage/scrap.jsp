@@ -45,7 +45,7 @@
 					<p class="line">
 				<div class="titleBox">
 					<a href="<c:url value='/myPage/scrap'/>">스크랩</a>
-					<a href="<c:url value='/myPage/like'/>">좋아요</a>
+					<%-- <a href="<c:url value='/myPage/like'/>">좋아요</a> --%>
 					<a href="<c:url value='/myPage/mpCourse'/>">코스</a>
 				</div><!-- titleBox -->
 				
