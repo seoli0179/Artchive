@@ -9,4 +9,6 @@ import java.util.ArrayList;
 public interface ICourseDAO {
     public ArrayList<CourseVO> selectCourse();
     public CourseVO selectCoursePost(int courseId);
+
+    public void updateCourse(CourseVO vo);
 }

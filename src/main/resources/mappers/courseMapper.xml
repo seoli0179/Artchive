@@ -20,4 +20,18 @@
         ]]>
     </select>
 
+    <update id="updateCourse" parameterType="com.spring_boot_final.project.model.CourseVO">
+        <![CDATA[
+        UPDATE course
+        SET exhbnId=#{exhbnId},
+            courseTitle=#{courseTitle},
+            courseTag=#{courseTag},
+            courseState=#{courseState},
+            courseSitesArr=#{courseSitesArr},
+            courseAddressArr=#{courseAddressArr},
+            courseMemoArr=#{courseMemoArr}
+        WHERE courseId = #{courseId} AND userId = #{userId}
+        ]]>
+    </update>
+
 </mapper>
