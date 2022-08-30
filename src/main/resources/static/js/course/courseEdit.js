@@ -5,6 +5,7 @@ let sites_copy = [];
 let addresses = [];
 let memos = [];
 let listItems = [];
+let tags = [];
 
 $( function() {
 
@@ -15,6 +16,7 @@ $( function() {
     let dragStartIndex;
 
     let num = document.getElementById("courseId").value;
+    // 페이지 구성을 위한 데이터 호출
     $.ajax({
         type:"POST",
         url:"/course/getCourse",
@@ -56,10 +58,6 @@ $( function() {
     //     });
     // });
 
-
-    // delete Course item 구현2
-    sites_copy=[...sites];
-
     // // 삭제
     // let deleteBtns = document.querySelectorAll(".deleteBtn");
     //
@@ -77,9 +75,67 @@ $( function() {
     //     })
     // });
 
+    // 태그 배열 초기화
+    let tagItem = document.getElementsByClassName("tagItem");
+    getTags();
+    // .태그 배열 초기화.
 
+    // 선택된 전시명으로 코스짜기 버튼
+    const selectBtn = document.getElementsByClassName("courseSelect");
+    const textBox = document.getElementById("selectedExhbn");
+    const selectedBox = document.getElementById("selected");
 
-    /** 초반 createList */
+    for (let i=0; i<selectBtn.length; i++) {
+        selectBtn[i].addEventListener('click', function (){
+            const radioId = selectBtn[i].id;
+            const query = 'label[for="' + radioId + '"]';
+            const text = document.querySelector(query).innerHTML;
+            textBox.innerHTML = text;
+            selectedBox.style.visibility = "visible";
+        });
+    }
+
+    // 태그 검색
+    const ul = document.getElementById("tagList"),
+        input = document.getElementById("inner-searchbar");
+
+    input.addEventListener("keyup", addTag);
+
+    let removeBtns = document.getElementsByClassName("closeBtn");
+
+    /* 태그 추가 함수 */
+    function addTag(e){
+        if (e.key == "Enter") {
+            let tag = e.target.value.replace(/\s+/g, ' '); // 태그에서 다수 공백 삭제
+            if(tag.length>1 && !tags.includes(tag)) { // 아직 없는 태그, // 태그 생성
+                if(tags.length>=3) {
+                    const target = document.getElementById("tag-caution");
+                    target.style.visibility = "visible";
+                    setTimeout(function() {
+                        target.classList.remove("vibration");
+                    }, 500);
+                } else {
+                    tags.push(tag);
+                }
+                createTag();
+            }
+            e.target.value = ""; // 내용 지우기
+        }
+    }
+    /*  */
+
+    /* createTag 함수 */
+    function createTag(){
+        ul.querySelectorAll("li").forEach(li => li.remove())
+        tags.slice().reverse().forEach(tag =>{
+            let liTag = `<li class="li-item tagItem" value="${tag}"> ${tag} <i class="fa-solid fa-xmark closeBtn" onclick="remove(this, '${tag}')"></i></li>`;
+            input.insertAdjacentHTML("beforebegin",liTag); // tag 추가
+        });
+        console.log(tags)
+    }
+    /* */
+
+    /** createList 함수 */
     function createList() {
         for(let i=0; i<sites.length; i++){
                 const listItem = document.createElement('li',);
@@ -109,15 +165,17 @@ $( function() {
                         </div>
                     </div>
                     <div class="delete" id="deleteBtnBox">
-                        <i class="fa-solid fa-circle-minus fa-2xl deleteBtn" id="deleteBtn${i}" onclick="remove(this, 'route${i}')"></i>
+                        <i class="fa-solid fa-circle-minus fa-2xl deleteBtn" id="deleteBtn${i}" onclick="deleteCourse(this, '${i}')"></i>
                     </div>
                     `;
             // ${sites[i]}
                 listItems.push(listItem);
 
                 $("#sortable").append(listItem);
+                sites_copy=[...sites];
             }
     }
+    /*  */
 
     // 정렬 가능한 리스트
     // 순서 바꿔 배열 다시 저장하기
@@ -153,15 +211,12 @@ $( function() {
             $(".courseItem").remove();
 
             createList();
-
-            // sites_copy 재구현
-            sites_copy=[...sites];
+            console.log(sites)
         },
         axis : 'y'
     });
-
     $("#sortable").disableSelection();
-
+    // .순서 바꿔 다시 저장하기. //
 
     $( ".portlet-toggle" ).on( "click", function() {
         let icon = $( this );
@@ -169,44 +224,66 @@ $( function() {
         icon.closest( ".portlet" ).find( ".portlet-content" ).toggle();
     });
 
+    // 태그 초기화 함수 //
+    function getTags() {
+        for(let i=0; i<tagItem.length; i++){
+            tags.push(tagItem[i].textContent);
+        }
+        console.log(tags)
+    }
+    // .태그 초기화 함수. //
+
 } );
 
-function remove(element, id) {
-    sites_copy=[...sites];
+// 보내기
+$("#submitBtn").on("submit", updateCourse());
+/** 보내기 */
+function updateCourse() {
+    $.ajax({
+        url:"course/updateCourse",
+        type:"POST",
+        traditional:true,
+        data:{
+            siteNames:sites,
+            siteAddress:addresses,
+            siteMemos:memos,
+            courseTags:tags
+        },
+        success:function(result){
+            alert(result);
+        },
+        error:function(result){
+            alert(result+"를 보내는 데 실패했습니다.");
+        }
+    });
+}
+/** .보내기. */
+
+// 코스 삭제 함수 //
+function deleteCourse(element, index) {
     if(confirm("항목을 삭제하시겠습니까?")){
-        $("#"+id).remove();
-        let tempArr = id.split(",,");
-        let index = sites.indexOf(tempArr);
-        for (let i=0; i<sites.length; i++){
-            if(sites[i]==sites_copy[index]) sites.splice(i,1);
+        if (sites.length>1) {
+            $("#route"+index).remove(); // jsp 태그 삭제
+            // sites에서 값이 동일한 요소 삭제
+            for (let i = 0; i < sites.length; i++) {
+                if (sites[i] == sites_copy[index]) {
+                    sites.splice(i, 1);
+                    addresses.splice(i, 1);
+                    memos.splice((i, 1));
+                }
             }
-        console.log(sites);
-        element.parentElement.parentElement.remove(); // li 삭제
+        } else {
+            alert("모든 항목을 삭제하실 수 없습니다.")
+        }
+        console.log(sites)
     }
 }
+// .코스 삭제 함수. //
 
-// //////
-
-/** ajax 배열 가져오기 ajax **/
-// function getCourse() {
-//     let num = document.getElementById("courseId").value;
-//     $.ajax({
-//         type:"POST",
-//         url:"/course/getCourse",
-//         data:{"courseId":num},
-//         dataType:"json",
-//         success:function (result){
-//             console.log(result);
-//             $.each(result, function (index,item){
-//                 sites.push(item.siteName);
-//                 addresses.push(item.siteAddresses);
-//                 memos.push(item.siteMemos);
-//
-//                 createList();
-//             });
-//         },
-//         error:function (result){
-//             alert("error");
-//         }
-//     });
-// }
+// 태그 삭제 함수 //
+function remove(element, tag) {
+    let index = tags.indexOf(tag);
+    tags = [...tags.slice(0,index), ...tags.slice(index+1)]; // 태그 삭제
+    element.parentElement.remove(); // li 삭제
+}
+// .태그 삭제 함수. //
