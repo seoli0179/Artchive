@@ -23,14 +23,14 @@
 		 <main id="course-container">
             <div class="course-box main-title-box">
                 <h1 class="h1">MyPage</h1>
-                <span>${user.userNickname}님 어서오세요.</span>
+                <span>${sessionScope.sid}님 어서오세요.</span>
                
             </div>
             <div class="course-box guide-box">
                 <h2 class="h2"><a class="logo" href="<c:url value='/'/>">Artchive</a></h2>
                 <div class="guide-img-box">
                     <div class="guide-contents">
-                        <a class="items" href="<c:url value='/myPage/edit/${sessionScope.sid}'/>"> 
+                        <a class="items" href="<c:url value='/myPage/edit'/>"> 
 	                        <img class="guide-img" alt="개인정보 수정" src="<c:url value='/image/setting.png'/>">
 	                        <p class="h3">개인정보 수정</p>
 	                        <span class="small-text">본인인증, 휴대폰 번호<br> 등 내 정보를 수정하세요.</span>
