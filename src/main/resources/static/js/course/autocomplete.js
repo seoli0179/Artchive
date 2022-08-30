@@ -17,7 +17,7 @@ $(function(){
         delay : 500, // 입력창에 글자가 써지고 나서 autocomplete 이벤트 발생될 떄 까지 지연 시간(ms)
         disable : false, // 해당 값 true 시, 자동완성 기능 꺼짐
         position : {
-            // of: $("#filterList"), // 부모
+            of: $(".inner-searchbar"), // 부모
             my : 'left top', at : 'left bottom'}, // 제안 메뉴의 위치를 식별
         close : function(event) { // 자동완성 창 닫아질 때의 이벤트
             console.log(event);
