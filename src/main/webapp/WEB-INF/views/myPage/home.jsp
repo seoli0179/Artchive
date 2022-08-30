@@ -37,7 +37,7 @@
                         </a>
                     </div>
                     <div class="guide-contents">
-                    	<a class="items" href="<c:url value='/myPage/pwChange'/>"> 
+                    	<a class="items" href="<c:url value='/myPage/pwChange/'/>"> 
                         	<img class="guide-img" alt="비밀번호 설정" src="<c:url value='/image/lock.png'/>">
                         	<p class="h3">비밀번호 설정</p>
                         	<span class="small-text">비밀번호를 설정하여<br>내 정보를 보호하세요.</span>
@@ -65,7 +65,7 @@
 	                    </a>   
                     </div>
                      <div class="guide-contents">
-						<a class="items" href="<c:url value='/myPage/withdraw'/>">                      
+						<a class="items" href="<c:url value='/myPage/withdraw/${sessionScope.sid}'/>">                      
 	                        <img class="guide-img" alt="회원 탈퇴" src="<c:url value='/image/logout.png'/>">
 	                        <p class="h3">회원 탈퇴</p>
 	                    </a>   
