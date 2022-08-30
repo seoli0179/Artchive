@@ -36,7 +36,8 @@
 						<ul><li>${course.exhbnTitle}</li></ul>
 					</div>
 					<div id="header-postTitle" class="headerText">
-						<h1>${course.courseTitle}<h1>
+						<h1>${course.courseTitle}</h1>
+						<input type="text" value="${course.courseId}" hidden>
 					</div>
 					<div id="header-postDate" class="headerText">
 						<ul><li><fmt:formatDate value="${course.createdAt}" pattern="yyyy. MM. dd. E"></fmt:formatDate></li></ul>

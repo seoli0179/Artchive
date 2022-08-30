@@ -106,7 +106,8 @@ $( function() {
     /* 태그 추가 함수 */
     function addTag(e){
         if (e.key == "Enter") {
-            let tag = e.target.value.replace(/\s+/g, ' '); // 태그에서 다수 공백 삭제
+            let tag = e.target.value.replace(" ", ""); // 태그에서 다수 공백 삭제
+            tag.trim();
             if(tag.length>1 && !tags.includes(tag)) { // 아직 없는 태그, // 태그 생성
                 if(tags.length>=3) {
                     const target = document.getElementById("tag-caution");
@@ -226,17 +227,21 @@ $( function() {
 
     // 태그 초기화 함수 //
     function getTags() {
+        tags = [];
         for(let i=0; i<tagItem.length; i++){
-            tags.push(tagItem[i].textContent);
+            let input = tagItem[i].textContent.trim();
+            tags.push(input);
         }
         console.log(tags)
     }
     // .태그 초기화 함수. //
 
+    $("#saveBtn").on("click", function(){
+        updateCourse();
+    });
+
 } );
 
-// 보내기
-$("#submitBtn").on("submit", updateCourse());
 /** 보내기 */
 function updateCourse() {
     let courseSitesArr = "";
@@ -326,11 +331,13 @@ function deleteCourse(element, index) {
     }
 }
 // .코스 삭제 함수. //
+// .코스 삭제 함수. //
 
 // 태그 삭제 함수 //
 function remove(element, tag) {
     let index = tags.indexOf(tag);
-    tags = [...tags.slice(0,index), ...tags.slice(index+1)]; // 태그 삭제
+    tags.splice(index,1);
+    console.log(tags);
     element.parentElement.remove(); // li 삭제
 }
 // .태그 삭제 함수. //
