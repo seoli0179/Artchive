@@ -12,6 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/scrap.css'/>"/>
 		<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
+		<script src="<c:url value='/js/bookMark.js'/>"></script>
 		
 	</head>
 	<body>
@@ -59,14 +60,27 @@
 							</tr>
 							
 						</thead>
+
 						<tbody>
-							<tr>
+							<!-- <tr>
 								<td>전시</td>
 								<td>히토 슈타이얼 - 데이터의 바다</td>
 								<td>2022.01.03</td>
 								<td><button class="white-btn">삭제</button></td>
-							</tr>
+							</tr> -->
+							<c:forEach items="${bookMarkList}" var="bookMark" varStatus="status">
+								<tr>	
+									<%-- <td>${bookMark.bookmarkId}</td> --%>
+									<td>전시</td>
+									<td><a href="<c:url value='/exhbn/detail/${bookMark.exhbnId}'/>">${bookMark.exhbnTitle}</a></td>
+									<td>${bookMark.bookmarkAt}</td>
+									<td><input type="button" class="deleteBookMarkBtn white-btn"
+                                    onclick="deleteBookMark(${bookMark.bookmarkId})"
+                                    value="삭제"></td>
+								</tr>
+							</c:forEach>
 						</tbody>
+
 					</table>
 					</div><!--tableBox -->
 				

@@ -120,9 +120,11 @@
 				</div>
 				<!-- .context-container -->
 				<div id="button-box">
-					<form action="#">
+					<form method="post" action="<c:url value='/insertBookMark' /> ">
 						<button class="white-btn-big" onclick="window.open('${exhbn.exhbnUrl}')">자세히 보기</button>
-						<button class="white-btn-big" onclick="location.href='#'">관심전시추가</button>
+						<!-- <button class="white-btn-big" onclick="location.href='#'">관심전시추가</button> -->
+						<input type="submit" id="insertBookMark" class="white-btn-big" value="관심전시추가">
+						<input type="hidden" id="exhbnId" name="exhbnId" value=${exhbn.exhbnId}>
 						<button class="black-btn-big" onclick="#">이 전시로 코스 짜기</button>
 					</form>
 				</div>
