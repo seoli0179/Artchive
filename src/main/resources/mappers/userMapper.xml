@@ -36,9 +36,6 @@
         ]]>
     </select>
 
-    <select id="selectUserView" parameterType="com.spring_boot_final.project.model.UserVO"
-            resultType="com.spring_boot_final.project.model.UserVO">
-
     <select id="selectUserView" parameterType="com.spring_boot_final.project.model.UserVO" resultType="com.spring_boot_final.project.model.UserVO">
         <![CDATA[
         SELECT *
