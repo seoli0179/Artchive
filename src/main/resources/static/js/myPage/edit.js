@@ -45,7 +45,7 @@
 				// 성공 시 결과 받음
 				if(result == "SUCCESS"){
 					alert("수정되었습니다.");
-					location.href="/myPage/edit/" + $('#userId').val();
+					location.href="/myPage/edit/"
 				}
 			},
 			error:function(){
