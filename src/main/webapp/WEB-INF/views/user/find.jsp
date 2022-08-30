@@ -27,9 +27,14 @@
             <div>
                 <br>
                 <div class="int-area id">
-                    <input type="text" name="id" id="id" autocomplete="off" required>
+                    <input type="text" name="id" id="id" autocomplete="off">
                     <label for="id">이메일 주소 입력</label>
                     <div class="check"><i id="id_check" class="fa-solid fa-circle-check" style="color:Red"></i></div>
+                </div>
+                <div class="int-area email_check1">
+                    <input type="number" name="email_check1" id="email_check1" autocomplete="off">
+                    <label for="email_check1">인증번호</label>
+                    <div id="id_check2" class="check"><i class="fa-solid fa-circle-check" style="color:Red"></i></div>
                 </div>
                 <div class="complete1" style="text-align:center; width:400px;"></div>
             </div>
@@ -40,14 +45,14 @@
             <div>
                 <br>
                 <div class="int-area pw">
-                    <input type="email" name="pw" id="pw" autocomplete="off" required>
+                    <input type="email" name="pw" id="pw" autocomplete="off">
                     <label for="id">이메일 주소 입력</label>
                     <div class="check"><i id="pw_check" class="fa-solid fa-circle-check" style="color:Red"></i></div>
                 </div>
-                <div class="int-area email_check">
-                    <input type="number" name="email_check" id="email_check" autocomplete="off" required>
-                    <label for="email_check">인증번호</label>
-                    <div id="pw_check2" class="check"><i class="fa-solid fa-circle-check" style="color:Red"></i></div>
+                <div class="int-area email_check2">
+                    <input type="number" name="email_check2" id="email_check2" autocomplete="off">
+                    <label for="email_check2">인증번호</label>
+                    <div class="check"><i id="pw_check2" class="fa-solid fa-circle-check" style="color:Red"></i></div>
                 </div>
                 <div class="complete2" style="text-align:center; width:400px;"></div>
             </div>
@@ -58,7 +63,7 @@
 
     </form>
     <div class="btn-area next">
-        <input id="btn_next" type="button" value="LOGIN">
+        <input id="btn_login" type="button" value="LOGIN" onclick="location.href='/login'">
     </div>
     <div class="caption back">
         <a href="<c:url value="/"/>">Home</a>

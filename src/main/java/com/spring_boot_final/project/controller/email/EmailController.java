@@ -1,5 +1,6 @@
 package com.spring_boot_final.project.controller.email;
 
+import com.spring_boot_final.project.model.UserVO;
 import com.spring_boot_final.project.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,8 +14,8 @@ public class EmailController {
     EmailService emailService;
 
     @RequestMapping("/find/id")
-    public String id() {
-        return emailService.certifyEmailSend("yeoubyeol98@gmail.com");
+    public boolean id(@RequestParam("email") String email) {
+        return emailService.certifyEmailSend(email);
     }
 
     @RequestMapping("/find/id/certify")
@@ -26,16 +27,23 @@ public class EmailController {
     }
 
     @RequestMapping("/find/pw")
-    public String pw() {
-        return emailService.certifyEmailSend("yeoubyeol98@gmail.com");
+    public boolean pw(@RequestParam("email") String email) {
+        return emailService.certifyEmailSend(email);
     }
 
     @RequestMapping("/find/pw/certify")
-    public String pwCertify(
+    public boolean pwCertify(
             @RequestParam("email") String email,
             @RequestParam("certifyNum") String certifyNum
     ) {
         return emailService.pwFindCertify(email, certifyNum);
+    }
+
+    @RequestMapping("/user/selectUserFromEmail")
+    public boolean insertUser(
+            @RequestParam("email") String email
+    ){
+        return emailService.selectUserFormEmail(email);
     }
 
 }

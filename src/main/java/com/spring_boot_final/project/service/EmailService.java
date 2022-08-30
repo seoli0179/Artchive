@@ -28,13 +28,13 @@ public class EmailService {
     @Autowired
     private JavaMailSender emailSender;
 
-    public String certifyEmailSend(String email) {
+    public boolean certifyEmailSend(String email) {
 
         try {
             UserVO vo = userDAO.selectUserFormEmail(email);
 
             if (vo == null) {
-                return "FAIL";
+                return false;
             }
 
             if (certifyDAO.readCertifyCount(email) > 0) {
@@ -61,10 +61,10 @@ public class EmailService {
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            return "FAIL";
+            return false;
         }
 
-        return "SUCCESS";
+        return true;
     }
 
     public String idFindCertify(String email, String certifyNum) {
@@ -72,6 +72,7 @@ public class EmailService {
         if (certifyDAO.readCertifyCount(email) > 0) {
             String certifyNum1 = certifyDAO.readCertify(email);
             if (certifyNum1.equals(certifyNum)) {
+                certifyDAO.deleteCertify(email);
                 UserVO vo = userDAO.selectUserFormEmail(email);
                 return vo.getUserId();
             }
@@ -81,7 +82,7 @@ public class EmailService {
         return "FAIL";
     }
 
-    public String pwFindCertify(String email, String certifyNum) {
+    public boolean pwFindCertify(String email, String certifyNum) {
 
         if (certifyDAO.readCertifyCount(email) > 0) {
             String certifyNum1 = certifyDAO.readCertify(email);
@@ -105,12 +106,12 @@ public class EmailService {
                                 "※본 메일은 자동응답 메일이므로 본 메일에 회신하지 마시기 바랍니다. ");
 
 
-                return "SUCCESS";
+                return true;
             }
         } else {
-            return "FAIL";
+            return false;
         }
-        return "FAIL";
+        return false;
     }
 
     public void sendSimpleMessage(String to, String title, String content) {
@@ -141,7 +142,7 @@ public class EmailService {
     }
 
     public String getTempPassword() {
-        char[] charSet = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F',
+        char[] charSet = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F',
                 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '!', '@', '#', '$', '%', '^', '&', '*'};
 
         String str = "";
@@ -153,6 +154,17 @@ public class EmailService {
             str += charSet[idx];
         }
         return str;
+    }
+
+    public boolean selectUserFormEmail(String email) {
+
+        UserVO vo = userDAO.selectUserFormEmail(email);
+
+        if (vo != null)
+            return true;
+
+        return false;
+
     }
 
 }
