@@ -25,8 +25,8 @@ public class MypageController {
 	@Autowired
 	UserService userService;
 	
-	 @Autowired
-	 PasswordEncoder encoder;
+	@Autowired
+	PasswordEncoder encoder;
 	
 	// 마이페이지 view
     @RequestMapping("myPage/home")
@@ -47,7 +47,8 @@ public class MypageController {
     
     // 마이페이지 편집 view
     @RequestMapping("myPage/edit/{userId}")
-    public String viewMyPageEdit(@PathVariable String userId, Model model) {
+    public String viewMyPageEdit(@PathVariable String userId, Model model
+    							,HttpSession session) {
     	
     	UserVO vo = userService.selectUserView(userId);
 		String email1 = vo.getUserEmail();
@@ -104,6 +105,31 @@ public class MypageController {
  		
  		return "SUCCESS";
  	}
+ 	
+ 	
+ 	
+ 	// 마이페이지 비밀번호 설정
+  	@ResponseBody
+  	@RequestMapping("/myPage/updatePw")
+  	public String myPageuserPwEdit(
+  								@RequestParam("userPw") String userPw,
+  								HttpSession session) throws IOException {
+  		
+  		String userId = session.getAttribute("sid").toString();
+  		
+  		UserVO vo = userService.selectUserView(userId);
+  		
+  		// 암호화
+  		vo.setUserPw(encoder.encode(userPw));
+  		
+  		// 항목 수정
+  		userService.updatePw(vo);
+  		
+  		System.out.println(userPw);
+  		
+  		return "SUCCESS";
+  	}
+  	
     
  	// 마이페이지 회원 탈퇴 view
     @RequestMapping("myPage/withdraw/{userId}")

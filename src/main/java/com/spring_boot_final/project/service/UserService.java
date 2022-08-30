@@ -32,6 +32,11 @@ public class UserService {
  		dao.updateUser(vo);
  	}
  	
+ 	// 비밀번호 수정
+  	public void updatePw(UserVO vo) {
+  		dao.updatePw(vo);
+  	}
+ 	
  	// 마이페이지 탈퇴
  	public void quitUser(String id) {
  		dao.quitUser(id);
