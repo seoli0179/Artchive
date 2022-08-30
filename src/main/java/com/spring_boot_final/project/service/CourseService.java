@@ -21,4 +21,8 @@ public class CourseService {
    public final CourseVO selectCoursePost(int courseId) {
        return dao.selectCoursePost(courseId);
    }
+
+    public void updateCourse(CourseVO vo) {
+       dao.updateCourse(vo);
+    }
 }
