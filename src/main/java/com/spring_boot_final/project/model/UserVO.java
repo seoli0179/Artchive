@@ -24,12 +24,23 @@ public class UserVO {
     // 유저 이름, 전화번호 추가
     private String userName;
     private String userNum;
+
+    // 유저 상태 추가 1:정상 2:탈퇴
+    private String userState;
     
-    public UserVO() {
+    public String getUserState() {
+		return userState;
+	}
+
+	public void setUserState(String userState) {
+		this.userState = userState;
+	}
+
+	public UserVO() {
     }
     
     public UserVO(String userId, String userPw, String userEmail, String userNickname, String userGender,
-			Date userBirth, String userName, String userNum) {
+			Date userBirth) {
 		super();
 		this.userId = userId;
 		this.userPw = userPw;
@@ -37,14 +48,8 @@ public class UserVO {
 		this.userNickname = userNickname;
 		this.userGender = userGender;
 		this.userBirth = userBirth;
-		this.userName = userName;
-		this.userNum = userNum;
 	}
     
-    // 모름 UserDateController 에러나서 추가함
-	public UserVO(String id, String encode, String email, String nickname, String gender, Date parse) {
-		// TODO Auto-generated constructor stub
-	}
 
 	public String getUserId() {
 		return userId;

@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function(){
+$( function() {
     // Handler when the DOM is fully loaded
 
     // 선택된 전시명으로 코스짜기 버튼
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function(){
         selectBtn[i].addEventListener('click', function (){
             const radioId = selectBtn[i].id;
             const query = 'label[for="' + radioId + '"]';
-            const text = document.querySelector(query).innerText;
+            const text = document.querySelector(query).innerHTML;
             textBox.innerHTML = text;
             selectedBox.style.visibility = "visible";
         });
@@ -59,10 +59,10 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 }); // .document.eventlistner
-//
-// let tags = [];
-// function remove(element, tag) {
-//     let index = tags.indexOf(tag);
-//     tags = [...tags.slice(0,index), ...tags.slice(index+1)]; // 태그 삭제
-//     element.parentElement.remove(); // li 삭제
-// }
+
+let tags = [];
+function remove(element, tag) {
+    let index = tags.indexOf(tag);
+    tags = [...tags.slice(0,index), ...tags.slice(index+1)]; // 태그 삭제
+    element.parentElement.remove(); // li 삭제
+}
