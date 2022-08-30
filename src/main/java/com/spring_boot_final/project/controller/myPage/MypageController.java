@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -28,15 +27,12 @@ public class MypageController {
 	@Autowired
 	PasswordEncoder encoder;
 	
-	// 마이페이지 view
-    @RequestMapping("myPage/home")
-    public String myPageView() {
-        return "myPage/home";
-    }
-    
     // 마이페이지 home view
-    @RequestMapping("myPage/home/{userId}")
-    public String viewMyPage(@PathVariable String userId, Model model) {
+    @RequestMapping("myPage/home")
+    public String viewMyPage(Model model
+							,HttpSession session) {
+    	
+    	String userId = session.getAttribute("sid").toString();
     	
     	UserVO vo = userService.selectUserView(userId);
 		
@@ -46,12 +42,16 @@ public class MypageController {
     
     
     // 마이페이지 편집 view
-    @RequestMapping("myPage/edit/{userId}")
-    public String viewMyPageEdit(@PathVariable String userId, Model model
+    @RequestMapping("myPage/edit")
+    public String viewMyPageEdit(Model model
     							,HttpSession session) {
     	
+    	String userId = session.getAttribute("sid").toString();
+    	
     	UserVO vo = userService.selectUserView(userId);
-		String email1 = vo.getUserEmail();
+		
+    	// 이메일
+    	String email1 = vo.getUserEmail();
 		String[] email = email1.split("@");
 		email1 = email[0]; 
     	
@@ -72,16 +72,17 @@ public class MypageController {
  	@ResponseBody
  	@RequestMapping("/myPage/updateUser")
  	public String myPageEditView(
- 								@RequestParam("userId") String userId,
  								@RequestParam("userName") String userName,
  								@RequestParam("userNum") String userNum,
  								@RequestParam("userNickname") String userNickname,
  								@RequestParam("userEmail1") String userEmail1,
  								@RequestParam("userEmail2") String userEmail2,
  								@RequestParam("userGender") String userGender,
+ 								Model model,
  								HttpSession session) throws IOException {
  		UserVO vo = new UserVO();
  		String userEmail = userEmail1 + "@" +  userEmail2;
+ 		String userId = session.getAttribute("sid").toString();
  		
  		vo.setUserId(userId);
  		vo.setUserName(userName);
@@ -93,11 +94,11 @@ public class MypageController {
  		// 항목 수정
  		userService.updateUser(vo);
  		
- 		// 세션저장
- 		session.setAttribute("userId",vo.getUserId());
- 		session.setAttribute("userNum", vo.getUserNum());
- 		session.setAttribute("userNickname", vo.getUserNickname());
- 		session.setAttribute("userEmail", vo.getUserEmail());
+ 		
+ 		model.addAttribute("userId",vo.getUserId());
+ 		model.addAttribute("userNum", vo.getUserNum());
+ 		model.addAttribute("userNickname", vo.getUserNickname());
+ 		model.addAttribute("userEmail", vo.getUserEmail());
  		
  		System.out.println(userNum);
  		System.out.println(userEmail);
@@ -106,12 +107,33 @@ public class MypageController {
  		return "SUCCESS";
  	}
  	
+ 	// 마이페이지 비밀번호 확인 view
+ 	@ResponseBody
+    @RequestMapping("/myPage/userPwCheck")
+    public String userPwCheck(
+    					@RequestParam("userPw") String userPw,
+    					HttpSession session
+    ) {
+    	
+    	// 세션에 있는 아이디 받아오기
+    	String userId = session.getAttribute("sid").toString();
+    	
+    	String pw = userService.userPwCheck(userId);
+    	
+    	// 비교
+		if(encoder.matches(userPw, pw) == true) {
+			return "SUCCESS";
+		} else {
+			return "FAIL";
+		}
+		
+    }
+  
  	
- 	
- 	// 마이페이지 비밀번호 설정
+ 	// 마이페이지 비밀번호 설정 view
   	@ResponseBody
   	@RequestMapping("/myPage/updatePw")
-  	public String myPageuserPwEdit(
+  	public String userPwEdit(
   								@RequestParam("userPw") String userPw,
   								HttpSession session) throws IOException {
   		
@@ -131,20 +153,25 @@ public class MypageController {
   	}
   	
     
+  	
  	// 마이페이지 회원 탈퇴 view
-    @RequestMapping("myPage/withdraw/{userId}")
-    public String viewMyPagewithdraw(@PathVariable String userId, Model model) {
+    @RequestMapping("myPage/withdraw")
+    public String myPagewithdraw(HttpSession session, 
+    								Model model) {
+    	
+    	String userId = session.getAttribute("sid").toString();
     	
     	UserVO vo = userService.selectUserView(userId);
-		
+    	
 		model.addAttribute("user", vo);
+		
     	return "myPage/withdraw";
     }
  	
  	// 마이페이지 회원 탈퇴
  	@ResponseBody
  	@RequestMapping("/myPage/quitUser")
- 	public String viewQuitUser(@RequestParam("userPw") String userPw,
+ 	public String quitUser(@RequestParam("userPw") String userPw,
  							   HttpSession session) {
  		
  		String userId = session.getAttribute("sid").toString();
@@ -152,7 +179,8 @@ public class MypageController {
  		UserVO vo = userService.selectUserView(userId);
 
         System.out.println(vo.getUserPw());
- 		
+        
+        // 비밀번호 비교 		
  		if (vo == null || !encoder.matches(userPw, vo.getUserPw())) 
  		return "FAIL";
  		
@@ -162,15 +190,7 @@ public class MypageController {
  		return "SUCCESS";
  	}
    
-	/*
-	 * // 스크랩 view
-	 * 
-	 * @RequestMapping("myPage/scrap") public String myPageScrap() {
-	 * 
-	 * return "myPage/scrap"; }
-	 */
-	 
-	 
+	
     
     // 좋아요 view
     @RequestMapping("myPage/like")
@@ -214,11 +234,6 @@ public class MypageController {
         return "myPage/check";
     }
     
-    // 회원 기본 정보 수정 view
-    @RequestMapping("myPage/edit")
-    public String myPageEdit() {
-        return "myPage/edit";
-    }
     
     // 회원 맞춤 정보 수정 view
     @RequestMapping("myPage/custom")
@@ -232,9 +247,5 @@ public class MypageController {
         return "myPage/pwChange";
     }
     
-    // 회원 탈퇴 view
-    @RequestMapping("myPage/withdraw")
-    public String myPageWithdraw() {
-        return "myPage/withdraw";
-    }
+
 }

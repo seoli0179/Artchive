@@ -29,7 +29,7 @@
             <div class="course-box guide-box">
                 <nav>
 					<ul class="tabMenu">
-						<li><a href="<c:url value='/myPage/home/${sessionScope.sid}'/>"><i class="fa-solid fa-house"></i> 홈</a></li>
+						<li><a href="<c:url value='/myPage/home'/>"><i class="fa-solid fa-house"></i> 홈</a></li>
 						<li><a href="<c:url value='/myPage/check'/>"><i class="fa-solid fa-gears"></i> 개인정보 수정</a></li>
 						<li><a href="<c:url value='/myPage/pwChange'/>"><i class="fa-solid fa-unlock-keyhole"></i> 비밀번호 설정</a></li>
 						<li><a href="<c:url value='/myPage/scrap'/>">	<i class="fa-solid fa-photo-film"></i> 내 전시</a></li>
@@ -56,7 +56,7 @@
 							
 						<div class="infoBox">
 							<div class="itemsBox"><span>아이디</span></div>
-							<div class="inputBox">userId</div>	
+							<div class="inputBox">${sessionScope.sid}</div>	
 						</div> <!-- infoBox -->
 						
 						<div class="infoBox">
@@ -65,7 +65,7 @@
 						</div> <!-- infoBox -->
 						
 						<div class="buttonBox"> 
-							<input type="submit" class="black-btn" value="확인">
+							<input type="button" id="submitBtn" class="black-btn" value="확인">
 							<input type="reset" class="white-btn" value="취소">
 						</div> <!-- buttonBox -->
 					</div> <!-- tableBox -->

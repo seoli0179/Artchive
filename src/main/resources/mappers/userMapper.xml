@@ -6,7 +6,8 @@
 <mapper namespace="com.spring_boot_final.project.dao.IUserDAO">
 
     <!-- Create -->
-
+	
+	<!-- 회원 가입 -->
     <insert id="insertUser" parameterType="com.spring_boot_final.project.model.UserVO">
         <![CDATA[
         INSERT INTO user (userId, userPw, userEmail, userNickname, userGender, userBirth)
@@ -15,7 +16,8 @@
     </insert>
 
     <!-- Read -->
-
+	
+	<!-- 로그인 -->
     <select id="selectUser" parameterType="com.spring_boot_final.project.model.UserVO"
             resultType="com.spring_boot_final.project.model.UserVO">
         <![CDATA[
@@ -35,10 +37,17 @@
         WHERE userEmail = #{userEmail}
         ]]>
     </select>
-
-    <select id="selectUserView" parameterType="com.spring_boot_final.project.model.UserVO"
-            resultType="com.spring_boot_final.project.model.UserVO">
-
+    
+	<!--  마이페이지 비밀번호 확인 -->
+	<select id="userPwCheck" parameterType="string" resultType="string">
+        <![CDATA[
+        SELECT userPw
+        FROM user
+        WHERE userId = #{userId}
+        ]]>
+    </select>
+	
+	<!-- 마이페이지 수정 페이지 조회 -->
     <select id="selectUserView" parameterType="com.spring_boot_final.project.model.UserVO" resultType="com.spring_boot_final.project.model.UserVO">
         <![CDATA[
         SELECT *
@@ -50,7 +59,7 @@
 
     <!-- Update -->
 	
-	<!-- 마이페이지 편집 수정 -->
+	<!-- 마이페이지 수정 -->
 	<update id="updateUser" parameterType="com.spring_boot_final.project.model.UserVO">
 		UPDATE user
 		   SET userName=#{userName}, 
@@ -71,18 +80,16 @@
 
 	
     <!-- Delete -->
+    
 	<!-- 마이페이지 회원 탈퇴 -->
-	<!-- <update id="quitUser" parameterType="String">
-		UPDATE user
-		   SET userState = 2
-		 WHERE userId = #{userId}, userPw = #{userPw}
-	</update> -->
-
+	
 	<update id="quitUser" parameterType="string">
   		update user
   		set userState = 2
   		WHERE userId = #{userId}
   	</update>
+  	
+  	
 
 
 </mapper>
