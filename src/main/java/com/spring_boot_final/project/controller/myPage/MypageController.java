@@ -80,11 +80,15 @@ public class MypageController {
  	}
     
    
-    // 스크랩 view
-    @RequestMapping("myPage/scrap")
-    public String myPageScrap() {
-        return "myPage/scrap";
-    }
+	/*
+	 * // 스크랩 view
+	 * 
+	 * @RequestMapping("myPage/scrap") public String myPageScrap() {
+	 * 
+	 * return "myPage/scrap"; }
+	 */
+	 
+	 
     
     // 좋아요 view
     @RequestMapping("myPage/like")
