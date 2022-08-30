@@ -239,21 +239,68 @@ $( function() {
 $("#submitBtn").on("submit", updateCourse());
 /** 보내기 */
 function updateCourse() {
+    let courseSitesArr = "";
+    let courseAddressArr = "";
+    let courseMemoArr = "";
+    let courseTag = "";
+
+    let courseTitle = $("#courseTitle").val();
+    let exhbnId = $("#exhbnId").val();
+    let userId = $("#userId").val();
+    let courseId = $("#courseId").val();
+
+    if($("#courseStatus").prop("checked")){
+        $("#courseStatus").val(1);
+    } else {
+        $("#courseStatus").val(2);
+    }
+    let courseStatus = $("#courseStatus").val();
+
+    for (let i=0; i<sites.length; i++){
+        if (i==(sites.length)){
+            courseSitesArr += sites[i];
+            courseAddressArr += addresses[i];
+            courseMemoArr += memos[i];
+        } else {
+            courseSitesArr += sites[i] + ";;";
+            courseAddressArr += addresses[i] + ";;";
+            courseMemoArr += memos[i] + ";;";
+        }
+    }
+    for (let i=0; i<tags.length; i++){
+        if (i==(tags.length-1)){
+            courseTag += tags[i];
+        } else {
+            courseTag += tags[i] + ";;";
+        }
+    }
+    console.log(courseTag)
+
+    let param = {
+        "courseId":courseId,
+        "userId":userId,
+        "exhbnId":exhbnId,
+        "courseTitle":courseTitle,
+        "courseTag":courseTag,
+        "courseState":courseStatus,
+        "courseSitesArr":courseAddressArr,
+        "courseAddressArr":courseAddressArr,
+        "courseMemoArr":courseMemoArr
+    }
+    // let json = JSON.stringify()
+
     $.ajax({
-        url:"course/updateCourse",
+        url:"/course/updateCourse",
+        contentType: 'application/json',
         type:"POST",
         traditional:true,
-        data:{
-            siteNames:sites,
-            siteAddress:addresses,
-            siteMemos:memos,
-            courseTags:tags
-        },
+        data:JSON.stringify(param),
         success:function(result){
-            alert(result);
+            alert("수정 완료!");
+            window.history.back();
         },
-        error:function(result){
-            alert(result+"를 보내는 데 실패했습니다.");
+        error:function(request,status,error) {
+            alert("code="+request.status+"message="+request.responseText+"error="+error); //실패시처리
         }
     });
 }
