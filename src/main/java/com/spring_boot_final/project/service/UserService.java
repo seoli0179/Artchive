@@ -32,6 +32,12 @@ public class UserService {
  		dao.updateUser(vo);
  	}
  	
+ 	// 개인정보 확인 view 
+ 	public String userPwCheck(String userId) {
+ 		return dao.userPwCheck(userId);
+ 	}
+ 	
+ 	
  	// 비밀번호 수정
   	public void updatePw(UserVO vo) {
   		dao.updatePw(vo);
