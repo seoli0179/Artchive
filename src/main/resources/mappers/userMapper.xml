@@ -37,7 +37,7 @@
         WHERE userEmail = #{userEmail}
         ]]>
     </select>
-	
+    
 	<!--  마이페이지 비밀번호 확인 -->
 	<select id="userPwCheck" parameterType="string" resultType="string">
         <![CDATA[
