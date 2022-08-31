@@ -25,6 +25,8 @@
 					if(result == "SUCCESS"){
 						alert("탈퇴되었습니다.");
 						location.href="/";
+					} else {
+						alert("비밀번호가 일치하지 않습니다.");
 					}
 				},
 				error:function(){
