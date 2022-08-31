@@ -91,5 +91,17 @@ public class NoteService {
     public void updateNoteCommentDown(int noteId){
         dao.updateNoteCommentDown(noteId);
     }
+    
+    // 마이페이지 게시글 조회
+	public ArrayList<NoteVO> selectNoteView(String userId) {
+		return dao.selectNoteView(userId);
+	}
+	
+	// 마이페이지 게시글 삭제
+	public void deleteNoteView(int noteId) {
+			dao.deleteNoteView(noteId);
+	}
+
+	
 
 }
