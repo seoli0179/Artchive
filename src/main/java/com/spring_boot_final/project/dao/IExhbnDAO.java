@@ -1,9 +1,11 @@
 package com.spring_boot_final.project.dao;
 
 import com.spring_boot_final.project.model.ExhbnVO;
+
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 @Component
 public interface IExhbnDAO {
@@ -21,4 +23,7 @@ public interface IExhbnDAO {
 
     //Delete
     void deleteExhbn(int exhbnId);
+    
+    ArrayList<ExhbnVO> searchList(HashMap<String, Object> map);
+
 }

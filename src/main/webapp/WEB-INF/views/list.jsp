@@ -16,8 +16,10 @@
 	<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/list.css'/>">
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/detailSearch.css'/>"/>
+		<script src="<c:url value='/tools/jquery-3.6.0.min.js' /> "></script>
+	
+	<script src="<c:url value='/js/list_Search.js' />"></script>
 
-	<script src="<c:url value='/tools/jquery-3.6.0.min.js' /> "></script>
 	<%-- <script src="<c:url value='/js/list.js' />"></script>
      --%></head>
 
@@ -54,7 +56,7 @@
 	
 	                                </div>
 	                            </div>
-	                            <input class="black-btn courseBoard-searchBtn" type="button" value="검색">
+	                            <input class="black-btn courseBoard-searchBtn" type="button" id="black_search_bar" value="검색">
 	                            <input id="show" class="white-btn detailSearch courseBoard-searchBtn" type="button" value="상세검색">
 	                        </div>
 	                        <div id="tag-caution" class="vibration">태그는 3개까지만 선택할 수 있습니다.</div>
