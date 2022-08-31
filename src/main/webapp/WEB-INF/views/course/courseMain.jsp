@@ -81,10 +81,10 @@
                 <div class="selected" id="selected">
                         <div>
                             <c:if test="${not empty sessionScope.sid}">
-                                <span class="big-text">${sessionScope.username} 님이
+                                <span class="big-text"><strong>${sessionScope.username}</strong> 님이
                                 </span>
                             </c:if>
-                            <span class="big-text">선택한 <strong id="selectedExhbn">{전시명}</strong>부터 </span></div>
+                            <span class="big-text">선택한<strong id="selectedExhbn">{전시명}</strong>부터 </span></div>
                     <c:if test="${not empty sessionScope.sid}">
                         <div><a href="<c:url value='/course/detail'/>"><button type="submit" class="black-btn">코스짜러 가기</button></a></div>
                     </c:if>

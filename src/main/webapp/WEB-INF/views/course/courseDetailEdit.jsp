@@ -19,7 +19,7 @@
 		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 		<script src="<c:url value='/js/course/autocomplete.js'/>"></script>
 		<script src="<c:url value='/js/course/courseEdit.js'/>"></script>
-		<script src="<c:url value='/js/course/deleteCourse.js'/>"></script>
+		<script src="<c:url value='/js/course/courseDelete.js'/>"></script>
 	</head>
 	<body id="courseDetailEdit">
 		<!-- top으로 이동 -->
@@ -30,7 +30,8 @@
 			<section id="courseHeader" class="courseHeaderImg">
 				<div class="headerTextBox" style="background-image : url('${course.exhbnImgUrl}');">
 					<div id="header-exhbnTitle" class="headerText">
-						<input class="exhbn-title editInput" type="text" value="${course.exhbnTitle}" readonly> <i class="fa-solid fa-magnifying-glass"></i>
+						<input class="exhbn-title editInput" id="exhbnTitle" name="exhbnTitle" type="text" value="${course.exhbnTitle}" readonly>
+						<input class="exhbn-title editInput" id="exhbnId" name="exhbnId" type="text" value="${course.exhbnId}" hidden><i class="fa-solid fa-magnifying-glass"></i>
 					</div>
 					<div id="header-postTitle" class="headerText">
 						<input id="courseTitle" name="courseTitle" class="post-title editInput h1" type="text" placeholder="제목을 입력하세요." value="${course.courseTitle}">
@@ -52,8 +53,8 @@
 						<span id="toggleText">공개</span>
 				</div>
            		<div id="courseMainText">
-					<input type="reset" id="editBtn"  class="white-btn" value="삭제">
-					<input type="submit" id="submitBtn"  class="black-btn" value="저장">
+					<button id="deleteBtn"  class="white-btn">삭제</button>
+					<button id="saveBtn"  class="black-btn">저장</button>
            		</div><!-- courseMainText -->
 			</section><!-- courseMenu -->
 

@@ -12,7 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/check.css'/>"/>
 		<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
-		<script src="<c:url value='/js/myPage/check.js'/>"></script>
+		<script src="<c:url value='/js/myPage/check2.js'/>"></script>
 		
 	</head>
 	<body>

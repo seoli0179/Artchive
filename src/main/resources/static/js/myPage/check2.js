@@ -58,7 +58,7 @@
 				// 성공 시 결과 받음
 				if(result == "SUCCESS"){
 					alert("아이디와 비밀번호가 일치합니다.");
-					location.href="/myPage/edit/" 
+					location.href="/myPage/pwChange/" 
 				} else {
 					alert("비밀번호가 일치하지 않습니다.");
 				}

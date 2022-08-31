@@ -6,10 +6,15 @@ import com.spring_boot_final.project.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 @Controller
 public class CourseDataController {
@@ -17,11 +22,34 @@ public class CourseDataController {
     @Autowired
     CourseService courseService;
 
-//    @RequestMapping("/course/list")
-//    public ArrayList<CourseVO> selectCourse(Model model) {
-//        ArrayList<CourseVO> vo = courseService.selectCourse();
-//        model.addAttribute("courseList",vo);
-//
-//        return "course/list";
-//    }
+    @ResponseBody
+    @RequestMapping("/course/updateCourse")
+    public String updateCourse(HttpSession session, @RequestBody CourseVO vo){
+        if (session.getAttribute("sid") == null) {
+            return "FAIL";
+        }
+
+        vo.setUserId(session.getAttribute("sid").toString());
+        courseService.updateCourse(vo);
+
+        return "SUCCESS";
+    }
+
+    @ResponseBody
+    @RequestMapping("/course/deleteCourse")
+    public String deleteCourse(HttpSession session,
+                               @RequestParam("courseId") int courseId){
+        String userId = session.getAttribute("sid").toString();
+        if (session.getAttribute("sid") == null) {
+            return "FAIL";
+        }
+
+        HashMap<String, Object> map = new HashMap<String, Object>();
+        map.put("courseId", courseId);
+        map.put("userId", userId);
+        courseService.deleteCourse(map);
+
+        return "SUCCESS";
+    }
+
 }
