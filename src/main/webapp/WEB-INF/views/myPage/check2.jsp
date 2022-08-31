@@ -6,13 +6,13 @@
 <html>
 	<head>
 	<meta charset="UTF-8">
-		<title>arTchive / 마이페이지 - 스크랩</title>
+		<title>arTchive / 마이페이지 - 비밀번호 확인</title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>"/>
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/scrap.css'/>"/>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/check.css'/>"/>
 		<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
-		<script src="<c:url value='/js/bookMark.js'/>"></script>
+		<script src="<c:url value='/js/myPage/check2.js'/>"></script>
 		
 	</head>
 	<body>
@@ -41,51 +41,37 @@
 			
 			<div class="myPageBox">
 		
-				<h2>내 전시</h2>
-					<p class="line">
-				<div class="titleBox">
-					<a href="<c:url value='/myPage/scrap'/>">스크랩</a>
-					<%-- <a href="<c:url value='/myPage/like'/>">좋아요</a> --%>
-					<a href="<c:url value='/myPage/mpCourse'/>">코스</a>
-				</div><!-- titleBox -->
+				<h2>개인정보 확인</h2>
+				<p class="line">
 				
-				<div class="tableBox">
-					<table>
-						<thead>
-							<tr>
-								<th>구분</th>
-								<th>제목</th>
-								<th>등록 날짜</th>
-								<th>상태</th>
-							</tr>
+				
+				<form>
+					<div class="tableBox">
+						<div class="centerBox">
+							<h2 class="h2"><a class="logo" href="<c:url value='/'/>">Artchive</a></h2>
+							<span>정보를 안전하게 보호하기 위해<br>
+							<span class="red">비밀번호를 다시 한 번 확인</span>합니다.</span><br>
+							<span class="caution">비밀번호가 타인에게 노출되지 않도록 항상 주의해주세요.</span>
+						</div>
 							
-						</thead>
-
-						<tbody>
-							<!-- <tr>
-								<td>전시</td>
-								<td>히토 슈타이얼 - 데이터의 바다</td>
-								<td>2022.01.03</td>
-								<td><button class="white-btn">삭제</button></td>
-							</tr> -->
-							<c:forEach items="${bookMarkList}" var="bookMark" varStatus="status">
-								<tr>	
-									<%-- <td>${bookMark.bookmarkId}</td> --%>
-									<td>전시</td>
-									<td><a href="<c:url value='/exhbn/detail/${bookMark.exhbnId}'/>">${bookMark.exhbnTitle}</a></td>
-									<td>${bookMark.bookmarkAt}</td>
-									<td><input type="button" class="deleteBookMarkBtn white-btn"
-                                    onclick="deleteBookMark(${bookMark.bookmarkId})"
-                                    value="삭제"></td>
-								</tr>
-							</c:forEach>
-						</tbody>
-
-					</table>
-					</div><!--tableBox -->
-				
+						<div class="infoBox">
+							<div class="itemsBox"><span>아이디</span></div>
+							<div class="inputBox">${sessionScope.sid}</div>	
+						</div> <!-- infoBox -->
+						
+						<div class="infoBox">
+							<div class="itemsBox"><span>비밀번호</span></div>
+								<div class="inputBox"><input type="password" id="userPw" name="userPw" class="pwCfrmInput" required></div>
+						</div> <!-- infoBox -->
+						
+						<div class="buttonBox"> 
+							<input type="button" id="submitBtn" class="black-btn" value="확인">
+							<input type="reset" class="white-btn" value="취소">
+						</div> <!-- buttonBox -->
+					</div> <!-- tableBox -->
+					</form>
 			</div> <!-- myPageBox -->
-            </div>
+            </div> <!-- course-box guide-box -->
         </main>
         
 		</section>

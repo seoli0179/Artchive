@@ -30,14 +30,14 @@
                 <h2 class="h2"><a class="logo" href="<c:url value='/'/>">Artchive</a></h2>
                 <div class="guide-img-box">
                     <div class="guide-contents">
-                        <a class="items" href="<c:url value='/myPage/edit'/>"> 
+                        <a class="items" href="<c:url value='/myPage/check'/>"> 
 	                        <img class="guide-img" alt="개인정보 수정" src="<c:url value='/image/setting.png'/>">
 	                        <p class="h3">개인정보 수정</p>
 	                        <span class="small-text">본인인증, 휴대폰 번호<br> 등 내 정보를 수정하세요.</span>
                         </a>
                     </div>
                     <div class="guide-contents">
-                    	<a class="items" href="<c:url value='/myPage/pwChange/'/>"> 
+                    	<a class="items" href="<c:url value='/myPage/check2/'/>"> 
                         	<img class="guide-img" alt="비밀번호 설정" src="<c:url value='/image/lock.png'/>">
                         	<p class="h3">비밀번호 설정</p>
                         	<span class="small-text">비밀번호를 설정하여<br>내 정보를 보호하세요.</span>
