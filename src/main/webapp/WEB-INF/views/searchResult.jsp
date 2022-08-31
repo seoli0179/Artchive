@@ -291,7 +291,8 @@
 				<section id="ex-all">
 					<div class="ex-place">${exhbn.exhbnPlace}</div>
 					<div class="ex-title">${exhbn.exhbnTitle}</div>
-					<div class="ex-period"><fmt:formatDate value = "${exhbn.exhbnStartDate}" type ="date" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value = "${exhbn.exhbnEndDate}" type ="date" pattern="yyyy.MM.dd"/></div>
+					<div class="ex-period"><fmt:formatDate value = "${exhbn.exhbnStartDate}" type ="date" pattern="yyyy.MM.dd"/> ~ 
+					<fmt:formatDate value = "${exhbn.exhbnEndDate}" type ="date" pattern="yyyy.MM.dd"/></div>
 				</section>
 			</li>
 		</c:forEach>

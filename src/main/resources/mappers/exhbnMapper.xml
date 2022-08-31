@@ -87,12 +87,14 @@
         exhbnPlace,
         exhbnStartDate,
         exhbnEndDate,
-        exhbnImgUrl
+        exhbnImgUrl,
+        exhbnPrice
         FROM exhbn
         where <!-- n.userId = u.userId
         and n.category = #{category}
         and n.pageViewState = 'POST' -->
         exhbnTitle like CONCAT('%', #{keyword}, '%')
+        and exhbnPrice like CONCAT('%', #{keyword}, '%')
      <!--    <choose>
             <when test="sort == 'new'">
                 order by n.noteCreatedDate DESC

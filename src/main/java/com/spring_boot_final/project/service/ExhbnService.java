@@ -43,6 +43,7 @@ public class ExhbnService {
 		 * sort);
 		 */
         map.put("keyword", keyword);
+        
 
         ArrayList<ExhbnVO> vo = dao.searchList(map);
 		/*
