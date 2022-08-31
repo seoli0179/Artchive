@@ -508,9 +508,10 @@
 
 /* 수정모드 input */
 .editInput {
+	text-align: center;
 	box-sizing: border-box;
 	font-family: inherit;
-	font-size: 14px;
+	font-size: 12px;
 	vertical-align: baseline;
 	font-weight: 400;
 	line-height: 1.29;
@@ -518,7 +519,6 @@
 	border-radius: 0;
 	outline: 2px solid transparent;
 	outline-offset: -2px;
-	width: 100%;
 	border: none;
 	border-bottom: 1px solid #8d8d8d;
 	background-color: transparent;
@@ -530,10 +530,18 @@
 	outline-offset: -2px;
 }
 
+#exhbnTitle {
+	width: 300px;
+}
+#courseTitle {
+	width: 600px;
+}
+
 /* 디테일 */
 .headerTextBox .editInput {
 	text-align: center;
-	width: fit-content;
+	min-width: 200px;
+	max-width: 60%;
 	color: #ffffff;
 	height: fit-content;
 	padding: 5px;
