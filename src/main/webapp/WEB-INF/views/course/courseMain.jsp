@@ -123,15 +123,17 @@
                     </div>
                 </div>
                 <div class="courseList-box">
-                    <c:forEach items="${exhbnList}" var="exhbn" end="3">
+                    <c:forEach items="${courseList}" var="course" end="3">
                         <div class="course-item">
-                            <div>
-                                <a href="<c:url value='/exhbn/detail/${exhbn.exhbnId}'/>"><img class="coursepost-thumb" src="${exhbn.exhbnImgUrl}" alt="전시포스터"></a>
-                            </div>
-                            <div class="coursepost-box">
-                                <span class="ex-title">${exhbn.exhbnTitle}</span>
-                                <span class="like-logo"><i class="fa-solid fa-thumbs-up"></i><br>123</span>
-                            </div>
+                            <a href="<c:url value='/course/${course.courseId}'/>">
+                                <div>
+                                    <img class="coursepost-thumb" src="${course.exhbnImgUrl}" alt="전시포스터">
+                                </div>
+                                <div class="coursepost-box">
+                                    <span class="ex-title">${course.courseTitle}</span>
+                                    <span class="like-logo"><i class="fa-solid fa-thumbs-up"></i><br>${course.courseLike}</span>
+                                </div>
+                            </a>
                         </div>
                     </c:forEach>
                 </div>

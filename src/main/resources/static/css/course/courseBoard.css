@@ -138,6 +138,10 @@
     background-color: rgba(0, 0, 0, 0.3);
     background-blend-mode: multiply;
     border-radius: 10px;
+    background-position: 0 30%;
+    background-size: 30vw;
+    /*background-attachment:fixed;*/
+    background-repeat: no-repeat;
 }
 .post-title-box {
     margin: 0 auto;

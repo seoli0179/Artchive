@@ -87,7 +87,7 @@
                 <div class="course-box board-gallery-view">
                     <c:forEach var="li" items="${courseList}" varStatus="statusNm">
                         <div class="post-container" style="cursor: pointer;" onclick="location.href='/course/${li.courseId}';">
-                            <div class="post-img-box">
+                            <div class="post-img-box" style="background-image: url('${li.exhbnImgUrl}');">
 
                             </div>
                             <div class="post-title-box">

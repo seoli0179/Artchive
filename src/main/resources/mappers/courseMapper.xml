@@ -11,7 +11,7 @@
         select * from course
             inner join exhbn on course.exhbnId = exhbn.exhbnId
             inner join user on course.userId = user.userId
-        order by courseId;
+        ORDER BY courseId DESC;
         ]]>
     </select>
 
@@ -20,7 +20,7 @@
         select * from course
             inner join exhbn on course.exhbnId = exhbn.exhbnId
             inner join user on course.userId = user.userId
-        WHERE courseId=${courseId};
+        WHERE courseId=${courseId}
         ]]>
     </select>
 
