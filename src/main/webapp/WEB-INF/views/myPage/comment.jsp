@@ -12,6 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/comment.css'/>"/>
 		<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
+		<script src="<c:url value='/js/myPage/comment.js'/>"></script>
 		
 	</head>
 	<body>
@@ -51,21 +52,35 @@
 					<table>
 						<thead>
 							<tr>
-								<th>구분</th>
-								<th>제목</th>
+								<th>내용</th>
+								<th>좋아요</th>
 								<th>등록 날짜</th>
 								<th>상태</th>
 							</tr>
 							
 						</thead>
 						<tbody>
-							<tr>
-								<td colspan="4">작성한 댓글 내역이 없습니다.</td>
-							</tr>
+							<c:forEach items="${comment}" var="comment" varStatus="status">
+							
+							<c:if test="${empty comment.commentUpdatedDate}">
+								<tr>
+									<td colspan="4">작성한 댓글 내역이 없습니다.</td>
+								</tr>
+							</c:if>
+							
+							
+							<c:if test="${not empty comment.commentUpdatedDate }"></c:if>	
+								<tr>
+									<td><a href="<c:url value='/note/detail/${comment.noteId}'/>">${comment.comment}</a></td>
+									<td>${comment.commentLike}</td>
+									<td><fmt:formatDate value="${comment.commentUpdatedDate}" pattern="yyyy-MM-dd"/></td>
+									<td><input type="button" id="submitBtn" name="submitBtn" class="white-btn" 
+											onclick="deleteComment(${comment.commentId})" value="삭제"></td>
+								</tr>
+						</c:forEach>
 						</tbody>
 					</table>
 					</div><!--tableBox -->
-				
 			</div> <!-- myPageBox -->
             </div>
         </main>
