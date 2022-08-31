@@ -12,7 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/actHistory.css'/>"/>
 		<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
-		
+		<script src="<c:url value='/js/myPage/actHistory.js'/>"></script>
 	</head>
 	<body>
 		<div class="wrapper">
@@ -30,7 +30,7 @@
 					<ul class="tabMenu">
 						<li><a href="<c:url value='/myPage/home'/>"><i class="fa-solid fa-house"></i> 홈</a></li>
 						<li><a href="<c:url value='/myPage/check'/>"><i class="fa-solid fa-gears"></i> 개인정보 수정</a></li>
-						<li><a href="<c:url value='/myPage/pwChange'/>"><i class="fa-solid fa-unlock-keyhole"></i> 비밀번호 설정</a></li>
+						<li><a href="<c:url value='/myPage/check2'/>"><i class="fa-solid fa-unlock-keyhole"></i> 비밀번호 설정</a></li>
 						<li><a href="<c:url value='/myPage/scrap'/>">	<i class="fa-solid fa-photo-film"></i> 내 전시</a></li>
 						<li><a href="<c:url value='/myPage/actHistory'/>"><i class="fa-solid fa-pen"></i> 활동 내역</a></li>
 						<li><a href="<c:url value='/myPage/recmd'/>"><i class="fa-solid fa-star"></i> 추천 콘텐츠</a></li>
@@ -59,12 +59,25 @@
 							
 						</thead>
 						<tbody>
-							<tr>
-								<td>전시</td>
-								<td>히토 슈타이얼 - 데이터의 바다</td>
-								<td>2022.01.03</td>
-								<td><button class="white-btn">삭제</button></td>
-							</tr>
+						<c:forEach items="${noteList}" var="note" varStatus="status">
+							
+							<c:if test="${empty note.noteCreatedDate}">
+								<tr>
+									<td colspan="4">작성한 게시글 내역이 없습니다.</td>
+								</tr>
+							</c:if>
+							
+							
+							<c:if test="${not empty note.noteCreatedDate }"></c:if>	
+								<tr>
+									<td>${note.category}</td>
+									<td><a href="<c:url value='/note/detail/${note.noteId}'/>">${note.noteTitle}</a></td>
+									<td><fmt:formatDate value="${note.noteUpdatedDate}" pattern="yyyy-MM-dd"/></td>
+									<td><input type="button" id="submitBtn" name="submitBtn" class="white-btn" 
+											onclick="deleteNote(${note.noteId})" value="삭제"></td>
+								</tr>
+						</c:forEach>
+						
 						</tbody>
 					</table>
 					</div><!--tableBox -->
