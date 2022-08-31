@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 @Service
 public class CourseService {
@@ -24,5 +25,9 @@ public class CourseService {
 
     public void updateCourse(CourseVO vo) {
        dao.updateCourse(vo);
+    }
+
+    public void deleteCourse(HashMap<String, Object> map) {
+       dao.deleteCourse(map);
     }
 }

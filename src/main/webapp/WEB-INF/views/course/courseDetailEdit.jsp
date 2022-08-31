@@ -19,7 +19,7 @@
 		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 		<script src="<c:url value='/js/course/autocomplete.js'/>"></script>
 		<script src="<c:url value='/js/course/courseEdit.js'/>"></script>
-		<script src="<c:url value='/js/course/deleteCourse.js'/>"></script>
+		<script src="<c:url value='/js/course/courseDelete.js'/>"></script>
 	</head>
 	<body id="courseDetailEdit">
 		<!-- top으로 이동 -->
@@ -53,7 +53,7 @@
 						<span id="toggleText">공개</span>
 				</div>
            		<div id="courseMainText">
-					<input type="reset" id="editBtn"  class="white-btn" value="삭제">
+					<button id="deleteBtn"  class="white-btn">삭제</button>
 					<button id="saveBtn"  class="black-btn">저장</button>
            		</div><!-- courseMainText -->
 			</section><!-- courseMenu -->

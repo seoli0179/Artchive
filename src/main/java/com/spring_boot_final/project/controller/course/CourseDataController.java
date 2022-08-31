@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 @Controller
 public class CourseDataController {
@@ -30,6 +31,23 @@ public class CourseDataController {
 
         vo.setUserId(session.getAttribute("sid").toString());
         courseService.updateCourse(vo);
+
+        return "SUCCESS";
+    }
+
+    @ResponseBody
+    @RequestMapping("/course/deleteCourse")
+    public String deleteCourse(HttpSession session,
+                               @RequestParam("courseId") int courseId){
+        String userId = session.getAttribute("sid").toString();
+        if (session.getAttribute("sid") == null) {
+            return "FAIL";
+        }
+
+        HashMap<String, Object> map = new HashMap<String, Object>();
+        map.put("courseId", courseId);
+        map.put("userId", userId);
+        courseService.deleteCourse(map);
 
         return "SUCCESS";
     }
