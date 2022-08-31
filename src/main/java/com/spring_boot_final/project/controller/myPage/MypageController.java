@@ -3,6 +3,7 @@ package com.spring_boot_final.project.controller.myPage;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
 
@@ -14,7 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.spring_boot_final.project.model.CommentVO;
+import com.spring_boot_final.project.model.NoteVO;
 import com.spring_boot_final.project.model.UserVO;
+import com.spring_boot_final.project.service.CommentService;
+import com.spring_boot_final.project.service.NoteService;
 import com.spring_boot_final.project.service.UserService;
 
 @Controller
@@ -25,9 +30,15 @@ public class MypageController {
 	UserService userService;
 	
 	@Autowired
+	NoteService noteService;
+	
+	@Autowired
+	CommentService cmtService;
+	
+	@Autowired
 	PasswordEncoder encoder;
 	
-    // 마이페이지 home view
+    // 마이페이지 홈 view
     @RequestMapping("myPage/home")
     public String viewMyPage(Model model
 							,HttpSession session) {
@@ -41,7 +52,7 @@ public class MypageController {
     }
     
     
-    // 마이페이지 편집 view
+    // 마이페이지 편집 
     @RequestMapping("myPage/edit")
     public String viewMyPageEdit(Model model
     							,HttpSession session) {
@@ -50,6 +61,7 @@ public class MypageController {
     	
     	UserVO vo = userService.selectUserView(userId);
 		
+    	
     	// 이메일
     	String email1 = vo.getUserEmail();
 		String[] email = email1.split("@");
@@ -68,7 +80,7 @@ public class MypageController {
     	return "myPage/edit";
     }
     
-    // 마이페이지 수정(항목 수정)
+    // 마이페이지 수정(항목 수정) 
  	@ResponseBody
  	@RequestMapping("/myPage/updateUser")
  	public String myPageEditView(
@@ -83,6 +95,7 @@ public class MypageController {
  		UserVO vo = new UserVO();
  		String userEmail = userEmail1 + "@" +  userEmail2;
  		String userId = session.getAttribute("sid").toString();
+ 		
  		
  		vo.setUserId(userId);
  		vo.setUserName(userName);
@@ -107,7 +120,7 @@ public class MypageController {
  		return "SUCCESS";
  	}
  	
- 	// 마이페이지 비밀번호 확인 view
+ 	// 마이페이지 비밀번호 확인 
  	@ResponseBody
     @RequestMapping("/myPage/userPwCheck")
     public String userPwCheck(
@@ -130,7 +143,7 @@ public class MypageController {
     }
  	
  	
- 	// 마이페이지 비밀번호 설정 view
+ 	// 마이페이지 비밀번호 설정 
   	@ResponseBody
   	@RequestMapping("/myPage/updatePw")
   	public String userPwEdit(
@@ -152,8 +165,74 @@ public class MypageController {
   		return "SUCCESS";
   	}
   	
-    
+  	// 마이페이지 게시글 조회 
+  	@RequestMapping("myPage/actHistory")
+  	public String myPageActHistoty(HttpSession session, 
+  									Model model){
+  		
+    String userId = session.getAttribute("sid").toString();
+    	
+    ArrayList<NoteVO> vo = noteService.selectNoteView(userId);
+  		
+   	model.addAttribute("noteList", vo);
+    	
+  		return "myPage/actHistory";
+ 	}
   	
+  	// 마이페이지 게시글 삭제 
+  	@RequestMapping("/myPage/deleteNoteView")
+	@ResponseBody
+    public String deleteNoteView(
+					    		@RequestParam("noteId") int noteId,
+					            HttpSession session){
+    												
+
+  	  String userId = session.getAttribute("sid").toString();
+		
+		  if(session.getAttribute("sid") == null) return "FAIL";
+		 
+		 noteService.deleteNoteView(noteId);
+		
+
+        return "SUCCESS";
+    }
+  	
+  	
+  	// 마이페이지 댓글 조회 
+   	@RequestMapping("myPage/comment")
+   	public String myPageComment(HttpSession session, 
+   									Model model){
+   		
+     String userId = session.getAttribute("sid").toString();
+     	
+     ArrayList<CommentVO> vo = cmtService.selectCommentView(userId);
+   		
+    	model.addAttribute("comment", vo);
+     	
+   		return "myPage/comment";
+  	}
+   	
+   	
+   	
+   	// 마이페이지 댓글 삭제 
+   	@RequestMapping("/myPage/deleteMpComment")
+ 	@ResponseBody
+     public String deleteMpComment(
+ 					    		@RequestParam("commentId") int commentId,
+ 					            HttpSession session){
+     												
+
+   	  String userId = session.getAttribute("sid").toString();
+ 		
+ 		  if(session.getAttribute("sid") == null) return "FAIL";
+ 		 
+ 		 cmtService.deleteMpComment(commentId);
+ 		
+
+         return "SUCCESS";
+     }
+   	
+   	
  	// 마이페이지 회원 탈퇴 view
     @RequestMapping("myPage/withdraw")
     public String myPagewithdraw(HttpSession session, 
@@ -168,7 +247,7 @@ public class MypageController {
     	return "myPage/withdraw";
     }
  	
- 	// 마이페이지 회원 탈퇴
+ 	// 마이페이지 회원 삭제(Update)
  	@ResponseBody
  	@RequestMapping("/myPage/quitUser")
  	public String quitUser(@RequestParam("userPw") String userPw,
@@ -216,25 +295,25 @@ public class MypageController {
         return "myPage/event";
     }
     
-    // 활동 내역 게시글 view
-    @RequestMapping("myPage/actHistory")
-    public String myPageactHistory() {
-        return "myPage/actHistory";
-    }
+//    // 활동 내역 게시글 view
+//    @RequestMapping("myPage/actHistory")
+//    public String myPageactHistory() {
+//        return "myPage/actHistory";
+//    }
     
-    // 활동 내역 댓글 view
-    @RequestMapping("myPage/comment")
-    public String myPageComment() {
-        return "myPage/comment";
-    }
-    
+//    // 활동 내역 댓글 view
+//    @RequestMapping("myPage/comment")
+//    public String myPageComment() {
+//        return "myPage/comment";
+//    }
+//    
     // 회원 정보 확인 view
     @RequestMapping("myPage/check")
     public String myPageCheck() {
         return "myPage/check";
     }
     
- // 회원 정보 확인 view
+    // 회원 정보 확인 view
     @RequestMapping("myPage/check2")
     public String myPageCheck2() {
         return "myPage/check2";
