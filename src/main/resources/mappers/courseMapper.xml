@@ -38,4 +38,11 @@
         ]]>
     </update>
 
+    <delete id="deleteCourse" parameterType="hashmap">
+        <![CDATA[
+        DELETE FROM course
+        WHERE courseId = #{courseId} AND userId = #{userId}
+        ]]>
+    </delete>
+
 </mapper>
