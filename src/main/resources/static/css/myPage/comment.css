@@ -90,7 +90,7 @@
 	margin-top:3%;
 }
 
-.titleBox a:last-child {
+.titleBox a:nth-child(2) {
 	color:#000;
 }
 

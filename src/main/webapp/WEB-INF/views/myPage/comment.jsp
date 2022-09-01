@@ -46,38 +46,42 @@
 				<div class="titleBox">
 					<a href="<c:url value='/myPage/post'/>">게시글</a>
 					<a href="<c:url value='/myPage/comment'/>">댓글</a>
+					<a href="<c:url value='/myPage/coursePost'/>">코스</a>
 				</div><!-- titleBox -->
 				
 				<div class="tableBox">
 					<table>
 						<thead>
 							<tr>
+								<th>상태</th>
 								<th>내용</th>
-								<th>좋아요</th>
-								<th>등록 날짜</th>
+								<th>등록일</th>
 								<th>상태</th>
 							</tr>
 							
 						</thead>
 						<tbody>
-							<c:forEach items="${comment}" var="comment" varStatus="status">
+							<c:choose>
 							
-							<c:if test="${empty comment.commentUpdatedDate}">
+								
+							
+							<c:when test="${empty comment}">
 								<tr>
 									<td colspan="4">작성한 댓글 내역이 없습니다.</td>
 								</tr>
-							</c:if>
-							
-							
-							<c:if test="${not empty comment.commentUpdatedDate }"></c:if>	
-								<tr>
-									<td><a href="<c:url value='/note/detail/${comment.noteId}'/>">${comment.comment}</a></td>
-									<td>${comment.commentLike}</td>
-									<td><fmt:formatDate value="${comment.commentUpdatedDate}" pattern="yyyy-MM-dd"/></td>
-									<td><input type="button" id="submitBtn" name="submitBtn" class="white-btn" 
-											onclick="deleteComment(${comment.commentId})" value="삭제"></td>
-								</tr>
-						</c:forEach>
+							</c:when>
+							<c:otherwise>
+								<c:forEach items="${comment}" var="comment" varStatus="status">
+									<tr>
+										<td>${comment.pageViewState}</td>
+										<td><a href="<c:url value='/note/detail/${comment.noteId}'/>">${comment.comment}</a></td>
+										<td><fmt:formatDate value="${comment.commentUpdatedDate}" pattern="yyyy-MM-dd"/></td>
+										<td><input type="button" id="submitBtn" name="submitBtn" class="white-btn" 
+												onclick="deleteComment(${comment.commentId})" value="삭제"></td>
+									</tr>
+								</c:forEach>
+							 </c:otherwise>
+							</c:choose>
 						</tbody>
 					</table>
 					</div><!--tableBox -->
