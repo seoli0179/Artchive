@@ -1,11 +1,11 @@
 package com.spring_boot_final.project.dao;
 
-import com.spring_boot_final.project.model.NoteVO;
-import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
+
+import org.springframework.stereotype.Component;
+
+import com.spring_boot_final.project.model.NoteVO;
 
 @Component
 public interface INoteDAO {
@@ -33,5 +33,13 @@ public interface INoteDAO {
 
     void updateNoteCommentUp(int noteId);
     void updateNoteCommentDown(int noteId);
+   
+    
+    // 마이페이지 게시글 조회
+    ArrayList<NoteVO> selectNoteView(String userId);
+    
+    // 마이페이지 게시글 삭제 
+	void deleteNoteView(int userId);
+    
 
 }

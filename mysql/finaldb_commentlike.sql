@@ -29,8 +29,10 @@ CREATE TABLE `commentlike` (
   `userId` varchar(50) NOT NULL,
   KEY `commentId` (`commentId`),
   KEY `userId` (`userId`),
-  CONSTRAINT `commentlike_ibfk_1` FOREIGN KEY (`commentId`) REFERENCES `comment` (`commentId`),
+  CONSTRAINT `commentlike_ibfk_1` FOREIGN KEY (`commentId`) REFERENCES `comment` (`commentId`)
+  ON DELETE CASCADE,
   CONSTRAINT `commentlike_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
+  ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

@@ -57,7 +57,19 @@
           and userId = #{userId};
         ]]>
     </select>
-
+	
+	<!-- 마이페이지 댓글 조회-->
+	<select id="selectCommentView" parameterType="string" resultType="com.spring_boot_final.project.model.CommentVO">
+        <![CDATA[
+        select *
+        from comment
+        where userId = #{userId}
+        and pageViewState = 'POST'
+        ]]>
+    </select>
+	
+	
+	
     <!-- Update -->
 
     <update id="updateComment" parameterType="com.spring_boot_final.project.model.CommentVO">
@@ -102,6 +114,15 @@
         from commentLike
         where commentId = #{commentId}
           and userId = #{userId};
+        ]]>
+    </delete>
+    
+    <!-- 마이페이지 댓글 삭제 -->
+     <delete id="deleteMpComment" parameterType="int">
+        <![CDATA[
+        delete
+        from comment
+        where commentId = #{commentId}
         ]]>
     </delete>
 

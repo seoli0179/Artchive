@@ -57,5 +57,15 @@ public class CommentService {
             return false;
         }
     }
+    
+    // 마이페이지 댓글 조회
+    public ArrayList<CommentVO> selectCommentView(String userId){
+    	return dao.selectCommentView(userId);
+    }
+    
+    // 마이페이지 댓글 삭제
+    public void deleteMpComment(int commentId) {
+    	dao.deleteMpComment(commentId);
+    }
 
 }

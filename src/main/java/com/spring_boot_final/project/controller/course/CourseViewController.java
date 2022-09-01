@@ -34,6 +34,9 @@ public class CourseViewController {
         ArrayList<ExhbnVO> vo = service.selectAllData();
         model.addAttribute("exhbnList",vo);
 
+        ArrayList<CourseVO> courseVo = courseService.selectCourse();
+        model.addAttribute("courseList",courseVo);
+
         return "course/courseMain";
 
         // course board view
