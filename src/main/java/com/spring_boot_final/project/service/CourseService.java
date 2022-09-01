@@ -30,4 +30,14 @@ public class CourseService {
     public void deleteCourse(HashMap<String, Object> map) {
        dao.deleteCourse(map);
     }
+    
+    // 마이 페이지 작성한 코스 게시물 조회    
+	public ArrayList<CourseVO> mpCoursePostSelect(String userId) {
+		return dao.mpCoursePostSelect(userId);
+	}
+	
+	// 마이페이지 작성한 코스 게시물 삭제
+    public void deleteMpCourse(int courseId) {
+    	dao.deleteMpCourse(courseId);
+    }
 }

@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* myPageComment.css */
+/* myPageCheck.css */
 
 @font-face {
 	font-family: 'establishRetrosansOTF';
@@ -72,7 +72,7 @@
 }
 
 
-.tabMenu li:nth-child(5) a, .tabMenu li a:hover {
+.tabMenu li:nth-child(3) a, .tabMenu li a:hover {
 	color:#000;
 	font-weight:bold;
 }
@@ -90,7 +90,7 @@
 	margin-top:3%;
 }
 
-.titleBox a:nth-child(2) {
+.titleBox a:first-child {
 	color:#000;
 }
 
@@ -106,7 +106,7 @@
 	margin-left:2%;
 }
 
-/* 스크랩, 좋아요, 코스 */
+/* 기본 정보, 맞춤 정보 */
 .myPageBox h2 {
 	font-size:28px;
 	color:#000;
@@ -120,9 +120,9 @@
 
 /* 테이블 */
  .tableBox {
+ 	width:100%;
 	overflow-x: hidden;
 	overflow-y: hidden;
- 	margin:0 5% auto;
  	margin-top:3%;
  }
  
@@ -133,34 +133,124 @@
  	align-items:center;
  	vertical-align:middle;
  	text-align:center;
+ 	margin-left: 13%;
  }
  
-
-.tableBox {
-	margin-top:3%;
+ .ment {
+ 	margin-top:1%;
+ }
+.warning {
+	padding: 10px 5px;
+    line-height: 14px;
+    font-size: 13px;
+    color: #ef3e42;
+}
+/* 항목 */
+.itemsBox {
+	display:flex;
+	width:20%;
+	text-align:center;
 }
 
-table {
-	width:100%;
-	height: auto;
-    margin-bottom: 40%;
-}
-
-table th {
-	border-top:2px solid #000;
-	border-bottom :2px solid #000;
-	font-weight:bold;
-	background:#F6F6F6;
-	padding:20px;
+ .itemsBox>span {
+ 	font-weight:bold;
+	padding:20% 15%;
 	height:auto;
 	line-height:auto;
-	text-align:center;	
+	text-align:left;
+	width:100%;	
+	color:#aaa;
+ }
+
+ .itemsBox>span:hover {
+ 	color:#000;
+ }
+
+.inputBox {
+	display:flex;
+	margin-right:15%;
+	width:50%;
 }
 
 
-table td {
+/* 입력창 */
+.nameInput, .numberInput, .nicknameInput, .emailInput {
+	width: 40%;
+    height: 40px;
+    padding-left: 8px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    box-sizing: border-box;
+    vertical-align: top;
+    font-size: 15px;
+    color: #202020;
+}
+
+/* 설명 */
+.explain {
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: #aaa;
+}
+
+
+/* 버튼 */
+.buttonBox {
+	margin:0 auto;
 	text-align:center;
-	padding:3% 0;
-	items-align:center;
-	border-bottom :2px solid #000;
+	margin-top:6%;
+	margin-bottom: 10%;
+}
+
+.white-btn, .black-btn {
+	width:200px;
+	font-size:15px;
+	margin-left:5%;
+}
+
+.centerBox {
+	margin:0 auto;
+	text-align:center;
+	margin: 10% 0 0;
+	
+}
+
+
+.centerBox>span {
+	font-size:20px;
+}
+
+.red {
+    color: #ef3e42;
+    font-size:20px;
+}
+
+span.caution {
+	margin-top: 12px;
+    font-size: 13px;
+    color: #707070;
+}
+
+.pwCfrmInput {
+	width: 80%;
+    height: 40px;
+    padding-left: 8px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    box-sizing: border-box;
+    vertical-align: top;
+    font-size: 15px;
+    color: #202020;
+}
+
+
+.searchBox {
+	margin:0 auto;
+	margin:3% 0;
+	text-align:center;
+	
+}
+
+.searchBox>a {
+	font-size:15px;
 }

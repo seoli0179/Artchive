@@ -29,8 +29,10 @@ CREATE TABLE `notelike` (
   `userId` varchar(50) NOT NULL,
   KEY `noteId` (`noteId`),
   KEY `userId` (`userId`),
-  CONSTRAINT `notelike_ibfk_1` FOREIGN KEY (`noteId`) REFERENCES `note` (`noteId`),
+  CONSTRAINT `notelike_ibfk_1` FOREIGN KEY (`noteId`) REFERENCES `note` (`noteId`)
+  ON DELETE CASCADE,
   CONSTRAINT `notelike_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
+  ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

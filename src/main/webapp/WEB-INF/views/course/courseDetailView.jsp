@@ -22,6 +22,7 @@
 		
 		<script src="<c:url value='/js/note/detail.js'/>"></script>
 		<script src="<c:url value='/js/course/detailView.js'/>"></script>
+		<script src="<c:url value='/js/course/courseDelete.js'/>"></script>
 		<script type="text/javascript"></script>
 	</head>
 	<body>
@@ -37,7 +38,7 @@
 					</div>
 					<div id="header-postTitle" class="headerText">
 						<h1>${course.courseTitle}</h1>
-						<input type="text" value="${course.courseId}" hidden>
+						<input type="text" id="courseId" name="courseId" value="${course.courseId}" hidden>
 					</div>
 					<div id="header-postDate" class="headerText">
 						<ul><li><fmt:formatDate value="${course.createdAt}" pattern="yyyy. MM. dd. E"></fmt:formatDate></li></ul>
@@ -51,9 +52,14 @@
 					<i id="back" class="fa-solid fa-arrow-left fa-2xl"></i>
 				</div>
            		<div id="courseMainBtn-Box">
-					<input type="button" id="editCourseBtn"  class="white-btn" value="수정" onclick="location.href='<c:url value="/course/${course.courseId}/edit"/>'">
-					<input type="button" id="like-btn"  class="white-btn" value="좋아요">
-					<input type="button" id="scrap-btn"  class="black-btn" value="스크랩">
+					<c:if test="${sessionScope.sid == course.userId}">
+						<input type="button" id="editCourseBtn"  class="white-btn" value="수정" onclick="location.href='<c:url value="/course/${course.courseId}/edit"/>'">
+						<button id="deleteBtn_view"  class="white-btn">삭제</button>
+					</c:if>
+					<c:if test="${sessionScope.sid != course.userId}">
+						<input type="button" id="like-btn"  class="white-btn" value="좋아요">
+						<input type="button" id="scrap-btn"  class="black-btn" value="스크랩">
+					</c:if>
            		</div><!-- courseMainText -->
 			</section><!-- courseMenu -->
 

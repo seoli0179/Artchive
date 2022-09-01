@@ -81,5 +81,31 @@
         WHERE exhbnId = #{exhbnId}
         ]]>
     </update>
-
+  <select id="searchList" parameterType="hashmap" resultType="com.spring_boot_final.project.model.ExhbnVO">
+        select exhbnId,
+        exhbnTitle,
+        exhbnPlace,
+        exhbnStartDate,
+        exhbnEndDate,
+        exhbnImgUrl,
+        exhbnPrice
+        FROM exhbn
+        where <!-- n.userId = u.userId
+        and n.category = #{category}
+        and n.pageViewState = 'POST' -->
+        exhbnTitle like CONCAT('%', #{keyword}, '%')
+        and exhbnPrice like CONCAT('%', #{keyword}, '%')
+     <!--    <choose>
+            <when test="sort == 'new'">
+                order by n.noteCreatedDate DESC
+            </when>
+            <when test="sort == 'popular'">
+                order by n.noteLike DESC
+            </when>
+            <otherwise>
+                order by n.noteCreatedDate DESC
+            </otherwise>
+        </choose>
+        limit 10 offset #{page}; -->
+    </select>
 </mapper>

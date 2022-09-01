@@ -18,22 +18,36 @@ USE `finaldb`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `commentlike`
+-- Table structure for table `certify`
 --
 
-DROP TABLE IF EXISTS `commentlike`;
+DROP TABLE IF EXISTS `certify`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `commentlike` (
-  `commentId` int NOT NULL AUTO_INCREMENT,
-  `userId` varchar(50) NOT NULL,
-  KEY `commentId` (`commentId`),
-  KEY `userId` (`userId`),
-  CONSTRAINT `commentlike_ibfk_1` FOREIGN KEY (`commentId`) REFERENCES `comment` (`commentId`)
-  ON DELETE CASCADE,
-  CONSTRAINT `commentlike_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
-  ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `certify` (
+  `userEmail` varchar(50) DEFAULT NULL,
+  `certifyNum` varchar(20) DEFAULT NULL,
+  UNIQUE KEY `userEmail` (`userEmail`),
+  CONSTRAINT `certify_ibfk_1` FOREIGN KEY (`userEmail`) REFERENCES `user` (`userEmail`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Dumping data for table `certify`
+--
 
+LOCK TABLES `certify` WRITE;
+/*!40000 ALTER TABLE `certify` DISABLE KEYS */;
+/*!40000 ALTER TABLE `certify` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-09-01 17:00:13
