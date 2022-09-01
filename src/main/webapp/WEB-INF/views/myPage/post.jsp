@@ -45,6 +45,7 @@
 				<div class="titleBox">
 					<a href="<c:url value='/myPage/post'/>">게시글</a>
 					<a href="<c:url value='/myPage/comment'/>">댓글</a>
+					<a href="<c:url value='/myPage/coursePost'/>">코스</a>
 				</div><!-- titleBox -->
 				
 				<div class="tableBox">
@@ -53,31 +54,34 @@
 							<tr>
 								<th>구분</th>
 								<th>제목</th>
-								<th>등록 날짜</th>
+								<th>등록일</th>
 								<th>상태</th>
 							</tr>
 							
 						</thead>
 						<tbody>
-						<c:forEach items="${noteList}" var="note" varStatus="status">
+							<c:choose>
 							
-							<c:if test="${empty note.noteCreatedDate}">
-								<tr>
-									<td colspan="4">작성한 게시글 내역이 없습니다.</td>
-								</tr>
-							</c:if>
+								<c:when test="${empty noteList}">
+									<tr>
+										<td colspan="4">작성한 게시글 내역이 없습니다.</td>
+									</tr>
+								</c:when>
 							
 							
-							<c:if test="${not empty note.noteCreatedDate }"></c:if>	
-								<tr>
-									<td>${note.category}</td>
-									<td><a href="<c:url value='/note/detail/${note.noteId}'/>">${note.noteTitle}</a></td>
-									<td><fmt:formatDate value="${note.noteUpdatedDate}" pattern="yyyy-MM-dd"/></td>
-									<td><input type="button" id="submitBtn" name="submitBtn" class="white-btn" 
+							<c:otherwise>
+								<c:forEach items="${noteList}" var="note" varStatus="status">
+									<tr>
+										<td>${note.category}</td>
+										<td><a href="<c:url value='/note/detail/${note.noteId}'/>">${note.noteTitle}</a></td>
+										<td><fmt:formatDate value="${note.noteUpdatedDate}" pattern="yyyy-MM-dd"/></td>
+										<td><input type="button" id="submitBtn" name="submitBtn" class="white-btn" 
 											onclick="deleteNote(${note.noteId})" value="삭제"></td>
-								</tr>
-						</c:forEach>
-						
+									</tr>
+									</c:forEach>
+								</c:otherwise>
+								
+							</c:choose>
 						</tbody>
 					</table>
 					</div><!--tableBox -->

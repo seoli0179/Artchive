@@ -2,30 +2,12 @@ package com.spring_boot_final.project.controller.myPage;
 
 
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.spring_boot_final.project.service.CommentService;
-import com.spring_boot_final.project.service.NoteService;
-import com.spring_boot_final.project.service.UserService;
 
 @Controller
 public class MpViewController {
-	
-	
-	@Autowired
-	UserService userService;
-	
-	@Autowired
-	NoteService noteService;
-	
-	@Autowired
-	CommentService cmtService;
-	
-	@Autowired
-	PasswordEncoder encoder;
 	
     
 //    // 좋아요 view

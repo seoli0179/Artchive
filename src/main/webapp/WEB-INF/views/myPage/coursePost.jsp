@@ -6,14 +6,13 @@
 <html>
 	<head>
 	<meta charset="UTF-8">
-		<title>arTchive / 마이페이지 - 활동내역(댓글)</title>
+		<title>arTchive / 마이페이지 - 활동내역(코스)</title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>"/>
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/comment.css'/>"/>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/coursePost.css'/>"/>
 		<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
-		<script src="<c:url value='/js/myPage/comment.js'/>"></script>
-		
+		<script src="<c:url value='/js/myPage/coursePost.js'/>"></script>
 	</head>
 	<body>
 		<div class="wrapper">
@@ -53,8 +52,8 @@
 					<table>
 						<thead>
 							<tr>
-								<th>상태</th>
-								<th>내용</th>
+								<th>구분</th>
+								<th>제목</th>
 								<th>등록일</th>
 								<th>상태</th>
 							</tr>
@@ -62,29 +61,30 @@
 						</thead>
 						<tbody>
 							<c:choose>
-							
 								
-							
-							<c:when test="${empty comment}">
-								<tr>
-									<td colspan="4">작성한 댓글 내역이 없습니다.</td>
-								</tr>
-							</c:when>
-							<c:otherwise>
-								<c:forEach items="${comment}" var="comment" varStatus="status">
+								<c:when test="${empty coursePost}">
 									<tr>
-										<td>${comment.pageViewState}</td>
-										<td><a href="<c:url value='/note/detail/${comment.noteId}'/>">${comment.comment}</a></td>
-										<td><fmt:formatDate value="${comment.commentUpdatedDate}" pattern="yyyy-MM-dd"/></td>
-										<td><input type="button" id="submitBtn" name="submitBtn" class="white-btn" 
-												onclick="deleteComment(${comment.commentId})" value="삭제"></td>
+										<td colspan="4">작성한 게시글 내역이 없습니다.</td>
 									</tr>
-								</c:forEach>
-							 </c:otherwise>
+								</c:when>
+								
+								<c:otherwise>
+									<c:forEach items="${coursePost}" var="coursePost" varStatus="status">
+										<tr>
+											<td>${coursePost.courseTag}</td>
+											<td><a href="<c:url value='/course/${coursePost.courseId}'/>">${coursePost.courseTitle}</a></td>
+											<td><fmt:formatDate value="${coursePost.createdAt}" pattern="yyyy-MM-dd"/></td>
+											<td><input type="button" id="submitBtn" name="submitBtn" class="white-btn" 
+													onclick="deleteMpCourse(${coursePost.courseId})" value="삭제"></td>
+										</tr>
+									</c:forEach>
+								</c:otherwise>
+								
 							</c:choose>
 						</tbody>
 					</table>
 					</div><!--tableBox -->
+				
 			</div> <!-- myPageBox -->
             </div>
         </main>
