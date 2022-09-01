@@ -171,3 +171,20 @@ input:focus {
 	width: 10px;
 	height: 10px;
 }
+
+/** 스크롤바 **/
+#chatBox::-webkit-scrollbar {
+    width: 8px;  /* 스크롤바의 너비 */
+}
+
+#chatBox::-webkit-scrollbar-thumb {
+    height: 30%; /* 스크롤바의 길이 */
+    background: #000; /* 스크롤바의 색상 */
+    
+    border-radius: 10px;
+}
+
+#chatBox::-webkit-scrollbar-track {
+    background: #ebebeb;  /*스크롤바 뒷 배경 색상*/
+     border-radius: 10px;
+}
