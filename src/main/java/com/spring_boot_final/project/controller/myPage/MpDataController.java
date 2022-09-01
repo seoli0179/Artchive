@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring_boot_final.project.model.CommentVO;
+import com.spring_boot_final.project.model.CourseVO;
 import com.spring_boot_final.project.model.NoteVO;
 import com.spring_boot_final.project.model.UserVO;
 import com.spring_boot_final.project.service.CommentService;
+import com.spring_boot_final.project.service.CourseService;
 import com.spring_boot_final.project.service.NoteService;
 import com.spring_boot_final.project.service.UserService;
 
@@ -34,6 +36,9 @@ public class MpDataController {
 	
 	@Autowired
 	CommentService cmtService;
+	
+	@Autowired
+	CourseService courseService;
 	
 	@Autowired
 	PasswordEncoder encoder;
@@ -212,7 +217,6 @@ public class MpDataController {
   	}
    	
    	
-   	
    	// 마이페이지 댓글 삭제 
    	@RequestMapping("/myPage/deleteMpComment")
  	@ResponseBody
@@ -231,6 +235,31 @@ public class MpDataController {
          return "SUCCESS";
      }
    	
+   	// 마이페이지 작성한 코스 게시물 조회 
+   	@RequestMapping("myPage/coursePost")
+   	public String myPageCoursePost(HttpSession session, 
+   									Model model){
+   		
+     String userId = session.getAttribute("sid").toString();
+     	
+     ArrayList<CourseVO> vo = courseService.mpCoursePostSelect(userId);
+   		
+    	model.addAttribute("coursePost", vo);
+     	
+   		return "myPage/coursePost";
+  	}
+   	
+	// 마이페이지 작성한 코스 게시물 삭제 
+   	@ResponseBody
+   	@RequestMapping("myPage/deleteMpCourse")
+   	public String deleteMpCourse(
+   								@RequestParam("courseId") int courseId,
+   								HttpSession session){
+   		
+     	courseService.deleteMpCourse(courseId);
+     	
+   		return "SUCCESS";
+  	}
    	
  	// 마이페이지 회원 탈퇴 view
     @RequestMapping("myPage/withdraw")
