@@ -41,7 +41,7 @@ public class UserDataController {
             @RequestParam("id") String id,
             @RequestParam("pw") String pw,
             HttpSession session
-    ){
+    ) {
         UserVO vo = new UserVO();
 
         vo.setUserId(id);
@@ -53,11 +53,71 @@ public class UserDataController {
         if (vo == null || !encoder.matches(pw, vo.getUserPw()))
             return "FAIL";
 
-        session.setAttribute("sid",vo.getUserId());
-        session.setAttribute("username",vo.getUserNickname());
+        session.setAttribute("sid", vo.getUserId());
+        session.setAttribute("username", vo.getUserNickname());
 
 
         return "SUCCESS";
     }
+
+    @RequestMapping("user/idCheck")
+    public boolean idCheck(@RequestParam("id") String id) {
+        System.out.println(id);
+        if (id.equals("abc")) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+
+    @RequestMapping("user/emailCheck")
+    public boolean emailCheck(@RequestParam("email") String email) {
+        System.out.println(email);
+        if (email.equals("abc@email.com")) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+
+    @RequestMapping("user/nicknameCheck")
+    public boolean nicknameCheck(@RequestParam("nickname") String nickname) {
+        System.out.println(nickname);
+        if (nickname.equals("닉")) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+
+    @RequestMapping("user/emailNumCheck")
+    public boolean emailNumCheck(@RequestParam("email_check") String email_check) {
+        System.out.println(email_check);
+        if (email_check.equals("123456")) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    @RequestMapping("user/emailNicknameCheck")
+    public boolean emailNicknameCheck(
+            @RequestParam("nickname") String nickname,
+            @RequestParam("email") String email,
+            @RequestParam("email_check") String email_check
+    ) {
+        System.out.println(nickname);
+        System.out.println(email);
+        System.out.println(email_check);
+
+        return true;
+
+    }
+
+
 
 }

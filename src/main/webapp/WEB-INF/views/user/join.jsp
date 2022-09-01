@@ -43,23 +43,23 @@
         </div>
         <div class="int-area pw">
             <input type="password" name="password" id="pw" autocomplete="off" required>
-            <label for="pw">비밀번호 입력 (문자, 숫자, 특수문자 포함 8~20자)</label>
+            <label for="pw">비밀번호 입력 (영문자, 숫자, 특수문자 모두포함 8~20자)</label>
             <div class="show"><i class="fa-solid fa-eye"></i><i class="fa-solid fa-eye-slash"></i></div>
         </div>
         <div class="int-area email">
             <input type="email" name="email" id="email" autocomplete="off" required>
             <label for="email">이메일 주소 입력</label>
-            <div class="check sendmessage"><i class="fa-solid fa-circle-check" style="color:Red"></i></div>
+            <div class="check sendmessage"><i id="emailCheckBtn" class="fa-solid fa-circle-check" style="color:Red"></i></div>
         </div>
         <div class="int-area email_check">
-            <input type="number" name="email_check" id="email_check" autocomplete="off" required>
+            <input type="text" name="email_check" id="email_check" autocomplete="off" required>
             <label for="email_check">인증번호</label>
-            <div class="check"><i class="fa-solid fa-circle-check" style="color:Red"></i></div>
+            <div class="check"><i id="emailNumCheckBtn" class="fa-solid fa-circle-check" style="color:Red"></i></div>
         </div>
         <div class="int-area nickname">
             <input type="text" name="nickname" id="nickname" autocomplete="off" required>
             <label for="nickname">닉네임 입력</label>
-            <div class="check"><i class="fa-solid fa-circle-check" style="color:Red"></i></div>
+            <div class="check"><i id="nicknameCheckBtn" class="fa-solid fa-circle-check" style="color:Red"></i></div>
         </div>
         <div class="int-area gender">
             <label style="top:5px;">성별</label>
