@@ -1,10 +1,10 @@
 package com.spring_boot_final.project.dao;
 
-import com.spring_boot_final.project.model.CommentVO;
-import com.spring_boot_final.project.model.NoteVO;
+import java.util.ArrayList;
+
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
+import com.spring_boot_final.project.model.CommentVO;
 
 @Component
 public interface ICommentDAO {
@@ -22,5 +22,11 @@ public interface ICommentDAO {
     int selectCommentLike(CommentVO vo);
     void insertCommentLike(CommentVO vo);
     void deleteCommentLike(CommentVO vo);
-
+    
+    // 마이페이지 댓글 조회
+    ArrayList<CommentVO> selectCommentView(String userId);
+    
+    // 마이페이지 댓글 삭제
+    void deleteMpComment(int commentId);
+    
 }
