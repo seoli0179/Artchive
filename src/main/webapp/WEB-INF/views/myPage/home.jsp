@@ -51,7 +51,7 @@
 	                    </a> 
                     </div>
                      <div class="guide-contents">
-						<a class="items" href="<c:url value='/myPage/actHistory'/>"> 	
+						<a class="items" href="<c:url value='/myPage/post'/>"> 	
 							<img class="guide-img" alt="활동 내역" src="<c:url value='/image/post.png'/>">
 	                        <p class="h3">활동 내역</p>
 	                        <span class="small-text">내가 쓴 게시글과 댓글을 <br>확인할 수 있어요.</span>
@@ -65,7 +65,7 @@
 	                    </a>   
                     </div>
                      <div class="guide-contents">
-						<a class="items" href="<c:url value='/myPage/withdraw/${sessionScope.sid}'/>">                      
+						<a class="items" href="<c:url value='/myPage/withdraw/'/>">                      
 	                        <img class="guide-img" alt="회원 탈퇴" src="<c:url value='/image/logout.png'/>">
 	                        <p class="h3">회원 탈퇴</p>
 	                    </a>   
