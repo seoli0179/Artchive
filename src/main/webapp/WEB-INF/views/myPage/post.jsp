@@ -32,7 +32,7 @@
 						<li><a href="<c:url value='/myPage/check'/>"><i class="fa-solid fa-gears"></i> 개인정보 수정</a></li>
 						<li><a href="<c:url value='/myPage/check2'/>"><i class="fa-solid fa-unlock-keyhole"></i> 비밀번호 설정</a></li>
 						<li><a href="<c:url value='/myPage/scrap'/>">	<i class="fa-solid fa-photo-film"></i> 내 전시</a></li>
-						<li><a href="<c:url value='/myPage/actHistory'/>"><i class="fa-solid fa-pen"></i> 활동 내역</a></li>
+						<li><a href="<c:url value='/myPage/post'/>"><i class="fa-solid fa-pen"></i> 활동 내역</a></li>
 						<li><a href="<c:url value='/myPage/recmd'/>"><i class="fa-solid fa-star"></i> 추천 콘텐츠</a></li>
 						<li><a href="<c:url value='/myPage/withdraw'/>"><i class="fa-solid fa-right-from-bracket"></i> 회원 탈퇴</a></li>
 					</ul>
@@ -43,7 +43,7 @@
 				<h2>활동 내역</h2>
 					<p class="line">
 				<div class="titleBox">
-					<a href="<c:url value='/myPage/actHistory'/>">게시글</a>
+					<a href="<c:url value='/myPage/post'/>">게시글</a>
 					<a href="<c:url value='/myPage/comment'/>">댓글</a>
 				</div><!-- titleBox -->
 				
