@@ -33,9 +33,10 @@ CREATE TABLE `note` (
   `noteCommentNum` int DEFAULT '0',
   `noteCreatedDate` datetime DEFAULT CURRENT_TIMESTAMP,
   `noteUpdatedDate` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`noteId`),
+  PRIMARY KEY (`noteId`), 
   KEY `FK_note_userId` (`userId`),
   CONSTRAINT `FK_note_userId` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
+	ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
