@@ -50,7 +50,7 @@ $(document).ready(function () {
                     $('#id_check').css('color', 'red');
                     $('#id').css('color', 'red');
                     id_check = false;
-                    alert("있음!");
+                    alert("이미 사용중인 ID 입니다!");
                 }
             },
             error: function () {
@@ -128,24 +128,8 @@ $(document).ready(function () {
                     $('label').removeClass('warning');
                 }, 1500);
             } else {
-                $.ajax({
-                    type: "post",
-                    url: "/user/emailNicknameCheck",
-                    data: {
-                        "email": $('#email').val(),
-                        "nickname": $('#nickname').val(),
-                        "email_check": $('#email_check').val()
-                    },
-                    success: function (result) {
-                        if (result) {
-                            state = 2;
-                            stateController(state);
-                        }
-                    },
-                    error: function () {
-                        alert('오류!')
-                    },
-                });
+                state = 2;
+                stateController(state);
             }
         } else if (state == 2) {
             if ($('#birth').val() == "") {
@@ -233,6 +217,7 @@ $(document).ready(function () {
                     type: "post",
                     url: "/user/emailNumCheck",
                     data: {
+                        "email": $('#email').val(),
                         "email_check": $('#email_check').val()
                     },
                     success: function (result) {
@@ -277,6 +262,7 @@ $(document).ready(function () {
                         if (result) {
                             nickname_check = true;
                             $("#nicknameCheckBtn").css("color", "green");
+                            $("#nickname").css("color", "green");
                             alert("사용가능한 닉네임 입니다!");
                         } else {
                             nickname_check = false;
@@ -364,24 +350,24 @@ function stateController(state) {
 
         console.log($('#birth').val());
 
-        // $.ajax({
-        //     type: "POST",
-        //     url: "/user/insertUser",
-        //     data: {
-        //         "id": $('#id').val(),
-        //         "pw": $('#pw').val(),
-        //         "email": $('#email').val(),
-        //         "nickname": $('#nickname').val(),
-        //         "gender": $("input[name='gender']:checked").val(),
-        //         "birth": $('#birth').val()
-        //     },
-        //     success: function (data) {
-        //         console.log('success');
-        //     },
-        //     error: function () {
-        //         console.log('fail');
-        //     }
-        // });
+        $.ajax({
+            type: "POST",
+            url: "/user/insertUser",
+            data: {
+                "id": $('#id').val(),
+                "pw": $('#pw').val(),
+                "email": $('#email').val(),
+                "nickname": $('#nickname').val(),
+                "gender": $("input[name='gender']:checked").val(),
+                "birth": $('#birth').val()
+            },
+            success: function (data) {
+                console.log('success');
+            },
+            error: function () {
+                console.log('fail');
+            }
+        });
 
         $('.id').hide();
         $('.pw').hide();

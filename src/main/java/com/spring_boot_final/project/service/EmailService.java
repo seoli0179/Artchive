@@ -67,6 +67,30 @@ public class EmailService {
         return true;
     }
 
+    public boolean certifyEmailSend2(String email, String emailNum) {
+
+        try {
+
+            sendSimpleMessage(
+                    email,
+                    emailNum + " Artchive 인증코드입니다",
+                    "안녕하세요,\n" +
+                            "현재 보안 인증 중 입니다. 귀하의 인증코드는 " + emailNum + " 입니다.\n" +
+                            "\n" +
+                            "30분 안에 인증을 완료해주세요.\n" +
+                            "\n" +
+                            "Artchive\n" +
+                            "\n" +
+                            "※본 메일은 자동응답 메일이므로 본 메일에 회신하지 마시기 바랍니다. ");
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+
+        return true;
+    }
+
     public String idFindCertify(String email, String certifyNum) {
 
         if (certifyDAO.readCertifyCount(email) > 0) {

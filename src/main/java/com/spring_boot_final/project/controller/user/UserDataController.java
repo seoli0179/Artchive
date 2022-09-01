@@ -1,6 +1,7 @@
 package com.spring_boot_final.project.controller.user;
 
 import com.spring_boot_final.project.model.UserVO;
+import com.spring_boot_final.project.service.EmailService;
 import com.spring_boot_final.project.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -20,6 +21,9 @@ public class UserDataController {
 
     @Autowired
     PasswordEncoder encoder;
+
+    @Autowired
+    EmailService emailService;
 
     @RequestMapping("/user/insertUser")
     public String insertUser(
@@ -63,7 +67,7 @@ public class UserDataController {
     @RequestMapping("user/idCheck")
     public boolean idCheck(@RequestParam("id") String id) {
         System.out.println(id);
-        if (id.equals("abc")) {
+        if (service.selectIdCheck(id) > 0) {
             return false;
         } else {
             return true;
@@ -74,18 +78,26 @@ public class UserDataController {
     @RequestMapping("user/emailCheck")
     public boolean emailCheck(@RequestParam("email") String email) {
         System.out.println(email);
-        if (email.equals("abc@email.com")) {
+        if (service.selectEmailCheck(email) > 0) {
             return false;
         } else {
-            return true;
-        }
+            if (service.selectEmailNumCheck2(email) > 0) {
+                service.deleteEmailNum(email);
+            }
+            String emailNum = emailService.randomNum();
+            if (emailService.certifyEmailSend2(email, emailNum)) {
+                service.insertEmailNum(email, emailNum);
+                return true;
+            }
 
+        }
+        return false;
     }
 
     @RequestMapping("user/nicknameCheck")
     public boolean nicknameCheck(@RequestParam("nickname") String nickname) {
         System.out.println(nickname);
-        if (nickname.equals("닉")) {
+        if (service.selectNicknameCheck(nickname) > 0) {
             return false;
         } else {
             return true;
@@ -94,30 +106,17 @@ public class UserDataController {
     }
 
     @RequestMapping("user/emailNumCheck")
-    public boolean emailNumCheck(@RequestParam("email_check") String email_check) {
-        System.out.println(email_check);
-        if (email_check.equals("123456")) {
+    public boolean emailNumCheck(
+            @RequestParam("email") String email,
+            @RequestParam("email_check") String email_check
+    ) {
+        if (service.selectEmailNumCheck(email, email_check) > 0) {
             return true;
         } else {
             return false;
         }
 
     }
-
-    @RequestMapping("user/emailNicknameCheck")
-    public boolean emailNicknameCheck(
-            @RequestParam("nickname") String nickname,
-            @RequestParam("email") String email,
-            @RequestParam("email_check") String email_check
-    ) {
-        System.out.println(nickname);
-        System.out.println(email);
-        System.out.println(email_check);
-
-        return true;
-
-    }
-
 
 
 }

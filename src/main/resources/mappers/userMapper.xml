@@ -6,8 +6,8 @@
 <mapper namespace="com.spring_boot_final.project.dao.IUserDAO">
 
     <!-- Create -->
-	
-	<!-- 회원 가입 -->
+
+    <!-- 회원 가입 -->
     <insert id="insertUser" parameterType="com.spring_boot_final.project.model.UserVO">
         <![CDATA[
         INSERT INTO user (userId, userPw, userEmail, userNickname, userGender, userBirth)
@@ -15,9 +15,61 @@
         ]]>
     </insert>
 
+    <insert id="insertEmailNum" parameterType="hashmap">
+        <![CDATA[
+        INSERT INTO certifyTemp (userEmail, certifyNum)
+        VALUES (#{email}, #{emailNum});
+        ]]>
+    </insert>
+
     <!-- Read -->
-	
-	<!-- 로그인 -->
+
+    <!-- 로그인 -->
+
+    <select id="selectEmailNumCheck" parameterType="hashmap" resultType="int">
+        <![CDATA[
+        select count(*)
+        from certifyTemp
+        where userEmail = #{email}
+          and certifyNum = #{emailNum};
+        ]]>
+    </select>
+
+    <select id="selectEmailNumCheck2" parameterType="string" resultType="int">
+        <![CDATA[
+        select count(*)
+        from certifyTemp
+        where userEmail = #{email};
+        ]]>
+    </select>
+
+    <select id="selectIdCheck" parameterType="string"
+            resultType="int">
+        <![CDATA[
+        SELECT count(*)
+        FROM user
+        WHERE userId = #{id}
+        ]]>
+    </select>
+
+    <select id="selectEmailCheck" parameterType="string"
+            resultType="int">
+        <![CDATA[
+        SELECT count(*)
+        FROM user
+        WHERE userEmail = #{email}
+        ]]>
+    </select>
+
+    <select id="selectNicknameCheck" parameterType="string"
+            resultType="int">
+        <![CDATA[
+        SELECT count(*)
+        FROM user
+        WHERE userNickname = #{nickname}
+        ]]>
+    </select>
+
     <select id="selectUser" parameterType="com.spring_boot_final.project.model.UserVO"
             resultType="com.spring_boot_final.project.model.UserVO">
         <![CDATA[
@@ -26,7 +78,7 @@
         WHERE userId = #{userId}
         ]]>
 
-       	<!--  1:정상 2:탈퇴 -->
+        <!--  1:정상 2:탈퇴 -->
         <!-- and userState !=2 -->
     </select>
 
@@ -37,59 +89,66 @@
         WHERE userEmail = #{userEmail}
         ]]>
     </select>
-    
-	<!--  마이페이지 비밀번호 확인 -->
-	<select id="userPwCheck" parameterType="string" resultType="string">
+
+    <!--  마이페이지 비밀번호 확인 -->
+    <select id="userPwCheck" parameterType="string" resultType="string">
         <![CDATA[
         SELECT userPw
         FROM user
         WHERE userId = #{userId}
         ]]>
     </select>
-	
-	<!-- 마이페이지 수정 페이지 조회 -->
-    <select id="selectUserView" parameterType="com.spring_boot_final.project.model.UserVO" resultType="com.spring_boot_final.project.model.UserVO">
+
+    <!-- 마이페이지 수정 페이지 조회 -->
+    <select id="selectUserView" parameterType="com.spring_boot_final.project.model.UserVO"
+            resultType="com.spring_boot_final.project.model.UserVO">
         <![CDATA[
         SELECT *
         FROM user
         WHERE userId = #{userId}
         ]]>
     </select>
-    
+
 
     <!-- Update -->
-	
-	<!-- 마이페이지 수정 -->
-	<update id="updateUser" parameterType="com.spring_boot_final.project.model.UserVO">
-		UPDATE user
-		   SET userName=#{userName}, 
-		   	   userNum=#{userNum},
-		   	   userNickname=#{userNickname},
-		   	   userEmail=#{userEmail},
-		   	   userGender=#{userGender}
-		 WHERE userId=#{userId}
-	</update>
+
+    <!-- 마이페이지 수정 -->
+    <update id="updateUser" parameterType="com.spring_boot_final.project.model.UserVO">
+        UPDATE user
+        SET userName=#{userName},
+            userNum=#{userNum},
+            userNickname=#{userNickname},
+            userEmail=#{userEmail},
+            userGender=#{userGender}
+        WHERE userId = #{userId}
+    </update>
 
 
-	<!-- 비밀번호 수정 -->
-  	<update id="updatePw" parameterType="com.spring_boot_final.project.model.UserVO">
-		UPDATE user
-		   SET userPw = #{userPw}
-		 WHERE userId = #{userId}
-	</update>
+    <!-- 비밀번호 수정 -->
+    <update id="updatePw" parameterType="com.spring_boot_final.project.model.UserVO">
+        UPDATE user
+        SET userPw = #{userPw}
+        WHERE userId = #{userId}
+    </update>
 
-	
+
     <!-- Delete -->
-    
-	<!-- 마이페이지 회원 탈퇴 -->
-	
-	<update id="quitUser" parameterType="string">
-  		update user
-  		set userState = 2
-  		WHERE userId = #{userId}
-  	</update>
-  	
-  	
+
+    <!-- 마이페이지 회원 탈퇴 -->
+
+    <update id="quitUser" parameterType="string">
+        update user
+        set userState = 2
+        WHERE userId = #{userId}
+    </update>
+
+    <delete id="deleteEmailNum" parameterType="string">
+        <![CDATA[
+        delete
+        from certifyTemp
+        where userEmail = #{email};
+        ]]>
+    </delete>
 
 
 </mapper>
