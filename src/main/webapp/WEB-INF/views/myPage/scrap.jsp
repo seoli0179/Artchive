@@ -73,7 +73,7 @@
 									<%-- <td>${bookMark.bookmarkId}</td> --%>
 									<td>전시</td>
 									<td><a href="<c:url value='/exhbn/detail/${bookMark.exhbnId}'/>">${bookMark.exhbnTitle}</a></td>
-									<td>${bookMark.bookmarkAt}</td>
+									<td><fmt:formatDate value="${bookMark.bookmarkAt}" pattern="yyyy-MM-dd"/></td>
 									<td><input type="button" class="deleteBookMarkBtn white-btn"
                                     onclick="deleteBookMark(${bookMark.bookmarkId})"
                                     value="삭제"></td>
