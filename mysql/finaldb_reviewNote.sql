@@ -30,8 +30,7 @@ CREATE TABLE reviewNote (
 	reviewNote	longtext,
     reviewNoteLike int DEFAULT '0',
     reviewNoteCommentNum int DEFAULT '0',
-    reviewNoteCreatedDate datetime DEFAULT CURRENT_TIMESTAMP,
-	reviewNoteUpdatedDate datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    reviewNoteCreatedDate datetime default now(),
     reviewPageViewState varchar(50) DEFAULT 'POST',
     courseId int,
     userId  varchar(20) NOT NULL,
@@ -51,7 +50,7 @@ CREATE TABLE reviewNote (
 
 LOCK TABLES `reviewNote` WRITE;
 /*!40000 ALTER TABLE `reviewNote` DISABLE KEYS */;
-INSERT INTO `reviewNote` VALUES ('1','리뷰게시판 타이틀','리뷰게시판 내용부분 입니다','0','0','2022-08-19 15:14:32','2022-08-19 15:14:32','POST','1','user2','217842');
+INSERT INTO `reviewNote` VALUES ('1','리뷰게시판 타이틀','리뷰게시판 내용부분 입니다','0','0',default,'POST','1','user2','217842');
 /*!40000 ALTER TABLE `reviewNote` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -64,6 +63,6 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-alter table reviewNote modify reviewNote int not null auto_increment;
+alter table reviewNote modify reviewNoteId int not null auto_increment;
 
 -- Dump completed on 2022-08-26  9:46:37
