@@ -31,7 +31,7 @@ CREATE TABLE `course` (
   `courseView` int DEFAULT '1',
   `courseLike` int DEFAULT '0',
   `courseComment` int DEFAULT '0',
-  `courseState` int DEFAULT '1',
+  `courseState` varchar(50) DEFAULT 'POST',
   `createdAt` datetime DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `courseSitesArr` varchar(2000) DEFAULT NULL,

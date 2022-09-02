@@ -47,13 +47,15 @@
         ]]>
     </insert>
 
+    <!--  POST:정상 DELETE:삭제 BLOCK:차단 -->
     <!--  코스 삭제  -->
-    <delete id="deleteCourse" parameterType="hashmap">
+    <update id="deleteCourse" parameterType="hashmap">
         <![CDATA[
-        DELETE FROM course
+        UPDATE course
+        SET courseViewState = 2
         WHERE courseId = #{courseId} AND userId = #{userId}
         ]]>
-    </delete>
+    </update>
 
     <!--  조회수  -->
     <update id="hitCourse" parameterType="int">
