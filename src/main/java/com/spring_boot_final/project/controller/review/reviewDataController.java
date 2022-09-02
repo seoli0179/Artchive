@@ -48,9 +48,12 @@ public class reviewDataController {
 		System.out.println(siteName);
 		
 		model.addAttribute("reviewNoteList", reviewNoteList);
+		model.addAttribute("reviewNote", vo);
 		model.addAttribute("siteName", siteName);
 		
-		System.out.println(reviewNoteList.size());
+		
+		System.out.println(reviewNoteId);
+		/* System.out.println(reviewNoteList.size()); */
 		
 		/*
 		 * for(int i=0; i<reviewNoteList.size();i++) {

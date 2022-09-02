@@ -4,7 +4,7 @@
 
 <html>
     <head>
-        <title>arTchive / 전시 코스 게시판</title>
+        <title>arTchive / 전시 리뷰 게시판</title>
         <!-- jquery -->
         <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
         <!-- jquery-ui -->
@@ -30,8 +30,8 @@
 
             <main id="course-container">
                 <div id="course-box" class="course-box main-title-box">
-                    <h1 class="h1">Courses</h1>
-                    <span>다른 사람들이 기획한 관람 코스들을 모아봅니다.</span>
+                    <h1 class="h1">Review</h1>
+                    <span>다른 사람들이 후기를 모아봅니다.</span>
 	                    <div class="courseboard-search-box">
 	                        <div class="searchbar-box">
 	                            <div class="searchbar-border tag-box" type="text">
@@ -87,14 +87,14 @@
                 <div class="course-box board-gallery-view">
                     <c:forEach var="reviewNote" items="${reviewNoteList}">
                         <div class="post-container" style="cursor: pointer;" onclick="location.href='/review/reviewNote/${reviewNote.reviewNoteId}';">
-                            <div class="post-img-box" style="background-image: url('${li.exhbnImgUrl}');">
+                            <div class="post-img-box" style="background-image: url('${reviewNote.exhbnImgUrl}');">
 
                             </div>
                             <div class="post-title-box">
                                 <h3>${reviewNote.reviewNoteTitle}</h3>
                             </div>
                             <div class="post-content-box">
-                                    <b>${reviewNote.courseTitle}</b>에 대한 <b>${reviewNote.userId}</b>님의 리뷰
+                                    <b>${reviewNote.courseTitle}</b>에 대한 <b>${reviewNote.userNickname}</b>님의 리뷰
                             </div>
                             <div class="post-tag-box">
                                 <c:forTokens var="taglist" items="${reviewNote.courseTag}" delims=";;">
@@ -103,7 +103,7 @@
                             </div>
                             <div class="post-footer-box">
                                 <div class="post-writer-box">
-                                    by&nbsp;<span class="userName"> ${reviewNote.userId}</span>&nbsp;·&nbsp;<fmt:formatDate pattern="MM-dd" value="${reviewNote.reviewNoteCreatedDate}"/>
+                                    by&nbsp;<span class="userName"> ${reviewNote.userNickname}</span>&nbsp;·&nbsp;<fmt:formatDate pattern="MM-dd" value="${reviewNote.reviewNoteCreatedDate}"/>
                                 </div>
                                 <div class="post-react-box">
                                     <div class="post-view-box">

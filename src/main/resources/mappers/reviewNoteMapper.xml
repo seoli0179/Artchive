@@ -20,9 +20,13 @@
 		   c.courseAddressArr,
 		   c.courseMemoArr,
 		   c.courseTitle,
+		   c.courseTag,
+		   e.exhbnId,
+		   e.exhbnImgUrl,
+		   u.userNickname,
 		   r.userId
-	FROM reviewNote r, course c, user u
-	WHERE c.courseId = r.courseId and r.userId = u.userId
+	FROM reviewNote r, course c, user u, exhbn e
+	WHERE c.courseId = r.courseId and r.userId = u.userId and r.exhbnId = e.exhbnId
 	ORDER BY r.courseId
 	
 	</select>
@@ -41,9 +45,13 @@
 		   c.courseAddressArr,
 		   c.courseMemoArr,
 		   c.courseTitle,
+		   c.courseTag,
+		   e.exhbnId,
+		   e.exhbnImgUrl,
+		   u.userNickname,
 		   u.userId
-	FROM reviewNote r, course c, user u
-	WHERE r.reviewNoteId =#{reviewNoteId} and  r.courseId = c.courseId and r.userId = u.userId
+	FROM reviewNote r, course c, user u, exhbn e
+	WHERE r.reviewNoteId = #{reviewNoteId} and  r.courseId = c.courseId and r.userId = u.userId and r.exhbnId = e.exhbnId
 	</select>
 	
 	

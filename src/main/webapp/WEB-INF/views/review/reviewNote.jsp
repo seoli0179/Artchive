@@ -6,7 +6,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>arTchive / ${reviewNote.reviewNoteTitle}</title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/review/reviewNote.css'/>">
@@ -17,12 +17,12 @@
 		<c:import url="/WEB-INF/views/layout/top.jsp" />
 		
 		<!-- headerTextBox -->
-		<c:forEach var="reviewNote" items="${reviewNoteList}">
+		<%-- <c:forEach var="reviewNote" items="${reviewNoteList}"> --%>
 			<section id="courseHeader" class="courseHeaderImg">
-				<div class="headerTextBox" style="background-image : url('${course.exhbnImgUrl}');">
+				<div class="headerTextBox" style="background-image : url('${reviewNote.exhbnImgUrl}');">
 					<div id="header-exhbnTitle" class="headerText">
 						<%-- <ul><li>${course.exhbnTitle}</li></ul> --%>
-						<ul><li>${reviewNote.userId}</li></ul>
+						<ul><li>${reviewNote.userNickname}</li></ul>
 					</div>
 					<div id="header-postTitle" class="headerText">
 						<%-- <h1>${course.courseTitle}</h1> --%>
@@ -189,7 +189,7 @@
 	            </div>
 	        </div>
 	    </section>
-	     </c:forEach>
+	     <%-- </c:forEach> --%>
 		</div>
 		
 		<!-- bottom 이동 -->

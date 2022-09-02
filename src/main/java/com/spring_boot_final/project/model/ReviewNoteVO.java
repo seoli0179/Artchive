@@ -23,8 +23,24 @@ public class ReviewNoteVO {
     private String courseMemoArr;
     private String courseTitle;
     private String courseTag;
+    private String exhbnImgUrl;
+    private String userNickname;
     
     
+    
+    
+	public String getExhbnImgUrl() {
+		return exhbnImgUrl;
+	}
+	public void setExhbnImgUrl(String exhbnImgUrl) {
+		this.exhbnImgUrl = exhbnImgUrl;
+	}
+	public String getUserNickname() {
+		return userNickname;
+	}
+	public void setUserNickname(String userNickname) {
+		this.userNickname = userNickname;
+	}
 	public String getCourseTag() {
 		return courseTag;
 	}
