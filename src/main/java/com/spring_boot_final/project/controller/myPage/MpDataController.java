@@ -21,6 +21,7 @@ import com.spring_boot_final.project.model.NoteVO;
 import com.spring_boot_final.project.model.UserVO;
 import com.spring_boot_final.project.service.CommentService;
 import com.spring_boot_final.project.service.CourseService;
+import com.spring_boot_final.project.service.EmailService;
 import com.spring_boot_final.project.service.NoteService;
 import com.spring_boot_final.project.service.UserService;
 
@@ -39,6 +40,9 @@ public class MpDataController {
 	
 	@Autowired
 	CourseService courseService;
+	
+	@Autowired
+	EmailService emailService;
 	
 	@Autowired
 	PasswordEncoder encoder;
@@ -73,13 +77,10 @@ public class MpDataController {
 		email1 = email[0]; 
     	
 		
-		System.out.println(email1);
-		
 		model.addAttribute("user", vo);
 		model.addAttribute("email1", email1);
 		String email2 = "@" + email[1];
 		
-		System.out.println(email2);
 		
 		model.addAttribute("email2", email2);
     	return "myPage/edit";
@@ -90,37 +91,42 @@ public class MpDataController {
  	@RequestMapping("/myPage/updateUser")
  	public String myPageEditView(
  								@RequestParam("userName") String userName,
- 								@RequestParam("userNum") String userNum,
- 								@RequestParam("userNickname") String userNickname,
+ 								@RequestParam("nickname") String userNickname,
  								@RequestParam("userEmail1") String userEmail1,
  								@RequestParam("userEmail2") String userEmail2,
- 								@RequestParam("userGender") String userGender,
  								Model model,
  								HttpSession session) throws IOException {
- 		UserVO vo = new UserVO();
- 		String userEmail = userEmail1 + "@" +  userEmail2;
+ 		
  		String userId = session.getAttribute("sid").toString();
+ 		UserVO vo = userService.selectUserView(userId);
  		
  		
- 		vo.setUserId(userId);
- 		vo.setUserName(userName);
- 		vo.setUserNum(userNum);
- 		vo.setUserNickname(userNickname);
- 		vo.setUserEmail(userEmail);
- 		vo.setUserGender(userGender);
+ 		if(!userName.equals("false")) {
+ 			vo.setUserName(userName);	
+ 		}
+ 	
+ 		
+ 		if(!userNickname.equals("false")) {
+ 			vo.setUserNickname(userNickname);	
+ 		}
+ 		
+ 		if(!userEmail1.equals("false")) {
+ 			String userEmail = userEmail1 + "@" +  userEmail2;
+ 			vo.setUserEmail(userEmail);
+ 		}
+ 		
+ 	
  		
  		// 항목 수정
  		userService.updateUser(vo);
  		
- 		
+ 		model.addAttribute("userName", vo.getUserName());
  		model.addAttribute("userId",vo.getUserId());
- 		model.addAttribute("userNum", vo.getUserNum());
  		model.addAttribute("userNickname", vo.getUserNickname());
  		model.addAttribute("userEmail", vo.getUserEmail());
  		
- 		System.out.println(userNum);
- 		System.out.println(userEmail);
- 		System.out.println(userGender);
+ 		System.out.println(userId);
+ 		System.out.println(userNickname);
  		
  		return "SUCCESS";
  	}
@@ -157,7 +163,7 @@ public class MpDataController {
   		String userId = session.getAttribute("sid").toString();
   		
   		UserVO vo = userService.selectUserView(userId);
-  		
+  			
   		// 암호화
   		vo.setUserPw(encoder.encode(userPw));
   		
@@ -191,9 +197,7 @@ public class MpDataController {
 					            HttpSession session){
     												
 
-  	  String userId = session.getAttribute("sid").toString();
-		
-		  if(session.getAttribute("sid") == null) return "FAIL";
+		 if(session.getAttribute("sid") == null) return "FAIL";
 		 
 		 noteService.deleteNoteView(noteId);
 		
@@ -225,8 +229,6 @@ public class MpDataController {
  					            HttpSession session){
      												
 
-   	  String userId = session.getAttribute("sid").toString();
- 		
  		  if(session.getAttribute("sid") == null) return "FAIL";
  		 
  		 cmtService.deleteMpComment(commentId);
@@ -297,6 +299,54 @@ public class MpDataController {
  		return "SUCCESS";
  	}
    
-	
+
+ 	
+ 	
+ 	
+ 	
+ 	@ResponseBody
+    @RequestMapping("/myPage/emailCheck")
+    public boolean emailCheck(@RequestParam("email") String email) {
+        System.out.println(email);
+        if (userService.selectEmailCheck(email) > 0) {
+            return false;
+        } else {
+            if (userService.selectEmailNumCheck2(email) > 0) {
+            	userService.deleteEmailNum(email);
+            }
+            String emailNum = emailService.randomNum();
+            if (emailService.certifyEmailSend2(email, emailNum)) {
+            	userService.insertEmailNum(email, emailNum);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @RequestMapping("/myPage/nicknameCheck")
+    @ResponseBody
+    public boolean nicknameCheck(@RequestParam("userNickname") String userNickname) {
+        System.out.println(userNickname);
+        if (userService.selectNicknameCheck(userNickname) > 0) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+    
+    @ResponseBody
+    @RequestMapping("/myPage/emailNumCheck")
+    public boolean emailNumCheck(
+            @RequestParam("email") String email,
+            @RequestParam("email_check") String email_check
+    ) {
+        if (userService.selectEmailNumCheck(email, email_check) > 0) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 
 }
