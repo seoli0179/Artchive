@@ -1,11 +1,12 @@
 package com.spring_boot_final.project.dao;
 
-import com.spring_boot_final.project.model.ExhbnVO;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import com.spring_boot_final.project.model.ExhbnVO;
 
 @Component
 public interface IExhbnDAO {
@@ -24,6 +25,11 @@ public interface IExhbnDAO {
     //Delete
     void deleteExhbn(int exhbnId);
     
-    ArrayList<ExhbnVO> searchList(HashMap<String, Object> map);
+    // Search
+	public ArrayList<ExhbnVO> ExhbnSearch(String title); // 상품 검색
+	
 
+	 //게시판 목록(페이징 적용) 
+	
+	 
 }

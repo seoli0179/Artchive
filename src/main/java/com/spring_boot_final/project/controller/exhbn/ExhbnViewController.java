@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring_boot_final.project.model.ExhbnVO;
-import com.spring_boot_final.project.model.NoteVO;
 import com.spring_boot_final.project.service.ExhbnService;
 
 @Controller
@@ -20,8 +20,8 @@ public class ExhbnViewController {
     @Autowired
     ExhbnService service;
     
-    @RequestMapping("/exhbn/searchlist")
-    public String searchlist(
+   // @RequestMapping("/exhbn/searchlist")
+//    public String searchlist(
 			/*
 			 * @RequestParam int page,
 			 * 
@@ -29,18 +29,18 @@ public class ExhbnViewController {
 			 * 
 			 * @RequestParam String sort,
 			 */
-            @RequestParam String keyword,
+    //        @RequestParam String keyword,
 			/* HttpSession session, */
-            Model model
-    ) {
+        //    Model model
+  //  ) {
     	
 
-        System.out.println(keyword + " ");
+//        System.out.println(keyword + " ");
 		/*
 		 * System.out.println(sort + " " + keyword);
 		 */
-        ArrayList<ExhbnVO> vo = service.searchList(keyword);
-        model.addAttribute("exhbnList", vo);
+       // ArrayList<ExhbnVO> vo = service.searchList(keyword);
+       // model.addAttribute("exhbnList", vo);
 
 		/*
 		 * for (int i = 0; i < vo.size(); i++) { String tagRemove =
@@ -57,9 +57,9 @@ public class ExhbnViewController {
 		 * noteService.selectNoteCount(category, keyword) - 1); if
 		 * (category.equals("EVENT")) return "note/event"; return "note/list";
 		 */
-        return "searchResult";
+//        return "searchResult";
 
-    }
+  //  }
     
 
     // detail page view
@@ -81,16 +81,22 @@ public class ExhbnViewController {
 
         return "list";
     }
+	 
     
-    // detail page view
-    @RequestMapping("/exhbn/searchResult")
-    public String ResultTestView(Model model) {
-
-        ArrayList<ExhbnVO> vo = service.selectAllData();
-        model.addAttribute("exhbnList",vo);
-
-        return "searchResult";
-    }
+    // detail search
+    @RequestMapping("/exhbn/searchResult222")
+	public String ExhbitonSearch(
+			@RequestParam("exhbnTitle") String title, Model model){
+    	ArrayList<ExhbnVO> exhbnSearch = service.exhbnSearch(title);
+		model.addAttribute("exhbnSearchList", exhbnSearch);
+		
+		 // System.out.println(title);
+			
+			  for(int i=0; i < exhbnSearch.size(); i++) {
+			  System.out.println(exhbnSearch.get(i).getExhbnId()); }
+			 
+		return "searchResult";
+	}	
 
 
 }

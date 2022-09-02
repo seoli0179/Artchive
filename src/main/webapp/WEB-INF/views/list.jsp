@@ -56,7 +56,7 @@
 	
 	                                </div>
 	                            </div>
-	                            <input class="black-btn courseBoard-searchBtn" type="button" id="black_search_bar" value="검색">
+	                            <input class="black-btn courseBoard-searchBtn" type="button" id="exhbnSearchFrm" value="검색">
 	                            <input id="show" class="white-btn detailSearch courseBoard-searchBtn" type="button" value="상세검색">
 	                        </div>
 	                        <div id="tag-caution" class="vibration">태그는 3개까지만 선택할 수 있습니다.</div>
@@ -66,6 +66,8 @@
 	<div class="background">
 		<div class="window">
 			<div class="popup">
+				<div id="exhbnSearchFrm">
+			
 				<!-- <button id="close" class="close-btn"> -->
 					<div class ="searchTitleLine">
 						<h1 id="subTitle-ex">Artchive 전시 상세 검색</h1>
@@ -75,13 +77,16 @@
  				<!-- Close icons created by ariefstudio - Flaticon -->
 				
 <!-- 				</button>
-<!--  -->				<div id="container-deatil-search">
+
+<!--  -->				
+					
+					<div id="container-deatil-search">
  							<span class="subttitle">관심있는 전시를 검색해보세요.</span>
 	                    		<div class="courseboard-search-box">
 	                      			 <div class="searchbar-box">
 	                          			  <div class="searchbar-border tag-box" type="text">
 	                               			 <ul id="tagList">
-	                                 			   <input class="inner-searchbar" id="inner-searchbar" type="text" placeholder="검색어를 입력하세요.">
+	                                    				<input class="inner-searchbar" id="inner-searchbar" type="text" placeholder="검색어를 입력하세요.">
 	                               				</ul>
 	                               			 <div id="filterList" style="position: relative;">
 	                               		 	 </div>
@@ -217,15 +222,14 @@
 
 			</div>
 								
-						
 											<div class="exsearch item6">
 													<!-- <p> -->
-												<button type="button" id="SearchBtn" value="검색" onclick="location.href='searchResult'">검색</button>
+	                            							<input class="black-btn courseBoard-searchBtn" type="button" id="exhbnSearchFrm" value="검색">
 <!-- 														<input type="submit" id="SearchBtn" value="검색"> 
 <!--  -->											<input type="reset" class="white-btn2" value="초기화">
  														<!-- </p> -->
 											</div>							
-						
+						</div>
 								</div>
 					</div>	<!-- 컨테이너 종료 -->	
 				</div><!-- 리스트 종료 -->
@@ -281,6 +285,7 @@
 </div>
 
 <!-- 전시 리스트 -->
+<div id="searchResultl">
 <div class="list-con">
 	<ul class="row">
 		<c:forEach var="exhbn" items="${exhbnList}" varStatus="status">
@@ -296,6 +301,7 @@
 			</li>
 		</c:forEach>
 	</ul>
+</div>
 </div>
 <!-- .list-wrap -->
 
