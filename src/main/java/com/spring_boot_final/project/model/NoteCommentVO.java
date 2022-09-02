@@ -5,7 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
-public class CommentVO {
+public class NoteCommentVO {
 
     private int commentId;
     private int noteId;
@@ -28,7 +28,7 @@ public class CommentVO {
         this.commentLikeCheck = commentLikeCheck;
     }
 
-    public CommentVO() {
+    public NoteCommentVO() {
     }
 
     public int getCommentId() {

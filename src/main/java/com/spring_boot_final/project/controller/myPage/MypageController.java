@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.spring_boot_final.project.model.CommentVO;
+import com.spring_boot_final.project.model.NoteCommentVO;
 import com.spring_boot_final.project.model.NoteVO;
 import com.spring_boot_final.project.model.UserVO;
 import com.spring_boot_final.project.service.CommentService;
@@ -205,7 +205,7 @@ public class MypageController {
    		
      String userId = session.getAttribute("sid").toString();
      	
-     ArrayList<CommentVO> vo = cmtService.selectCommentView(userId);
+     ArrayList<NoteCommentVO> vo = cmtService.selectCommentView(userId);
    		
     	model.addAttribute("comment", vo);
      	

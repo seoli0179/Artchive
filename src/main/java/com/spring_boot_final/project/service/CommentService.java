@@ -1,8 +1,7 @@
 package com.spring_boot_final.project.service;
 
 import com.spring_boot_final.project.dao.ICommentDAO;
-import com.spring_boot_final.project.model.CommentVO;
-import com.spring_boot_final.project.model.NoteVO;
+import com.spring_boot_final.project.model.NoteCommentVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -16,27 +15,27 @@ public class CommentService {
     @Qualifier("ICommentDAO")
     ICommentDAO dao;
 
-    public void createComment(CommentVO vo) {
+    public void createComment(NoteCommentVO vo) {
         dao.createComment(vo);
     }
 
-    public void updateComment(CommentVO vo) {
+    public void updateComment(NoteCommentVO vo) {
         dao.updateComment(vo);
     }
 
-    public ArrayList<CommentVO> selectCommentList(int noteId) {
+    public ArrayList<NoteCommentVO> selectCommentList(int noteId) {
         return dao.selectCommentList(noteId);
     }
 
-    public CommentVO selectComment(int commentId) {
+    public NoteCommentVO selectComment(int commentId) {
         return dao.selectComment(commentId);
     }
 
-    public void deleteComment(CommentVO vo) {
+    public void deleteComment(NoteCommentVO vo) {
         dao.deleteComment(vo);
     }
 
-    public boolean commentLike(CommentVO vo) {
+    public boolean commentLike(NoteCommentVO vo) {
         System.out.println(dao.selectCommentLike(vo));
         if (dao.selectCommentLike(vo) > 0) {
             dao.updateCommentLikeDown(vo.getCommentId());
@@ -49,7 +48,7 @@ public class CommentService {
         }
     }
 
-    public boolean noteLikeCheck(CommentVO vo, String userId) {
+    public boolean noteLikeCheck(NoteCommentVO vo, String userId) {
         vo.setUserId(userId);
         if (dao.selectCommentLike(vo) > 0) {
             return true;
@@ -59,7 +58,7 @@ public class CommentService {
     }
     
     // 마이페이지 댓글 조회
-    public ArrayList<CommentVO> selectCommentView(String userId){
+    public ArrayList<NoteCommentVO> selectCommentView(String userId){
     	return dao.selectCommentView(userId);
     }
     

@@ -1,6 +1,6 @@
 package com.spring_boot_final.project.controller.note;
 
-import com.spring_boot_final.project.model.CommentVO;
+import com.spring_boot_final.project.model.NoteCommentVO;
 import com.spring_boot_final.project.service.CommentService;
 import com.spring_boot_final.project.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,7 @@ public class commentDataController {
         if(session.getAttribute("sid") == null)
             return "FAIL";
 
-        CommentVO vo = new CommentVO();
+        NoteCommentVO vo = new NoteCommentVO();
         vo.setNoteId(Integer.parseInt(noteId));
         vo.setComment(comment);
         vo.setUserId(session.getAttribute("sid").toString());
@@ -50,13 +50,13 @@ public class commentDataController {
         if(session.getAttribute("sid") == null)
             return "FAIL";
 
-        CommentVO vo = commentService.selectComment(Integer.parseInt(commentId));
+        NoteCommentVO vo = commentService.selectComment(Integer.parseInt(commentId));
 
         if(!vo.getUserId().equals(session.getAttribute("sid").toString())) {
             return "FAIL";
         }
 
-        vo = new CommentVO();
+        vo = new NoteCommentVO();
         vo.setCommentId(Integer.parseInt(commentId));
         vo.setUserId(session.getAttribute("sid").toString());
 
@@ -75,7 +75,7 @@ public class commentDataController {
         if (session.getAttribute("sid") == null)
             return "FALSE";
 
-        CommentVO vo = new CommentVO();
+        NoteCommentVO vo = new NoteCommentVO();
         vo.setCommentId(commentId);
         vo.setUserId(session.getAttribute("sid").toString());
 

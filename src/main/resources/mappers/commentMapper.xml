@@ -7,14 +7,14 @@
 
     <!-- Create -->
 
-    <insert id="createComment" parameterType="com.spring_boot_final.project.model.CommentVO">
+    <insert id="createComment" parameterType="com.spring_boot_final.project.model.NoteCommentVO">
         <![CDATA[
         INSERT INTO comment (noteId, userId, comment)
         VALUES (#{noteId}, #{userId}, #{comment})
         ]]>
     </insert>
 
-    <insert id="insertCommentLike" parameterType="com.spring_boot_final.project.model.CommentVO">
+    <insert id="insertCommentLike" parameterType="com.spring_boot_final.project.model.NoteCommentVO">
         <![CDATA[
         INSERT into commentLike(commentId, userId)
         values (#{commentId}, #{userId});
@@ -23,7 +23,7 @@
 
     <!-- Read -->
 
-    <select id="selectCommentList" parameterType="int" resultType="com.spring_boot_final.project.model.CommentVO">
+    <select id="selectCommentList" parameterType="int" resultType="com.spring_boot_final.project.model.NoteCommentVO">
         <![CDATA[
         select c.commentId,
                c.noteId,
@@ -41,7 +41,7 @@
         ]]>
     </select>
 
-    <select id="selectComment" parameterType="int" resultType="com.spring_boot_final.project.model.CommentVO">
+    <select id="selectComment" parameterType="int" resultType="com.spring_boot_final.project.model.NoteCommentVO">
         <![CDATA[
         select *
         from comment
@@ -49,7 +49,7 @@
         ]]>
     </select>
 
-    <select id="selectCommentLike" parameterType="com.spring_boot_final.project.model.CommentVO" resultType="int">
+    <select id="selectCommentLike" parameterType="com.spring_boot_final.project.model.NoteCommentVO" resultType="int">
         <![CDATA[
         select count(*)
         from commentLike
@@ -59,7 +59,7 @@
     </select>
 	
 	<!-- 마이페이지 댓글 조회-->
-	<select id="selectCommentView" parameterType="string" resultType="com.spring_boot_final.project.model.CommentVO">
+	<select id="selectCommentView" parameterType="string" resultType="com.spring_boot_final.project.model.NoteCommentVO">
         <![CDATA[
         select *
         from comment
@@ -72,7 +72,7 @@
 	
     <!-- Update -->
 
-    <update id="updateComment" parameterType="com.spring_boot_final.project.model.CommentVO">
+    <update id="updateComment" parameterType="com.spring_boot_final.project.model.NoteCommentVO">
         <![CDATA[
         UPDATE comment
         SET comment=#{comment}
@@ -99,7 +99,7 @@
 
     <!-- Delete -->
 
-    <update id="deleteComment" parameterType="com.spring_boot_final.project.model.CommentVO">
+    <update id="deleteComment" parameterType="com.spring_boot_final.project.model.NoteCommentVO">
         <![CDATA[
         UPDATE comment
         SET pageViewState='DELETE'
@@ -108,7 +108,7 @@
         ]]>
     </update>
 
-    <delete id="deleteCommentLike" parameterType="com.spring_boot_final.project.model.CommentVO">
+    <delete id="deleteCommentLike" parameterType="com.spring_boot_final.project.model.NoteCommentVO">
         <![CDATA[
         delete
         from commentLike

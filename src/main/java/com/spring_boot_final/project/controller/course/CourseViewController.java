@@ -32,10 +32,10 @@ public class CourseViewController {
     public String courseView(Model model) {
 
         ArrayList<ExhbnVO> vo = service.selectAllData();
-        model.addAttribute("exhbnList",vo);
+        model.addAttribute("exhbnList", vo);
 
         ArrayList<CourseVO> courseVo = courseService.selectCourse();
-        model.addAttribute("courseList",courseVo);
+        model.addAttribute("courseList", courseVo);
 
         return "course/courseMain";
 
