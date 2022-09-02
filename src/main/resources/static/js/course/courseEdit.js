@@ -242,7 +242,75 @@ $( function() {
 
 } );
 
-/** 보내기 */
+/** insertCourse */
+function insertCourse() {
+    let courseSitesArr = "";
+    let courseAddressArr = "";
+    let courseMemoArr = "";
+    let courseTag = "";
+
+    let courseTitle = $("#courseTitle").val();
+    let exhbnId = $("#exhbnId").val();
+    let userId = $("#userId").val();
+    let courseId = $("#courseId").val();
+
+    if($("#courseStatus").prop("checked")){
+        $("#courseStatus").val(1);
+    } else {
+        $("#courseStatus").val(2);
+    }
+    let courseStatus = $("#courseStatus").val();
+
+    for (let i=0; i<sites.length; i++){
+        if (i==(sites.length)){
+            courseSitesArr += sites[i];
+            courseAddressArr += addresses[i];
+            courseMemoArr += memos[i];
+        } else {
+            courseSitesArr += sites[i] + ";;";
+            courseAddressArr += addresses[i] + ";;";
+            courseMemoArr += memos[i] + ";;";
+        }
+    }
+    for (let i=0; i<tags.length; i++){
+        if (i==(tags.length-1)){
+            courseTag += tags[i];
+        } else {
+            courseTag += tags[i] + ";;";
+        }
+    }
+    console.log(courseTag)
+
+    let param = {
+        "courseId":courseId,
+        "userId":userId,
+        "exhbnId":exhbnId,
+        "courseTitle":courseTitle,
+        "courseTag":courseTag,
+        "courseState":courseStatus,
+        "courseSitesArr":courseSitesArr,
+        "courseAddressArr":courseAddressArr,
+        "courseMemoArr":courseMemoArr
+    }
+    // let json = JSON.stringify()
+
+    $.ajax({
+        url:"/course/insertCourse",
+        contentType: 'application/json',
+        type:"POST",
+        traditional:true,
+        data:JSON.stringify(param),
+        success:function(result){
+            alert("작성 완료!");
+            window.history.back();
+        },
+        error:function(request,status,error) {
+            alert("code="+request.status+"message="+request.responseText+"error="+error); //실패시처리
+        }
+    });
+}
+
+/** updateCourse */
 function updateCourse() {
     let courseSitesArr = "";
     let courseAddressArr = "";

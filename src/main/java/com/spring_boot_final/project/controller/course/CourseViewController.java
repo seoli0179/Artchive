@@ -51,59 +51,78 @@ public class CourseViewController {
             String[] temp = i.getCourseTag().split(";;");
             tag.add(temp);
         }
-        model.addAttribute("courseList",vo);
+        model.addAttribute("courseList", vo);
         model.addAttribute("tag", tag);
 
         return "course/courseBoard";
     }
 
-    // course !!!test!!!
+    // 코스 상세 보기
     @RequestMapping("/course/{courseId}")
     public String selectCoursePost(@PathVariable("courseId") int courseId,
                                    HttpSession session,
-                                   Model model) {
+                                   Model model) throws Exception {
         CourseVO vo = courseService.selectCoursePost(courseId);
-        model.addAttribute("course",vo);
+        model.addAttribute("course", vo);
 
         ArrayList<String[]> sites = new ArrayList<String[]>();
         String[] siteName = vo.getCourseSitesArr().split(";;");
         String[] siteAddress = vo.getCourseAddressArr().split(";;");
         String[] siteMemo = vo.getCourseMemoArr().split(";;");
-        model.addAttribute("siteName",siteName);
-        model.addAttribute("siteAddress",siteAddress);
-        model.addAttribute("siteMemo",siteMemo);
+        model.addAttribute("siteName", siteName);
+        model.addAttribute("siteAddress", siteAddress);
+        model.addAttribute("siteMemo", siteMemo);
 
         return "course/courseDetailView";
     }
 
+    // 새 포스트 작성
+    @RequestMapping("/course/newPost/{exhbnId}")
+    public String writeCoursePost(@PathVariable("exhbnId") int exhbnId,
+                                  HttpSession session,
+                                  Model model) {
+
+        ArrayList<String[]> sites = new ArrayList<String[]>();
+
+        ExhbnVO vo = service.selectDetailData(exhbnId);
+        model.addAttribute("exhbn", vo);
+
+        return "course/courseDetailPost";
+    }
+
+    // 포스트 보기
     @ResponseBody
     @RequestMapping("/course/getCourse")
     public ArrayList<CourseRouteVO> getCourse(int courseId,
                                               HttpSession session,
-                                              Model model) {
+                                              Model model) throws Exception {
         CourseVO vo = courseService.selectCoursePost(courseId);
         String[] siteNames = vo.getCourseSitesArr().split(";;");
         String[] siteAddresses = vo.getCourseAddressArr().split(";;");
         String[] siteMemos = vo.getCourseMemoArr().split(";;");
         ArrayList<CourseRouteVO> result = new ArrayList<>();
 
-        for (int i=0; i<siteNames.length; i++) {
+        for (int i = 0; i < siteNames.length; i++) {
             CourseRouteVO temp = new CourseRouteVO();
             temp.setSiteName(siteNames[i]);
             temp.setSiteAddresses(siteAddresses[i]);
-            temp.setSiteMemos(siteMemos[i]);
+            if (siteMemos.length == 0) {
+                temp.setSiteMemos("");
+            } else {
+                temp.setSiteMemos(siteMemos[i]);
+            }
             result.add(temp);
         }
         return result;
     }
 
-
+    // 포스트 수정
     @RequestMapping("/course/{courseId}/edit")
     public String courseDetailEdit(@PathVariable("courseId") int courseId,
                                    HttpSession session,
-                                   Model model) {
+                                   Model model) throws Exception {
         CourseVO vo = courseService.selectCoursePost(courseId);
-        model.addAttribute("course",vo);
+        model.addAttribute("course", vo);
         return "course/courseDetailEdit";
     }
 

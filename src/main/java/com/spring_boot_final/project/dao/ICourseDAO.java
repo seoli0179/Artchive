@@ -14,4 +14,8 @@ public interface ICourseDAO {
     public void updateCourse(CourseVO vo);
 
     public void deleteCourse(HashMap<String, Object> map);
+
+    public void insertCourse(CourseVO vo);
+
+    public void hitCourse(int courseId) throws Exception;
 }

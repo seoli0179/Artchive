@@ -38,6 +38,15 @@
         ]]>
     </update>
 
+    <!-- 새 코스 작성 -->
+    <insert id="insertCourse" parameterType="com.spring_boot_final.project.model.CourseVO">
+        <![CDATA[
+        INSERT INTO course (userId, exhbnId, courseTitle, courseTag, courseState, courseSitesArr, courseAddressArr, courseMemoArr)
+        VALUES (#{userId}, #{exhbnId}, #{courseTitle}, #{courseTag}, #{courseState}, #{courseSitesArr}, #{courseAddressArr}, #{courseMemoArr});
+        ]]>
+    </insert>
+
+    <!--  코스 삭제  -->
     <delete id="deleteCourse" parameterType="hashmap">
         <![CDATA[
         DELETE FROM course

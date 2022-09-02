@@ -30,4 +30,8 @@ public class CourseService {
     public void deleteCourse(HashMap<String, Object> map) {
        dao.deleteCourse(map);
     }
+
+    public void insertCourse(CourseVO vo) {
+       dao.insertCourse(vo);
+    }
 }
