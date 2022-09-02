@@ -77,7 +77,7 @@ CREATE TABLE `courselike` (
   `userId` varchar(20) NOT NULL,
   CONSTRAINT `FK_courselike_courseId` FOREIGN KEY (`courseId`) REFERENCES `course` (`courseId`),
   CONSTRAINT `FK_courselike_userId` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 DROP TABLE IF EXISTS `courseComment`;
@@ -93,5 +93,5 @@ CREATE TABLE `courseComment` (
   PRIMARY KEY (`commentId`),
   CONSTRAINT `FK_courseComment_corseId` FOREIGN KEY (`courseId`) REFERENCES `course` (`courseId`),
   CONSTRAINT `FK_courseComment_userId` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
