@@ -99,19 +99,19 @@
            	
            		<div id="bannerText1" class="bannerText">
 	           		<ul>
-						<li>전시회 코스 추천 받기</li>
+						<li>코스 짜러가기</li>
 					</ul>
            		</div>
            		<div id="bannerText2" class="bannerText">
 					<ul>
-						<li>전시회 추천 받기</li>
+						<li>코스 짜러가기</li>
 					</ul>
            		</div>
            		
 				<div id=" ">
            		<div id="bannerText3" class="bannerText">
            			<ul>
-						<li><a href="#">Get a Recommendation</a></li>
+						<li><a href="#">Make My Course!</a></li>
 					</ul>
            		</div>
 				</div>
