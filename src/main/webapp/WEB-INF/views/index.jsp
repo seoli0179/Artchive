@@ -99,7 +99,7 @@
            	
            		<div id="bannerText1" class="bannerText">
 	           		<ul>
-						<li>코스 짜러가기</li>
+						<!-- <li>코스 짜러가기</li> -->
 					</ul>
            		</div>
            		<div id="bannerText2" class="bannerText">
@@ -111,7 +111,7 @@
 				<div id=" ">
            		<div id="bannerText3" class="bannerText">
            			<ul>
-						<li><a href="#">Make My Course!</a></li>
+						<li><a href="<c:url value='/course'/>">Make My Course!</a></li>
 					</ul>
            		</div>
 				</div>
