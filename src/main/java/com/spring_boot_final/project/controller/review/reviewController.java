@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
 
+import com.spring_boot_final.project.model.NoteCommentVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.spring_boot_final.project.model.CommentVO;
 import com.spring_boot_final.project.model.NoteVO;
 import com.spring_boot_final.project.service.CommentService;
 import com.spring_boot_final.project.service.NoteService;
@@ -48,7 +48,7 @@ public String reviewNote(
     if (session.getAttribute("sid") != null)
         note.setNoteLikeCheck(noteService.noteLikeCheck(note, session.getAttribute("sid").toString()));
 
-    ArrayList<CommentVO> comment = commentService.selectCommentList(noteId);
+    ArrayList<NoteCommentVO> comment = commentService.selectCommentList(noteId);
 
     if (session.getAttribute("sid") != null) {
         for (int i = 0; i < comment.size(); i++) {
