@@ -51,14 +51,14 @@
 								<li><a href="<c:url value='/note/list?category=event&page=1&sort=new&keyword='/>">이벤트</a></li>
 							</ul>
 						</li>
-						<%--						<li class="dropdown"><a class="color" href="<c:url value='/course'/>">Courses<i class="fa-solid fa-angle-down"></i></a>--%>
-						<%--							<ul class="dropdownMenu">--%>
-						<%--								<li><a href="<c:url value='/course'/>">코스짜기</a></li>--%>
-						<%--								<li><a href="<c:url value='/course/list'/>">칼럼</a></li>--%>
-						<%--								<li><a href="<c:url value='/course/list'/>">게시판</a></li>--%>
-						<%--							</ul>--%>
-						<%--						</li>--%>
-						<li class="dropdown"><a class="color" href="<c:url value='/course'/>">Courses</a></li>
+						<li class="dropdown"><a class="color" href="<c:url value='/course'/>">Courses<i class="fa-solid fa-angle-down"></i></a>
+							<ul class="dropdownMenu">
+								<li><a href="<c:url value='/course'/>">코스짜기</a></li>
+								<li><a href="<c:url value='/course/list'/>">코스</a></li>
+								<li><a href="<c:url value='/review/reviewNoteList'/>">리뷰</a></li>
+							</ul>
+						</li>
+						<%-- <li class="dropdown"><a class="color" href="<c:url value='/course'/>">Courses</a></li> --%>
 					</ul>
         		</nav>
         	</div> <!-- headerBox -->
@@ -99,19 +99,19 @@
            	
            		<div id="bannerText1" class="bannerText">
 	           		<ul>
-						<li>전시회 코스 추천 받기</li>
+						<li>코스 짜러가기</li>
 					</ul>
            		</div>
            		<div id="bannerText2" class="bannerText">
 					<ul>
-						<li>전시회 추천 받기</li>
+						<li>코스 만들기</li>
 					</ul>
            		</div>
            		
 				<div id=" ">
            		<div id="bannerText3" class="bannerText">
            			<ul>
-						<li><a href="#">Get a Recommendation</a></li>
+						<li><a href="#">Make My Course!</a></li>
 					</ul>
            		</div>
 				</div>
@@ -124,74 +124,35 @@
            		<div class="exMaintext">
 	           		<ul>
 	           			<li class="MainText">지금 하고 있는 전시</li>
-	           			<li class="exhibitionMore"><a href="#">더보기 ></a></li>
+	           			<li class="exhibitionMore"><a href="<c:url value='/exhbn/list'/>">더보기 ></a></li>
 	           		</ul>
 				</div>
-				
 
-           		<div id="exhibitionBox1" class="exhibitionBox" OnClick="location.href ='http://URL주소'" style="cursor:pointer;">
+				
+				<div class="exhbnBox">
+				<c:forEach var="exhbn" items="${exhbnList}" varStatus="status" begin="1" end="4">
+				<a href="/exhbn/detail/${exhbn.exhbnId}">
+           		<div id="exhibitionBox1" class="exhibitionBox" style="cursor:pointer;">
            		<div id="exhibitionImg1" class="exhibitionImg">
            		 <ul>
            		 	<li>
-           		 		<img src="<c:url value='/image/banner.jpg'/>">
+           		 		<img src="${exhbn.exhbnImgUrl}">
            		 	</li>
            		 </ul>
            		 </div><!-- exhibitionImg -->
            		 <div class= "exhibitionText" > 
            		 	<ul>
-	           			<li class="exName"><a href="#">전시회명1</a></li>
-	           			<li class="exPeriod"><a href="#">2022.00.00-2022.00.00</a></li>
+	           			<li class="exName"><a href="#">${exhbn.exhbnTitle}</a></li>
+	           			<li class="exPeriod">
+	           			<a href="#">
+	           			<fmt:formatDate value = "${exhbn.exhbnStartDate}" type ="date" pattern="yyyy.MM.dd"/> - <fmt:formatDate value = "${exhbn.exhbnEndDate}" type ="date" pattern="yyyy.MM.dd"/>
+	           			</a></li>
            		 	</ul>
            		 </div><!-- exhibitionText -->
            		 </div> <!-- exhibitionBox -->
-
-           		<div id="exhibitionBox2" class="exhibitionBox">
-           		<div id="exhibitionImg2" class="exhibitionImg">
-           		 <ul>
-           		 	<li>
-           		 		<img src="<c:url value='/image/banner.jpg'/>">
-           		 	</li>
-           		 </ul>
-           		 </div><!-- exhibitionImg -->
-           		 <div class= "exhibitionText">
-           		 	<ul>
-	           			<li class="exName"><a href="#">전시회명1</a></li>
-	           			<li class="exPeriod"><a href="#">2022.00.00-2022.00.00</a></li>
-           		 	</ul>
-           		 </div><!-- exhibitionText -->
-           		 </div> <!-- exhibitionBox -->
-
-           		<div id="exhibitionBox3" class="exhibitionBox">
-           		<div id="exhibitionImg1" class="exhibitionImg">
-           		 <ul>
-           		 	<li>
-           		 		<img src="<c:url value='/image/banner.jpg'/>">
-           		 	</li>
-           		 </ul>
-           		 </div><!-- exhibitionImg -->
-           		 <div class= "exhibitionText">
-           		 	<ul>
-	           			<li class="exName"><a href="#">전시회명1</a></li>
-	           			<li class="exPeriod"><a href="#">2022.00.00-2022.00.00</a></li>
-           		 	</ul>
-           		 </div><!-- exhibitionText -->
-           		 </div> <!-- exhibitionBox -->
-
-           		<div id="exhibitionBox" class="exhibitionBox">
-           		<div id="exhibitionImg1" class="exhibitionImg">
-           		 <ul>
-           		 	<li>
-           		 		<img src="<c:url value='/image/banner.jpg'/>">
-           		 	</li>
-           		 </ul>
-           		 </div><!-- exhibitionImg -->
-           		 <div class= "exhibitionText">
-           		 	<ul>
-	           			<li class="exName"><a href="#">전시회명1</a></li>
-	           			<li class="exPeriod"><a href="#">2022.00.00-2022.00.00</a></li>
-           		 	</ul>
-           		 </div><!-- exhibitionText -->
-           		 </div> <!-- exhibitionBox -->
+           		 </a>
+				</c:forEach>
+				</div>
 
            	</div><!-- exhibition -->
            	
@@ -204,69 +165,31 @@
 	           		</ul>
 				</div>
 				
-           		<div id="exhibitionBox1" class="exhibitionBox">
+           		<div class="exhbnBox">
+				<c:forEach var="exhbn" items="${exhbnList}" varStatus="status" begin = "1" end = "10" step="2">
+				<a href="/exhbn/detail/${exhbn.exhbnId}">
+           		<div id="exhibitionBox1" class="exhibitionBox" style="cursor:pointer;">
            		<div id="exhibitionImg1" class="exhibitionImg">
            		 <ul>
            		 	<li>
-           		 		<img src="<c:url value='/image/banner.jpg'/>">
+           		 		<img src="${exhbn.exhbnImgUrl}">
            		 	</li>
            		 </ul>
            		 </div><!-- exhibitionImg -->
-           		 <div class= "exhibitionText">
+           		 <div class= "exhibitionText" > 
            		 	<ul>
-	           			<li class="exName"><a href="#">전시회명1</a></li>
-	           			<li class="exPeriod"><a href="#">2022.00.00-2022.00.00</a></li>
+	           			<li class="exName"><a href="#">${exhbn.exhbnTitle}</a></li>
+	           			<li class="exPeriod">
+	           			<a href="#">
+	           			<fmt:formatDate value = "${exhbn.exhbnStartDate}" type ="date" pattern="yyyy.MM.dd"/> - <fmt:formatDate value = "${exhbn.exhbnEndDate}" type ="date" pattern="yyyy.MM.dd"/>
+	           			</a></li>
            		 	</ul>
            		 </div><!-- exhibitionText -->
            		 </div> <!-- exhibitionBox -->
+           		 </a>
+				</c:forEach>
+				</div>
 
-           		<div id="exhibitionBox2" class="exhibitionBox">
-           		<div id="exhibitionImg2" class="exhibitionImg">
-           		 <ul>
-           		 	<li>
-           		 		<img src="<c:url value='/image/banner.jpg'/>">
-           		 	</li>
-           		 </ul>
-           		 </div><!-- exhibitionImg -->
-           		 <div class= "exhibitionText">
-           		 	<ul>
-	           			<li class="exName"><a href="#">전시회명1</a></li>
-	           			<li class="exPeriod"><a href="#">2022.00.00-2022.00.00</a></li>
-           		 	</ul>
-           		 </div><!-- exhibitionText -->
-           		 </div> <!-- exhibitionBox -->
-
-           		<div id="exhibitionBox3" class="exhibitionBox">
-           		<div id="exhibitionImg1" class="exhibitionImg">
-           		 <ul>
-           		 	<li>
-           		 		<img src="<c:url value='/image/banner.jpg'/>">
-           		 	</li>
-           		 </ul>
-           		 </div><!-- exhibitionImg -->
-           		 <div class= "exhibitionText">
-           		 	<ul>
-	           			<li class="exName"><a href="#">전시회명1</a></li>
-	           			<li class="exPeriod"><a href="#">2022.00.00-2022.00.00</a></li>
-           		 	</ul>
-           		 </div><!-- exhibitionText -->
-           		 </div> <!-- exhibitionBox -->
-
-           		<div id="exhibitionBox" class="exhibitionBox">
-           		<div id="exhibitionImg1" class="exhibitionImg">
-           		 <ul>
-           		 	<li>
-           		 		<img src="<c:url value='/image/banner.jpg'/>">
-           		 	</li>
-           		 </ul>
-           		 </div><!-- exhibitionImg -->
-           		 <div class= "exhibitionText">
-           		 	<ul>
-	           			<li class="exName"><a href="#">전시회명1</a></li>
-	           			<li class="exPeriod"><a href="#">2022.00.00-2022.00.00</a></li>
-           		 	</ul>
-           		 </div><!-- exhibitionText -->
-           		 </div> <!-- exhibitionBox -->
 
            	</div><!-- exhibition2 -->	
 			</c:if>
@@ -281,39 +204,32 @@
 	           		</ul>
 				</div>
 				
-           		<div id="exhibitionBox1" class="exhibitionBox">
+           		<div class="exhbnBox">
+				<c:forEach var="exhbn" items="${exhbnList}" varStatus="status" begin = "5" end = "9" step="1">
+				<a href="/exhbn/detail/${exhbn.exhbnId}">
+           		<div id="exhibitionBox1" class="exhibitionBox" style="cursor:pointer;">
            		<div id="exhibitionImg1" class="exhibitionImg">
            		 <ul>
            		 	<li>
-           		 		<img src="<c:url value='/image/testImage.jpg'/>">
+           		 		<img src="${exhbn.exhbnImgUrl}">
            		 	</li>
            		 </ul>
            		 </div><!-- exhibitionImg -->
-           		 <div class= "exhibitionText">
+           		 <div class= "exhibitionText" > 
            		 	<ul>
-	           			<li class="exName"><a href="#">전시회명1</a></li>
-	           			<li class="exPeriod"><a href="#">2022.00.00-2022.00.00</a></li>
+	           			<li class="exName"><a href="#">${exhbn.exhbnTitle}</a></li>
+	           			<li class="exPeriod">
+	           			<a href="#">
+	           			<fmt:formatDate value = "${exhbn.exhbnStartDate}" type ="date" pattern="yyyy.MM.dd"/> - <fmt:formatDate value = "${exhbn.exhbnEndDate}" type ="date" pattern="yyyy.MM.dd"/>
+	           			</a></li>
            		 	</ul>
            		 </div><!-- exhibitionText -->
            		 </div> <!-- exhibitionBox -->
+           		 </a>
+				</c:forEach>
+				</div>
 
-           		<div id="exhibitionBox2" class="exhibitionBox">
-           		<div id="exhibitionImg2" class="exhibitionImg">
-           		 <ul>
-           		 	<li>
-           		 		<img src="<c:url value='/image/testImage.jpg'/>">
-           		 	</li>
-           		 </ul>
-           		 </div><!-- exhibitionImg -->
-           		 <div class= "exhibitionText">
-           		 	<ul>
-	           			<li class="exName"><a href="#">전시회명1</a></li>
-	           			<li class="exPeriod"><a href="#">2022.00.00-2022.00.00</a></li>
-           		 	</ul>
-           		 </div><!-- exhibitionText -->
-           		 </div> <!-- exhibitionBox -->
-
-           		<div id="exhibitionBox3" class="exhibitionBox">
+           		<%-- <div id="exhibitionBox3" class="exhibitionBox">
            		<div id="exhibitionImg1" class="exhibitionImg">
            		 <ul>
            		 	<li>
@@ -343,9 +259,9 @@
 	           			<li class="exPeriod"><a href="#">2022.00.00-2022.00.00</a></li>
            		 	</ul>
            		 </div><!-- exhibitionText -->
-           		 </div> <!-- exhibitionBox -->
+           		 </div> <!-- exhibitionBox --> --%>
 
-           	</div><!-- exhibition2 -->	
+           	</div><!-- exhibition2 -->
 			</c:if>
            	
            	</div><!-- exhibitionAll -->
