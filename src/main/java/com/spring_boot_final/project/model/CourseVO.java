@@ -17,7 +17,7 @@ public class CourseVO {
     private int courseView;
     private int courseLike;
     private int courseComment;
-    private int courseState;
+    private String courseState;
     @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date createdAt;
     @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
@@ -106,11 +106,11 @@ public class CourseVO {
         this.courseComment = courseComment;
     }
 
-    public int getCourseState() {
+    public String getCourseState() {
         return courseState;
     }
 
-    public void setCourseState(int courseState) {
+    public void setCourseState(String courseState) {
         this.courseState = courseState;
     }
 

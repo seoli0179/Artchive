@@ -11,6 +11,7 @@
         select * from course
             inner join exhbn on course.exhbnId = exhbn.exhbnId
             inner join user on course.userId = user.userId
+        WHERE courseState != "DELETE"
         ORDER BY courseId DESC;
         ]]>
     </select>
@@ -52,8 +53,8 @@
     <update id="deleteCourse" parameterType="hashmap">
         <![CDATA[
         UPDATE course
-        SET courseViewState = 2
-        WHERE courseId = #{courseId} AND userId = #{userId}
+        SET courseState = "DELETE"
+        WHERE courseId = #{courseId} AND userId = #{userId};
         ]]>
     </update>
 
