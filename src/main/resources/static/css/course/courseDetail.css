@@ -315,7 +315,7 @@
 /* share */
 	.share {
 		width: 1080px;
-		margin: 20px auto;
+		margin: 90px auto 20px;
 		text-align: right;
 		display: flex;
 		justify-content: space-between;
