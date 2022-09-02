@@ -25,43 +25,36 @@ public class reviewController {
     CommentService commentService;
 	
 	
-	// reviewNote 페이지 열기 요청 처리
-	@RequestMapping("/reviewNote")
-	public String reviewNote() {
-		return "review/reviewNote";
-	}
-	
- 
-@RequestMapping("/reviewNote/{noteId}")
-public String reviewNote(
-        @PathVariable int noteId,
-        HttpSession session,
-        Model model
-) {
-
-    NoteVO note = noteService.selectNote(noteId);
-
-    if (note.getPageViewState() != ViewState.POST) {
-        return "error";
-    }
-
-    if (session.getAttribute("sid") != null)
-        note.setNoteLikeCheck(noteService.noteLikeCheck(note, session.getAttribute("sid").toString()));
-
-    ArrayList<NoteCommentVO> comment = commentService.selectCommentList(noteId);
-
-    if (session.getAttribute("sid") != null) {
-        for (int i = 0; i < comment.size(); i++) {
-            comment.get(i).setCommentLikeCheck(commentService.noteLikeCheck(comment.get(i), session.getAttribute("sid").toString()));
-        }
-    }
-
-    model.addAttribute("note", note);
-    model.addAttribute("commentList", comment);
-
-    return "review/reviewNote";
-}
-
+	/*
+	 * // reviewNote 페이지 열기 요청 처리
+	 * 
+	 * @RequestMapping("/reviewNote") public String reviewNote() { return
+	 * "review/reviewNote"; }
+	 * 
+	 * 
+	 * @RequestMapping("/reviewNote/{noteId}") public String reviewNote(
+	 * 
+	 * @PathVariable int noteId, HttpSession session, Model model ) {
+	 * 
+	 * NoteVO note = noteService.selectNote(noteId);
+	 * 
+	 * if (note.getPageViewState() != ViewState.POST) { return "error"; }
+	 * 
+	 * if (session.getAttribute("sid") != null)
+	 * note.setNoteLikeCheck(noteService.noteLikeCheck(note,
+	 * session.getAttribute("sid").toString()));
+	 * 
+	 * ArrayList<NoteCommentVO> comment = commentService.selectCommentList(noteId);
+	 * 
+	 * if (session.getAttribute("sid") != null) { for (int i = 0; i <
+	 * comment.size(); i++) {
+	 * comment.get(i).setCommentLikeCheck(commentService.noteLikeCheck(comment.get(i
+	 * ), session.getAttribute("sid").toString())); } }
+	 * 
+	 * model.addAttribute("note", note); model.addAttribute("commentList", comment);
+	 * 
+	 * return "review/reviewNote"; }
+	 */
 	
 	
 }

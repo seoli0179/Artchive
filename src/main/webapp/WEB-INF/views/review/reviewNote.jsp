@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>arTchive / ${reviewNote.reviewNoteTitle}</title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/review/reviewNote.css'/>">
@@ -16,19 +17,20 @@
 		<c:import url="/WEB-INF/views/layout/top.jsp" />
 		
 		<!-- headerTextBox -->
+		<%-- <c:forEach var="reviewNote" items="${reviewNoteList}"> --%>
 			<section id="courseHeader" class="courseHeaderImg">
-				<div class="headerTextBox" style="background-image : url('${course.exhbnImgUrl}');">
+				<div class="headerTextBox" style="background-image : url('${reviewNote.exhbnImgUrl}');">
 					<div id="header-exhbnTitle" class="headerText">
 						<%-- <ul><li>${course.exhbnTitle}</li></ul> --%>
-						<ul><li>{전시명}</li></ul>
+						<ul><li>${reviewNote.userNickname}</li></ul>
 					</div>
 					<div id="header-postTitle" class="headerText">
 						<%-- <h1>${course.courseTitle}</h1> --%>
-						<h1>{글제목}</h1>
-						<input type="text" value="${course.courseId}" hidden>
+						<h1>${reviewNote.reviewNoteTitle}</h1>
+						<input type="text" value="${reviewNote.reviewNoteId}" hidden>
 					</div>
 					<div id="header-postDate" class="headerText">
-						<ul><li><fmt:formatDate value="${course.createdAt}" pattern="yyyy. MM. dd. E"></fmt:formatDate></li></ul>
+						<ul><li><fmt:formatDate value="${reviewNote.reviewNoteCreatedDate}" pattern="yyyy. MM. dd. E"></fmt:formatDate></li></ul>
 					</div>
            		</div><!-- .headerTextBox -->
 			</section><!-- .courseHeader -->
@@ -42,7 +44,7 @@
 				<i id="back" class="fa-solid fa-arrow-left fa-2xl"></i>
 			</div>
           		<div id="courseMainBtn-Box">
-				<input type="button" id="editCourseBtn"  class="white-btn" value="코스 수정" onclick="location.href='<c:url value="/course/${course.courseId}/edit"/>'">
+				<input type="button" id="editCourseBtn"  class="white-btn" value="코스 수정" onclick="location.href='<c:url value="/course/${reviewNote.courseId}/edit"/>'">
 				<input type="button" id="like-btn"  class="white-btn" value="게시글 수정">
 				<input type="button" id="scrap-btn"  class="black-btn" value="삭제">
           		</div><!-- courseMainText -->
@@ -66,16 +68,12 @@
 		 <div class="container">
 	        <ul class="progressbar">
 	            <li id="start">start</li>
-	            <li class="courseBox">{가게명}</li>
-	            <li class="courseBox">{가게명}</li>
-	            <li class="courseBox">{가게명}</li>
-	            <li class="courseBox">{가게명}</li>
 	            
-	            <!-- <li class="courseBox">{가게명}</li>
-	            <li class="courseBox">{가게명}</li>
-	            <li class="courseBox">{가게명}</li>
-	            <li class="courseBox">{가게명}</li>
-	            <li class="courseBox">{가게명}</li> -->
+	            <c:forEach var="site" items="${siteName}" varStatus="status">
+	            <li class="courseBox">${site}</li>
+	            
+	         	</c:forEach>
+	         	
 		        <li id="end">end</li>
 	        </ul>
 	   	</div> 
@@ -84,7 +82,7 @@
 	   	
 	   	<div class="reviewNoteBox">
 	    <section>
-	        <input type="hidden" id="noteId" value="${note.noteId}">
+	        <input type="hidden" id="noteId" value="${reviewNote.reviewNoteId}">
 	        <%-- <div class="filter_box">
 	            <div class="back">
 	                <!-- <i id="back" class="fa-solid fa-arrow-left fa-2xl"></i> -->
@@ -118,16 +116,16 @@
 	            </div>
 	            <div class="summary">
 	                <div class="title">
-	                    ${note.noteTitle}
+	                    ${reviewNote.reviewNoteTitle}
 	                </div>
 	                <div class="info">
-	                    <br><div class="username"> ${note.userNickname}</div>&nbsp;&nbsp;<div class="createdAt">
-	                    <fmt:formatDate pattern="MM-dd" value="${note.noteCreatedDate }"/></div>
+	                    <br><div class="username"> ${reviewNote.userId}</div>&nbsp;&nbsp;<div class="createdAt">
+	                    <fmt:formatDate pattern="yyyy-MM-dd" value="${reviewNote.reviewNoteCreatedDate }"/></div>
 	                </div>
 	                <div class="content-all">
 	                <div class="content-body">
 	                    <article class="content-text" itemprop="articleBody">
-	                        ${note.note}
+	                        ${reviewNote.reviewNote}
 	                    </article>
 	                </div>
 	              
@@ -191,6 +189,7 @@
 	            </div>
 	        </div>
 	    </section>
+	     <%-- </c:forEach> --%>
 		</div>
 		
 		<!-- bottom 이동 -->
