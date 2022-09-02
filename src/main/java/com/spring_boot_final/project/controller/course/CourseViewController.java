@@ -1,5 +1,6 @@
 package com.spring_boot_final.project.controller.course;
 
+import com.spring_boot_final.project.model.CourseCommentVO;
 import com.spring_boot_final.project.model.CourseRouteVO;
 import com.spring_boot_final.project.model.CourseVO;
 import com.spring_boot_final.project.model.ExhbnVO;
@@ -63,12 +64,15 @@ public class CourseViewController {
                                    HttpSession session,
                                    Model model) throws Exception {
         CourseVO vo = courseService.selectCoursePost(courseId);
+        ArrayList<CourseCommentVO> commentVo = courseService.selectCourseComment(courseId);
         model.addAttribute("course", vo);
+        model.addAttribute("cComment",commentVo);
 
         ArrayList<String[]> sites = new ArrayList<String[]>();
         String[] siteName = vo.getCourseSitesArr().split(";;");
         String[] siteAddress = vo.getCourseAddressArr().split(";;");
         String[] siteMemo = vo.getCourseMemoArr().split(";;");
+
         model.addAttribute("siteName", siteName);
         model.addAttribute("siteAddress", siteAddress);
         model.addAttribute("siteMemo", siteMemo);

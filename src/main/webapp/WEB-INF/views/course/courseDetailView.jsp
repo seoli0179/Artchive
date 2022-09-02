@@ -7,7 +7,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>arTchive / {코스 제목(글제목)}</title>
+		<title>arTchive / ${course.courseTitle}</title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
 		<!-- icon-kit -->
@@ -23,6 +23,7 @@
 		<script src="<c:url value='/js/note/detail.js'/>"></script>
 		<script src="<c:url value='/js/course/detailView.js'/>"></script>
 		<script src="<c:url value='/js/course/courseDelete.js'/>"></script>
+		<script src="<c:url value='/js/course/comment.js'/>"></script>
 		<script type="text/javascript"></script>
 	</head>
 	<body>
@@ -56,9 +57,7 @@
 						<input type="button" id="editCourseBtn"  class="white-btn" value="수정" onclick="location.href='<c:url value="/course/${course.courseId}/edit"/>'">
 						<button id="deleteBtn_view"  class="white-btn">삭제</button>
 					</c:if>
-					<c:if test="${sessionScope.sid != course.userId}">
-						<button id="scrapCourse"  class="black-btn">Scrap</button>
-					</c:if>
+					<button id="scrapCourse"  class="black-btn">Scrap</button>
            		</div><!-- courseMainText -->
 			</section><!-- courseMenu -->
 
@@ -160,36 +159,24 @@
 						<button id="postCommentBtn" class="black-btn" type="button">Post</button>
 					</div>
 				</c:if>
-				<div class="comment-num">2 comments</div>
+				<div class="comment-num">${course.courseComment} comments</div>
 				<div class="comment-list">
-					<div class="comment">
-						<div class="comment-scrap">
-							<div class="like"><i class="fa-solid fa-heart" style="color:Red"></i>7</div>
-						</div>
-						<div class="comment-summary">
-							<div class="info">
-								<div class="username">username</div>&nbsp;&middot;&nbsp;
-								<div class="createdAt">08-17</div>
+					<c:forEach var="c" items="${cComment}" varStatus="status">
+						<div class="comment">
+							<div class="comment-scrap">
+								<div class="like"><i class="fa-solid fa-heart" style="color:Red"></i>${c.commentLike}</div>
 							</div>
-							<div class="comment-body">
-								코멘트 내용
-							</div>
-						</div>
-					</div>
-					<div class="comment">
-						<div class="comment-scrap">
-							<div class="like"><i class="fa-solid fa-heart" style="color:Black"></i>7</div>
-						</div>
-						<div class="comment-summary">
-							<div class="info">
-								<div class="username">username</div>&nbsp;&middot;&nbsp;
-								<div class="createdAt">08-17</div>
-							</div>
-							<div class="comment-body">
-								코멘트 내용
+							<div class="comment-summary">
+								<div class="info">
+									<div class="username">${c.userNickname}</div>&nbsp;&middot;&nbsp;
+									<div class="createdAt"><fmt:formatDate value="${c.commentCreatedDate}" pattern="MM/dd hh:mm"/> </div>
+								</div>
+								<div class="comment-body">
+									${c.comment}
+								</div>
 							</div>
 						</div>
-					</div>
+					</c:forEach>
 				</div>
 			</section>
 		</main>

@@ -11,6 +11,7 @@
         select * from course
             inner join exhbn on course.exhbnId = exhbn.exhbnId
             inner join user on course.userId = user.userId
+        WHERE courseState != "DELETE"
         ORDER BY courseId DESC;
         ]]>
     </select>
@@ -20,7 +21,7 @@
         select * from course
             inner join exhbn on course.exhbnId = exhbn.exhbnId
             inner join user on course.userId = user.userId
-        WHERE courseId=${courseId}
+        WHERE courseId=${courseId};
         ]]>
     </select>
 
@@ -52,8 +53,8 @@
     <update id="deleteCourse" parameterType="hashmap">
         <![CDATA[
         UPDATE course
-        SET courseViewState = 2
-        WHERE courseId = #{courseId} AND userId = #{userId}
+        SET courseState = "DELETE"
+        WHERE courseId = #{courseId} AND userId = #{userId};
         ]]>
     </update>
 
@@ -63,6 +64,32 @@
             courseView = courseView+1
         WHERE courseId = #{courseId}
     </update>
+
+<!--  코멘트  -->
+    <insert id="insertComment" parameterType="com.spring_boot_final.project.model.CourseCommentVO">
+        <![CDATA[
+        INSERT INTO courseComment (courseId, userId, comment)
+        VALUES (#{courseId}, #{userId}, #{comment})
+        ]]>
+    </insert>
+
+    <!--  조회수  -->
+    <update id="countComment" parameterType="int">
+    <![CDATA[
+        UPDATE course SET
+            courseComment = courseComment+1
+        WHERE courseId = #{courseId}
+    ]]>
+    </update>
+
+    <select id="selectCourseComment" parameterType="int" resultType="com.spring_boot_final.project.model.CourseCommentVO">
+    <![CDATA[
+        select * from courseComment
+            inner join user on courseComment.userId = user.userId
+        WHERE courseId=${courseId}
+        ORDER BY commentId DESC;
+    ]]>
+    </select>
 
 <!--  마이페이지  -->
     <!-- 마이페이지 코스 작성글 조회 -->

@@ -685,3 +685,7 @@ a.btn-layerClose:hover {
 .post-react-box span {
 	margin-right: 20px;
 }
+
+.info {
+	display: flex;
+}

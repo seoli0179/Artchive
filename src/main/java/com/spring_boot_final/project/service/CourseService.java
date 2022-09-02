@@ -1,6 +1,7 @@
 package com.spring_boot_final.project.service;
 
 import com.spring_boot_final.project.dao.ICourseDAO;
+import com.spring_boot_final.project.model.CourseCommentVO;
 import com.spring_boot_final.project.model.CourseVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -44,5 +45,14 @@ public class CourseService {
 	// 마이페이지 작성한 코스 게시물 삭제
     public void deleteMpCourse(int courseId) {
     	dao.deleteMpCourse(courseId);
+    }
+
+    public void insertComment(CourseCommentVO vo) throws Exception {
+       dao.countComment(vo.getCourseId());
+       dao.insertComment(vo);
+    }
+
+    public ArrayList<CourseCommentVO> selectCourseComment(int courseId) {
+        return dao.selectCourseComment(courseId);
     }
 }
