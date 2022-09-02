@@ -34,7 +34,7 @@ function login(){
             },
             success: function (data) {
                 if(data=="SUCCESS"){
-                    location.href="/";
+                    window.history.go(-2);
                 }
                 else{
                     alert("아이디 또는 비밀번호가 틀렸습니다");
