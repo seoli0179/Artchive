@@ -64,6 +64,13 @@
         WHERE courseId = #{courseId}
     </update>
 
+<!--  코멘트  -->
+    <insert id="insertComment" parameterType="com.spring_boot_final.project.model.CourseCommentVO">
+        <![CDATA[
+        INSERT INTO courseComment (courseId, userId, comment)
+        VALUES (#{courseId}, #{userId}, #{comment})
+        ]]>
+    </insert>
 <!--  마이페이지  -->
     <!-- 마이페이지 코스 작성글 조회 -->
     <select id="mpCoursePostSelect" parameterType="string" resultType="com.spring_boot_final.project.model.CourseVO">
