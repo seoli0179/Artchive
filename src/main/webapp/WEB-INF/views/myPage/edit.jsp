@@ -66,7 +66,7 @@
 						<div class="infoBox">
 							<div class="itemsBox"><span>이름</span></div>
 							<div class="inputBox">${user.userName}</div>	
-							<input type="button" class="nameBtn white-btn edit" value="수정">
+							<input type="button" id="nameBtn" class="nameBtn white-btn edit" value="수정">
 						</div> <!-- infoBox -->
 						
 						<div class="nameBox">
@@ -76,25 +76,26 @@
 							<i class="fa-solid fa-circle-info"></i> 이동통신사 및 신용평가기관 모두 변경된 이름으로 등록되어 있는지 확인 후 진행해주세요.</div>
 						</div>
 						
-						<!-- 휴대폰 번호 -->
+						<%--  <!-- 휴대폰 번호 -->
 						<div class="infoBox">
 							<div class="itemsBox"><span>휴대폰 번호</span></div>
 							<div class="inputBox">${user.userNum}</div>	
-							<input type="button" class="numberBtn white-btn edit" value="수정">
+							<input type="button" id="nameBtn" class="numberBtn white-btn edit" value="수정">
 						</div> <!-- infoBox -->
+						
 						
 						<!-- toggle -->
 						<div class="numberBox">
 							<div class="explain">휴대폰번호 변경을 위해 인증이 필요합니다.</div>
 							<input type="text" class="numberInput" id="userNum" name="userNum" placeholder="변경 휴대폰 번호(-없이 입력)" value="${user.userNum}">
 							<div class="warning">휴대폰번호를 입력해주세요. (-없이 입력)</div>
-						</div>
+						</div>  --%>
 						
 						<!-- 닉네임  -->
 						<div class="infoBox">
 							<div class="itemsBox"><span>닉네임</span></div>
 							<div class="inputBox">${user.userNickname}</div>	
-							<input type="button" class="nicknameBtn white-btn edit" value="수정">
+							<input type="button" id="nicknameBtn" class="nicknameBtn white-btn edit" value="수정">
 						</div> <!-- infoBox -->
 						
 						<div class="nicknameBox">
@@ -107,7 +108,7 @@
 						<div class="infoBox">
 							<div class="itemsBox"><span>이메일</span></div>
 							<div class="inputBox">${user.userEmail}</div>
-							<input type="button" class="emailBtn white-btn edit" value="수정">
+							<input type="button" id="emailBtn" class="emailBtn white-btn edit" value="수정">
 						</div> <!-- infoBox -->
 						
 						<div class="emailBox">
@@ -121,6 +122,11 @@
 								<option value="gmail.com" <c:if test="${email2 eq 'gmail.com'}">selected</c:if>>@gmail.com</option>
 							</select>
 							<div class="warning">이메일을 입력해주세요.</div>
+						</div>
+						
+						<div class="emailNumBox">
+							<div class="explain">인증번호 6자리</div>
+							<input type="text" id="userEmailNum" name="userEmailNum" class="emailNumInput" placeholder="인증번호 입력">
 						</div>
 						
 						<div class="infoBox">
@@ -146,9 +152,10 @@
 						</div> <!-- infoBox -->
 						
 						<div class="buttonBox"> 
-							<input type="submit" class="editBtn black-btn" value="확인">
+							<input type="submit" id="editBtn" class="editBtn black-btn" value="확인">
 							<input type="reset" class="resetBtn white-btn" value="취소">
-						</div> <!-- buttonBox -->
+						</div> <!--buttonBox-->
+						
 					</div> <!-- tableBox -->
 						
 					</form>

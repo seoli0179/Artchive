@@ -181,14 +181,14 @@
 }
 
 /* toggle */
-.nameBox, .numberBox, .nicknameBox, .emailBox {
+.nameBox, .numberBox, .nicknameBox, .emailBox, .emailNumBox {
 	margin-left:20%;
 	width:100%;
 	display:none;
 }
 
 /* 입력창 */
-.nameInput, .numberInput, .nicknameInput, .emailInput {
+.nameInput, .numberInput, .nicknameInput, .emailInput, .emailNumInput {
 	width: 40%;
     height: 40px;
     padding-left: 8px;
