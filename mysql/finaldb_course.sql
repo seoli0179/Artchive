@@ -70,3 +70,12 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2022-08-30 17:02:52
+
+DROP TABLE IF EXISTS `courselike`;
+CREATE TABLE `course` (
+  `courseId` int NOT NULL AUTO_INCREMENT,
+  `userId` varchar(20) NOT NULL,
+  CONSTRAINT `FK_courselike_courseId` FOREIGN KEY (`courseId`) REFERENCES `course` (`courseId`),
+  CONSTRAINT `FK_courselike_userId` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
