@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `course`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `course` (
-  `courseId` int NOT NULL AUTO_INCREMENT,
+  `courseId` int NOT NULL AUTO_INCREMENT unique,
   `userId` varchar(20) NOT NULL,
   `exhbnId` int NOT NULL,
   `courseTitle` varchar(50) DEFAULT NULL,
@@ -72,10 +72,26 @@ UNLOCK TABLES;
 -- Dump completed on 2022-08-30 17:02:52
 
 DROP TABLE IF EXISTS `courselike`;
-CREATE TABLE `course` (
-  `courseId` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `courselike` (
+  `courseId` int NOT NULL,
   `userId` varchar(20) NOT NULL,
   CONSTRAINT `FK_courselike_courseId` FOREIGN KEY (`courseId`) REFERENCES `course` (`courseId`),
   CONSTRAINT `FK_courselike_userId` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+DROP TABLE IF EXISTS `courseComment`;
+CREATE TABLE `courseComment` (
+  `commentId` int NOT NULL AUTO_INCREMENT,
+  `courseId` int NOT NULL,
+  `userId` varchar(50) NOT NULL,
+  `pageViewState` varchar(50) DEFAULT 'POST',
+  `comment` text,
+  `commentLike` int DEFAULT '0',
+  `commentCreatedDate` datetime DEFAULT CURRENT_TIMESTAMP,
+  `commentUpdatedDate` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`commentId`),
+  CONSTRAINT `FK_courseComment_corseId` FOREIGN KEY (`courseId`) REFERENCES `course` (`courseId`),
+  CONSTRAINT `FK_courseComment_userId` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
