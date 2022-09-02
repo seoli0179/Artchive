@@ -15,15 +15,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.spring_boot_final.project.model.NoteCommentVO;
+import com.spring_boot_final.project.model.CommentVO;
+import com.spring_boot_final.project.model.CourseVO;
 import com.spring_boot_final.project.model.NoteVO;
 import com.spring_boot_final.project.model.UserVO;
 import com.spring_boot_final.project.service.CommentService;
+import com.spring_boot_final.project.service.CourseService;
 import com.spring_boot_final.project.service.NoteService;
 import com.spring_boot_final.project.service.UserService;
 
 @Controller
-public class MypageController {
+public class MpDataController {
 	
 	
 	@Autowired
@@ -34,6 +36,9 @@ public class MypageController {
 	
 	@Autowired
 	CommentService cmtService;
+	
+	@Autowired
+	CourseService courseService;
 	
 	@Autowired
 	PasswordEncoder encoder;
@@ -142,7 +147,6 @@ public class MypageController {
 		
     }
  	
- 	
  	// 마이페이지 비밀번호 설정 
   	@ResponseBody
   	@RequestMapping("/myPage/updatePw")
@@ -166,7 +170,7 @@ public class MypageController {
   	}
   	
   	// 마이페이지 게시글 조회 
-  	@RequestMapping("myPage/actHistory")
+  	@RequestMapping("myPage/post")
   	public String myPageActHistoty(HttpSession session, 
   									Model model){
   		
@@ -176,7 +180,7 @@ public class MypageController {
   		
    	model.addAttribute("noteList", vo);
     	
-  		return "myPage/actHistory";
+  		return "myPage/post";
  	}
   	
   	// 마이페이지 게시글 삭제 
@@ -205,13 +209,12 @@ public class MypageController {
    		
      String userId = session.getAttribute("sid").toString();
      	
-     ArrayList<NoteCommentVO> vo = cmtService.selectCommentView(userId);
+     ArrayList<CommentVO> vo = cmtService.selectCommentView(userId);
    		
     	model.addAttribute("comment", vo);
      	
    		return "myPage/comment";
   	}
-   	
    	
    	
    	// 마이페이지 댓글 삭제 
@@ -232,6 +235,31 @@ public class MypageController {
          return "SUCCESS";
      }
    	
+   	// 마이페이지 작성한 코스 게시물 조회 
+   	@RequestMapping("myPage/coursePost")
+   	public String myPageCoursePost(HttpSession session, 
+   									Model model){
+   		
+     String userId = session.getAttribute("sid").toString();
+     	
+     ArrayList<CourseVO> vo = courseService.mpCoursePostSelect(userId);
+   		
+    	model.addAttribute("coursePost", vo);
+     	
+   		return "myPage/coursePost";
+  	}
+   	
+	// 마이페이지 작성한 코스 게시물 삭제 
+   	@ResponseBody
+   	@RequestMapping("myPage/deleteMpCourse")
+   	public String deleteMpCourse(
+   								@RequestParam("courseId") int courseId,
+   								HttpSession session){
+   		
+     	courseService.deleteMpCourse(courseId);
+     	
+   		return "SUCCESS";
+  	}
    	
  	// 마이페이지 회원 탈퇴 view
     @RequestMapping("myPage/withdraw")
@@ -270,68 +298,5 @@ public class MypageController {
  	}
    
 	
-    
-    // 좋아요 view
-    @RequestMapping("myPage/like")
-    public String myPageLike() {
-        return "myPage/like";
-    }
-    
-    // 코스 view
-    @RequestMapping("myPage/mpCourse")
-    public String myPageCourse() {
-        return "myPage/mpCourse";
-    }
-    
-    // 추천 콘텐츠 view
-    @RequestMapping("myPage/recmd")
-    public String myPageRecmd() {
-        return "myPage/recmd";
-    }
-    
-    // 추천 콘텐츠 이벤트 view
-    @RequestMapping("myPage/event")
-    public String myPageEvent() {
-        return "myPage/event";
-    }
-    
-//    // 활동 내역 게시글 view
-//    @RequestMapping("myPage/actHistory")
-//    public String myPageactHistory() {
-//        return "myPage/actHistory";
-//    }
-    
-//    // 활동 내역 댓글 view
-//    @RequestMapping("myPage/comment")
-//    public String myPageComment() {
-//        return "myPage/comment";
-//    }
-//    
-    // 회원 정보 확인 view
-    @RequestMapping("myPage/check")
-    public String myPageCheck() {
-        return "myPage/check";
-    }
-    
-    // 회원 정보 확인 view
-    @RequestMapping("myPage/check2")
-    public String myPageCheck2() {
-        return "myPage/check2";
-    }
-    
-    
-    // 회원 맞춤 정보 수정 view
-    @RequestMapping("myPage/custom")
-    public String myPageCustom() {
-        return "myPage/custom";
-    }
-    
-    // 회원 비밀번호 변경 view
-    @RequestMapping("myPage/pwChange")
-    public String myPagePw() {
-        return "myPage/pwChange";
-    }
-    
- 
 
 }

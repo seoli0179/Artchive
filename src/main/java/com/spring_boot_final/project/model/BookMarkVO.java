@@ -1,8 +1,13 @@
 package com.spring_boot_final.project.model;
 
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class BookMarkVO {
 	private int bookmarkId;
-	private String bookmarkAt;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date bookmarkAt;
 	private String userId;
 	private String exhbnId;
 	
@@ -24,10 +29,10 @@ public class BookMarkVO {
 	public void setBookmarkId(int bookmarkId) {
 		this.bookmarkId = bookmarkId;
 	}
-	public String getBookmarkAt() {
+	public Date getBookmarkAt() {
 		return bookmarkAt;
 	}
-	public void setBookmarkAt(String bookmarkAt) {
+	public void setBookmarkAt(Date bookmarkAt) {
 		this.bookmarkAt = bookmarkAt;
 	}
 	public String getUserId() {

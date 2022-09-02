@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: yeoub
   Date: 2022-08-17
-  Time: 오전 11:39
+  Time: 오전 11:08
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
@@ -10,17 +10,22 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/user/find.css'/>">
     <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
     <script src="<c:url value='/js/user/find.js'/>"></script>
-    <script src="https://kit.fontawesome.com/8ab5776cfb.js" crossorigin="anonymous"></script><!-- 아이콘 -->
-    <title>arTchive / 로그인 - ID/PW 찾기</title>
+    <title>arTchive / 로그인</title>
 </head>
 <body>
+
+<!-- top으로 이동 -->
+<c:import url="/WEB-INF/views/layout/top.jsp" />
+<div id="loginPage">
 <section class="login-form">
-    <h1>ID/PW 찾기</h1>
-    <br>
-    <div class="tabs">
+    <h1 class="loginTitle">ID/PW</h1>
+    <form action="">
+    	<div class="tabs">
         <div class="tab-2">
             <label for="tab2-1" class="tab_id">ID</label>
             <input id="tab2-1" class="tab_id" name="tabs-two" type="radio" checked="checked">
@@ -58,25 +63,28 @@
             </div>
         </div>
     </div>
-    <h6>ㅤ</h6>
-    <form action="">
-
+        <div class="btn-area">
+            <input id="btn_login" type="button" value="LOGIN" onclick="location.href='/login'">
+        </div>
+     
     </form>
-    <div class="btn-area next">
-        <input id="btn_login" type="button" value="LOGIN" onclick="location.href='/login'">
-    </div>
-    <div class="caption back">
-        <a href="<c:url value="/"/>">Home</a>
+    <div class="caption">
+        <span><a href="/join">회원가입</a></span>
     </div>
     <br>
     <hr>
-    <div class="sns"><img
-            src="https://w7.pngwing.com/pngs/367/789/png-transparent-social-media-youtube-facebook-f8-social-network-social-media-text-trademark-logo.png"
-            height="45" alt=""></div>
-    <div class="caption">
-        Already a user?
-        <a href="<c:url value="/login"/> "> Login</a>
-    </div>
+    <div class="sns">
+		<ul>
+			<li><img src="<c:url value='/image/facebook.png'/>"></li>
+			<li><img src="<c:url value='/image/instagram.png'/>"></li>
+			<li><img src="<c:url value='/image/twitter.png'/>"></li>
+			<%-- <li><img src="<c:url value='/image/github.png'/>"></li> --%>
+		</ul>
+	</div>
 </section>
+</div>
+
+ 		 <!-- bottom 이동 -->
+         <c:import url="/WEB-INF/views/layout/bottom.jsp" />
 </body>
 </html>

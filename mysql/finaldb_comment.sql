@@ -36,8 +36,10 @@ CREATE TABLE `comment` (
   PRIMARY KEY (`commentId`),
   KEY `userId` (`userId`),
   KEY `noteId` (`noteId`),
-  CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`),
+  CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
+  ON DELETE CASCADE,
   CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`noteId`) REFERENCES `note` (`noteId`)
+  ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

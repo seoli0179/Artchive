@@ -16,7 +16,7 @@ function deleteNote(noteId) {
             }, success: function (data) {
                 if (data == "SUCCESS") {
                     alert("삭제 완료!");
-                    location.href="/myPage/actHistory/" 
+                    location.href="/myPage/post/" 
                    
                 } else {
                     alert("삭제 실패!");

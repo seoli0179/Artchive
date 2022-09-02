@@ -6,14 +6,13 @@
 <html>
 	<head>
 	<meta charset="UTF-8">
-		<title>arTchive / 마이페이지 - 비밀번호 확인</title>
+		<title>arTchive / 마이페이지 - 활동내역(코스)</title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>"/>
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/check2.css'/>"/>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/coursePost.css'/>"/>
 		<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
-		<script src="<c:url value='/js/myPage/check2.js'/>"></script>
-		
+		<script src="<c:url value='/js/myPage/coursePost.js'/>"></script>
 	</head>
 	<body>
 		<div class="wrapper">
@@ -41,37 +40,53 @@
 			
 			<div class="myPageBox">
 		
-				<h2>개인정보 확인</h2>
-				<p class="line">
+				<h2>활동 내역</h2>
+					<p class="line">
+				<div class="titleBox">
+					<a href="<c:url value='/myPage/post'/>">게시글</a>
+					<a href="<c:url value='/myPage/comment'/>">댓글</a>
+					<a href="<c:url value='/myPage/coursePost'/>">코스</a>
+				</div><!-- titleBox -->
 				
-				
-				<form>
-					<div class="tableBox">
-						<div class="centerBox">
-							<h2 class="h2"><a class="logo" href="<c:url value='/'/>">Artchive</a></h2>
-							<span>정보를 안전하게 보호하기 위해<br>
-							<span class="red">비밀번호를 다시 한 번 확인</span>합니다.</span><br>
-							<span class="caution">비밀번호가 타인에게 노출되지 않도록 항상 주의해주세요.</span>
-						</div>
+				<div class="tableBox">
+					<table>
+						<thead>
+							<tr>
+								<th>구분</th>
+								<th>제목</th>
+								<th>등록일</th>
+								<th>상태</th>
+							</tr>
 							
-						<div class="infoBox">
-							<div class="itemsBox"><span>아이디</span></div>
-							<div class="inputBox">${sessionScope.sid}</div>	
-						</div> <!-- infoBox -->
-						
-						<div class="infoBox">
-							<div class="itemsBox"><span>비밀번호</span></div>
-								<div class="inputBox"><input type="password" id="userPw" name="userPw" class="pwCfrmInput" required></div>
-						</div> <!-- infoBox -->
-						
-						<div class="buttonBox"> 
-							<input type="button" id="submitBtn" class="black-btn" value="확인">
-							<input type="reset" class="white-btn" value="취소">
-						</div> <!-- buttonBox -->
-					</div> <!-- tableBox -->
-					</form>
+						</thead>
+						<tbody>
+							<c:choose>
+								
+								<c:when test="${empty coursePost}">
+									<tr>
+										<td colspan="4">작성한 게시글 내역이 없습니다.</td>
+									</tr>
+								</c:when>
+								
+								<c:otherwise>
+									<c:forEach items="${coursePost}" var="coursePost" varStatus="status">
+										<tr>
+											<td>${coursePost.courseTag}</td>
+											<td><a href="<c:url value='/course/${coursePost.courseId}'/>">${coursePost.courseTitle}</a></td>
+											<td><fmt:formatDate value="${coursePost.createdAt}" pattern="yyyy-MM-dd"/></td>
+											<td><input type="button" id="submitBtn" name="submitBtn" class="white-btn" 
+													onclick="deleteMpCourse(${coursePost.courseId})" value="삭제"></td>
+										</tr>
+									</c:forEach>
+								</c:otherwise>
+								
+							</c:choose>
+						</tbody>
+					</table>
+					</div><!--tableBox -->
+				
 			</div> <!-- myPageBox -->
-            </div> <!-- course-box guide-box -->
+            </div>
         </main>
         
 		</section>

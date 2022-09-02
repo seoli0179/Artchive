@@ -18,4 +18,10 @@ public interface ICourseDAO {
     public void insertCourse(CourseVO vo);
 
     public void hitCourse(int courseId) throws Exception;
+    
+    // 마이 페이지 작성한 코스 게시물 조회
+    public ArrayList<CourseVO> mpCoursePostSelect(String useId);
+    
+    // 마이 페이지 작성한 코스 게시물 삭제
+    public void deleteMpCourse(int courseId);
 }
