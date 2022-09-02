@@ -263,36 +263,43 @@ body {
 }
 
 .course-item {
-    width:25%;
-    height: fit-content;
+    width:300px;
+    height: 300px;
     overflow: hidden;
     display: inline-block;
+    border-radius: 70%;
     position: relative;
 }
 .coursepost-thumb {
     width:100%;
-    height:200px;
+    height:100%;
     object-fit:cover;
 }
 
-.coursepost-box{
+.coursepost-box {
     color: #fff;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     position: absolute;
-    /*visibility: hidden;*/
     background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.coursepost-box:hover {
     background-color: rgba(0, 0, 0, 0.3);
 }
+
 .coursepost-box span {
-    bottom:10%;
-    left:5%;
-    width: 90%;
+    bottom:40%;
     position: absolute;
-    line-height: 1.2rem;
-    font-weight: 600;
+    font-weight: 500;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.2rem;
 }
 
 .coursepost-box .like-logo {
