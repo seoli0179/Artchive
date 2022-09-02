@@ -1,42 +1,30 @@
-/**
- * movieSearch.js
- */
- 
-/* function getSearchDate(event)*/
  $(document).ready(function(){
- 	$('#black_search_bar').on('click', function(){
- 		alert("검색창으로 이동합니다.")
- 		event.preventDefault();
- 		var inner_searchbar = $('#inner-searchbar').val();	
 
- 		var formData = $(this).serialize();
+ 	$('#exhbnSearchFrm').on('click', function(){
+ 		//alert($('#inner-searchbar').val());
+ 		var title = $('#inner-searchbar').val();
+ 		// 기본 기능 중단
+ 		//event.preventDefault();
+ 		$.ajax({
+            type: "post",
+            url: "/exhbn/searchResult222",
+            data: {
+                "exhbnTitle": title
+                
+            },
+            success: function (result) {
+            alert("검색 결과를 보여드릴게요");
+            $('#searchResultl').empty();
+            $('#searchResultl').append(result);
+            
+			console.log(result);            },
+            error: function () {
+                alert('검색어를 확인하세요')
+            },
+        });
  		
- 	location.href= "/exhbn/searchlist?keyword="+ inner_searchbar;
- 	
- 		/*$.ajax({
- 			type:"post",
- 			url:"/exhbn/searchlist", 
- 			data:{
-			
-			"keyword": inner_searchbar
-			
- 			},
- 			success:function(result){ 
- 			// 반환된 결과를 searchResultBox <div>에 삽입
- 				// 페이지 전체를 안에 넣어둠.
-			console.log(result);
-			alert(result); 				
- 			},
- 			error:function(){
- 				// 오류있을 경우 수행되는 함수
- 				
- 				alert("전송 실패");
- 			},
- 			complete:function(){
- 				//alert("작업완료");
- 			}			
- 		}); 	// ajax 끝*/
  	}); // submit 끝 
  });  // ready 끝
  
-  
+
+	 
