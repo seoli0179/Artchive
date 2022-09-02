@@ -71,7 +71,12 @@
 								<c:otherwise>
 									<c:forEach items="${coursePost}" var="coursePost" varStatus="status">
 										<tr>
-											<td>${coursePost.courseTag}</td>
+											<td>
+												<c:forTokens var="taglist" items="${coursePost.courseTag}" delims=";;">
+                                    				<span class="post-tag"><c:out value="${taglist}"/></span>
+                                				</c:forTokens> 
+                                			</td>
+											
 											<td><a href="<c:url value='/course/${coursePost.courseId}'/>">${coursePost.courseTitle}</a></td>
 											<td><fmt:formatDate value="${coursePost.createdAt}" pattern="yyyy-MM-dd"/></td>
 											<td><input type="button" id="submitBtn" name="submitBtn" class="white-btn" 

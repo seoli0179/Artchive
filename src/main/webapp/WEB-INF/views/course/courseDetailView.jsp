@@ -57,7 +57,7 @@
 						<input type="button" id="editCourseBtn"  class="white-btn" value="수정" onclick="location.href='<c:url value="/course/${course.courseId}/edit"/>'">
 						<button id="deleteBtn_view"  class="white-btn">삭제</button>
 					</c:if>
-					<button id="scrapCourse"  class="black-btn">Scrap</button>
+					<button id="scrapCourse"  class="black-btn">스크랩</button>
            		</div><!-- courseMainText -->
 			</section><!-- courseMenu -->
 
