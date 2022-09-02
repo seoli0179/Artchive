@@ -14,6 +14,10 @@ public interface ICourseDAO {
     public void updateCourse(CourseVO vo);
 
     public void deleteCourse(HashMap<String, Object> map);
+
+    public void insertCourse(CourseVO vo);
+
+    public void hitCourse(int courseId) throws Exception;
     
     // 마이 페이지 작성한 코스 게시물 조회
     public ArrayList<CourseVO> mpCoursePostSelect(String useId);

@@ -31,7 +31,7 @@ CREATE TABLE `course` (
   `courseView` int DEFAULT '1',
   `courseLike` int DEFAULT '0',
   `courseComment` int DEFAULT '0',
-  `courseState` int DEFAULT '1',
+  `courseState` varchar(50) DEFAULT 'POST',
   `createdAt` datetime DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `courseSitesArr` varchar(2000) DEFAULT NULL,
@@ -52,11 +52,11 @@ CREATE TABLE `course` (
 LOCK TABLES `course` WRITE;
 /*!40000 ALTER TABLE `course` DISABLE KEYS */;
 INSERT INTO `course` VALUES (1,'user',205263,'테스트 코스','테스트코스;;테스트태그;;',5,3,0,1,'2022-08-29 13:32:24','2022-08-29 13:32:24','박물관;;카페;;식당','박물관주소;;카페주소;;식당주소','박물관 메모사항;;카페 메모사항;;식당 메모사항'),
-	(2,'user',185859,'오늘 아주 많이 걷는거야','테스트코스;;테스트태그;;',5,3,0,1,'2022-08-29 13:32:24','2022-08-29 13:32:24','박물관;;카페;;식당','박물관주소;;카페주소;;식당주소','박물관 메모사항2;;카페 메모사항2;;식당 메모사항2'),
+	(2,'user2',185859,'오늘 아주 많이 걷는거야','테스트코스;;테스트태그;;',5,3,0,1,'2022-08-29 13:32:24','2022-08-29 13:32:24','박물관;;카페;;식당','박물관주소;;카페주소;;식당주소','박물관 메모사항2;;카페 메모사항2;;식당 메모사항2'),
     (3,'user',209448,'가족끼리 가서 좋았던 전시','테스트코스;;테스트태그;;',5,3,0,1,'2022-08-29 13:32:24','2022-08-29 13:32:24','박물관;;카페;;식당','박물관주소;;카페주소;;식당주소','박물관 메모사항2;;카페 메모사항2;;식당 메모사항2'),
-    (4,'user',166147,'비건 카페 투어까지 가보자고!','테스트코스;;테스트태그;;',5,3,0,1,'2022-08-29 13:32:24','2022-08-29 13:32:24','박물관;;카페;;식당','박물관주소;;카페주소;;식당주소','박물관 메모사항2;;카페 메모사항2;;식당 메모사항2'),
+    (4,'user2',166147,'비건 카페 투어까지 가보자고!','테스트코스;;테스트태그;;',5,3,0,1,'2022-08-29 13:32:24','2022-08-29 13:32:24','박물관;;카페;;식당','박물관주소;;카페주소;;식당주소','박물관 메모사항2;;카페 메모사항2;;식당 메모사항2'),
     (5,'user',210404,'테스트 코스22','테스트코스;;테스트태그;;',5,3,0,1,'2022-08-29 13:32:24','2022-08-29 13:32:24','박물관;;카페;;식당','박물관주소;;카페주소;;식당주소','박물관 메모사항2;;카페 메모사항2;;식당 메모사항2'),
-    (6,'user',212102,'테스트 코스22','테스트코스;;테스트태그;;',5,3,0,1,'2022-08-29 13:32:24','2022-08-29 13:32:24','박물관;;카페;;식당','박물관주소;;카페주소;;식당주소','박물관 메모사항2;;카페 메모사항2;;식당 메모사항2');
+    (6,'user2',212102,'테스트 코스22','테스트코스;;테스트태그;;',5,3,0,1,'2022-08-29 13:32:24','2022-08-29 13:32:24','박물관;;카페;;식당','박물관주소;;카페주소;;식당주소','박물관 메모사항2;;카페 메모사항2;;식당 메모사항2');
 /*!40000 ALTER TABLE `course` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -70,3 +70,12 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2022-08-30 17:02:52
+
+DROP TABLE IF EXISTS `courselike`;
+CREATE TABLE `course` (
+  `courseId` int NOT NULL AUTO_INCREMENT,
+  `userId` varchar(20) NOT NULL,
+  CONSTRAINT `FK_courselike_courseId` FOREIGN KEY (`courseId`) REFERENCES `course` (`courseId`),
+  CONSTRAINT `FK_courselike_userId` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;

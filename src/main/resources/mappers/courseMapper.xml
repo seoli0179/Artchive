@@ -23,17 +23,8 @@
         WHERE courseId=${courseId}
         ]]>
     </select>
-    
-    <!-- 마이페이지 코스 작성글 조회 -->
-    <select id="mpCoursePostSelect" parameterType="string" resultType="com.spring_boot_final.project.model.CourseVO">
-        <![CDATA[
-        select * 
-        from course
-        WHERE userId=#{userId}
-        ]]>
-    </select>
-    
 
+    <!-- 코스 수정  -->
     <update id="updateCourse" parameterType="com.spring_boot_final.project.model.CourseVO">
         <![CDATA[
         UPDATE course
@@ -48,13 +39,41 @@
         ]]>
     </update>
 
-    <delete id="deleteCourse" parameterType="hashmap">
+    <!-- 새 코스 작성 -->
+    <insert id="insertCourse" parameterType="com.spring_boot_final.project.model.CourseVO">
         <![CDATA[
-        DELETE FROM course
+        INSERT INTO course (userId, exhbnId, courseTitle, courseTag, courseState, courseSitesArr, courseAddressArr, courseMemoArr)
+        VALUES (#{userId}, #{exhbnId}, #{courseTitle}, #{courseTag}, #{courseState}, #{courseSitesArr}, #{courseAddressArr}, #{courseMemoArr});
+        ]]>
+    </insert>
+
+    <!--  POST:정상 DELETE:삭제 BLOCK:차단 -->
+    <!--  코스 삭제  -->
+    <update id="deleteCourse" parameterType="hashmap">
+        <![CDATA[
+        UPDATE course
+        SET courseViewState = 2
         WHERE courseId = #{courseId} AND userId = #{userId}
         ]]>
-    </delete>
-	
+    </update>
+
+    <!--  조회수  -->
+    <update id="hitCourse" parameterType="int">
+        UPDATE course SET
+            courseView = courseView+1
+        WHERE courseId = #{courseId}
+    </update>
+
+<!--  마이페이지  -->
+    <!-- 마이페이지 코스 작성글 조회 -->
+    <select id="mpCoursePostSelect" parameterType="string" resultType="com.spring_boot_final.project.model.CourseVO">
+        <![CDATA[
+        select *
+        from course
+        WHERE userId=#{userId}
+        ]]>
+    </select>
+
 	<!-- 마이페이지 코스 작성글 삭제 -->
 	<delete id="deleteMpCourse" parameterType="int">
         <![CDATA[
@@ -63,5 +82,5 @@
         where courseId = #{courseId} 
         ]]>
     </delete>
-	
+
 </mapper>

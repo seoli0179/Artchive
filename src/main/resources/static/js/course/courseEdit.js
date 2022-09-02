@@ -9,6 +9,9 @@ let tags = [];
 
 $( function() {
 
+    let $memoArea;
+    let listItem;
+
     const sortableList = document.getElementById("sortable");
     const startPoint = document.getElementById("startPoint");
     const endPoint = document.getElementById("endPoint");
@@ -18,26 +21,34 @@ $( function() {
     let num = document.getElementById("courseId").value;
     // 페이지 구성을 위한 데이터 호출
     $.ajax({
-        type:"POST",
-        url:"/course/getCourse",
-        data:{"courseId":num},
-        dataType:"json",
-        success:function (result){
+        type: "POST",
+        url: "/course/getCourse",
+        data: {"courseId": num},
+        dataType: "json",
+        success: function (result) {
             console.log(result);
-            $.each(result, function (index,item){
+            $.each(result, function (index, item) {
                 sites.push(item.siteName);
                 addresses.push(item.siteAddresses);
                 memos.push(item.siteMemos);
             });
             createList();
         },
-        error:function (result){
-            alert("error");
+        error: function () {
+            const firstExhbnTitle = $("#firstExhbnTitle").text();
+            const firstExhbnAddr = $("#firstExhbnAddr").text();
+            const firstMemo = $("#firstMemo").val();
+
+            console.log(firstExhbnTitle + firstExhbnAddr + firstMemo);
+
+            sites.push(firstExhbnTitle);
+            addresses.push(firstExhbnAddr);
+            memos.push(firstMemo);
         }
     });
 
-    // 페이지 구성
-    createList();
+    // init
+
 
     // delete 구현1
     // deleteBtns.forEach(function (el, index){
@@ -85,8 +96,8 @@ $( function() {
     const textBox = document.getElementById("selectedExhbn");
     const selectedBox = document.getElementById("selected");
 
-    for (let i=0; i<selectBtn.length; i++) {
-        selectBtn[i].addEventListener('click', function (){
+    for (let i = 0; i < selectBtn.length; i++) {
+        selectBtn[i].addEventListener('click', function () {
             const radioId = selectBtn[i].id;
             const query = 'label[for="' + radioId + '"]';
             const text = document.querySelector(query).innerHTML;
@@ -101,20 +112,22 @@ $( function() {
 
     input.addEventListener("keyup", addTag);
 
+    // 태그 삭제 버튼
     let removeBtns = document.getElementsByClassName("closeBtn");
 
     /* 태그 추가 함수 */
-    function addTag(e){
+    function addTag(e) {
         if (e.key == "Enter") {
             let tag = e.target.value.replace(" ", ""); // 태그에서 다수 공백 삭제
             tag.trim();
-            if(tag.length>1 && !tags.includes(tag)) { // 아직 없는 태그, // 태그 생성
-                if(tags.length>=3) {
-                    const target = document.getElementById("tag-caution");
-                    target.style.visibility = "visible";
-                    setTimeout(function() {
-                        target.classList.remove("vibration");
-                    }, 500);
+            if (tag.length > 1 && !tags.includes(tag)) { // 아직 없는 태그, // 태그 생성
+                if (tags.length > 4) {
+                    // const target = document.getElementById("tag-caution");
+                    // target.style.visibility = "visible";
+                    // setTimeout(function() {
+                    //     target.classList.remove("vibration");
+                    // }, 500);
+                    alert("태그는 5개까지 입력 가능합니다.")
                 } else {
                     tags.push(tag);
                 }
@@ -123,61 +136,71 @@ $( function() {
             e.target.value = ""; // 내용 지우기
         }
     }
-    /*  */
 
     /* createTag 함수 */
-    function createTag(){
+    function createTag() {
         ul.querySelectorAll("li").forEach(li => li.remove())
-        tags.slice().reverse().forEach(tag =>{
+        tags.slice().reverse().forEach(tag => {
             let liTag = `<li class="li-item tagItem" value="${tag}"> ${tag} <i class="fa-solid fa-xmark closeBtn" onclick="remove(this, '${tag}')"></i></li>`;
-            input.insertAdjacentHTML("beforebegin",liTag); // tag 추가
+            input.insertAdjacentHTML("beforebegin", liTag); // tag 추가
         });
         console.log(tags)
     }
-    /* */
-
     /** createList 함수 */
     function createList() {
-        for(let i=0; i<sites.length; i++){
-                const listItem = document.createElement('li',);
-                listItem.setAttribute('data-index', i);
-                listItem.setAttribute("class","route-row courseItem");
-                listItem.setAttribute("id","route"+i);
-                listItem.setAttribute("draggable","true");
-                listItem.setAttribute("value", sites[i]+";;"+addresses[i]+";;"+memos[i])
+        for (let i = 0; i < sites.length; i++) {
+            listItem = document.createElement('li');
+            listItem.setAttribute('data-index', i);
+            listItem.setAttribute("class", "route-row courseItem");
+            listItem.setAttribute("id", "route" + i);
+            listItem.setAttribute("draggable", "true");
+            listItem.setAttribute("value", sites[i] + ";;" + addresses[i] + ";;" + memos[i]);
 
-                listItem.innerHTML=`
+            listItem.innerHTML = `
                     <div class="left-side">
                         <div class="moveHandler">
                             <i class="fa-solid fa-bars moveHandlerBtn"></i>
                         </div>
+                        <div class="left-side">
                         <div class="line"></div>
                         <div class="left">
-                            <div class="subCourse-dot">${i+1}</div>
+                            <div class="subCourse-dot">${i + 1}</div>
                         </div>
                         <div class="content">
                             <div class="where">
                                 <h3 class="siteName">${sites[i]}</h3>
-                                <div class="siteAddress">${addresses[i]}</div>
+                                <div><span class="siteAddress">${addresses[i]}</span></div>
                             </div>
                         </div>
+                        </div>
                         <div class="content memo-box">
-                            <textarea class="place-memo-input" placeholder="메모를 입력하세요.">${memos[i]}</textarea>
+                            <textarea id="memo_${i}" class="place-memo-input" placeholder="메모를 입력하세요.">${memos[i]}</textarea> 
                         </div>
                     </div>
                     <div class="delete" id="deleteBtnBox">
                         <i class="fa-solid fa-circle-minus fa-2xl deleteBtn" id="deleteBtn${i}" onclick="deleteCourse(this, '${i}')"></i>
                     </div>
-                    `;
+                    `; //place-memo-input
             // ${sites[i]}
-                listItems.push(listItem);
+            listItems.push(listItem);
 
-                $("#sortable").append(listItem);
-                sites_copy=[...sites];
-            }
+            $("#sortable").append(listItem);
+            sites_copy = [...sites];
+        }
+        $memoArea = $(".place-memo-input");
+        // console.log("memolength : ", memoArea.length);
+        saveMemo();
     }
-    /*  */
 
+    function saveMemo() {
+        $memoArea.each(function(i) {
+            $(document).on("focusout", "#memo_"+i ,function(index){
+                console.log($(this).val());
+                memos[i] = $(this).val();
+                console.log(memos);
+            });
+        });
+    }
     // 정렬 가능한 리스트
     // 순서 바꿔 배열 다시 저장하기
     $("#sortable").sortable({
@@ -187,62 +210,134 @@ $( function() {
         items: "> li",
         opacity: 0.5,
         revert: 10,
-        handle: ".moveHandler",
-        start : function(event, ui) {
+        // handle: ".moveHandler",
+        start: function (event, ui) {
         },
-        change : function(event, ui) {
+        change: function (event, ui) {
         },
-        update : function (event, ui) {
-            let newArr = $("#sortable").sortable('toArray', {
-                attribute: "value"
-            });
-
+        update: function (event, ui) {
             sites = [];
             addresses = [];
             memos = [];
 
-            for (let i in newArr) {
-                let tempArr = newArr[i].split(";;");
-                sites.push(tempArr[0]);
-                addresses.push(tempArr[1]);
-                memos.push(tempArr[2]);
-            }
+            $(".siteName").each(function(index,item){
+                sites.push($(this).text());
+            });
+            $(".siteAddress").each(function(index,item){
+                addresses.push($(this).text());
+            });
+            $(".place-memo-input").each(function(index,item){
+                console.log($(this).val());
+                memos.push($(this).val());
+            });
 
             let li = document.getElementsByClassName("route-row");
             $(".courseItem").remove();
 
             createList();
-            console.log(sites)
         },
-        axis : 'y'
+        axis: 'y'
     });
     $("#sortable").disableSelection();
     // .순서 바꿔 다시 저장하기. //
 
-    $( ".portlet-toggle" ).on( "click", function() {
-        let icon = $( this );
-        icon.toggleClass( "ui-icon-minusthick ui-icon-plusthick" );
-        icon.closest( ".portlet" ).find( ".portlet-content" ).toggle();
+    $(".portlet-toggle").on("click", function () {
+        let icon = $(this);
+        icon.toggleClass("ui-icon-minusthick ui-icon-plusthick");
+        icon.closest(".portlet").find(".portlet-content").toggle();
     });
 
-    // 태그 초기화 함수 //
+    // 태그 init //
     function getTags() {
         tags = [];
-        for(let i=0; i<tagItem.length; i++){
+        for (let i = 0; i < tagItem.length; i++) {
             let input = tagItem[i].textContent.trim();
             tags.push(input);
         }
         console.log(tags)
     }
-    // .태그 초기화 함수. //
 
-    $("#saveBtn").on("click", function(){
+    // 수정 -> 저장 //
+    $("#saveBtn").on("click", function () {
         updateCourse();
+    });
+
+    // 새 포스트 작성 //
+    $("#writePostBtn").on("click", function () {
+        insertCourse();
     });
 
 } );
 
-/** 보내기 */
+/** insertCourse */
+function insertCourse() {
+    let courseSitesArr = "";
+    let courseAddressArr = "";
+    let courseMemoArr = "";
+    let courseTag = "";
+
+    let courseTitle = $("#courseTitle").val();
+    let exhbnId = $("#exhbnId").val();
+    let userId = $("#userId").val();
+    let courseId = $("#courseId").val();
+
+    if($("#courseStatus").prop("checked")){
+        $("#courseStatus").val(1);
+    } else {
+        $("#courseStatus").val(2);
+    }
+    let courseStatus = $("#courseStatus").val();
+
+    for (let i=0; i<sites.length; i++){
+        if (i==(sites.length)){
+            courseSitesArr += sites[i];
+            courseAddressArr += addresses[i];
+            courseMemoArr += memos[i];
+        } else {
+            courseSitesArr += sites[i] + ";;";
+            courseAddressArr += addresses[i] + ";;";
+            courseMemoArr += memos[i] + ";;";
+        }
+    }
+    for (let i=0; i<tags.length; i++){
+        if (i==(tags.length-1)){
+            courseTag += tags[i];
+        } else {
+            courseTag += tags[i] + ";;";
+        }
+    }
+    console.log(courseTag)
+
+    let param = {
+        "courseId":courseId,
+        "userId":userId,
+        "exhbnId":exhbnId,
+        "courseTitle":courseTitle,
+        "courseTag":courseTag,
+        "courseState":courseStatus,
+        "courseSitesArr":courseSitesArr,
+        "courseAddressArr":courseAddressArr,
+        "courseMemoArr":courseMemoArr
+    }
+    // let json = JSON.stringify()
+
+    $.ajax({
+        url:"/course/insertCourse",
+        contentType: 'application/json',
+        type:"POST",
+        traditional:true,
+        data:JSON.stringify(param),
+        success:function(result){
+            alert("작성 완료!");
+            window.history.back();
+        },
+        error:function(request,status,error) {
+            alert("code="+request.status+"message="+request.responseText+"error="+error); //실패시처리
+        }
+    });
+}
+
+/** updateCourse */
 function updateCourse() {
     let courseSitesArr = "";
     let courseAddressArr = "";
@@ -288,7 +383,7 @@ function updateCourse() {
         "courseTitle":courseTitle,
         "courseTag":courseTag,
         "courseState":courseStatus,
-        "courseSitesArr":courseAddressArr,
+        "courseSitesArr":courseSitesArr,
         "courseAddressArr":courseAddressArr,
         "courseMemoArr":courseMemoArr
     }
@@ -309,9 +404,8 @@ function updateCourse() {
         }
     });
 }
-/** .보내기. */
 
-// 코스 삭제 함수 //
+// 코스 item 삭제 함수
 function deleteCourse(element, index) {
     if(confirm("항목을 삭제하시겠습니까?")){
         if (sites.length>1) {
@@ -330,8 +424,6 @@ function deleteCourse(element, index) {
         console.log(sites)
     }
 }
-// .코스 삭제 함수. //
-// .코스 삭제 함수. //
 
 // 태그 삭제 함수 //
 function remove(element, tag) {
@@ -340,4 +432,3 @@ function remove(element, tag) {
     console.log(tags);
     element.parentElement.remove(); // li 삭제
 }
-// .태그 삭제 함수. //

@@ -41,7 +41,7 @@
 						<input type="text" id="courseId" name="courseId" value="${course.courseId}" hidden>
 					</div>
 					<div id="header-postDate" class="headerText">
-						<ul><li><fmt:formatDate value="${course.createdAt}" pattern="yyyy. MM. dd. E"></fmt:formatDate></li></ul>
+						<ul><li>by. ${course.userNickname} / <fmt:formatDate value="${course.createdAt}" pattern="yyyy. MM. dd. E"></fmt:formatDate></li></ul>
 					</div>
            		</div><!-- .headerTextBox -->
 			</section><!-- .courseHeader -->
@@ -57,8 +57,7 @@
 						<button id="deleteBtn_view"  class="white-btn">삭제</button>
 					</c:if>
 					<c:if test="${sessionScope.sid != course.userId}">
-						<input type="button" id="like-btn"  class="white-btn" value="좋아요">
-						<input type="button" id="scrap-btn"  class="black-btn" value="스크랩">
+						<button id="scrapCourse"  class="black-btn">Scrap</button>
 					</c:if>
            		</div><!-- courseMainText -->
 			</section><!-- courseMenu -->
@@ -132,18 +131,35 @@
 				
 			</article><!-- courseMain -->
 			<section class="share">
-				<i class="fa-solid fa-envelope fa-xl"></i>
-				<i class="fa-brands fa-twitter fa-xl"></i>
-				<i class="fa-brands fa-facebook fa-xl"></i>
-				<i class="fa-solid fa-share-nodes fa-xl"></i>
+				<div class="post-react-box">
+					<div class="post-like-box">
+						<i class="fa-solid fa-heart fa-xl" style="color:black;"></i>
+						<span>${course.courseLike}</span>
+					</div>
+					<div class="post-comment-box">
+						<i class="fa-solid fa-message fa-xl" style="color:black;"></i>
+						<span>${course.courseComment}</span>
+					</div>
+					<div class="post-view-box">
+						<i class="fa-solid fa-eye fa-xl" style="color:black;"></i>
+						<span>${course.courseView}</span>
+					</div>
+				</div>
+				<div>
+					<i class="fa-solid fa-envelope fa-xl"></i>
+					<i class="fa-brands fa-twitter fa-xl"></i>
+					<i class="fa-brands fa-facebook fa-xl"></i>
+					<i class="fa-solid fa-share-nodes fa-xl"></i>
+				</div>
 			</section>
 
 			<section id="comment">
-				<div class="comment-write">
-                  <textarea id="story" name="story" rows="5" cols="33" placeholder="Leave a Comment">
-				  </textarea>
-					<input class="post" type="button" value="Post">
-				</div>
+				<c:if test="${not empty sessionScope.sid}">
+					<div class="comment-write">
+					  <textarea id="story" name="story" rows="5" cols="33" placeholder="Leave a Comment"></textarea>
+						<button id="postCommentBtn" class="black-btn" type="button">Post</button>
+					</div>
+				</c:if>
 				<div class="comment-num">2 comments</div>
 				<div class="comment-list">
 					<div class="comment">

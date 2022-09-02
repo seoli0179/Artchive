@@ -23,6 +23,21 @@ public class CourseDataController {
     CourseService courseService;
 
     @ResponseBody
+    @RequestMapping("/course/insertCourse")
+    public String insertCourse(HttpSession session, @RequestBody CourseVO vo){
+        if (session.getAttribute("sid") == null) {
+            return "FAIL";
+        }
+
+        vo.setUserId(session.getAttribute("sid").toString());
+        courseService.insertCourse(vo);
+        System.out.println(vo.getExhbnId());
+        System.out.println(vo.getUserId());
+        System.out.println(vo.getCourseState());
+        return "SUCCESS";
+    }
+
+    @ResponseBody
     @RequestMapping("/course/updateCourse")
     public String updateCourse(HttpSession session, @RequestBody CourseVO vo){
         if (session.getAttribute("sid") == null) {

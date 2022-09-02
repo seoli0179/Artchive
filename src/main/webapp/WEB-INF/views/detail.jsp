@@ -14,7 +14,7 @@
 		<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>"/>
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/detail.css'/>"/>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/exhbn/detail.css'/>"/>
 	</head>
 	<body>
 		<!-- top으로 이동 -->
@@ -120,16 +120,19 @@
 				</div>
 				<!-- .context-container -->
 				<div id="button-box">
-					<form method="post" action="<c:url value='/insertBookMark' /> ">
+					<div>
 						<button class="white-btn-big" onclick="window.open('${exhbn.exhbnUrl}')">자세히 보기</button>
-						<!-- <button class="white-btn-big" onclick="location.href='#'">관심전시추가</button> -->
-
-            <c:if test="${not empty sessionScope.sid}">
-						<input type="submit" id="insertBookMark" class="white-btn-big" value="관심 전시">
-            </c:if>
-						<input type="hidden" id="exhbnId" name="exhbnId" value=${exhbn.exhbnId}>
-						<button class="black-btn-big" onclick="#">이 전시로 코스 짜기</button>
-					</form>
+					</div>
+					<div>
+						<form method="post" action="<c:url value='/insertBookMark' /> ">
+							<!-- <button class="white-btn-big" onclick="location.href='#'">관심전시추가</button> -->
+							<input type="submit" id="insertBookMark" class="white-btn-big" value="관심전시추가">
+							<input type="hidden" id="exhbnId" name="exhbnId" value=${exhbn.exhbnId}>
+						</form>
+					</div>
+					<div>
+						<button class="black-btn-big" onclick="location.href='/course/newPost/${exhbn.exhbnId}'">코스 작성하기</button>
+					</div>
 				</div>
 				<div id="map-box">
 					<div class="map">

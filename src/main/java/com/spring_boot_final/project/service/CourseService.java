@@ -5,6 +5,7 @@ import com.spring_boot_final.project.model.CourseVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,7 +20,8 @@ public class CourseService {
    public ArrayList<CourseVO> selectCourse() {
         return dao.selectCourse();
     }
-   public final CourseVO selectCoursePost(int courseId) {
+   public final CourseVO selectCoursePost(int courseId) throws Exception {
+       dao.hitCourse(courseId);
        return dao.selectCoursePost(courseId);
    }
 
@@ -30,6 +32,9 @@ public class CourseService {
     public void deleteCourse(HashMap<String, Object> map) {
        dao.deleteCourse(map);
     }
+
+    public void insertCourse(CourseVO vo) {
+       dao.insertCourse(vo);}
     
     // 마이 페이지 작성한 코스 게시물 조회    
 	public ArrayList<CourseVO> mpCoursePostSelect(String userId) {

@@ -4,27 +4,27 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Component;
 
-import com.spring_boot_final.project.model.CommentVO;
+import com.spring_boot_final.project.model.NoteCommentVO;
 
 @Component
 public interface ICommentDAO {
-    void createComment(CommentVO vo);
+    void createComment(NoteCommentVO vo);
 
-    void updateComment(CommentVO vo);
+    void updateComment(NoteCommentVO vo);
 
-    ArrayList<CommentVO> selectCommentList(int noteId);
-    CommentVO selectComment(int commentId);
+    ArrayList<NoteCommentVO> selectCommentList(int noteId);
+    NoteCommentVO selectComment(int commentId);
 
-    void deleteComment(CommentVO vo);
+    void deleteComment(NoteCommentVO vo);
 
     void updateCommentLikeUp(int commentId);
     void updateCommentLikeDown(int commentId);
-    int selectCommentLike(CommentVO vo);
-    void insertCommentLike(CommentVO vo);
-    void deleteCommentLike(CommentVO vo);
+    int selectCommentLike(NoteCommentVO vo);
+    void insertCommentLike(NoteCommentVO vo);
+    void deleteCommentLike(NoteCommentVO vo);
     
     // 마이페이지 댓글 조회
-    ArrayList<CommentVO> selectCommentView(String userId);
+    ArrayList<NoteCommentVO> selectCommentView(String userId);
     
     // 마이페이지 댓글 삭제
     void deleteMpComment(int commentId);
