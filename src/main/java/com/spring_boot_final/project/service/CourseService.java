@@ -5,6 +5,7 @@ import com.spring_boot_final.project.model.CourseVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,7 +20,8 @@ public class CourseService {
    public ArrayList<CourseVO> selectCourse() {
         return dao.selectCourse();
     }
-   public final CourseVO selectCoursePost(int courseId) {
+   public final CourseVO selectCoursePost(int courseId) throws Exception {
+       dao.hitCourse(courseId);
        return dao.selectCoursePost(courseId);
    }
 
