@@ -20,9 +20,9 @@
 		   c.courseAddressArr,
 		   c.courseMemoArr,
 		   c.courseTitle,
-		   u.userId
+		   r.userId
 	FROM reviewNote r, course c, user u
-	WHERE c.courseId = r.courseId
+	WHERE c.courseId = r.courseId and r.userId = u.userId
 	ORDER BY r.courseId
 	
 	</select>
@@ -43,7 +43,7 @@
 		   c.courseTitle,
 		   u.userId
 	FROM reviewNote r, course c, user u
-	WHERE r.reviewNoteId =#{reviewNoteId} and  r.courseId = c.courseId
+	WHERE r.reviewNoteId =#{reviewNoteId} and  r.courseId = c.courseId and r.userId = u.userId
 	</select>
 	
 	
