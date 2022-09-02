@@ -202,10 +202,10 @@
 }
 
 #button-box {
-	display:inline-block;
+	display:flex;
 	width:100%;
-	margin:0 auto;
-	text-align:right;
+	justify-content:center;
+	align-items: center;
 }
 
 #button-box button, input {
