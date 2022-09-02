@@ -131,7 +131,7 @@
                                 </div>
                                 <div class="coursepost-box">
                                     <span class="ex-title">${course.courseTitle}</span>
-                                    <span class="like-logo"><i class="fa-solid fa-thumbs-up"></i><br>${course.courseLike}</span>
+<%--                                    <span class="like-logo"><i class="fa-solid fa-thumbs-up"></i><br>${course.courseLike}</span>--%>
                                 </div>
                             </a>
                         </div>

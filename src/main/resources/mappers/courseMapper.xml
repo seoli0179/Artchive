@@ -24,6 +24,7 @@
         ]]>
     </select>
 
+    <!-- 코스 수정  -->
     <update id="updateCourse" parameterType="com.spring_boot_final.project.model.CourseVO">
         <![CDATA[
         UPDATE course
@@ -54,4 +55,10 @@
         ]]>
     </delete>
 
+    <!--  조회수  -->
+    <update id="hitCourse" parameterType="int">
+        UPDATE course SET
+            courseView = courseView+1
+        WHERE courseId = #{courseId}
+    </update>
 </mapper>

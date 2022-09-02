@@ -132,10 +132,26 @@
 				
 			</article><!-- courseMain -->
 			<section class="share">
-				<i class="fa-solid fa-envelope fa-xl"></i>
-				<i class="fa-brands fa-twitter fa-xl"></i>
-				<i class="fa-brands fa-facebook fa-xl"></i>
-				<i class="fa-solid fa-share-nodes fa-xl"></i>
+				<div class="post-react-box">
+					<div class="post-like-box">
+						<i class="fa-solid fa-heart fa-xl" style="color:black;"></i>
+						<span>${course.courseLike}</span>
+					</div>
+					<div class="post-comment-box">
+						<i class="fa-solid fa-message fa-xl" style="color:black;"></i>
+						<span>${course.courseComment}</span>
+					</div>
+					<div class="post-view-box">
+						<i class="fa-solid fa-eye fa-xl" style="color:black;"></i>
+						<span>${course.courseView}</span>
+					</div>
+				</div>
+				<div>
+					<i class="fa-solid fa-envelope fa-xl"></i>
+					<i class="fa-brands fa-twitter fa-xl"></i>
+					<i class="fa-brands fa-facebook fa-xl"></i>
+					<i class="fa-solid fa-share-nodes fa-xl"></i>
+				</div>
 			</section>
 
 			<section id="comment">

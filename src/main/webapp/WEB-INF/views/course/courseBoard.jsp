@@ -91,7 +91,7 @@
 
                             </div>
                             <div class="post-title-box">
-                                <h3>${li.courseTitle}</h3>
+                                <h2>${li.courseTitle}</h2>
                             </div>
                             <div class="post-content-box">
                                     <b>${li.exhbnTitle}</b>에 대한 <b>${li.userNickname}</b>님의 코스
@@ -106,12 +106,16 @@
                                     by&nbsp;<span class="userName"> ${li.userNickname}</span>&nbsp;·&nbsp;<fmt:formatDate pattern="MM-dd" value="${li.createdAt }"/>
                                 </div>
                                 <div class="post-react-box">
-                                    <div class="post-view-box">
+                                    <div class="post-like-box">
                                         <i class="fa-solid fa-heart" style="color:black;"></i>
                                         <span>${li.courseLike}</span>
                                     </div>
-                                    <div class="post-like-box">
+                                    <div class="post-comment-box">
                                         <i class="fa-solid fa-message" style="color:black;"></i>
+                                        <span>${li.courseComment}</span>
+                                    </div>
+                                    <div class="post-view-box">
+                                        <i class="fa-solid fa-eye" style="color:black;"></i>
                                         <span>${li.courseView}</span>
                                     </div>
                                 </div>
