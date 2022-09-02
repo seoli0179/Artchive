@@ -111,7 +111,7 @@
 				<div id=" ">
            		<div id="bannerText3" class="bannerText">
            			<ul>
-						<li><a href="<c:url value='/course'/>">Make My Course!</a></li>
+						<li><a href="<c:url value='/course'/>">Make Your Course!</a></li>
 					</ul>
            		</div>
 				</div>
