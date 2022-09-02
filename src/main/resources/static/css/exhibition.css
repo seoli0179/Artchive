@@ -3,6 +3,10 @@
 /* exhibition */
 
 #exhibitionAll{
+	min-width: 1080px;
+	max-width: 1390px;
+	margin: 0 auto;
+	margin-bottom : 70px;
 }
 
 #exhibition{
@@ -23,15 +27,17 @@
 }
 
 .exhibitionBox{
-	width : 15%;
+	width : 21%;
 	display : inline-block;
-	margin-left :4%;
+	/* margin-left :4%; */
+	/* margin-right :4%; */
 	margin-top : 2%;
 	margin-bottom : 2%;
+	float:left;
 }
 
 #exhibitionBox1{
-	margin-left : 13%;
+	/* margin-left : 13%; */
 }
 
 .exhibitionImg {
@@ -62,10 +68,10 @@
 
 
 .exMaintext {
-	margin-left : 13%;
+	/* margin-left : 13%; */
 	margin-top : 3.5%;
 	float : left;
-	width : 73%;
+	width : 100%;
 }
 
 .exMaintext > ul >  li  {
@@ -131,3 +137,13 @@
 	 text-decoration:none;
 	 }
 
+.exhbnBox::after{
+	content:""; clear:both; display:block;
+}
+
+.exhbnBox{
+	margin-top :100px;
+	display : flex;
+	justify-content : space-between;
+	box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset
+}
