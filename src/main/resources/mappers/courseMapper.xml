@@ -21,7 +21,7 @@
         select * from course
             inner join exhbn on course.exhbnId = exhbn.exhbnId
             inner join user on course.userId = user.userId
-        WHERE courseId=${courseId}
+        WHERE courseId=${courseId};
         ]]>
     </select>
 
@@ -72,6 +72,25 @@
         VALUES (#{courseId}, #{userId}, #{comment})
         ]]>
     </insert>
+
+    <!--  조회수  -->
+    <update id="countComment" parameterType="int">
+    <![CDATA[
+        UPDATE course SET
+            courseComment = courseComment+1
+        WHERE courseId = #{courseId}
+    ]]>
+    </update>
+
+    <select id="selectCourseComment" parameterType="int" resultType="com.spring_boot_final.project.model.CourseCommentVO">
+    <![CDATA[
+        select * from courseComment
+            inner join user on courseComment.userId = user.userId
+        WHERE courseId=${courseId}
+        ORDER BY commentId DESC;
+    ]]>
+    </select>
+
 <!--  마이페이지  -->
     <!-- 마이페이지 코스 작성글 조회 -->
     <select id="mpCoursePostSelect" parameterType="string" resultType="com.spring_boot_final.project.model.CourseVO">
