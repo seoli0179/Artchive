@@ -9,9 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.spring_boot_final.project.model.CourseVO;
-import com.spring_boot_final.project.model.ExhbnVO;
 import com.spring_boot_final.project.model.ReviewNoteVO;
 import com.spring_boot_final.project.service.ReviewNoteService;
 
@@ -28,7 +25,7 @@ public class reviewDataController {
 	ArrayList<ReviewNoteVO> reviewNoteList = reviewnoteService.reviewNoteList();
 
 	model.addAttribute("reviewNoteList", reviewNoteList);
-	/* System.out.println(reviewNoteList.size()); */
+	System.out.println(reviewNoteList.size());
 	
 	/*
 	 * for(int i=0; i<reviewNoteList.size();i++) {
@@ -53,7 +50,7 @@ public class reviewDataController {
 		model.addAttribute("reviewNoteList", reviewNoteList);
 		model.addAttribute("siteName", siteName);
 		
-		/* System.out.println(reviewNoteList.size()); */
+		System.out.println(reviewNoteList.size());
 		
 		/*
 		 * for(int i=0; i<reviewNoteList.size();i++) {
