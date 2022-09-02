@@ -47,13 +47,13 @@ public class CourseViewController {
     @RequestMapping("/course/list")
     public String selectCourse(Model model) {
         ArrayList<CourseVO> vo = courseService.selectCourse();
-        ArrayList<String[]> tag = new ArrayList<String[]>();
-        for (CourseVO i : vo) {
-            String[] temp = i.getCourseTag().split(";;");
-            tag.add(temp);
-        }
+//        ArrayList<String[]> tag = new ArrayList<String[]>();
+//        for (CourseVO i : vo) {
+//            String[] temp = i.getCourseTag().split(";;");
+//            tag.add(temp);
+//        }
         model.addAttribute("courseList", vo);
-        model.addAttribute("tag", tag);
+//        model.addAttribute("tag", tag);
 
         return "course/courseBoard";
     }

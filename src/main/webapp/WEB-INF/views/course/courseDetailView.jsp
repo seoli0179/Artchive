@@ -80,7 +80,7 @@
 									<div class="left">
 										<div class="dot"></div>
 									</div>
-									<div class="content explain">Start ...</div>
+<%--									<div class="content explain">Start ...</div>--%>
 								</div>
 							</div>
 							<c:forEach var="site" items="${siteName}" varStatus="status">
@@ -108,7 +108,7 @@
 									<div class="left">
 										<div class="dot"></div>
 									</div>
-									<div class="content explain">End ...</div>
+<%--									<div class="content explain">End ...</div>--%>
 								</div>
 							</div>
 							<div class="memo-box">
