@@ -1,5 +1,6 @@
 package com.spring_boot_final.project.controller.course;
 
+import com.spring_boot_final.project.model.CourseCommentVO;
 import com.spring_boot_final.project.model.CourseVO;
 import com.spring_boot_final.project.model.ExhbnVO;
 import com.spring_boot_final.project.service.CourseService;
@@ -63,6 +64,24 @@ public class CourseDataController {
         map.put("courseId", courseId);
         map.put("userId", userId);
         courseService.deleteCourse(map);
+
+        return "SUCCESS";
+    }
+
+    ////////// comment secction
+    // insert comment
+    @ResponseBody
+    @RequestMapping("/course/insertComment")
+    public String insertComment(HttpSession session,
+                                @RequestParam("courseId") int courseId,
+                                @RequestParam("comment") String comment) throws Exception {
+
+        if(session.getAttribute("sid") == null) return "FAIL";
+        CourseCommentVO vo = new CourseCommentVO();
+        vo.setCourseId(courseId);
+        vo.setComment(comment);
+        vo.setUserId(session.getAttribute("sid").toString());
+        courseService.insertComment(vo);
 
         return "SUCCESS";
     }
