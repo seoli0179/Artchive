@@ -1,12 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form"   uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix = "fn" 	uri = "http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>arTchive / ${course.courseTitle}</title>
+		<title>arTchive / ${exhbn.exhbnImgUrl}에 대한 코스</title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
 		<!-- icon-kit -->
@@ -20,6 +22,7 @@
 		<script src="<c:url value='/js/course/autocomplete.js'/>"></script>
 		<script src="<c:url value='/js/course/courseEdit.js'/>"></script>
 		<script src="<c:url value='/js/course/courseDelete.js'/>"></script>
+		<script src="<c:url value='/js/course/popup.js'/>"></script>
 	</head>
 	<body id="courseDetailEdit">
 		<!-- top으로 이동 -->
@@ -28,10 +31,26 @@
 		<main id="courseDetail-wrap">
 			<!-- headerTextBox -->
 			<section id="courseHeader" class="courseHeaderImg">
-				<div class="headerTextBox" style="background-image : url('${course.exhbnImgUrl}');">
+				<div class="headerTextBox" style="background-image : url('${exhbn.exhbnImgUrl}');">
 					<div id="header-exhbnTitle" class="headerText">
 						<input class="exhbn-title editInput" id="exhbnTitle" name="exhbnTitle" type="text" value="${exhbn.exhbnTitle}" readonly>
-						<input class="exhbn-title editInput" id="exhbnId" name="exhbnId" type="text" value="${exhbn.exhbnId}" hidden><i class="fa-solid fa-magnifying-glass"></i>
+						<input class="exhbn-title editInput" id="exhbnId" name="exhbnId" type="text" value="${exhbn.exhbnId}" hidden>
+						<a href="/exhbn/detail/${exhbn.exhbnId}" target="_blank" class="btn-example">
+							<i class="fa-solid fa-magnifying-glass" style="color: #ffffff"></i>
+						</a>
+						<!-- 전시 팝업 layer -->
+						<div id="layer1" class="pop-layer">
+							<div class="pop-container">
+								<div class="pop-conts">
+									<!-- contents -->
+									<div class="btn-r">
+										<a href="#" class="btn-layerClose">Close</a>
+									</div>
+									<!--// content-->
+								</div>
+							</div>
+						</div>
+						<!-- .전시 팝업 layer -->
 					</div>
 					<div id="header-postTitle" class="headerText">
 						<input id="courseTitle" name="courseTitle" class="post-title editInput h1" type="text" placeholder="제목을 입력하세요.">
@@ -53,7 +72,7 @@
 						<span id="toggleText">공개</span>
 				</div>
            		<div id="courseMainText">
-					<button id="saveBtn"  class="black-btn">저장</button>
+					<button id="writePostBtn"  class="black-btn">저장</button>
            		</div><!-- courseMainText -->
 			</section><!-- courseMenu -->
 
@@ -79,23 +98,32 @@
 							</div>
 						</div>
 						<ul id="sortable" class="timeline-course-container">
-							<div class="route-row">
+							<li class="route-row">
 								<div class="left-side">
-									<div class="line"></div>
-									<div class="left">
-										<div class="mainCourse-dot">${status.count}</div>
+									<div class="moveHandler">
+										<i class="fa-solid fa-bars moveHandlerBtn"></i>
 									</div>
-									<div class="content">
-										<div class="where">
-											<h3 class="where-title">${}</h3>
-											<div class="address">${exhbn.[status.index]}</div>
+									<div class="left-side">
+										<div class="line"></div>
+										<div class="left">
+											<div class="subCourse-dot">1</div>
+										</div>
+										<div class="content">
+											<div class="where">
+												<h3 id="firstExhbnTitle" class="siteName">${exhbn.exhbnTitle}</h3>
+												<div><span id="firstExhbnAddr" class="siteAddress">${exhbn.exhbnPlaceAddr}</span></div>
+											</div>
 										</div>
 									</div>
+									<div class="content memo-box">
+										<textarea class="place-memo-input" placeholder="메모를 입력하세요."></textarea>
+										<input id="firstMemo" value="" hidden>
+									</div>
 								</div>
-								<div class="memo-box">
-									<span class="small-text"></span>
+								<div class="delete" id="deleteBtnBox">
+									<i class="fa-solid fa-circle-minus fa-2xl deleteBtn" id="deleteBtn1" onclick="deleteCourse(this, '${i}')"></i>
 								</div>
-							</div>
+							</li>
 							<!-- li 삽입 공간 -->
 						</ul>
 						<div class="route-row" id="endPoint">
