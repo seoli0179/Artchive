@@ -14,17 +14,19 @@
 		<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/courseDetail.css'/>">
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/mapView.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/toggle.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/note/detail.css'/>">
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f62ace4deff6b141114cc8499d76cb47"></script>
 		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f62ace4deff6b141114cc8499d76cb47&libraries=services"></script>
-		
 		<script src="<c:url value='/js/note/detail.js'/>"></script>
-		<script src="<c:url value='/js/course/detailView.js'/>"></script>
 		<script src="<c:url value='/js/course/courseDelete.js'/>"></script>
 		<script src="<c:url value='/js/course/comment.js'/>"></script>
-		<script type="text/javascript"></script>
+		<script src="<c:url value='/js/course/mapView.js'/>"></script>
+		
+		
+		
 	</head>
 	<body>
 		<!-- top으로 이동 -->
@@ -118,11 +120,19 @@
 							</div>
 						</div>
 					</section>
+					
 					<section id="courseMapBox">
-						<div id="courseMap"></div>
-	   						<button onclick="setCenter()">지도 중심좌표 이동시키기</button>
-  							<button onclick="hideMarkers()">마커 감추기</button>
-	   						<button onclick="showMarkers()">마커 보이기</button>
+	   					<div class="map_wrap">
+						    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+						    <div class="hAddr">
+						        <span class="title">지도중심기준 행정동 주소정보</span>
+						        <span id="centerAddr"></span>
+						    </div>
+						</div>	
+	   						
+	   						<button id="centerMove">지도 중심좌표 이동시키기</button>
+  							<button id="show">마커 보이기</button>
+  							<button id="hide">마커 감추기</button>
 					</section><!-- courseMap -->
 					 	
 					</section><!-- Course -->
