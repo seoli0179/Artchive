@@ -11,6 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/review/reviewNote.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/review/reviewNoteWrite.css'/>">
+		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 	</head>
 	<body>
 		
