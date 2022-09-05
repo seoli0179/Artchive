@@ -14,12 +14,17 @@
 
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/courseDetail.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/tagBox.css'/>">
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/map.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/module/toggle.css'/>">
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-		<script src="<c:url value='/js/course/autocomplete.js'/>"></script>
-		<script src="<c:url value='/js/course/courseEdit.js'/>"></script>
-		<script src="<c:url value='/js/course/courseDelete.js'/>"></script>
+		<!-- services와 clusterer, drawing 라이브러리 불러오기 -->
+		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f62ace4deff6b141114cc8499d76cb47&libraries=services,clusterer,drawing"></script>
+
+		<script type="text/javascript" src="<c:url value='/js/course/autocomplete.js'/>"></script>
+		<script type="text/javascript" src="<c:url value='/js/course/courseEdit.js'/>"></script>
+		<script type="text/javascript" src="<c:url value='/js/course/courseDelete.js'/>"></script>
+		<script type="text/javascript" src="<c:url value='/js/course/mapEdit.js'/>"></script>
 	</head>
 	<body id="courseDetailEdit">
 		<!-- top으로 이동 -->
@@ -79,7 +84,7 @@
 								<div class="left">
 									<div class="dot"></div>
 								</div>
-								<div class="content explain">Start ...</div>
+								<div class="content explain"></div>
 							</div>
 						</div>
 						<ul id="sortable" class="timeline-course-container">
@@ -91,23 +96,37 @@
 								<div class="left">
 									<div class="dot"></div>
 								</div>
-								<div class="content explain">End ...</div>
+								<div class="content explain"></div>
 							</div>
 						</div>
 					</section>
-					<section id="courseMap">
-						map
-					</section><!-- courseMap -->
+					<section id="courseMap" class="map_wrap">
+						<div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+
+						<div id="menu_wrap" class="bg_white">
+							<div class="option">
+								<div>
+									키워드 : <input type="text" id="keyword" size="15">
+									<button id="keyword_search">검색하기</button>
+								</div>
+							</div>
+							<hr>
+							<ul id="placesList"></ul>
+							<div id="pagination"></div>
+						</div>
+					</section><!-- course map -->
 				</section><!-- Course -->
 			</article><!-- courseMain -->
 
 			<section id="searchMap-container">
 				<div id="searchCourse">
-					<ul>
-						<li>Search.</li>
-					</ul>
-					<input type="text" id="courseSearch" name="searchMessage" size="120"  placeholder="검색어를 입력하세요."/>
-					<input type="button" id="CourseSearchBtn" value="검색">
+<%--					<ul>--%>
+<%--						<li>Search.</li>--%>
+<%--					</ul>--%>
+<%--					<form onsubmit="searchPlaces(); return false;">--%>
+<%--						<input type="text" id="courseSearch" name="courseSearch" size="120"  placeholder="검색어를 입력하세요."/>--%>
+<%--						<input type="submit" id="CourseSearchBtn" value="검색">--%>
+<%--					</form>--%>
 				</div>
 				
 				<div id = "recommendCourse">

@@ -6,11 +6,10 @@ let addresses = [];
 let memos = [];
 let listItems = [];
 let tags = [];
+let $memoArea;
+let listItem;
 
 $( function() {
-
-    let $memoArea;
-    let listItem;
 
     const sortableList = document.getElementById("sortable");
     const startPoint = document.getElementById("startPoint");
@@ -28,9 +27,7 @@ $( function() {
         success: function (result) {
             console.log(result);
             $.each(result, function (index, item) {
-                sites.push(item.siteName);
-                addresses.push(item.siteAddresses);
-                memos.push(item.siteMemos);
+
             });
             createList();
         },
@@ -46,6 +43,8 @@ $( function() {
             memos.push(firstMemo);
         }
     });
+
+    createList();
 
     // init
 
@@ -122,11 +121,6 @@ $( function() {
             tag.trim();
             if (tag.length > 1 && !tags.includes(tag)) { // 아직 없는 태그, // 태그 생성
                 if (tags.length > 4) {
-                    // const target = document.getElementById("tag-caution");
-                    // target.style.visibility = "visible";
-                    // setTimeout(function() {
-                    //     target.classList.remove("vibration");
-                    // }, 500);
                     alert("태그는 5개까지 입력 가능합니다.")
                 } else {
                     tags.push(tag);
@@ -146,61 +140,7 @@ $( function() {
         });
         console.log(tags)
     }
-    /** createList 함수 */
-    function createList() {
-        for (let i = 0; i < sites.length; i++) {
-            listItem = document.createElement('li');
-            listItem.setAttribute('data-index', i);
-            listItem.setAttribute("class", "route-row courseItem");
-            listItem.setAttribute("id", "route" + i);
-            listItem.setAttribute("draggable", "true");
-            listItem.setAttribute("value", sites[i] + ";;" + addresses[i] + ";;" + memos[i]);
 
-            listItem.innerHTML = `
-                    <div class="left-side">
-                        <div class="moveHandler">
-                            <i class="fa-solid fa-bars moveHandlerBtn"></i>
-                        </div>
-                        <div class="left-side">
-                        <div class="line"></div>
-                        <div class="left">
-                            <div class="subCourse-dot">${i + 1}</div>
-                        </div>
-                        <div class="content">
-                            <div class="where">
-                                <h3 class="siteName">${sites[i]}</h3>
-                                <div><span class="siteAddress">${addresses[i]}</span></div>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="content memo-box">
-                            <textarea id="memo_${i}" class="place-memo-input" placeholder="메모를 입력하세요.">${memos[i]}</textarea> 
-                        </div>
-                    </div>
-                    <div class="delete" id="deleteBtnBox">
-                        <i class="fa-solid fa-circle-minus fa-2xl deleteBtn" id="deleteBtn${i}" onclick="deleteCourse(this, '${i}')"></i>
-                    </div>
-                    `; //place-memo-input
-            // ${sites[i]}
-            listItems.push(listItem);
-
-            $("#sortable").append(listItem);
-            sites_copy = [...sites];
-        }
-        $memoArea = $(".place-memo-input");
-        // console.log("memolength : ", memoArea.length);
-        saveMemo();
-    }
-
-    function saveMemo() {
-        $memoArea.each(function(i) {
-            $(document).on("focusout", "#memo_"+i ,function(index){
-                console.log($(this).val());
-                memos[i] = $(this).val();
-                console.log(memos);
-            });
-        });
-    }
     // 정렬 가능한 리스트
     // 순서 바꿔 배열 다시 저장하기
     $("#sortable").sortable({
@@ -403,6 +343,7 @@ function updateCourse() {
             alert("code="+request.status+"message="+request.responseText+"error="+error); //실패시처리
         }
     });
+
 }
 
 // 코스 item 삭제 함수
@@ -431,4 +372,59 @@ function remove(element, tag) {
     tags.splice(index,1);
     console.log(tags);
     element.parentElement.remove(); // li 삭제
+}
+
+/** createList 함수 */
+function createList() {
+    for (let i = 0; i < sites.length; i++) {
+        listItem = document.createElement('li');
+        listItem.setAttribute('data-index', i);
+        listItem.setAttribute("class", "route-row courseItem");
+        listItem.setAttribute("id", "route" + i);
+        listItem.setAttribute("draggable", "true");
+        // listItem.setAttribute("value", sites[i] + ";;" + addresses[i] + ";;" + memos[i]);
+
+        listItem.innerHTML = `
+                    <div class="left-side">
+                        <div class="moveHandler">
+                            <i class="fa-solid fa-bars moveHandlerBtn"></i>
+                        </div>
+                        <div class="left-side">
+                        <div class="line"></div>
+                        <div class="left">
+                            <div class="subCourse-dot">${i + 1}</div>
+                        </div>
+                        <div class="content">
+                            <div class="where">
+                                <h3 class="siteName">${sites[i]}</h3>
+                                <div><span class="siteAddress">${addresses[i]}</span></div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="content memo-box">
+                            <textarea id="memo_${i}" class="place-memo-input" placeholder="메모를 입력하세요.">${memos[i]}</textarea> 
+                        </div>
+                    </div>
+                    <div class="delete" id="deleteBtnBox">
+                        <i class="fa-solid fa-circle-minus fa-2xl deleteBtn" id="deleteBtn${i}" onclick="deleteCourse(this, '${i}')"></i>
+                    </div>
+                    `; //place-memo-input
+        // ${sites[i]}
+        listItems.push(listItem);
+
+        $("#sortable").append(listItem);
+        sites_copy = [...sites];
+    }
+    $memoArea = $(".place-memo-input");
+    saveMemo();
+}
+
+function saveMemo() {
+    $memoArea.each(function(i) {
+        $(document).on("focusout", "#memo_"+i ,function(index){
+            console.log($(this).val());
+            memos[i] = $(this).val();
+            console.log(memos);
+        });
+    });
 }

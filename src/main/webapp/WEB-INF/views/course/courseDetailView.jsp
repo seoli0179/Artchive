@@ -20,13 +20,13 @@
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f62ace4deff6b141114cc8499d76cb47"></script>
 		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f62ace4deff6b141114cc8499d76cb47&libraries=services"></script>
-		<script src="<c:url value='/js/note/detail.js'/>"></script>
-		<script src="<c:url value='/js/course/courseDelete.js'/>"></script>
-		<script src="<c:url value='/js/course/comment.js'/>"></script>
+		
+		<script src="<c:url value='/js/note/detail.js'/>"></script> <!-- 글 삭제 -->
+		<script src="<c:url value='/js/course/courseDelete.js'/>"></script> <!-- 코스 아이템 삭제 -->
+		<script src="<c:url value='/js/course/comment.js'/>"></script> <!-- 코멘트 ajax -->
 		<script src="<c:url value='/js/course/mapView.js'/>"></script>
-		
-		
-		
+
+
 	</head>
 	<body>
 		<!-- top으로 이동 -->

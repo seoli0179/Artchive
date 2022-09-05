@@ -131,7 +131,12 @@
 						</form>
 					</div>
 					<div>
-						<button class="black-btn-big" onclick="location.href='/course/newPost/${exhbn.exhbnId}'">코스 작성하기</button>
+						<c:if test="${not empty sessionScope.sid}">
+							<div><a href="<c:url value='/course/newPost/${exhbn.exhbnId}'/>"><button type="submit" class="black-btn-big">코스 작성하기</button></a></div>
+						</c:if>
+						<c:if test="${empty sessionScope.sid}">
+							<div><button type="submit" class="black-btn-big notLogin" onclick="alert('로그인이 필요한 기능입니다.');">코스 작성하기</button></div>
+						</c:if>
 					</div>
 				</div>
 				<div id="map-box">
