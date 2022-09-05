@@ -28,6 +28,7 @@
 			<section id="courseHeader" class="courseHeaderImg">
 			<input type="hidden" id="courseId" value="${course.courseId}">
 			<input type="hidden" id="exhbnId" value="${course.exhbnId}">
+			<input type="hidden" id="userId" value="${course.userId}">
 				<div class="headerTextBox" style="background-image : url('${course.exhbnImgUrl}');">
 					<div id="header-exhbnTitle" class="headerText">
 						<%-- <ul><li>${course.exhbnTitle}</li></ul> --%>

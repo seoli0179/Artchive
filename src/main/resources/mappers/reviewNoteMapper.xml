@@ -56,8 +56,8 @@
 	
 	<!-- 리뷰게시판 글 작성하기 -->
 	<insert id="createReviewNote" parameterType="com.spring_boot_final.project.model.ReviewNoteVO">
-		INSERT INTO reviewnote (reviewNoteTitle, reviewNote, userId)
-		VALUES (#{reviewNoteTitle}, #{reviewNote}, #{userId});
+		INSERT INTO reviewNote (reviewNoteTitle, reviewNote, userId, courseId, exhbnId)
+		VALUES (#{reviewNoteTitle}, #{reviewNote}, #{userId}, #{courseId}, #{exhbnId});
 	</insert>
 	
 	

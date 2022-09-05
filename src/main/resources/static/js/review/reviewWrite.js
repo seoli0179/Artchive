@@ -30,6 +30,7 @@
                 data: {
                     "reviewNoteTitle": $('#reviewNoteTitle').val(),
                     "courseId": $('#courseId').val(),
+                    "userId" : $('#userId').val(),
                     "exhbnId": $('#exhbnId').val(),
                     "reviewNote": $('#summernote').summernote('code')
                 },
