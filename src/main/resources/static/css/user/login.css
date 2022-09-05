@@ -204,3 +204,12 @@ body::before {
 .loginTitle {
 	font-family: 'establishRetrosansOTF';
 }
+
+.show {
+    position: absolute;
+    left: 370px;
+    top: 20px;
+    font-size: 15px;
+    color: #999;
+    cursor: pointer;
+}

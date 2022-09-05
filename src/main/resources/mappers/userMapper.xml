@@ -123,11 +123,26 @@
         WHERE userId = #{userId}
     </update>
 
+    <update id="updatePwTempChange" parameterType="com.spring_boot_final.project.model.UserVO">
+        UPDATE user
+        SET userPw=#{userPw},
+            userState=0
+        WHERE userId = #{userId}
+    </update>
+
 
     <!-- 비밀번호 수정 -->
     <update id="updatePw" parameterType="com.spring_boot_final.project.model.UserVO">
         UPDATE user
         SET userPw = #{userPw}
+        WHERE userId = #{userId}
+    </update>
+
+    <!-- 임시 비밀번호 수정 -->
+    <update id="updatePwTemp" parameterType="com.spring_boot_final.project.model.UserVO">
+        UPDATE user
+        SET userPw    = #{userPw},
+            userState = 3
         WHERE userId = #{userId}
     </update>
 

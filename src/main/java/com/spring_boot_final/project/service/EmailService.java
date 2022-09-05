@@ -117,7 +117,7 @@ public class EmailService {
                 UserVO vo = userDAO.selectUserFormEmail(email);
                 vo.setUserPw(encoder.encode(tempPw));
 
-                userDAO.updatePw(vo);
+                userDAO.updatePwTemp(vo);
 
                 sendSimpleMessage(
                         email,
