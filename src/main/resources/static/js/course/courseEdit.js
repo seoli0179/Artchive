@@ -27,7 +27,9 @@ $( function() {
         success: function (result) {
             console.log(result);
             $.each(result, function (index, item) {
-
+                sites.push(item.siteName);
+                addresses.push(item.siteAddresses);
+                memos.push(item.siteMemos);
             });
             createList();
         },
@@ -44,7 +46,7 @@ $( function() {
         }
     });
 
-    createList();
+
 
     // init
 
@@ -353,7 +355,7 @@ function deleteCourse(element, index) {
             $("#route"+index).remove(); // jsp 태그 삭제
             // sites에서 값이 동일한 요소 삭제
             for (let i = 0; i < sites.length; i++) {
-                if (sites[i] == sites_copy[index]) {
+                if (sites[i] === sites_copy[index]) {
                     sites.splice(i, 1);
                     addresses.splice(i, 1);
                     memos.splice((i, 1));
@@ -382,7 +384,7 @@ function createList() {
         listItem.setAttribute("class", "route-row courseItem");
         listItem.setAttribute("id", "route" + i);
         listItem.setAttribute("draggable", "true");
-        // listItem.setAttribute("value", sites[i] + ";;" + addresses[i] + ";;" + memos[i]);
+        listItem.setAttribute("value", sites[i] + ";;" + addresses[i] + ";;" + memos[i]);
 
         listItem.innerHTML = `
                     <div class="left-side">
