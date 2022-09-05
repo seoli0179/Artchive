@@ -155,14 +155,14 @@ header #headerBox nav > ul > li {
 	flex-direction: column;
 	z-index: 500;
 }
-.dropdownMenu li {
+.dropdownMenu>li {
 	padding: 10px 15px;
 	text-align: left;
 }
-.dropdownMenu li:hover {
+.dropdownMenu>li:hover {
 	background-color: black;
 }
-.dropdownMenu li:hover a {
+.dropdownMenu>li:hover a {
 	color: white;
 }
 	
