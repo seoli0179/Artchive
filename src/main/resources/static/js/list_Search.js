@@ -13,7 +13,7 @@
                 
             },
             success: function (result) {
-            alert("검색 결과를 보여드릴게요");
+            // alert("검색 결과를 보여드릴게요");
             $('#searchResultl').empty();
             $('#searchResultl').append(result);
             
