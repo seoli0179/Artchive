@@ -49,17 +49,41 @@ public class UserDataController {
         UserVO vo = new UserVO();
 
         vo.setUserId(id);
-        vo.setUserPw(pw);
-        System.out.println(vo.toString());
 
         vo = service.selectUser(vo);
 
         if (vo == null || !encoder.matches(pw, vo.getUserPw()))
             return "FAIL";
 
+        if(vo.getUserState().equals("3")){
+            return "TEMP";
+        }
+
         session.setAttribute("sid", vo.getUserId());
         session.setAttribute("username", vo.getUserNickname());
 
+        return "SUCCESS";
+    }
+
+    @RequestMapping("/user/pwTempChange")
+    public String pwTempChange(
+            @RequestParam("id") String id,
+            @RequestParam("pwTemp") String pwTemp,
+            @RequestParam("pw") String pw,
+            HttpSession session
+    ) {
+        UserVO vo = new UserVO();
+        System.out.println("bbb"+id);
+        vo.setUserId(id);
+
+        vo = service.selectUser(vo);
+
+        if (vo == null || !encoder.matches(pwTemp, vo.getUserPw()))
+            return "FAIL";
+
+        vo.setUserPw(encoder.encode(pw));
+
+        service.updatePwTempChange(vo);
 
         return "SUCCESS";
     }

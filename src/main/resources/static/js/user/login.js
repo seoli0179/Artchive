@@ -1,17 +1,17 @@
-$(document).ready(function (){
+$(document).ready(function () {
     $('#btn').on('click', function () {
         login();
     });
 
-    $('#pw').on('keyup',function (key){
-        if(key.keyCode==13) {
+    $('#pw').on('keyup', function (key) {
+        if (key.keyCode == 13) {
             login();
         }
     });
 
 });
 
-function login(){
+function login() {
     if ($('#id').val() == "") {
         $('#id').next('label').addClass('warning');
         $('#id').focus();
@@ -30,13 +30,16 @@ function login(){
             url: "/user/selectUser",
             data: {
                 "id": $('#id').val(),
+                "pwTemp": $('#pwTemp').val(),
                 "pw": $('#pw').val()
             },
             success: function (data) {
-                if(data=="SUCCESS"){
-                    window.history.go(-2);
-                }
-                else{
+                if (data == "SUCCESS") {
+                    location.href = "/";
+                } else if (data == "TEMP") {
+                    alert("임시 비밀번호로 입력하셨습니다!\n비밀번호 변경창으로 이동합니다");
+                    location.href = "/user/pwTemp?id="+$('#id').val();
+                } else {
                     alert("아이디 또는 비밀번호가 틀렸습니다");
                 }
             },

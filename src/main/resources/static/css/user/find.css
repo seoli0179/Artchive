@@ -326,3 +326,12 @@ body::before {
     color: #000;
     outline: none;
 }
+
+.int-area input:read-only + label {
+    top: 0;
+    font-size: 13px;
+    color: #6B7280;
+}
+.int-area input:read-only {
+    color: grey;
+}

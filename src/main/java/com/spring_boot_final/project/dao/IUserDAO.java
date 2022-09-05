@@ -29,6 +29,11 @@ public interface IUserDAO {
     // 비밀번호 수정
     void updatePw(UserVO vo);
 
+    // 임시 비밀번호 수정
+    void updatePwTemp(UserVO vo);
+
+    void updatePwTempChange(UserVO vo);
+
     // 마이페이지 탈퇴
     void quitUser(String id);
 
