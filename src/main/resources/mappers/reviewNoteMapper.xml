@@ -54,7 +54,11 @@
 	WHERE r.reviewNoteId = #{reviewNoteId} and  r.courseId = c.courseId and r.userId = u.userId and r.exhbnId = e.exhbnId
 	</select>
 	
-	
+	<!-- 리뷰게시판 글 작성하기 -->
+	<insert id="createReviewNote" parameterType="com.spring_boot_final.project.model.ReviewNoteVO">
+		INSERT INTO reviewnote (reviewNoteTitle, reviewNote, userId)
+		VALUES (#{reviewNoteTitle}, #{reviewNote}, #{userId});
+	</insert>
 	
 	
 </mapper>

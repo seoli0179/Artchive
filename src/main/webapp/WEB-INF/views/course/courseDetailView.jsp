@@ -60,6 +60,7 @@
 						<button id="deleteBtn_view"  class="white-btn">삭제</button>
 					</c:if>
 					<button id="scrapCourse"  class="black-btn">스크랩</button>
+					<input type="button" id="createReview" value="리뷰작성하기" onclick="location.href='<c:url value="/review/reviewNoteWrite/${course.courseId}"/>'" class="black-btn">
            		</div><!-- courseMainText -->
 			</section><!-- courseMenu -->
 
