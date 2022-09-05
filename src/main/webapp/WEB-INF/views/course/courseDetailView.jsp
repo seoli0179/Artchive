@@ -18,7 +18,6 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/toggle.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/note/detail.css'/>">
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
-		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f62ace4deff6b141114cc8499d76cb47"></script>
 		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f62ace4deff6b141114cc8499d76cb47&libraries=services"></script>
 		<script src="<c:url value='/js/note/detail.js'/>"></script>
 		<script src="<c:url value='/js/course/courseDelete.js'/>"></script>
