@@ -45,6 +45,10 @@ public class UserService {
         dao.updatePw(vo);
     }
 
+    public void updatePwTempChange(UserVO vo){
+        dao.updatePwTempChange(vo);
+    }
+
     // 마이페이지 탈퇴
     public void quitUser(String id) {
         dao.quitUser(id);
