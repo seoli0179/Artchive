@@ -1,13 +1,19 @@
 let count = 0;
 
-let sites = [];
+let sites = []; // 장소 이름 배열
 let sites_copy = [];
-let addresses = [];
-let memos = [];
+let addresses = []; // 장소 주소 배열
+let memos = []; // 장소 메모 배열
 let listItems = [];
-let tags = [];
+let tags = []; // 코스 태그
 let $memoArea;
 let listItem;
+
+// let courseListItem = [
+//     {
+//         "place_name":
+//     }
+// ]
 
 $( function() {
 
@@ -45,47 +51,6 @@ $( function() {
             memos.push(firstMemo);
         }
     });
-
-
-
-    // init
-
-
-    // delete 구현1
-    // deleteBtns.forEach(function (el, index){
-    //     $(document).on("click", "#"+address[index], function (){
-    //         if(confirm("항목을 삭제하시겠습니까?")){
-    //             if(sites.length == 1 || sites.length == index){
-    //                 sites.pop();
-    //                 address.pop();
-    //             } else {
-    //             sites.splice(index,1);
-    //             address.splice(index,1);
-    //             }
-    //             $("#" + sites[index]).remove(); // jsp 태그 삭제
-    //
-    //             $(".courseItem").remove();
-    //             createList();
-    //         }
-    //     });
-    // });
-
-    // // 삭제
-    // let deleteBtns = document.querySelectorAll(".deleteBtn");
-    //
-    // deleteBtns.forEach((el,index) => {
-    //     alert(index);
-    //     $(this).on("click", function () {
-    //         if(confirm("항목을 삭제하시겠습니까?")){
-    //             $("#route"+index).remove(); // jsp 태그 삭제
-    //
-    //             // sites에서 값이 동일한 요소 삭제
-    //             for (let i=0; i<sites.length; i++){
-    //                 if(sites[i]==sites_copy[index]) sites.splice(i,1);
-    //             }
-    //         }
-    //     })
-    // });
 
     // 태그 배열 초기화
     let tagItem = document.getElementsByClassName("tagItem");
@@ -387,26 +352,26 @@ function createList() {
         listItem.setAttribute("value", sites[i] + ";;" + addresses[i] + ";;" + memos[i]);
 
         listItem.innerHTML = `
-                    <div class="left-side">
-                        <div class="moveHandler">
-                            <i class="fa-solid fa-bars moveHandlerBtn"></i>
-                        </div>
                         <div class="left-side">
-                        <div class="line"></div>
-                        <div class="left">
-                            <div class="subCourse-dot">${i + 1}</div>
-                        </div>
-                        <div class="content">
-                            <div class="where">
-                                <h3 class="siteName">${sites[i]}</h3>
-                                <div><span class="siteAddress">${addresses[i]}</span></div>
+                            <div class="moveHandler">
+                                <i class="fa-solid fa-bars moveHandlerBtn"></i>
+                            </div>
+                            <div class="left-side">
+                            <div class="line"></div>
+                            <div class="left">
+                                <div class="subCourse-dot">${i + 1}</div>
+                            </div>
+                            <div class="content">
+                                <div class="where">
+                                    <h3 class="siteName">${sites[i]}</h3>
+                                    <div class="siteAddress">${addresses[i]}</div>
+                                    <div class="memo-box">
+                                        <textarea id="memo_${i}" class="place-memo-input" placeholder="메모를 입력하세요.">${memos[i]}</textarea> 
+                                    </div>
+                                </div>
+                            </div>
                             </div>
                         </div>
-                        </div>
-                        <div class="content memo-box">
-                            <textarea id="memo_${i}" class="place-memo-input" placeholder="메모를 입력하세요.">${memos[i]}</textarea> 
-                        </div>
-                    </div>
                     <div class="delete" id="deleteBtnBox">
                         <i class="fa-solid fa-circle-minus fa-2xl deleteBtn" id="deleteBtn${i}" onclick="deleteCourse(this, '${i}')"></i>
                     </div>
