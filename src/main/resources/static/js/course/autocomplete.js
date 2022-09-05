@@ -30,4 +30,4 @@ $(function(){
     });
 });
 
-let testSource = ['apple', 'apart', 'art', 'archive']; // 배열 생성
+let testSource = ['혼자하루보내기', '가족들과함께', '친구와함께', '추천데이트코스']; // 배열 생성
