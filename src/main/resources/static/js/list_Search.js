@@ -27,4 +27,48 @@
  });  // ready 끝
  
 
-	 
+	 $(document).ready(function(){
+	
+	$('ul.tabs li').click(function(){
+		var tab_id = $(this).attr('data-tab');
+
+		$('ul.tabs li').removeClass('current');
+		$('.tab-content').removeClass('current');
+		
+		$(this).addClass('current');
+		$("#"+tab_id).addClass('current');
+		
+	})
+
+})
+// 박물관 탭
+ $(document).ready(function(){
+
+ 	$('#Museum').on('click', function(){
+ 	alert("aaa");
+ 		//alert($('#inner-searchbar').val());
+ 		var Type = $('#Museum').on('click').val();
+ 		// 기본 기능 중단
+ 		//event.preventDefault();
+ 		$.ajax({
+            type: "post",
+            url: "/exhbn/tab_exhbnSearch",
+            data: {
+                "exhbnType": Type
+                
+            },
+          
+            success: function (result) {
+            $('#searchResultl_Festival').empty();
+            $('#searchResultl_Festival').append(tab_exhbnSearch);
+            
+			console.log(result);
+			},
+            error: function () {
+            alert("bbb");
+            },
+        });
+ 		
+ 	}); // submit 끝 
+ });  // ready 끝
+ 

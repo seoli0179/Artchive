@@ -38,4 +38,7 @@ public class ExhbnService {
 		return dao.ExhbnSearch(title);
 
 }
+    public ArrayList<ExhbnVO> TabSearch(String title) {
+  		return dao.tab_ExhbnSearch(title);
+}
 }

@@ -29,7 +29,8 @@ public interface IExhbnDAO {
 	public ArrayList<ExhbnVO> ExhbnSearch(String title); // 상품 검색
 	
 
-	 //게시판 목록(페이징 적용) 
-	
+	 //tab Search
+	public ArrayList<ExhbnVO> tab_ExhbnSearch(String title); // 상품 검색
+
 	 
 }

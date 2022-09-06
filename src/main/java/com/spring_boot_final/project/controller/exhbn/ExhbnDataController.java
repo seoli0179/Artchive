@@ -4,7 +4,9 @@ import com.spring_boot_final.project.service.ExhbnService;
 import com.spring_boot_final.project.model.ExhbnVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.xml.sax.SAXException;
 
@@ -30,5 +32,18 @@ public class ExhbnDataController {
         ArrayList<ExhbnVO> allData = service.selectAllData();
         return allData;
     }
-
+    // tab search
+    @RequestMapping("/exhbn/tab_searchResult222")
+	public String ExhbitonSearch(
+			@RequestParam("exhbnTitle") String title, Model model){
+    	ArrayList<ExhbnVO> tab_exhbnSearch = service.TabSearch(title);
+		model.addAttribute("exhbnList", tab_exhbnSearch);
+		
+		 System.out.println(title);
+			
+			  for(int i=0; i < tab_exhbnSearch.size(); i++) {
+			  System.out.println(tab_exhbnSearch.get(i).getExhbnId()); }
+			 
+		return "exhbnList";
+	}	
 }

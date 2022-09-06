@@ -403,3 +403,33 @@ body {
 	border-radius: 50%;
 	background: #f03d3d;
 }
+
+ul.tabs{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+ul.tabs li{
+	background: none;
+	color: #222;
+	display: inline-block;
+/* 	padding: 10px 15px;
+ */	cursor: pointer;
+}
+
+ul.tabs li.current{
+	background: #eeeeee;
+	color: #222;
+}
+/*  탭 누르면 탭 모양 변하는거 유나님 미안해요 ㅜ */
+/* 탭 컨텐츠 지우면 다시 돌아감 jsp에 selected도 지워야함*/
+
+.tab-content{
+	display: none;
+	background: #ededed;
+	padding: 15px;
+}
+
+.tab-content.current{
+	display: inherit;
+}

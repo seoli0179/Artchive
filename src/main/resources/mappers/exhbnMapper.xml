@@ -91,10 +91,25 @@
 	exhbnStartDate,
 	exhbnEndDate,
 	exhbnUrl,
-	exhbnPrice
-	From exhbn
+	exhbnPrice,
+<!-- 	exhbnType
+ -->	From exhbn
 	where
 	exhbnTitle like CONCAT('%',#{title},'%')
 	</select>
-
+	
+		<select id="tab_exhbnSearch" parameterType="string" resultType="com.spring_boot_final.project.model.ExhbnVO">
+	select exhbnID,
+	exhbnTitle,
+	exhbnPlace,
+	exhbnArea,
+	exhbnImgUrl,
+	exhbnStartDate,
+	exhbnEndDate,
+	exhbnUrl,
+	exhbnPrice
+	From exhbn
+	where exhbnType = "박물관";
+	
+	</select>
 </mapper>
