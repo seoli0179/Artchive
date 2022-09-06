@@ -31,6 +31,12 @@ public class ReviewNoteService implements IReviewNoteService{
 		
 	}
 
+	@Override
+	public void updateReviewNote(ReviewNoteVO vo) {
+		dao.updateReviewNote(vo);
+		
+	}
+
 
 
 }

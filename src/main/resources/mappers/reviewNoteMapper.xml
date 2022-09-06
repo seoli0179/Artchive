@@ -60,5 +60,14 @@
 		VALUES (#{reviewNoteTitle}, #{reviewNote}, #{userId}, #{courseId}, #{exhbnId});
 	</insert>
 	
+	<!-- 리뷰게시판 글 수정 -->
+	<update id="updateReviewNote" parameterType="com.spring_boot_final.project.model.ReviewNoteVO">
+		UPDATE reviewNote
+		SET reviewNoteTitle = #{reviewNoteTitle},
+		reviewNote = #{reviewNote}
+		WHERE reviewNoteId = #{reviewNoteId}
+		AND userId = #{userId}
+	</update>
+	
 	
 </mapper>

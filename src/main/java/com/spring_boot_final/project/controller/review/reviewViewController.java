@@ -35,11 +35,12 @@ public class reviewViewController {
 	 * return "review/reviewNoteEdit"; }
 	 */
  	
- 	 // reviewNoteEdit 페이지 열기 요청 처리
- 	@RequestMapping("/review/reviewNoteWrite")
- 	public String reviewNoteWrite() {
- 		return "review/reviewNoteWrite";
- 	}
+	/*
+	 * // reviewNoteEdit 페이지 열기 요청 처리
+	 * 
+	 * @RequestMapping("/review/reviewNoteWrite") public String reviewNoteWrite() {
+	 * return "review/reviewNoteWrite"; }
+	 */
  	
  // 리뷰게시판 리스트 보기
  	@RequestMapping("/review/reviewNoteList")
@@ -61,7 +62,7 @@ public class reviewViewController {
  	
  	
  	// 리뷰게시판 상세페이지 보기
- 	@RequestMapping("/review/reviewNoteEdit/{reviewNoteId}")
+ 	@RequestMapping("/review/reviewNote/{reviewNoteId}")
  	public String reviewNote(@PathVariable("reviewNoteId") int reviewNoteId,HttpSession session, Model model) {
  	
  		ArrayList<ReviewNoteVO> reviewNoteList = reviewnoteService.reviewNoteList();
@@ -76,7 +77,7 @@ public class reviewViewController {
  		model.addAttribute("siteName", siteName);
  		
  		
- 		System.out.println(reviewNoteId);
+		/* System.out.println(reviewNoteId); */
  		/* System.out.println(reviewNoteList.size()); */
  		
  		/*
@@ -109,5 +110,32 @@ public class reviewViewController {
 		
 		return "review/reviewNoteWrite";
 		}
+  	
+ // 리뷰게시판 수정페이지 보기
+  	@RequestMapping("/review/reviewNoteEdit/{reviewNoteId}")
+  	public String reviewNoteEdit(@PathVariable("reviewNoteId") int reviewNoteId,HttpSession session, Model model) {
+  	
+  		ArrayList<ReviewNoteVO> reviewNoteList = reviewnoteService.reviewNoteList();
+  		ReviewNoteVO vo = reviewnoteService.selectReviewNote(reviewNoteId);
+  		
+  		String[] siteName = vo.getCourseSitesArr().split(";;");
+  		
+  		System.out.println(siteName);
+  		
+  		model.addAttribute("reviewNoteList", reviewNoteList);
+  		model.addAttribute("reviewNote", vo);
+  		model.addAttribute("siteName", siteName);
+  		
+  		
+ 		/* System.out.println(reviewNoteId); */
+  		/* System.out.println(reviewNoteList.size()); */
+  		
+  		/*
+  		 * for(int i=0; i<reviewNoteList.size();i++) {
+  		 * System.out.println(reviewNoteList.get(i).getReviewNoteId()); }
+  		 */
+  		
+  		return "review/reviewNoteEdit";
+  		}
  	
 }
