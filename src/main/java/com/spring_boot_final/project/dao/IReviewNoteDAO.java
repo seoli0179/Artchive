@@ -10,4 +10,10 @@ public interface IReviewNoteDAO {
 	
 	ReviewNoteVO selectReviewNote(int reviewNoteId);
 	
+	// 리뷰 게시판 작성
+	void createReviewNote (ReviewNoteVO vo);
+	
+	// 리뷰 게시판 수정
+	void updateReviewNote (ReviewNoteVO vo);
+	
 }
