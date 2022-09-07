@@ -99,9 +99,18 @@
 	
 	<select id="tab_ExhbnSearch" parameterType="String" resultType="com.spring_boot_final.project.model.ExhbnVO">
 	select
-	* from exhbn
-	where
-	exhbnType="박물관"
+	exhbnID,
+	exhbnTitle,
+	exhbnPlace,
+	exhbnArea,
+	exhbnImgUrl,
+	exhbnStartDate,
+	exhbnEndDate,
+	exhbnUrl,
+	exhbnPrice
+	From exhbn
+	WHERE exhbnType = "박물관" and
+	exhbnType = "미술전시"
 	
 	</select>
 

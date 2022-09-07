@@ -36,19 +36,5 @@ public class ExhbnDataController {
         ArrayList<ExhbnVO> allData = service.selectAllData();
         return allData;
     }
-    // tab search
-    @RequestMapping("/exhbn/tab_exhbnSearch")
-    
-	public String ExhbitonSearch(
-			@RequestParam("exhbnType") String type, Model model){
-    	ArrayList<ExhbnVO> tab_exhbnSearch = service.TabSearch(type);
-		model.addAttribute("exhbnType", tab_exhbnSearch);
-		
-		 System.out.println(type);
-			
-			  for(int i=0; i < tab_exhbnSearch.size(); i++) {
-			  System.out.println(tab_exhbnSearch.get(i).getExhbnId()); }
-			 
-		return "museum";
-	}	
-}
+}   
+

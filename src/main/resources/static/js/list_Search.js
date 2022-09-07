@@ -45,7 +45,7 @@
  $(document).ready(function(){
 
  	$('#Museum').on('click', function(){
- 	alert("aaa");
+ 	
  		//alert($('#inner-searchbar').val());
  		var type = $('#Museum').on('click').val();
  		// 기본 기능 중단
@@ -58,11 +58,12 @@
                 
             },
           
-            success: function (tab_exhbnSearch) {
-            $('#Museum_list').empty();
-            $('#Museum_list').append(tab_exhbnSearch);
+            success: function (result_museum) {
+           // $('#searchResultl').empty();
+           alert("aaaa");
+            $('#searchResultl').html(result_museum);
             
-			console.log(tab_exhbnSearch);
+			console.log(result_museum);
 			},
             error: function () {
             alert("bbb");
