@@ -109,7 +109,22 @@
 	exhbnUrl,
 	exhbnPrice
 	From exhbn
-	WHERE exhbnType = "박물관"	
+	WHERE exhbnType = "박물관" 
+	</select>
+	
+		<select id="tab_ExhbnSearch2" parameterType="String" resultType="com.spring_boot_final.project.model.ExhbnVO">
+	select
+	exhbnID,
+	exhbnTitle,
+	exhbnPlace,
+	exhbnArea,
+	exhbnImgUrl,
+	exhbnStartDate,
+	exhbnEndDate,
+	exhbnUrl,
+	exhbnPrice
+	From exhbn
+	WHERE exhbnType = "미술전시" 
 	</select>
 
 </mapper>

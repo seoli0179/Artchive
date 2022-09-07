@@ -109,4 +109,21 @@ public class ExhbnViewController {
 		return "searchResult";
 
 	}
+	
+	@RequestMapping("/exhbn/tab_exhbnSearch2")
+	public String tab_ExhbitonSearch2(@RequestParam("exhbnType") String type, Model model) {
+		ArrayList<ExhbnVO> tab_exhbnSearch = service.TabSearch2(type);
+		model.addAttribute("exhbnSearchList", tab_exhbnSearch);
+
+		System.out.println(type);
+
+		for (int i = 0; i < tab_exhbnSearch.size(); i++) {
+			System.out.println(tab_exhbnSearch.get(i).getExhbnId());
+		}
+
+		return "searchResult";
+
+	}
+	//탭 메뉴 복사 하는데 변경해야 할 것 
+	//js Url 변경시키기, var 변수 변경
 }

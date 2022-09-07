@@ -41,4 +41,7 @@ public class ExhbnService {
     public ArrayList<ExhbnVO> TabSearch(String type) {
   		return dao.tab_ExhbnSearch(type);
 }
+    public ArrayList<ExhbnVO> TabSearch2(String type) {
+  		return dao.tab_ExhbnSearch2(type);
+}
 }
