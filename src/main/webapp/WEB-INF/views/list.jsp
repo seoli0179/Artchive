@@ -245,33 +245,33 @@
 <div id="searchAreaBox">
 	<div id="searchArea">
 		<div id="allArea" class="AREA tabTag">
-			<ul class="tabs">
-				<li class="tab-link current" data-tab="searchResultl"><a href="#AllExhbn"><i class="fa-solid fa-border-all"></i>전체</a></li>
+			<ul>
+				<li><a href="#AllExhbn"><i class="fa-solid fa-border-all"></i>전체</a></li>
 			</ul>
 		</div>
 		<div id="Museum" class="AREA tabTag">
-			<ul class="tabs">
-				<li class="tab-link" data-tab="searchResultl_Museum"><a href="#Museum"><i class="fa-solid fa-Museum"></i>박물관</a></li>
+			<ul>
+				<li><a href="#Museum"><i class="fa-solid fa-Museum"></i>박물관</a></li>
 			</ul>
 		</div>
 		<div id="Art_Exhbn" class="AREA tabTag">
-			<ul class="tabs">
-				<li class="tab-link" data-tab="searchResultl_Art_Exhbn"><a href="#Art_Exhbn"><i class="fa-solid fa-Art_Exhbn"></i>미술전시</a></li>
+			<ul>
+				<li><a href="#Art_Exhbn"><i class="fa-solid fa-Art_Exhbn"></i>미술전시</a></li>
 			</ul>
 		</div>
 		<div id="Festival" class="AREA tabTag">
-			<ul class="tabs">
-				<li class="tab-link" data-tab="searchResultl_Festival"><a href="#Festival"><i class="fa-solid fa-Festival"></i>축제</a></li>
+			<ul>
+				<li><a href="#Festival"><i class="fa-solid fa-Festival"></i>축제</a></li>
 			</ul>
 		</div>
 		<div id="Edu_Ex" class="AREA tabTag">
-			<ul class="tabs">
-				<li class="tab-link" data-tab="searchResultl_Edu_Ex"><a href="#Edu_Ex"><i class="fa-solid fa-apple-Edu_Ex"></i>교육·체험</a></li>
+			<ul>
+				<li><a href="#Edu_Ex"><i class="fa-solid fa-apple-Edu_Ex"></i>교육·체험</a></li>
 			</ul>
 		</div>
 		<div id="Etc_Ex" class="AREA tabTag">
-			<ul class="tabs">
-				<li class="tab-link" data-tab="searchResultl_Etc_Ex"><a href="#Etc_Ex"><i class="fa-solid fa-list-Etc_Ex"></i>기타</a></li>
+			<ul>
+				<li><a href="#Etc_Ex"><i class="fa-solid fa-list-Etc_Ex"></i>기타</a></li>
 			</ul>
 		</div>
 	</div><!-- searchArea -->
@@ -285,7 +285,7 @@
 </div>
 
 <!-- 전시 리스트 -->
-<div id="searchResultl" class="tab-content current">
+<div id="searchResultl">
 <div class="list-con">
 	<ul class="row">
 		<c:forEach var="exhbn" items="${exhbnList}" varStatus="status">
@@ -303,103 +303,6 @@
 	</ul>
 </div>
 </div>
-<!-- 전시 리스트 -->
-<div id="result2">
-<div class="list-con">
-	<ul class="row">
-		<c:forEach var="exhbn" items="${exhbnList}" varStatus="status">
-			<li class="cell">
-				<div class="img-box">
-					<a href="/exhbn/detail/${exhbn.exhbnId}"><img src="${exhbn.exhbnImgUrl}" alt=""></a>
-				</div>
-				<section id="ex-all">
-					<div class="ex-place">${exhbn.exhbnPlace}</div>
-					<div class="ex-title">${exhbn.exhbnTitle}</div>
-					
-					<div class="ex-period"><fmt:formatDate value = "${exhbn.exhbnStartDate}" type ="date" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value = "${exhbn.exhbnEndDate}" type ="date" pattern="yyyy.MM.dd"/></div>
-				</section>
-			</li>
-		</c:forEach>
-	</ul>
-</div>
-</div>
-<!-- 전시 리스트 -->
-<div id="searchResultl_Art_Exhbn" class="tab-content">
-<div class="list-con">
-	<ul class="row">
-		<c:forEach var="exhbn" items="${exhbnList}" varStatus="status">
-			<li class="cell">
-				<div class="img-box">
-					<a href="/exhbn/detail/${exhbn.exhbnId}"><img src="${exhbn.exhbnImgUrl}" alt=""></a>
-				</div>
-				<section id="ex-all">
-					<div class="ex-place">${exhbn.exhbnPlace}</div>
-					<div class="ex-title">${exhbn.exhbnTitle}</div>
-					<div class="ex-period"><fmt:formatDate value = "${exhbn.exhbnStartDate}" type ="date" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value = "${exhbn.exhbnEndDate}" type ="date" pattern="yyyy.MM.dd"/></div>
-				</section>
-			</li>
-		</c:forEach>
-	</ul>
-</div>
-</div>
-<!-- 전시 리스트 -->
-<div id="searchResultl_Festival" class="tab-content">
-<div class="list-con">
-	<ul class="row">
-		<c:forEach var="exhbn" items="${exhbnList}" varStatus="status">
-			<li class="cell">
-				<div class="img-box">
-					<a href="/exhbn/detail/${exhbn.exhbnId}"><img src="${exhbn.exhbnImgUrl}" alt=""></a>
-				</div>
-				<section id="ex-all">
-					<div class="ex-place">${exhbn.exhbnPlace}</div>
-					<div class="ex-title">${exhbn.exhbnTitle}</div>
-					<div class="ex-period"><fmt:formatDate value = "${exhbn.exhbnStartDate}" type ="date" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value = "${exhbn.exhbnEndDate}" type ="date" pattern="yyyy.MM.dd"/></div>
-				</section>
-			</li>
-		</c:forEach>
-	</ul>
-</div>
-</div>
-<!-- 전시 리스트 -->
-<div id="searchResultl_Edu_Ex" class="tab-content">
-<div class="list-con">
-	<ul class="row">
-		<c:forEach var="exhbn" items="${exhbnList}" varStatus="status">
-			<li class="cell">
-				<div class="img-box">
-					<a href="/exhbn/detail/${exhbn.exhbnId}"><img src="${exhbn.exhbnImgUrl}" alt=""></a>
-				</div>
-				<section id="ex-all">
-					<div class="ex-place">${exhbn.exhbnPlace}</div>
-					<div class="ex-title">${exhbn.exhbnTitle}</div>
-					<div class="ex-period"><fmt:formatDate value = "${exhbn.exhbnStartDate}" type ="date" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value = "${exhbn.exhbnEndDate}" type ="date" pattern="yyyy.MM.dd"/></div>
-				</section>
-			</li>
-		</c:forEach>
-	</ul>
-</div>
-</div>
-<!-- 전시 리스트 -->
-<div id="searchResultl_Etc_Ex" class="tab-content">
-<div class="list-con">
-	<ul class="row">
-		<c:forEach var="exhbn" items="${exhbnList}" varStatus="status">
-			<li class="cell">
-				<div class="img-box">
-					<a href="/exhbn/detail/${exhbn.exhbnId}"><img src="${exhbn.exhbnImgUrl}" alt=""></a>
-				</div>
-				<section id="ex-all">
-					<div class="ex-place">${exhbn.exhbnPlace}</div>
-					<div class="ex-title">${exhbn.exhbnTitle}</div>
-					<div class="ex-period"><fmt:formatDate value = "${exhbn.exhbnStartDate}" type ="date" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value = "${exhbn.exhbnEndDate}" type ="date" pattern="yyyy.MM.dd"/></div>
-				</section>
-			</li>
-		</c:forEach>
-	</ul>
-</div>
-</div>
-
 <!-- .list-wrap -->
 
 <!-- footer -->

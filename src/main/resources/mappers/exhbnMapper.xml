@@ -83,23 +83,6 @@
     </update>
  	<!-- Search -->
 	<select id="ExhbnSearch" parameterType="string" resultType="com.spring_boot_final.project.model.ExhbnVO">
-	select 
-	exhbnID,
-	exhbnTitle,
-	exhbnPlace,
-	exhbnArea,
-	exhbnImgUrl,
-	exhbnStartDate,
-	exhbnEndDate,
-	exhbnUrl,
-	exhbnPrice,
-<!-- 	exhbnType
- -->	From exhbn
-	where
-	exhbnTitle like CONCAT('%',#{title},'%')
-	</select>
-	
-	<select id="tab_ExhbnSearch" parameterType="string" resultType="com.spring_boot_final.project.model.ExhbnVO">
 	select exhbnID,
 	exhbnTitle,
 	exhbnPlace,
@@ -110,8 +93,16 @@
 	exhbnUrl,
 	exhbnPrice
 	From exhbn
-	where 
-	exhbnType = "박물관";
+	where
+	exhbnTitle like CONCAT('%',#{title},'%')
+	</select>
+	
+	<select id="tab_ExhbnSearch" parameterType="String" resultType="com.spring_boot_final.project.model.ExhbnVO">
+	select
+	* from exhbn
+	where
+	exhbnType="박물관"
 	
 	</select>
+
 </mapper>

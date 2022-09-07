@@ -58,11 +58,11 @@
                 
             },
           
-            success: function (result2) {
-            $('#searchResultl_Festival').empty();
-            $('#searchResultl_Festival').append(result2);
+            success: function (tab_exhbnSearch) {
+            $('#Museum_list').empty();
+            $('#Museum_list').append(tab_exhbnSearch);
             
-            alert("good");
+			console.log(tab_exhbnSearch);
 			},
             error: function () {
             alert("bbb");

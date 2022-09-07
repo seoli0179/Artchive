@@ -49,6 +49,6 @@ public class ExhbnDataController {
 			  for(int i=0; i < tab_exhbnSearch.size(); i++) {
 			  System.out.println(tab_exhbnSearch.get(i).getExhbnId()); }
 			 
-		return "list";
+		return "museum";
 	}	
 }
