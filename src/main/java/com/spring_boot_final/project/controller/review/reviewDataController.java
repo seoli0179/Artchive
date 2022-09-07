@@ -67,12 +67,34 @@ public class reviewDataController {
 		vo.setUserId(session.getAttribute("sid").toString());
 		
 		reviewnoteService.updateReviewNote(vo);
-		System.out.println(reviewNoteTitle);
-		System.out.println(reviewNote);
-		System.out.println(reviewNoteId);
+		/*
+		 * System.out.println(reviewNoteTitle); System.out.println(reviewNote);
+		 * System.out.println(reviewNoteId);
+		 */
 
 		
 		return "SUCCESS";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/review/deleteReviewNote")
+	public String deleteReviewNote(
+			@RequestParam("reviewNoteId") int reviewNoteId,
+			HttpSession session
+			) {
+		if (session.getAttribute("sid") == null) {
+            return "FAIL";
+        }
+		
+		ReviewNoteVO vo = new ReviewNoteVO();
+		vo.setReviewNoteId(reviewNoteId);
+		vo.setUserId(session.getAttribute("sid").toString());
+		
+		reviewnoteService.deleteReviewNote(vo);
+		System.out.println(reviewNoteId);
+		
+		return "SUCCESS";
+		
 	}
 	
 }

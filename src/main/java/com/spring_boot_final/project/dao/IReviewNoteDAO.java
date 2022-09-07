@@ -16,4 +16,7 @@ public interface IReviewNoteDAO {
 	// 리뷰 게시판 수정
 	void updateReviewNote (ReviewNoteVO vo);
 	
+	// 리뷰 게시판 삭제
+	void deleteReviewNote (ReviewNoteVO vo);
+	
 }
