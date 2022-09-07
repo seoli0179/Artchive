@@ -16,6 +16,7 @@ import com.spring_boot_final.project.model.ReviewNoteVO;
 import com.spring_boot_final.project.service.CourseService;
 import com.spring_boot_final.project.service.ExhbnService;
 import com.spring_boot_final.project.service.ReviewNoteService;
+import com.spring_boot_final.project.state.ViewState;
 
 @Controller
 public class reviewViewController {
@@ -45,8 +46,8 @@ public class reviewViewController {
  // 리뷰게시판 리스트 보기
  	@RequestMapping("/review/reviewNoteList")
  	public String reviewNoteList(HttpSession session, Model model) {
+		
  		
- 	
  	ArrayList<ReviewNoteVO> reviewNoteList = reviewnoteService.reviewNoteList();
 
  	model.addAttribute("reviewNoteList", reviewNoteList);
@@ -67,6 +68,8 @@ public class reviewViewController {
  	
  		ArrayList<ReviewNoteVO> reviewNoteList = reviewnoteService.reviewNoteList();
  		ReviewNoteVO vo = reviewnoteService.selectReviewNote(reviewNoteId);
+ 		
+ 		 if (vo.getReviewPageViewState() != ViewState.POST) { return "error"; }
  		
  		String[] siteName = vo.getCourseSitesArr().split(";;");
  		

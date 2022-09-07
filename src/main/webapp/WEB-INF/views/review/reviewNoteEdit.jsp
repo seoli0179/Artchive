@@ -13,6 +13,7 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/review/reviewNoteEdit.css'/>">
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		<script src="<c:url value='/js/review/reviewUpdate.js'/>"></script>
+		<script src="<c:url value='/js/review/reviewDelete.js'/>"></script>
 		<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 	    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 	    <script src="https://kit.fontawesome.com/8ab5776cfb.js" crossorigin="anonymous"></script>
@@ -115,7 +116,7 @@
 		            <input type="button" id="reviewUpdate" value="수정">
 		        </div>
 		        <div class="btn-area">
-		            <input type="button" id="delete" value="삭제">
+		            <input type="button" id="reviewDelete" value="삭제">
 		        </div>
 		    </div>
 		</div>

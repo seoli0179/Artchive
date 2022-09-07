@@ -37,6 +37,12 @@ public class ReviewNoteService implements IReviewNoteService{
 		
 	}
 
+	@Override
+	public void deleteReviewNote(ReviewNoteVO vo) {
+		dao.deleteReviewNote(vo);
+		
+	}
+
 
 
 }
