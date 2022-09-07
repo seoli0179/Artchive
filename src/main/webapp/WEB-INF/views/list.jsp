@@ -304,12 +304,12 @@
 </div>
 </div>
 <!-- 전시 리스트 -->
-<div id="tab_exhbnSearch" class="tab-content">
+<div id="result2">
 <div class="list-con">
 	<ul class="row">
 		<c:forEach var="exhbn" items="${exhbnList}" varStatus="status">
 			<li class="cell">
-				<div class="img-box">exhbnList
+				<div class="img-box">
 					<a href="/exhbn/detail/${exhbn.exhbnId}"><img src="${exhbn.exhbnImgUrl}" alt=""></a>
 				</div>
 				<section id="ex-all">
@@ -329,7 +329,6 @@
 	<ul class="row">
 		<c:forEach var="exhbn" items="${exhbnList}" varStatus="status">
 			<li class="cell">
-			<div><h3>테스트</h3></div>
 				<div class="img-box">
 					<a href="/exhbn/detail/${exhbn.exhbnId}"><img src="${exhbn.exhbnImgUrl}" alt=""></a>
 				</div>
@@ -349,7 +348,6 @@
 	<ul class="row">
 		<c:forEach var="exhbn" items="${exhbnList}" varStatus="status">
 			<li class="cell">
-			<div><h3>테스트</h3></div>
 				<div class="img-box">
 					<a href="/exhbn/detail/${exhbn.exhbnId}"><img src="${exhbn.exhbnImgUrl}" alt=""></a>
 				</div>
@@ -369,7 +367,6 @@
 	<ul class="row">
 		<c:forEach var="exhbn" items="${exhbnList}" varStatus="status">
 			<li class="cell">
-			<div><h3>테스트</h3></div>
 				<div class="img-box">
 					<a href="/exhbn/detail/${exhbn.exhbnId}"><img src="${exhbn.exhbnImgUrl}" alt=""></a>
 				</div>
@@ -389,7 +386,6 @@
 	<ul class="row">
 		<c:forEach var="exhbn" items="${exhbnList}" varStatus="status">
 			<li class="cell">
-			<div><h3>테스트</h3></div>
 				<div class="img-box">
 					<a href="/exhbn/detail/${exhbn.exhbnId}"><img src="${exhbn.exhbnImgUrl}" alt=""></a>
 				</div>

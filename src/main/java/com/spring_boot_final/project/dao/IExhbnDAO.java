@@ -30,7 +30,7 @@ public interface IExhbnDAO {
 	
 
 	 //tab Search
-	public ArrayList<ExhbnVO> tab_ExhbnSearch(String title); // 상품 검색
+	public ArrayList<ExhbnVO> tab_ExhbnSearch(String type); // 상품 검색
 
 	 
 }

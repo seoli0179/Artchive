@@ -47,22 +47,22 @@
  	$('#Museum').on('click', function(){
  	alert("aaa");
  		//alert($('#inner-searchbar').val());
- 		var Type = $('#Museum').on('click').val();
+ 		var type = $('#Museum').on('click').val();
  		// 기본 기능 중단
  		//event.preventDefault();
  		$.ajax({
             type: "post",
             url: "/exhbn/tab_exhbnSearch",
             data: {
-                "exhbnType": Type
+                "exhbnType": type
                 
             },
           
-            success: function (result) {
+            success: function (result2) {
             $('#searchResultl_Festival').empty();
-            $('#searchResultl_Festival').append(tab_exhbnSearch);
+            $('#searchResultl_Festival').append(result2);
             
-			console.log(result);
+            alert("good");
 			},
             error: function () {
             alert("bbb");

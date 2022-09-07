@@ -1,18 +1,22 @@
 package com.spring_boot_final.project.controller.exhbn;
 
-import com.spring_boot_final.project.service.ExhbnService;
-import com.spring_boot_final.project.model.ExhbnVO;
-import lombok.extern.slf4j.Slf4j;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.xml.parsers.ParserConfigurationException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.xml.sax.SAXException;
 
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.IOException;
-import java.util.ArrayList;
+import com.spring_boot_final.project.model.ExhbnVO;
+import com.spring_boot_final.project.service.ExhbnService;
+
+import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
@@ -33,17 +37,18 @@ public class ExhbnDataController {
         return allData;
     }
     // tab search
-    @RequestMapping("/exhbn/tab_searchResult222")
+    @RequestMapping("/exhbn/tab_exhbnSearch")
+    
 	public String ExhbitonSearch(
-			@RequestParam("exhbnTitle") String title, Model model){
-    	ArrayList<ExhbnVO> tab_exhbnSearch = service.TabSearch(title);
-		model.addAttribute("exhbnList", tab_exhbnSearch);
+			@RequestParam("exhbnType") String type, Model model){
+    	ArrayList<ExhbnVO> tab_exhbnSearch = service.TabSearch(type);
+		model.addAttribute("exhbnType", tab_exhbnSearch);
 		
-		 System.out.println(title);
+		 System.out.println(type);
 			
 			  for(int i=0; i < tab_exhbnSearch.size(); i++) {
 			  System.out.println(tab_exhbnSearch.get(i).getExhbnId()); }
 			 
-		return "exhbnList";
+		return "list";
 	}	
 }
