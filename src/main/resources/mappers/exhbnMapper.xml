@@ -109,9 +109,7 @@
 	exhbnUrl,
 	exhbnPrice
 	From exhbn
-	WHERE exhbnType = "박물관" and
-	exhbnType = "미술전시"
-	
+	WHERE exhbnType = "박물관"	
 	</select>
 
 </mapper>

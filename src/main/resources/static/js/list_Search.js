@@ -53,6 +53,7 @@
  		$.ajax({
             type: "post",
             url: "/exhbn/tab_exhbnSearch",
+            dataType : "html",
             data: {
                 "exhbnType": type
                 
