@@ -20,9 +20,16 @@
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 		<script src="<c:url value='/js/course/autocomplete.js'/>"></script>
-		<script src="<c:url value='/js/course/courseEdit.js'/>"></script>
+<%--		<script src="<c:url value='/js/course/courseEdit.js'/>"></script>--%>
+		<script type="text/javascript" src="<c:url value='/js/course/timelineEdit.js'/>"></script>
 		<script src="<c:url value='/js/course/courseDelete.js'/>"></script>
 		<script src="<c:url value='/js/course/popup.js'/>"></script>
+		<!-- mapSearch 관련 -->
+		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f62ace4deff6b141114cc8499d76cb47&libraries=services,clusterer,drawing"></script>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/map.css'/>">
+		<script type="text/javascript" src="<c:url value='/js/course/mapEdit.js'/>"></script>
+
+
 	</head>
 	<body id="courseDetailEdit">
 		<!-- top으로 이동 -->
@@ -136,9 +143,21 @@
 							</div>
 						</div>
 					</section>
-					<section id="courseMap">
-						map
-					</section><!-- courseMap -->
+					<section id="courseMap" class="map_wrap">
+						<div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+
+						<div id="menu_wrap" class="bg_white">
+							<div class="option">
+								<div>
+									<input type="text" id="keyword" size="15">
+									<button id="keyword_search">검색</button>
+								</div>
+							</div>
+							<hr>
+							<ul id="placesList"></ul>
+							<div id="pagination"></div>
+						</div>
+					</section><!-- course map -->
 				</section><!-- Course -->
 			</article><!-- courseMain -->
 

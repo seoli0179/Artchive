@@ -1,9 +1,14 @@
 package com.spring_boot_final.project.controller.course;
 
 import com.spring_boot_final.project.model.CourseCommentVO;
+import com.spring_boot_final.project.model.CourseListItemVO;
 import com.spring_boot_final.project.model.CourseVO;
 import com.spring_boot_final.project.model.ExhbnVO;
 import com.spring_boot_final.project.service.CourseService;
+import org.apache.tomcat.util.json.JSONParser;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,14 +19,26 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.io.IOException;
+import java.util.*;
 
 @Controller
 public class CourseDataController {
 
     @Autowired
     CourseService courseService;
+
+    // 공통 사용 변수 : courseListItemVO
+    StringBuilder placeNames = new StringBuilder();
+    StringBuilder categoryNames = new StringBuilder();
+    StringBuilder phones = new StringBuilder();
+    StringBuilder addressNames = new StringBuilder();
+    StringBuilder roadAddressNames = new StringBuilder();
+    StringBuilder postionX = new StringBuilder();
+    StringBuilder positionY = new StringBuilder();
+    StringBuilder placeUrls = new StringBuilder();
+    StringBuilder placeMemos = new StringBuilder();
+
 
     @ResponseBody
     @RequestMapping("/course/insertCourse")
@@ -32,15 +49,52 @@ public class CourseDataController {
 
         vo.setUserId(session.getAttribute("sid").toString());
         courseService.insertCourse(vo);
-        System.out.println(vo.getExhbnId());
-        System.out.println(vo.getUserId());
-        System.out.println(vo.getCourseState());
+        return "SUCCESS";
+    }
+
+    // course 작성
+    @ResponseBody
+    @RequestMapping("/course/createCourse")
+    public String createCourse(HttpSession session,
+                               @RequestBody String param) throws IOException {
+        // 비로그인 처리
+        if (session.getAttribute("sid") == null) {
+            return "FAIL";
+        }
+        // vo 설정
+        CourseVO vo = new CourseVO();
+        ObjectMapper mapper = new ObjectMapper();
+        vo = mapper.readValue(param, CourseVO.class);
+        // CourseListItemVO 문자열 변환
+        for (CourseListItemVO clvo : vo.getCourseListItem()) {
+            placeNames.append(clvo.getPlace_name()).append("++");
+            categoryNames.append(clvo.getCategory_name()).append("++");
+            phones.append(clvo.getCategory_name()).append("++");
+            addressNames.append(clvo.getCategory_name()).append("++");
+            roadAddressNames.append(clvo.getCategory_name()).append("++");
+            postionX.append(clvo.getCategory_name()).append("++");
+            positionY.append(clvo.getCategory_name()).append("++");
+            placeUrls.append(clvo.getCategory_name()).append("++");
+            placeMemos.append(clvo.getCategory_name()).append("++");
+        }
+        vo.setUserId(session.getAttribute("sid").toString());
+        vo.setPlaceNames(placeNames.toString());
+        vo.setCategoryNames(categoryNames.toString());
+        vo.setPhones(phones.toString());
+        vo.setAddressNames(addressNames.toString());
+        vo.setRoadAddressNames(roadAddressNames.toString());
+        vo.setPostionX(postionX.toString());
+        vo.setPositionY(positionY.toString());
+        vo.setPlaceUrls(placeUrls.toString());
+        vo.setPlaceMemos(placeMemos.toString());
+        // service
+        courseService.insertCourse(vo);
         return "SUCCESS";
     }
 
     @ResponseBody
     @RequestMapping("/course/updateCourse")
-    public String updateCourse(HttpSession session, @RequestBody CourseVO vo){
+    public String updateCourse(HttpSession session, @RequestParam CourseVO vo){
         if (session.getAttribute("sid") == null) {
             return "FAIL";
         }

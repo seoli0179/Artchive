@@ -1,9 +1,14 @@
 package com.spring_boot_final.project.model;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+import java.util.List;
 
+@Getter
+@Setter
 public class CourseVO {
     private int courseId;
     private String userId;
@@ -22,9 +27,17 @@ public class CourseVO {
     private Date createdAt;
     @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date updatedAt;
-    private String courseSitesArr;
-    private String courseAddressArr;
-    private String courseMemoArr;
+    String placeNames;
+    String categoryNames;
+    String phones;
+    String addressNames;
+    String roadAddressNames;
+    String postionX;
+    String positionY;
+    String placeUrls;
+    String placeMemos;
+
+    private List<CourseListItemVO> courseListItem;
 
     public int getCourseId() {
         return courseId;
@@ -114,22 +127,6 @@ public class CourseVO {
         this.courseState = courseState;
     }
 
-    public String getCourseSitesArr() {
-        return courseSitesArr;
-    }
-
-    public void setCourseSitesArr(String courseSitesArr) {
-        this.courseSitesArr = courseSitesArr;
-    }
-
-    public String getCourseAddressArr() {
-        return courseAddressArr;
-    }
-
-    public void setCourseAddressArr(String courseAddressArr) {
-        this.courseAddressArr = courseAddressArr;
-    }
-
     public String getExhbnTitle() {
         return exhbnTitle;
     }
@@ -162,11 +159,83 @@ public class CourseVO {
         this.updatedAt = updatedAt;
     }
 
-    public String getCourseMemoArr() {
-        return courseMemoArr;
+    public List<CourseListItemVO> getCourseListItem() {
+        return courseListItem;
     }
 
-    public void setCourseMemoArr(String courseMemoArr) {
-        this.courseMemoArr = courseMemoArr;
+    public void setCourseListItem(List<CourseListItemVO> courseListItem) {
+        this.courseListItem = courseListItem;
+    }
+
+    public String getPlaceNames() {
+        return placeNames;
+    }
+
+    public void setPlaceNames(String placeNames) {
+        this.placeNames = placeNames;
+    }
+
+    public String getCategoryNames() {
+        return categoryNames;
+    }
+
+    public void setCategoryNames(String categoryNames) {
+        this.categoryNames = categoryNames;
+    }
+
+    public String getPhones() {
+        return phones;
+    }
+
+    public void setPhones(String phones) {
+        this.phones = phones;
+    }
+
+    public String getAddressNames() {
+        return addressNames;
+    }
+
+    public void setAddressNames(String addressNames) {
+        this.addressNames = addressNames;
+    }
+
+    public String getRoadAddressNames() {
+        return roadAddressNames;
+    }
+
+    public void setRoadAddressNames(String roadAddressNames) {
+        this.roadAddressNames = roadAddressNames;
+    }
+
+    public String getPostionX() {
+        return postionX;
+    }
+
+    public void setPostionX(String postionX) {
+        this.postionX = postionX;
+    }
+
+    public String getPositionY() {
+        return positionY;
+    }
+
+    public void setPositionY(String positionY) {
+        this.positionY = positionY;
+    }
+
+    public String getPlaceUrls() {
+        return placeUrls;
+    }
+
+    public void setPlaceUrls(String placeUrls) {
+        this.placeUrls = placeUrls;
+    }
+
+    public String getPlaceMemos() {
+        return placeMemos;
+    }
+
+    public void setPlaceMemos(String placeMemos) {
+        this.placeMemos = placeMemos;
     }
 }
