@@ -100,19 +100,19 @@
 	            <div class="scrap">
 	                <div class="like">
 	                    <c:if test="${not empty sessionScope.sid}">
-	                        <c:if test="${note.noteLikeCheck}">
+	                        <%-- <c:if test="${reviewNote.reviewCommentLikeCheck}">
 	                            <i id="like" class="fa-solid fa-heart" style="color:Red;"></i>
 	                        </c:if>
-	                        <c:if test="${not note.noteLikeCheck}">
+	                        <c:if test="${not reviewNote.reviewCommentLikeCheck}">
 	                            <i id="like" class="fa-solid fa-heart" style="color:Black;"></i>
-	                        </c:if>
+	                        </c:if> --%>
 	                    </c:if>
 	                    <c:if test="${empty sessionScope.sid}">
 	                        <i class="fa-solid fa-heart" style="color:Black;"></i>
 	                    </c:if>
-	                    <span id="likeNum">${note.noteLike}</span>
+	                    <span id="likeNum">${reviewNote.reviewNoteLike}</span>
 	                </div>
-	                <div><i class="fa-solid fa-message" style="margin-right: 4px;"></i><span id="commentNumMain">${note.noteCommentNum}</span></div>
+	                <div><i class="fa-solid fa-message" style="margin-right: 4px;"></i><span id="commentNumMain">${reviewNote.reviewNoteCommentNum}</span></div>
 	            </div>
 	            <div class="summary">
 	                <div class="title">
@@ -137,28 +137,28 @@
 	                    </div>
 	                </c:if>
 	                <div class="comment-box" id="comment-box">
-	                    <div class="comment-num">${commentList.size()} comments</div>
+	                    <div class="comment-num">${reviewCommentList.size()} comments</div>
 	                    <div class="comment-list">
-	                        <c:forEach var="comment" items="${commentList}">
+	                        <c:forEach var="reviewComment" items="${reviewCommentList}">
 	                            <div class="comment">
-	                                <input type="hidden" id="commentId${comment.commentId}" value="${commentId}">
+	                                <input type="hidden" id="reviewCommentId${reviewComment.reviewCommentId}" value="${reviewCommentId}">
 	                                <div class="comment-scrap">
 	                                    <div class="like">
 	                                        <c:if test="${not empty sessionScope.sid}">
-	                                            <c:if test="${comment.commentLikeCheck}">
-	                                                <i id="commentLike${comment.commentId}" class="fa-solid fa-heart"
-	                                                   onclick="commentLikeClick(${comment.commentId})" style="color:red;"></i>
+	                                            <c:if test="${reviewComment.reviewCommentLikeCheck}">
+	                                                <i id="commentLike${reviewComment.reviewCommentId}" class="fa-solid fa-heart"
+	                                                   onclick="commentLikeClick(${reviewComment.reviewCommentId})" style="color:red;"></i>
 	                                            </c:if>
-	                                            <c:if test="${not comment.commentLikeCheck}">
-	                                                <i id="commentLike${comment.commentId}" class="fa-solid fa-heart"
-	                                                   onclick="commentLikeClick(${comment.commentId})" style="color:black;"></i>
+	                                            <c:if test="${not reviewComment.reviewCommentLikeCheck}">
+	                                                <i id="commentLike${reviewComment.reviewCommentId}" class="fa-solid fa-heart"
+	                                                   onclick="commentLikeClick(${reviewComment.reviewCommentId})" style="color:black;"></i>
 	                                            </c:if>
-	                                            <span id="commentNum${comment.commentId}">${comment.commentLike}</span>
+	                                            <span id="commentNum${reviewComment.reviewCommentId}">${reviewComment.reviewCommentLike}</span>
 	                                        </c:if>
 	                                        <c:if test="${empty sessionScope.sid}">
 	                                            <i class="fa-solid fa-heart"
 	                                               style="color:black"></i>
-	                                            <span>${comment.commentLike}</span>
+	                                            <span>${reviewComment.reviewCommentLike}</span>
 	                                        </c:if>
 	                                    </div>
 	                                </div>
@@ -166,21 +166,21 @@
 	                                
 	                                    <div class="infoBox">
 	                                    	<div class="info">
-	                                        	<div class="username">${comment.userNickname}</div>&nbsp;&nbsp;
+	                                        	<div class="username">${reviewComment.userNickname}</div>&nbsp;&nbsp;
 	                                        	<div class="createdAt"><fmt:formatDate pattern="MM-dd"
-	                                                                               value="${comment.commentCreatedDate }"/></div>
+	                                                                               value="${reviewComment.reviewCommentCreatedDate }"/></div>
 	                                        </div>
 	
 	                                        <div class="deleteComment">
-	                                            <c:if test="${sessionScope.sid == comment.userId}">
+	                                            <c:if test="${sessionScope.sid == reviewComment.userId}">
 	                                                <input type="button" class="deleteBtn black-btn"
-	                                                       onclick="deleteComment(${comment.commentId})"
+	                                                       onclick="deleteComment(${reviewComment.reviewCommentId})"
 	                                                       value="삭제">
 	                                            </c:if>
 	                                        </div>
 	                                    </div>
 	                                    <div class="comment-body" style="white-space: pre-line;"><c:out
-	                                            value="${comment.comment}" escapeXml="false"></c:out></div>
+	                                            value="${reviewComment.reviewComment}" escapeXml="false"></c:out></div>
 	                                </div>
 	                            </div>
 	                        </c:forEach>

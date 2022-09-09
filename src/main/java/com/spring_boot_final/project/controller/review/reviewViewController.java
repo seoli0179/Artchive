@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.spring_boot_final.project.model.CourseCommentVO;
 import com.spring_boot_final.project.model.CourseVO;
+import com.spring_boot_final.project.model.ReviewCommentVO;
 import com.spring_boot_final.project.model.ReviewNoteVO;
 import com.spring_boot_final.project.service.CourseService;
 import com.spring_boot_final.project.service.ExhbnService;
+import com.spring_boot_final.project.service.ReviewCommentService;
 import com.spring_boot_final.project.service.ReviewNoteService;
 import com.spring_boot_final.project.state.ViewState;
 
@@ -28,6 +30,10 @@ public class reviewViewController {
 	
     @Autowired
     CourseService courseService;
+    
+    @Autowired
+    ReviewCommentService reviewcommentService;
+    
 	
 	/*
 	 * // reviewNoteEdit 페이지 열기 요청 처리
@@ -75,9 +81,12 @@ public class reviewViewController {
  		
  		System.out.println(siteName);
  		
+ 		ArrayList<ReviewCommentVO> reviewComment = reviewcommentService.selectReviewCommentList(reviewNoteId);
+ 		
  		model.addAttribute("reviewNoteList", reviewNoteList);
  		model.addAttribute("reviewNote", vo);
  		model.addAttribute("siteName", siteName);
+ 		model.addAttribute("reviewCommentList",reviewComment);
  		
  		
 		/* System.out.println(reviewNoteId); */
