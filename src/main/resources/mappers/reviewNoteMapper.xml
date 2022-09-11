@@ -77,5 +77,18 @@
 		AND userId = #{userId}
 	</update>
 	
+	<!-- 리뷰게시판 list 댓글 숫자 -->
+	<update id="updateReviewNoteCommentUp" parameterType="int">
+		UPDATE reviewnote
+		SET reviewNoteCommentNum = reviewNoteCommentNum + 1
+		WHERE reviewNoteId = #{reviewNoteId}
+	</update>
+	
+	<update id="updateReviewNoteCommentDown" parameterType="int">
+		UPDATE reviewnote
+		SET reviewNoteCommentNum = reviewNoteCommentNum - 1
+		WHERE reviewNoteId = #{reviewNoteId}
+	</update>
+	
 	
 </mapper>

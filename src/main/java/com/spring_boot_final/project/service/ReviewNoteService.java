@@ -43,6 +43,18 @@ public class ReviewNoteService implements IReviewNoteService{
 		
 	}
 
+	@Override
+	public void updateReviewNoteCommentUp(int reviewNoteId) {
+		dao.updateReviewNoteCommentUp(reviewNoteId);
+		
+	}
+
+	@Override
+	public void updateReviewNoteCommentDown(int reviewNoteId) {
+		dao.updateReviewNoteCommentDown(reviewNoteId);
+		
+	}
+
 
 
 }
