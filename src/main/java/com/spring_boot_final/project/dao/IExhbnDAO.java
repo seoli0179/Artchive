@@ -32,6 +32,11 @@ public interface IExhbnDAO {
 	 //tab Search
 	public ArrayList<ExhbnVO> tab_ExhbnSearch(String type); 
 	public ArrayList<ExhbnVO> tab_ExhbnSearch2(String type); 
+	public ArrayList<ExhbnVO> tab_ExhbnSearch3(String type); 
+	public ArrayList<ExhbnVO> tab_ExhbnSearch4(String type); 
+	public ArrayList<ExhbnVO> tab_ExhbnSearch5(String type); 
+
+
 
 	 
 }

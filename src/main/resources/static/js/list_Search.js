@@ -45,32 +45,134 @@
  $(document).ready(function(){
 
  	$('#Museum').on('click', function(){
- 	
- 		//alert($('#inner-searchbar').val());
  		var type = $('#Museum').on('click').val();
- 		// 기본 기능 중단
- 		//event.preventDefault();
  		$.ajax({
             type: "post",
             url: "/exhbn/tab_exhbnSearch",
-            dataType : "html",
+           	dataType : "html",
             data: {
                 "exhbnType": type
                 
             },
-          
-            success: function (result_museum) {
-           // $('#searchResultl').empty();
-           alert("aaaa");
+           success: function (result_museum) {
             $('#searchResultl').html(result_museum);
             
 			console.log(result_museum);
 			},
             error: function () {
-            alert("bbb");
+            alert("오류");
             },
         });
+        
+        
  		
  	}); // submit 끝 
  });  // ready 끝
  
+  $(document).ready(function(){
+
+ 	$('#Art_Exhbn').on('click', function(){
+ 		var type = $('#Art_Exhbn').on('click').val();
+ 		$.ajax({
+            type: "post",
+            url: "/exhbn/tab_exhbnSearch2",
+           	dataType : "html",
+            data: {
+                "exhbnType": type
+                
+            },
+           success: function (result_Art_Exhbn) {
+            $('#searchResultl').html(result_Art_Exhbn);
+            
+			console.log(result_Art_Exhbn);
+			},
+            error: function () {
+            alert("오류");
+            },
+        });
+        
+        
+ 		
+ 	}); // submit 끝 
+ });  // ready 끝
+ 
+   $(document).ready(function(){
+
+ 	$('#Festival').on('click', function(){
+ 		var type = $('#Festival').on('click').val();
+ 		$.ajax({
+            type: "post",
+            url: "/exhbn/tab_exhbnSearch3",
+           	dataType : "html",
+            data: {
+                "exhbnType": type
+                
+            },
+           success: function (result_Festival) {
+            $('#searchResultl').html(result_Festival);
+            
+			console.log(result_Festival);
+			},
+            error: function () {
+            alert("오류");
+            },
+        });
+        
+        
+ 		
+ 	}); // submit 끝 
+ });  // ready 끝
+ 
+    $(document).ready(function(){
+
+ 	$('#Edu_Ex').on('click', function(){
+ 		var type = $('#Edu_Ex').on('click').val();
+ 		$.ajax({
+            type: "post",
+            url: "/exhbn/tab_exhbnSearch4",
+           	dataType : "html",
+            data: {
+                "exhbnType": type
+                
+            },
+           success: function (result_Edu_Ex) {
+            $('#searchResultl').html(result_Edu_Ex);
+            
+			console.log(result_Edu_Ex);
+			},
+            error: function () {
+            alert("오류");
+            },
+        });
+        
+        
+ 		
+ 	}); // submit 끝 
+ });  // ready 끝
+ 
+     $(document).ready(function(){
+
+ 	$('#Etc_Ex').on('click', function(){
+ 		var type = $('#Etc_Ex').on('click').val();
+ 		$.ajax({
+            type: "post",
+            url: "/exhbn/tab_exhbnSearch5",
+           	dataType : "html",
+            data: {
+                "exhbnType": type
+                
+            },
+           success: function (result_Edu_Ex) {
+            $('#searchResultl').html(result_Edu_Ex);
+            
+			console.log(result_Edu_Ex);
+			},
+            error: function () {
+            alert("오류");
+            },
+        });
+        
+        
+ 		
+ 	}); // submit 끝 
+ });  // ready 끝

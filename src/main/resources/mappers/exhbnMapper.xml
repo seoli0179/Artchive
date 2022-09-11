@@ -126,5 +126,50 @@
 	From exhbn
 	WHERE exhbnType = "미술전시" 
 	</select>
+	
+		<select id="tab_ExhbnSearch3" parameterType="String" resultType="com.spring_boot_final.project.model.ExhbnVO">
+	select
+	exhbnID,
+	exhbnTitle,
+	exhbnPlace,
+	exhbnArea,
+	exhbnImgUrl,
+	exhbnStartDate,
+	exhbnEndDate,
+	exhbnUrl,
+	exhbnPrice
+	From exhbn
+	WHERE exhbnType = "축제" 
+	</select>
 
+		<select id="tab_ExhbnSearch4" parameterType="String" resultType="com.spring_boot_final.project.model.ExhbnVO">
+	select
+	exhbnID,
+	exhbnTitle,
+	exhbnPlace,
+	exhbnArea,
+	exhbnImgUrl,
+	exhbnStartDate,
+	exhbnEndDate,
+	exhbnUrl,
+	exhbnPrice
+	From exhbn
+	WHERE exhbnType = "교육" 
+	</select>
+	
+	
+	<select id="tab_ExhbnSearch5" parameterType="String" resultType="com.spring_boot_final.project.model.ExhbnVO">
+	select
+	exhbnID,
+	exhbnTitle,
+	exhbnPlace,
+	exhbnArea,
+	exhbnImgUrl,
+	exhbnStartDate,
+	exhbnEndDate,
+	exhbnUrl,
+	exhbnPrice
+	From exhbn
+	WHERE exhbnType = "기타" 
+	</select>
 </mapper>
