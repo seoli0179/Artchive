@@ -11,6 +11,8 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/review/reviewNote.css'/>">
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
+		<script src="<c:url value='/js/review/reviewComment/reviewCommentCreate.js'/>"></script>
+		<script src="<c:url value='/js/review/reviewComment/reviewCommentDelete.js'/>"></script>
 	</head>
 	<body>
 		<!-- top으로 이동 -->
@@ -82,7 +84,7 @@
 	   	
 	   	<div class="reviewNoteBox">
 	    <section>
-	        <input type="hidden" id="noteId" value="${reviewNote.reviewNoteId}">
+	        <input type="hidden" id="reviewNoteId" value="${reviewNote.reviewNoteId}">
 	        <%-- <div class="filter_box">
 	            <div class="back">
 	                <!-- <i id="back" class="fa-solid fa-arrow-left fa-2xl"></i> -->
@@ -131,7 +133,7 @@
 	              
 	                <c:if test="${not empty sessionScope.sid}">
 	                    <div class="comment-write">
-	                        <textarea id="comment" name="story"
+	                        <textarea id="reviewComment" name="story"
 	                                  rows="5" cols="33" placeholder="Leave a Comment..."></textarea>
 	                        <input id="commentPost" class="post" type="button" value="Post">
 	                    </div>
@@ -174,7 +176,7 @@
 	                                        <div class="deleteComment">
 	                                            <c:if test="${sessionScope.sid == reviewComment.userId}">
 	                                                <input type="button" class="deleteBtn black-btn"
-	                                                       onclick="deleteComment(${reviewComment.reviewCommentId})"
+	                                                       onclick="deleteReviewComment(${reviewComment.reviewCommentId})"
 	                                                       value="삭제">
 	                                            </c:if>
 	                                        </div>
