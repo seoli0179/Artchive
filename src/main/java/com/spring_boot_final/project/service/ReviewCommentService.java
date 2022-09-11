@@ -25,4 +25,16 @@ public class ReviewCommentService implements IReviewCommentService {
 		return dao.selectReviewComment(reviewCommentId);
 	}
 
+	@Override
+	public void createReviewComment(ReviewCommentVO vo) {
+		dao.createReviewComment(vo);
+		
+	}
+
+	@Override
+	public void deleteReviewComment(ReviewCommentVO vo) {
+		dao.deleteReviewComment(vo);
+		
+	}
+
 }
