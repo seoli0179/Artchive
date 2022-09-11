@@ -26,4 +26,18 @@
         from reviewComment
         where reviewCommentId = #{reviewCommentId};
     </select>
+    
+    <!-- 리뷰게시판 댓글 쓰기 -->
+    <insert id="createReviewComment" parameterType="com.spring_boot_final.project.model.ReviewCommentVO">
+    	INSERT INTO reviewComment (reviewNoteId, userId, reviewComment)
+    	VALUES (#{reviewNoteId}, #{userId}, #{reviewComment})
+    </insert>
+    
+    <!-- 리뷰게시판 댓글 삭제 -->
+    <update id="deleteReviewComment" parameterType="com.spring_boot_final.project.model.ReviewCommentVO">
+    	UPDATE reviewComment
+    	SET reviewPageViewState = 'DELETE'
+    	WHERE reviewCommentId = #{reviewCommentId}
+    	AND userId = #{userId}
+    </update>
 </mapper>
