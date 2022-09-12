@@ -13,6 +13,8 @@
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		<script src="<c:url value='/js/review/reviewComment/reviewCommentCreate.js'/>"></script>
 		<script src="<c:url value='/js/review/reviewComment/reviewCommentDelete.js'/>"></script>
+		<script src="<c:url value='/js/review/reviewLike.js'/>"></script>
+		<script src="<c:url value='/js/review/reviewNote.js'/>"></script>
 	</head>
 	<body>
 		<!-- top으로 이동 -->
@@ -102,12 +104,12 @@
 	            <div class="scrap">
 	                <div class="like">
 	                    <c:if test="${not empty sessionScope.sid}">
-	                        <%-- <c:if test="${reviewNote.reviewCommentLikeCheck}">
+	                        <c:if test="${reviewNote.reviewNoteLikeCheck}">
 	                            <i id="like" class="fa-solid fa-heart" style="color:Red;"></i>
 	                        </c:if>
-	                        <c:if test="${not reviewNote.reviewCommentLikeCheck}">
+	                        <c:if test="${not reviewNote.reviewNoteLikeCheck}">
 	                            <i id="like" class="fa-solid fa-heart" style="color:Black;"></i>
-	                        </c:if> --%>
+	                        </c:if>
 	                    </c:if>
 	                    <c:if test="${empty sessionScope.sid}">
 	                        <i class="fa-solid fa-heart" style="color:Black;"></i>

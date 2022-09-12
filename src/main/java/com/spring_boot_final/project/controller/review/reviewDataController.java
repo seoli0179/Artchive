@@ -97,4 +97,26 @@ public class reviewDataController {
 		
 	}
 	
+	@ResponseBody
+	@RequestMapping("/review/reviewNoteLike")
+	public String reviewNoteLike(
+			@RequestParam("reviewNoteId") int reviewNoteId,
+			HttpSession session
+			) {
+			
+		if (session.getAttribute("sid") == null)
+            return "FALSE";
+		
+		ReviewNoteVO vo = new ReviewNoteVO();
+		vo.setReviewNoteId(reviewNoteId);
+		vo.setUserId(session.getAttribute("sid").toString());
+		
+		if (reviewnoteService.reviewNoteLike(vo)) {
+            return "TRUE";
+        } else {
+            return "FALSE";
+        }
+		
+	}
+	
 }

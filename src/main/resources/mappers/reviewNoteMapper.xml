@@ -90,5 +90,36 @@
 		WHERE reviewNoteId = #{reviewNoteId}
 	</update>
 	
+	<!-- 리뷰게시판 종아요 기능 -->
+	<insert id="insertReviewNoteLike" parameterType="com.spring_boot_final.project.model.ReviewNoteVO">
+		INSERT INTO reviewNoteLike (reviewNoteId,userId)
+		values (#{reviewNoteId}, #{userId});
+	</insert>
+	
+	<select id="selectReviewNoteLike" parameterType="com.spring_boot_final.project.model.ReviewNoteVO" resultType="int">
+	  SELECT count(*)
+	  FROM reviewNoteLike
+	  WHERE reviewNoteId = #{reviewNoteId}
+	  AND userId = #{userId};
+	</select>
+	
+	<update id="updateReviewNoteLikeUp" parameterType="int">
+		UPDATE reviewnote
+		SET reviewNoteLike = reviewNoteLike + 1
+		WHERE reviewNoteId = #{reviewNoteId}
+	</update>
+	
+	<update id="updateReviewNoteLikeDown" parameterType="int">
+		UPDATE reviewnote
+		SET reviewNoteLike = reviewNoteLike - 1
+		WHERE reviewNoteId = #{reviewNoteId}
+	</update>
+	
+	<delete id="deleteReviewNoteLike" parameterType="com.spring_boot_final.project.model.ReviewNoteVO">
+		DELETE 
+		FROM reviewNoteLike
+		WHERE reviewNoteId = #{reviewNoteId}
+		AND userId = #{userId};
+	</delete>
 	
 </mapper>

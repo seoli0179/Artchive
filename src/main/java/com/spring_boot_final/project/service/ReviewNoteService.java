@@ -10,50 +10,66 @@ import com.spring_boot_final.project.dao.IReviewNoteDAO;
 import com.spring_boot_final.project.model.ReviewNoteVO;
 
 @Service
-public class ReviewNoteService implements IReviewNoteService{
+public class ReviewNoteService{
+	
 	@Autowired
 	@Qualifier("IReviewNoteDAO")
 	IReviewNoteDAO dao;
 
-	@Override
 	public ArrayList<ReviewNoteVO> reviewNoteList() {
 		return dao.reviewNoteList();
 	}
 
-	@Override
 	public ReviewNoteVO selectReviewNote(int reviewNoteId) {
 		return dao.selectReviewNote(reviewNoteId);
 	}
 
-	@Override
 	public void createReviewNote(ReviewNoteVO vo) {
 		dao.createReviewNote(vo);
 		
 	}
 
-	@Override
 	public void updateReviewNote(ReviewNoteVO vo) {
 		dao.updateReviewNote(vo);
 		
 	}
 
-	@Override
 	public void deleteReviewNote(ReviewNoteVO vo) {
 		dao.deleteReviewNote(vo);
 		
 	}
 
-	@Override
 	public void updateReviewNoteCommentUp(int reviewNoteId) {
 		dao.updateReviewNoteCommentUp(reviewNoteId);
 		
 	}
 
-	@Override
 	public void updateReviewNoteCommentDown(int reviewNoteId) {
 		dao.updateReviewNoteCommentDown(reviewNoteId);
 		
 	}
+
+	public boolean reviewNoteLike(ReviewNoteVO vo) {
+		if (dao.selectReviewNoteLike(vo) > 0) {
+            dao.updateReviewNoteLikeDown(vo.getReviewNoteId());
+            dao.deleteReviewNoteLike(vo);
+            return false;
+        } else {
+            dao.updateReviewNoteLikeUp(vo.getReviewNoteId());
+            dao.insertReviewNoteLike(vo);
+            return true;
+        }
+	}
+		
+	public boolean reviewNoteLikeCheck (ReviewNoteVO vo, String userId) {
+		vo.setUserId(userId);
+		if (dao.selectReviewNoteLike(vo) > 0) {
+            return true;
+        } else {
+            return false;
+        }
+	}
+
 
 
 
