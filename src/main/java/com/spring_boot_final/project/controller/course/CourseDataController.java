@@ -28,17 +28,6 @@ public class CourseDataController {
     @Autowired
     CourseService courseService;
 
-    // 공통 사용 변수 : courseListItemVO
-    StringBuilder placeNames = new StringBuilder();
-    StringBuilder categoryNames = new StringBuilder();
-    StringBuilder phones = new StringBuilder();
-    StringBuilder addressNames = new StringBuilder();
-    StringBuilder roadAddressNames = new StringBuilder();
-    StringBuilder postionX = new StringBuilder();
-    StringBuilder positionY = new StringBuilder();
-    StringBuilder placeUrls = new StringBuilder();
-    StringBuilder placeMemos = new StringBuilder();
-
 
     @ResponseBody
     @RequestMapping("/course/insertCourse")
@@ -66,27 +55,40 @@ public class CourseDataController {
         ObjectMapper mapper = new ObjectMapper();
         vo = mapper.readValue(param, CourseVO.class);
         // CourseListItemVO 문자열 변환
+        String placeNames = "";
+        String categoryNames = "";
+        String phones = "";
+        String addressNames = "";
+        String roadAddressNames = "";
+        String postionX = "";
+        String positionY = "";
+        String placeUrls = "";
+        String placeMemos = "";
+
         for (CourseListItemVO clvo : vo.getCourseListItem()) {
-            placeNames.append(clvo.getPlace_name()).append("++");
-            categoryNames.append(clvo.getCategory_name()).append("++");
-            phones.append(clvo.getCategory_name()).append("++");
-            addressNames.append(clvo.getCategory_name()).append("++");
-            roadAddressNames.append(clvo.getCategory_name()).append("++");
-            postionX.append(clvo.getCategory_name()).append("++");
-            positionY.append(clvo.getCategory_name()).append("++");
-            placeUrls.append(clvo.getCategory_name()).append("++");
-            placeMemos.append(clvo.getCategory_name()).append("++");
+            System.out.println(clvo.getPlace_memo());
+            System.out.println(clvo.getPhone());
+            placeNames += clvo.getPlace_name() + ";;";
+            categoryNames += clvo.getCategory_group_name()+";;";
+            phones += clvo.getPhone()+";;";
+            addressNames += clvo.getAddress_name()+";;";
+            roadAddressNames += clvo.getRoad_address_name()+";;";
+            postionX += clvo.getX()+";;";
+            positionY += clvo.getY()+";;";
+            placeUrls += clvo.getPlace_url()+";;";
+            placeMemos += clvo.getPlace_memo().equals("")+";;";
+
         }
         vo.setUserId(session.getAttribute("sid").toString());
-        vo.setPlaceNames(placeNames.toString());
-        vo.setCategoryNames(categoryNames.toString());
-        vo.setPhones(phones.toString());
-        vo.setAddressNames(addressNames.toString());
-        vo.setRoadAddressNames(roadAddressNames.toString());
-        vo.setPostionX(postionX.toString());
-        vo.setPositionY(positionY.toString());
-        vo.setPlaceUrls(placeUrls.toString());
-        vo.setPlaceMemos(placeMemos.toString());
+        vo.setPlaceNames(placeNames);
+        vo.setCategoryNames(categoryNames);
+        vo.setPhones(phones);
+        vo.setAddressNames(addressNames);
+        vo.setRoadAddressNames(roadAddressNames);
+        vo.setPostionX(postionX);
+        vo.setPositionY(positionY);
+        vo.setPlaceUrls(placeUrls);
+        vo.setPlaceMemos(placeMemos);
         // service
         courseService.insertCourse(vo);
         return "SUCCESS";

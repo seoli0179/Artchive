@@ -1,55 +1,33 @@
-let count = 0;
+document.write('<script type=\"text/javascript\" src=\"mapEdit.js\"><\/script>');
+document.write('<script type=\"text/javascript\" src=\"mapView.js\"><\/script>');
 
-let sites = []; // 장소 이름 배열
+let count = 0;
 let sites_copy = [];
-let addresses = []; // 장소 주소 배열
-let memos = []; // 장소 메모 배열
 let listItems = [];
 let tags = []; // 코스 태그
 let $memoArea;
 let listItem;
 
-let courseListItem = [];
 
 $( function() {
-
-    const sortableList = document.getElementById("sortable");
-    const startPoint = document.getElementById("startPoint");
-    const endPoint = document.getElementById("endPoint");
-
-    let dragStartIndex;
-
-    let num = document.getElementById("courseId").value;
     // 페이지 구성을 위한 데이터 호출
     $.ajax({
         type: "POST",
         url: "/course/getCourse",
-        data: {"courseId": num},
+        data: {"courseId": $("#courseId").val()},
         dataType: "json",
         success: function (result) {
-            console.log(result);
-            $.each(result, function (index, item) {
-                let temp = {
-                    "place_name":item.siteName,
-                    "address_name":item.siteAddresses,
-                    "place_memo":item.siteMemos
-                }
-
-                courseListItem.push(temp);
-            });
-            console.log(courseListItem);
+            positions = result;
+            for (var i=0; i<positions.length; i++) {
+                addCourseMarker2(positions[i].y, positions[i].x, i);
+            }
+            panTo(positions[0].y, positions[0].x);
         },
         error: function () {
+            alert("새로운 코스를 작성할 준비가 되셨나요?");
             const firstExhbnTitle = $("#firstExhbnTitle").text();
             const firstExhbnAddr = $("#firstExhbnAddr").text();
-            const firstMemo = $("#firstMemo").val();
-
-            let temp = {
-                "place_name":firstExhbnTitle,
-                "address_name":firstExhbnAddr,
-                "place_memo":firstMemo
-            }
-            courseListItem.push(temp);
+            const firstMemo = "";
         }
     });
 
@@ -120,27 +98,14 @@ $( function() {
         revert: 10,
         // handle: ".moveHandler",
         start: function (event, ui) {
+            startIdx = ui.item.index();
         },
         change: function (event, ui) {
         },
         update: function (event, ui) {
-            // 기존 배열 비우기
-            courseListItem = [];
-            // html 읽어오기
-            let sitesNames = $(".siteName").text();
-            let sitesAddresses = $(".siteAddress").text();
-            let memos = $(".place-memo-input").val();
-            // for문으로 json 데이터 구성
-            for (let i=0; i<sitesNames.length; i++) {
-                let temp = {
-                    "place_name":sitesNames[i],
-                    "address_name":sitesAddresses[i],
-                    "place_memo":memos[i]
-                }
-                courseListItem.push(temp);
-            }
-            // html 태그 비우기
-            let li = document.getElementsByClassName("route-row");
+            var item = positions.splice(startIdx,1);
+            positions.splice(ui.item.index(), 0, item[0]);
+            // html 비우기
             $(".courseItem").remove();
             // 새로 작성
             createList();
@@ -208,11 +173,10 @@ function insertCourse() {
         "courseTitle": courseTitle,
         "courseTag": courseTag,
         "courseState": courseState,
-        "courseListItem": courseListItem
+        "courseListItem": positions
     };
 
     console.log(JSON.stringify(param));
-    // JSON.stringify(param)
     $.ajax({
         url:"/course/createCourse",
         contentType: 'application/json; charset=utf-8',
@@ -332,13 +296,13 @@ function remove(element, tag) {
 
 /** createList 함수 */
 function createList() {
-    for (let i = 0; i < sites.length; i++) {
+    for (let i = 0; i < positions.length; i++) {
         listItem = document.createElement('li');
         listItem.setAttribute('data-index', i);
         listItem.setAttribute("class", "route-row courseItem");
         listItem.setAttribute("id", "route" + i);
         listItem.setAttribute("draggable", "true");
-        listItem.setAttribute("value", sites[i] + ";;" + addresses[i] + ";;" + memos[i]);
+        // listItem.setAttribute("value", sites[i] + ";;" + addresses[i] + ";;" + memos[i]);
 
         listItem.innerHTML = `
                         <div class="left-side">
@@ -352,10 +316,15 @@ function createList() {
                             </div>
                             <div class="content">
                                 <div class="where">
-                                    <h3 class="siteName">${sites[i]}</h3>
-                                    <div class="siteAddress">${addresses[i]}</div>
+                                    <c:if test="${i != 0}">
+                                            <span class="siteCategory">${positions[i].category_group_name}</span>&nbsp;
+                                    </c:if>
+                                    <h3 class="siteName">
+                                        ${positions[i].place_name}
+                                    </h3>
+                                    <div class="siteAddress">${positions[i].road_address_name}</div>
                                     <div class="memo-box">
-                                        <textarea id="memo_${i}" class="place-memo-input" placeholder="메모를 입력하세요.">${memos[i]}</textarea> 
+                                        <textarea id="memo_${i}" class="place-memo-input" placeholder="메모를 입력하세요.">${positions[i].place_memo}</textarea> 
                                     </div>
                                 </div>
                             </div>
@@ -369,18 +338,21 @@ function createList() {
         listItems.push(listItem);
 
         $("#sortable").append(listItem);
-        sites_copy = [...sites];
+        sites_copy = [...positions];
     }
     $memoArea = $(".place-memo-input");
     saveMemo();
+    for (var i=0; i<positions.length; i++) {
+        addCourseMarker2(positions[i].y, positions[i].x, i);
+    }
 }
 
 function saveMemo() {
     $memoArea.each(function(i) {
         $(document).on("focusout", "#memo_"+i ,function(index){
             console.log($(this).val());
-            memos[i] = $(this).val();
-            console.log(memos);
+            positions[i].place_memo = $(this).val();
+            console.log(positions[i].place_memo);
         });
     });
 }
