@@ -122,4 +122,29 @@
 		AND userId = #{userId};
 	</delete>
 	
+	<!-- 리뷰게시판 검색 -->
+	<select id="reviewNoteSearch" parameterType="string" resultType="com.spring_boot_final.project.model.ReviewNoteVO">
+		SELECT r.reviewNoteId,
+			   r.reviewNoteTitle,
+			   r.reviewNote,
+			   r.reviewNoteLike,
+			   r.reviewNoteCommentNum,
+			   r.reviewNoteCreatedDate,
+			   r.reviewPageViewState,
+			   c.courseId,
+			   c.courseSitesArr,
+			   c.courseAddressArr,
+			   c.courseMemoArr,
+			   c.courseTitle,
+			   c.courseTag,
+			   e.exhbnId,
+			   e.exhbnImgUrl,
+			   u.userNickname,
+			   u.userId
+		FROM reviewNote r, course c, user u, exhbn e
+		WHERE reviewNoteTitle like CONCAT ('%',#{title},'%')
+		and  r.courseId = c.courseId and r.userId = u.userId and r.exhbnId = e.exhbnId and r.reviewPageViewState = 'POST'
+
+	</select>
+	
 </mapper>
