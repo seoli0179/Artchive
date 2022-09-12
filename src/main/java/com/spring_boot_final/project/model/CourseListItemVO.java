@@ -13,8 +13,8 @@ public class CourseListItemVO {
     private String y;
     private String place_url;
     private String distance;
-
     private String place_memo;
+//    private String latlng;
 
     public String getId() {
         return id;
@@ -119,4 +119,12 @@ public class CourseListItemVO {
     public void setPlace_memo(String place_memo) {
         this.place_memo = place_memo;
     }
+
+//    public String getLatlng() {
+//        return latlng;
+//    }
+//
+//    public void setLatlng(String latlng) {
+//        this.latlng = latlng;
+//    }
 }
