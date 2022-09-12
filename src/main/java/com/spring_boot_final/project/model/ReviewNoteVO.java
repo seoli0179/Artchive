@@ -27,8 +27,15 @@ public class ReviewNoteVO {
     private String userNickname;
     
     private boolean reviewNoteLikeCheck;
+    private String sort;
     
     
+	public String getSort() {
+		return sort;
+	}
+	public void setSort(String sort) {
+		this.sort = sort;
+	}
 	public boolean isReviewNoteLikeCheck() {
 		return reviewNoteLikeCheck;
 	}

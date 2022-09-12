@@ -69,6 +69,11 @@ public class ReviewNoteService{
             return false;
         }
 	}
+	
+	// 리뷰 게시판 검색
+	public ArrayList<ReviewNoteVO> reviewNoteSearch(String reviewNoteTitle){
+		return dao.reviewNoteSearch(reviewNoteTitle);
+	}
 
 
 

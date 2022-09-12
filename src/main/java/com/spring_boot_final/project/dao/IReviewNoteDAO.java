@@ -38,4 +38,7 @@ public interface IReviewNoteDAO {
 	void updateReviewNoteLikeUp (int reviewNoteId);
 	
 	void updateReviewNoteLikeDown (int reviewNoteId);
+	
+	// 리뷰게시판 검색 기능
+	ArrayList<ReviewNoteVO> reviewNoteSearch(String reviewNoteTitle);
 }

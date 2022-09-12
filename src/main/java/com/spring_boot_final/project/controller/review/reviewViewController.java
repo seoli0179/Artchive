@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring_boot_final.project.model.CourseCommentVO;
 import com.spring_boot_final.project.model.CourseVO;
@@ -49,7 +50,7 @@ public class reviewViewController {
 	 * return "review/reviewNoteWrite"; }
 	 */
  	
- // 리뷰게시판 리스트 보기
+    // 리뷰게시판 리스트 보기
  	@RequestMapping("/review/reviewNoteList")
  	public String reviewNoteList(HttpSession session, Model model) {
 		
@@ -123,7 +124,7 @@ public class reviewViewController {
 		return "review/reviewNoteWrite";
 		}
   	
- // 리뷰게시판 수정페이지 보기
+  	// 리뷰게시판 수정페이지 보기
   	@RequestMapping("/review/reviewNoteEdit/{reviewNoteId}")
   	public String reviewNoteEdit(@PathVariable("reviewNoteId") int reviewNoteId,HttpSession session, Model model) {
   	
@@ -150,4 +151,21 @@ public class reviewViewController {
   		return "review/reviewNoteEdit";
   		}
  	
+  		// 리뷰게시판 검색
+	  	@RequestMapping("/review/reviewNoteSearch")
+	  	public String reviewNoteSearch(@RequestParam("reviewNoteTitle") String reviewNoteTitle, Model model) {
+	 		
+	  		
+	  	ArrayList<ReviewNoteVO> reviewNoteSearch = reviewnoteService.reviewNoteSearch(reviewNoteTitle);
+	
+	  	model.addAttribute("reviewNoteList", reviewNoteSearch);
+	  	
+	  	
+	  	 for(int i=0; i<reviewNoteSearch.size();i++) {
+	  	 System.out.println(reviewNoteSearch.get(i).getReviewNoteId()); }
+	  	 
+	  	 
+	  	
+	  	return "review/reviewSearch";
+	  	}
 }
