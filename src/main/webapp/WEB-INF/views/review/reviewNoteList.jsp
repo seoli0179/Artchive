@@ -19,7 +19,7 @@
         <script src="<c:url value='/js/course/autocomplete.js'/>"></script>
         
         <!-- reviewList -->
-        <%-- <script src="<c:url value='/js/review/reviewList.js'/>"></script> --%>
+        <script src="<c:url value='/js/review/reviewList.js'/>"></script>
 
         <link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
         <link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>"/>
@@ -48,7 +48,7 @@
 	
 	                                </div>
 	                            </div>
-	                            <input class="black-btn courseBoard-searchBtn" type="button" value="검색">
+	                            <input class="black-btn courseBoard-searchBtn" id="reviewNoteSearch" type="button" value="검색">
 	                        </div>
 	                        <div id="tag-caution" class="vibration">태그는 3개까지만 선택할 수 있습니다.</div>
 	                    </div>
@@ -90,6 +90,7 @@
                 </section>
                 <!-- .searchAreaBox -->
                 <!-- borad-gallery -->
+                <div id="searchResultl">
                 <div class="course-box board-gallery-view">
                     <c:forEach var="reviewNote" items="${reviewNoteList}">
                         <div class="post-container" style="cursor: pointer;" onclick="location.href='/review/reviewNote/${reviewNote.reviewNoteId}';">
@@ -136,6 +137,7 @@
                     </c:forEach>
                     <!-- .post-container -->
                 </div>
+                </div> <!-- searchResultl -->
             </main>
 
             <!-- bottom 이동 -->
