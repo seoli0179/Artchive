@@ -7,6 +7,7 @@ body {
 .wrapper {
     margin: 0 auto;
     width: 1080px;
+    /* height : 1000px; */
 }
 
 .title {
@@ -37,14 +38,15 @@ body {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
+    margin: auto;
 }
 
-#summernote {
+/* #summernote {
     margin: auto;
     box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
     width : 1270px;
     height : 200px;
-}
+} */
 
 .btn-area {
     display: flex;

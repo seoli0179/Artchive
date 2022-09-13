@@ -103,7 +103,7 @@
                             </div>
                             <div class="post-footer-box">
                                 <div class="post-writer-box">
-                                    by&nbsp;<span class="userName"> ${li.userNickname}</span>&nbsp;·&nbsp;<fmt:formatDate pattern="MM-dd" value="${li.createdAt }"/>
+                                    <span class="userName"> ${li.userNickname}</span>&nbsp;·&nbsp;<fmt:formatDate pattern="MM-dd" value="${li.createdAt }"/>
                                 </div>
                                 <div class="post-react-box">
                                     <div class="post-like-box">

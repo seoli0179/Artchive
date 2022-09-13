@@ -138,13 +138,13 @@
 							<div class="itemsBox"><span>성별</span></div>
 							<div class="inputBox">
 								<div class="radioStyle">
-									<input type="radio" name="userGender" value="M" class="men" <c:if test="${user.userGender eq 'M'}">checked</c:if>>
+									<input type="radio" name="userGender" value="M" class="men" <c:if test="${user.userGender eq 'M'}">checked</c:if> disabled>
 									<label for="men">남</label>
 									
 								</div> <!-- radioStyle -->
 								
 								<div class="woman">
-									<input type="radio" name="userGender" value="F" class="women" <c:if test="${user.userGender eq 'F'}">checked</c:if>>
+									<input type="radio" name="userGender" value="F" class="women"  <c:if test="${user.userGender eq 'F'}">checked</c:if> disabled>
 									<label for="women">여</label>
 								</div>
 								
