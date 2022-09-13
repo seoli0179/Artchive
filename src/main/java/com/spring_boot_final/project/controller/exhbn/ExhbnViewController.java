@@ -2,6 +2,8 @@ package com.spring_boot_final.project.controller.exhbn;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,9 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring_boot_final.project.model.ExhbnVO;
+import com.spring_boot_final.project.model.NoteVO;
+import com.spring_boot_final.project.model.PageVO;
 import com.spring_boot_final.project.service.ExhbnService;
 
 @Controller
@@ -153,11 +156,26 @@ public class ExhbnViewController {
 		return "searchResult";
 
 	}
-	//탭 메뉴 복사 하는데 변경해야 할 것 
-	//js Url 변경시키기, var 변수 변경
+
 	@RequestMapping("/exhbn/tab_exhbnSearch5")
 	public String tab_ExhbitonSearch5(@RequestParam("exhbnType") String type, Model model) {
 		ArrayList<ExhbnVO> tab_exhbnSearch = service.TabSearch5(type);
+		model.addAttribute("exhbnSearchList", tab_exhbnSearch);
+
+		System.out.println(type);
+
+		for (int i = 0; i < tab_exhbnSearch.size(); i++) {
+			System.out.println(tab_exhbnSearch.get(i).getExhbnId());
+		}
+
+		return "searchResult";
+
+	}
+	//탭 메뉴 복사 하는데 변경해야 할 것 
+	//js Url 변경시키기, var 변수 변경
+	@RequestMapping("/exhbn/tab_exhbnSearch6")
+	public String tab_ExhbitonSearch6(@RequestParam("exhbnType") String type, Model model) {
+		ArrayList<ExhbnVO> tab_exhbnSearch = service.TabSearch6(type);
 		model.addAttribute("exhbnSearchList", tab_exhbnSearch);
 
 		System.out.println(type);

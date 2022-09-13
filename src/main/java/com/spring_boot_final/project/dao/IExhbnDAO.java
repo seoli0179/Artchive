@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.spring_boot_final.project.model.ExhbnVO;
+import com.spring_boot_final.project.model.NoteVO;
 
 @Component
 public interface IExhbnDAO {
@@ -35,6 +36,8 @@ public interface IExhbnDAO {
 	public ArrayList<ExhbnVO> tab_ExhbnSearch3(String type); 
 	public ArrayList<ExhbnVO> tab_ExhbnSearch4(String type); 
 	public ArrayList<ExhbnVO> tab_ExhbnSearch5(String type); 
+	public ArrayList<ExhbnVO> tab_ExhbnSearch6(String type); 
+
 
 
 

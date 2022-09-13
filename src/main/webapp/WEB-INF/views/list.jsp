@@ -286,6 +286,8 @@
 
 <!-- 전시 리스트 -->
 <div id="searchResultl">
+        <input type="hidden" id="maxDataNum" value="${maxDataNum}">
+
 <div class="list-con">
 	<ul class="row">
 		<c:forEach var="exhbn" items="${exhbnList}" varStatus="status">
@@ -301,14 +303,36 @@
 			</li>
 		</c:forEach>
 	</ul>
+	
 </div>
+<div>
+			<ul class="pagination">
+				<c:if test="${pageMaker.prev }">
+					<li class="pagination_button">
+						<a href="${pageMaker.startPage - 1 }">Previous</a>
+					</li>
+				</c:if>
+				
+				<c:forEach var="num" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">
+					<li class="pagination_button">
+						<a href="${num }">${num }</a>
+					</li>
+				</c:forEach>
+				
+				<c:if test="${pageMaker.next }">
+					<li class="pagination_button">
+						<a href="${pageMaker.endPage + 1 }">Next</a>
+					</li>
+				</c:if>
+			</ul>
+		</div>
 </div>
 <!-- .list-wrap -->
 
 <!-- footer -->
 <c:import url="/WEB-INF/views/layout/bottom.jsp" />
 <!-- footer -->
-<script>
+<!-- <script>
 
 
 	function show() {
@@ -378,7 +402,7 @@
 	  document.getElementById('result2').innerText = text;
 	}
   </script>
-<!--     <script type="text/javascript">
+    <script type="text/javascript">
   function getRadioText3(event)  {
 	  const radioId = event.target.id;
 	  const query = 'label[for="'+ radioId + '"]'
@@ -389,7 +413,7 @@
 	}
   
 
-  </script> -->
+  </script>
   
   
       <script type="text/javascript">
@@ -422,7 +446,7 @@
 	  // 출력
 	  document.getElementById('result4').innerText
 	    = result;
-	}
+	} -->
   </script>
 </body>
 </html>

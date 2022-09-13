@@ -1,12 +1,11 @@
 package com.spring_boot_final.project.model;
 
 import com.spring_boot_final.project.state.ViewState;
-import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
-public class ExhbnVO {
+public class ExhbnVO{
     private int exhbnId;
     private String exhbnTitle;
     private String exhbnImgUrl;
