@@ -31,8 +31,8 @@
 			 $('.color').css("color" , "#000");
 			 $('.userName').css("color" , "#000");
 		}else{
-			$('.color').css("color" , "#fff");
-			$('.userName').css("color" , "#fff");
+			$('.color').css("color" , "#000");
+			$('.userName').css("color" , "#000");
 		}
 	});
 	

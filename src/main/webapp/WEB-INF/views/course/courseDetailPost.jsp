@@ -8,7 +8,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>arTchive / ${exhbn.exhbnImgUrl}에 대한 코스</title>
+		<title>Artchive / ${exhbn.exhbnImgUrl}에 대한 코스</title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
 		<!-- icon-kit -->
@@ -20,9 +20,16 @@
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 		<script src="<c:url value='/js/course/autocomplete.js'/>"></script>
-		<script src="<c:url value='/js/course/courseEdit.js'/>"></script>
+		<script type="text/javascript" src="<c:url value='/js/course/timelineEdit.js'/>"></script>
 		<script src="<c:url value='/js/course/courseDelete.js'/>"></script>
 		<script src="<c:url value='/js/course/popup.js'/>"></script>
+		<!-- mapSearch 관련 -->
+		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f62ace4deff6b141114cc8499d76cb47&libraries=services,clusterer,drawing"></script>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/map.css'/>">
+		<script type="text/javascript" src="<c:url value='/js/course/mapEdit.js'/>"></script>
+		<script type="text/javascript" src="<c:url value='/js/course/modal.js'/>"></script>
+
+
 	</head>
 	<body id="courseDetailEdit">
 		<!-- top으로 이동 -->
@@ -38,19 +45,6 @@
 						<a href="/exhbn/detail/${exhbn.exhbnId}" target="_blank" class="btn-example">
 							<i class="fa-solid fa-magnifying-glass" style="color: #ffffff"></i>
 						</a>
-						<!-- 전시 팝업 layer -->
-						<div id="layer1" class="pop-layer">
-							<div class="pop-container">
-								<div class="pop-conts">
-									<!-- contents -->
-									<div class="btn-r">
-										<a href="#" class="btn-layerClose">Close</a>
-									</div>
-									<!--// content-->
-								</div>
-							</div>
-						</div>
-						<!-- .전시 팝업 layer -->
 					</div>
 					<div id="header-postTitle" class="headerText">
 						<input id="courseTitle" name="courseTitle" class="post-title editInput h1" type="text" placeholder="제목을 입력하세요.">
@@ -98,7 +92,7 @@
 							</div>
 						</div>
 						<ul id="sortable" class="timeline-course-container">
-							<li class="route-row">
+							<li class="route-row courseItem">
 								<div class="left-side">
 									<div class="moveHandler">
 										<i class="fa-solid fa-bars moveHandlerBtn"></i>
@@ -110,14 +104,14 @@
 										</div>
 										<div class="content">
 											<div class="where">
+												<span class="siteCategory">문화시설</span>&nbsp;
 												<h3 id="firstExhbnTitle" class="siteName">${exhbn.exhbnTitle}</h3>
-												<div><span id="firstExhbnAddr" class="siteAddress">${exhbn.exhbnPlaceAddr}</span></div>
+												<div id="firstExhbnAddr" class="siteAddress">${exhbn.exhbnPlaceAddr}</div>
+												<div class="memo-box">
+													<textarea id="memo_${i}" class="place-memo-input" placeholder="메모를 입력하세요.">${positions[i].place_memo}</textarea>
+												</div>
 											</div>
 										</div>
-									</div>
-									<div class="content memo-box">
-										<textarea class="place-memo-input" placeholder="메모를 입력하세요."></textarea>
-										<input id="firstMemo" value="" hidden>
 									</div>
 								</div>
 								<div class="delete" id="deleteBtnBox">
@@ -136,47 +130,39 @@
 							</div>
 						</div>
 					</section>
-					<section id="courseMap">
-						map
-					</section><!-- courseMap -->
+					<section id="courseMap" class="map_wrap">
+						<div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+
+						<div id="menu_wrap" class="bg_white">
+							<div class="option">
+								<div>
+									<input type="text" id="keyword" size="15">
+									<button id="keyword_search">검색</button>
+								</div>
+							</div>
+							<hr>
+							<ul id="placesList"></ul>
+							<div id="pagination"></div>
+						</div>
+					</section><!-- course map -->
 				</section><!-- Course -->
 			</article><!-- courseMain -->
 
-			<section id="searchMap-container">
-				<div id="searchCourse">
-					<ul>
-						<li>Search.</li>
-					</ul>
-					<input type="text" id="courseSearch" name="searchMessage" size="120"  placeholder="검색어를 입력하세요."/>
-					<input type="button" id="CourseSearchBtn" value="검색">
+			<div id="modal" class="modal-overlay">
+				<div class="modal-window">
+					<div class="title">
+						<h2>모달</h2>
+					</div>
+					<div class="close-area">X</div>
+					<div class="content">
+						<p>가나다라마바사 아자차카타파하</p>
+						<p>가나다라마바사 아자차카타파하</p>
+						<p>가나다라마바사 아자차카타파하</p>
+						<p>가나다라마바사 아자차카타파하</p>
+
+					</div>
 				</div>
-				
-				<div id = "recommendCourse">
-				 <div class="courseAdd">
-				 	<div class="courseAddBtn">
-				 		<input type="button" class="white-btn" id="courseAddBtn1" value="장소 추가">
-				 	</div>
-				 </div>
-				 
-				  <div class="courseAdd">
-				 	<div class="courseAddBtn">
-				 		<input type="button" class="white-btn" id="courseAddBtn1" value="장소 추가">
-				 	</div>
-				 </div>
-				 
-				  <div class="courseAdd">
-				 	<div class="courseAddBtn">
-				 		<input type="button" class="white-btn" id="courseAddBtn1" value="장소 추가">
-				 	</div>
-				 </div>
-				 
-				  <div class="courseAdd">
-				 	<div class="courseAddBtn">
-				 		<input type="button" class="white-btn" id="courseAddBtn1" value="장소 추가">
-				 	</div>
-				 </div>
-				</div>
-			</section>
+			</div>
 		</main>
 
 		 <!-- bottom 이동 -->
