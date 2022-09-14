@@ -670,6 +670,34 @@
 
 
 /** .팝업 레이어 */
+#detailPlaceUrl {
+	width:100%;
+	height: 90%;
+}
+
+.detailUrl {
+	width:100%;
+	height:100%;
+}
+
+.detailUrl > * {
+	width:100%;
+}
+
+#addBtnBox {
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+}
+.ui-widget-header {
+	background: white;
+	border: 1px solid black;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+	background: yellow;
+	border: 1px solid black;
+}
 
 /** 조회수, 코멘트 등 */
 .post-react-box {
