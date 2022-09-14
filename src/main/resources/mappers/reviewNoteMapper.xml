@@ -27,7 +27,7 @@
 		   r.userId
 	FROM reviewNote r, course c, user u, exhbn e
 	WHERE c.courseId = r.courseId and r.userId = u.userId and r.exhbnId = e.exhbnId and r.reviewPageViewState = 'POST'
-	ORDER BY r.courseId
+	ORDER by r.reviewNoteCreatedDate DESC
 	
 	</select>
 	
@@ -145,6 +145,76 @@
 		WHERE reviewNoteTitle like CONCAT ('%',#{title},'%')
 		and  r.courseId = c.courseId and r.userId = u.userId and r.exhbnId = e.exhbnId and r.reviewPageViewState = 'POST'
 
+	</select>
+	
+	<!-- 리뷰 게시판 탭 메뉴 -->
+	<select id="reviewNoteNew" parameterType="int" resultType="com.spring_boot_final.project.model.ReviewNoteVO">
+		SELECT r.reviewNoteId,
+			   r.reviewNoteTitle,
+			   r.reviewNote,
+			   r.reviewNoteLike,
+			   r.reviewNoteCommentNum,
+			   r.reviewNoteCreatedDate,
+			   r.reviewPageViewState,
+			   c.courseId,
+			   c.courseSitesArr,
+			   c.courseAddressArr,
+			   c.courseMemoArr,
+			   c.courseTitle,
+			   c.courseTag,
+			   e.exhbnId,
+			   e.exhbnImgUrl,
+			   u.userNickname,
+			   u.userId
+		FROM reviewNote r, course c, user u, exhbn e
+		WHERE r.courseId = c.courseId and r.userId = u.userId and r.exhbnId = e.exhbnId and r.reviewPageViewState = 'POST'
+		ORDER by r.reviewNoteCreatedDate DESC
+	</select>
+	
+	<select id="reviewNotePopular" parameterType="int" resultType="com.spring_boot_final.project.model.ReviewNoteVO">
+		SELECT r.reviewNoteId,
+			   r.reviewNoteTitle,
+			   r.reviewNote,
+			   r.reviewNoteLike,
+			   r.reviewNoteCommentNum,
+			   r.reviewNoteCreatedDate,
+			   r.reviewPageViewState,
+			   c.courseId,
+			   c.courseSitesArr,
+			   c.courseAddressArr,
+			   c.courseMemoArr,
+			   c.courseTitle,
+			   c.courseTag,
+			   e.exhbnId,
+			   e.exhbnImgUrl,
+			   u.userNickname,
+			   u.userId
+		FROM reviewNote r, course c, user u, exhbn e
+		WHERE r.courseId = c.courseId and r.userId = u.userId and r.exhbnId = e.exhbnId and r.reviewPageViewState = 'POST'
+		ORDER by r.reviewNoteLike DESC
+	</select>
+	
+	<select id="reviewNoteComment" parameterType="int" resultType="com.spring_boot_final.project.model.ReviewNoteVO">
+		SELECT r.reviewNoteId,
+			   r.reviewNoteTitle,
+			   r.reviewNote,
+			   r.reviewNoteLike,
+			   r.reviewNoteCommentNum,
+			   r.reviewNoteCreatedDate,
+			   r.reviewPageViewState,
+			   c.courseId,
+			   c.courseSitesArr,
+			   c.courseAddressArr,
+			   c.courseMemoArr,
+			   c.courseTitle,
+			   c.courseTag,
+			   e.exhbnId,
+			   e.exhbnImgUrl,
+			   u.userNickname,
+			   u.userId
+		FROM reviewNote r, course c, user u, exhbn e
+		WHERE r.courseId = c.courseId and r.userId = u.userId and r.exhbnId = e.exhbnId and r.reviewPageViewState = 'POST'
+		ORDER by r.reviewNoteCommentNum DESC
 	</select>
 	
 </mapper>
