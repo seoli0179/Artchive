@@ -1,12 +1,10 @@
 package com.spring_boot_final.project.controller.course;
 
-import com.spring_boot_final.project.model.CourseCommentVO;
-import com.spring_boot_final.project.model.CourseRouteVO;
-import com.spring_boot_final.project.model.CourseVO;
-import com.spring_boot_final.project.model.ExhbnVO;
+import com.spring_boot_final.project.model.*;
 import com.spring_boot_final.project.service.CourseService;
 import com.spring_boot_final.project.service.ExhbnService;
 import lombok.RequiredArgsConstructor;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
@@ -16,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.lang.reflect.Array;
 import java.util.*;
@@ -62,25 +61,62 @@ public class CourseViewController {
     @RequestMapping("/course/{courseId}")
     public String selectCoursePost(@PathVariable("courseId") int courseId,
                                    HttpSession session,
-                                   Model model) throws Exception {
+                                   Model model,
+                                   HttpServletResponse response) throws Exception {
         CourseVO vo = courseService.selectCoursePost(courseId);
         ArrayList<CourseCommentVO> commentVo = courseService.selectCourseComment(courseId);
-        model.addAttribute("course", vo);
+        ArrayList<CourseListItemVO> result = new ArrayList<CourseListItemVO>();
+        // 구분자 분리
+        String[] placeName = vo.getPlaceNames().split(";;");
+        String[] placeMemo = vo.getPlaceMemos().split(";;");
+
+        for (int i=0; i<placeName.length; i++) {
+            CourseListItemVO temp = new CourseListItemVO();
+            temp.setPlace_name(placeName[i]);
+            temp.setCategory_group_name(vo.getCategoryNames().split(";;")[i]);
+            temp.setPhone(vo.getPhones().split(";;")[i]==null ? "" : vo.getPhones().split(";;")[i]);
+            temp.setAddress_name(vo.getAddressNames().split(";;")[i]);
+            temp.setRoad_address_name(vo.getRoadAddressNames().split(";;")[i]);
+            temp.setX(vo.getPostionX().split(";;")[i]);
+            temp.setY(vo.getPositionY().split(";;")[i]);
+            temp.setPlace_url(vo.getPlaceUrls().split(";;")[i]);
+            result.add(temp);
+        }
+        if (placeMemo.length!=0) {
+            for (int i = 0; i < placeMemo.length; i++) {
+                result.get(i).setPlace_memo(vo.getPlaceMemos().split(";;")[i].length() ==0 ? "" : vo.getPlaceMemos().split(";;")[i]);
+            }
+        }
+
         model.addAttribute("cComment",commentVo);
-
-        ArrayList<String[]> sites = new ArrayList<String[]>();
-        String[] siteName = vo.getCourseSitesArr().split(";;");
-        String[] siteAddress = vo.getCourseAddressArr().split(";;");
-        String[] siteMemo = vo.getCourseMemoArr().split(";;");
-
-        model.addAttribute("siteName", siteName);
-        model.addAttribute("siteAddress", siteAddress);
-        model.addAttribute("siteMemo", siteMemo);
+        model.addAttribute("course", vo);
+        model.addAttribute("courseItem", result);
 
         return "course/courseDetailView";
     }
 
-    // 새 포스트 작성
+//    @RequestMapping("/course/{courseId}")
+//    public String selectCoursePost(@PathVariable("courseId") int courseId,
+//                                   HttpSession session,
+//                                   Model model) throws Exception {
+//        CourseVO vo = courseService.selectCoursePost(courseId);
+//        ArrayList<CourseCommentVO> commentVo = courseService.selectCourseComment(courseId);
+//        model.addAttribute("course", vo);
+//        model.addAttribute("cComment",commentVo);
+//
+////        ArrayList<String[]> sites = new ArrayList<String[]>();
+////        String[] siteName = vo.getCourseSitesArr().split(";;");
+////        String[] siteAddress = vo.getCourseAddressArr().split(";;");
+////        String[] siteMemo = vo.getCourseMemoArr().split(";;");
+//
+////        model.addAttribute("siteName", siteName);
+////        model.addAttribute("siteAddress", siteAddress);
+////        model.addAttribute("siteMemo", siteMemo);
+//
+//        return "course/courseDetailView";
+//    }
+//
+//    // 새 포스트 작성
     @RequestMapping("/course/newPost/{exhbnId}")
     public String writeCoursePost(@PathVariable("exhbnId") int exhbnId,
                                   HttpSession session,
@@ -93,41 +129,52 @@ public class CourseViewController {
 
         return "course/courseDetailPost";
     }
-
-    // 포스트 보기
+//
+//    // 포스트 보기
     @ResponseBody
     @RequestMapping("/course/getCourse")
-    public ArrayList<CourseRouteVO> getCourse(int courseId,
+    public ArrayList<CourseListItemVO> getCourse(int courseId,
                                               HttpSession session,
                                               Model model) throws Exception {
         CourseVO vo = courseService.selectCoursePost(courseId);
-        String[] siteNames = vo.getCourseSitesArr().split(";;");
-        String[] siteAddresses = vo.getCourseAddressArr().split(";;");
-        String[] siteMemos = vo.getCourseMemoArr().split(";;");
-        ArrayList<CourseRouteVO> result = new ArrayList<>();
+        ArrayList<CourseListItemVO> result = new ArrayList<>();
+        // 구분자 분리
+        String[] placeName = vo.getPlaceNames().split(";;");
+        String[] placeMemo = vo.getPlaceMemos().split(";;");
 
-        for (int i = 0; i < siteNames.length; i++) {
-            CourseRouteVO temp = new CourseRouteVO();
-            temp.setSiteName(siteNames[i]);
-            temp.setSiteAddresses(siteAddresses[i]);
-            if (siteMemos.length == 0) {
-                temp.setSiteMemos("");
-            } else {
-                temp.setSiteMemos(siteMemos[i]);
-            }
+        for (int i=0; i<placeName.length; i++) {
+            CourseListItemVO temp = new CourseListItemVO();
+            temp.setPlace_name(placeName[i]);
+            temp.setCategory_group_name(vo.getCategoryNames().split(";;")[i]);
+            temp.setPhone(vo.getPhones().split(";;")[i]==null ? "" : vo.getPhones().split(";;")[i]);
+            temp.setAddress_name(vo.getAddressNames().split(";;")[i]);
+            temp.setRoad_address_name(vo.getRoadAddressNames().split(";;")[i]);
+            temp.setX(vo.getPostionX().split(";;")[i]);
+            temp.setY(vo.getPositionY().split(";;")[i]);
+            temp.setPlace_url(vo.getPlaceUrls().split(";;")[i]);
             result.add(temp);
         }
+        if (placeMemo.length!=0) {
+            for (int i = 0; i < placeMemo.length; i++) {
+                result.get(i).setPlace_memo(vo.getPlaceMemos().split(";;")[i].length() ==0 ? "" : vo.getPlaceMemos().split(";;")[i]);
+            }
+        }
+
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonString = mapper.writeValueAsString(result);
+        System.out.println(jsonString);
+
         return result;
     }
-
-    // 포스트 수정
-    @RequestMapping("/course/{courseId}/edit")
-    public String courseDetailEdit(@PathVariable("courseId") int courseId,
-                                   HttpSession session,
-                                   Model model) throws Exception {
-        CourseVO vo = courseService.selectCoursePost(courseId);
-        model.addAttribute("course", vo);
-        return "course/courseDetailEdit";
-    }
-
+//
+//    // 포스트 수정
+////    @RequestMapping("/course/{courseId}/edit")
+////    public String courseDetailEdit(@PathVariable("courseId") int courseId,
+////                                   HttpSession session,
+////                                   Model model) throws Exception {
+////        CourseVO vo = courseService.selectCoursePost(courseId);
+////        model.addAttribute("course", vo);
+////        return "course/courseDetailEdit";
+////    }
+//
 }

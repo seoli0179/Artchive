@@ -106,8 +106,8 @@
 						<div id="menu_wrap" class="bg_white">
 							<div class="option">
 								<div>
-									키워드 : <input type="text" id="keyword" size="15" autocomplete='off'>
-									<button id="keyword_search">검색하기</button>
+									<input type="text" id="keyword" size="15">
+									<button id="keyword_search">검색</button>
 								</div>
 							</div>
 							<hr>
