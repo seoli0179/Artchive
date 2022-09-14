@@ -1,6 +1,7 @@
 package com.spring_boot_final.project.controller.summary;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -10,11 +11,15 @@ import com.spring_boot_final.project.model.summary.OptionVO;
 import com.spring_boot_final.project.model.summary.TotalVO;
 import com.spring_boot_final.project.service.SummaryService;
 
+@Controller
 public class SummaryController {
 	
 	
 	@Autowired
 	SummaryService summaryService;
+	
+	
+//	테스트 
 	
 	@RequestMapping("/textSummary")
 	@ResponseBody
@@ -35,9 +40,9 @@ public class SummaryController {
 		vo.setDocument(docVo);
 		vo.setOption(optVo);
 		
-		summaryService.textSummary(vo);
+		
 		// summaryService.test();
-		return "textSummary";
+		return summaryService.textSummary(vo);
 	}
 	
 	
