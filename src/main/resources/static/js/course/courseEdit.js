@@ -9,11 +9,7 @@ let tags = []; // 코스 태그
 let $memoArea;
 let listItem;
 
-// let courseListItem = [
-//     {
-//         "place_name":
-//     }
-// ]
+let courseListItem = []
 
 $( function() {
 
@@ -105,7 +101,6 @@ $( function() {
             let liTag = `<li class="li-item tagItem" value="${tag}"> ${tag} <i class="fa-solid fa-xmark closeBtn" onclick="remove(this, '${tag}')"></i></li>`;
             input.insertAdjacentHTML("beforebegin", liTag); // tag 추가
         });
-        console.log(tags)
     }
 
     // 정렬 가능한 리스트
@@ -139,9 +134,9 @@ $( function() {
             });
 
             let li = document.getElementsByClassName("route-row");
-            $(".courseItem").remove();
+            // $(".courseItem").remove();
 
-            createList();
+            // createList();
         },
         axis: 'y'
     });

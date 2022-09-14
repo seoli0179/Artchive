@@ -1,12 +1,13 @@
 document.write('<script type=\"text/javascript\" src=\"timelineEdit.js\"><\/script>');
-// 코스를 담을 배열입니다.
-var positions = [];
+document.write('<script type=\"text/javascript\" src=\"dialog.js\"><\/script>');
 // 코스에 저장된 장소 마커를 담을 배열입니다.
 var courseMarkers = [];
 // 검색 결과 마커를 담을 배열입니다
 var markers = [];
 
 var map;
+
+var result;
 
 $(document).ready(function (){
 
@@ -16,9 +17,13 @@ $(document).ready(function (){
 	// 장소 검색 객체를 생성합니다
 	var ps = new kakao.maps.services.Places();
 	ps.keywordSearch(firstAddr, firstSearch);
+	createList();
 
 	// 검색 버튼
 	$("#keyword_search").on("click",function (){
+		searchPlaces();
+	});
+	$("#keyword_search").on("Enter",function (){
 		searchPlaces();
 	});
 
@@ -98,7 +103,7 @@ $(document).ready(function (){
 			// 정상적으로 검색이 완료됐으면
 			let temp = {
 				place_name: firstExhbn,
-				category_group_name : data[0].category_group_name,
+				category_group_name : "문화시설",
 				phone :data[0].phone,
 				address_name :data[0].address_name,
 				road_address_name : firstAddr,
@@ -159,6 +164,8 @@ $(document).ready(function (){
 // 검색 결과 목록과 마커를 표출하는 함수입니다
 	function displayPlaces(places) {
 
+		result = places;
+
 		var listEl = document.getElementById('placesList'),
 			menuEl = document.getElementById('menu_wrap'),
 			fragment = document.createDocumentFragment(),
@@ -180,11 +187,11 @@ $(document).ready(function (){
 
 			(function(places, i) {
 				kakao.maps.event.addListener(marker, 'click', function() {
-					addCourseItem(places, i);
+					courseAddDialog(places,i);
 				});
 
 				itemEl.onclick = function () {
-					addCourseItem(places, i);
+					courseAddDialog(places,i);
 				};
 
 			})(places, i);
@@ -326,32 +333,6 @@ $(document).ready(function (){
 		}
 	}
 
-	function addCourseItem(data, idx) {
-		console.log(JSON.stringify(data[idx]));
-		if(confirm("코스에 추가하시겠습니까?")) {
-			var temp = {
-				place_name: data[idx].place_name,
-				category_group_name : data[idx].category_group_name,
-				phone :data[idx].phone,
-				address_name :data[idx].address_name,
-				road_address_name :data[idx].road_address_name,
-				x : data[idx].x,
-				y : data[idx].y,
-				place_url : data[idx].place_url,
-				place_memo : "",
-			}
-
-			positions.push(temp);
-
-			let li = document.getElementsByClassName("route-row");
-			$(".courseItem").remove();
-
-			createList();
-			let newMarker = new kakao.maps.LatLng(positions[positions.length-1].y, positions[positions.length-1].x)
-			addCourseMarker(newMarker, positions.length-1);
-		}
-	}
-
 	function panTo(y,x) {
 		// 이동할 위도 경도 위치를 생성합니다
 		var moveLatLon = new kakao.maps.LatLng(y, x);
@@ -360,7 +341,6 @@ $(document).ready(function (){
 		// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
 		map.panTo(moveLatLon);
 	}
-
 }); // document ready
 
 // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
@@ -406,4 +386,30 @@ function addCourseMarker2(y,x, idx, title) {
 	courseMarkers.push(marker);  // 배열에 생성된 마커를 추가합니다
 
 	return marker;
+}
+
+function addCourseItem(data, idx) {
+	console.log(JSON.stringify(data[idx]));
+	if(confirm("코스에 추가하시겠습니까?")) {
+		var temp = {
+			place_name: data[idx].place_name,
+			category_group_name : data[idx].category_group_name,
+			phone :data[idx].phone,
+			address_name :data[idx].address_name,
+			road_address_name :data[idx].road_address_name,
+			x : data[idx].x,
+			y : data[idx].y,
+			place_url : data[idx].place_url,
+			place_memo : "",
+		}
+
+		positions.push(temp);
+
+		// let li = document.getElementsByClassName("route-row");
+		$(".courseItem").remove();
+
+		createList();
+		let newMarker = new kakao.maps.LatLng(positions[positions.length-1].y, positions[positions.length-1].x)
+		addCourseMarker(newMarker, positions.length-1);
+	}
 }

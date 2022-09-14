@@ -34,8 +34,7 @@ public class CourseService {
        dao.deleteCourse(map);
     }
 
-    public void insertCourse(CourseVO vo) {
-       dao.insertCourse(vo);}
+    public void insertCourse(CourseVO vo) {dao.insertCourse(vo);}
     
     // 마이 페이지 작성한 코스 게시물 조회    
 	public ArrayList<CourseVO> mpCoursePostSelect(String userId) {
