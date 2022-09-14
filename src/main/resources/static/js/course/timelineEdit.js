@@ -1,3 +1,4 @@
+
 document.write('<script type=\"text/javascript\" src=\"mapEdit.js\"> <\/script>');
 document.write('<script type=\"text/javascript\" src=\"mapView2.js\"> <\/script>');
 
@@ -264,23 +265,18 @@ function updateCourse() {
 
 }
 
-// 코스 item 삭제 함수
+// 코스 item 삭제 함수\
 function deleteCourse(element, index) {
     if(confirm("항목을 삭제하시겠습니까?")){
-        if (sites.length>1) {
+        if (positions.length>1) {
             $("#route"+index).remove(); // jsp 태그 삭제
-            // sites에서 값이 동일한 요소 삭제
-            for (let i = 0; i < sites.length; i++) {
-                if (sites[i] === sites_copy[index]) {
-                    sites.splice(i, 1);
-                    addresses.splice(i, 1);
-                    memos.splice((i, 1));
-                }
-            }
+            positions.splice(index,1);
         } else {
             alert("모든 항목을 삭제하실 수 없습니다.")
         }
-        console.log(sites)
+        $(".courseItem").remove();
+        removeCourseMarker();
+        createList();
     }
 }
 
