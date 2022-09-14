@@ -15,7 +15,7 @@
         <script src="https://kit.fontawesome.com/8ab5776cfb.js" crossorigin="anonymous"></script><!-- 아이콘 -->
 
         <!-- custom -->
-        <script src="<c:url value='/js/course/course.js'/>"></script>
+        <%-- <script src="<c:url value='/js/course/course.js'/>"></script> --%>
         <script src="<c:url value='/js/course/autocomplete.js'/>"></script>
         
         <!-- reviewList -->
@@ -63,7 +63,7 @@
                         </div>
                         <div id="mostView" class="AREA">
                             <ul>
-                                <li><a href="#">조회순</a></li>
+                                <li><a href="#">댓글순</a></li>
                             </ul>
                         </div>
                         <div id="likeView" class="AREA">
@@ -93,6 +93,7 @@
                 <div id="searchResultl">
                 <div class="course-box board-gallery-view">
                     <c:forEach var="reviewNote" items="${reviewNoteList}">
+                    <input type="hidden" id="reviewNoteId" value="${reviewNote.reviewNoteId}">
                         <div class="post-container" style="cursor: pointer;" onclick="location.href='/review/reviewNote/${reviewNote.reviewNoteId}';">
                             <div class="post-img-box" style="background-image: url('${reviewNote.exhbnImgUrl}');">
 
