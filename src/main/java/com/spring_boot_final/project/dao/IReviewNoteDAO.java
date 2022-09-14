@@ -41,4 +41,9 @@ public interface IReviewNoteDAO {
 	
 	// 리뷰게시판 검색 기능
 	ArrayList<ReviewNoteVO> reviewNoteSearch(String reviewNoteTitle);
+	
+	// 리뷰게시판 탭 메뉴
+	public ArrayList<ReviewNoteVO> reviewNoteNew();
+	public ArrayList<ReviewNoteVO> reviewNotePopular();
+	public ArrayList<ReviewNoteVO> reviewNoteComment();
 }

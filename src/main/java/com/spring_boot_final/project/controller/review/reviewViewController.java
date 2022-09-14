@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring_boot_final.project.model.CourseCommentVO;
 import com.spring_boot_final.project.model.CourseVO;
@@ -165,6 +166,59 @@ public class reviewViewController {
 	  	 System.out.println(reviewNoteSearch.get(i).getReviewNoteId()); }
 	  	 
 	  	 
+	  	
+	  	return "review/reviewSearch";
+	  	}
+	  	
+	  	// 리뷰게시판 탭 메뉴 정렬
+	  	
+	  	@RequestMapping("/review/reviewNoteNew")
+	 	public String reviewNoteNew(HttpSession session, Model model) {
+			
+	 		
+	 	ArrayList<ReviewNoteVO> reviewNoteNew = reviewnoteService.reviewNoteNew();
+
+	 	model.addAttribute("reviewNoteList", reviewNoteNew);
+	 	// System.out.println(reviewNoteNew.size());
+	  	 
+		/*
+		 * for(int i=0; i<reviewNoteNew.size();i++) {
+		 * System.out.println(reviewNoteNew.get(i).getReviewNoteId()); }
+		 */
+
+	  	
+	  	return "review/reviewSearch";
+	  	}
+	  	
+	  	@RequestMapping("/review/reviewNotePopular")
+	 	public String reviewNotePopular(HttpSession session, Model model) {
+			
+	 		
+	 	ArrayList<ReviewNoteVO> reviewNotePopular = reviewnoteService.reviewNotePopular();
+
+	 	model.addAttribute("reviewNoteList", reviewNotePopular);
+	 	// System.out.println(reviewNotePopular.size());
+	  	 
+		/*
+		 * for(int i=0; i<reviewNotePopular.size();i++) {
+		 * System.out.println(reviewNotePopular.get(i).getReviewNoteId()); }
+		 */
+	  	
+	  	return "review/reviewSearch";
+	  	}
+	  	
+	  	@RequestMapping("/review/reviewNoteComment")
+	 	public String reviewNoteComment(HttpSession session, Model model) {
+			
+	 		
+	 	ArrayList<ReviewNoteVO> reviewNoteComment = reviewnoteService.reviewNoteComment();
+
+	 	model.addAttribute("reviewNoteList", reviewNoteComment);
+	  	 
+		/*
+		 * for(int i=0; i<reviewNoteComment.size();i++) {
+		 * System.out.println(reviewNoteComment.get(i).getReviewNoteId()); }
+		 */
 	  	
 	  	return "review/reviewSearch";
 	  	}

@@ -74,6 +74,19 @@ public class ReviewNoteService{
 	public ArrayList<ReviewNoteVO> reviewNoteSearch(String reviewNoteTitle){
 		return dao.reviewNoteSearch(reviewNoteTitle);
 	}
+	
+	// 리뷰 게시판 탭 메뉴 정렬
+	public ArrayList<ReviewNoteVO> reviewNoteNew(){
+		return dao.reviewNoteNew();
+	}
+	
+	public ArrayList<ReviewNoteVO> reviewNotePopular(){
+		return dao.reviewNotePopular();
+	}
+	
+	public ArrayList<ReviewNoteVO> reviewNoteComment(){
+		return dao.reviewNoteComment();
+	}
 
 
 
