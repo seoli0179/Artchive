@@ -1,5 +1,5 @@
-document.write('<script type=\"text/javascript\" src=\"mapEdit.js\"><\/script>');
-document.write('<script type=\"text/javascript\" src=\"mapView.js\"><\/script>');
+document.write('<script type=\"text/javascript\" src=\"mapEdit.js\"> <\/script>');
+document.write('<script type=\"text/javascript\" src=\"mapView2.js\"> <\/script>');
 
 let count = 0;
 let sites_copy = [];
@@ -7,7 +7,8 @@ let listItems = [];
 let tags = []; // 코스 태그
 let $memoArea;
 let listItem;
-
+// 코스를 담을 배열입니다.
+var positions = [];
 
 $( function() {
     // 페이지 구성을 위한 데이터 호출
@@ -24,10 +25,7 @@ $( function() {
             panTo(positions[0].y, positions[0].x);
         },
         error: function () {
-            alert("새로운 코스를 작성할 준비가 되셨나요?");
-            const firstExhbnTitle = $("#firstExhbnTitle").text();
-            const firstExhbnAddr = $("#firstExhbnAddr").text();
-            const firstMemo = "";
+
         }
     });
 
@@ -324,7 +322,8 @@ function createList() {
                                     </h3>
                                     <div class="siteAddress">${positions[i].road_address_name}</div>
                                     <div class="memo-box">
-                                        <textarea id="memo_${i}" class="place-memo-input" placeholder="메모를 입력하세요.">${positions[i].place_memo}</textarea> 
+                                        <textarea id="memo_${i}" class="place-memo-input" placeholder="메모를 입력하세요.">${positions[i].place_memo}</textarea>
+                                        <input id="place_url_${i}" class="place_url" value="${positions[i].place_url}" hidden>
                                     </div>
                                 </div>
                             </div>

@@ -23,8 +23,8 @@
 		<script src="<c:url value='/js/note/detail.js'/>"></script> <!-- 글 삭제 -->
 		<script src="<c:url value='/js/course/courseDelete.js'/>"></script> <!-- 코스 아이템 삭제 -->
 		<script src="<c:url value='/js/course/comment.js'/>"></script> <!-- 코멘트 ajax -->
-		<script src="<c:url value='/js/course/mapView.js'/>"></script>
-
+		<script src="<c:url value='/js/course/mapView2.js'/>"></script>
+		<script src="<c:url value='/js/course/timelineEdit.js'/>"></script>
 
 	</head>
 	<body>
@@ -84,7 +84,7 @@
 <%--									<div class="content explain">Start ...</div>--%>
 								</div>
 							</div>
-							<c:forEach var="site" items="${siteName}" varStatus="status">
+							<c:forEach var="site" items="${courseItem}" varStatus="status">
 <%--								<div class="route-row">--%>
 <%--									<div class="left-side">--%>
 <%--										<div class="line"></div>--%>
@@ -111,10 +111,10 @@
 										</div>
 										<div class="content">
 											<div class="where">
-												<h3 class="where-title">${site}</h3>
-												<div class="siteAddress">${siteAddress[status.index]}</div>
+												<h3 class="where-title">${site.place_name}</h3>
+												<div class="siteAddress">${site.road_address_name}</div>
 												<div class="memo-box">
-													<span id="memo_${status.count}" class="small-text" placeholder="메모를 입력하세요.">${siteMemo[status.index]}</span>
+													<span id="memo_${status.count}" class="small-text" placeholder="메모를 입력하세요.">${site.place_memo}</span>
 												</div>
 											</div>
 										</div>
@@ -141,9 +141,9 @@
 					
 					<section id="courseMapBox">
 	   					<div class="map_wrap">
-						    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+						    <div id="courseMap" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
 						    <div class="hAddr">
-						        <span class="title">지도중심기준 행정동 주소정보</span>
+<%--						        <span class="title">지도중심기준 행정동 주소정보</span>--%>
 						        <span id="centerAddr"></span>
 						    </div>
 						</div>	
