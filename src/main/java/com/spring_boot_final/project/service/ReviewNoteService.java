@@ -25,6 +25,24 @@ public class ReviewNoteService implements IReviewNoteService{
 		return dao.selectReviewNote(reviewNoteId);
 	}
 
+	@Override
+	public void createReviewNote(ReviewNoteVO vo) {
+		dao.createReviewNote(vo);
+		
+	}
+
+	@Override
+	public void updateReviewNote(ReviewNoteVO vo) {
+		dao.updateReviewNote(vo);
+		
+	}
+
+	@Override
+	public void deleteReviewNote(ReviewNoteVO vo) {
+		dao.deleteReviewNote(vo);
+		
+	}
+
 
 
 }

@@ -26,7 +26,7 @@
 		   u.userNickname,
 		   r.userId
 	FROM reviewNote r, course c, user u, exhbn e
-	WHERE c.courseId = r.courseId and r.userId = u.userId and r.exhbnId = e.exhbnId
+	WHERE c.courseId = r.courseId and r.userId = u.userId and r.exhbnId = e.exhbnId and r.reviewPageViewState = 'POST'
 	ORDER BY r.courseId
 	
 	</select>
@@ -54,7 +54,28 @@
 	WHERE r.reviewNoteId = #{reviewNoteId} and  r.courseId = c.courseId and r.userId = u.userId and r.exhbnId = e.exhbnId
 	</select>
 	
+	<!-- 리뷰게시판 글 작성하기 -->
+	<insert id="createReviewNote" parameterType="com.spring_boot_final.project.model.ReviewNoteVO">
+		INSERT INTO reviewNote (reviewNoteTitle, reviewNote, userId, courseId, exhbnId)
+		VALUES (#{reviewNoteTitle}, #{reviewNote}, #{userId}, #{courseId}, #{exhbnId});
+	</insert>
 	
+	<!-- 리뷰게시판 글 수정 -->
+	<update id="updateReviewNote" parameterType="com.spring_boot_final.project.model.ReviewNoteVO">
+		UPDATE reviewNote
+		SET reviewNoteTitle = #{reviewNoteTitle},
+		reviewNote = #{reviewNote}
+		WHERE reviewNoteId = #{reviewNoteId}
+		AND userId = #{userId}
+	</update>
+	
+	<!-- 리뷰게시판 글 삭제 -->
+	<update id="deleteReviewNote" parameterType="com.spring_boot_final.project.model.ReviewNoteVO">
+		UPDATE reviewNote
+		SET reviewPageViewState = 'DELETE'
+		WHERE reviewNoteId = #{reviewNoteId}
+		AND userId = #{userId}
+	</update>
 	
 	
 </mapper>
