@@ -6,7 +6,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>arTchive / ${reviewNote.reviewNoteTitle}</title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/review/reviewNote.css'/>">
