@@ -15,6 +15,7 @@
 		<script src="<c:url value='/js/review/reviewComment/reviewCommentDelete.js'/>"></script>
 		<script src="<c:url value='/js/review/reviewLike.js'/>"></script>
 		<script src="<c:url value='/js/review/reviewNote.js'/>"></script>
+		<script src="<c:url value='/js/review/reviewDelete.js'/>"></script>
 	</head>
 	<body>
 		<!-- top으로 이동 -->
@@ -50,7 +51,7 @@
           		<div id="courseMainBtn-Box">
 				<input type="button" id="editCourseBtn"  class="white-btn" value="코스 수정" onclick="location.href='<c:url value="/course/${reviewNote.courseId}/edit"/>'">
 				<input type="button" id="like-btn"  class="white-btn" value="게시글 수정" onclick="location.href='<c:url value="/review/reviewNoteEdit/${reviewNote.reviewNoteId}"/>'">
-				<input type="button" id="scrap-btn"  class="black-btn" value="삭제">
+				<input type="button" id="reviewDelete"  class="black-btn" value="삭제">
           		</div><!-- courseMainText -->
 		</section><!-- courseMenu -->
 		</div>
@@ -59,12 +60,9 @@
 		<section class="tag-box-view">
 			<h3>관련 태그</h3>
 			<ul id="tagList">
-				<%-- <c:forTokens var="taglist" items="${course.courseTag}" delims=";;">
+				<c:forTokens var="taglist" items="${reviewNote.courseTag}" delims=";;">
 					<li><c:out value="${taglist}"/></li>
-				</c:forTokens> --%>
-				<li>#태그</li>
-				<li>#태그</li>
-				<li>#태그</li>
+				</c:forTokens>
 			</ul>
 		</section> <!-- editCourseBtn -->
 		</div>
@@ -137,7 +135,7 @@
 	                    <div class="comment-write">
 	                        <textarea id="reviewComment" name="story"
 	                                  rows="5" cols="33" placeholder="Leave a Comment..."></textarea>
-	                        <input id="commentPost" class="post" type="button" value="Post">
+	                        <input id="commentPost" class="black-btn post" type="button" value="Post">
 	                    </div>
 	                </c:if>
 	                <div class="comment-box" id="comment-box">
@@ -177,7 +175,7 @@
 	
 	                                        <div class="deleteComment">
 	                                            <c:if test="${sessionScope.sid == reviewComment.userId}">
-	                                                <input type="button" class="deleteBtn black-btn"
+	                                                <input type="button" class="deleteBtn black-btn" id="reviewDelete"
 	                                                       onclick="deleteReviewComment(${reviewComment.reviewCommentId})"
 	                                                       value="삭제">
 	                                            </c:if>

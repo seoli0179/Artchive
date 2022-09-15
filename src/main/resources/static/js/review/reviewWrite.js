@@ -5,8 +5,8 @@
  $(document).ready(function () {
     $('#summernote').summernote({
         tabsize: 2,
-        width: 800,
-        height: 400,
+        width: 1080,
+        height: 600,
         toolbar: [
             ['style', ['style']],
             ['font', ['bold', 'underline', 'clear']],
@@ -36,7 +36,7 @@
                 },
                 success: function (data) {
                     alert("작성 완료!");
-                    window.history.back();
+                    location.href = "/review/reviewNoteList";
                 },
                 error: function () {
                     console.log('fail');

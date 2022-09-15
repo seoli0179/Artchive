@@ -6,7 +6,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>arTchive / ${reviewNote.reviewNoteTitle}</title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/review/reviewNote.css'/>">
@@ -64,12 +64,9 @@
 		<section class="tag-box-view">
 			<h3>관련 태그</h3>
 			<ul id="tagList">
-				<%-- <c:forTokens var="taglist" items="${course.courseTag}" delims=";;">
+				<c:forTokens var="taglist" items="${reviewNote.courseTag}" delims=";;">
 					<li><c:out value="${taglist}"/></li>
-				</c:forTokens> --%>
-				<li>#태그</li>
-				<li>#태그</li>
-				<li>#태그</li>
+				</c:forTokens>
 			</ul>
 		</section> <!-- editCourseBtn -->
 		</div>

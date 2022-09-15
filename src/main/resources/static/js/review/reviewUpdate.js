@@ -5,7 +5,7 @@
  $(document).ready(function () {
     $('#summernote').summernote({
         tabsize: 2,
-        width: 800,
+        width: 1080,
         height: 400,
         toolbar: [
             ['style', ['style']],
