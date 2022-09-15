@@ -3,6 +3,7 @@ package com.spring_boot_final.project.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring_boot_final.project.dao.IAitemsDAO;
+import com.spring_boot_final.project.model.ExhbnVO;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -128,6 +129,10 @@ public class AitemsService {
         }
 
         return null;
+    }
+
+    public ArrayList<ExhbnVO> getExhbnItems(ArrayList<String> items){
+        return dao.selectExhbn(items);
     }
 
     public void aiTest() {
