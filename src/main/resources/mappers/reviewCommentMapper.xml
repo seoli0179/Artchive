@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.spring_boot_final.project.dao.IReviewCommentDAO">
+	<!-- 리뷰게시판 댓글 보여주기 -->
+	<select id="selectReviewCommentList" parameterType="int" resultType="com.spring_boot_final.project.model.ReviewCommentVO">
+        select c.reviewCommentId,
+               c.reviewNoteId,
+               c.userId,
+               c.reviewComment,
+               c.reviewCommentLike,
+               c.reviewCommentCreatedDate,
+               u.userNickname
+        from reviewComment c,
+             user u
+        where c.reviewNoteId = #{reviewNoteId}
+          and c.userId = u.userId
+          and c.reviewPageViewState = 'POST'
+        order by c.reviewCommentCreatedDate desc;
+    </select>
+    
+    <select id="selectReviewComment" parameterType="int" resultType="com.spring_boot_final.project.model.ReviewCommentVO">
+        select *
+        from reviewComment
+        where reviewCommentId = #{reviewCommentId};
+    </select>
+    
+    <!-- 리뷰게시판 댓글 쓰기 -->
+    <insert id="createReviewComment" parameterType="com.spring_boot_final.project.model.ReviewCommentVO">
+    	INSERT INTO reviewComment (reviewNoteId, userId, reviewComment)
+    	VALUES (#{reviewNoteId}, #{userId}, #{reviewComment})
+    </insert>
+    
+    <!-- 리뷰게시판 댓글 삭제 -->
+    <update id="deleteReviewComment" parameterType="com.spring_boot_final.project.model.ReviewCommentVO">
+    	UPDATE reviewComment
+    	SET reviewPageViewState = 'DELETE'
+    	WHERE reviewCommentId = #{reviewCommentId}
+    	AND userId = #{userId}
+    </update>
+</mapper>
