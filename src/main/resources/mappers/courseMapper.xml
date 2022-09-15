@@ -105,17 +105,18 @@
     ]]>
     </select>
 
-<!--  마이페이지  -->
+	<!--  마이페이지  -->
     <!-- 마이페이지 코스 작성글 조회 -->
     <select id="mpCoursePostSelect" parameterType="string" resultType="com.spring_boot_final.project.model.CourseVO">
         <![CDATA[
         select *
         from course
         WHERE userId=#{userId}
+        and courseState = 1
         ]]>
     </select>
 
-	<!-- 마이페이지 코스 작성글 삭제 -->
+	<!-- 마이페이지 코스 작성글 삭제 
 	<delete id="deleteMpCourse" parameterType="int">
         <![CDATA[
         delete
@@ -123,5 +124,5 @@
         where courseId = #{courseId} 
         ]]>
     </delete>
-
+	-->
 </mapper>
