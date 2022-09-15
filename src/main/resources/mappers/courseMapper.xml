@@ -33,9 +33,16 @@
             courseTitle=#{courseTitle},
             courseTag=#{courseTag},
             courseState=#{courseState},
-            courseSitesArr=#{courseSitesArr},
-            courseAddressArr=#{courseAddressArr},
-            courseMemoArr=#{courseMemoArr}
+            -- CourseListItemVO
+            placeNames=#{placeNames},
+            categoryNames=#{categoryNames},
+            phones=#{phones},
+            addressNames=#{addressNames},
+            roadAddressNames=#{roadAddressNames},
+            postionX=#{postionX},
+            positionY=#{positionY},
+            placeUrls=#{placeUrls},
+            placeMemos=#{placeMemos}
         WHERE courseId = #{courseId} AND userId = #{userId}
         ]]>
     </update>

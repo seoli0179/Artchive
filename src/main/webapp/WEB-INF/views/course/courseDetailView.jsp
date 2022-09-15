@@ -86,42 +86,25 @@
 								</div>
 							</div>
 							<c:forEach var="site" items="${courseItem}" varStatus="status">
-<%--								<div class="route-row">--%>
-<%--									<div class="left-side">--%>
-<%--										<div class="line"></div>--%>
-<%--										<div class="left">--%>
-<%--											<div class="mainCourse-dot">${status.count}</div>--%>
-<%--										</div>--%>
-<%--										<div class="content">--%>
-<%--											<div class="where">--%>
-<%--												<h3 class="where-title">${site}</h3>--%>
-<%--												<div class="address">${siteAddress[status.index]}</div>--%>
-<%--											</div>--%>
-<%--										</div>--%>
-<%--									</div>--%>
-<%--									<div class="memo-box">--%>
-<%--										<span class="small-text">${siteMemo[status.index]}</span>--%>
-<%--									</div>--%>
-<%--								</div>--%>
-							<li class="route-row viewitem">
-								<div class="left-side">
+								<li class="route-row viewitem">
 									<div class="left-side">
-										<div class="line"></div>
-										<div class="left">
-											<div class="subCourse-dot">${status.count}</div>
-										</div>
-										<div class="content">
-											<div class="where">
-												<h3 class="where-title">${site.place_name}</h3>
-												<div class="siteAddress">${site.road_address_name}</div>
-												<div class="memo-box">
-													<span id="memo_${status.count}" class="small-text" placeholder="메모를 입력하세요.">${site.place_memo}</span>
+										<div class="left-side">
+											<div class="line"></div>
+											<div class="left">
+												<div class="subCourse-dot">${status.count}</div>
+											</div>
+											<div class="content">
+												<div class="where">
+													<h3 class="where-title">${site.place_name}</h3>
+													<div class="siteAddress">${site.road_address_name}</div>
+													<div class="memo-box">
+														<span id="memo_${status.count}" class="small-text" placeholder="메모를 입력하세요.">${site.place_memo}</span>
+													</div>
 												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-							</li>
+								</li>
 							</c:forEach>
 							<div class="route-row" id="endPoint">
 								<div class="left-side">

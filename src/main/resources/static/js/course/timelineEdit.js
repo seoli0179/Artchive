@@ -1,5 +1,6 @@
 document.write('<script type=\"text/javascript\" src=\"mapEdit.js\"> <\/script>');
 document.write('<script type=\"text/javascript\" src=\"mapView2.js\"> <\/script>');
+document.write('<script type=\"text/javascript\" src=\"mapUpdate.js\"> <\/script>');
 
 let count = 0;
 let sites_copy = [];
@@ -19,6 +20,7 @@ $( function() {
         dataType: "json",
         success: function (result) {
             positions = result;
+            console.log(positions);
             for (var i=0; i<positions.length; i++) {
                 addCourseMarker2(positions[i].y, positions[i].x, i);
             }
@@ -83,7 +85,6 @@ $( function() {
             let liTag = `<li class="li-item tagItem" value="${tag}"> ${tag} <i class="fa-solid fa-xmark closeBtn" onclick="remove(this, '${tag}')"></i></li>`;
             input.insertAdjacentHTML("beforebegin", liTag); // tag 추가
         });
-        console.log(tags)
     }
 
     // 정렬 가능한 리스트
@@ -148,8 +149,6 @@ function insertCourse() {
 
     let courseTitle = $("#courseTitle").val();
     let exhbnId = $("#exhbnId").val();
-    let userId = $("#userId").val();
-    let courseId = $("#courseId").val();
 
     if($("#courseStatus").prop("checked")){
         $("#courseStatus").val(1);
@@ -165,7 +164,6 @@ function insertCourse() {
             courseTag += tags[i] + ";;";
         }
     }
-    console.log(courseTag)
 
     let param = {
         "exhbnId": exhbnId,
@@ -198,34 +196,19 @@ function insertCourse() {
 
 /** updateCourse */
 function updateCourse() {
-    let courseSitesArr = "";
-    let courseAddressArr = "";
-    let courseMemoArr = "";
     let courseTag = "";
 
+    let courseId = $("#courseId").val();
     let courseTitle = $("#courseTitle").val();
     let exhbnId = $("#exhbnId").val();
-    let userId = $("#userId").val();
-    let courseId = $("#courseId").val();
 
     if($("#courseStatus").prop("checked")){
         $("#courseStatus").val(1);
     } else {
         $("#courseStatus").val(2);
     }
-    let courseStatus = $("#courseStatus").val();
+    let courseState = $("#courseStatus").val();
 
-    for (let i=0; i<sites.length; i++){
-        if (i==(sites.length)){
-            courseSitesArr += sites[i];
-            courseAddressArr += addresses[i];
-            courseMemoArr += memos[i];
-        } else {
-            courseSitesArr += sites[i] + ";;";
-            courseAddressArr += addresses[i] + ";;";
-            courseMemoArr += memos[i] + ";;";
-        }
-    }
     for (let i=0; i<tags.length; i++){
         if (i==(tags.length-1)){
             courseTag += tags[i];
@@ -233,20 +216,15 @@ function updateCourse() {
             courseTag += tags[i] + ";;";
         }
     }
-    console.log(courseTag)
 
     let param = {
-        "courseId":courseId,
-        "userId":userId,
-        "exhbnId":exhbnId,
-        "courseTitle":courseTitle,
-        "courseTag":courseTag,
-        "courseState":courseStatus,
-        "courseSitesArr":courseSitesArr,
-        "courseAddressArr":courseAddressArr,
-        "courseMemoArr":courseMemoArr
-    }
-    // let json = JSON.stringify()
+        "exhbnId": exhbnId,
+        "courseId": courseId,
+        "courseTitle": courseTitle,
+        "courseTag": courseTag,
+        "courseState": courseState,
+        "courseListItem": positions
+    };
 
     $.ajax({
         url:"/course/updateCourse",
@@ -296,7 +274,11 @@ function createList() {
         listItem.setAttribute("class", "route-row courseItem");
         listItem.setAttribute("id", "route" + i);
         listItem.setAttribute("draggable", "true");
-        // listItem.setAttribute("value", sites[i] + ";;" + addresses[i] + ";;" + memos[i]);
+
+        // 빈 메모 처리
+        if (positions[i].place_memo == null){
+            positions[i].place_memo = "";
+        }
 
         listItem.innerHTML = `
                         <div class="left-side">
@@ -317,15 +299,8 @@ function createList() {
                                         ${positions[i].place_name}
                                     </h3>
                                     <div class="siteAddress">${positions[i].road_address_name}</div>
-                                    <div class="memo-box">
-                                        <c:choose>
-                                            <c:when test="${positions[i].place_memo == null}">
-                                            <textarea id="memo_${i}" class="place-memo-input" placeholder="메모를 입력하세요."></textarea>
-                                            </c:when>
-                                            <c:otherwise>                                    
-                                                <textarea id="memo_${i}" class="place-memo-input" placeholder="메모를 입력하세요.">${positions[i].place_memo}</textarea>
-                                            </c:otherwise>
-                                        </c:choose>
+                                    <div class="memo-box">             
+                                        <textarea id="memo_${i}" class="place-memo-input" placeholder="메모를 입력하세요.">${positions[i].place_memo}</textarea>
                                         <input id="place_url_${i}" class="place_url" value="${positions[i].place_url}" hidden>
                                     </div>
                                 </div>
@@ -353,8 +328,13 @@ function saveMemo() {
     $memoArea.each(function(i) {
         $(document).on("focusout", "#memo_"+i ,function(index){
             console.log($(this).val());
-            positions[i].place_memo = $(this).val();
-            console.log(positions[i].place_memo);
+            if($(this).val().length<141) {
+                positions[i].place_memo = $(this).val();
+                console.log(positions[i].place_memo);
+            } else {
+                alert("메모는 140자 이하로 작성할 수 있습니다.");
+            }
+
         });
     });
 }
