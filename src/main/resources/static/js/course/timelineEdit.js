@@ -24,6 +24,7 @@ $( function() {
                 addCourseMarker2(positions[i].y, positions[i].x, i);
             }
             panTo(positions[0].y, positions[0].x);
+            createList();
         },
         error: function () {
 
@@ -318,7 +319,14 @@ function createList() {
                                     </h3>
                                     <div class="siteAddress">${positions[i].road_address_name}</div>
                                     <div class="memo-box">
-                                        <textarea id="memo_${i}" class="place-memo-input" placeholder="메모를 입력하세요.">${positions[i].place_memo}</textarea>
+                                        <c:choose>
+                                            <c:when test="${positions[i].place_memo == null}">
+                                            <textarea id="memo_${i}" class="place-memo-input" placeholder="메모를 입력하세요."></textarea>
+                                            </c:when>
+                                            <c:otherwise>                                    
+                                                <textarea id="memo_${i}" class="place-memo-input" placeholder="메모를 입력하세요.">${positions[i].place_memo}</textarea>
+                                            </c:otherwise>
+                                        </c:choose>
                                         <input id="place_url_${i}" class="place_url" value="${positions[i].place_url}" hidden>
                                     </div>
                                 </div>

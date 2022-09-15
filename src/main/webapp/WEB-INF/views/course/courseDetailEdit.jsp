@@ -22,10 +22,11 @@
 		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f62ace4deff6b141114cc8499d76cb47&libraries=services,clusterer,drawing"></script>
 
 		<script type="text/javascript" src="<c:url value='/js/course/autocomplete.js'/>"></script>
-		<script type="text/javascript" src="<c:url value='/js/course/courseEdit.js'/>"></script>
+<%--		<script type="text/javascript" src="<c:url value='/js/course/courseEdit.js'/>"></script>--%>
 		<script type="text/javascript" src="<c:url value='/js/course/courseDelete.js'/>"></script>
 		<script type="text/javascript" src="<c:url value='/js/course/timelineEdit.js'/>"></script>
 		<script type="text/javascript" src="<c:url value='/js/course/mapEdit.js'/>"></script>
+		<script type="text/javascript" src="<c:url value='/js/course/mapView2.js'/>"></script>
 	</head>
 	<body id="courseDetailEdit">
 		<!-- top으로 이동 -->
