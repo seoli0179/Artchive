@@ -15,7 +15,9 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
---
+
+ 
+
 -- Table structure for table `reviewnote`
 --
 
@@ -37,7 +39,8 @@ CREATE TABLE `reviewnote` (
   KEY `courseId` (`courseId`),
   KEY `userId` (`userId`),
   KEY `exhbnId` (`exhbnId`),
-  CONSTRAINT `FK_reviewNote_course` FOREIGN KEY (`courseId`) REFERENCES `course` (`courseId`),
+  CONSTRAINT `FK_reviewNote_course` FOREIGN KEY (`courseId`) REFERENCES `course` (`courseId`)
+  ON DELETE CASCADE,
   CONSTRAINT `FK_reviewNote_exhbn` FOREIGN KEY (`exhbnId`) REFERENCES `exhbn` (`exhbnId`),
   CONSTRAINT `FK_reviewNote_user` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
