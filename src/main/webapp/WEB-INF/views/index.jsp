@@ -91,7 +91,7 @@
 			</div><!-- searchBox -->
         	</div><!-- mainMenuBox -->
         	
-        		<div id="visual"><img src="<c:url value='/image/banner.jpg'/>"></div>
+        		<div id="visual"><img src="<c:url value='https://ifh.cc/g/QzlnKA.png'/>"></div>
             </header>
 
 
@@ -104,7 +104,7 @@
            		</div>
            		<div id="bannerText2" class="bannerText">
 					<ul>
-						<li>코스 만들기</li>
+<%--						<li>코스 만들기</li>--%>
 					</ul>
            		</div>
            		

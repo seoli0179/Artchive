@@ -1,14 +1,13 @@
 package com.spring_boot_final.project.controller.review;
 
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.spring_boot_final.project.model.ReviewNoteVO;
 import com.spring_boot_final.project.service.ReviewNoteService;
 
@@ -17,50 +16,107 @@ public class reviewDataController {
 	@Autowired
 	ReviewNoteService reviewnoteService;
 	
-	// 리뷰게시판 리스트 보기
-	@RequestMapping("/review/reviewNoteList")
-	public String reviewNoteList(HttpSession session, Model model) {
+	@ResponseBody
+	@RequestMapping("/review/createReviewNote")
+	public String createReviewNote(
+			@RequestParam("reviewNoteTitle") String reviewNoteTitle,
+			@RequestParam("reviewNote") String reviewNote,
+			@RequestParam("courseId") int courseId,
+			@RequestParam("exhbnId") String exhbnId,
+			HttpSession session) {
 		
-	
-	ArrayList<ReviewNoteVO> reviewNoteList = reviewnoteService.reviewNoteList();
-
-	model.addAttribute("reviewNoteList", reviewNoteList);
-	System.out.println(reviewNoteList.size());
-	
-	/*
-	 * for(int i=0; i<reviewNoteList.size();i++) {
-	 * System.out.println(reviewNoteList.get(i).getReviewNoteId()); }
-	 */
-	
-	return "review/reviewNoteList";
-	}
-	
-	
-	// 리뷰게시판 상세페이지 보기
-	@RequestMapping("/review/reviewNote/{reviewNoteId}")
-	public String reviewNote(@PathVariable("reviewNoteId") int reviewNoteId,HttpSession session, Model model) {
-	
-		ArrayList<ReviewNoteVO> reviewNoteList = reviewnoteService.reviewNoteList();
-		ReviewNoteVO vo = reviewnoteService.selectReviewNote(reviewNoteId);
+		if (session.getAttribute("sid") == null) {
+			return "FAIL";
+		}
 		
-		String[] siteName = vo.getCourseSitesArr().split(";;");
+		ReviewNoteVO vo = new ReviewNoteVO();
+		vo.setReviewNoteTitle(reviewNoteTitle);
+		vo.setReviewNote(reviewNote);
+		vo.setCourseId(courseId);
+		vo.setExhbnId(exhbnId);
+		vo.setUserId(session.getAttribute("sid").toString());
 		
-		System.out.println(siteName);
-		
-		model.addAttribute("reviewNoteList", reviewNoteList);
-		model.addAttribute("reviewNote", vo);
-		model.addAttribute("siteName", siteName);
-		
-		
-		System.out.println(reviewNoteId);
-		/* System.out.println(reviewNoteList.size()); */
-		
+		reviewnoteService.createReviewNote(vo);
+		System.out.println(reviewNoteTitle);
+		System.out.println(reviewNote);
+		System.out.println(courseId);
+		System.out.println(exhbnId);
 		/*
-		 * for(int i=0; i<reviewNoteList.size();i++) {
-		 * System.out.println(reviewNoteList.get(i).getReviewNoteId()); }
+		 * System.out.println(courseId); System.out.println(exhbnId);
 		 */
 		
-		return "review/reviewNote";
+		return "SUCCESS";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/review/updateReviewNote")
+	public String updateReviewNote(
+			@RequestParam("reviewNoteTitle") String reviewNoteTitle,
+			@RequestParam("reviewNote") String reviewNote,
+			@RequestParam("reviewNoteId") int reviewNoteId,
+			HttpSession session) {
+		
+		if (session.getAttribute("sid") == null) {
+			return "FAIL";
 		}
+		
+		ReviewNoteVO vo = new ReviewNoteVO();
+		vo.setReviewNoteTitle(reviewNoteTitle);
+		vo.setReviewNote(reviewNote);
+		vo.setReviewNoteId(reviewNoteId);
+		vo.setUserId(session.getAttribute("sid").toString());
+		
+		reviewnoteService.updateReviewNote(vo);
+		/*
+		 * System.out.println(reviewNoteTitle); System.out.println(reviewNote);
+		 * System.out.println(reviewNoteId);
+		 */
+
+		
+		return "SUCCESS";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/review/deleteReviewNote")
+	public String deleteReviewNote(
+			@RequestParam("reviewNoteId") int reviewNoteId,
+			HttpSession session
+			) {
+		if (session.getAttribute("sid") == null) {
+            return "FAIL";
+        }
+		
+		ReviewNoteVO vo = new ReviewNoteVO();
+		vo.setReviewNoteId(reviewNoteId);
+		vo.setUserId(session.getAttribute("sid").toString());
+		
+		reviewnoteService.deleteReviewNote(vo);
+		System.out.println(reviewNoteId);
+		
+		return "SUCCESS";
+		
+	}
+	
+	@ResponseBody
+	@RequestMapping("/review/reviewNoteLike")
+	public String reviewNoteLike(
+			@RequestParam("reviewNoteId") int reviewNoteId,
+			HttpSession session
+			) {
+			
+		if (session.getAttribute("sid") == null)
+            return "FALSE";
+		
+		ReviewNoteVO vo = new ReviewNoteVO();
+		vo.setReviewNoteId(reviewNoteId);
+		vo.setUserId(session.getAttribute("sid").toString());
+		
+		if (reviewnoteService.reviewNoteLike(vo)) {
+            return "TRUE";
+        } else {
+            return "FALSE";
+        }
+		
+	}
 	
 }

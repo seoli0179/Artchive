@@ -26,9 +26,22 @@ public class ReviewNoteVO {
     private String exhbnImgUrl;
     private String userNickname;
     
+    private boolean reviewNoteLikeCheck;
+    private String sort;
     
     
-    
+	public String getSort() {
+		return sort;
+	}
+	public void setSort(String sort) {
+		this.sort = sort;
+	}
+	public boolean isReviewNoteLikeCheck() {
+		return reviewNoteLikeCheck;
+	}
+	public void setReviewNoteLikeCheck(boolean reviewNoteLikeCheck) {
+		this.reviewNoteLikeCheck = reviewNoteLikeCheck;
+	}
 	public String getExhbnImgUrl() {
 		return exhbnImgUrl;
 	}

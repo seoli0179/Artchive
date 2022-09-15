@@ -51,10 +51,15 @@ public class UserDataController {
         vo.setUserId(id);
 
         vo = service.selectUser(vo);
-
+        
+        
         if (vo == null || !encoder.matches(pw, vo.getUserPw()))
             return "FAIL";
-
+        
+        if(vo.getUserState().equals("2")){
+            return "AWAY";
+         }
+        
         if(vo.getUserState().equals("3")){
             return "TEMP";
         }

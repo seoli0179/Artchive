@@ -94,6 +94,7 @@ public class MpDataController {
  								@RequestParam("nickname") String userNickname,
  								@RequestParam("userEmail1") String userEmail1,
  								@RequestParam("userEmail2") String userEmail2,
+ 								@RequestParam("userGender") String userGender,
  								Model model,
  								HttpSession session) throws IOException {
  		
@@ -123,7 +124,9 @@ public class MpDataController {
  		model.addAttribute("userName", vo.getUserName());
  		model.addAttribute("userId",vo.getUserId());
  		model.addAttribute("userNickname", vo.getUserNickname());
- 		model.addAttribute("userEmail", vo.getUserEmail());
+ 		model.addAttribute("userEmail", vo.getUserEmail()); 
+ 		model.addAttribute("userGender", vo.getUserGender()); 
+ 		
  		
  		System.out.println(userId);
  		System.out.println(userNickname);

@@ -43,9 +43,16 @@ header{
 	padding : 0px;
 }
 
+header #visual {
+	background-color: white;
+	display: flex;
+	justify-content: center;
+}
+
 header #visual img{
-	width:100%;
-	height: 940px;
+	height: 790px;
+	margin-top: 110px;
+	margin-bottom: 70px;
 }
 
 
@@ -64,7 +71,7 @@ header #logoBox{
 
 header #logoBox > a {
 	font-size : 25px;
-	color : #fff;
+	color : #000000;
 	text-decoration : none;
 	font-family: 'establishRetrosansOTF';
 }
@@ -98,10 +105,10 @@ header #loginBox > ul li{
 
 }
 
-header #loginBox > ul li a {
+header #loginBox a {
 	width:100%;
 	font-size : 16px;
-	color : #fff;
+	color : #000000;
 	text-decoration : none;
 }
 
@@ -128,7 +135,7 @@ header #headerBox {
 
 header #headerBox nav > ul > li > a {
 	font-size : 16px;
-	color : #fff;
+	color : #000000;
 	text-decoration : none;
 	height: 70px;
 	line-height:75px;
@@ -155,14 +162,15 @@ header #headerBox nav > ul > li {
 	flex-direction: column;
 	z-index: 500;
 }
-.dropdownMenu li {
+.dropdownMenu>li {
 	padding: 10px 15px;
 	text-align: left;
+	height: fit-content;
 }
-.dropdownMenu li:hover {
+.dropdownMenu>li:hover {
 	background-color: black;
 }
-.dropdownMenu li:hover a {
+.dropdownMenu>li:hover a {
 	color: white;
 }
 	

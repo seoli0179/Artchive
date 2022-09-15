@@ -18,15 +18,14 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/toggle.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/note/detail.css'/>">
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
-		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f62ace4deff6b141114cc8499d76cb47"></script>
 		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f62ace4deff6b141114cc8499d76cb47&libraries=services"></script>
-		<script src="<c:url value='/js/note/detail.js'/>"></script>
-		<script src="<c:url value='/js/course/courseDelete.js'/>"></script>
-		<script src="<c:url value='/js/course/comment.js'/>"></script>
-		<script src="<c:url value='/js/course/mapView.js'/>"></script>
 		
-		
-		
+		<script src="<c:url value='/js/note/detail.js'/>"></script> <!-- 글 삭제 -->
+		<script src="<c:url value='/js/course/courseDelete.js'/>"></script> <!-- 코스 아이템 삭제 -->
+		<script src="<c:url value='/js/course/comment.js'/>"></script> <!-- 코멘트 ajax -->
+		<script src="<c:url value='/js/course/mapView2.js'/>"></script>
+		<script src="<c:url value='/js/course/timelineEdit.js'/>"></script>
+
 	</head>
 	<body>
 		<!-- top으로 이동 -->
@@ -60,6 +59,7 @@
 						<button id="deleteBtn_view"  class="white-btn">삭제</button>
 					</c:if>
 					<button id="scrapCourse"  class="black-btn">스크랩</button>
+					<input type="button" id="createReview" value="리뷰작성하기" onclick="location.href='<c:url value="/review/reviewNoteWrite/${course.courseId}"/>'" class="black-btn">
            		</div><!-- courseMainText -->
 			</section><!-- courseMenu -->
 
@@ -85,24 +85,43 @@
 <%--									<div class="content explain">Start ...</div>--%>
 								</div>
 							</div>
-							<c:forEach var="site" items="${siteName}" varStatus="status">
-								<div class="route-row">
+							<c:forEach var="site" items="${courseItem}" varStatus="status">
+<%--								<div class="route-row">--%>
+<%--									<div class="left-side">--%>
+<%--										<div class="line"></div>--%>
+<%--										<div class="left">--%>
+<%--											<div class="mainCourse-dot">${status.count}</div>--%>
+<%--										</div>--%>
+<%--										<div class="content">--%>
+<%--											<div class="where">--%>
+<%--												<h3 class="where-title">${site}</h3>--%>
+<%--												<div class="address">${siteAddress[status.index]}</div>--%>
+<%--											</div>--%>
+<%--										</div>--%>
+<%--									</div>--%>
+<%--									<div class="memo-box">--%>
+<%--										<span class="small-text">${siteMemo[status.index]}</span>--%>
+<%--									</div>--%>
+<%--								</div>--%>
+							<li class="route-row viewitem">
+								<div class="left-side">
 									<div class="left-side">
 										<div class="line"></div>
 										<div class="left">
-											<div class="mainCourse-dot">${status.count}</div>
+											<div class="subCourse-dot">${status.count}</div>
 										</div>
 										<div class="content">
 											<div class="where">
-												<h3 class="where-title">${site}</h3>
-												<div class="address">${siteAddress[status.index]}</div>
+												<h3 class="where-title">${site.place_name}</h3>
+												<div class="siteAddress">${site.road_address_name}</div>
+												<div class="memo-box">
+													<span id="memo_${status.count}" class="small-text" placeholder="메모를 입력하세요.">${site.place_memo}</span>
+												</div>
 											</div>
 										</div>
 									</div>
-									<div class="memo-box">
-										<span class="small-text">${siteMemo[status.index]}</span>
-									</div>
 								</div>
+							</li>
 							</c:forEach>
 							<div class="route-row" id="endPoint">
 								<div class="left-side">
@@ -123,9 +142,9 @@
 					
 					<section id="courseMapBox">
 	   					<div class="map_wrap">
-						    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+						    <div id="courseMap" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
 						    <div class="hAddr">
-						        <span class="title">지도중심기준 행정동 주소정보</span>
+<%--						        <span class="title">지도중심기준 행정동 주소정보</span>--%>
 						        <span id="centerAddr"></span>
 						    </div>
 						</div>	

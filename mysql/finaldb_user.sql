@@ -27,6 +27,7 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `userId` varchar(20) NOT NULL,
   `userPw` varchar(100) NOT NULL,
+   `userName` varchar(50),
   `userEmail` varchar(50) NOT NULL,
   `userNickname` varchar(50) DEFAULT NULL,
   `userGender` varchar(1) NOT NULL,
@@ -34,6 +35,7 @@ CREATE TABLE `user` (
   `userRoll` varchar(10) DEFAULT 'USER',
   `createdAt` datetime DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+`userState` varchar(50) NOT NULL DEFAULT 1, -- userState 1: 정상 2: 탈퇴 3:밴 
   PRIMARY KEY (`userId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -44,7 +46,11 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('user','$2a$10$aDVD6uxBlmaY2g0TBTR0MORVNp4Rg5I9a0iDpAdLNij86wdABhdry','user@email.com','테스트계정','M','1998-01-04','USER','2022-08-18 14:45:50','2022-08-18 14:45:50');
+INSERT INTO `user` VALUES ('user','$2a$10$aDVD6uxBlmaY2g0TBTR0MORVNp4Rg5I9a0iDpAdLNij86wdABhdry', '테스트', 'user@gmail.com','테스트계정','M','2000-10-22','USER','2022-08-14 14:45:50','2022-08-14 14:45:50', 1);
+INSERT INTO `user` VALUES ('user2','$2a$10$aDVD6uxBlmaY2g0TBTR0MORVNp4Rg5I9a0iDpAdLNij86wdABhdry', '테스트2', 'user@kakao.com','테스트계정2','F','1998-05-02','USER','2022-08-15 14:45:50','2022-08-16 14:45:50', 1);
+INSERT INTO `user` VALUES ('sangjong','$2a$10$aDVD6uxBlmaY2g0TBTR0MORVNp4Rg5I9a0iDpAdLNij86wdABhdry', '최상종', 'user@enaver.com','csj1026','M','1996-10-26','USER','2022-08-18 14:45:50','2022-08-18 14:45:50', 1);
+
+
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,13 +66,4 @@ UNLOCK TABLES;
 -- Dump completed on 2022-08-18 15:47:51
 
 
-
--- userName, userNum column 추가 (상종)
-alter table user add column userName varchar(50);
-alter table user add column userNum varchar(100);
-
-INSERT INTO `user` VALUES ('user2','$2a$10$aDVD6uxBlmaY2g0TBTR0MORVNp4Rg5I9a0iDpAdLNij86wdABhdry','user@email.com','테스트계정','M','1998-01-04','USER','2022-08-18 14:45:50','2022-08-18 14:45:50', '최상종', '010-3617-9409');
-
--- userState column 추가
-alter table user add column userState varchar(50);
 
