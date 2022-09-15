@@ -18,6 +18,7 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/module/toggle.css'/>">
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 		<!-- services와 clusterer, drawing 라이브러리 불러오기 -->
 		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f62ace4deff6b141114cc8499d76cb47&libraries=services,clusterer,drawing"></script>
 
@@ -25,8 +26,8 @@
 <%--		<script type="text/javascript" src="<c:url value='/js/course/courseEdit.js'/>"></script>--%>
 		<script type="text/javascript" src="<c:url value='/js/course/courseDelete.js'/>"></script>
 		<script type="text/javascript" src="<c:url value='/js/course/timelineEdit.js'/>"></script>
-		<script type="text/javascript" src="<c:url value='/js/course/mapEdit.js'/>"></script>
-		<script type="text/javascript" src="<c:url value='/js/course/mapView2.js'/>"></script>
+		<script type="text/javascript" src="<c:url value='/js/course/mapUpdate.js'/>"></script>
+		<script type="text/javascript" src="<c:url value='/js/course/dialog.js'/>"></script>
 	</head>
 	<body id="courseDetailEdit">
 		<!-- top으로 이동 -->
@@ -119,6 +120,11 @@
 					</section><!-- course map -->
 				</section><!-- Course -->
 			</article><!-- courseMain -->
+			<div id="courseDialog" title="장소 상세 보기">
+				<div id="detailPlaceUrl"></div>
+				<div id="addBtnBox"></div>
+			</div>
+			<div style="height: 50px;"></div>
 		</main>
 
 		 <!-- bottom 이동 -->
