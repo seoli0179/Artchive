@@ -45,7 +45,7 @@ CREATE TABLE `reviewcomment` (
 
 LOCK TABLES `reviewcomment` WRITE;
 /*!40000 ALTER TABLE `reviewcomment` DISABLE KEYS */;
-INSERT INTO `reviewcomment` VALUES (1,1,'user','POST','유용한 정보네요',0,'2022-09-02 04:49:38','2022-09-02 04:49:38');
+
 /*!40000 ALTER TABLE `reviewcomment` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

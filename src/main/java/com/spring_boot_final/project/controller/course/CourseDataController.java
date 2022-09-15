@@ -75,7 +75,7 @@ public class CourseDataController {
             postionX += clvo.getX()+";;";
             positionY += clvo.getY()+";;";
             placeUrls += clvo.getPlace_url()+";;";
-            placeMemos += clvo.getPlace_memo().equals("")+";;";
+            placeMemos += clvo.getPlace_memo()+";;";
         }
         vo.setUserId(session.getAttribute("sid").toString());
         vo.setPlaceNames(placeNames);
