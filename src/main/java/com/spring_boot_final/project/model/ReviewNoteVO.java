@@ -18,15 +18,29 @@ public class ReviewNoteVO {
 	private String exhbnId;
 	
 	// DB에는 없지만 view에 출력할 때 사용할 필드
-	private String courseSitesArr;
-    private String courseAddressArr;
+	private String placeNames;
+    private String addressNames;
     private String courseMemoArr;
     private String courseTitle;
     private String courseTag;
     private String exhbnImgUrl;
     private String userNickname;
     
-    private boolean reviewNoteLikeCheck;
+    
+    
+    public String getPlaceNames() {
+		return placeNames;
+	}
+	public void setPlaceNames(String placeNames) {
+		this.placeNames = placeNames;
+	}
+	public String getAddressNames() {
+		return addressNames;
+	}
+	public void setAddressNames(String addressNames) {
+		this.addressNames = addressNames;
+	}
+	private boolean reviewNoteLikeCheck;
     private String sort;
     
     
@@ -121,18 +135,6 @@ public class ReviewNoteVO {
 	}
 	public void setExhbnId(String exhbnId) {
 		this.exhbnId = exhbnId;
-	}
-	public String getCourseSitesArr() {
-		return courseSitesArr;
-	}
-	public void setCourseSitesArr(String courseSitesArr) {
-		this.courseSitesArr = courseSitesArr;
-	}
-	public String getCourseAddressArr() {
-		return courseAddressArr;
-	}
-	public void setCourseAddressArr(String courseAddressArr) {
-		this.courseAddressArr = courseAddressArr;
 	}
 	public String getCourseMemoArr() {
 		return courseMemoArr;

@@ -79,7 +79,7 @@ public class reviewViewController {
  		
  		 if (vo.getReviewPageViewState() != ViewState.POST) { return "error"; }
  		
- 		String[] siteName = vo.getCourseSitesArr().split(";;");
+ 		String[] siteName = vo.getPlaceNames().split(";;");
  		
  		System.out.println(siteName);
  		
@@ -134,7 +134,7 @@ public class reviewViewController {
   		ArrayList<ReviewNoteVO> reviewNoteList = reviewnoteService.reviewNoteList();
   		ReviewNoteVO vo = reviewnoteService.selectReviewNote(reviewNoteId);
   		
-  		String[] siteName = vo.getCourseSitesArr().split(";;");
+  		String[] siteName = vo.getPlaceNames().split(";;");
   		
   		System.out.println(siteName);
   		

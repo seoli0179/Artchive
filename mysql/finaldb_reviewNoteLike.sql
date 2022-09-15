@@ -38,7 +38,7 @@ CREATE TABLE `reviewnotelike` (
 
 LOCK TABLES `reviewnotelike` WRITE;
 /*!40000 ALTER TABLE `reviewnotelike` DISABLE KEYS */;
-INSERT INTO `reviewnotelike` VALUES (1,'user');
+
 /*!40000 ALTER TABLE `reviewnotelike` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
