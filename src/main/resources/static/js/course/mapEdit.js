@@ -396,8 +396,6 @@ function addCourseMarker2(y,x, idx, title) {
 	return marker;
 }
 
-
-
 function addCourseItem(data, idx) {
 	console.log(JSON.stringify(data[idx]));
 	if(confirm("코스에 추가하시겠습니까?")) {

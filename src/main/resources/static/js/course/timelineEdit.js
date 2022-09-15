@@ -1,4 +1,3 @@
-
 document.write('<script type=\"text/javascript\" src=\"mapEdit.js\"> <\/script>');
 document.write('<script type=\"text/javascript\" src=\"mapView2.js\"> <\/script>');
 
