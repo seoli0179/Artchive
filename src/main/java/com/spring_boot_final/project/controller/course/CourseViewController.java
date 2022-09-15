@@ -135,7 +135,7 @@ public class CourseViewController {
         }
         if (placeMemo.length!=0) {
             for (int i = 0; i < placeMemo.length; i++) {
-                result.get(i).setPlace_memo(vo.getPlaceMemos().split(";;")[i].length() ==0 ? "" : vo.getPlaceMemos().split(";;")[i]);
+                result.get(i).setPlace_memo(placeMemo[i]);
             }
         }
 
