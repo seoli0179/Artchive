@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring_boot_final.project.model.CourseCommentVO;
+import com.spring_boot_final.project.model.CourseListItemVO;
 import com.spring_boot_final.project.model.CourseVO;
 import com.spring_boot_final.project.model.ReviewCommentVO;
 import com.spring_boot_final.project.model.ReviewNoteVO;
@@ -107,11 +108,7 @@ public class reviewViewController {
   	public String selectCoursePost(@PathVariable("courseId") int courseId,
             HttpSession session,
             Model model) throws Exception {
-  		
-		CourseVO vo = courseService.selectCoursePost(courseId);
-		ArrayList<CourseCommentVO> commentVo = courseService.selectCourseComment(courseId);
-		model.addAttribute("course", vo);
-		model.addAttribute("cComment",commentVo);
+
 		
 		/*
 		 * ArrayList<String[]> sites = new ArrayList<String[]>();
@@ -123,6 +120,36 @@ public class reviewViewController {
 		 * model.addAttribute("siteName", siteName); model.addAttribute("siteAddress",
 		 * siteAddress); model.addAttribute("siteMemo", siteMemo);
 		 */
+		
+		CourseVO vo = courseService.selectCoursePost(courseId);
+        ArrayList<CourseListItemVO> result = new ArrayList<CourseListItemVO>();
+        // 구분자 분리
+        String[] placeName = vo.getPlaceNames().split(";;");
+        String[] placeMemo = vo.getPlaceMemos().split(";;");
+
+        for (int i=0; i<placeName.length; i++) {
+            CourseListItemVO temp = new CourseListItemVO();
+            temp.setPlace_name(placeName[i]);
+            temp.setCategory_group_name(vo.getCategoryNames().split(";;")[i]);
+			/*
+			 * temp.setPhone(vo.getPhones().split(";;")[i]==null ? "" :
+			 * vo.getPhones().split(";;")[i]);
+			 */
+            temp.setAddress_name(vo.getAddressNames().split(";;")[i]);
+            temp.setRoad_address_name(vo.getRoadAddressNames().split(";;")[i]);
+            temp.setX(vo.getPostionX().split(";;")[i]);
+            temp.setY(vo.getPositionY().split(";;")[i]);
+            temp.setPlace_url(vo.getPlaceUrls().split(";;")[i]);
+            result.add(temp);
+        }
+        if (placeMemo.length!=0) {
+            for (int i = 0; i < placeMemo.length; i++) {
+                result.get(i).setPlace_memo(vo.getPlaceMemos().split(";;")[i].length() ==0 ? "" : vo.getPlaceMemos().split(";;")[i]);
+            }
+        }
+
+        model.addAttribute("course", vo);
+        model.addAttribute("courseItem", result);
 		
 		return "review/reviewNoteWrite";
 		}
