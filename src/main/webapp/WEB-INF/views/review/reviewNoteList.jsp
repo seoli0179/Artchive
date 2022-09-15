@@ -12,16 +12,22 @@
         <link href="http://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css" rel="Stylesheet">
         <!-- icon-kit -->
         <script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/8ab5776cfb.js" crossorigin="anonymous"></script><!-- 아이콘 -->
 
         <!-- custom -->
-        <script src="<c:url value='/js/course/course.js'/>"></script>
+        <%-- <script src="<c:url value='/js/course/course.js'/>"></script> --%>
         <script src="<c:url value='/js/course/autocomplete.js'/>"></script>
+        
+        <!-- reviewList -->
+        <script src="<c:url value='/js/review/reviewList.js'/>"></script>
 
         <link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
         <link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>"/>
         <link rel="stylesheet" type="text/css" href="<c:url value='/css/list.css'/>"/>
         <link rel="stylesheet" type="text/css" href="<c:url value='/css/course/course.css'/>"/>
         <link rel="stylesheet" type="text/css" href="<c:url value='/css/course/courseBoard.css'/>"/>
+        
+        
     </head>
     <body>
         <div id="course-wrap">
@@ -42,7 +48,7 @@
 	
 	                                </div>
 	                            </div>
-	                            <input class="black-btn courseBoard-searchBtn" type="button" value="검색">
+	                            <input class="black-btn courseBoard-searchBtn" id="reviewNoteSearch" type="button" value="검색">
 	                        </div>
 	                        <div id="tag-caution" class="vibration">태그는 3개까지만 선택할 수 있습니다.</div>
 	                    </div>
@@ -57,7 +63,7 @@
                         </div>
                         <div id="mostView" class="AREA">
                             <ul>
-                                <li><a href="#">조회순</a></li>
+                                <li><a href="#">댓글순</a></li>
                             </ul>
                         </div>
                         <div id="likeView" class="AREA">
@@ -84,8 +90,10 @@
                 </section>
                 <!-- .searchAreaBox -->
                 <!-- borad-gallery -->
+                <div id="searchResultl">
                 <div class="course-box board-gallery-view">
                     <c:forEach var="reviewNote" items="${reviewNoteList}">
+                    <input type="hidden" id="reviewNoteId" value="${reviewNote.reviewNoteId}">
                         <div class="post-container" style="cursor: pointer;" onclick="location.href='/review/reviewNote/${reviewNote.reviewNoteId}';">
                             <div class="post-img-box" style="background-image: url('${reviewNote.exhbnImgUrl}');">
 
@@ -107,7 +115,17 @@
                                 </div>
                                 <div class="post-react-box">
                                     <div class="post-view-box">
-                                        <i class="fa-solid fa-heart" style="color:black;"></i>
+                                    <%-- <c:if test="${not empty sessionScope.sid}"> --%>
+	                                    <c:if test="${reviewNote.reviewNoteLikeCheck}">
+		                            		<i class="fa-solid fa-heart" style="color:red;"></i>
+		                       			</c:if>
+	                                    <c:if test="${not reviewNote.reviewNoteLikeCheck}">
+	                                        <i class="fa-solid fa-heart" style="color:black;"></i>
+	                                    </c:if>
+	                                <%-- </c:if>
+	                                <c:if test="${empty sessionScope.sid}">
+	                        			<i class="fa-solid fa-heart" style="color:Black;"></i>
+	                    			</c:if> --%>
                                         <span>${reviewNote.reviewNoteLike}</span>
                                     </div>
                                     <div class="post-like-box">
@@ -120,6 +138,7 @@
                     </c:forEach>
                     <!-- .post-container -->
                 </div>
+                </div> <!-- searchResultl -->
             </main>
 
             <!-- bottom 이동 -->

@@ -34,7 +34,7 @@
 						<ul><li>${reviewNote.userNickname}</li></ul>
 					</div>
 					<div id="header-postTitle" class="headerText">
-						<input type="text" id="reviewNoteTitle" value="${reviewNote.reviewNoteTitle}" placeholder="제목 입력">
+						<input type="text" id="reviewNoteTitle" class="post-title editInput h1" value="${reviewNote.reviewNoteTitle}" placeholder="제목 입력">
 						<%-- <h1>${reviewNote.reviewNoteTitle}</h1> --%>
 						<%-- <input type="text" value="${reviewNote.reviewNoteId}" hidden> --%>
 					</div>
