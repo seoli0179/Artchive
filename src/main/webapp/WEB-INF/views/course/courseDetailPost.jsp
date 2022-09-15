@@ -8,7 +8,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Artchive / ${exhbn.exhbnImgUrl}에 대한 코스</title>
+		<title>Artchive / ${exhbn.exhbnTitle}에 대한 코스</title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
 		<!-- icon-kit -->
@@ -17,6 +17,8 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/courseDetail.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/tagBox.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/module/toggle.css'/>">
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 		<script src="<c:url value='/js/course/autocomplete.js'/>"></script>
@@ -27,7 +29,7 @@
 		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f62ace4deff6b141114cc8499d76cb47&libraries=services,clusterer,drawing"></script>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/map.css'/>">
 		<script type="text/javascript" src="<c:url value='/js/course/mapEdit.js'/>"></script>
-		<script type="text/javascript" src="<c:url value='/js/course/modal.js'/>"></script>
+		<script type="text/javascript" src="<c:url value='/js/course/dialog.js'/>"></script>
 
 
 	</head>
@@ -108,7 +110,8 @@
 												<h3 id="firstExhbnTitle" class="siteName">${exhbn.exhbnTitle}</h3>
 												<div id="firstExhbnAddr" class="siteAddress">${exhbn.exhbnPlaceAddr}</div>
 												<div class="memo-box">
-													<textarea id="memo_${i}" class="place-memo-input" placeholder="메모를 입력하세요.">${positions[i].place_memo}</textarea>
+													<textarea id="memo_0" class="place-memo-input" placeholder="메모를 입력하세요.">${positions[i].place_memo}</textarea>
+													<input id="place_url_0" class="place_url" value="${positions[i].place_url}" hidden>
 												</div>
 											</div>
 										</div>
@@ -147,22 +150,11 @@
 					</section><!-- course map -->
 				</section><!-- Course -->
 			</article><!-- courseMain -->
-
-			<div id="modal" class="modal-overlay">
-				<div class="modal-window">
-					<div class="title">
-						<h2>모달</h2>
-					</div>
-					<div class="close-area">X</div>
-					<div class="content">
-						<p>가나다라마바사 아자차카타파하</p>
-						<p>가나다라마바사 아자차카타파하</p>
-						<p>가나다라마바사 아자차카타파하</p>
-						<p>가나다라마바사 아자차카타파하</p>
-
-					</div>
-				</div>
+			<div id="courseDialog" title="장소 상세 보기">
+				<div id="detailPlaceUrl"></div>
+				<div id="addBtnBox"></div>
 			</div>
+			<div style="height: 50px;"></div>
 		</main>
 
 		 <!-- bottom 이동 -->

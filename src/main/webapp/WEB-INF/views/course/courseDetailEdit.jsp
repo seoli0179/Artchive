@@ -24,6 +24,7 @@
 		<script type="text/javascript" src="<c:url value='/js/course/autocomplete.js'/>"></script>
 		<script type="text/javascript" src="<c:url value='/js/course/courseEdit.js'/>"></script>
 		<script type="text/javascript" src="<c:url value='/js/course/courseDelete.js'/>"></script>
+		<script type="text/javascript" src="<c:url value='/js/course/timelineEdit.js'/>"></script>
 		<script type="text/javascript" src="<c:url value='/js/course/mapEdit.js'/>"></script>
 	</head>
 	<body id="courseDetailEdit">
@@ -117,44 +118,6 @@
 					</section><!-- course map -->
 				</section><!-- Course -->
 			</article><!-- courseMain -->
-
-			<section id="searchMap-container">
-				<div id="searchCourse">
-<%--					<ul>--%>
-<%--						<li>Search.</li>--%>
-<%--					</ul>--%>
-<%--					<form onsubmit="searchPlaces(); return false;">--%>
-<%--						<input type="text" id="courseSearch" name="courseSearch" size="120"  placeholder="검색어를 입력하세요."/>--%>
-<%--						<input type="submit" id="CourseSearchBtn" value="검색">--%>
-<%--					</form>--%>
-				</div>
-				
-				<div id = "recommendCourse">
-				 <div class="courseAdd">
-				 	<div class="courseAddBtn">
-				 		<input type="button" class="white-btn" id="courseAddBtn1" value="장소 추가">
-				 	</div>
-				 </div>
-				 
-				  <div class="courseAdd">
-				 	<div class="courseAddBtn">
-				 		<input type="button" class="white-btn" id="courseAddBtn1" value="장소 추가">
-				 	</div>
-				 </div>
-				 
-				  <div class="courseAdd">
-				 	<div class="courseAddBtn">
-				 		<input type="button" class="white-btn" id="courseAddBtn1" value="장소 추가">
-				 	</div>
-				 </div>
-				 
-				  <div class="courseAdd">
-				 	<div class="courseAddBtn">
-				 		<input type="button" class="white-btn" id="courseAddBtn1" value="장소 추가">
-				 	</div>
-				 </div>
-				</div>
-			</section>
 		</main>
 
 		 <!-- bottom 이동 -->

@@ -67,7 +67,6 @@ public class CourseDataController {
 
         for (CourseListItemVO clvo : vo.getCourseListItem()) {
             System.out.println(clvo.getPlace_memo());
-            System.out.println(clvo.getPhone());
             placeNames += clvo.getPlace_name() + ";;";
             categoryNames += clvo.getCategory_group_name()+";;";
             phones += clvo.getPhone()+";;";
@@ -77,7 +76,6 @@ public class CourseDataController {
             positionY += clvo.getY()+";;";
             placeUrls += clvo.getPlace_url()+";;";
             placeMemos += clvo.getPlace_memo().equals("")+";;";
-
         }
         vo.setUserId(session.getAttribute("sid").toString());
         vo.setPlaceNames(placeNames);
