@@ -2,7 +2,11 @@ package com.spring_boot_final.project.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.spring_boot_final.project.dao.IAitemsDAO;
 import org.apache.tomcat.util.codec.binary.Base64;
+import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -20,13 +24,17 @@ import java.util.ArrayList;
 @Service
 public class AitemsService {
 
+    @Autowired
+    @Qualifier("IAitemsDAO")
+    IAitemsDAO dao;
+
     @Value("${aitems.accessKey}")
     private String accessKey;
 
     @Value("${aitems.secretKey}")
     private String secretKey;
 
-    public ArrayList<String> getRelatedItem(String itemId) {
+    public ArrayList<String> getRelatedItem(String itemId, int num) {
 
         try {
 
@@ -63,7 +71,7 @@ public class AitemsService {
                 }
                 br.close();
                 System.out.println(response.toString());
-                return convertJsonToArray(response.toString());
+                return convertJsonToArray(response.toString(), num);
             } else {
                 System.out.println("error !!!");
             }
@@ -74,7 +82,7 @@ public class AitemsService {
         return null;
     }
 
-    public ArrayList<String> getPersonalRecommend(String userId) {
+    public ArrayList<String> getPersonalRecommend(String userId, int num) {
 
         try {
 
@@ -111,7 +119,7 @@ public class AitemsService {
                 }
                 br.close();
                 System.out.println(response.toString());
-                return convertJsonToArray(response.toString());
+                return convertJsonToArray(response.toString(), num);
             } else {
                 System.out.println("error !!!");
             }
@@ -191,12 +199,13 @@ public class AitemsService {
         return encodeBase64String;
     }
 
-    public ArrayList<String> convertJsonToArray(String json) throws JsonProcessingException {
+    public ArrayList<String> convertJsonToArray(String json, int num) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
-
         Response vo = mapper.readValue(json, Response.class);
+        ArrayList<String> items = dao.selectItems((num - vo.getValues().size() <= 0) ? 0 : num - vo.getValues().size());
+        items.addAll(vo.getValues());
 
-        return vo.getValues();
+        return items;
 
     }
 

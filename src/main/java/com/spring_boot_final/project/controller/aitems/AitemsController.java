@@ -20,7 +20,7 @@ public class AitemsController {
     public ArrayList<String> relatedItem(@RequestParam("itemId") String itemId) {
 
         //ArrayList<String> items = service.getRelatedItem("209436");
-        ArrayList<String> items = service.getRelatedItem(itemId);
+        ArrayList<String> items = service.getRelatedItem(itemId, 5);
 
         for (String str : items) {
             System.out.println(str);
@@ -33,8 +33,7 @@ public class AitemsController {
     @RequestMapping("aitems/personalRecommend")
     public ArrayList<String> personalRecommend(@RequestParam("userId") String userId) {
 
-        //ArrayList<String> items = service.getRelatedItem("209436");
-        ArrayList<String> items = service.getPersonalRecommend(userId);
+        ArrayList<String> items = service.getPersonalRecommend(userId, 5);
 
         for (String str : items) {
             System.out.println(str);
