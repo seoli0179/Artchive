@@ -74,7 +74,7 @@ public class CourseViewController {
             CourseListItemVO temp = new CourseListItemVO();
             temp.setPlace_name(placeName[i]);
             temp.setCategory_group_name(vo.getCategoryNames().split(";;")[i]);
-            temp.setPhone(vo.getPhones().split(";;")[i]==null ? "" : vo.getPhones().split(";;")[i]);
+//            temp.setPhone(vo.getPhones().split(";;")[i]);
             temp.setAddress_name(vo.getAddressNames().split(";;")[i]);
             temp.setRoad_address_name(vo.getRoadAddressNames().split(";;")[i]);
             temp.setX(vo.getPostionX().split(";;")[i]);
@@ -84,7 +84,7 @@ public class CourseViewController {
         }
         if (placeMemo.length!=0) {
             for (int i = 0; i < placeMemo.length; i++) {
-                result.get(i).setPlace_memo(vo.getPlaceMemos().split(";;")[i].length() ==0 ? "" : vo.getPlaceMemos().split(";;")[i]);
+                result.get(i).setPlace_memo(vo.getPlaceMemos().split(";;")[i]);
             }
         }
 
@@ -95,27 +95,6 @@ public class CourseViewController {
         return "course/courseDetailView";
     }
 
-//    @RequestMapping("/course/{courseId}")
-//    public String selectCoursePost(@PathVariable("courseId") int courseId,
-//                                   HttpSession session,
-//                                   Model model) throws Exception {
-//        CourseVO vo = courseService.selectCoursePost(courseId);
-//        ArrayList<CourseCommentVO> commentVo = courseService.selectCourseComment(courseId);
-//        model.addAttribute("course", vo);
-//        model.addAttribute("cComment",commentVo);
-//
-////        ArrayList<String[]> sites = new ArrayList<String[]>();
-////        String[] siteName = vo.getCourseSitesArr().split(";;");
-////        String[] siteAddress = vo.getCourseAddressArr().split(";;");
-////        String[] siteMemo = vo.getCourseMemoArr().split(";;");
-//
-////        model.addAttribute("siteName", siteName);
-////        model.addAttribute("siteAddress", siteAddress);
-////        model.addAttribute("siteMemo", siteMemo);
-//
-//        return "course/courseDetailView";
-//    }
-//
 //    // 새 포스트 작성
     @RequestMapping("/course/newPost/{exhbnId}")
     public String writeCoursePost(@PathVariable("exhbnId") int exhbnId,
@@ -146,7 +125,7 @@ public class CourseViewController {
             CourseListItemVO temp = new CourseListItemVO();
             temp.setPlace_name(placeName[i]);
             temp.setCategory_group_name(vo.getCategoryNames().split(";;")[i]);
-            temp.setPhone(vo.getPhones().split(";;")[i]==null ? "" : vo.getPhones().split(";;")[i]);
+//            temp.setPhone(vo.getPhones().split(";;")[i]==null ? "" : vo.getPhones().split(";;")[i]);
             temp.setAddress_name(vo.getAddressNames().split(";;")[i]);
             temp.setRoad_address_name(vo.getRoadAddressNames().split(";;")[i]);
             temp.setX(vo.getPostionX().split(";;")[i]);
@@ -166,15 +145,15 @@ public class CourseViewController {
 
         return result;
     }
-//
-//    // 포스트 수정
-////    @RequestMapping("/course/{courseId}/edit")
-////    public String courseDetailEdit(@PathVariable("courseId") int courseId,
-////                                   HttpSession session,
-////                                   Model model) throws Exception {
-////        CourseVO vo = courseService.selectCoursePost(courseId);
-////        model.addAttribute("course", vo);
-////        return "course/courseDetailEdit";
-////    }
-//
+
+    // 포스트 수정
+    @RequestMapping("/course/{courseId}/edit")
+    public String courseDetailEdit(@PathVariable("courseId") int courseId,
+                                   HttpSession session,
+                                   Model model) throws Exception {
+        CourseVO vo = courseService.selectCoursePost(courseId);
+        model.addAttribute("course", vo);
+        return "course/courseDetailEdit";
+    }
+
 }

@@ -8,6 +8,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -16,10 +17,13 @@ import com.spring_boot_final.project.model.summary.TotalVO;
 
 @Service
 public class SummaryService {
+	
+	 @Value("${summary.clientSecret}")
+	  private String clientSecret;
+	
 	public String textSummary (TotalVO vo ) {
        
 		String clientId = "yuk8q7vxmd"; //애플리케이션 클라이언트 아이디값";
-        String clientSecret = "4oV1A3QTmd4fvjelyZdzmFGwPt0kQk2qxoj8T58a"; //애플리케이션 클라이언트 시크릿값";
         String json="";
         
         try {
