@@ -69,7 +69,7 @@ public class CourseDataController {
             System.out.println(clvo.getPlace_memo());
             placeNames += clvo.getPlace_name() + ";;";
             categoryNames += clvo.getCategory_group_name()+";;";
-            phones += clvo.getPhone()+";;";
+//            phones += clvo.getPhone()+";;";
             addressNames += clvo.getAddress_name()+";;";
             roadAddressNames += clvo.getRoad_address_name()+";;";
             postionX += clvo.getX()+";;";
@@ -92,14 +92,64 @@ public class CourseDataController {
         return "SUCCESS";
     }
 
+//    @ResponseBody
+//    @RequestMapping("/course/updateCourse")
+//    public String updateCourse(HttpSession session, @RequestParam CourseVO vo){
+//        if (session.getAttribute("sid") == null) {
+//            return "FAIL";
+//        }
+//
+//        vo.setUserId(session.getAttribute("sid").toString());
+//        courseService.updateCourse(vo);
+//
+//        return "SUCCESS";
+//    }
+//
     @ResponseBody
     @RequestMapping("/course/updateCourse")
-    public String updateCourse(HttpSession session, @RequestParam CourseVO vo){
+    public String updateCourse(HttpSession session,
+                               @RequestBody String param) throws IOException {
         if (session.getAttribute("sid") == null) {
             return "FAIL";
         }
+        // vo 설정
+        CourseVO vo = new CourseVO();
+        ObjectMapper mapper = new ObjectMapper();
+        vo = mapper.readValue(param, CourseVO.class);
+        // CourseListItemVO 문자열 변환
+        String placeNames = "";
+        String categoryNames = "";
+        String phones = "";
+        String addressNames = "";
+        String roadAddressNames = "";
+        String postionX = "";
+        String positionY = "";
+        String placeUrls = "";
+        String placeMemos = "";
 
+        for (CourseListItemVO clvo : vo.getCourseListItem()) {
+            System.out.println(clvo.getPlace_memo());
+            placeNames += clvo.getPlace_name() + ";;";
+            categoryNames += clvo.getCategory_group_name()+";;";
+//            phones += clvo.getPhone()+";;";
+            addressNames += clvo.getAddress_name()+";;";
+            roadAddressNames += clvo.getRoad_address_name()+";;";
+            postionX += clvo.getX()+";;";
+            positionY += clvo.getY()+";;";
+            placeUrls += clvo.getPlace_url()+";;";
+            placeMemos += clvo.getPlace_memo()+";;";
+        }
         vo.setUserId(session.getAttribute("sid").toString());
+        vo.setPlaceNames(placeNames);
+        vo.setCategoryNames(categoryNames);
+        vo.setPhones(phones);
+        vo.setAddressNames(addressNames);
+        vo.setRoadAddressNames(roadAddressNames);
+        vo.setPostionX(postionX);
+        vo.setPositionY(positionY);
+        vo.setPlaceUrls(placeUrls);
+        vo.setPlaceMemos(placeMemos);
+        // service
         courseService.updateCourse(vo);
 
         return "SUCCESS";
