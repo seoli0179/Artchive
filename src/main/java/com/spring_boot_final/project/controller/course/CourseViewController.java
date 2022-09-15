@@ -95,27 +95,6 @@ public class CourseViewController {
         return "course/courseDetailView";
     }
 
-//    @RequestMapping("/course/{courseId}")
-//    public String selectCoursePost(@PathVariable("courseId") int courseId,
-//                                   HttpSession session,
-//                                   Model model) throws Exception {
-//        CourseVO vo = courseService.selectCoursePost(courseId);
-//        ArrayList<CourseCommentVO> commentVo = courseService.selectCourseComment(courseId);
-//        model.addAttribute("course", vo);
-//        model.addAttribute("cComment",commentVo);
-//
-////        ArrayList<String[]> sites = new ArrayList<String[]>();
-////        String[] siteName = vo.getCourseSitesArr().split(";;");
-////        String[] siteAddress = vo.getCourseAddressArr().split(";;");
-////        String[] siteMemo = vo.getCourseMemoArr().split(";;");
-//
-////        model.addAttribute("siteName", siteName);
-////        model.addAttribute("siteAddress", siteAddress);
-////        model.addAttribute("siteMemo", siteMemo);
-//
-//        return "course/courseDetailView";
-//    }
-//
 //    // 새 포스트 작성
     @RequestMapping("/course/newPost/{exhbnId}")
     public String writeCoursePost(@PathVariable("exhbnId") int exhbnId,
@@ -166,15 +145,15 @@ public class CourseViewController {
 
         return result;
     }
-//
-//    // 포스트 수정
-////    @RequestMapping("/course/{courseId}/edit")
-////    public String courseDetailEdit(@PathVariable("courseId") int courseId,
-////                                   HttpSession session,
-////                                   Model model) throws Exception {
-////        CourseVO vo = courseService.selectCoursePost(courseId);
-////        model.addAttribute("course", vo);
-////        return "course/courseDetailEdit";
-////    }
-//
+
+    // 포스트 수정
+    @RequestMapping("/course/{courseId}/edit")
+    public String courseDetailEdit(@PathVariable("courseId") int courseId,
+                                   HttpSession session,
+                                   Model model) throws Exception {
+        CourseVO vo = courseService.selectCoursePost(courseId);
+        model.addAttribute("course", vo);
+        return "course/courseDetailEdit";
+    }
+
 }
