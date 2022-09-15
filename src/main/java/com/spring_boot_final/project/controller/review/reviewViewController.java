@@ -113,14 +113,16 @@ public class reviewViewController {
 		model.addAttribute("course", vo);
 		model.addAttribute("cComment",commentVo);
 		
-		ArrayList<String[]> sites = new ArrayList<String[]>();
-		String[] siteName = vo.getCourseSitesArr().split(";;");
-		String[] siteAddress = vo.getCourseAddressArr().split(";;");
-		String[] siteMemo = vo.getCourseMemoArr().split(";;");
-		
-		model.addAttribute("siteName", siteName);
-		model.addAttribute("siteAddress", siteAddress);
-		model.addAttribute("siteMemo", siteMemo);
+		/*
+		 * ArrayList<String[]> sites = new ArrayList<String[]>();
+		 * 
+		 * String[] siteName = vo.getCourseSitesArr().split(";;"); String[] siteAddress
+		 * = vo.getCourseAddressArr().split(";;"); String[] siteMemo =
+		 * vo.getCourseMemoArr().split(";;");
+		 * 
+		 * model.addAttribute("siteName", siteName); model.addAttribute("siteAddress",
+		 * siteAddress); model.addAttribute("siteMemo", siteMemo);
+		 */
 		
 		return "review/reviewNoteWrite";
 		}
