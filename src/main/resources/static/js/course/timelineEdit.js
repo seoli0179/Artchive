@@ -301,6 +301,11 @@ function createList() {
             positions[i].place_memo = "";
         }
 
+        // 빈 메모 처리
+        if (positions[i].place_memo == null){
+            positions[i].place_memo = "";
+        }
+
         listItem.innerHTML = `
                         <div class="left-side">
                             <div class="moveHandler">

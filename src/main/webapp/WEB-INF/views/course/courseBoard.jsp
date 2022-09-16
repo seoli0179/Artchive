@@ -98,7 +98,12 @@
                             </div>
                             <div class="post-tag-box">
                                 <c:forTokens var="taglist" items="${li.courseTag}" delims=";;">
-                                    <div class="post-tag"><c:out value="${taglist}"/></div>
+                                    <span class="tooltip">
+                                        <span class="tooltip-text"><c:out value="${taglist}"/></span>
+                                        <div class="post-tag">
+                                        <c:out value="${taglist}"/>
+                                        </div>
+                                    </span>
                                 </c:forTokens>
                             </div>
                             <div class="post-footer-box">
