@@ -40,4 +40,29 @@
     	WHERE reviewCommentId = #{reviewCommentId}
     	AND userId = #{userId}
     </update>
+    
+    
+    <!-- 마이페이지 리뷰 댓글 조회-->
+	<select id="selectMpReviewComment" parameterType="string" resultType="com.spring_boot_final.project.model.ReviewCommentVO">
+        <![CDATA[
+        select *
+        from reviewComment
+        where userId = #{userId}
+        and reviewPageViewState = 'POST'
+        ORDER by reviewCommentCreatedDate DESC
+        ]]>
+    </select>
+    
+    <!-- 마이페이지 리뷰 댓글 삭제 -->
+     <update id="deleteMpReviewComment" parameterType="int">
+        <![CDATA[
+        update reviewComment
+        SET reviewPageViewState = 'DELETE'
+        WHERE reviewCommentId = #{reviewCommentId}
+        ]]>
+    </update>
+    
+
+
+    
 </mapper>
