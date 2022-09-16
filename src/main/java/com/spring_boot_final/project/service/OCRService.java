@@ -30,7 +30,7 @@ public class OCRService {
 	
 		
 		String result = "";
-		String imageFile = "/Library/images/ticket.png";
+		String imageFile = "/usr/local/project/images/ticket.png";
 		
 
 		try {
