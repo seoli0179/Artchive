@@ -28,7 +28,7 @@ $( function() {
             createList();
         },
         error: function () {
-
+            tagInit();
         }
     });
 
@@ -60,6 +60,12 @@ $( function() {
 
     // 태그 삭제 버튼
     let removeBtns = document.getElementsByClassName("closeBtn");
+
+    /* tag init */
+    function tagInit() {
+        tags.push("전시");
+        createTag();
+    }
 
     /* 태그 추가 함수 */
     function addTag(e) {
@@ -123,7 +129,6 @@ $( function() {
 
     // 태그 init //
     function getTags() {
-        tags = [];
         for (let i = 0; i < tagItem.length; i++) {
             let input = tagItem[i].textContent.trim();
             tags.push(input);
@@ -157,11 +162,15 @@ function insertCourse() {
     }
     let courseState = $("#courseStatus").val();
 
-    for (let i=0; i<tags.length; i++){
-        if (i==(tags.length-1)){
-            courseTag += tags[i];
-        } else {
-            courseTag += tags[i] + ";;";
+    if (tags.length == 0) {
+        courseTag = "전시"
+    } else {
+        for (let i=0; i<tags.length; i++){
+            if (i==(tags.length-1)){
+                courseTag += tags[i];
+            } else {
+                courseTag += tags[i] + ";;";
+            }
         }
     }
 
