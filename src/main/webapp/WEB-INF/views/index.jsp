@@ -22,6 +22,7 @@
     <script src="<c:url value='/js/module/dropdown.js'/>"></script>
     <script src="<c:url value='/js/search.js'/>"></script>
     <script src="<c:url value='/js/aitems/aitemsExhbn.js'/>"></script>
+    <script src="<c:url value='/js/index/imgBox.js'/>"></script> <!-- main image -->
     <!-- icon kit -->
     <script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
     <script type="text/javascript"></script>
@@ -100,7 +101,16 @@
             </div><!-- searchBox -->
         </div><!-- mainMenuBox -->
 
-        <div id="visual"><img src="<c:url value='https://ifh.cc/g/QzlnKA.png'/>"></div>
+        <div id="visual">
+            <div id="visual-img">
+<%--                <img src="<c:url value='https://ifh.cc/g/QzlnKA.png'/>">--%>
+                <div id="visual-img-box">
+                    <div id="img-top-right1"><img id="hands" src="<c:url value="/image/hands/hands_1.png"/>"></div>
+                    <div id="img-top-right2"><img id="eyes" src="<c:url value="/image/eyes/eyes_1.png"/>"></div>
+                    <div id="img-center-left1"><img id="flower" src="<c:url value="/image/flower/flower_1.png"/>"></div></div>
+                </div>
+            </div>
+        </div>
     </header>
 
 
