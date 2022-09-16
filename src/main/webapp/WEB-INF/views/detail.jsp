@@ -28,7 +28,7 @@
 					<div class="cover-text">
 						<div class="upper-cover">
 							<a href="#">
-									<span class="upper-cover-text">분류</span>
+									<span class="upper-cover-text">${exhbn.exhbnType} · ${exhbn.exhbnArea}</span>
 							</a>
 						</div>
 						<div class="cover-header">
@@ -84,7 +84,7 @@
 								<span>예약방법</span>
 							</div>
 							<div class="context-content">
-								<span>DIVE 앱 및 멜론 티켓 사이트<br/>* DIVE 앱 통해 예매 시, 현대카드만 결제 가능<br/>* 예약자 포함 최대 2인까지 예약 가능</span>
+								<button class="black-btn">예약하기</button>
 							</div>
 						</div>
 					</div>
