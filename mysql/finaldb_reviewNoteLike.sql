@@ -16,37 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `reviewcomment`
+-- Table structure for table `reviewnotelike`
 --
 
-DROP TABLE IF EXISTS `reviewcomment`;
+DROP TABLE IF EXISTS `reviewnotelike`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `reviewcomment` (
-  `reviewCommentId` int NOT NULL AUTO_INCREMENT,
-  `reviewNoteId` int NOT NULL,
+CREATE TABLE `reviewnotelike` (
+  `reviewNoteId` int NOT NULL AUTO_INCREMENT,
   `userId` varchar(50) NOT NULL,
-  `reviewPageViewState` varchar(50) DEFAULT 'POST',
-  `reviewComment` text,
-  `reviewCommentLike` int DEFAULT '0',
-  `reviewCommentCreatedDate` datetime DEFAULT CURRENT_TIMESTAMP,
-  `reviewCommentUpdatedDate` datetime DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`reviewCommentId`),
-  KEY `userId` (`userId`),
   KEY `reviewNoteId` (`reviewNoteId`),
-  CONSTRAINT `FK_reviewComment_reviewNote` FOREIGN KEY (`reviewNoteId`) REFERENCES `reviewnote` (`reviewNoteId`) ON DELETE CASCADE,
-  CONSTRAINT `FK_reviewComment_user` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb3;
+  KEY `userId` (`userId`),
+  CONSTRAINT `FK_reviewNotelike_reviewNote` FOREIGN KEY (`reviewNoteId`) REFERENCES `reviewnote` (`reviewNoteId`) ON DELETE CASCADE,
+  CONSTRAINT `FK_reviewNotelike_user` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `reviewcomment`
+-- Dumping data for table `reviewnotelike`
 --
 
-LOCK TABLES `reviewcomment` WRITE;
-/*!40000 ALTER TABLE `reviewcomment` DISABLE KEYS */;
+LOCK TABLES `reviewnotelike` WRITE;
+/*!40000 ALTER TABLE `reviewnotelike` DISABLE KEYS */;
 
-/*!40000 ALTER TABLE `reviewcomment` ENABLE KEYS */;
+/*!40000 ALTER TABLE `reviewnotelike` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -58,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-09 20:02:53
+-- Dump completed on 2022-09-12 18:13:54

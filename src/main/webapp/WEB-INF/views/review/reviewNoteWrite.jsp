@@ -36,7 +36,7 @@
 					</div>
 					<div id="header-postTitle" class="headerText">
 						<%-- <h1>${course.courseTitle}</h1> --%>
-						<h1><input type="text" id="reviewNoteTitle" placeholder="제목 입력"></h1>
+						<h1><input type="text" id="reviewNoteTitle" class="post-title editInput h1" placeholder="제목 입력"></h1>
 						<%-- <input type="text" value="${reviewNote.reviewNoteId}" hidden> --%>
 					</div>
 					<div id="header-postDate" class="headerText">
@@ -65,12 +65,9 @@
 		<section class="tag-box-view">
 			<h3>관련 태그</h3>
 			<ul id="tagList">
-				<%-- <c:forTokens var="taglist" items="${course.courseTag}" delims=";;">
+				<c:forTokens var="taglist" items="${course.courseTag}" delims=";;">
 					<li><c:out value="${taglist}"/></li>
-				</c:forTokens> --%>
-				<li>#태그</li>
-				<li>#태그</li>
-				<li>#태그</li>
+				</c:forTokens>
 			</ul>
 		</section> <!-- editCourseBtn -->
 		</div>
@@ -79,8 +76,8 @@
 	        <ul class="progressbar">
 	            <li id="start">start</li>
 	            
-	            <c:forEach var="site" items="${siteName}" varStatus="status">
-	            <li class="courseBox">${site}</li>
+	            <c:forEach var="site" items="${courseItem}" varStatus="status">
+	            <li class="courseBox">${site.place_name}</li>
 	            
 	         	</c:forEach>
 	         	
@@ -111,7 +108,7 @@
             <div id="summernote"></div>
         </div>
         <div class="btn-area">
-            <input type="button" id="reviewWrite" value="등록">
+            <input type="button" class="btn-area" id="reviewWrite" value="등록">
         </div>
     </div>
     

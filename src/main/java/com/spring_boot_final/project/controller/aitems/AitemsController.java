@@ -1,22 +1,27 @@
 package com.spring_boot_final.project.controller.aitems;
 
+import com.spring_boot_final.project.model.ExhbnVO;
 import com.spring_boot_final.project.service.AitemsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 
 
-@RestController
+@Controller
 public class AitemsController {
 
     @Autowired
     AitemsService service;
 
     @RequestMapping("aitems/relatedItem")
+    @ResponseBody
     public ArrayList<String> relatedItem(@RequestParam("itemId") String itemId) {
 
         //ArrayList<String> items = service.getRelatedItem("209436");
@@ -31,15 +36,30 @@ public class AitemsController {
     }
 
     @RequestMapping("aitems/personalRecommend")
-    public ArrayList<String> personalRecommend(@RequestParam("userId") String userId) {
+    public String personalRecommend(HttpSession session, Model model) {
 
-        ArrayList<String> items = service.getPersonalRecommend(userId, 5);
+        String userId;
+        if (session.getAttribute("sid") == null) {
+            userId = "null";
+        } else {
+            userId = session.getAttribute("sid").toString();
+        }
+//        userId = "user1001";
+
+        ArrayList<String> items = service.getPersonalRecommend(userId, 4);
 
         for (String str : items) {
             System.out.println(str);
         }
 
-        return items;
+        ArrayList<ExhbnVO> vo = service.getExhbnItems(items);
+
+
+        System.out.println(vo.size());
+
+        model.addAttribute("exhbnList", vo);
+
+        return "aitems/aitemsExhbnBox";
 
     }
 

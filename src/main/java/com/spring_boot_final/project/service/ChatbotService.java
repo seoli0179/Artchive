@@ -13,15 +13,21 @@ import javax.crypto.spec.SecretKeySpec;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ChatbotService {
-	public static String main(String voiceMessage) {
+	
+	
+	  @Value("${chatbot.secretKey}")
+	    private String secretKey;
+	
+	
+	public String main(String voiceMessage) {
 		// voiceMessage : 질문 메시지
 		
 				 String apiURL = "https://m6nobbvqw6.apigw.ntruss.com/custom/v1/7768/93e57ea337726d826e185032b0800bd4c00520a43d5b076c0a5b4f2903c50e80";
-				 String secretKey ="eFJTeUtETVVsWENvQ2Vla0R4TEtGSUhERGNKZ3Fhc0o=";		 
 				 
 		        String chatbotMessage = "";  // 답변 메시지
 
@@ -76,11 +82,10 @@ public class ChatbotService {
 		        return jsonToString(chatbotMessage);  // 답변 메시지 반환
 		    }
 			
-			public static String mainJSON(String voiceMessage) {
+			public String mainJSON(String voiceMessage) {
 				// voiceMessage : 질문 메시지
 					
 				 String apiURL = "https://m6nobbvqw6.apigw.ntruss.com/custom/v1/7768/93e57ea337726d826e185032b0800bd4c00520a43d5b076c0a5b4f2903c50e80";
-				String secretKey ="eFJTeUtETVVsWENvQ2Vla0R4TEtGSUhERGNKZ3Fhc0o=";
 				 
 		        String chatbotMessage = "";  // 답변 메시지
 
@@ -136,7 +141,7 @@ public class ChatbotService {
 		    }
 			
 			// 서버에 전송하는 질문 메시지와  secretKey를 조합해서 암호화하는 메소드
-		    public static String makeSignature(String message, String secretKey) {
+		    public String makeSignature(String message, String secretKey) {
 
 		        String encodeBase64String = "";
 
@@ -161,7 +166,7 @@ public class ChatbotService {
 		    }
 
 		    // 입력한 문자열 질문 메시지를 서버에 전송하기 위한 형태(JSON)로 변경해주는 메소드
-		    public static String getReqMessage(String voiceMessage) {
+		    public String getReqMessage(String voiceMessage) {
 
 		        String requestBody = "";
 
@@ -213,7 +218,7 @@ public class ChatbotService {
 		    }
 		    
 		    // JSON 파싱 메소드
-		    public static String jsonToString(String jsonResultStr) {
+		    public String jsonToString(String jsonResultStr) {
 		    	
 		    	JSONObject jsonObj = new JSONObject(jsonResultStr);
 		    	jsonObj = jsonObj.getJSONArray("bubbles").getJSONObject(0);

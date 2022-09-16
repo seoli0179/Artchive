@@ -36,7 +36,7 @@
 
             <main id="course-container">
                 <div id="course-box" class="course-box main-title-box">
-                    <h1 class="h1">Review</h1>
+                    <h1 class="h1"><a href="<c:url value='/review/reviewNoteList'/>">Review</a></h1>
                     <span>다른 사람들이 후기를 모아봅니다.</span>
 	                    <div class="courseboard-search-box">
 	                        <div class="searchbar-box">
