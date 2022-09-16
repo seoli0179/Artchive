@@ -59,7 +59,7 @@
 }
 
 .tabMenu li {
-	margin-top:15%;
+	margin-top:10%;
 }
 
 .tabMenu li:first-child {
@@ -75,6 +75,7 @@
 .tabMenu li:nth-child(5) a, .tabMenu li a:hover {
 	color:#000;
 	font-weight:bold;
+	font-size:22px;
 }
 
 .titleBox a {
