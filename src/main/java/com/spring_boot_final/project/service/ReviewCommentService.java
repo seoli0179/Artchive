@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring_boot_final.project.dao.IReviewCommentDAO;
 import com.spring_boot_final.project.model.ReviewCommentVO;
+import com.spring_boot_final.project.model.ReviewNoteVO;
 
 @Service
 public class ReviewCommentService implements IReviewCommentService {
@@ -36,5 +37,16 @@ public class ReviewCommentService implements IReviewCommentService {
 		dao.deleteReviewComment(vo);
 		
 	}
+	
+	// 마이 페이지 리뷰 게시글 조회
+	public ArrayList<ReviewCommentVO> selectMpReviewComment(String userId) {
+		return dao.selectMpReviewComment(userId);
+	}
+	
+	// 마이 페이지 리뷰 게시글 삭제
+	public void deleteMpReviewComment(int reviewCommentId) {
+		dao.deleteMpReviewComment(reviewCommentId);
+	}
+
 
 }
