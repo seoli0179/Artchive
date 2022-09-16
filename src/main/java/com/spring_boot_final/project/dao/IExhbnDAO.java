@@ -35,8 +35,9 @@ public interface IExhbnDAO {
 	public ArrayList<ExhbnVO> tab_ExhbnSearch4(String type); 
 	public ArrayList<ExhbnVO> tab_ExhbnSearch5(String type); 
 	public ArrayList<ExhbnVO> tab_ExhbnSearch6(String type); 
-	public ArrayList<ExhbnVO> tab_ExhbnSearch_total(HashMap<String, Object> map); 
-
+	/*
+	 * public ArrayList<ExhbnVO> tab_ExhbnSearch_total(HashMap<String, Object> map);
+	 */
 
 
 

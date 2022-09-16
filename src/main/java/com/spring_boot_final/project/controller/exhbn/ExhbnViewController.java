@@ -137,10 +137,9 @@ public class ExhbnViewController {
 	}
 	@RequestMapping("/exhbn/tab_exhbnSearch6")
 	public String tab_ExhbitonSearch6(@RequestParam("exhbnType") String type, Model model) {
-		ArrayList<ExhbnVO> tab_exhbnSearch = service.TabSearch6(type);
+		ArrayList<ExhbnVO> tab_exhbnSearch = service.TabSearch5(type);
 		model.addAttribute("exhbnSearchList", tab_exhbnSearch);
-		
-		
+
 		System.out.println(type);
 
 		for (int i = 0; i < tab_exhbnSearch.size(); i++) {
@@ -150,18 +149,18 @@ public class ExhbnViewController {
 		return "searchResult";
 
 	}
-	@RequestMapping("/exhbn/tab_exhbnSearch_total")
-	public String tab_ExhbitonSearch_total(@RequestParam("exhbnTitle") String title,@RequestParam("exhbnType") String type) {
-		  HashMap<String,Object> map = new HashMap<String,Object>();
-		  System.out.println(title);
-		  System.out.println(type);
-		  
-		  map.put("Title", title);
-		  map.put("Type",  type);
-		  
-		 
-		  
-		  return "searchResult"; //스프링이 자동으로 JSON타입으로 반환해서 전달한다.
-		}
+	/*
+	 * @RequestMapping("/exhbn/tab_exhbnSearch_total") public String
+	 * tab_ExhbitonSearch_total(@RequestParam("exhbnTitle") String
+	 * title,@RequestParam("exhbnType") String type) { HashMap<String,Object> map =
+	 * new HashMap<String,Object>(); System.out.println(title);
+	 * System.out.println(type);
+	 * 
+	 * map.put("Title", title); map.put("Type", type);
+	 * 
+	 * 
+	 * 
+	 * return "searchResult"; //스프링이 자동으로 JSON타입으로 반환해서 전달한다. }
+	 */
 	
 }

@@ -1,3 +1,5 @@
+
+ 
  $(document).ready(function(){
 
  	$('#exhbnSearchFrm').on('click', function(){
@@ -17,13 +19,20 @@
             $('#searchResultl').empty();
             $('#searchResultl').append(result);
             
-			console.log(result);            },
+			            },
             error: function () {
                 alert('검색어를 확인하세요')
             },
         });
  		
  	}); // submit 끝 
+ 	
+ 	$('.typeMove').on('click', function(){
+	 	$('.typeMove').each(function (index, item) {
+	     	alert(item);
+		});
+ 	});
+ 	
  });  // ready 끝
  
 
@@ -41,6 +50,7 @@
 	})
 
 })
+
 // 박물관 탭
  $(document).ready(function(){
 
@@ -57,7 +67,6 @@
            success: function (result_museum) {
             $('#searchResultl').html(result_museum);
             
-			console.log(result_museum);
 			},
             error: function () {
             alert("오류");
@@ -84,7 +93,7 @@
            success: function (result_Art_Exhbn) {
             $('#searchResultl').html(result_Art_Exhbn);
             
-			console.log(result_Art_Exhbn);
+			
 			},
             error: function () {
             alert("오류");
@@ -111,7 +120,6 @@
            success: function (result_Festival) {
             $('#searchResultl').html(result_Festival);
             
-			console.log(result_Festival);
 			},
             error: function () {
             alert("오류");
@@ -138,7 +146,6 @@
            success: function (result_Edu_Ex) {
             $('#searchResultl').html(result_Edu_Ex);
             
-			console.log(result_Edu_Ex);
 			},
             error: function () {
             alert("오류");
@@ -165,7 +172,6 @@
            success: function (result_Edu_Ex) {
             $('#searchResultl').html(result_Edu_Ex);
             
-			console.log(result_Edu_Ex);
 			},
             error: function () {
             alert("오류");
@@ -177,10 +183,10 @@
  	}); // submit 끝 
  });  // ready 끝
  
-      $(document).ready(function(){
+     $(document).ready(function(){
 
- 	$('#"allArea"').on('click', function(){
- 		var type = $('#"allArea"').on('click').val();
+ 	$('#allArea').on('click', function(){
+ 		var type = $('#allArea').on('click').val();
  		$.ajax({
             type: "post",
             url: "/exhbn/tab_exhbnSearch6",
@@ -189,10 +195,9 @@
                 "exhbnType": type
                 
             },
-           success: function (result_allArea) {
-            $('#searchResultl').html(result_allArea);
+           success: function (result_Edu_Ex) {
+            $('#searchResultl').html(result_Edu_Ex);
             
-			console.log(result_allArea);
 			},
             error: function () {
             alert("오류");
@@ -204,14 +209,7 @@
  	}); // submit 끝 
  });  // ready 끝
  
- 	$(document).ready(function() {
-			var listForm = $("#listForm");
-			
-			$(".pagination_button a").on("click", function(e) {
-				e.preventDefault();
-				
-				listForm.find("input[name='pageNum']").val($(this).attr("href"));
-				listForm.submit();
-			});
-		});
+
+ 
+ 
  

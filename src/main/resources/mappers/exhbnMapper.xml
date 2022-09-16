@@ -179,7 +179,7 @@
 	</select>
 
 	
-	<select id="tab_ExhbnSearch6" parameterType="String" resultType="com.spring_boot_final.project.model.ExhbnVO">
+	<select id="tab_exhbnSearch6" parameterType="String" resultType="com.spring_boot_final.project.model.ExhbnVO">
 	select
 	exhbnID,
 	exhbnTitle,
@@ -190,16 +190,15 @@
 	exhbnEndDate,
 	exhbnUrl,
 	exhbnPrice
-	From exhbn 
-		WHERE exhbnType = "기타" 
-	
+	From exhbn
+	Where exhbnType = *
 	 ORDER BY exhbnId DESC limit 9
 	</select>
 	
-		<select id="tab_ExhbnSearch_total" parameterType="hashmap" resultType="com.spring_boot_final.project.model.ExhbnVO">
+		<!-- <select id="tab_ExhbnSearch_total" parameterType="hashmap" resultType="com.spring_boot_final.project.model.ExhbnVO">
 		select *
 		From exhbn 
 		where exhbnType = #{Type} and title=#{Title}
 		</select>
-
+ -->
 </mapper>
