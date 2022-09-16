@@ -77,13 +77,13 @@
 	
 	<!-- 리뷰게시판 list 댓글 숫자 -->
 	<update id="updateReviewNoteCommentUp" parameterType="int">
-		UPDATE reviewNote
+		UPDATE reviewnote
 		SET reviewNoteCommentNum = reviewNoteCommentNum + 1
 		WHERE reviewNoteId = #{reviewNoteId}
 	</update>
 	
 	<update id="updateReviewNoteCommentDown" parameterType="int">
-		UPDATE reviewNote
+		UPDATE reviewnote
 		SET reviewNoteCommentNum = reviewNoteCommentNum - 1
 		WHERE reviewNoteId = #{reviewNoteId}
 	</update>
@@ -102,13 +102,13 @@
 	</select>
 	
 	<update id="updateReviewNoteLikeUp" parameterType="int">
-		UPDATE reviewNote
+		UPDATE reviewnote
 		SET reviewNoteLike = reviewNoteLike + 1
 		WHERE reviewNoteId = #{reviewNoteId}
 	</update>
 	
 	<update id="updateReviewNoteLikeDown" parameterType="int">
-		UPDATE reviewNote
+		UPDATE reviewnote
 		SET reviewNoteLike = reviewNoteLike - 1
 		WHERE reviewNoteId = #{reviewNoteId}
 	</update>

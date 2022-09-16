@@ -1,6 +1,5 @@
 document.write('<script type=\"text/javascript\" src=\"mapEdit.js\"> <\/script>');
 document.write('<script type=\"text/javascript\" src=\"mapView2.js\"> <\/script>');
-document.write('<script type=\"text/javascript\" src=\"mapUpdate.js\"> <\/script>');
 
 let count = 0;
 let sites_copy = [];
@@ -20,12 +19,10 @@ $( function() {
         dataType: "json",
         success: function (result) {
             positions = result;
-            console.log(positions);
             for (var i=0; i<positions.length; i++) {
                 addCourseMarker2(positions[i].y, positions[i].x, i);
             }
             panTo(positions[0].y, positions[0].x);
-            createList();
         },
         error: function () {
 
@@ -85,6 +82,7 @@ $( function() {
             let liTag = `<li class="li-item tagItem" value="${tag}"> ${tag} <i class="fa-solid fa-xmark closeBtn" onclick="remove(this, '${tag}')"></i></li>`;
             input.insertAdjacentHTML("beforebegin", liTag); // tag 추가
         });
+        console.log(tags)
     }
 
     // 정렬 가능한 리스트
@@ -149,6 +147,8 @@ function insertCourse() {
 
     let courseTitle = $("#courseTitle").val();
     let exhbnId = $("#exhbnId").val();
+    let userId = $("#userId").val();
+    let courseId = $("#courseId").val();
 
     if($("#courseStatus").prop("checked")){
         $("#courseStatus").val(1);
@@ -164,6 +164,7 @@ function insertCourse() {
             courseTag += tags[i] + ";;";
         }
     }
+    console.log(courseTag)
 
     let param = {
         "exhbnId": exhbnId,
@@ -196,19 +197,34 @@ function insertCourse() {
 
 /** updateCourse */
 function updateCourse() {
+    let courseSitesArr = "";
+    let courseAddressArr = "";
+    let courseMemoArr = "";
     let courseTag = "";
 
-    let courseId = $("#courseId").val();
     let courseTitle = $("#courseTitle").val();
     let exhbnId = $("#exhbnId").val();
+    let userId = $("#userId").val();
+    let courseId = $("#courseId").val();
 
     if($("#courseStatus").prop("checked")){
         $("#courseStatus").val(1);
     } else {
         $("#courseStatus").val(2);
     }
-    let courseState = $("#courseStatus").val();
+    let courseStatus = $("#courseStatus").val();
 
+    for (let i=0; i<sites.length; i++){
+        if (i==(sites.length)){
+            courseSitesArr += sites[i];
+            courseAddressArr += addresses[i];
+            courseMemoArr += memos[i];
+        } else {
+            courseSitesArr += sites[i] + ";;";
+            courseAddressArr += addresses[i] + ";;";
+            courseMemoArr += memos[i] + ";;";
+        }
+    }
     for (let i=0; i<tags.length; i++){
         if (i==(tags.length-1)){
             courseTag += tags[i];
@@ -216,15 +232,20 @@ function updateCourse() {
             courseTag += tags[i] + ";;";
         }
     }
+    console.log(courseTag)
 
     let param = {
-        "exhbnId": exhbnId,
-        "courseId": courseId,
-        "courseTitle": courseTitle,
-        "courseTag": courseTag,
-        "courseState": courseState,
-        "courseListItem": positions
-    };
+        "courseId":courseId,
+        "userId":userId,
+        "exhbnId":exhbnId,
+        "courseTitle":courseTitle,
+        "courseTag":courseTag,
+        "courseState":courseStatus,
+        "courseSitesArr":courseSitesArr,
+        "courseAddressArr":courseAddressArr,
+        "courseMemoArr":courseMemoArr
+    }
+    // let json = JSON.stringify()
 
     $.ajax({
         url:"/course/updateCourse",
@@ -243,23 +264,18 @@ function updateCourse() {
 
 }
 
-// 코스 item 삭제 함수
+// 코스 item 삭제 함수\
 function deleteCourse(element, index) {
     if(confirm("항목을 삭제하시겠습니까?")){
-        if (sites.length>1) {
+        if (positions.length>1) {
             $("#route"+index).remove(); // jsp 태그 삭제
-            // sites에서 값이 동일한 요소 삭제
-            for (let i = 0; i < sites.length; i++) {
-                if (sites[i] === sites_copy[index]) {
-                    sites.splice(i, 1);
-                    addresses.splice(i, 1);
-                    memos.splice((i, 1));
-                }
-            }
+            positions.splice(index,1);
         } else {
             alert("모든 항목을 삭제하실 수 없습니다.")
         }
-        console.log(sites)
+        $(".courseItem").remove();
+        removeCourseMarker();
+        createList();
     }
 }
 
@@ -279,11 +295,7 @@ function createList() {
         listItem.setAttribute("class", "route-row courseItem");
         listItem.setAttribute("id", "route" + i);
         listItem.setAttribute("draggable", "true");
-
-        // 빈 메모 처리
-        if (positions[i].place_memo == null){
-            positions[i].place_memo = "";
-        }
+        // listItem.setAttribute("value", sites[i] + ";;" + addresses[i] + ";;" + memos[i]);
 
         listItem.innerHTML = `
                         <div class="left-side">
@@ -304,7 +316,7 @@ function createList() {
                                         ${positions[i].place_name}
                                     </h3>
                                     <div class="siteAddress">${positions[i].road_address_name}</div>
-                                    <div class="memo-box">             
+                                    <div class="memo-box">
                                         <textarea id="memo_${i}" class="place-memo-input" placeholder="메모를 입력하세요.">${positions[i].place_memo}</textarea>
                                         <input id="place_url_${i}" class="place_url" value="${positions[i].place_url}" hidden>
                                     </div>
@@ -333,13 +345,8 @@ function saveMemo() {
     $memoArea.each(function(i) {
         $(document).on("focusout", "#memo_"+i ,function(index){
             console.log($(this).val());
-            if($(this).val().length<141) {
-                positions[i].place_memo = $(this).val();
-                console.log(positions[i].place_memo);
-            } else {
-                alert("메모는 140자 이하로 작성할 수 있습니다.");
-            }
-
+            positions[i].place_memo = $(this).val();
+            console.log(positions[i].place_memo);
         });
     });
 }

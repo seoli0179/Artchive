@@ -1,34 +1,50 @@
-document.write('<script type=\"text/javascript\" src=\"mapEdit.js\"> <\/script>');
-document.write('<script type=\"text/javascript\" src=\"mapView2.js\"> <\/script>');
-document.write('<script type=\"text/javascript\" src=\"mapUpdate.js\"> <\/script>');
-
 let count = 0;
+
+let sites = []; // 장소 이름 배열
 let sites_copy = [];
+let addresses = []; // 장소 주소 배열
+let memos = []; // 장소 메모 배열
 let listItems = [];
 let tags = []; // 코스 태그
 let $memoArea;
 let listItem;
-// 코스를 담을 배열입니다.
-var positions = [];
+
+let courseListItem = []
 
 $( function() {
+
+    const sortableList = document.getElementById("sortable");
+    const startPoint = document.getElementById("startPoint");
+    const endPoint = document.getElementById("endPoint");
+
+    let dragStartIndex;
+
+    let num = document.getElementById("courseId").value;
     // 페이지 구성을 위한 데이터 호출
     $.ajax({
         type: "POST",
         url: "/course/getCourse",
-        data: {"courseId": $("#courseId").val()},
+        data: {"courseId": num},
         dataType: "json",
         success: function (result) {
-            positions = result;
-            console.log(positions);
-            for (var i=0; i<positions.length; i++) {
-                addCourseMarker2(positions[i].y, positions[i].x, i);
-            }
-            panTo(positions[0].y, positions[0].x);
+            console.log(result);
+            $.each(result, function (index, item) {
+                sites.push(item.siteName);
+                addresses.push(item.siteAddresses);
+                memos.push(item.siteMemos);
+            });
             createList();
         },
         error: function () {
+            const firstExhbnTitle = $("#firstExhbnTitle").text();
+            const firstExhbnAddr = $("#firstExhbnAddr").text();
+            const firstMemo = $("#firstMemo").val();
 
+            console.log(firstExhbnTitle + firstExhbnAddr + firstMemo);
+
+            sites.push(firstExhbnTitle);
+            addresses.push(firstExhbnAddr);
+            memos.push(firstMemo);
         }
     });
 
@@ -67,8 +83,8 @@ $( function() {
             let tag = e.target.value.replace(" ", ""); // 태그에서 다수 공백 삭제
             tag.trim();
             if (tag.length > 1 && !tags.includes(tag)) { // 아직 없는 태그, // 태그 생성
-                if (tags.length > 3) {
-                    alert("태그는 3개까지 입력 가능합니다.")
+                if (tags.length > 4) {
+                    alert("태그는 5개까지 입력 가능합니다.")
                 } else {
                     tags.push(tag);
                 }
@@ -98,17 +114,29 @@ $( function() {
         revert: 10,
         // handle: ".moveHandler",
         start: function (event, ui) {
-            startIdx = ui.item.index();
         },
         change: function (event, ui) {
         },
         update: function (event, ui) {
-            var item = positions.splice(startIdx,1);
-            positions.splice(ui.item.index(), 0, item[0]);
-            // html 비우기
-            $(".courseItem").remove();
-            // 새로 작성
-            createList();
+            sites = [];
+            addresses = [];
+            memos = [];
+
+            $(".siteName").each(function(index,item){
+                sites.push($(this).text());
+            });
+            $(".siteAddress").each(function(index,item){
+                addresses.push($(this).text());
+            });
+            $(".place-memo-input").each(function(index,item){
+                console.log($(this).val());
+                memos.push($(this).val());
+            });
+
+            let li = document.getElementsByClassName("route-row");
+            // $(".courseItem").remove();
+
+            // createList();
         },
         axis: 'y'
     });
@@ -145,18 +173,34 @@ $( function() {
 
 /** insertCourse */
 function insertCourse() {
+    let courseSitesArr = "";
+    let courseAddressArr = "";
+    let courseMemoArr = "";
     let courseTag = "";
 
     let courseTitle = $("#courseTitle").val();
     let exhbnId = $("#exhbnId").val();
+    let userId = $("#userId").val();
+    let courseId = $("#courseId").val();
 
     if($("#courseStatus").prop("checked")){
         $("#courseStatus").val(1);
     } else {
         $("#courseStatus").val(2);
     }
-    let courseState = $("#courseStatus").val();
+    let courseStatus = $("#courseStatus").val();
 
+    for (let i=0; i<sites.length; i++){
+        if (i==(sites.length)){
+            courseSitesArr += sites[i];
+            courseAddressArr += addresses[i];
+            courseMemoArr += memos[i];
+        } else {
+            courseSitesArr += sites[i] + ";;";
+            courseAddressArr += addresses[i] + ";;";
+            courseMemoArr += memos[i] + ";;";
+        }
+    }
     for (let i=0; i<tags.length; i++){
         if (i==(tags.length-1)){
             courseTag += tags[i];
@@ -164,51 +208,67 @@ function insertCourse() {
             courseTag += tags[i] + ";;";
         }
     }
+    console.log(courseTag)
 
     let param = {
-        "exhbnId": exhbnId,
-        "courseTitle": courseTitle,
-        "courseTag": courseTag,
-        "courseState": courseState,
-        "courseListItem": positions
-    };
+        "courseId":courseId,
+        "userId":userId,
+        "exhbnId":exhbnId,
+        "courseTitle":courseTitle,
+        "courseTag":courseTag,
+        "courseState":courseStatus,
+        "courseSitesArr":courseSitesArr,
+        "courseAddressArr":courseAddressArr,
+        "courseMemoArr":courseMemoArr
+    }
+    // let json = JSON.stringify()
 
-    console.log(JSON.stringify(param));
     $.ajax({
-        url:"/course/createCourse",
-        contentType: 'application/json; charset=utf-8',
+        url:"/course/insertCourse",
+        contentType: 'application/json',
         type:"POST",
+        traditional:true,
         data:JSON.stringify(param),
         success:function(result){
-            if (result=="FAIL") {
-                alert("다시 로그인 해주세요.")
-            } else {
-                alert("작성 완료!");
-                window.location.href="/course/list";
-            }
+            alert("작성 완료!");
+            window.history.back();
         },
         error:function(request,status,error) {
-            alert("error!");
-            console.log("code="+request.status+"message="+request.responseText+"error="+error); //실패시처리
+            alert("code="+request.status+"message="+request.responseText+"error="+error); //실패시처리
         }
     });
 }
 
 /** updateCourse */
 function updateCourse() {
+    let courseSitesArr = "";
+    let courseAddressArr = "";
+    let courseMemoArr = "";
     let courseTag = "";
 
-    let courseId = $("#courseId").val();
     let courseTitle = $("#courseTitle").val();
     let exhbnId = $("#exhbnId").val();
+    let userId = $("#userId").val();
+    let courseId = $("#courseId").val();
 
     if($("#courseStatus").prop("checked")){
         $("#courseStatus").val(1);
     } else {
         $("#courseStatus").val(2);
     }
-    let courseState = $("#courseStatus").val();
+    let courseStatus = $("#courseStatus").val();
 
+    for (let i=0; i<sites.length; i++){
+        if (i==(sites.length)){
+            courseSitesArr += sites[i];
+            courseAddressArr += addresses[i];
+            courseMemoArr += memos[i];
+        } else {
+            courseSitesArr += sites[i] + ";;";
+            courseAddressArr += addresses[i] + ";;";
+            courseMemoArr += memos[i] + ";;";
+        }
+    }
     for (let i=0; i<tags.length; i++){
         if (i==(tags.length-1)){
             courseTag += tags[i];
@@ -216,15 +276,20 @@ function updateCourse() {
             courseTag += tags[i] + ";;";
         }
     }
+    console.log(courseTag)
 
     let param = {
-        "exhbnId": exhbnId,
-        "courseId": courseId,
-        "courseTitle": courseTitle,
-        "courseTag": courseTag,
-        "courseState": courseState,
-        "courseListItem": positions
-    };
+        "courseId":courseId,
+        "userId":userId,
+        "exhbnId":exhbnId,
+        "courseTitle":courseTitle,
+        "courseTag":courseTag,
+        "courseState":courseStatus,
+        "courseSitesArr":courseSitesArr,
+        "courseAddressArr":courseAddressArr,
+        "courseMemoArr":courseMemoArr
+    }
+    // let json = JSON.stringify()
 
     $.ajax({
         url:"/course/updateCourse",
@@ -273,17 +338,13 @@ function remove(element, tag) {
 
 /** createList 함수 */
 function createList() {
-    for (let i = 0; i < positions.length; i++) {
+    for (let i = 0; i < sites.length; i++) {
         listItem = document.createElement('li');
         listItem.setAttribute('data-index', i);
         listItem.setAttribute("class", "route-row courseItem");
         listItem.setAttribute("id", "route" + i);
         listItem.setAttribute("draggable", "true");
-
-        // 빈 메모 처리
-        if (positions[i].place_memo == null){
-            positions[i].place_memo = "";
-        }
+        listItem.setAttribute("value", sites[i] + ";;" + addresses[i] + ";;" + memos[i]);
 
         listItem.innerHTML = `
                         <div class="left-side">
@@ -297,16 +358,10 @@ function createList() {
                             </div>
                             <div class="content">
                                 <div class="where">
-                                    <c:if test="${i != 0}">
-                                            <span class="siteCategory">${positions[i].category_group_name}</span>&nbsp;
-                                    </c:if>
-                                    <h3 class="siteName">
-                                        ${positions[i].place_name}
-                                    </h3>
-                                    <div class="siteAddress">${positions[i].road_address_name}</div>
-                                    <div class="memo-box">             
-                                        <textarea id="memo_${i}" class="place-memo-input" placeholder="메모를 입력하세요.">${positions[i].place_memo}</textarea>
-                                        <input id="place_url_${i}" class="place_url" value="${positions[i].place_url}" hidden>
+                                    <h3 class="siteName">${sites[i]}</h3>
+                                    <div class="siteAddress">${addresses[i]}</div>
+                                    <div class="memo-box">
+                                        <textarea id="memo_${i}" class="place-memo-input" placeholder="메모를 입력하세요.">${memos[i]}</textarea> 
                                     </div>
                                 </div>
                             </div>
@@ -320,26 +375,18 @@ function createList() {
         listItems.push(listItem);
 
         $("#sortable").append(listItem);
-        sites_copy = [...positions];
+        sites_copy = [...sites];
     }
     $memoArea = $(".place-memo-input");
     saveMemo();
-    for (var i=0; i<positions.length; i++) {
-        addCourseMarker2(positions[i].y, positions[i].x, i);
-    }
 }
 
 function saveMemo() {
     $memoArea.each(function(i) {
         $(document).on("focusout", "#memo_"+i ,function(index){
             console.log($(this).val());
-            if($(this).val().length<141) {
-                positions[i].place_memo = $(this).val();
-                console.log(positions[i].place_memo);
-            } else {
-                alert("메모는 140자 이하로 작성할 수 있습니다.");
-            }
-
+            memos[i] = $(this).val();
+            console.log(memos);
         });
     });
 }
