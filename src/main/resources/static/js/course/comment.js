@@ -12,7 +12,6 @@ $(document).ready(function (){
                 success: function (data) {
                     $("#story").val("");
                     $('#comment').load(document.URL +  ' #comment > *');
-                    // adsfasdfa$(".post-comment-box > span").text();
                 },
                 error: function () {
                     alert("오류 발생!");
