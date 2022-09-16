@@ -46,4 +46,11 @@ public interface IReviewNoteDAO {
 	public ArrayList<ReviewNoteVO> reviewNoteNew();
 	public ArrayList<ReviewNoteVO> reviewNotePopular();
 	public ArrayList<ReviewNoteVO> reviewNoteComment();
+	
+	// 마이 페이지 리뷰 게시글 조회
+	public ArrayList<ReviewNoteVO> selectMpReview(String userId);
+	
+	// 마이 페이지 리뷰 게시글 삭제
+	public void deleteMpReviewNote(int reviewNoteId);
+	
 }

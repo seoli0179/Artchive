@@ -37,18 +37,18 @@
  
 }); // document.ready
 
-function deleteNote(noteId) {
+function deleteReviewNote(reviewNoteId) {
 
     if (confirm("해당 게시글을 삭제하시겠습니까?")) {
         $.ajax({
             type: "POST",
-            url: "/myPage/deleteNoteView",
+            url: "/review/deleteReviewNote",
             data: {
-                 "noteId": noteId
+                 "reviewNoteId": reviewNoteId
             }, success: function (data) {
                 if (data == "SUCCESS") {
                     alert("삭제 완료!");
-                    location.href="/myPage/post/" 
+                    location.href="/myPage/review/" 
                    
                 } else {
                     alert("삭제 실패!");

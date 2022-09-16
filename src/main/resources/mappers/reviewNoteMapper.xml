@@ -211,4 +211,16 @@
 		ORDER by r.reviewNoteCommentNum DESC
 	</select>
 	
+	
+	<!-- 마이페이지 리뷰 노트 게시글 조회 -->
+	<select id="selectMpReview" parameterType="string" resultType="com.spring_boot_final.project.model.ReviewNoteVO">
+        <![CDATA[
+        select *
+        from reviewnote
+        where userId = #{userId}
+        and reviewPageViewState = 'POST' 
+        ORDER by reviewNoteCreatedDate DESC
+        ]]>
+    </select>
+	
 </mapper>

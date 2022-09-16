@@ -19,7 +19,7 @@
 /* 전체 틀 */
 .wrapper {
 	/*  푸터 하단 고정 */
-	padding-bottom: 25%;
+	padding-bottom: 10%;
 	max-width : 1390px;
 	margin: 0 auto;
 	min-width : 1080px;
@@ -59,7 +59,7 @@
 }
 
 .tabMenu li {
-	margin-top:15%;
+	margin-top:10%;
 }
 
 .tabMenu li:first-child {
@@ -74,6 +74,7 @@
 .tabMenu li:nth-child(5) a, .tabMenu li a:hover {
 	color:#000;
 	font-weight:bold;
+	font-size:22px;
 }
 
 .titleBox a {
@@ -135,14 +136,10 @@
  }
  
 
-.tableBox {
-	margin-top:3%;
-}
-
 table {
 	width:100%;
 	height: auto;
-    margin-bottom: 40%;
+    margin-bottom: 10%;
 }
 
 table th {
@@ -162,4 +159,35 @@ table td {
 	padding:3% 0;
 	items-align:center;
 	border-bottom :2px solid #000;
+}
+
+/* 페이지 */
+.nav {
+    margin-top: 7%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+.nav_btn {
+    text-align: center;
+    padding: 0px 15px;
+    margin-right: -1px;
+    border: 1.5px solid #000;
+    cursor: pointer;
+}
+
+.nav_active {
+    background-color: #000;
+    color: white;
+}
+
+.nav_btn:hover {
+    background-color: #000;
+    color: white;
+}
+
+.nav_btn:first-child:hover, .nav_btn:last-child:hover {
+    background-color: #fff;
+    color: #000;
 }

@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* myPageComment.css */
+/* myPageEdit.css */
 
 @font-face {
 	font-family: 'establishRetrosansOTF';
@@ -72,7 +72,7 @@
 }
 
 
-.tabMenu li:nth-child(5) a, .tabMenu li a:hover {
+.tabMenu li:nth-child(2) a, .tabMenu li a:hover {
 	color:#000;
 	font-weight:bold;
 	font-size:22px;
@@ -91,7 +91,7 @@
 	margin-top:3%;
 }
 
-.titleBox a:nth-child(2) {
+.titleBox a:last-child {
 	color:#000;
 }
 

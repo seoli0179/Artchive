@@ -6,17 +6,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>arTchive / 마이페이지 - 추천콘텐츠(전시)</title>
+<title>arTchive / 마이페이지 - 내 전시 코스</title>
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/tools/reset.css'/>" />
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/common.css'/>" />
 <link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/myPage/recmd.css'/>" />
+	href="<c:url value='/css/myPage/myCourse.css'/>" />
 <script src="https://kit.fontawesome.com/50d21a2bed.js"
 	crossorigin="anonymous"></script>
 <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
-
+<script src="<c:url value='/js/myPage/myCourse.js'/>"></script>
 </head>
 <body>
 	<div class="wrapper">
@@ -45,60 +45,64 @@
 					</nav>
 
 					<div class="myPageBox">
-						<div class="contentsBox">
-							<div class="contents">
-								<h2>추천 콘텐츠</h2>
-							</div>
-							<div class="setting">
-								<a class="white-btn" href="<c:url value='/myPage/custom'/>">설정</a>
-							</div>
-						</div>
-						<!-- contentsBox -->
 
+						<h2>내 코스</h2>
 						<p class="line">
 						<div class="titleBox">
-							<a href="<c:url value='/myPage/recmd'/>">전시</a>
+							<a href="<c:url value='/myPage/myCourse'/>">작성한 코스</a> <a
+								href="<c:url value='/myPage/courseScrap'/>">스크랩</a> <a
+								href="<c:url value='/myPage/courseComment'/>">댓글</a>
 						</div>
 						<!-- titleBox -->
 
-						<div class="area">
-							<a class="white-btn" href="<c:url value=''/>">전체</a> <a
-								class="white-btn" href="<c:url value=''/>">서울</a> <a
-								class="white-btn" href="<c:url value=''/>">경기</a> <a
-								class="white-btn" href="<c:url value=''/>">청주</a>
+						<div class="board-gallery-view">
+							<c:forEach var="courseList" items="${courseList}"
+								varStatus="statusNm">
+								<div class="post-container" style="cursor: pointer;"
+									onclick="location.href='/course/${courseList.courseId}';">
+									<div class="post-img-box"
+										style="background-image: url('${courseList.exhbnImgUrl}');">
+
+									</div>
+									<div class="post-title-box">
+										<h2>${courseList.courseTitle}</h2>
+									</div>
+									<div class="post-content-box">
+										<b>${courseList.exhbnTitle}</b>
+									</div>
+									<div class="post-tag-box">
+										<c:forTokens var="taglist" items="${courseList.courseTag}"
+											delims=";;">
+											<span class="tooltip"> <span class="tooltip-text"><c:out
+														value="${taglist}" /></span>
+												<div class="post-tag">
+													<c:out value="${taglist}" />
+												</div>
+											</span>
+
+										</c:forTokens>
+									</div>
+									<div class="post-footer-box">
+										<div class="post-writer-box">
+											<fmt:formatDate pattern="yy-MM-dd"
+												value="${courseList.createdAt }" />
+										</div>
+										<div class="post-react-box">
+											<div class="post-like-box">
+												<i class="fa-solid fa-heart" style="color: black;"></i> <span>${courseList.courseLike}</span>
+											</div>
+											<div class="post-comment-box">
+												<i class="fa-solid fa-message" style="color: black;"></i> <span>${courseList.courseComment}</span>
+											</div>
+											<div class="post-view-box">
+												<i class="fa-solid fa-eye" style="color: black;"></i> <span>${courseList.courseView}</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</c:forEach>
+							<!-- .post-container -->
 						</div>
-
-						<div class="wholeExpbnBox">
-							<div class="courseBox">
-								<div class="imageBox">
-									<img src="<c:url value='/image/banner.jpg'/>">
-								</div>
-								<!-- imageBox -->
-								<a>서울</a> <a>히토 슈타이얼 - 데이터의 바다</a> <a>2022-08-14</a>
-							</div>
-							<!-- courseBox -->
-
-							<div class="courseBox">
-								<div class="imageBox">
-									<img src="<c:url value='/image/banner.jpg'/>">
-								</div>
-								<!-- imageBox -->
-								<a>서울</a> <a>히토 슈타이얼 - 데이터의 바다</a> <a>2022-08-14</a>
-							</div>
-							<!-- courseBox -->
-
-							<div class="courseBox">
-								<div class="imageBox">
-									<img src="<c:url value='/image/banner.jpg'/>">
-								</div>
-								<!-- imageBox -->
-								<a>서울</a> <a>히토 슈타이얼 - 데이터의 바다</a> <a>2022-08-14</a>
-							</div>
-							<!-- courseBox -->
-						</div>
-						<!-- wholeExpbnBox -->
-
-
 					</div>
 					<!-- myPageBox -->
 				</div>

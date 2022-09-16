@@ -6,16 +6,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>arTchive / 마이페이지 - 추천콘텐츠(전시)</title>
+<title>arTchive / 마이페이지 - 활동내역(댓글)</title>
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/tools/reset.css'/>" />
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/common.css'/>" />
 <link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/myPage/recmd.css'/>" />
+	href="<c:url value='/css/myPage/reviewComment.css'/>" />
 <script src="https://kit.fontawesome.com/50d21a2bed.js"
 	crossorigin="anonymous"></script>
 <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
+<script src="<c:url value='/js/myPage/reviewComment.js'/>"></script>
 
 </head>
 <body>
@@ -45,60 +46,52 @@
 					</nav>
 
 					<div class="myPageBox">
-						<div class="contentsBox">
-							<div class="contents">
-								<h2>추천 콘텐츠</h2>
-							</div>
-							<div class="setting">
-								<a class="white-btn" href="<c:url value='/myPage/custom'/>">설정</a>
-							</div>
-						</div>
-						<!-- contentsBox -->
 
+						<h2>전시 리뷰</h2>
 						<p class="line">
 						<div class="titleBox">
-							<a href="<c:url value='/myPage/recmd'/>">전시</a>
+							<a href="<c:url value='/myPage/review'/>">게시글</a> 
+							<a href="<c:url value='/myPage/reviewComment'/>">댓글</a> 
 						</div>
 						<!-- titleBox -->
+						
+						<div class="tableBox">
+							<table>
+								<thead>
+									<tr>
+										<th>내용</th>
+										<th>등록일</th>
+										<th>상태</th>
+									</tr>
 
-						<div class="area">
-							<a class="white-btn" href="<c:url value=''/>">전체</a> <a
-								class="white-btn" href="<c:url value=''/>">서울</a> <a
-								class="white-btn" href="<c:url value=''/>">경기</a> <a
-								class="white-btn" href="<c:url value=''/>">청주</a>
+								</thead>
+								<tbody>
+									<c:choose>
+										<c:when test="${empty reviewCmtList}">
+											<tr>
+												<td colspan="3">작성한 댓글 내역이 없습니다.</td>
+											</tr>
+										</c:when>
+										<c:otherwise>
+											<c:forEach items="${reviewCmtList}" var="reviewCmtList"
+												varStatus="status">
+												<tr>
+													<td><a
+														href="<c:url value='/review/reviewNote/${reviewCmtList.reviewNoteId}'/>">${reviewCmtList.reviewComment}</a></td>
+													<td><fmt:formatDate
+															value="${reviewCmtList.reviewCommentCreatedDate}"
+															pattern="yyyy-MM-dd" /></td>
+													<td><input type="button" id="submitBtn"
+														name="submitBtn" class="white-btn"
+														onclick="deleteMpReviewComment(${reviewCmtList.reviewCommentId})" value="삭제"></td>
+												</tr>
+											</c:forEach>
+										</c:otherwise>
+									</c:choose>
+								</tbody>
+							</table>
 						</div>
-
-						<div class="wholeExpbnBox">
-							<div class="courseBox">
-								<div class="imageBox">
-									<img src="<c:url value='/image/banner.jpg'/>">
-								</div>
-								<!-- imageBox -->
-								<a>서울</a> <a>히토 슈타이얼 - 데이터의 바다</a> <a>2022-08-14</a>
-							</div>
-							<!-- courseBox -->
-
-							<div class="courseBox">
-								<div class="imageBox">
-									<img src="<c:url value='/image/banner.jpg'/>">
-								</div>
-								<!-- imageBox -->
-								<a>서울</a> <a>히토 슈타이얼 - 데이터의 바다</a> <a>2022-08-14</a>
-							</div>
-							<!-- courseBox -->
-
-							<div class="courseBox">
-								<div class="imageBox">
-									<img src="<c:url value='/image/banner.jpg'/>">
-								</div>
-								<!-- imageBox -->
-								<a>서울</a> <a>히토 슈타이얼 - 데이터의 바다</a> <a>2022-08-14</a>
-							</div>
-							<!-- courseBox -->
-						</div>
-						<!-- wholeExpbnBox -->
-
-
+						<!--tableBox -->
 					</div>
 					<!-- myPageBox -->
 				</div>

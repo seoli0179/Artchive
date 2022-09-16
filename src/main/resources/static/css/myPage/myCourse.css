@@ -1,0 +1,340 @@
+@charset "UTF-8";
+
+/* myPageAct.css */
+
+@font-face {
+	font-family: 'establishRetrosansOTF';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112@1.0/establishRetrosansOTF.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.logo {
+    font-family: 'establishRetrosansOTF';
+    font-size: 40px;
+    color: #000;
+    text-decoration: none;
+}
+
+/* 전체 틀 */
+.wrapper {
+	/*  푸터 하단 고정 */
+	padding-bottom: 25%;
+	max-width : 1390px;
+	margin: 0 auto;
+	min-width : 1080px;
+}
+
+#course-container {
+    width:100%;
+    min-width: 1080px;
+    min-height: auto;
+    background-color: rgba(255,255,255,1);
+    --web-view-name: coursepage;
+    --web-view-id: coursepage;
+    --web-scale-on-resize: true;
+    --web-enable-deep-linking: true;
+    position: relative;
+}
+
+.course-box {
+    margin-top: 50px;
+    line-height: 2.3rem;
+    border-bottom: black 2px solid;
+    padding: 20px 0;
+    display:flex;
+}
+
+
+.course-box>nav {
+	display:flex;
+	width:30%;
+
+}
+
+/* 탭 메뉴 */
+.tabMenu {
+	width:100%;
+	border-right:2px solid #aaa;
+}
+
+.tabMenu li {
+	margin-top:10%;
+}
+
+.tabMenu li:first-child {
+	margin:0;
+} 
+
+.tabMenu li a {
+	color:#949494;
+	font-size:20px;
+}
+
+.tabMenu li:nth-child(3) a, .tabMenu li a:hover {
+	color:#000;
+	font-weight:bold;
+	font-size:22px;
+}
+
+.titleBox a {
+	font-weight:bold;
+	font-size:20px;
+	margin-left:3%;
+	color:#949494;
+	
+}
+
+/* 개인정보 수정 */
+.titleBox {
+	margin-top:3%;
+}
+
+.titleBox a:first-child {
+	color:#000;
+}
+
+.titleBox a:hover {
+	color:#000;
+	font-weight:bold;
+}
+
+.myPageBox {
+	width:100%;
+	height:auto;
+	min-height:100%;
+	margin-left:2%;
+}
+
+/* 스크랩, 좋아요, 코스 */
+.myPageBox>h2 {
+	font-size:28px;
+	color:#000;
+	margin-bottom:2%;
+}
+
+/* 선 */
+.line {
+	border:1px solid #000;
+}
+
+/* 테이블 */
+ .tableBox {
+	overflow-x: hidden;
+	overflow-y: hidden;
+ 	margin:0 5% auto;
+ 	margin-top:3%;
+ }
+ 
+ /* 정보 */
+ .infoBox {
+ 	display:flex;
+ 	width:100%;
+ 	align-items:center;
+ 	vertical-align:middle;
+ 	text-align:center;
+ }
+ 
+
+.tableBox {
+	margin-top:3%;
+}
+
+table {
+	width:100%;
+	height: auto;
+    margin-bottom: 40%;
+}
+
+table th {
+	border-top:2px solid #000;
+	border-bottom :2px solid #000;
+	font-weight:bold;
+	background:#F6F6F6;
+	padding:20px;
+	height:auto;
+	line-height:auto;
+	text-align:center;	
+}
+
+
+table td {
+	text-align:center;
+	padding:3% 0;
+	items-align:center;
+	border-bottom :2px solid #000;
+}
+
+
+/* *********************************** */
+
+
+#tagList {
+   margin-bottom: 1.8rem;
+}
+
+.courseBoard-searchBtn {
+    width: 110px;
+    /* min-width: 150px; */
+    margin-left: 10px;
+    height: 59px;
+    margin-top : 12px;
+    
+}
+
+#tag-caution {
+    margin-top:-30px;
+    margin-bottom: 0;
+}
+
+.tablist-box {
+    display: flex;
+}
+
+.tablist-box .tab-box {
+    margin: 5px;
+}
+
+.tablist-box button {
+    color: rgb(0,0,0,0.6);
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 5px 10px;
+    border: none;
+    background-color: transparent;
+}
+
+.courseboard-search-box {
+    /* display: inline-block; */
+    width:60%;
+    min-height: 0;
+}
+.courseboard-searchbar {
+    width: 100%;
+}
+
+.board-gallery-view {
+    display: flex;
+    padding-bottom: 20px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+   /*  min-height: 100%; */
+    border-bottom: none;
+}
+.post-container {
+   	margin: 25px 0; 
+    width: 29%;
+    height: 430px;
+    border-radius: 15px;
+}
+.post-container:hover {
+    color: rgba(0,0,0,0.7);
+}
+.post-container:hover .post-tag {
+    background-color: rgba(0,0,0,0.7);
+}
+
+.post-img-box {
+    width: 100%;
+    height: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: multiply;
+    border-radius: 10px;
+    background-position: 0 30%;
+    /*background-attachment:fixed;*/
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.post-container:hover .post-img-box {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.post-title-box {
+    margin: 0 auto;
+    width: 90%;
+    padding: 15px 0 5px 0;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.post-content-box {
+    margin: 0 auto;
+    padding: 5px 0;
+    width: 90%;
+    height: 60px;
+    overflow: hidden;
+    line-height: 1.3rem;
+}
+
+.post-footer-box {
+    padding: 0 20px 5px 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.post-writer-box {
+    width: 50%;
+    overflow: visible;
+    white-space: nowrap; 	/* 아래줄로 내려가는걸 막음 */
+	text-overflow: ellipsis;  /*... 만들기 */
+	overflow: hidden;  		/* 영역을 감춤 */
+}
+
+.post-react-box {
+    display: flex;
+    padding: 0 10px;
+    width: 100%;
+}
+
+.post-react-box i {
+    margin: 0 5px 0 15px;
+}
+
+#inner-searchbar {
+    position: relative;
+}
+
+.post-tag-box {
+    display: flex;
+    justify-content: left;
+}
+
+.post-tag {
+    background-color: black;
+    margin:5px;
+    border-radius: 20px;
+    color: white;
+    font-weight: 300;
+    padding: 2px 15px;
+    max-height: 35px;
+    overflow:hidden;
+    font-size: 0.9em;
+}
+
+
+/* 툴팁 */
+.tooltip {
+    display: inline-block;
+    color: white;
+}
+
+.tooltip-text {
+    display: none;
+    position: absolute;
+    max-width: 200px;
+    height: 35px;
+    border-radius: 70px;
+    padding: 2px 15px;
+    font-size: 0.9em;
+    color: white;
+    background: black;
+}
+
+@media (max-width: 1200px) {
+    .tooltip:hover .tooltip-text {
+        display: block;
+    }
+
+
+

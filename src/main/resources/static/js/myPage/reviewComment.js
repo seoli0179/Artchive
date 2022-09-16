@@ -1,21 +1,22 @@
 /**
- * comment.js
+ * reviewComment.js
  */
  
  $(document).ready(function () {
 });
-function deleteComment(commentId) {
+
+function deleteMpReviewComment(reviewCommentId) {
 
     if (confirm("해당 댓글을 삭제하시겠습니까?")) {
         $.ajax({
             type: "POST",
-            url: "/myPage/deleteMpComment",
+            url: "/myPage/deleteMpReviewComment",
             data: {
-                 "commentId": commentId
+                 "reviewCommentId": reviewCommentId
             }, success: function (data) {
                 if (data == "SUCCESS") {
                     alert("삭제 완료!");
-                    location.href="/myPage/comment/" 
+                    location.href="/myPage/reviewComment/" 
                    
                 } else {
                     alert("삭제 실패!");

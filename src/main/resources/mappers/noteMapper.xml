@@ -96,7 +96,8 @@
         select *
         from note
         where userId = #{userId}
-        and pageViewState = 'POST'
+        and pageViewState = 'POST' 
+        ORDER by noteCreatedDate ASC
         ]]>
     </select>
 	
