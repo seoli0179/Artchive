@@ -49,10 +49,10 @@ public class BookMarkController {
 		String resultmsg = "";
 
 		if (count == 0) {// 동일한 전시가 없다면 북마크에 추가
-			resultmsg = "<script>alert('북마크에 추가되었습니다!'); location.href='/myPage/scrap'</script>";
+			resultmsg = "<script>alert('북마크에 추가되었습니다!'); location.href='/myPage/myGallery'</script>";
 			bookmarkService.insertBookMark(vo);
 		} else {// 이미 전시가 있다면 이미 존재한다는 팝업 표시
-			resultmsg = "<script>alert('이미 북마크에 저장되어 있는 전시입니다.'); location.href='/myPage/scrap'</script>";
+			resultmsg = "<script>alert('이미 북마크에 저장되어 있는 전시입니다.'); location.href='/myPage/myGallery'</script>";
 
 		}
 

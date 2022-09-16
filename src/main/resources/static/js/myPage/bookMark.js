@@ -16,7 +16,7 @@ function deleteBookMark(bookmarkId) {
             }, success: function (data) {
                 if (data == "SUCCESS") {
                     alert("삭제 완료!");
-                    window.open('http://localhost:8080/myPage/scrap');
+                    window.open('http://localhost:8080/myPage/myGallery');
                    
                 } else {
                     alert("삭제 실패!");
