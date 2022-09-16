@@ -338,7 +338,10 @@
     </div><!-- 챗봇 끝 -->
 
     <div id="chatImage">
-        <img src="<c:url value='/image/chatbot.png'/>">
+<%--        <img src="<c:url value='/image/chatbot.png'/>">--%>
+        <div id="chatbotImg">
+            <img src="<c:url value='https://cdn-icons-png.flaticon.com/512/5076/5076265.png'/>">
+        </div>
     </div>
 
     <!-- bottom 이동 -->
