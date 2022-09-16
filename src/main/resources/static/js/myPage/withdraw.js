@@ -6,11 +6,18 @@
  
  // 탈퇴
 	$('#quitUser').on('click', function() {
+		
 		// 기본 기능 중단
 		event.preventDefault();
 		
-		var chkConfirm = confirm("정말로 탈퇴하시겠습니까?");
 		var userPw = $('#userPw').val();
+		
+		if(!userPw){
+			alert("비밀번호를 입력해주세요.");
+		} else {
+			
+		var chkConfirm = confirm("정말로 탈퇴하시겠습니까?");
+	
 		
 		if(chkConfirm) {
 			 $.ajax({
@@ -37,7 +44,9 @@
 		} else {
 			return false;
 		}
-	});
+		
+		} // if문 else
+	}); // fuction
 	
 }); // document.ready
 	
