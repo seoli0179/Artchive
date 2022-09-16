@@ -48,7 +48,7 @@ public class NoteViewController {
         System.out.println(category + " " + page);
         System.out.println(sort + " " + keyword);
 
-        ArrayList<NoteVO> vo = noteService.selectNoteList(category, page, sort, keyword);
+        ArrayList<NoteVO> vo = noteService.selectNoteList(category.toUpperCase(), page, sort, keyword);
 
         for (int i = 0; i < vo.size(); i++) {
             String tagRemove = vo.get(i).getNote().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
