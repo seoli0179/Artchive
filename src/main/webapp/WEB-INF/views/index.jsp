@@ -322,23 +322,27 @@
            	</div><!-- Recommended-->
            	
            	<!-- 챗봇 -->
-           	<div id=chatbotTest>
-			<!-- Header -->
-			<div id="chatHeader">
-				<span>챗봇</span>
-				<button id="btnClose">X</button>
-			</div>
-			
-			 <!-- 채팅 내용 출력 영역  -->
-			<div id="chatBox"></div>
-			
-			<div>
-				<form id="chatForm" name="chatForm">
-					<input type="text" id="message" name="message" size="30"  placeholder="질문을 입력하세요"/>
-					<input type="image" src = "<c:url value='/image/send.png'/>" id="submitBtn" value="submit">
-				</form>
-			</div>
-			</div><!-- 챗봇 끝 -->
+    <div id=chatbotTest>
+        <!-- Header -->
+        <div id="chatHeader">
+            <span>Artchive Bot</span>
+            <button id="btnClose">X</button>
+        </div>
+
+        <!-- 채팅 내용 출력 영역  -->
+        <div id="chatBox">
+        	<div id="chatbotIntro"></div>
+        </div>
+        
+		<div id="chatbotBlank"></div>
+		
+        <div>
+            <form id="chatForm" name="chatForm">
+                <input type="text" id="message" name="message" size="30" placeholder="질문을 입력하세요"/>
+                <input type="image" src="<c:url value='/image/send.png'/>" id="submitBtn" value="submit">
+            </form>
+        </div>
+    </div><!-- 챗봇 끝 -->
 			
 			<div id="chatImage">
 			<img src="<c:url value='/image/chatbot.png'/>">
