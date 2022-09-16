@@ -35,6 +35,7 @@ public class ExhbnVO{
     @DateTimeFormat(pattern="yyyy-MM-dd hh:mm:ss")
     private Date updatedAt;
     private String exhbnType;
+    
   
     
     public String getExhbnType() {
