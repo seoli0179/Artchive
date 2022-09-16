@@ -59,6 +59,12 @@ public class ExhbnService {
     public ArrayList<ExhbnVO> TabSearch6(String type) {
   		return dao.tab_ExhbnSearch6(type);
 }
-
+    public ArrayList<ExhbnVO> TabSearch_total(String title,String type) {
+  		HashMap<String, Object> map= new HashMap<String, Object>();
+  		map.put("Title", title);
+  		map.put("Type", type);
+    	return dao.tab_ExhbnSearch_total(map);
+  		
+}
 
 }

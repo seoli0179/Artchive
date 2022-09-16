@@ -1,8 +1,7 @@
 package com.spring_boot_final.project.controller.exhbn;
 
 import java.util.ArrayList;
-
-import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring_boot_final.project.model.ExhbnVO;
-import com.spring_boot_final.project.model.NoteVO;
-import com.spring_boot_final.project.model.PageVO;
 import com.spring_boot_final.project.service.ExhbnService;
 
 @Controller
@@ -22,46 +19,9 @@ public class ExhbnViewController {
 
 	@Autowired
 	ExhbnService service;
+	
+ 
 
-	// @RequestMapping("/exhbn/searchlist")
-//    public String searchlist(
-	/*
-	 * @RequestParam int page,
-	 * 
-	 * @RequestParam String category,
-	 * 
-	 * @RequestParam String sort,
-	 */
-	// @RequestParam String keyword,
-	/* HttpSession session, */
-	// Model model
-	// ) {
-
-//        System.out.println(keyword + " ");
-	/*
-	 * System.out.println(sort + " " + keyword);
-	 */
-	// ArrayList<ExhbnVO> vo = service.searchList(keyword);
-	// model.addAttribute("exhbnList", vo);
-
-	/*
-	 * for (int i = 0; i < vo.size(); i++) { String tagRemove =
-	 * vo.get(i).getNote().replaceAll(
-	 * "<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
-	 * vo.get(i).setNote(tagRemove.substring(0, (tagRemove.length() < 120 ?
-	 * tagRemove.length() : 120)));
-	 * 
-	 * if (session.getAttribute("sid") != null)
-	 * vo.get(i).setNoteLikeCheck(noteService.noteLikeCheck(vo.get(i),
-	 * session.getAttribute("sid").toString())); }
-	 * 
-	 * model.addAttribute("list", vo); model.addAttribute("maxDataNum",
-	 * noteService.selectNoteCount(category, keyword) - 1); if
-	 * (category.equals("EVENT")) return "note/event"; return "note/list";
-	 */
-//        return "searchResult";
-
-	// }
 
 	// detail page view
 	@GetMapping("/exhbn/detail/{id}")
@@ -73,16 +33,20 @@ public class ExhbnViewController {
 		return "detail";
 	}
 
-	// detail page view
-	@RequestMapping("/exhbn/list")
-	public String listTestView(Model model) {
-
-		ArrayList<ExhbnVO> vo = service.selectAllData();
-		model.addAttribute("exhbnList", vo);
-
-		return "list";
-	}
-
+	
+	  // all page view
+	  
+	  @RequestMapping("/exhbn/list") public String listTestView
+	  (Model model) {
+	  
+	  ArrayList<ExhbnVO> vo = service.selectAllData();
+	  model.addAttribute("exhbnList", vo);
+	  
+	  return "list"; }
+	 
+	  
+	
+	 
 	// detail search
 	@RequestMapping("/exhbn/searchResult222")
 	public String ExhbitonSearch(@RequestParam("exhbnTitle") String title, Model model) {
@@ -171,13 +135,12 @@ public class ExhbnViewController {
 		return "searchResult";
 
 	}
-	//탭 메뉴 복사 하는데 변경해야 할 것 
-	//js Url 변경시키기, var 변수 변경
 	@RequestMapping("/exhbn/tab_exhbnSearch6")
 	public String tab_ExhbitonSearch6(@RequestParam("exhbnType") String type, Model model) {
 		ArrayList<ExhbnVO> tab_exhbnSearch = service.TabSearch6(type);
 		model.addAttribute("exhbnSearchList", tab_exhbnSearch);
-
+		
+		
 		System.out.println(type);
 
 		for (int i = 0; i < tab_exhbnSearch.size(); i++) {
@@ -187,4 +150,18 @@ public class ExhbnViewController {
 		return "searchResult";
 
 	}
+	@RequestMapping("/exhbn/tab_exhbnSearch_total")
+	public String tab_ExhbitonSearch_total(@RequestParam("exhbnTitle") String title,@RequestParam("exhbnType") String type) {
+		  HashMap<String,Object> map = new HashMap<String,Object>();
+		  System.out.println(title);
+		  System.out.println(type);
+		  
+		  map.put("Title", title);
+		  map.put("Type",  type);
+		  
+		 
+		  
+		  return "searchResult"; //스프링이 자동으로 JSON타입으로 반환해서 전달한다.
+		}
+	
 }

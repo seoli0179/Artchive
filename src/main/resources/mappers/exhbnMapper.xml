@@ -195,5 +195,11 @@
 	
 	 ORDER BY exhbnId DESC limit 9
 	</select>
+	
+		<select id="tab_ExhbnSearch_total" parameterType="hashmap" resultType="com.spring_boot_final.project.model.ExhbnVO">
+		select *
+		From exhbn 
+		where exhbnType = #{Type} and title=#{Title}
+		</select>
 
 </mapper>
