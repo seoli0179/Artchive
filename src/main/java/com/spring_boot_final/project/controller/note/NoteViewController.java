@@ -80,8 +80,8 @@ public class NoteViewController {
 //    		}
 
             
-            if (session.getAttribute("sid") != null)
-                vo.get(i).setNoteLikeCheck(noteService.noteLikeCheck(vo.get(i), session.getAttribute("sid").toString()));
+//            if (session.getAttribute("sid") != null)
+//                vo.get(i).setNoteLikeCheck(noteService.noteLikeCheck(vo.get(i), session.getAttribute("sid").toString()));
         }
 
         model.addAttribute("list", vo);
