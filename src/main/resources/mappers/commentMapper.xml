@@ -65,6 +65,7 @@
         from comment
         where userId = #{userId}
         and pageViewState = 'POST'
+        ORDER by commentCreatedDate ASC
         ]]>
     </select>
 	
