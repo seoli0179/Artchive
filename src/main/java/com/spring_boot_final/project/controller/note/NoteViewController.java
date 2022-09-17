@@ -29,10 +29,10 @@ public class NoteViewController {
 
     @Autowired
     CommentService commentService;
-    
+
     @Autowired
-	SummaryService summaryService;
-	
+    SummaryService summaryService;
+
 
     @RequestMapping("/note/list")
     public String list(
@@ -43,8 +43,10 @@ public class NoteViewController {
             HttpSession session,
             Model model
     ) {
-    	
-    	
+
+        category = category.toUpperCase();
+
+
         System.out.println(category + " " + page);
         System.out.println(sort + " " + keyword);
 
@@ -55,49 +57,49 @@ public class NoteViewController {
 
         for (int i = 0; i < vo.size(); i++) {
             String tagRemove = vo.get(i).getNote().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
-            // vo.get(i).setNote(tagRemove.substring(0, (tagRemove.length() < 120 ? tagRemove.length() : 120)));
-            
-            TotalVO totalVo = new TotalVO();
-           
-    		DocumentVO docVo = new DocumentVO();
-    		docVo.setTitle(vo.get(i).getNoteTitle());
-    		
-    		// html 태그 제거
-    		docVo.setContent(tagRemove.substring(0, (tagRemove.length() < 120 ? tagRemove.length() : 120)));
-    		
-    		OptionVO optVo = new OptionVO();
-    		optVo.setLanguage("ko");
-    		optVo.setModel("general");
-    		optVo.setTone(1);
-    		optVo.setSummaryCount(3);
-    		
-    		totalVo.setDocument(docVo);
-    		totalVo.setOption(optVo);
-    		String textSum = summaryService.textSummary(totalVo);
-    		
-    		
-    		if(textSum != null) {
-    			vo.get(i).setNote(summaryService.textSummary(totalVo));
-    		} else  {
-    			vo.get(i).setNote(tagRemove.substring(0, (tagRemove.length() < 120 ? tagRemove.length() : 120)));
-    		}
-    		
-    		
-            category = category.toUpperCase();
 
-            
+            TotalVO totalVo = new TotalVO();
+
+            DocumentVO docVo = new DocumentVO();
+            docVo.setTitle(vo.get(i).getNoteTitle());
+
+            // html 태그 제거
+            docVo.setContent(tagRemove);
+
+            OptionVO optVo = new OptionVO();
+            optVo.setLanguage("ko");
+            optVo.setModel("general");
+            optVo.setTone(1);
+            optVo.setSummaryCount(3);
+
+            totalVo.setDocument(docVo);
+            totalVo.setOption(optVo);
+            String textSum = summaryService.textSummary(totalVo);
+            if (textSum != null) {
+                vo.get(i).setNote(textSum);
+            } else {
+                vo.get(i).setNote(tagRemove.substring(0, (tagRemove.length() < 120 ? tagRemove.length() : 120)));
+            }
+            vo.get(i).setNote(tagRemove.substring(0, (tagRemove.length() < 120 ? tagRemove.length() : 120)));
+
             if (session.getAttribute("sid") != null)
                 vo.get(i).setNoteLikeCheck(noteService.noteLikeCheck(vo.get(i), session.getAttribute("sid").toString()));
         }
 
         model.addAttribute("list", vo);
-        model.addAttribute("noticeList", noticeVo);
-        model.addAttribute("eventList", eventVo);
         model.addAttribute("maxDataNum", noteService.selectNoteCount(category, keyword) - 1);
-        if (category.equals("EVENT"))
+        if (category.equals("EVENT")) {
+            System.out.println("event");
             return "note/event";
-        if (category.equals("FREE"))
+        }
+
+        if (category.equals("FREE")) {
+            model.addAttribute("eventList", noteService.selectLimitNoteList("EVENT",3));
+            model.addAttribute("noticeList", noteService.selectLimitNoteList("NOTICE",3));
+            System.out.println("list free");
             return "note/listFree";
+        }
+        System.out.println("note list");
         return "note/list";
     }
 
