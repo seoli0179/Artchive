@@ -8,6 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<jsp:useBean id="now" class="java.util.Date"/>
+<fmt:formatDate var="today" value="${now}" pattern="yyyy-MM-dd"/>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -95,8 +97,14 @@
                     <div class="summary">
                         <div class="title">
                             <a href="<c:url value="/note/detail/${note.noteId}"/>">${note.noteTitle}</a>
+                            <fmt:formatDate value="${note.eventEndDate}" pattern="yyyy-MM-dd" var="endDate"/>
                             <div id="progress">
-                                <span>진행중</span>
+                                <c:if test="${endDate >= today}"> <!-- 진행 전 이벤트일 경우 -->
+                                    <span>진행중</span>
+                                </c:if>
+                                <c:if test="${endDate < today}"> <!-- 진행 후 이벤트일 경우 -->
+                                    <span>종료</span>
+                                </c:if>
                             </div>
                         </div>
                         <div class="preview">

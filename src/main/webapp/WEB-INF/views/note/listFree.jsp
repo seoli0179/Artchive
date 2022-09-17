@@ -8,6 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<jsp:useBean id="now" class="java.util.Date" />
+<fmt:formatDate var="today" value="${now}" pattern="yyyy-MM-dd"/>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -81,10 +83,10 @@
             </div>
         </div>
         <div class="list_box">
-            <c:forEach var="notice" items="${noticeList}" end="2">
+            <c:forEach var="notice" items="${noticeList}">
                 <div class="notice-container">
                     <div class="scrap">
-                        <div id="head-tag" style="float:none; margin:0 auto">
+                        <div class="head-tag" style="float:none; margin:0 auto">
                             <span>공지</span>
                         </div>
                     </div>
@@ -97,15 +99,15 @@
                     </div>
                 </div>
             </c:forEach>
-            <c:forEach var="event" items="${eventList}" end="2">
+            <c:forEach var="event" items="${eventList}">
                 <div class="event-container">
                     <div class="scrap">
-                        <div id="head-tag" style="float:none; margin:0 auto">
-                            <span style="font-weight: bold">진행중</span>
-                            <c:if test="#"> <!-- 진행 전 이벤트일 경우 -->
+                        <div class="head-tag" style="float:none; margin:0 auto">
+                            <fmt:formatDate value="${event.eventEndDate}" pattern="yyyy-MM-dd" var="endDate" />
+                            <c:if test="${endDate >= today}"> <!-- 진행 전 이벤트일 경우 -->
                                 <span style="font-weight: bold">진행중</span>
                             </c:if>
-                            <c:if test="#"> <!-- 진행 후 이벤트일 경우 -->
+                            <c:if test="${endDate < today}"> <!-- 진행 후 이벤트일 경우 -->
                                 <span>종료</span>
                             </c:if>
                         </div>
@@ -116,8 +118,8 @@
                         </div>
                         <div class="event-box">
                             <div class="createdAt">
-                                <fmt:formatDate pattern="MM-dd" value="${event.noteCreatedDate }"/> ~
-                                <fmt:formatDate pattern="MM-dd" value="${event.noteCreatedDate }"/>
+                                <fmt:formatDate pattern="MM-dd" value="${event.eventStartDate }"/> ~
+                                <fmt:formatDate pattern="MM-dd" value="${event.eventEndDate }"/>
                             </div>
                         </div>
                     </div>
