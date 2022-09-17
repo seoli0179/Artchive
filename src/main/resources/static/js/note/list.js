@@ -2,13 +2,13 @@ $(document).ready(function () {
 
     var movedIndex = 0;
 
-    setInterval(() => moveSlide(movedIndex++), 4000);
+    setInterval(() => moveSlide(movedIndex++), 5000);
 
     function moveSlide(movedIndex) {
         //console.log(movedIndex);
-        movedIndex = movedIndex % 5;
+        movedIndex = movedIndex % 3;
         //슬라이드 이동
-        var moveLeft = -(movedIndex * 1000); // 왼쪽으로 이동 거리
+        var moveLeft = -(movedIndex * document.getElementById('slideImage-box1').offsetWidth); // 왼쪽으로 이동 거리
         $('#slidePanel').animate({'left': moveLeft}, 'slow');
     }
 
