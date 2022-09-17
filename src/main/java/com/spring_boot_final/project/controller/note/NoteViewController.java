@@ -74,12 +74,12 @@ public class NoteViewController {
 
             totalVo.setDocument(docVo);
             totalVo.setOption(optVo);
-//            String textSum = summaryService.textSummary(totalVo);
-//            if (textSum != null) {
-//                vo.get(i).setNote(textSum);
-//            } else {
-//                vo.get(i).setNote(tagRemove.substring(0, (tagRemove.length() < 120 ? tagRemove.length() : 120)));
-//            }
+            String textSum = summaryService.textSummary(totalVo);
+            if (textSum != null) {
+                vo.get(i).setNote(textSum);
+            } else {
+                vo.get(i).setNote(tagRemove.substring(0, (tagRemove.length() < 120 ? tagRemove.length() : 120)));
+            }
             vo.get(i).setNote(tagRemove.substring(0, (tagRemove.length() < 120 ? tagRemove.length() : 120)));
 
             if (session.getAttribute("sid") != null)
