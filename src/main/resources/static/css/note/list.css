@@ -110,7 +110,10 @@ body {
     justify-content: center;
     padding-top: 20px;
     padding-bottom: 20px;
-    border-top:2px solid #000;
+    border-top:1px solid #000;
+}
+.content:first-child {
+    border:none;
 }
 
 .scrap {
@@ -262,3 +265,43 @@ body {
 /* #searchMainBox{
 	text-align : center;
 } */
+
+.notice-container, .event-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top:1px solid dimgray;
+    background-color: #E5E7EB;
+}
+.notice-container:first-child {
+    border-top:2px solid #000;
+}
+.event-container:last-child {
+    border-bottom: none;
+}
+
+/* 새힘 */
+.notice-box, .event-box {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.notice-box > .createdAt, .event-box > .createdAt {
+    margin: auto 10px;
+}
+
+.title-notice, .title-event {
+    font-size: 1rem;
+    margin: auto 0;
+    font-weight: bold;
+}
+
+#head-tag {
+    background-color: white;
+    padding: 5px 15px;
+    width: fit-content;
+    border-radius: 70px;
+    font-size: 0.9rem;
+}
