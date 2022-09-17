@@ -322,13 +322,17 @@
     <div id=chatbotTest>
         <!-- Header -->
         <div id="chatHeader">
-            <span>챗봇</span>
+            <span>Artchive Bot</span>
             <button id="btnClose">X</button>
         </div>
 
         <!-- 채팅 내용 출력 영역  -->
-        <div id="chatBox"></div>
-
+        <div id="chatBox">
+        	<div id="chatbotIntro"></div>
+        </div>
+        
+		<div id="chatbotBlank"></div>
+		
         <div>
             <form id="chatForm" name="chatForm">
                 <input type="text" id="message" name="message" size="30" placeholder="질문을 입력하세요"/>

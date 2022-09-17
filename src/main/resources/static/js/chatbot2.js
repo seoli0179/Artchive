@@ -115,8 +115,3 @@ $(document).ready(function() {
 
 /*<span>챗봇</span>*/
 /*+ "<div id='linkImage'><img src='<c:url value='/image/linkIcon.png'/>' alt='이미지 없음'></div>"*/
-
-
-
-
-
