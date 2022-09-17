@@ -49,6 +49,9 @@ public class NoteViewController {
         System.out.println(sort + " " + keyword);
 
         ArrayList<NoteVO> vo = noteService.selectNoteList(category, page, sort, keyword);
+        // 공지, 이벤트
+        ArrayList<NoteVO> noticeVo = noteService.selectNoteList("notice", 1, "new", "");
+        ArrayList<NoteVO> eventVo = noteService.selectNoteList("event", 1, "new", "");
 
         for (int i = 0; i < vo.size(); i++) {
             String tagRemove = vo.get(i).getNote().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
@@ -88,9 +91,13 @@ public class NoteViewController {
         }
 
         model.addAttribute("list", vo);
+        model.addAttribute("noticeList", noticeVo);
+        model.addAttribute("eventList", eventVo);
         model.addAttribute("maxDataNum", noteService.selectNoteCount(category, keyword) - 1);
         if (category.equals("EVENT"))
             return "note/event";
+        if (category.equals("FREE"))
+            return "note/listFree";
         return "note/list";
     }
 
