@@ -85,7 +85,7 @@
                 <div class="notice-container">
                     <div class="scrap">
                         <div id="head-tag" style="float:none; margin:0 auto">
-                            <span>공지</span>
+                            <span>📢 공지</span>
                         </div>
                     </div>
                     <div class="summary notice-box">
