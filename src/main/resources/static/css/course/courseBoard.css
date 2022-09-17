@@ -138,7 +138,7 @@
     background-blend-mode: multiply;
     border-radius: 10px;
     background-position: 0 30%;
-    background-size: 30vw;
+    background-size: cover;
     /*background-attachment:fixed;*/
     background-repeat: no-repeat;
 }
@@ -209,4 +209,31 @@
     color: white;
     font-weight: 300;
     padding: 2px 15px;
+    max-height: 35px;
+    overflow:hidden;
+    font-size: 0.9em;
+}
+
+/* 툴팁 */
+.tooltip {
+    display: inline-block;
+    color: white;
+}
+
+.tooltip-text {
+    display: none;
+    position: absolute;
+    max-width: 200px;
+    height: 35px;
+    border-radius: 70px;
+    padding: 2px 15px;
+    font-size: 0.9em;
+    color: white;
+    background: black;
+}
+
+@media (max-width: 1200px) {
+    .tooltip:hover .tooltip-text {
+        display: block;
+    }
 }

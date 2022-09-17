@@ -1,24 +1,24 @@
 /**
- * actHistory.js
+ * comment.js
  */
  
  $(document).ready(function () {
 });
+function deleteComment(commentId) {
 
-function deleteMpCourse(courseId) {
-
-    if (confirm("해당 게시글을 삭제하시겠습니까?")) {
+    if (confirm("해당 댓글을 삭제하시겠습니까?")) {
         $.ajax({
             type: "POST",
-            url: "/myPage/deleteMpCourse",
+            url: "/myPage/deleteMpComment",
             data: {
-                 "courseId": courseId
+                 "commentId": commentId
             }, success: function (data) {
                 if (data == "SUCCESS") {
                     alert("삭제 완료!");
-                   location.href="/myPage/coursePost/" 
+                    location.href="/myPage/comment/" 
+                   
                 } else {
-                	alert("삭제 실패");
+                    alert("삭제 실패!");
                 }
 
             }, error: function (request,status,error) {

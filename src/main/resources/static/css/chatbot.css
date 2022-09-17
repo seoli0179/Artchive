@@ -128,13 +128,22 @@
 	box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
 }
 
+#chatbotImg {
+	background: white;
+	position: absolute;
+	position: fixed;
+	right: 2%;
+	top: 82%;
+	border-radius: 70px;
+	padding: 10px;
+}
+#chatbotImg:hover img {
+	opacity: 0.5;
+}
+
 #chatImage img {
-    position: absolute;
-    position: fixed;
-    right: 2%;
-    top: 84%;
-    width: auto;
-    height: 10%;
+    width: 60px;
+    height: 60px;
     filter: drop-shadow(2px 3px 3px rgba(0, 0, 0, 0.1));
 }
 

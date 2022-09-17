@@ -11,24 +11,24 @@ let listItem;
 // 코스를 담을 배열입니다.
 var positions = [];
 
-$( function() {
+$(function () {
     // 페이지 구성을 위한 데이터 호출
     $.ajax({
         type: "POST",
         url: "/course/getCourse",
-        data: {"courseId": $("#courseId").val()},
+        data: { "courseId": $("#courseId").val() },
         dataType: "json",
         success: function (result) {
             positions = result;
             console.log(positions);
-            for (var i=0; i<positions.length; i++) {
+            for (var i = 0; i < positions.length; i++) {
                 addCourseMarker2(positions[i].y, positions[i].x, i);
             }
             panTo(positions[0].y, positions[0].x);
             createList();
         },
         error: function () {
-
+            tagInit();
         }
     });
 
@@ -60,6 +60,12 @@ $( function() {
 
     // 태그 삭제 버튼
     let removeBtns = document.getElementsByClassName("closeBtn");
+
+    /* tag init */
+    function tagInit() {
+        tags.push("전시");
+        createTag();
+    }
 
     /* 태그 추가 함수 */
     function addTag(e) {
@@ -103,7 +109,7 @@ $( function() {
         change: function (event, ui) {
         },
         update: function (event, ui) {
-            var item = positions.splice(startIdx,1);
+            var item = positions.splice(startIdx, 1);
             positions.splice(ui.item.index(), 0, item[0]);
             // html 비우기
             $(".courseItem").remove();
@@ -123,7 +129,6 @@ $( function() {
 
     // 태그 init //
     function getTags() {
-        tags = [];
         for (let i = 0; i < tagItem.length; i++) {
             let input = tagItem[i].textContent.trim();
             tags.push(input);
@@ -141,7 +146,7 @@ $( function() {
         insertCourse();
     });
 
-} );
+});
 
 /** insertCourse */
 function insertCourse() {
@@ -150,18 +155,22 @@ function insertCourse() {
     let courseTitle = $("#courseTitle").val();
     let exhbnId = $("#exhbnId").val();
 
-    if($("#courseStatus").prop("checked")){
+    if ($("#courseStatus").prop("checked")) {
         $("#courseStatus").val(1);
     } else {
         $("#courseStatus").val(2);
     }
     let courseState = $("#courseStatus").val();
 
-    for (let i=0; i<tags.length; i++){
-        if (i==(tags.length-1)){
-            courseTag += tags[i];
-        } else {
-            courseTag += tags[i] + ";;";
+    if (tags.length == 0) {
+        courseTag = "전시"
+    } else {
+        for (let i = 0; i < tags.length; i++) {
+            if (i == (tags.length - 1)) {
+                courseTag += tags[i];
+            } else {
+                courseTag += tags[i] + ";;";
+            }
         }
     }
 
@@ -174,24 +183,29 @@ function insertCourse() {
     };
 
     console.log(JSON.stringify(param));
-    $.ajax({
-        url:"/course/createCourse",
-        contentType: 'application/json; charset=utf-8',
-        type:"POST",
-        data:JSON.stringify(param),
-        success:function(result){
-            if (result=="FAIL") {
-                alert("다시 로그인 해주세요.")
-            } else {
-                alert("작성 완료!");
-                window.location.href="/course/list";
+
+    if (!courseTitle) {
+        alert("제목을 입력해주세요.");
+    } else {
+        $.ajax({
+            url: "/course/createCourse",
+            contentType: 'application/json; charset=utf-8',
+            type: "POST",
+            data: JSON.stringify(param),
+            success: function (result) {
+                if (result == "FAIL") {
+                    alert("다시 로그인 해주세요.")
+                } else {
+                    alert("작성 완료!");
+                    window.location.href = "/course/list";
+                }
+            },
+            error: function (request, status, error) {
+                alert("error!");
+                console.log("code=" + request.status + "message=" + request.responseText + "error=" + error); //실패시처리
             }
-        },
-        error:function(request,status,error) {
-            alert("error!");
-            console.log("code="+request.status+"message="+request.responseText+"error="+error); //실패시처리
-        }
-    });
+        });
+    } // else if
 }
 
 /** updateCourse */
@@ -202,18 +216,22 @@ function updateCourse() {
     let courseTitle = $("#courseTitle").val();
     let exhbnId = $("#exhbnId").val();
 
-    if($("#courseStatus").prop("checked")){
+    if ($("#courseStatus").prop("checked")) {
         $("#courseStatus").val(1);
     } else {
         $("#courseStatus").val(2);
     }
     let courseState = $("#courseStatus").val();
 
-    for (let i=0; i<tags.length; i++){
-        if (i==(tags.length-1)){
-            courseTag += tags[i];
-        } else {
-            courseTag += tags[i] + ";;";
+    if (tags.length == 0) {
+        courseTag = "전시"
+    } else {
+        for (let i = 0; i < tags.length; i++) {
+            if (i == (tags.length - 1)) {
+                courseTag += tags[i];
+            } else {
+                courseTag += tags[i] + ";;";
+            }
         }
     }
 
@@ -226,47 +244,45 @@ function updateCourse() {
         "courseListItem": positions
     };
 
-    $.ajax({
-        url:"/course/updateCourse",
-        contentType: 'application/json',
-        type:"POST",
-        traditional:true,
-        data:JSON.stringify(param),
-        success:function(result){
-            alert("수정 완료!");
-            window.history.back();
-        },
-        error:function(request,status,error) {
-            alert("code="+request.status+"message="+request.responseText+"error="+error); //실패시처리
-        }
-    });
-
+    if (!courseTitle)  {
+        alert("제목을 입력해주세요.");
+    } else {
+        $.ajax({
+            url: "/course/updateCourse",
+            contentType: 'application/json',
+            type: "POST",
+            traditional: true,
+            data: JSON.stringify(param),
+            success: function (result) {
+                alert("수정 완료!");
+                window.history.back();
+            },
+            error: function (request, status, error) {
+                alert("code=" + request.status + "message=" + request.responseText + "error=" + error); //실패시처리
+            }
+        });
+    } // else if
 }
 
-// 코스 item 삭제 함수
+// 코스 item 삭제 함수\
 function deleteCourse(element, index) {
-    if(confirm("항목을 삭제하시겠습니까?")){
-        if (sites.length>1) {
-            $("#route"+index).remove(); // jsp 태그 삭제
-            // sites에서 값이 동일한 요소 삭제
-            for (let i = 0; i < sites.length; i++) {
-                if (sites[i] === sites_copy[index]) {
-                    sites.splice(i, 1);
-                    addresses.splice(i, 1);
-                    memos.splice((i, 1));
-                }
-            }
+    if (confirm("항목을 삭제하시겠습니까?")) {
+        if (positions.length > 1) {
+            $("#route" + index).remove(); // jsp 태그 삭제
+            positions.splice(index, 1);
         } else {
             alert("모든 항목을 삭제하실 수 없습니다.")
         }
-        console.log(sites)
+        $(".courseItem").remove();
+        removeCourseMarker();
+        createList();
     }
 }
 
 // 태그 삭제 함수 //
 function remove(element, tag) {
     let index = tags.indexOf(tag);
-    tags.splice(index,1);
+    tags.splice(index, 1);
     console.log(tags);
     element.parentElement.remove(); // li 삭제
 }
@@ -279,6 +295,11 @@ function createList() {
         listItem.setAttribute("class", "route-row courseItem");
         listItem.setAttribute("id", "route" + i);
         listItem.setAttribute("draggable", "true");
+
+        // 빈 메모 처리
+        if (positions[i].place_memo == null) {
+            positions[i].place_memo = "";
+        }
 
         // 빈 메모 처리
         if (positions[i].place_memo == null){
@@ -324,16 +345,16 @@ function createList() {
     }
     $memoArea = $(".place-memo-input");
     saveMemo();
-    for (var i=0; i<positions.length; i++) {
+    for (var i = 0; i < positions.length; i++) {
         addCourseMarker2(positions[i].y, positions[i].x, i);
     }
 }
 
 function saveMemo() {
-    $memoArea.each(function(i) {
-        $(document).on("focusout", "#memo_"+i ,function(index){
+    $memoArea.each(function (i) {
+        $(document).on("focusout", "#memo_" + i, function (index) {
             console.log($(this).val());
-            if($(this).val().length<141) {
+            if ($(this).val().length < 141) {
                 positions[i].place_memo = $(this).val();
                 console.log(positions[i].place_memo);
             } else {
@@ -343,3 +364,5 @@ function saveMemo() {
         });
     });
 }
+
+

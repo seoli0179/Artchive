@@ -40,6 +40,8 @@ public interface INoteDAO {
     
     // 마이페이지 게시글 삭제 
 	void deleteNoteView(int userId);
+
+    ArrayList<NoteVO> selectLimitNoteList(HashMap<String,Object> map);
     
 
 }

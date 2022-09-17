@@ -22,6 +22,12 @@ public class NoteVO {
     private String userNickname;
     private boolean noteLikeCheck;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date eventStartDate;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date eventEndDate;
+
     public NoteVO() {
     }
 
@@ -119,5 +125,25 @@ public class NoteVO {
 
     public void setUserNickname(String userNickname) {
         this.userNickname = userNickname;
+    }
+
+    public boolean isNoteLikeCheck() {
+        return noteLikeCheck;
+    }
+
+    public Date getEventStartDate() {
+        return eventStartDate;
+    }
+
+    public void setEventStartDate(Date eventStartDate) {
+        this.eventStartDate = eventStartDate;
+    }
+
+    public Date getEventEndDate() {
+        return eventEndDate;
+    }
+
+    public void setEventEndDate(Date eventEndDate) {
+        this.eventEndDate = eventEndDate;
     }
 }

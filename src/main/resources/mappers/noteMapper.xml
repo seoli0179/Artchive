@@ -59,6 +59,8 @@
         n.noteLike,
         n.noteCommentNum,
         n.noteCreatedDate,
+        n.eventStartDate,
+        n.eventEndDate,
         u.userNickname
         from note n,
         user u
@@ -80,6 +82,20 @@
         limit 10 offset #{page};
     </select>
 
+    <select id="selectLimitNoteList" parameterType="hashmap" resultType="com.spring_boot_final.project.model.NoteVO">
+        select *
+        from note n
+        where category = #{category}
+        and pageViewState = 'POST'
+        <choose>
+            <when test="category == 'EVNET'">
+                and eventEndDate >= now()
+            </when>
+        </choose>
+        order by noteCreatedDate DESC
+        limit #{num};
+    </select>
+
     <select id="selectNoteLike" parameterType="com.spring_boot_final.project.model.NoteVO" resultType="int">
 <![CDATA[
         select count(*)
@@ -96,7 +112,8 @@
         select *
         from note
         where userId = #{userId}
-        and pageViewState = 'POST'
+        and pageViewState = 'POST' 
+        ORDER by noteCreatedDate ASC
         ]]>
     </select>
 	
