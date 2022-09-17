@@ -122,7 +122,7 @@
 	
 	<!-- 리뷰게시판 검색 -->
 	<select id="reviewNoteSearch" parameterType="string" resultType="com.spring_boot_final.project.model.ReviewNoteVO">
-		SELECT r.reviewNoteId,
+		SELECT DISTINCT r.reviewNoteId,
 			   r.reviewNoteTitle,
 			   r.reviewNote,
 			   r.reviewNoteLike,
@@ -139,8 +139,8 @@
 			   u.userNickname,
 			   u.userId
 		FROM reviewNote r, course c, user u, exhbn e
-		WHERE reviewNoteTitle like CONCAT ('%',#{title},'%')
-		and  r.courseId = c.courseId and r.userId = u.userId and r.exhbnId = e.exhbnId and r.reviewPageViewState = 'POST'
+		WHERE r.courseId = c.courseId and r.userId = u.userId and r.exhbnId = e.exhbnId and r.reviewPageViewState = 'POST'
+		and (reviewNoteTitle like CONCAT ('%',#{title},'%') or courseTag like CONCAT ('%',#{title},'%'))  
 
 	</select>
 	
