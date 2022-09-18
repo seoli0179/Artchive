@@ -27,6 +27,7 @@
         <![CDATA[
         select n.noteId,
                n.userId,
+               n.category,
                n.noteTitle,
                n.note,
                n.pageViewState,
