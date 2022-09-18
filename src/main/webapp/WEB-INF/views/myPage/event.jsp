@@ -6,7 +6,7 @@
 <html>
 	<head>
 	<meta charset="UTF-8">
-		<title>arTchive / 마이페이지 - 추천콘텐츠(이벤트)</title>
+		<title>arTchive / 마이페이지 - 내 전시(이벤트)</title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/myPage/event.css'/>"/>
@@ -26,35 +26,38 @@
                
             </div>
             <div class="course-box guide-box">
-                <nav>
-					<ul class="tabMenu">
-						<li><a href="<c:url value='/myPage/home'/>"><i class="fa-solid fa-house"></i> 홈</a></li>
-						<li><a href="<c:url value='/myPage/check'/>"><i class="fa-solid fa-gears"></i> 개인정보 수정</a></li>
-						<li><a href="<c:url value='/myPage/check2'/>"><i class="fa-solid fa-unlock-keyhole"></i> 비밀번호 설정</a></li>
-						<li><a href="<c:url value='/myPage/scrap'/>">	<i class="fa-solid fa-photo-film"></i> 내 전시</a></li>
-						<li><a href="<c:url value='/myPage/post'/>"><i class="fa-solid fa-pen"></i> 활동 내역</a></li>
-						<li><a href="<c:url value='/myPage/recmd'/>"><i class="fa-solid fa-star"></i> 추천 콘텐츠</a></li>
-						<li><a href="<c:url value='/myPage/withdraw'/>"><i class="fa-solid fa-right-from-bracket"></i> 회원 탈퇴</a></li>
-					</ul>
-				</nav>
+               		 <nav>
+						<ul class="tabMenu">
+							<li><a href="<c:url value='/myPage/home'/>"><i class="fa-solid fa-house"></i> 홈</a></li>
+							<li><a href="<c:url value='/myPage/myGallery'/>"><i class="fa-solid fa-photo-film"></i> 내 전시</a></li>
+							<li><a href="<c:url value='/myPage/myCourse'/>"><i class="fa-solid fa-route"></i> 내 코스</a></li>
+							<li><a href="<c:url value='/myPage/recmd'/>"> <i class="fa-solid fa-thumbs-up"></i> 추천 콘텐츠</a></li>
+							<li><a href="<c:url value='/myPage/post'/>"><i class="fa-solid fa-pen"></i> 활동 내역</a></li>
+							<li><a href="<c:url value='/myPage/review'/>"><i class="fa-solid fa-star"></i> 전시 리뷰</a></li>
+							<li><a href="<c:url value='/myPage/check'/>"><i class="fa-solid fa-gears"></i> 개인정보 수정</a></li>
+							<li><a href="<c:url value='/myPage/check2'/>"><i class="fa-solid fa-unlock-keyhole"></i> 비밀번호 설정</a></li>
+							<li><a href="<c:url value='/myPage/withdraw'/>"><i class="fa-solid fa-right-from-bracket"></i> 회원 탈퇴</a></li>
+						</ul>
+					</nav>
 			
 			<div class="myPageBox">
 				<div class="contentsBox">
-					<div class="contents"><h2>추천 콘텐츠</h2></div>
-					<div class="setting"><a class="white-btn" href="<c:url value='/myPage/custom'/>">설정</a></div>
+					<div class="contents"><h2>내 전시</h2></div>
+					<div class="setting"><a class="white-btn" href="<c:url value='/myPage/OCRForm'/>" target="blank"
+					onClick="window.open(this.href, '', 'width=500, height=800'); return false;">티켓 등록</a></div>
 				</div> <!-- contentsBox -->
 				
 				<p class="line">
 				
 				<div class="titleBox">
-					<a href="<c:url value='/myPage/recmd'/>">전시</a>
-					<a href="<c:url value='/myPage/event'/>">이벤트</a>
+						<a href="<c:url value='/myPage/myGallery'/>">스크랩</a> 
+						<a href="<c:url value='/myPage/visit'/>">다녀온 전시</a>
+						<a href="<c:url value='/myPage/event'/>">이벤트</a>
 				</div><!-- titleBox -->
 				
 				<div class="area">
 					<a class="white-btn" href="<c:url value=''/>">전체</a>
-					<a class="white-btn" href="<c:url value=''/>">진행중</a>
-					<a class="white-btn" href="<c:url value=''/>">진행완료</a>
+					<a class="white-btn" href="<c:url value=''/>">참여 완료</a>
 				</div>
 				
 				<div class="wholeExpbnBox">
