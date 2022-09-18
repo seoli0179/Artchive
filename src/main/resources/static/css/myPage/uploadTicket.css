@@ -43,11 +43,14 @@
 	}
 	#ticketBox>img {
 		margin: 0 auto;
+		width:100%;
+		height:80%;
 	}
 	#ticketBox>a {
 		margin: 0 auto;
 		color: #707070;
 	}
+	
 	.uploadBtn {
 		width: 100%;
 	}
@@ -67,7 +70,6 @@
 		margin:0 auto;
 		height:100%;
 	}
-	
 	
 	.uplaodBox {
 		margin:10% auto;
@@ -98,13 +100,17 @@
 		align-items: center;
 		vertical-align: middle;
 	}
+	
 	#ticketBox>img {
 		margin: 0 auto;
+		width:80%;
+		height:80%;
 	}
 	#ticketBox>a {
 		margin: 0 auto;
 		color: #707070;
 	}
+	
 	.uploadBtn {
 		width: 100%;
 	}
