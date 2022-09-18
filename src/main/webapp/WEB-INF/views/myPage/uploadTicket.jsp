@@ -25,7 +25,7 @@
 			<form id="ocrForm" method="post" enctype="multipart/form-data">
 				<div id="ticketBox" style="cursor:pointer">
 					<span id="explain">이벤트 페이지의 <br><br>티켓을 업로드 해주세요.</span>
-					<img id="peviewImg">
+					<img id="peviewImg" style="display:none">
 				</div>
 				<input type="file" id="uploadFile" name="uploadFile" style="display:none">
 				<input type="submit" class="white-btn uploadBtn" value="티켓 업로드">

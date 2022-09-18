@@ -18,6 +18,7 @@
 	    if (input.files && input.files[0]) {
 	        var reader = new FileReader();
 	        reader.onload = function (e) {
+	            document.getElementById('peviewImg').style.display = 'block'; 
 	            document.getElementById('peviewImg').src = e.target.result; 
 	            document.getElementById('explain').style.display='none';
 	        }
