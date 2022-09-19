@@ -139,15 +139,13 @@ public class OCRService {
 		 TicketVO vo = new TicketVO();
 		 
 		String place = fieldObj.getJSONObject(0).getString("inferText");
-		String date = fieldObj.getJSONObject(1).getString("inferText");
-		String number = fieldObj.getJSONObject(2).getString("inferText");
-		
+		String number = fieldObj.getJSONObject(1).getString("inferText");
+		String date = fieldObj.getJSONObject(2).getString("inferText");
 		
 		 vo.setTitle(titleObj);
 		 vo.setPlace(place);
-		 vo.setDate(date);
 		 vo.setNumber(number);
-		
+		 vo.setDate(date);
 		
 		System.out.println(vo);
 		return vo;
