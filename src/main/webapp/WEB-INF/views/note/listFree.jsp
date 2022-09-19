@@ -21,7 +21,7 @@
     <script src="<c:url value='/js/note/list.js'/>"></script>
     <script src="<c:url value='/js/note/search.js'/>"></script>
     <script src="https://kit.fontawesome.com/8ab5776cfb.js" crossorigin="anonymous"></script><!-- 아이콘 -->
-    <title>arTchive / 게시판</title>
+    <title>Artchive / 자유게시판</title>
 </head>
 <body>
 <c:import url="/WEB-INF/views/layout/top.jsp"></c:import>
@@ -76,7 +76,7 @@
                         <div class="title-notice">
                             <a href="<c:url value="/note/detail/${notice.noteId}"/>">${notice.noteTitle}</a>
                         </div>
-                        <div class="createdAt"><fmt:formatDate pattern="MM-dd" value="${notice.noteCreatedDate }"/>
+                        <div class="createdAt"><fmt:formatDate pattern="yyyy-MM-dd" value="${notice.noteCreatedDate }"/>
                         </div>
                     </div>
                 </div>
