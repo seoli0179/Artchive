@@ -17,6 +17,13 @@
         ]]>
     </insert>
 
+    <insert id="insertInteractionDAS" parameterType="hashmap">
+        <![CDATA[
+        INSERT INTO interaction_das (USER_ID, ITEM_ID, TIMESTAMP)
+        VALUES (#{USER_ID},#{ITEM_ID},#{TIMESTAMP})
+        ]]>
+    </insert>
+
 
     <!-- Read -->
 

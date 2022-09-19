@@ -14,6 +14,8 @@ public interface IExhbnDAO {
     //Create
     void insertExhbn(ExhbnVO vo);
 
+    void insertInteractionDAS(HashMap<String, Object> map);
+
     //Read
     ExhbnVO selectExhbn(int exhbnId);
     ArrayList<ExhbnVO> selectAllExhbn();
