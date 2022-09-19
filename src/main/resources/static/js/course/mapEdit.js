@@ -278,21 +278,13 @@ $(document).ready(function (){
 		return marker;
 	}
 
-	// 지도 위에 표시되고 있는 마커를 모두 제거합니다
+// 지도 위에 표시되고 있는 마커를 모두 제거합니다
 	function removeMarker() {
 		for ( var i = 0; i < markers.length; i++ ) {
 			markers[i].setMap(null);
 		}
 		markers = [];
 	}
-
-// // 지도 위에 표시되고 있는 코스 마커를 모두 제거합니다
-// 	function removeCourseMarker() {
-// 		for ( var i = 0; i < courseMarkers.length; i++ ) {
-// 			courseMarkers[i].setMap(null);
-// 		}
-// 		courseMarkers = [];
-// 	}
 
 // 검색결과 목록 하단에 페이지번호를 표시는 함수입니다
 	function displayPagination(pagination) {
@@ -420,12 +412,4 @@ function addCourseItem(data, idx) {
 		let newMarker = new kakao.maps.LatLng(positions[positions.length-1].y, positions[positions.length-1].x)
 		addCourseMarker(newMarker, positions.length-1);
 	}
-}
-
-// 지도 위에 표시되고 있는 코스 마커를 모두 제거합니다
-function removeCourseMarker() {
-	for ( var i = 0; i < courseMarkers.length; i++ ) {
-		courseMarkers[i].setMap(null);
-	}
-	courseMarkers = [];
 }

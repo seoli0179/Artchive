@@ -29,7 +29,8 @@ $(document).ready(function() {
  		
  	}); // submit 끝
  	
- 	
+ 	//bubbles[b].data.description
+ 	//<p>Artchive Bot</p>
  	
  	// ajax() 부분을 별도의 함수로 분리
  	function callAjax(){
@@ -46,8 +47,8 @@ $(document).ready(function() {
 				for(var b in bubbles){
 					if(bubbles[b].type == 'text'){ // 기본 답변인 경우
 						/* chatBox에 받은 메시지 추가 */
-							$('#chatBox').append('<div class="msgBox receive"><span id="in"><br><span>' + 
-															   bubbles[b].data.description +'</span></span></div><br><br>'); 
+							$('#chatBox').append('<div class="msgBox receive"><span id="in"><span>' + 
+															   bubbles[b].data.description+'</span></span></div><br><br>'); 
 															   
 						// 챗봇으로 부터 받은 텍스트 답변을 음성으로 변환하기 위해 TTS 호출									   
 						callAjaxTTS(bubbles[b].data.description);										   
@@ -60,7 +61,7 @@ $(document).ready(function() {
 								("<a href='"+bubbles[b].data.cover.data.action.data.url+"' target='_blank'>" + 
 										bubbles[b].data.cover.data.action.data.url+ "</a><br><br>");							
 							} else {
-								$("#chatBox").append("<div class='msgBox receive'><span id='in'><br><span>" + "<span id='chatbotTitle'>"+bubbles[b].data.cover.title +"</span>" +"<br>"+"<span class='subtitle'>"+ bubbles[b].data.cover.data.description+ "</span>"+ "</span></span></div><br><br>");	
+								$("#chatBox").append("<div class='msgBox receive'><span id='in'><br><span>" + "<span id='chatbotTitle'>"+bubbles[b].data.cover.title +"</span>" +"<br>"+"<span id='chatbotSub' class='subtitle'>"+ bubbles[b].data.cover.data.description+ "</span>"+ "</span></span></div><br><br>");	
 																	   
 								callAjaxTTS(bubbles[b].data.cover.data.description);										
 							}
@@ -115,8 +116,3 @@ $(document).ready(function() {
 
 /*<span>챗봇</span>*/
 /*+ "<div id='linkImage'><img src='<c:url value='/image/linkIcon.png'/>' alt='이미지 없음'></div>"*/
-
-
-
-
-

@@ -1,18 +1,27 @@
 @charset "UTF-8";
 
 #chatHeader {
-	background-color : black;
-	color : #eeeeee;
-	height : 25px;
+	background-color : fff;
+	color : #000;
+	height : 35px;
 	padding: 15px 15px;
-	border-bottom : solid 2px rgba(0, 0, 0, 0.1);
- 	/* box-shadow:0 3px 0px 0px rgba(0, 0, 0, 0.5); */
- 	line-height: 25px;
- 	border-radius:12px 12px 0px 0px;
+	/* border-bottom : solid 2px rgba(0, 0, 0, 0.1); */
+ 	line-height: 35px;
+ 	border-radius:25px 25px 0px 0px;
+ 	padding-left: 30px;
+}
+
+#chatHeader > span {
+	font-size : 20px;
+	font-family: 'establishRetrosansOTF';
 }
 
 #chatHeader button {
-	color : #eeeeee;
+	color : #000;
+	font-family: 'establishRetrosansOTF';
+	line-height : 37px;
+	margin-right : 10px;
+	font-size : 15px;
 }
 
 #btnClose {
@@ -31,25 +40,27 @@
 	    } 	
 
 #message {
-	height : 33px;
-	width: 230px;
+	height : 57px;
+	/* width: 230px; */
 	padding-left : 10px;
-	margin-left : 14px;
-	margin-top : 5px;
+	margin-left : 20px;
+	/* margin-top : 5px; */
 	border : none;
-	border-bottom-style: solid;
+	/* border-bottom-style: solid;
 	border-bottom-width: 2px;
-	border-bottom-color: black;
+	border-bottom-color: black; */
+	background-color : #F3F4F6;
+	font-size : 15px;
 	}
 
 #submitBtn {
 	width : 27px;
 	height : 27px;
 	float: right;
-	background-color : #fff;
-	padding-right:12px;
+	/* background-color : #fff; */
+	padding-right:17px;
 	margin-right:5px;
-	margin-top:10px;
+	margin-top:16px;
 	border-color : #000;
 	border-radius : 2px;
 	}
@@ -61,31 +72,31 @@
 	display:block; 
 	max-width:200px; 
 	margin-bottom: 5px;
-	border-radius:0px 10px 10px 10px
+	border-radius:15px;
 }
 							 
 .msgBox.send  span {
 	background:#000;
 	color : #fff;
 	float:right;
-	border-radius:10px 0px 10px 10px;
-	font-size : 15px;
-	padding: 10px 10px 10px 10px;
+	border-radius:15px;
+	font-size : 16px;
+	padding: 13px;
 	}
 
 .msgBox #in {
 	padding:0px 0px 0px 0px;
 	width:500px;
-	background:#ebebeb;
+	background:#fff;
 	border :none;
 	/* border : solid 2px black; */
 	}
 
 .msgBox.receive  span {
-	background:#fff;
+	background: #F3F4F6;
 	float:left;
-	font-size : 15px;
-	padding: 10px 10px 10px 10px;
+	font-size : 16px;
+	padding: 15px;
 }
 
 
@@ -96,40 +107,34 @@
 	right : 15px;
 	/* top : 37%; */
 	bottom : 5%; 
-	width : 310px;
-	height : 500px;
+	width : 380px;
+	height : 550px;
 	box-shadow: 0 2px 3px 3px rgba(0, 0, 0, 0.1);
 	/* offset-x | offset-y | blur-radius | spread-radius | color */
 	background-color : #fff;
-	border-radius: 12px;
+	border-radius: 25px;
 	z-index : 500;
 	padding-bottom : 25px;
 }
 
 #chatBox {
 	height: 400px;
-	width: 280px;
+	width: 350px;
 	overflow-y:scroll;
 	padding:10px 15px;
-	background:#ebebeb;
-}
-
-#chatbotImg {
-	background: white;
-	position: absolute;
-	position: fixed;
-	right: 2%;
-	top: 82%;
-	border-radius: 70px;
-	padding: 10px;
-}
-#chatbotImg:hover img {
-	opacity: 0.5;
+	background:#fff;
+	/* border : solid red 1px; */
+	z-index: -1;
+	box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
 }
 
 #chatImage img {
-    width: 60px;
-    height: 60px;
+    position: absolute;
+    position: fixed;
+    right: 2%;
+    top: 84%;
+    width: auto;
+    height: 10%;
     filter: drop-shadow(2px 3px 3px rgba(0, 0, 0, 0.1));
 }
 
@@ -153,13 +158,38 @@ input:focus {
 	max-width:200px; margin-bottom: 10px;
 	border-radius: 10px;
 	border : 1px solid #000;
-	
+	margin-right : 100px;
 }
+
+.msgBox.receive.chatbotUrl{
+	display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+    border-radius: 15px;
+    border: 1px solid #222222;
+    transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+    background: #fff;
+    color: #222222;
+}
+       
+.msgBox.receive.chatbotUrl:hover {
+    border-color: #000000;
+    background: #F3F4F6;
+}
+                
+}
+:focus-visible{
+    outline-offset: 1px;
+}
+                
+
 
 .chatbotImg {
 	padding : 10px;
-	background : #fff;
-	border-radius: 10px;
+	background : #F3F4F6;
+	border-radius: 15px;
 	width : 160px;
 	height : 210px;
 	float:left;
@@ -170,6 +200,7 @@ input:focus {
 #chatbotTitle{
 	font-size : 16px;
 	font-weight : bold;
+	padding : 0px;
 }
 
 .subtitle{
@@ -188,12 +219,74 @@ input:focus {
 
 #chatBox::-webkit-scrollbar-thumb {
     height: 30%; /* 스크롤바의 길이 */
-    background: #000; /* 스크롤바의 색상 */
+    background: #F3F4F6; /* 스크롤바의 색상 */
     
     border-radius: 10px;
 }
 
 #chatBox::-webkit-scrollbar-track {
-    background: #ebebeb;  /*스크롤바 뒷 배경 색상*/
+    background: #fff;  /*스크롤바 뒷 배경 색상*/
      border-radius: 10px;
+}
+
+#chatbotBlank{
+	height : 14px;
+	background-color: #fff;
+}
+
+#chatForm{
+	background-color : #F3F4F6;
+	margin-left : 10px;
+	margin-right : 10px;
+	margin-top : 5px;
+	height : 57px;
+	border-radius : 18px;
+}
+
+#chatbotSub{
+	padding : 0px;
+	padding-top : 7px;
+	font-size: 14px;
+}
+
+.msgBox.receive > span > p {
+	font-size : 13px;
+	color : rgba(0, 0, 0, 0.5);
+	margin-bottom : 5px;
+	margin-top : 5px;
+	margin-left: 5px;
+}
+
+#chatbotIntro{
+	/* border : red 1px solid; */
+	height : auto;
+}
+
+.chatbotIntro{
+	text-align : center;
+}
+
+#chatbotIntro1{
+	font-size : 17px;
+	font-weight : bold;
+	color : rgba(0, 0, 0, 0.85);
+	line-height: 2.52rem;
+}
+
+#chatbotIntro2{
+	font-size : 14px;
+	color : rgba(0, 0, 0, 0.4);
+	line-height : 20px;
+	margin-bottom : 8px;
+}
+
+#chatbotIntroImg{
+	margin : 0 auto;
+	text-align : center;
+}
+
+#chatbotIntroImg img{
+	width :auto;
+	height : 120px;
+	margin : 0 auto;
 }
