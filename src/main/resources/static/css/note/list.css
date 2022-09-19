@@ -105,6 +105,12 @@ body {
     border-bottom:2px solid #000;
 }
 
+.post_list_box {
+    display: block;
+    border-bottom:2px solid #000;
+    border-top: 2px solid #000;
+}
+
 .content {
     display: flex;
     justify-content: center;
@@ -228,10 +234,6 @@ body {
 #slideImage-box1 {background-color: #6F6AE5}
 #slideImage-box2 {background-color: #6F6AE5}
 #slideImage-box3 {background-color: #FE4A00}
-
-
-
-
 
 #searchTEXT{
    width : 50%;

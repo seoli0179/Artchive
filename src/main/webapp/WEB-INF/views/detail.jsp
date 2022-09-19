@@ -8,8 +8,10 @@
 		<meta charset="UTF-8">
 		<title>arTchive / ${exhbn.exhbnTitle}</title>
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
-		<script src="<c:url value='/js/detail.js'/>"></script>
+		<script src="<c:url value='/js/exhbn/detail.js'/>"></script>
 		<script src="<c:url value='/js/note/detail.js'/>"></script>
+		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f62ace4deff6b141114cc8499d76cb47&libraries=services"></script> <!-- 지도 -->
+		<script src="<c:url value='/js/exhbn/map.js'/>"></script> <!-- 지도 커스텀 -->
 		<!-- icon-kit -->
 		<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
@@ -84,7 +86,7 @@
 								<span>예약방법</span>
 							</div>
 							<div class="context-content">
-								<button class="black-btn">예약하기</button>
+								<button class="black-btn" onclick="alert('준비중인 기능입니다.')">예약하기</button>
 							</div>
 						</div>
 					</div>
@@ -95,7 +97,8 @@
 								<span>장소</span>
 							</div>
 							<div class="context-content">
-								<span>${exhbn.exhbnPlace}<br/>${exhbn.exhbnPlaceAddr}</span>
+								<span id="exhbn_place">${exhbn.exhbnPlace}</span><br/>
+								<span id="exhbn_addr">${exhbn.exhbnPlaceAddr}</span>
 							</div>
 						</div>
 						<div id="time" class="context-box">
@@ -119,6 +122,19 @@
 					
 				</div>
 				<!-- .context-container -->
+				<div id="map-box">
+					<div id="map" class="map">
+					</div>
+				</div>
+				<!-- tag -->
+<%--				<div class="tag-box">--%>
+<%--					<h3>Tag. </h3>--%>
+<%--					<ul class="tagList">--%>
+<%--						<li class="tagItem">tag1</li>--%>
+<%--						<li>tag2</li>--%>
+<%--						<li>tag3</li>--%>
+<%--					</ul>--%>
+<%--				</div>--%>
 				<div id="button-box">
 					<div>
 						<button class="white-btn-big" onclick="window.open('${exhbn.exhbnUrl}')">자세히 보기</button>
@@ -139,20 +155,6 @@
 						</c:if>
 					</div>
 				</div>
-				<div id="map-box">
-					<div class="map">
-					</div>
-				</div>
-				<!-- tag -->
-				<div class="tag-box">
-					<h3>Tag. </h3>
-					<ul class="tagList">
-						<li class="tagItem">tag1</li>
-						<li>tag2</li>
-						<li>tag3</li>
-					</ul>
-				</div>
-				<!-- .tag-box -->
 			</div>
 			<!-- .contents-container -->
 			<div class="sub-title">
@@ -162,68 +164,24 @@
 				<br>
 			</div>
 			<div id="review-container">
-				<div class="sliding-box animate">
-					<article class="review-box">
-						<div class="review" style="background-image: url('https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MTlfMTcz%2FMDAxNjU4MjE0MDA5NzA2.RQIp62kBmC4ga2po4F9bPFVv_zU7SvOpq5HEC6YwxwAg.7wg5PGHrpntbSgzPO1QVaYSlZLB9a1icbkV0P1jwTD0g.JPEG.sojinee%2FIMG_3839.jpg&type=sc960_832');">
-						</div>
-						<div class="post-meta">
-						</div>
-					</article>
-					<article class="review-box">
-						<div class="review" style="background-image: url('https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDRfNDQg%2FMDAxNjU2ODYxOTc3NzU5.j94kBnRw4XjI4afwSPjBr-SeDkI3oQPggRaSbWiqRXAg.287rvxF364vL5Jh9-LnM1eTTiNycFYuWrMW25FCzflcg.JPEG.tmmoist%2FIMG_8135.jpg&type=sc960_832');">
-						</div>
-						<div class="post-meta">
-						</div>
-					</article>
-					<article class="review-box">
-						<div class="review" style="background-image: url('https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDRfMTE2%2FMDAxNjU2OTQ2NjYzNTQ4.vVys-ye8ToMlHbcU2E9qPWmNsS7EamggZ4pNZFi8osMg.Q7CtuzauRA-HhsUQEpfll0pPZBhvXNlqWitO3C8waGcg.JPEG.slom0702%2FIMG_8999.jpg&type=sc960_832');">
-						</div>
-						<div class="post-meta">
-						</div>
-					</article>
-					<article class="review-box">
-						<div class="review" style="background-image: url('https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDEyMDZfMTk5%2FMDAxNjA3MjQxMjg3NTg4.jDFINP11b1dAvSkZVwaQ_ukzOGseCV5q5JG6GouS39gg.UXiyWlG_w9JHPo134aTLrfAjFaEgeRcqROUlt7f9VFwg.JPEG.tjrdmsgp%2FKakaoTalk_20201206_141123966_21.jpg&type=sc960_832');">
-						</div>
-						<div class="post-meta">
-						</div>
-					</article>
-					<article class="review-box">
-						<div class="review" style="background-image: url('https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTEyMjBfMTQy%2FMDAxNjQwMDA0OTA1NjE3.JUUk0eEyaPipy79Fh22TuZ2dVRv2Jmo-V1a-t0-OrAEg.Jau6WVx7C0WPV1h1fbyI2KBhK3sGOCt7ULDKjPpKAMQg.JPEG.subeen__%2FIMG_6669.jpg&type=sc960_832');">
-						</div>
-						<div class="post-meta">
-						</div>
-					</article>
-					<article class="review-box">
-						<div class="review" style="background-image: url();">
-						</div>
-						<div class="post-meta">
-						</div>
-					</article>
-					<article class="review-box">
-						<div class="review" style="background-image: url();">
-						</div>
-						<div class="post-meta">
-						</div>
-					</article>
-					<article class="review-box">
-						<div class="review" style="background-image: url();">
-						</div>
-						<div class="post-meta">
-						</div>
-					</article>
-					<article class="review-box">
-						<div class="review" style="background-image: url();">
-						</div>
-						<div class="post-meta">
-						</div>
-					</article>
-					<article class="review-box">
-						<div class="review" style="background-image: url();">
-						</div>
-						<div class="post-meta">
-						</div>
-					</article>
-				</div>
+				<c:if test="${reviewList.size() == 0}">
+					<div class="no_review_message">
+						관련 리뷰가 없습니다.<br>
+						첫 리뷰를 작성해주세요!<br>
+					</div>
+				</c:if>
+				<c:if test="${reviewList.size() != 0}">
+					<div class="sliding-box animate">
+						<c:forEach items="${reviewList}" var="rv" end="9">
+							<article class="review-box">
+								<div class="review" style="background-image: url('${rv.exhbnImgUrl}');">
+								</div>
+								<div class="post-meta">
+								</div>
+							</article>
+						</c:forEach>
+					</div>
+				</c:if>
 			</div>
 		</main>
 
