@@ -10,10 +10,10 @@
     <insert id="insertExhbn" parameterType="com.spring_boot_final.project.model.ExhbnVO">
         <![CDATA[
         INSERT INTO exhbn (exhbnId, exhbnTitle, exhbnStartDate, exhbnEndDate, exhbnPlace, exhbnArea, exhbnPrice,
-                           exhbnUrl, exhbnPhone, exhbnImgUrl, gpsX, gpsY, exhbnPlaceUrl, exhbnPlaceAddr)
+                           exhbnUrl, exhbnPhone, exhbnImgUrl, gpsX, gpsY, exhbnPlaceUrl, exhbnPlaceAddr, exhbnType)
         VALUES (#{exhbnId}, #{exhbnTitle}, #{exhbnStartDate}, #{exhbnEndDate}, #{exhbnPlace}, #{exhbnArea},
                 #{exhbnPrice}, #{exhbnUrl}, #{exhbnPhone}, #{exhbnImgUrl}, #{gpsX}, #{gpsY}, #{exhbnPlaceUrl},
-                #{exhbnPlaceAddr})
+                #{exhbnPlaceAddr}, #{exhbnType})
         ]]>
     </insert>
 
@@ -81,20 +81,20 @@
         WHERE exhbnId = #{exhbnId}
         ]]>
     </update>
- 	<!-- Search -->
-	<select id="ExhbnSearch" parameterType="string" resultType="com.spring_boot_final.project.model.ExhbnVO">
-	select exhbnID,
-	exhbnTitle,
-	exhbnPlace,
-	exhbnArea,
-	exhbnImgUrl,
-	exhbnStartDate,
-	exhbnEndDate,
-	exhbnUrl,
-	exhbnPrice
-	From exhbn
-	where
-	exhbnTitle like CONCAT('%',#{title},'%')
-	</select>
+    <!-- Search -->
+    <select id="ExhbnSearch" parameterType="string" resultType="com.spring_boot_final.project.model.ExhbnVO">
+        select exhbnID,
+               exhbnTitle,
+               exhbnPlace,
+               exhbnArea,
+               exhbnImgUrl,
+               exhbnStartDate,
+               exhbnEndDate,
+               exhbnUrl,
+               exhbnPrice
+        From exhbn
+        where
+            exhbnTitle like CONCAT('%',#{title},'%')
+    </select>
 
 </mapper>

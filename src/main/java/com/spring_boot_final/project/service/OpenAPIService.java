@@ -1,7 +1,10 @@
 package com.spring_boot_final.project.service;
 
+import com.spring_boot_final.project.dao.IExhbnDAO;
 import com.spring_boot_final.project.model.ExhbnVO;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -22,6 +25,10 @@ import java.util.ArrayList;
 @Service
 @Slf4j
 public class OpenAPIService {
+
+    @Autowired
+    @Qualifier("IExhbnDAO")
+    IExhbnDAO exhbnDAO;
 
     public void exhbnListRequest(String from, String to, String cPage, String rows) throws IOException, ParserConfigurationException, SAXException {
         String urlName = "http://www.culture.go.kr/openapi/rest/publicperformancedisplays/realm";
@@ -87,14 +94,14 @@ public class OpenAPIService {
                 Element eElement = (Element) nNode;
 
                 int seq = Integer.parseInt(eElement.getElementsByTagName("seq").item(0).getTextContent());
-                /*
-                if (dao.existExhbn(seq) < 1) {
+
+                if (exhbnDAO.existExhbn(seq) < 1) {
 
                     System.out.println("번호  : " + eElement.getElementsByTagName("seq").item(0).getTextContent());
                     ExhbnVO vo = exhbnDetailRequest(seq);
-                    dao.insertExhbn(vo);
+                    exhbnDAO.insertExhbn(vo);
                 }
-                 */
+
             }
 
 
@@ -137,6 +144,8 @@ public class OpenAPIService {
     public ExhbnVO exhbnDetailRequest_xmlParsing(String response) throws IOException, ParserConfigurationException, SAXException {
 
         InputSource is = new InputSource(new StringReader(response));
+
+        String[] exhbnTypes = {"박물관", "기타", "교육", "축제", "미술전시"};
 
         ExhbnVO vo = new ExhbnVO();
 
@@ -228,6 +237,8 @@ public class OpenAPIService {
                 vo.setGpsY(gpsY);
                 vo.setExhbnPlaceUrl(placeUrl);
                 vo.setExhbnPlaceAddr(placeAddr);
+                vo.setExhbnType(exhbnTypes[(int) (Math.random() * exhbnTypes.length)]);
+                System.out.println(vo.getExhbnType() + "****");
 
             }
         }
