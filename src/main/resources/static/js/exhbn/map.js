@@ -26,6 +26,8 @@ $(document).ready(function () {
     var zoomControl = new kakao.maps.ZoomControl();
     map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 
+    console.log(positions);
+
     // 지도 중앙에 맞추기
     panTo(positions[0].y, positions[0].x);
 
