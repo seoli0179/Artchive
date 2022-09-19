@@ -52,6 +52,7 @@
 						<div class="titleBox">
 							<a href="<c:url value='/myPage/myGallery'/>">스크랩</a> 
 							<a href="<c:url value='/myPage/visit'/>">다녀온 전시</a>
+							<a href="<c:url value='/myPage/event'/>">이벤트</a>
 						</div>
 						<!-- titleBox -->
 
