@@ -47,13 +47,13 @@
                                     <li><a href="#">예정전시</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a class="color" href="<c:url value="/note/list"/> ">Board<i
+                            <li class="dropdown"><a class="color" href="<c:url value="/note/list?category=free&page=1&sort=new&keyword="/> ">Board<i
                                     class="fa-solid fa-angle-down"></i></a>
                                 <ul class="dropdownMenu">
                                     <li><a href="<c:url value='/note/list?category=notice&page=1&sort=new&keyword='/>">공지</a>
                                     </li>
-                                    <li><a href="<c:url value='/note/list?category=free&page=1&sort=new&keyword='/>">자유게시판</a>
-                                    </li>
+<%--                                    <li><a href="<c:url value='/note/list?category=free&page=1&sort=new&keyword='/>">자유게시판</a>--%>
+<%--                                    </li>--%>
                                     <li><a href="<c:url value='/note/list?category=event&page=1&sort=new&keyword='/>">이벤트</a>
                                     </li>
                                 </ul>

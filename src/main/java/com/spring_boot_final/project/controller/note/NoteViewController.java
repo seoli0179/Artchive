@@ -130,6 +130,11 @@ public class NoteViewController {
         model.addAttribute("note", note);
         model.addAttribute("commentList", comment);
 
+        System.out.println(note.getCategory());
+
+        if (note.getCategory().equals("EVENT"))
+            return "note/eventDetail";
+
         return "note/detail";
     }
 

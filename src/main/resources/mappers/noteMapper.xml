@@ -27,8 +27,11 @@
         <![CDATA[
         select n.noteId,
                n.userId,
+               n.category,
                n.noteTitle,
                n.note,
+               n.eventStartDate,
+               n.eventEndDate,
                n.pageViewState,
                n.noteLike,
                n.noteCommentNum,
@@ -88,7 +91,7 @@
         where category = #{category}
         and pageViewState = 'POST'
         <choose>
-            <when test="category == 'EVNET'">
+            <when test="category == 'EVENT'">
                 and eventEndDate >= now()
             </when>
         </choose>

@@ -308,6 +308,9 @@ body {
     margin: auto 0;
     font-weight: bold;
 }
+.title-notice:hover, .title-event:hover {
+    text-decoration: underline solid black 2px;
+}
 
 #head-tag {
     background-color: white;

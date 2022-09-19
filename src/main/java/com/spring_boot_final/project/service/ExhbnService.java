@@ -2,6 +2,7 @@ package com.spring_boot_final.project.service;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -23,19 +24,29 @@ public class ExhbnService {
     @Qualifier("IExhbnDAO")
     IExhbnDAO dao;
 
-    public ArrayList<ExhbnVO> selectAllData(){
+    public ArrayList<ExhbnVO> selectAllData() {
         return dao.selectAllExhbn();
     }
 
-    public ExhbnVO selectDetailData(int id){
+    public ExhbnVO selectDetailData(int id) {
         return dao.selectExhbn(id);
     }
 
     public void insertApiToDB(String from, String to, String cPage, String rows) throws IOException, ParserConfigurationException, SAXException {
         openAPIService.exhbnListRequest(from, to, cPage, rows);
     }
-    public ArrayList<ExhbnVO> exhbnSearch(String title) {
-		return dao.ExhbnSearch(title);
 
-}
+    public ArrayList<ExhbnVO> exhbnSearch(String title) {
+        return dao.ExhbnSearch(title);
+
+    }
+
+    public void insertInteractionDAS(String user, int item) {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("USER_ID",user);
+        map.put("ITEM_ID",item);
+        map.put("TIMESTAMP",System.currentTimeMillis()/1000);
+        dao.insertInteractionDAS(map);
+    }
+
 }

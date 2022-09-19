@@ -10,10 +10,25 @@
     <insert id="insertExhbn" parameterType="com.spring_boot_final.project.model.ExhbnVO">
         <![CDATA[
         INSERT INTO exhbn (exhbnId, exhbnTitle, exhbnStartDate, exhbnEndDate, exhbnPlace, exhbnArea, exhbnPrice,
-                           exhbnUrl, exhbnPhone, exhbnImgUrl, gpsX, gpsY, exhbnPlaceUrl, exhbnPlaceAddr)
+                           exhbnUrl, exhbnPhone, exhbnImgUrl, gpsX, gpsY, exhbnPlaceUrl, exhbnPlaceAddr, exhbnType)
         VALUES (#{exhbnId}, #{exhbnTitle}, #{exhbnStartDate}, #{exhbnEndDate}, #{exhbnPlace}, #{exhbnArea},
                 #{exhbnPrice}, #{exhbnUrl}, #{exhbnPhone}, #{exhbnImgUrl}, #{gpsX}, #{gpsY}, #{exhbnPlaceUrl},
-                #{exhbnPlaceAddr})
+                #{exhbnPlaceAddr}, #{exhbnType})
+        ]]>
+    </insert>
+
+    <insert id="insertInteractionDAS" parameterType="hashmap">
+        <![CDATA[
+        INSERT INTO interaction_das (USER_ID, ITEM_ID, TIMESTAMP)
+        select #{USER_ID}, #{ITEM_ID}, #{TIMESTAMP}
+        from dual
+        where not exists(
+                select *
+                from interaction_das
+                where USER_ID = #{USER_ID}
+                  and ITEM_ID = #{ITEM_ID}
+                  and TIMESTAMP = #{TIMESTAMP}
+            )
         ]]>
     </insert>
 
@@ -25,7 +40,8 @@
         SELECT *
         FROM exhbn
         WHERE exhbnPrice1 = 0
-        ORDER BY exhbnId DESC limit 9
+        ORDER BY exhbnId DESC
+        limit 9
         ]]>
     </select>
 
@@ -81,20 +97,19 @@
         WHERE exhbnId = #{exhbnId}
         ]]>
     </update>
- 	<!-- Search -->
-	<select id="ExhbnSearch" parameterType="string" resultType="com.spring_boot_final.project.model.ExhbnVO">
-	select exhbnID,
-	exhbnTitle,
-	exhbnPlace,
-	exhbnArea,
-	exhbnImgUrl,
-	exhbnStartDate,
-	exhbnEndDate,
-	exhbnUrl,
-	exhbnPrice
-	From exhbn
-	where
-	exhbnTitle like CONCAT('%',#{title},'%')
-	</select>
+    <!-- Search -->
+    <select id="ExhbnSearch" parameterType="string" resultType="com.spring_boot_final.project.model.ExhbnVO">
+        select exhbnID,
+               exhbnTitle,
+               exhbnPlace,
+               exhbnArea,
+               exhbnImgUrl,
+               exhbnStartDate,
+               exhbnEndDate,
+               exhbnUrl,
+               exhbnPrice
+        From exhbn
+        where exhbnTitle like CONCAT('%', #{title}, '%')
+    </select>
 
 </mapper>

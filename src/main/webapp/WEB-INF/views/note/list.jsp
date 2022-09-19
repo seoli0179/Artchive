@@ -23,23 +23,23 @@
 <body>
 <c:import url="/WEB-INF/views/layout/top.jsp"></c:import>
 
-<article id="slideShow">
-    <!-- 슬라이드 쇼  -->
-    <div id="slideShowBox">
-        <div id="slidePanel">
-            <img src="https://img.freepik.com/free-vector/modern-bright-yellow-halftone-design-dark-banner-template-vector_1055-12746.jpg?t=st=1660718656~exp=1660719256~hmac=749a4a0b807a4ee1fb1a5a8dfc09d3af4f0533f4a854563d8766716fd3530260"
-                 class="slideImage">
-            <img src="https://img.freepik.com/free-vector/abstract-decorative-modern-banner-design_1055-8551.jpg?w=1380&t=st=1660718847~exp=1660719447~hmac=35c330d09b062f731a127622cc0141ecd971cbc772a362ea9e8725dbe652ed2a"
-                 class="slideImage">
-            <img src="https://img.freepik.com/free-vector/abstract-decorative-modern-banner_1055-9889.jpg?w=1380&t=st=1660718839~exp=1660719439~hmac=8da679bd2017e63c807a09c244c2a135a6f321b072a73746a93267a1ff5e6150"
-                 class="slideImage">
-            <img src="https://img.freepik.com/free-vector/abstract-modern-gray-color-geometric-trendy-banner-design_1055-14659.jpg?w=1380&t=st=1660718856~exp=1660719456~hmac=a83a1a99aa96341a2cf57a7d7377e4b1a56f968810d4547a30f025ece7f6c524"
-                 class="slideImage">
-            <img src="https://img.freepik.com/free-vector/abstract-stylish-blue-wavy-design-banner-template-vector_1055-12566.jpg?w=1380&t=st=1660718867~exp=1660719467~hmac=88748af804c3ba4d6234be6c0f2ea6beb8ecc584ef224bdd1ab587606d733293"
-                 class="slideImage">
-        </div>
-    </div>
-</article>
+<%--<article id="slideShow">--%>
+<%--    <!-- 슬라이드 쇼  -->--%>
+<%--    <div id="slideShowBox">--%>
+<%--        <div id="slidePanel">--%>
+<%--            <img src="https://img.freepik.com/free-vector/modern-bright-yellow-halftone-design-dark-banner-template-vector_1055-12746.jpg?t=st=1660718656~exp=1660719256~hmac=749a4a0b807a4ee1fb1a5a8dfc09d3af4f0533f4a854563d8766716fd3530260"--%>
+<%--                 class="slideImage">--%>
+<%--            <img src="https://img.freepik.com/free-vector/abstract-decorative-modern-banner-design_1055-8551.jpg?w=1380&t=st=1660718847~exp=1660719447~hmac=35c330d09b062f731a127622cc0141ecd971cbc772a362ea9e8725dbe652ed2a"--%>
+<%--                 class="slideImage">--%>
+<%--            <img src="https://img.freepik.com/free-vector/abstract-decorative-modern-banner_1055-9889.jpg?w=1380&t=st=1660718839~exp=1660719439~hmac=8da679bd2017e63c807a09c244c2a135a6f321b072a73746a93267a1ff5e6150"--%>
+<%--                 class="slideImage">--%>
+<%--            <img src="https://img.freepik.com/free-vector/abstract-modern-gray-color-geometric-trendy-banner-design_1055-14659.jpg?w=1380&t=st=1660718856~exp=1660719456~hmac=a83a1a99aa96341a2cf57a7d7377e4b1a56f968810d4547a30f025ece7f6c524"--%>
+<%--                 class="slideImage">--%>
+<%--            <img src="https://img.freepik.com/free-vector/abstract-stylish-blue-wavy-design-banner-template-vector_1055-12566.jpg?w=1380&t=st=1660718867~exp=1660719467~hmac=88748af804c3ba4d6234be6c0f2ea6beb8ecc584ef224bdd1ab587606d733293"--%>
+<%--                 class="slideImage">--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</article>--%>
 
 <div class="wrapper">
     <!-- <article id="slideShow">
