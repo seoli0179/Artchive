@@ -55,11 +55,11 @@
 				// console.log(result["title"]);
 				console.log(result.title);
  				// imageBox에 이미지 출력
- 				//var imgHtml = `<img src="/images/${fileName}" />`;
+ 				// var imgHtml = `<img src="/images/${fileName}" />`;
  				//$('#imageBox').html(imgHtml);
- 				//$('#imageBox').empty();
  				//$('#imageBox').append('<img src="/images/'+fileName+'">');
  				
+ 				$('#ticketBox').empty();
  				$('#ticketBox').html('<img src="/images/'+fileName+'">');
  				
  				// resultBox에 출력
@@ -76,7 +76,7 @@
 			},
  		}); // ajax 끝
  			$('#submitBtn').on('click', function(){
- 				alert("쿠폰이 발급되었습니다.");
+ 				alert("쿠폰이 발급되었습니다. 메일을 통해 발급된 쿠폰을 확인해주세요.");
  				window.close();
  			});
  		} // else if
