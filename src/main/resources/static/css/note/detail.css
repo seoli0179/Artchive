@@ -68,6 +68,8 @@ body {
     font-weight: bold;
     font-size: 20px;
     padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .title a {
@@ -162,4 +164,10 @@ textarea {
 
 .deleteBtn {
 	margin-right:20px;
+}
+
+.event-btn-box {
+    margin:30px 0 10px 0;
+    display: flex;
+    justify-content: center;
 }

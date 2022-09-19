@@ -18,7 +18,7 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script src="https://kit.fontawesome.com/8ab5776cfb.js" crossorigin="anonymous"></script>
-    <title>arTchive / SpringBoot에서 비동기 Multi-thread 개발</title>
+    <title>Artchive / 새 글 작성하기</title>
 </head>
 <body>
 <c:import url="/WEB-INF/views/layout/top.jsp"></c:import>

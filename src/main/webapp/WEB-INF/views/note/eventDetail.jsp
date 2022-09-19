@@ -8,6 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<jsp:useBean id="now" class="java.util.Date" />
+<fmt:formatDate var="today" value="${now}" pattern="yyyy-MM-dd"/>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -63,7 +65,27 @@
             </div>
             <div class="summary">
                 <div class="title">
-                    ${note.noteTitle}
+                    <div style="width: 70%;">
+                        <div class="scrap" style="display: inline-block;">
+                            <div class="head-tag" style="
+                        float:none; margin:0 auto; background-color: #E5E7EB; padding: 5px 15px; width: fit-content; border-radius: 70px; font-size: 0.9rem; display: inline-block">
+                                <fmt:formatDate value="${note.eventEndDate}" pattern="yyyy-MM-dd" var="endDate" />
+                                <c:if test="${endDate >= today}"> <!-- 진행 전 이벤트일 경우 -->
+                                    <span id="head-tag" style="font-weight: bold">진행중</span>
+                                </c:if>
+                                <c:if test="${endDate < today}"> <!-- 진행 후 이벤트일 경우 -->
+                                    <span id="head-tag">종료</span>
+                                </c:if>
+                            </div>
+                        </div>
+                        <div style="display: inline-block;">
+                            ${note.noteTitle}
+                        </div>
+                    </div>
+                    <div style="font-weight: normal; font-size: small;">
+                        <fmt:formatDate pattern="MM-dd" value="${note.eventStartDate }"/> ~
+                        <fmt:formatDate pattern="MM-dd" value="${note.eventEndDate }"/>
+                    </div>
                 </div>
                 <div class="info">
                     <br><div class="username"> ${note.userNickname}</div>&nbsp;&nbsp;<div class="createdAt">
@@ -73,6 +95,20 @@
                     <article class="content-text" itemprop="articleBody">
                         ${note.note}
                     </article>
+                    <div class="event-btn-box">
+                        <c:if test="${not empty sessionScope.sid}">
+                            <fmt:formatDate value="${note.eventEndDate}" pattern="yyyy-MM-dd" var="endDate" />
+                            <c:if test="${endDate >= today}"> <!-- 진행 전 이벤트일 경우 -->
+                                <button class="white-btn-big" style="border-radius: 70px;">이벤트 참여하기</button>
+                            </c:if>
+                            <c:if test="${endDate < today}"> <!-- 진행 후 이벤트일 경우 -->
+                                <button class="black-btn-big" style="border-radius: 70px;" disabled>종료된 이벤트입니다</button>
+                            </c:if>
+                        </c:if>
+                        <c:if test="${empty sessionScope.sid}">
+                            로그인 후 이벤트에 참여하실 수 있습니다.
+                        </c:if>
+                    </div>
                 </div>
                 <c:if test="${not empty sessionScope.sid}">
                     <div class="comment-write">
