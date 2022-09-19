@@ -50,10 +50,7 @@
 				</div>
 				<div id="summary-container">
 					<p>
-					현대카드 스토리지에서는 뉴욕 MoMA (The Museum of Modern Art, New York)의 미디어 & 퍼포먼스 소장품 전시, ＜Pervasive Light: Works from MoMA’s Media and Performance Collection (스며드는 빛: 뉴욕 MoMA 미디어 & 퍼포먼스 컬렉션)＞가 진행 중이다.
-					 2006년부터 현대카드와 파트너십을 맺어왔던 MoMA와 긴밀한 협력을 통해 기획된 이번 전시는 미술관의 신규 소장품 가운데 기술적 혁신과 더불어 이에 대한 비판적 성찰이 담긴 현대미술 작품들을 선별하여 보여준다.
-					 본 전시는 3세대에 걸친 다양한 연령대의 작가들의 작품으로 구성되어 있는데, 그 중에서 독일의 영화감독이자 미디어아티스트인 하룬 파로키(Harun Farocki, 1944-2014)는 사회문화 전반에 걸친 현상들의 배후를 치밀하게 조사하여, 그 이면의 모습을 새롭게 비판적으로 바라보게 하는 작업들을 선보여 왔다.
-					 이번 전시에 출품된 ＜Eye/Machine＞ 시리즈를 통해 그의 작품 세계를 만나보자.
+					${exhbn.exhbnDetail}
 					</p>
 					<div id="poster-container">
 						<div class="poster-box">
