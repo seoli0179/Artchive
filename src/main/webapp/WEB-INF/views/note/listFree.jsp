@@ -30,9 +30,8 @@
     <!-- 슬라이드 쇼  -->
     <div id="slideShowBox">
         <div id="slidePanel">
-            <div id="slideImage-box1" class="slideImage-box">
-                <img src="https://scontent-ssn1-1.xx.fbcdn.net/v/t1.6435-9/187529950_4152611138094377_8817963840259679265_n.png?_nc_cat=101&ccb=1-7&_nc_sid=730e14&_nc_ohc=RG0IJcvU75UAX97m6-e&_nc_ht=scontent-ssn1-1.xx&oh=00_AT9Q0eghds0ZrKGwec6u_fw4G9OeIvVfKISzYB_jlcHKog&oe=634B9FC4"
-                     class="slideImage">
+            <div id="slideImage-box1" class="slideImage-box" style="background-color: #AEA2E4;">
+                <img src="<c:url value="/image/banners/banner_ex0.png"/>" class="slideImage">
             </div>
             <div id="slideImage-box2" class="slideImage-box">
                 <img src="<c:url value="/image/banners/banner_ex1.png"/>" class="slideImage">
