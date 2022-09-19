@@ -74,10 +74,10 @@
             </ul>
             <div class="write_box">
                 <c:if test="${not empty sessionScope.sid}">
-                    <input id="write_btn" class="white-btn" type="button" value="작성">
+                    <input class="white-btn" type="button" value="작성" onclick="alert('문의 메일을 통해 이벤트를 등록할 수 있습니다.')">
                 </c:if>
                 <c:if test="${empty sessionScope.sid}">
-                    <input id="write_btn" class="white-btn" type="button" value="작성" disabled>
+                    <input class="white-btn" type="button" value="작성" onclick="alert('로그인이 필요한 기능입니다.')">
                 </c:if>
             </div>
         </div>
