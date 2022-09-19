@@ -20,7 +20,15 @@
     <insert id="insertInteractionDAS" parameterType="hashmap">
         <![CDATA[
         INSERT INTO interaction_das (USER_ID, ITEM_ID, TIMESTAMP)
-        VALUES (#{USER_ID},#{ITEM_ID},#{TIMESTAMP})
+        select #{USER_ID}, #{ITEM_ID}, #{TIMESTAMP}
+        from dual
+        where not exists(
+                select *
+                from interaction_das
+                where USER_ID = #{USER_ID}
+                  and ITEM_ID = #{ITEM_ID}
+                  and TIMESTAMP = #{TIMESTAMP}
+            )
         ]]>
     </insert>
 
@@ -32,7 +40,8 @@
         SELECT *
         FROM exhbn
         WHERE exhbnPrice1 = 0
-        ORDER BY exhbnId DESC limit 9
+        ORDER BY exhbnId DESC
+        limit 9
         ]]>
     </select>
 
@@ -100,8 +109,7 @@
                exhbnUrl,
                exhbnPrice
         From exhbn
-        where
-            exhbnTitle like CONCAT('%',#{title},'%')
+        where exhbnTitle like CONCAT('%', #{title}, '%')
     </select>
 
 </mapper>
