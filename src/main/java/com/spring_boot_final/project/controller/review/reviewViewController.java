@@ -199,6 +199,24 @@ public class reviewViewController {
 	  	return "review/reviewSearch";
 	  	}
 	  	
+	  	//코스에서 리뷰게시판 검색
+	  	@RequestMapping("/review/courseReviewNoteSearch")
+	  	public String courseReviewNoteSearch(@RequestParam("reviewNoteTitle") String reviewNoteTitle, Model model) {
+	 		
+	  		
+	  	ArrayList<ReviewNoteVO> reviewNoteSearch = reviewnoteService.reviewNoteSearch(reviewNoteTitle);
+	
+	  	model.addAttribute("reviewNoteList", reviewNoteSearch);
+	  	
+	  	
+	  	 for(int i=0; i<reviewNoteSearch.size();i++) {
+	  	 System.out.println(reviewNoteSearch.get(i).getReviewNoteId()); }
+	  	 
+	  	 
+	  	
+	  	return "review/reviewNoteList";
+	  	}
+	  	
 	  	// 리뷰게시판 탭 메뉴 정렬
 	  	
 	  	@RequestMapping("/review/reviewNoteNew")

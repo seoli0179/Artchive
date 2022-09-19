@@ -15,6 +15,9 @@
 
         <script src="<c:url value='/js/course/course.js'/>"></script>
         <script src="<c:url value='/js/course/autocomplete.js'/>"></script>
+        
+        <!-- reviewList -->
+        <script src="<c:url value='/js/course/courseMainSearch.js'/>"></script>
 
         <link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
         <link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>"/>
@@ -108,7 +111,7 @@
                             <input class="inner-searchbar" id="inner-searchbar" type="text" placeholder="검색 태그를 입력하세요.">
                         </ul>
                     </div>
-                    <input class="black-btn searchbar-btn" type="button" value="검색">
+                    <input id="reviewNoteSearch" class="black-btn searchbar-btn" type="button" value="검색">
                 </div>
                 <div id="tag-caution" class="vibration">태그는 3개까지만 선택할 수 있습니다.</div>
             </section>
