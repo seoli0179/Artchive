@@ -251,14 +251,42 @@ input:focus {
 
 .msgBox.receive > span > p {
 	font-size : 13px;
-	color : #9CA3AF;
+	color : rgba(0, 0, 0, 0.5);
 	margin-bottom : 5px;
 	margin-top : 5px;
 	margin-left: 5px;
 }
 
 #chatbotIntro{
-	border : red 1px solid;
-	height : 200px;
+	/* border : red 1px solid; */
+	height : auto;
 }
 
+.chatbotIntro{
+	text-align : center;
+}
+
+#chatbotIntro1{
+	font-size : 17px;
+	font-weight : bold;
+	color : rgba(0, 0, 0, 0.85);
+	line-height: 2.52rem;
+}
+
+#chatbotIntro2{
+	font-size : 14px;
+	color : rgba(0, 0, 0, 0.4);
+	line-height : 20px;
+	margin-bottom : 8px;
+}
+
+#chatbotIntroImg{
+	margin : 0 auto;
+	text-align : center;
+}
+
+#chatbotIntroImg img{
+	width :auto;
+	height : 120px;
+	margin : 0 auto;
+}

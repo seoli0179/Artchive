@@ -29,7 +29,8 @@ $(document).ready(function() {
  		
  	}); // submit 끝
  	
- 	
+ 	//bubbles[b].data.description
+ 	//<p>Artchive Bot</p>
  	
  	// ajax() 부분을 별도의 함수로 분리
  	function callAjax(){
@@ -46,8 +47,8 @@ $(document).ready(function() {
 				for(var b in bubbles){
 					if(bubbles[b].type == 'text'){ // 기본 답변인 경우
 						/* chatBox에 받은 메시지 추가 */
-							$('#chatBox').append('<div class="msgBox receive"><span id="in"><p>Artchive Bot</p><span>' + 
-															   bubbles[b].data.description +'</span></span></div><br><br>'); 
+							$('#chatBox').append('<div class="msgBox receive"><span id="in"><span>' + 
+															   bubbles[b].data.description+'</span></span></div><br><br>'); 
 															   
 						// 챗봇으로 부터 받은 텍스트 답변을 음성으로 변환하기 위해 TTS 호출									   
 						callAjaxTTS(bubbles[b].data.description);										   
