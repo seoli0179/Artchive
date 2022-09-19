@@ -2,7 +2,7 @@
 $(function(){
     // 검색 자동완성
     $("#inner-searchbar").autocomplete({  //오토 컴플릿트 시작
-        source : testSource, //source 는 자동완성의 대상
+        source : tagSource, //source 는 자동완성의 대상
         select : function(event, ui) { // item 선택 시 이벤트
             console.log(ui.item);
         },
@@ -30,4 +30,11 @@ $(function(){
     });
 });
 
-let testSource = ['혼자하루보내기', '가족들과함께', '친구와함께', '추천데이트코스']; // 배열 생성
+let tagSource = [
+    // 인원수
+    '혼자하루보내기', '가족들과함께', '친구와함께', '아이와가기좋은',
+    // 목적
+    '추천데이트코스', '맛집탐방', '카페투어', '타지역친구가이드',
+    // 기타 테마
+    '점심부터저녁까지', '힙스터성지', '요즘핫한전시', '놓치면안되는전시'
+]; // 배열

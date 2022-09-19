@@ -31,8 +31,9 @@
 
     <header>
     
-        <!-- top으로 이동 -->
+    <!-- top으로 이동 -->
 		<c:import url="/WEB-INF/views/layout/top.jsp" />
+
 
         <div id="visual">
             <div id="visual-img">

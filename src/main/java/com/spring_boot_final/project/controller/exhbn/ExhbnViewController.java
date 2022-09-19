@@ -1,7 +1,10 @@
 package com.spring_boot_final.project.controller.exhbn;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import com.spring_boot_final.project.model.ReviewNoteVO;
+import com.spring_boot_final.project.service.ReviewNoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +24,9 @@ public class ExhbnViewController {
 
     @Autowired
     ExhbnService service;
+
+    @Autowired
+    ReviewNoteService reviewService;
 
     // @RequestMapping("/exhbn/searchlist")
 //    public String searchlist(
@@ -73,6 +79,9 @@ public class ExhbnViewController {
 
         if (session.getAttribute("sid") != null)
             service.insertInteractionDAS(session.getAttribute("sid").toString(), id);
+
+        List<ReviewNoteVO> reviewnoteVo = reviewService.reviewNoteList();
+        model.addAttribute("reviewList", reviewnoteVo);
 
         return "detail";
     }

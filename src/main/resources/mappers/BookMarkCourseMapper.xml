@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.spring_boot_final.project.dao.IBookMarkCourseDAO">
+	 
+	<!--  (1) 북마크 목록 출력 -->
+	<select id="bookMarkCourseList" parameterType="String" resultType="com.spring_boot_final.project.model.BookMarkCourseVO">
+		
+		SELECT b.bookMarkCourseId, b.bookMarkCourseDate, c.courseId, c.courseTitle, b.userId
+		fROM bookmarkCourse b, course c
+		WHERE c.courseId = b.courseId AND b.userId=#{userId}
+		ORDER BY b.courseId
+		
+	</select>
+	
+	<!-- (2) 북마크에 추가 -->
+	<insert id="insertBookMarkCourse" parameterType="com.spring_boot_final.project.model.BookMarkCourseVO">
+		INSERT INTO bookmarkCourse (userId, courseId)
+		VALUES (#{userId}, #{courseId})
+	</insert>
+	
+	<!-- (3) 북마크 목록에 동일한 전시가 있는지 확인 -->
+	<select id="checkBookMarkCourse" parameterType="hashmap" resultType="int">
+		SELECT COUNT(*)
+		FROM bookmarkCourse
+		WHERE courseId=#{courseId} AND userId=#{userId}
+	</select>
+
+  
+    <delete id="deleteBookMarkCourse" parameterType="com.spring_boot_final.project.model.BookMarkCourseVO">
+        <![CDATA[
+        delete
+        from bookmarkCourse
+        where bookMarkCourseId = #{bookMarkCourseId}
+          and userId = #{userId};
+        ]]>
+    </delete>
+    
+    <select id="selectBookMarkCourse" parameterType="int" resultType="com.spring_boot_final.project.model.BookMarkCourseVO">
+        <![CDATA[
+        select *
+        from bookmarkCourse
+        where bookMarkCourseId = #{bookMarkCourseId};
+        ]]>
+    </select>
+     
+</mapper> 
