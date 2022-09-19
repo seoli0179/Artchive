@@ -101,7 +101,7 @@
 
 
 #chatbotTest{
-	/* display:none; */ 	/* 안 보임. 차지하고 있는 영역도 없음 */
+	display:none; 	/* 안 보임. 차지하고 있는 영역도 없음 */
 	position : absolute;
 	position: fixed;
 	right : 15px;
