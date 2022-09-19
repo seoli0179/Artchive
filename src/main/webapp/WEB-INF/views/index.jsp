@@ -58,12 +58,11 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a class="color" href="<c:url value='/course'/>">Courses<i
-                                    class="fa-solid fa-angle-down"></i></a>
+                            <li class="dropdown"><a class="color" href="<c:url value="/note/list?category=free&page=1&sort=new&keyword="/> ">Board<i class="fa-solid fa-angle-down"></i></a>
                                 <ul class="dropdownMenu">
-                                    <li><a href="<c:url value='/course'/>">코스짜기</a></li>
-                                    <li><a href="<c:url value='/course/list'/>">코스</a></li>
-                                    <li><a href="<c:url value='/review/reviewNoteList'/>">리뷰</a></li>
+                                    <li><a href="<c:url value='/note/list?category=notice&page=1&sort=new&keyword='/>">공지사항</a></li>
+                                    <li><a href="<c:url value='/note/list?category=event&page=1&sort=new&keyword='/>">이벤트</a></li>
+                                    <li><a href="<c:url value='/note/list?category=free&page=1&sort=new&keyword='/>">게시판</a></li>
                                 </ul>
                             </li>
                             <%-- <li class="dropdown"><a class="color" href="<c:url value='/course'/>">Courses</a></li> --%>
