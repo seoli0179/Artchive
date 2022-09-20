@@ -94,7 +94,6 @@
 
 						</div>
 						<!--tableBox -->
-						<div class="nav" id="page-box"></div>
 					</div>
 					<!-- myPageBox -->
 				</div>
