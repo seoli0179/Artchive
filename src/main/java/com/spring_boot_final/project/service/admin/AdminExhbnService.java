@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 @Service
 public class AdminExhbnService {
@@ -17,8 +18,18 @@ public class AdminExhbnService {
     @Qualifier("IAdminExhbnDAO")
     IAdminExhbnDAO dao;
 
-    public ArrayList<ExhbnVO> ExhbnSelectAll(){
+    public ArrayList<ExhbnVO> ExhbnSelectAll() {
         return dao.ExhbnSelectAll();
+    }
+
+    public ArrayList<ExhbnVO> ExhbnSelectFilter(int page, int limit) {
+
+        HashMap<String, Object> map = new HashMap<>();
+        System.out.println(page + "/" + limit);
+        map.put("page", --page * limit);
+        map.put("limit", limit);
+
+        return dao.ExhbnSelectFilter(map);
     }
 
 

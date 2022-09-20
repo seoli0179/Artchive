@@ -13,4 +13,16 @@
         ]]>
     </select>
 
+    <select id="ExhbnSelectFilter"
+            parameterType="hashmap"
+            resultType="com.spring_boot_final.project.model.ExhbnVO">
+        <![CDATA[
+        SELECT *
+        FROM exhbn
+        order by createdAt
+            LIMIT #{limit}
+        OFFSET #{page}
+        ]]>
+    </select>
+
 </mapper>

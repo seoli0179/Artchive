@@ -2,7 +2,10 @@ $(document).ready(function () {
 
     $.ajax({
         type: "post",
-        url: "/admin/exhbn/select/all",
+        url: "/admin/exhbn/select",
+        data:{
+            "page" : 1
+        },
         dataType:"HTML",
         success: function (result) {
             $('#exhbnResult').html(result);

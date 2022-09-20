@@ -1,28 +1,95 @@
 package com.spring_boot_final.project.controller.admin;
 
+import com.spring_boot_final.project.model.UserVO;
+import com.spring_boot_final.project.service.UserService;
+import com.spring_boot_final.project.state.RollState;
+import org.apache.catalina.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class adminViewController {
-    @RequestMapping ("/admin")
-    public String admin() {
+
+    @Autowired
+    UserService userService;
+
+    @Autowired
+    PasswordEncoder encoder;
+
+    @RequestMapping("/admin")
+    public String admin(HttpSession session) {
+        if (session.getAttribute("sid") != null)
+            session.invalidate();
         return "admin/adminLogin";
     }
 
-    @RequestMapping ("/admin/index")
-    public String adminMain() {
-        return "admin/adminMain";
+    @RequestMapping("/admin/login")
+    @ResponseBody
+    public boolean login2(
+            @RequestParam("id") String id,
+            @RequestParam("pw") String pw,
+            HttpSession session
+    ) {
+
+        if (session.getAttribute("sid") != null)
+            session.invalidate();
+
+        UserVO vo = new UserVO();
+
+        vo.setUserId(id);
+
+        vo = userService.selectUser(vo);
+
+        if (vo == null || !encoder.matches(pw, vo.getUserPw()) || !vo.getUserRoll().toString().equals("ADMIN"))
+            return false;
+
+        session.setAttribute("sid", vo.getUserId());
+        session.setAttribute("username", vo.getUserNickname());
+
+        return true;
     }
 
-    @RequestMapping ("/admin/user/view")
-    public String adminUser() {
-        return "admin/adminUser";
+    @RequestMapping("/admin/index")
+    public String adminMain(HttpSession session) {
+        if (adminCheck(session))
+            return "admin/adminMain";
+        else
+            return "error";
     }
 
-    @RequestMapping ("/admin/exhbn/view")
-    public String adminExhbn() {
-        return "admin/adminExhbn";
+    @RequestMapping("/admin/user/view")
+    public String adminUser(HttpSession session) {
+        if (adminCheck(session))
+            return "admin/adminUser";
+        else
+            return "error";
+    }
+
+    @RequestMapping("/admin/exhbn/view")
+    public String adminExhbn(HttpSession session) {
+        if (adminCheck(session))
+            return "admin/adminExhbn";
+        else
+            return "error";
+    }
+
+    public boolean adminCheck(HttpSession session) {
+
+        if (session.getAttribute("sid") == null)
+            return false;
+        UserVO vo = userService.selectUserView(session.getAttribute("sid").toString());
+
+        if (vo.getUserRoll().toString().equals("ADMIN"))
+            return true;
+
+        return false;
+
     }
 
 }
