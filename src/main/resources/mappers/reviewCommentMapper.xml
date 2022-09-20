@@ -50,6 +50,7 @@
         where c.userId = #{userId}
         and c.reviewPageViewState = 'POST'
         and n.reviewPageViewState = 'POST'
+        and c.reviewNoteId = n.reviewNoteId
         ORDER by reviewCommentCreatedDate DESC
         ]]>
     </select>
