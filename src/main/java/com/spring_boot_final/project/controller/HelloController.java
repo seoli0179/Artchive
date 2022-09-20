@@ -15,7 +15,6 @@ public class HelloController {
 	 */
 
 
-
 	
 	// detail 페이지 열기 요청 처리
 	@RequestMapping("/detail")
