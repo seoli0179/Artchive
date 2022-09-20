@@ -31,7 +31,9 @@ public class OCRViewController {
 	@RequestMapping("/myPage/uploadTicket")
 	public TicketVO OCRTemplate(@RequestParam("uploadFile") MultipartFile file) throws IOException {
 		
-		String uploadPath = "/Library/upload/";
+		// String uploadPath = "/Library/upload/";
+		
+		String uploadPath = "/file://usr/local/project/images/";
 		
 		String originalFileName = file.getOriginalFilename();
 		String filePathName = uploadPath + originalFileName;

@@ -228,7 +228,7 @@
 	<select id="selectMpReview" parameterType="string" resultType="com.spring_boot_final.project.model.ReviewNoteVO">
         <![CDATA[
         select *
-        from reviewnote
+        from reviewNote
         where userId = #{userId}
         and reviewPageViewState = 'POST' 
         ORDER by reviewNoteCreatedDate DESC

@@ -1,4 +1,4 @@
-package com.spring_boot_final.project.config;
+package com.spring_boot_final.project;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -11,6 +11,7 @@ public class WebConfig implements WebMvcConfigurer {
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/images/**" )
 		.addResourceLocations("file://usr/local/project/images/");
+		// .addResourceLocations("file:///Library/images/");
 		
 	}
 
