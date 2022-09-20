@@ -37,6 +37,10 @@ main {
     padding: 5px 10px;
 }
 
+.search-container button {
+    padding: 5px 10px;
+}
+
 /* table */
 .resultTable {
     border: 1px solid white;
