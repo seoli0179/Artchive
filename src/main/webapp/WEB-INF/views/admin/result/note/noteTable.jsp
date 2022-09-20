@@ -44,7 +44,7 @@
     </thead>
   <c:forEach items="${notes}" var="note">
     <tr>
-      <td>${note.exhbnId}</td>
+      <td>${note.noteId}</td>
       <td>${note.userId}</td>
       <td>${note.category}</td>
       <td>${note.noteTitle}</td>

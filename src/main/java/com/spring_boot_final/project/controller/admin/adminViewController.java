@@ -100,4 +100,12 @@ public class adminViewController {
 
     }
 
+    @RequestMapping("/admin/exhbn/write")
+    public String exhbnWrite(HttpSession session) {
+        if (adminCheck(session))
+            return "admin/adminWriteExhbn";
+        else
+            return "error";
+    }
+
 }
