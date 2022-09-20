@@ -13,11 +13,12 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Artchive :: ADMIN INDEX</title>
-
+    <title>Artchive :: ADMIN USER</title>
     <link type="text/css" rel="stylesheet" href="<c:url value='/tools/reset.css'/>">
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/admin/adminNav.css'/>">
     <link type="text/css" rel="stylesheet" href="<c:url value='/css/admin/adminMain.css'/>">
+    <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
+    <script src="<c:url value='/js/admin/user/userController.js'/>"></script>
 </head>
 <body>
     <header>
@@ -28,7 +29,7 @@
         <c:import url="adminNav.jsp"/>
         <!-- nav 삽입완료 -->
         <main>
-
+            <div id="userResult"></div>
         </main>
     </section>
     <footer>

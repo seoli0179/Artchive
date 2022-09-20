@@ -10,8 +10,13 @@ public class adminViewController {
         return "admin/adminLogin";
     }
 
-    @RequestMapping ("/adminMain")
+    @RequestMapping ("/admin/index")
     public String adminMain() {
         return "admin/adminMain";
+    }
+
+    @RequestMapping ("/admin/user/view")
+    public String adminUser() {
+        return "admin/adminUser";
     }
 }

@@ -10,7 +10,7 @@
     </div>
     <ul class="menu-list">
       <li class="sub-title">회원</li>
-      <li><a href="#">회원 관리</a></li>
+      <li><a href="<c:url value="/admin/user/view"/> ">회원 관리</a></li>
       <li class="sub-title">데이터베이스</li>
       <li><a href="#">전시 관리</a></li>
       <li class="sub-title">게시판</li>

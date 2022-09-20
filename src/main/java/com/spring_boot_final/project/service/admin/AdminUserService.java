@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 
 @Service
 public class AdminUserService {
@@ -15,6 +16,10 @@ public class AdminUserService {
     @Autowired
     @Qualifier("IAdminUserDAO")
     IAdminUserDAO dao;
+
+    public ArrayList<UserVO> UserSelectAll(){
+        return dao.UserSelectAll();
+    }
 
     public boolean SelectUserRoll(String userId){
         if(dao.SelectUserRoll(userId).equals("ADMIN")){
