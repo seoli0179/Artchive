@@ -3,6 +3,7 @@ package com.spring_boot_final.project.controller.admin;
 import com.spring_boot_final.project.model.UserVO;
 import com.spring_boot_final.project.service.UserService;
 import com.spring_boot_final.project.service.admin.AdminUserService;
+import com.spring_boot_final.project.state.RollState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,9 +36,13 @@ public class adminUserController {
     }
 
     @RequestMapping("/admin/user/update")
+    @ResponseBody
     public boolean UserUpdate(
             @RequestParam("userId") String userId,
-            @RequestParam String userState,
+            @RequestParam("userEmail") String userEmail,
+            @RequestParam("userRoll") String userRoll,
+            @RequestParam("userState") String userState,
+            @RequestParam("userNickname") String userNickname,
             HttpSession session
     ) {
 
@@ -48,7 +53,10 @@ public class adminUserController {
         UserVO vo = new UserVO();
 
         vo.setUserId(userId);
+        vo.setUserEmail(userEmail);
+        vo.setUserRoll(RollState.valueOf(userRoll));
         vo.setUserState(userState);
+        vo.setUserNickname(userNickname);
 
         return adminUserService.UpdateUser(vo);
 

@@ -27,7 +27,10 @@
 
     <update id="UpdateUser" parameterType="com.spring_boot_final.project.model.UserVO">
         UPDATE user
-        SET userState = #{userState}
+        SET userState = #{userState},
+            userEmail = #{userEmail},
+            userRoll = #{userRoll},
+            userNickname = #{userNickname}
         WHERE userId = #{userId}
     </update>
 

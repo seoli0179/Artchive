@@ -79,6 +79,14 @@ public class adminViewController {
             return "error";
     }
 
+    @RequestMapping("/admin/note/view")
+    public String adminNote(HttpSession session) {
+        if (adminCheck(session))
+            return "admin/adminNote";
+        else
+            return "error";
+    }
+
     public boolean adminCheck(HttpSession session) {
 
         if (session.getAttribute("sid") == null)
@@ -90,6 +98,14 @@ public class adminViewController {
 
         return false;
 
+    }
+
+    @RequestMapping("/admin/exhbn/write")
+    public String exhbnWrite(HttpSession session) {
+        if (adminCheck(session))
+            return "admin/adminWriteExhbn";
+        else
+            return "error";
     }
 
 }
