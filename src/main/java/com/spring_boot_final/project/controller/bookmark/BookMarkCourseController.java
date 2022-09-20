@@ -43,19 +43,19 @@ public class BookMarkCourseController {
 		// VO에 userId 값 설정
 		vo.setUserId(userId);
 		/* vo.setExhbnIdBookMark(userId); */
-
+	
 		// 북마크에 같은 전시 있는지 확인
 		int count = bookMarkCourseService.checkBookMarkCourse(vo.getCourseId(), userId);
-
+		
+		
 		String resultmsg = "";
 
-		if (count == 0) {// 동일한 전시가 없다면 북마크에 추가
+		if ( count == 0 ) {// 동일한 전시가 없다면 북마크에 추가
 			resultmsg = "<script>alert('북마크에 추가되었습니다!'); location.href='/myPage/courseScrap'</script>";
 			bookMarkCourseService.insertBookMarkCourse(vo);
-		} else {// 이미 전시가 있다면 이미 존재한다는 팝업 표시
+		} else { // 이미 전시가 있다면 이미 존재한다는 팝업 표시
 			resultmsg = "<script>alert('이미 북마크에 저장되어 있는 전시입니다.'); location.href='/myPage/courseScrap'</script>";
-
-		}
+		} 
 
 		/* bookmarkService.insertBookMark(vo); */
 
