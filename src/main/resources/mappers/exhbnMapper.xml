@@ -217,8 +217,8 @@
 	exhbnPrice
 	From exhbn
 	where
-	exhbnTitle like CONCAT('%',#{title},'%')  or 
-	exhbnArea like CONCAT('%',#{Area},'%') <!-- or
+	exhbnTitle like CONCAT('%',#{title},'%')<!--   or 
+	exhbnArea like CONCAT('%',#{Area},'%')  or
 	exhbnPrice like CONCAT('%',#{Price},'%') -->
 		ORDER BY exhbnId DESC limit 9
 	

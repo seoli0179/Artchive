@@ -199,7 +199,7 @@
             data: {
                 "exhbnTitle": title2,
                 "exhbnArea" : exWhere,
-              //  "exhbnPrice": exPrice
+                "exhbnPrice": exPrice
                },
 
             success: function (result_detail) {
