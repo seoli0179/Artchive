@@ -1,4 +1,8 @@
 @charset "UTF-8";
+#span{
+	width : 120px;
+	margin: auto;
+}
 
 .userName{
 	font-weight : bold;
