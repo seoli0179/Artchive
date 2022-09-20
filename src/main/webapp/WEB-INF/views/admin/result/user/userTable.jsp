@@ -22,6 +22,7 @@
     <option>메일</option>
   </select>
   <input type="text" placeholder="검색어를 입력하세요">
+  <button class="searchBtn">검색</button>
 </section>
 
 <table class="resultTable">
