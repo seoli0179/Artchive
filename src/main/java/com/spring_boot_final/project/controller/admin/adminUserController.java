@@ -1,6 +1,7 @@
 package com.spring_boot_final.project.controller.admin;
 
 import com.spring_boot_final.project.model.UserVO;
+import com.spring_boot_final.project.service.UserService;
 import com.spring_boot_final.project.service.admin.AdminUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,17 +18,15 @@ import java.util.ArrayList;
 public class adminUserController {
 
     @Autowired
+    UserService userService;
+    @Autowired
     AdminUserService adminUserService;
 
     @RequestMapping("/admin/user/select/all")
     public String UserSelectAll(HttpSession session, Model model){
 
-        if (session.getAttribute("sid") == null) {
-            return null;
-        }
-
-        if (!adminUserService.SelectUserRoll(session.getAttribute("sid").toString())) {
-            return null;
+        if (!adminCheck(session)) {
+            return "error";
         }
 
         model.addAttribute("users", adminUserService.UserSelectAll());
@@ -42,11 +41,7 @@ public class adminUserController {
             HttpSession session
     ) {
 
-        if (session.getAttribute("sid") == null) {
-            return false;
-        }
-
-        if (!adminUserService.SelectUserRoll(session.getAttribute("sid").toString())) {
+        if (!adminCheck(session)) {
             return false;
         }
 
@@ -57,5 +52,20 @@ public class adminUserController {
         return adminUserService.UpdateUserState(vo);
 
     }
+
+
+    public boolean adminCheck(HttpSession session) {
+
+        if (session.getAttribute("sid") == null)
+            return false;
+        UserVO vo = userService.selectUserView(session.getAttribute("sid").toString());
+
+        if (vo.getUserRoll().toString().equals("ADMIN"))
+            return true;
+
+        return false;
+
+    }
+
 
 }
