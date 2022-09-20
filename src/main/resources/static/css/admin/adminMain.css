@@ -17,15 +17,24 @@ body {
 }
 
 main {
-    height: 100vh;
+    height: 90vh;
     margin-left: 150px;
-    padding: 20px;
+    padding: 5vh;
+    min-width: 1080px;
+}
+
+h1 {
+    font-size: 2.0rem;
+    text-align: center;
+    margin: 10px;
 }
 
 /* search-container */
 
 .search-container {
-    margin: 15px 0;
+    margin: 15px auto;
+    display: flex;
+    justify-content: center;
 }
 
 .search-container select {
@@ -45,6 +54,8 @@ main {
 .resultTable {
     border: 1px solid white;
     background-color: #D1D5DB;
+    width: 90%;
+    margin: 10px auto;
 }
 .resultTable th,td {
     padding: 15px 10px;
@@ -103,4 +114,33 @@ main {
 
 .displayBox {
     display: none;
+}
+
+/* page number */
+.pageNumBox {
+    display: flex;
+    justify-content: center;
+}
+.pageNumList {
+    display: flex;
+}
+.pageNumList li {
+    width: 30px;
+    height: 30px;
+    background-color: #D1D5DB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #1A1A1A;
+    font-size: 0.9rem;
+    border: #E5E7EB 0.5px solid;
+}
+.pageNumList li:hover {
+    background-color: #1A1A1A;
+    color: #E5E7EB;
+}
+
+.pageNumList .pageOn {
+    background-color: #1A1A1A;
+    color: #E5E7EB;
 }

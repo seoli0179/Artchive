@@ -15,14 +15,16 @@
 <h1>회원 관리</h1>
 
 <section class="search-container">
-  <select>
-    <option selected>전체</option>
-    <option>아이디</option>
-    <option>이름</option>
-    <option>메일</option>
-  </select>
-  <input type="text" placeholder="검색어를 입력하세요">
-  <button class="searchBtn">검색</button>
+  <div class="search-box">
+    <select>
+      <option selected>전체</option>
+      <option>아이디</option>
+      <option>이름</option>
+      <option>메일</option>
+    </select>
+    <input type="text" placeholder="검색어를 입력하세요">
+    <button class="searchBtn">검색</button>
+  </div>
 </section>
 
 <section class="table-container">
@@ -98,3 +100,17 @@
   </table>
 </section>
 
+<section class="pageNumBox">
+  <ul class="pageNumList">
+    <li><<</li>
+    <li><</li>
+    <li><</li>
+    <li class="pageOn">1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>></li>
+    <li>>></li>
+  </ul>
+</section>

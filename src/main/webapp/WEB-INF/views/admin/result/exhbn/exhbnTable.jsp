@@ -35,7 +35,7 @@
   <%--      <th>전시장</th>--%>
         <th>전시 시작일</th>
         <th>전시 종료일</th>
-    <%--    <th>좋아요</th>--%>
+        <th>좋아요</th>
         <th>Type</th>
         <th>관리</th>
       </tr>
@@ -49,7 +49,7 @@
     <%--      <td>${exhbn.exhbnPlace}</td>--%>
           <td><fmt:formatDate value="${exhbn.exhbnStartDate}" pattern="yy-MM-dd"/></td>
           <td><fmt:formatDate value="${exhbn.exhbnEndDate}" pattern="yy-MM-dd"/></td>
-      <%--    <td>${exhbn.exhbnLike}</td>--%>
+          <td>${exhbn.exhbnLike}</td>
           <td>${exhbn.exhbnType}</td>
           <td class="btnBox">
             <button id="editBtn_${status.index}" class="editBtn">수정</button>
@@ -65,7 +65,7 @@
               <tr><th>지역</th><td><input type="text" value="${exhbn.exhbnArea}"></td></tr>
               <tr><th>시작일</th><td><input type="date" value="<fmt:formatDate value="${exhbn.exhbnStartDate}" pattern="yy-MM-dd"/>"></td></tr>
               <tr><th>종료일</th><td><input type="date" value="<fmt:formatDate value="${exhbn.exhbnEndDate}" pattern="yy-MM-dd"/>"></td></tr>
-              <tr><th>좋아요</th><td><input type="text" value="${exhbn.exhbnLike}" readonly></td></tr>
+<%--              <tr><th>좋아요</th><td><input type="text" value="${exhbn.exhbnLike}" readonly></td></tr>--%>
               <tr><th>Type</th><td>
                 <select>
                   <option>${exhbn.exhbnType}</option>
@@ -79,4 +79,19 @@
       </c:forEach>
     </tbody>
   </table>
+</section>
+
+<section class="pageNumBox">
+  <ul class="pageNumList">
+    <li><<</li>
+    <li><</li>
+    <li><</li>
+    <li class="pageOn">1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>></li>
+    <li>>></li>
+  </ul>
 </section>
