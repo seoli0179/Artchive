@@ -60,6 +60,10 @@ public class MpViewController {
         return "myPage/pwChange";
     }
     
- 
+    // 방문한 전시 view
+    @RequestMapping("myPage/courseComment")
+    public String courseComment() {
+        return "myPage/courseComment";
+    }
 
 }

@@ -6,17 +6,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>arTchive / 마이페이지 - 활동내역(게시글)</title>
+<title>arTchive / 마이페이지 - 코스 댓글</title>
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/tools/reset.css'/>" />
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/common.css'/>" />
 <link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/myPage/post.css'/>" />
+	href="<c:url value='/css/myPage/courseComment.css'/>" />
 <script src="https://kit.fontawesome.com/50d21a2bed.js"
 	crossorigin="anonymous"></script>
 <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
-<script src="<c:url value='/js/myPage/post.js'/>"></script>
+<script src="<c:url value='/js/myPage/bookMarkCourse.js'/>"></script>
+
 </head>
 <body>
 	<div class="wrapper">
@@ -46,11 +47,12 @@
 
 					<div class="myPageBox">
 
-						<h2>활동 내역</h2>
+						<h2>내 전시</h2>
 						<p class="line">
 						<div class="titleBox">
-							<a href="<c:url value='/myPage/post'/>">게시글</a> 
-							<a href="<c:url value='/myPage/comment'/>">댓글</a> 
+							<a href="<c:url value='/myPage/myCourse'/>">작성한 코스</a> 
+							<a href="<c:url value='/myPage/courseScrap'/>">스크랩</a> 
+							<a href="<c:url value='/myPage/courseComment'/>">댓글</a>
 						</div>
 						<!-- titleBox -->
 
@@ -64,36 +66,39 @@
 									</tr>
 
 								</thead>
+
 								<tbody>
 									<c:choose>
 
-										<c:when test="${empty noteList}">
+										<c:when test="${empty bookMarkCourseList}">
 											<tr>
-												<td colspan="3">작성한 게시글 내역이 없습니다.</td>
+												<td colspan="3">작성한 댓글이 없습니다.</td>
 											</tr>
 										</c:when>
 
-
 										<c:otherwise>
-											<c:forEach items="${noteList}" var="note" varStatus="status">
+											<c:forEach items="${bookMarkCourseList}" var="bookmarkCourse"
+												varStatus="status">
 												<tr>
 													<td><a
-														href="<c:url value='/note/detail/${note.noteId}'/>">${note.noteTitle}</a></td>
-													<td><fmt:formatDate value="${note.noteUpdatedDate}"
+														href="<c:url value='/course/${bookmarkCourse.courseId}'/>">${bookmarkCourse.courseTitle}</a></td>
+													<td><fmt:formatDate value="${bookmarkCourse.bookMarkCourseDate}"
 															pattern="yyyy-MM-dd" /></td>
-													<td><input type="button" id="submitBtn"
-														name="submitBtn" class="white-btn"
-														onclick="deleteNote(${note.noteId})" value="삭제"></td>
+													<td><input type="button"
+														class="deleteBookMarkBtn white-btn"
+														onclick="deleteBookMarkCourse(${bookmarkCourse.bookMarkCourseId})"
+														value="삭제"></td>
 												</tr>
 											</c:forEach>
 										</c:otherwise>
 
 									</c:choose>
 								</tbody>
-							</table>
 
+							</table>
 						</div>
 						<!--tableBox -->
+
 					</div>
 					<!-- myPageBox -->
 				</div>
