@@ -3,6 +3,7 @@ package com.spring_boot_final.project.controller.course;
 import com.spring_boot_final.project.model.*;
 import com.spring_boot_final.project.service.CourseService;
 import com.spring_boot_final.project.service.ExhbnService;
+import com.spring_boot_final.project.service.ReviewNoteService;
 import lombok.RequiredArgsConstructor;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,8 @@ public class CourseViewController {
     ExhbnService service;
     @Autowired
     CourseService courseService;
+    @Autowired
+    ReviewNoteService reviewService;
 
     // course page view
     @RequestMapping("/course")
@@ -34,8 +37,8 @@ public class CourseViewController {
         ArrayList<ExhbnVO> vo = service.selectAllData();
         model.addAttribute("exhbnList", vo);
 
-        ArrayList<CourseVO> courseVo = courseService.selectCourse();
-        model.addAttribute("courseList", courseVo);
+        ArrayList<ReviewNoteVO> reviewVo = reviewService.reviewNoteList();
+        model.addAttribute("reviewList", reviewVo);
 
         return "course/courseMain";
 

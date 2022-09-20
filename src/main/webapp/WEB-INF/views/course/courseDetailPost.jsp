@@ -61,10 +61,10 @@
 			<!-- courseMain -->
 			<section id="courseMenu">
 				<div id="courseToggle">
-					<input type="checkbox" class="toggle" id="courseStatus" hidden checked>
-					<label for="courseStatus" class="toggleSwitch">
-						<span class="toggleButton"></span>
-					</label>
+<%--					<input type="checkbox" class="toggle" id="courseStatus" hidden checked>--%>
+<%--					<label for="courseStatus" class="toggleSwitch">--%>
+<%--						<span class="toggleButton"></span>--%>
+<%--					</label>--%>
 <%--						<span id="toggleText">공개</span>--%>
 				</div>
            		<div id="courseMainText">

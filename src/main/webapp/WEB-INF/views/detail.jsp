@@ -6,7 +6,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>arTchive / ${exhbn.exhbnTitle}</title>
+		<title>Artchive / ${exhbn.exhbnTitle}</title>
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		<script src="<c:url value='/js/exhbn/detail.js'/>"></script>
 		<script src="<c:url value='/js/note/detail.js'/>"></script>

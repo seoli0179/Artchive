@@ -125,14 +125,14 @@
                     </div>
                 </div>
                 <div class="courseList-box">
-                    <c:forEach items="${courseList}" var="course" end="3">
+                    <c:forEach items="${reviewList}" var="rv" end="3">
                         <div class="course-item">
-                            <a href="<c:url value='/course/${course.courseId}'/>">
+                            <a href="<c:url value='/course/${rv.reviewNoteId}'/>">
                                 <div>
-                                    <img class="coursepost-thumb" src="${course.exhbnImgUrl}" alt="전시포스터">
+                                    <img class="coursepost-thumb" src="${rv.exhbnImgUrl}" alt="전시포스터">
                                 </div>
                                 <div class="coursepost-box">
-                                    <span class="ex-title">${course.courseTitle}</span>
+                                    <span class="ex-title">${rv.reviewNoteTitle}</span>
 <%--                                    <span class="like-logo"><i class="fa-solid fa-thumbs-up"></i><br>${course.courseLike}</span>--%>
                                 </div>
                             </a>
