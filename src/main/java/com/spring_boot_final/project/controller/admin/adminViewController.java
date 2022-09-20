@@ -19,4 +19,10 @@ public class adminViewController {
     public String adminUser() {
         return "admin/adminUser";
     }
+
+    @RequestMapping ("/admin/exhbn/view")
+    public String adminExhbn() {
+        return "admin/adminExhbn";
+    }
+
 }
