@@ -70,6 +70,10 @@ body {
     padding: 20px 15px 5px 15px;
 }
 
+.menu-list .sub-title:hover {
+    background-color: rgba(0,0,0,0);
+}
+
 /* 메뉴 footer */
 
 .menu-footer {
