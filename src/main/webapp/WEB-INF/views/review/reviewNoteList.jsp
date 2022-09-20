@@ -21,6 +21,7 @@
         <!-- reviewList -->
         <script src="<c:url value='/js/review/reviewList.js'/>"></script>
         <script src="<c:url value='/js/course/courseMainSearch.js'/>"></script>
+        <script src="<c:url value='/js/review/reviewLike.js'/>"></script>
 
         <link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
         <link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>"/>
