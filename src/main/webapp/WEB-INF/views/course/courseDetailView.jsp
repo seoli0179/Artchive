@@ -43,7 +43,7 @@
 						<ul><li>${course.exhbnTitle}</li></ul>
 					</div>
 					<div id="header-postTitle" class="headerText">
-						<h1 id="courseTitle">${course.courseTitle}</h1>
+						<h1 id="courseTitle" style="text-align: center; margin:0 auto;">${course.courseTitle}</h1>
 					</div>
 					<div id="header-postDate" class="headerText">
 						<ul><li>by. ${course.userNickname} / <fmt:formatDate value="${course.createdAt}" pattern="yyyy. MM. dd. E"></fmt:formatDate></li></ul>
