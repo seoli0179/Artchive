@@ -27,10 +27,11 @@ CREATE TABLE `bookmarkCourse` (
   `bookMarkCourseDate` datetime DEFAULT CURRENT_TIMESTAMP,
   `userId` varchar(20) NOT NULL,
   `courseId` int DEFAULT NULL,
+  `bookMarkCourseState` int DEFAULT 1,
   PRIMARY KEY (`bookMarkCourseId`),
   KEY `userId` (`userId`),
   KEY `courseId` (`courseId`),
-  CONSTRAINT `FK_bookmarkCourse_course` FOREIGN KEY (`courseId`) REFERENCES `course` (`courseId`),
+  CONSTRAINT `FK_bookmarkCourse_course` FOREIGN KEY (`courseId`) REFERENCES `course` (`courseId`) ON DELETE CASCADE,
   CONSTRAINT `FK_bookmarkCourse_user` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -41,7 +42,6 @@ CREATE TABLE `bookmarkCourse` (
 
 LOCK TABLES `bookmarkCourse` WRITE;
 /*!40000 ALTER TABLE `bookmarkCourse` DISABLE KEYS */;
-INSERT INTO `bookmarkCourse` VALUES (1,'2022-09-19 06:33:07','user',220919);
 /*!40000 ALTER TABLE `bookmarkCourse` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
