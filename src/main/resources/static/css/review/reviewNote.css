@@ -89,7 +89,7 @@
 }
 
 .content-body {
-	min-height : 800px;
+	/* min-height : 800px; */
     color: black;
     padding-bottom: 10px;
     /* border : solid 1px red; */
@@ -1230,4 +1230,8 @@ input[type='date']:valid::before {
 .progressbar::-webkit-scrollbar-track {
     background: #D1D5DB;  /*스크롤바 뒷 배경 색상*/
      border-radius: 10px;
+}
+
+p{
+	margin-top: 7px;
 }
