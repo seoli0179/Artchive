@@ -157,7 +157,7 @@
 
 .route-row {
 	display: flex;
-	height: 120px;
+	height: 150px;
 	position: relative;
 	justify-content: space-between;
 }
@@ -175,6 +175,10 @@
 #startPoint, #endPoint {
 	display: flex;
 	height: 52px;
+}
+
+.siteName {
+	line-height: 1.3rem;
 }
 
 .route-row .line {

@@ -65,7 +65,7 @@
 					<label for="courseStatus" class="toggleSwitch">
 						<span class="toggleButton"></span>
 					</label>
-						<span id="toggleText">공개</span>
+<%--						<span id="toggleText">공개</span>--%>
 				</div>
            		<div id="courseMainText">
 					<button id="writePostBtn"  class="black-btn">저장</button>

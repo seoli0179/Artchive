@@ -115,7 +115,7 @@
                     </div>
                     <input id="reviewNoteSearch" class="black-btn searchbar-btn" type="button" value="검색">
                 </div>
-                <div id="tag-caution" class="vibration">태그는 3개까지만 선택할 수 있습니다.</div>
+<%--                <div id="tag-caution" class="vibration">태그는 3개까지만 선택할 수 있습니다.</div>--%>
             </section>
             <section id="famousCourse" class="course-box noborder">
                 <div class="title-box">
