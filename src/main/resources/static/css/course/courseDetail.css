@@ -117,7 +117,13 @@
 #courseMainBtn-Box {
 	position: absolute;
 	right: 0;
+	display:flex;
 }
+
+#editCourseBtn, #deleteBtn_view, #insertBookMarkCourse {
+	margin-right:5px;
+}
+
 
 /* course timeline	*/
 #course {

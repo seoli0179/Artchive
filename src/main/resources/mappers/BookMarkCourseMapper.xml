@@ -7,12 +7,12 @@
 	 
 	<!--  (1) 북마크 목록 출력 -->
 	<select id="bookMarkCourseList" parameterType="String" resultType="com.spring_boot_final.project.model.BookMarkCourseVO">
-		
-		SELECT b.bookMarkCourseId, b.bookMarkCourseDate, c.courseId, c.courseTitle, b.userId
+		SELECT b.bookMarkCourseId, b.bookMarkCourseDate, c.courseId, c.courseTitle, c.courseState, b.userId
 		fROM bookmarkCourse b, course c
-		WHERE c.courseId = b.courseId AND b.userId=#{userId}
+		WHERE c.courseId = b.courseId 
+		AND b.userId=#{userId}
+		and c.courseState != "DELETE"
 		ORDER BY b.courseId
-		
 	</select>
 	
 	<!-- (2) 북마크에 추가 -->
@@ -24,17 +24,19 @@
 	<!-- (3) 북마크 목록에 동일한 전시가 있는지 확인 -->
 	<select id="checkBookMarkCourse" parameterType="hashmap" resultType="int">
 		SELECT COUNT(*)
-		FROM bookmarkCourse
-		WHERE courseId=#{courseId} AND userId=#{userId}
+		FROM bookmarkCourse b, course c
+		WHERE b.courseId=#{courseId} 
+		AND b.userId=#{userId}
+		and c.courseState != "DELETE" 
 	</select>
 
   
     <delete id="deleteBookMarkCourse" parameterType="com.spring_boot_final.project.model.BookMarkCourseVO">
         <![CDATA[
-        delete
+        delete 
         from bookmarkCourse
         where bookMarkCourseId = #{bookMarkCourseId}
-          and userId = #{userId};
+         and userId = #{userId};
         ]]>
     </delete>
     
@@ -42,7 +44,7 @@
         <![CDATA[
         select *
         from bookmarkCourse
-        where bookMarkCourseId = #{bookMarkCourseId};
+        where bookMarkCourseId = #{bookMarkCourseId}
         ]]>
     </select>
      

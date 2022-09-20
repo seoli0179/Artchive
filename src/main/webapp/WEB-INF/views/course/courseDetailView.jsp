@@ -57,22 +57,18 @@
 					<i id="back" class="fa-solid fa-arrow-left fa-2xl"></i>
 				</div>
            		<div id="courseMainBtn-Box">
-           		<form method="post" action="<c:url value='/insertBookMarkCourse' /> ">
 					<c:if test="${sessionScope.sid == course.userId}">
-						<input type="button" id="editCourseBtn"  class="white-btn" value="수정" onclick="location.href='<c:url value="/course/${course.courseId}/edit"/>'">
-						<button id="deleteBtn_view"  class="white-btn">삭제</button>
+							<input type="button" id="editCourseBtn"  class="white-btn" value="수정" onclick="location.href='<c:url value="/course/${course.courseId}/edit"/>'">
+							<button id="deleteBtn_view"  class="white-btn">삭제</button>
 					</c:if>
 					
-					<!-- <button id="scrapCourse"  class="black-btn">스크랩</button> -->
-					
-					
+					<form method="post" action="<c:url value='/insertBookMarkCourse' /> ">
 						<input type="submit" id="insertBookMarkCourse" class="black-btn" value="스크랩">
-						<input type="hidden" id="courseId" name="courseId" value=${course.courseId}>
-					
+						<input type="hidden" id="courseId" name="courseId" value=${course.courseId} >
+					</form>	
 					
 					<input type="button" id="createReview" value="리뷰 작성" onclick="location.href='<c:url value="/review/reviewNoteWrite/${course.courseId}"/>'" class="black-btn">
 					
-					</form>
            		</div><!-- courseMainText -->
 			</section><!-- courseMenu -->
 

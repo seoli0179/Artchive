@@ -44,7 +44,7 @@
 				<div class="contentsBox">
 					<div class="contents"><h2>내 전시</h2></div>
 					<div class="setting"><a class="white-btn" href="<c:url value='/myPage/OCRForm'/>" target="blank"
-					onClick="window.open(this.href, '', 'width=500, height=800'); return false;">티켓 등록</a></div>
+					onClick="window.open(this.href, '', 'width=800, height=800'); return false;">티켓 등록</a></div>
 				</div> <!-- contentsBox -->
 				
 				<p class="line">
