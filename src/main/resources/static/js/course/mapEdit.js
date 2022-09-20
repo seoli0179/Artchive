@@ -23,11 +23,12 @@ $(document).ready(function (){
 	$("#keyword_search").on("click",function (){
 		searchPlaces();
 	});
-	$("#keyword_search").onkeyup(function (el){
-		if (el.key==="enter") {
-			searchPlaces();
-		}
-	});
+
+	// $("#keyword_search").onkeyup(function (el){
+	// 	if (el.key==="enter") {
+	// 		searchPlaces();
+	// 	}
+	// });
 
 	var mapContainer = document.getElementById('courseMap'), // 지도를 표시할 div
 		mapOption = {

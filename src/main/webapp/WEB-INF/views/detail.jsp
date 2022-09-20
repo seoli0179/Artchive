@@ -150,7 +150,12 @@
 					<div>
 						<form method="post" action="<c:url value='/insertBookMark' /> ">
 							<!-- <button class="white-btn-big" onclick="location.href='#'">관심전시추가</button> -->
-							<input type="submit" id="insertBookMark" class="white-btn-big" value="관심전시추가">
+							<c:if test="${not empty sessionScope.sid}">
+								<input type="submit" id="insertBookMark" class="white-btn-big" value="관심전시추가">
+							</c:if>
+							<c:if test="${empty sessionScope.sid}">
+								<input type="button" class="white-btn-big" onclick="alert('로그인이 필요한 기능입니다.');" value="관심전시추가">
+							</c:if>
 							<input type="hidden" id="exhbnId" name="exhbnId" value=${exhbn.exhbnId} hidden>
 							<input type="hidden" id="exhbnImgUrl" value="${exhbn.exhbnImgUrl}" hidden>
 						</form>
