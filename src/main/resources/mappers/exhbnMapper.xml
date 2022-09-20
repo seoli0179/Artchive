@@ -97,4 +97,130 @@
 	exhbnTitle like CONCAT('%',#{title},'%')
 	</select>
 
+	
+	<select id="tab_ExhbnSearch" parameterType="String" resultType="com.spring_boot_final.project.model.ExhbnVO">
+	select
+	exhbnID,
+	exhbnTitle,
+	exhbnPlace,
+	exhbnArea,
+	exhbnImgUrl,
+	exhbnStartDate,
+	exhbnEndDate,
+	exhbnUrl,
+	exhbnPrice
+	From exhbn
+	WHERE exhbnType = "박물관" 
+	 ORDER BY exhbnId DESC limit 9
+	</select>
+	
+		<select id="tab_ExhbnSearch2" parameterType="String" resultType="com.spring_boot_final.project.model.ExhbnVO">
+	select
+	exhbnID,
+	exhbnTitle,
+	exhbnPlace,
+	exhbnArea,
+	exhbnImgUrl,
+	exhbnStartDate,
+	exhbnEndDate,
+	exhbnUrl,
+	exhbnPrice
+	From exhbn
+	WHERE exhbnType = "미술" 
+	 ORDER BY exhbnId DESC limit 9
+	</select>
+	
+		<select id="tab_ExhbnSearch3" parameterType="String" resultType="com.spring_boot_final.project.model.ExhbnVO">
+	select
+	exhbnID,
+	exhbnTitle,
+	exhbnPlace,
+	exhbnArea,
+	exhbnImgUrl,
+	exhbnStartDate,
+	exhbnEndDate,
+	exhbnUrl,
+	exhbnPrice
+	From exhbn
+	WHERE exhbnType = "축제" 
+	 ORDER BY exhbnId DESC limit 9
+	</select>
+
+		<select id="tab_ExhbnSearch4" parameterType="String" resultType="com.spring_boot_final.project.model.ExhbnVO">
+	select
+	exhbnID,
+	exhbnTitle,
+	exhbnPlace,
+	exhbnArea,
+	exhbnImgUrl,
+	exhbnStartDate,
+	exhbnEndDate,
+	exhbnUrl,
+	exhbnPrice
+	From exhbn
+	WHERE exhbnType = "교육" 
+	 ORDER BY exhbnId DESC limit 9
+	</select>
+	
+	
+	<select id="tab_ExhbnSearch5" parameterType="String" resultType="com.spring_boot_final.project.model.ExhbnVO">
+	select
+	exhbnID,
+	exhbnTitle,
+	exhbnPlace,
+	exhbnArea,
+	exhbnImgUrl,
+	exhbnStartDate,
+	exhbnEndDate,
+	exhbnUrl,
+	exhbnPrice
+	From exhbn
+	WHERE exhbnType = "기타" 
+	 ORDER BY exhbnId DESC limit 9
+	</select>
+
+	
+	<select id="tab_ExhbnSearch6" parameterType="String" resultType="com.spring_boot_final.project.model.ExhbnVO">
+	select
+	exhbnID,
+	exhbnTitle,
+	exhbnPlace,
+	exhbnArea,
+	exhbnImgUrl,
+	exhbnStartDate,
+	exhbnEndDate,
+	exhbnUrl,
+	exhbnPrice
+	From exhbn 
+	WHERE exhbnType = "기타" 
+	
+	ORDER BY exhbnId DESC limit 9
+	</select>
+	
+		<select id="tab_ExhbnSearch_total" parameterType="hashmap" resultType="com.spring_boot_final.project.model.ExhbnVO">
+		select *
+		From exhbn 
+		where exhbnType = #{Type} and title=#{Title}
+		</select>
+
+	
+	<select id="ExhbnSearch22" parameterType="string" resultType="com.spring_boot_final.project.model.ExhbnVO">
+	select 
+	exhbnID,
+	exhbnTitle,
+	exhbnPlace,
+	exhbnArea,
+	exhbnImgUrl,
+	exhbnStartDate,
+	exhbnEndDate,
+	exhbnUrl,
+	exhbnPrice
+	From exhbn
+	where
+	exhbnTitle like CONCAT('%',#{title},'%')  or 
+	exhbnArea like CONCAT('%',#{Area},'%') <!-- or
+	exhbnPrice like CONCAT('%',#{Price},'%') -->
+		ORDER BY exhbnId DESC limit 9
+	
+	</select>
 </mapper>

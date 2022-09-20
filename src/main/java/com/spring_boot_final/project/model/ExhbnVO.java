@@ -1,12 +1,11 @@
 package com.spring_boot_final.project.model;
 
 import com.spring_boot_final.project.state.ViewState;
-import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
-public class ExhbnVO {
+public class ExhbnVO{
     private int exhbnId;
     private String exhbnTitle;
     private String exhbnImgUrl;
@@ -35,8 +34,18 @@ public class ExhbnVO {
     private Date createdAt;
     @DateTimeFormat(pattern="yyyy-MM-dd hh:mm:ss")
     private Date updatedAt;
+    private String exhbnType;
+  
+    
+    public String getExhbnType() {
+		return exhbnType;
+	}
 
-    public ExhbnVO(){
+	public void setExhbnType(String exhbnType) {
+		this.exhbnType = exhbnType;
+	}
+
+	public ExhbnVO(){
 
     }
 
