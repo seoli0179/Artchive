@@ -1,0 +1,63 @@
+
+.wrapper {
+
+}
+
+.write-box {
+    width: 800px;
+    margin: 20px auto;
+}
+
+.column-box {
+    display: flex;
+    justify-content: center;
+}
+.note-editable {
+    background-color: #1c1c1c;
+    color: #E5E7EB;
+}
+
+.btn-box {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+/* 정보입력 테이블 */
+.info-table {
+    background-color: #1A1A1A;
+    border-radius: 10px;
+    width: 800px;
+    margin: 20px 0;
+}
+.info-table * {
+    border: none;
+}
+.info-table th {
+    font-weight: normal;
+    padding: 3px 20px 3px 30px;
+    text-align: left;
+    font-size: 0.9rem;
+}
+.info-table td {
+    padding: 5px 30px 5px 20px;
+    min-width: 230px;
+}
+
+.table-title {
+    padding: 30px 30px 10px 30px;
+    font-size: 0.9rem;
+    color: #7d7d7d;
+    font-weight: normal;
+    border-top: rgba(0,0,0,0) 15px solid;
+    margin-bottom: 10px;
+}
+.info-table input, select {
+    width: 100%;
+    background-color: rgba(0,0,0,0);
+    color: #E5E7EB;
+}
+
+.btn-box {
+    margin: 30px;
+}
