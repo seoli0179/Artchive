@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `finaldb` /*!40100 DEFAULT CHARACTER SET utf8mb3 */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE  IF NOT EXISTS `finaldb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `finaldb`;
 -- MySQL dump 10.13  Distrib 8.0.29, for macos12 (x86_64)
 --
--- Host: localhost    Database: finaldb
+-- Host: 49.50.160.205    Database: finaldb
 -- ------------------------------------------------------
 -- Server version	8.0.30
 
@@ -18,13 +18,65 @@ USE `finaldb`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `certifytemp`
+-- Table structure for table `bookmark`
 --
 
-DROP TABLE IF EXISTS `certifytemp`;
+DROP TABLE IF EXISTS `bookmark`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `certifytemp` (
+CREATE TABLE `bookmark` (
+  `bookmarkId` int NOT NULL AUTO_INCREMENT,
+  `bookmarkAt` datetime DEFAULT CURRENT_TIMESTAMP,
+  `userId` varchar(20) NOT NULL,
+  `exhbnId` int DEFAULT NULL,
+  PRIMARY KEY (`bookmarkId`),
+  KEY `userId` (`userId`),
+  KEY `exhbnId` (`exhbnId`),
+  CONSTRAINT `FK_bookmark_exhbn` FOREIGN KEY (`exhbnId`) REFERENCES `exhbn` (`exhbnId`),
+  CONSTRAINT `FK_bookmark_user` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bookmark`
+--
+
+LOCK TABLES `bookmark` WRITE;
+/*!40000 ALTER TABLE `bookmark` DISABLE KEYS */;
+INSERT INTO `bookmark` VALUES (1,'2022-09-16 03:06:39','user2',217601);
+/*!40000 ALTER TABLE `bookmark` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `certify`
+--
+
+DROP TABLE IF EXISTS `certify`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `certify` (
+  `userEmail` varchar(50) DEFAULT NULL,
+  `certifyNum` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `certify`
+--
+
+LOCK TABLES `certify` WRITE;
+/*!40000 ALTER TABLE `certify` DISABLE KEYS */;
+/*!40000 ALTER TABLE `certify` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `certifyTemp`
+--
+
+DROP TABLE IF EXISTS `certifyTemp`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `certifyTemp` (
   `userEmail` varchar(50) DEFAULT NULL,
   `certifyNum` varchar(20) DEFAULT NULL,
   `createdAt` datetime DEFAULT CURRENT_TIMESTAMP
@@ -32,12 +84,12 @@ CREATE TABLE `certifytemp` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `certifytemp`
+-- Dumping data for table `certifyTemp`
 --
 
-LOCK TABLES `certifytemp` WRITE;
-/*!40000 ALTER TABLE `certifytemp` DISABLE KEYS */;
-/*!40000 ALTER TABLE `certifytemp` ENABLE KEYS */;
+LOCK TABLES `certifyTemp` WRITE;
+/*!40000 ALTER TABLE `certifyTemp` DISABLE KEYS */;
+/*!40000 ALTER TABLE `certifyTemp` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -50,7 +102,7 @@ DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment` (
   `commentId` int NOT NULL AUTO_INCREMENT,
   `noteId` int NOT NULL,
-  `userId` varchar(50) NOT NULL,
+  `userId` varchar(20) NOT NULL,
   `pageViewState` varchar(50) DEFAULT 'POST',
   `comment` text,
   `commentLike` int DEFAULT '0',
@@ -74,13 +126,13 @@ LOCK TABLES `comment` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `commentlike`
+-- Table structure for table `commentLike`
 --
 
-DROP TABLE IF EXISTS `commentlike`;
+DROP TABLE IF EXISTS `commentLike`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `commentlike` (
+CREATE TABLE `commentLike` (
   `commentId` int NOT NULL AUTO_INCREMENT,
   `userId` varchar(50) NOT NULL,
   KEY `commentId` (`commentId`),
@@ -91,12 +143,12 @@ CREATE TABLE `commentlike` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `commentlike`
+-- Dumping data for table `commentLike`
 --
 
-LOCK TABLES `commentlike` WRITE;
-/*!40000 ALTER TABLE `commentlike` DISABLE KEYS */;
-/*!40000 ALTER TABLE `commentlike` ENABLE KEYS */;
+LOCK TABLES `commentLike` WRITE;
+/*!40000 ALTER TABLE `commentLike` DISABLE KEYS */;
+/*!40000 ALTER TABLE `commentLike` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -110,8 +162,8 @@ CREATE TABLE `course` (
   `courseId` int NOT NULL AUTO_INCREMENT,
   `userId` varchar(20) NOT NULL,
   `exhbnId` int NOT NULL,
-  `courseTitle` varchar(50) DEFAULT NULL,
-  `courseTag` varchar(1000) DEFAULT NULL,
+  `courseTitle` varchar(100) DEFAULT NULL,
+  `courseTag` varchar(100) DEFAULT NULL,
   `courseView` int DEFAULT '1',
   `courseLike` int DEFAULT '0',
   `courseComment` int DEFAULT '0',
@@ -179,13 +231,13 @@ LOCK TABLES `courseComment` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `courselike`
+-- Table structure for table `courseLike`
 --
 
-DROP TABLE IF EXISTS `courselike`;
+DROP TABLE IF EXISTS `courseLike`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `courselike` (
+CREATE TABLE `courseLike` (
   `courseId` int NOT NULL,
   `userId` varchar(20) NOT NULL,
   KEY `FK_courselike_courseId` (`courseId`),
@@ -196,12 +248,12 @@ CREATE TABLE `courselike` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `courselike`
+-- Dumping data for table `courseLike`
 --
 
-LOCK TABLES `courselike` WRITE;
-/*!40000 ALTER TABLE `courselike` DISABLE KEYS */;
-/*!40000 ALTER TABLE `courselike` ENABLE KEYS */;
+LOCK TABLES `courseLike` WRITE;
+/*!40000 ALTER TABLE `courseLike` DISABLE KEYS */;
+/*!40000 ALTER TABLE `courseLike` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -285,13 +337,13 @@ LOCK TABLES `note` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `notelike`
+-- Table structure for table `noteLike`
 --
 
-DROP TABLE IF EXISTS `notelike`;
+DROP TABLE IF EXISTS `noteLike`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `notelike` (
+CREATE TABLE `noteLike` (
   `noteId` int NOT NULL AUTO_INCREMENT,
   `userId` varchar(50) NOT NULL,
   KEY `noteId` (`noteId`),
@@ -302,22 +354,22 @@ CREATE TABLE `notelike` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `notelike`
+-- Dumping data for table `noteLike`
 --
 
-LOCK TABLES `notelike` WRITE;
-/*!40000 ALTER TABLE `notelike` DISABLE KEYS */;
-/*!40000 ALTER TABLE `notelike` ENABLE KEYS */;
+LOCK TABLES `noteLike` WRITE;
+/*!40000 ALTER TABLE `noteLike` DISABLE KEYS */;
+/*!40000 ALTER TABLE `noteLike` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `reviewcomment`
+-- Table structure for table `reviewComment`
 --
 
-DROP TABLE IF EXISTS `reviewcomment`;
+DROP TABLE IF EXISTS `reviewComment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `reviewcomment` (
+CREATE TABLE `reviewComment` (
   `reviewCommentId` int NOT NULL AUTO_INCREMENT,
   `reviewNoteId` int NOT NULL,
   `userId` varchar(50) NOT NULL,
@@ -329,29 +381,29 @@ CREATE TABLE `reviewcomment` (
   PRIMARY KEY (`reviewCommentId`),
   KEY `userId` (`userId`),
   KEY `reviewNoteId` (`reviewNoteId`),
-  CONSTRAINT `FK_reviewComment_reviewNote` FOREIGN KEY (`reviewNoteId`) REFERENCES `reviewnote` (`reviewNoteId`) ON DELETE CASCADE,
+  CONSTRAINT `FK_reviewComment_reviewNote` FOREIGN KEY (`reviewNoteId`) REFERENCES `reviewNote` (`reviewNoteId`) ON DELETE CASCADE,
   CONSTRAINT `FK_reviewComment_user` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `reviewcomment`
+-- Dumping data for table `reviewComment`
 --
 
-LOCK TABLES `reviewcomment` WRITE;
-/*!40000 ALTER TABLE `reviewcomment` DISABLE KEYS */;
-INSERT INTO `reviewcomment` VALUES (1,1,'user','POST','유용한 정보네요',0,'2022-09-02 04:49:38','2022-09-02 04:49:38');
-/*!40000 ALTER TABLE `reviewcomment` ENABLE KEYS */;
+LOCK TABLES `reviewComment` WRITE;
+/*!40000 ALTER TABLE `reviewComment` DISABLE KEYS */;
+INSERT INTO `reviewComment` VALUES (1,1,'user','POST','유용한 정보네요',0,'2022-09-02 04:49:38','2022-09-02 04:49:38');
+/*!40000 ALTER TABLE `reviewComment` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `reviewnote`
+-- Table structure for table `reviewNote`
 --
 
-DROP TABLE IF EXISTS `reviewnote`;
+DROP TABLE IF EXISTS `reviewNote`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `reviewnote` (
+CREATE TABLE `reviewNote` (
   `reviewNoteId` int NOT NULL AUTO_INCREMENT,
   `reviewNoteTitle` varchar(150) DEFAULT NULL,
   `reviewNote` longtext,
@@ -366,19 +418,19 @@ CREATE TABLE `reviewnote` (
   KEY `courseId` (`courseId`),
   KEY `userId` (`userId`),
   KEY `exhbnId` (`exhbnId`),
-  CONSTRAINT `FK_reviewNote_course` FOREIGN KEY (`courseId`) REFERENCES `course` (`courseId`) ON DELETE CASCADE,
-  CONSTRAINT `FK_reviewNote_exhbn` FOREIGN KEY (`exhbnId`) REFERENCES `exhbn` (`exhbnId`),
-  CONSTRAINT `FK_reviewNote_user` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
+  CONSTRAINT `FK_reviewNote_cs` FOREIGN KEY (`courseId`) REFERENCES `course` (`courseId`) ON DELETE CASCADE,
+  CONSTRAINT `FK_reviewNote_ex` FOREIGN KEY (`exhbnId`) REFERENCES `exhbn` (`exhbnId`),
+  CONSTRAINT `FK_reviewNote_us` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `reviewnote`
+-- Dumping data for table `reviewNote`
 --
 
-LOCK TABLES `reviewnote` WRITE;
-/*!40000 ALTER TABLE `reviewnote` DISABLE KEYS */;
-/*!40000 ALTER TABLE `reviewnote` ENABLE KEYS */;
+LOCK TABLES `reviewNote` WRITE;
+/*!40000 ALTER TABLE `reviewNote` DISABLE KEYS */;
+/*!40000 ALTER TABLE `reviewNote` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -423,4 +475,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-16  9:39:40
+-- Dump completed on 2022-09-16 12:08:28

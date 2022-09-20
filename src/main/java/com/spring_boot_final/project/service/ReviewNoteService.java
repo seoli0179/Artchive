@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.spring_boot_final.project.dao.IReviewNoteDAO;
+import com.spring_boot_final.project.model.NoteVO;
 import com.spring_boot_final.project.model.ReviewNoteVO;
 
 @Service
@@ -87,7 +88,17 @@ public class ReviewNoteService{
 	public ArrayList<ReviewNoteVO> reviewNoteComment(){
 		return dao.reviewNoteComment();
 	}
-
+	
+	
+	// 마이 페이지 리뷰 게시글 조회
+	public ArrayList<ReviewNoteVO> selectMpReview(String userId) {
+		return dao.selectMpReview(userId);
+	}
+	
+	// 마이 페이지 리뷰 게시글 삭제
+	public void deleteMpReviewNote(int reviewNoteId) {
+		dao.deleteMpReviewNote(reviewNoteId);
+	}
 
 
 

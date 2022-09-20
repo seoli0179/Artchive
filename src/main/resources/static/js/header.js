@@ -26,6 +26,7 @@
 		$('html, body').animate({scrollTop:0}, 500);
 	});
 
+	// 드랍다운
 	 $('.dropdown').each(function(){
 		 $(this).find('.dropdownMenu').hide();
 	 });
@@ -35,6 +36,8 @@
 			 $(this).find('.dropdownMenu').slideDown();
 		 },
 		 function(){
-			 $(this).find('.dropdownMenu').slideUp();
+			 if ($(this).find('.dropdownMenu').is(':hover') === false)
+				 $(this).find('.dropdownMenu').stop().slideUp();
 		 });
-});
+
+ });

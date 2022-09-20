@@ -15,14 +15,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.spring_boot_final.project.model.NoteCommentVO;
 import com.spring_boot_final.project.model.CourseVO;
+import com.spring_boot_final.project.model.NoteCommentVO;
 import com.spring_boot_final.project.model.NoteVO;
+import com.spring_boot_final.project.model.ReviewCommentVO;
+import com.spring_boot_final.project.model.ReviewNoteVO;
 import com.spring_boot_final.project.model.UserVO;
 import com.spring_boot_final.project.service.CommentService;
 import com.spring_boot_final.project.service.CourseService;
 import com.spring_boot_final.project.service.EmailService;
 import com.spring_boot_final.project.service.NoteService;
+import com.spring_boot_final.project.service.ReviewCommentService;
+import com.spring_boot_final.project.service.ReviewNoteService;
 import com.spring_boot_final.project.service.UserService;
 
 @Controller
@@ -43,6 +47,12 @@ public class MpDataController {
 	
 	@Autowired
 	EmailService emailService;
+	
+	@Autowired
+	ReviewNoteService reviewService;
+	
+	@Autowired
+	ReviewCommentService reviewCmtService;
 	
 	@Autowired
 	PasswordEncoder encoder;
@@ -94,7 +104,6 @@ public class MpDataController {
  								@RequestParam("nickname") String userNickname,
  								@RequestParam("userEmail1") String userEmail1,
  								@RequestParam("userEmail2") String userEmail2,
- 								@RequestParam("userGender") String userGender,
  								Model model,
  								HttpSession session) throws IOException {
  		
@@ -125,7 +134,6 @@ public class MpDataController {
  		model.addAttribute("userId",vo.getUserId());
  		model.addAttribute("userNickname", vo.getUserNickname());
  		model.addAttribute("userEmail", vo.getUserEmail()); 
- 		model.addAttribute("userGender", vo.getUserGender()); 
  		
  		
  		System.out.println(userId);
@@ -208,6 +216,63 @@ public class MpDataController {
         return "SUCCESS";
     }
   	
+  	// 마이페이지 리뷰 게시글 조회 
+   	@RequestMapping("myPage/review")
+   	public String review(HttpSession session, 
+   									Model model){
+   		
+     String userId = session.getAttribute("sid").toString();
+     	
+     ArrayList<ReviewNoteVO> vo = reviewService.selectMpReview(userId);
+    	model.addAttribute("reviewList", vo);
+     	
+   		return "myPage/review";
+  	}
+   	
+   	// 마이페이지 리뷰 게시글 삭제 
+   	@RequestMapping("/myPage/deleteMpReviewNote")
+ 	@ResponseBody
+     public String deleteReview(
+    		 					@RequestParam("reviewNoteId") int reviewNoteId,
+ 					            HttpSession session){
+     												
+
+ 		 if(session.getAttribute("sid") == null) return "FAIL";
+ 		 
+ 		reviewService.deleteMpReviewNote(reviewNoteId);
+ 		
+         return "SUCCESS";
+     }
+   	
+   	
+ // 마이페이지 리뷰 댓글 조회 
+   	@RequestMapping("myPage/reviewComment")
+   	public String reviewComment(HttpSession session, 
+   									Model model){
+   		
+     String userId = session.getAttribute("sid").toString();
+     
+     ArrayList<ReviewCommentVO> vo = reviewCmtService.selectMpReviewComment(userId);
+    	model.addAttribute("reviewCmtList", vo);
+     	
+   		return "myPage/reviewComment";
+  	}
+   	
+   	// 마이페이지 리뷰 댓글 삭제 
+   	@RequestMapping("/myPage/deleteMpReviewComment")
+ 	@ResponseBody
+     public String deleteMpReviewComment(
+    		 					@RequestParam("reviewCommentId") int reviewCommentId,
+ 					            HttpSession session){
+     												
+
+ 		 if(session.getAttribute("sid") == null) return "FAIL";
+ 		 
+ 		reviewCmtService.deleteMpReviewComment(reviewCommentId);
+ 		
+         return "SUCCESS";
+     }
+  	
   	
   	// 마이페이지 댓글 조회 
    	@RequestMapping("myPage/comment")
@@ -241,7 +306,7 @@ public class MpDataController {
      }
    	
    	// 마이페이지 작성한 코스 게시물 조회 
-   	@RequestMapping("myPage/coursePost")
+   	@RequestMapping("myPage/myCourse")
    	public String myPageCoursePost(HttpSession session, 
    									Model model){
    		
@@ -249,9 +314,9 @@ public class MpDataController {
      	
      ArrayList<CourseVO> vo = courseService.mpCoursePostSelect(userId);
    		
-    	model.addAttribute("coursePost", vo);
+    	model.addAttribute("courseList", vo);
      	
-   		return "myPage/coursePost";
+   		return "myPage/myCourse";
   	}
    	
 	// 마이페이지 작성한 코스 게시물 삭제 
@@ -302,10 +367,7 @@ public class MpDataController {
  		return "SUCCESS";
  	}
    
-
- 	
- 	
- 	
+ 	// 중복 체크
  	
  	@ResponseBody
     @RequestMapping("/myPage/emailCheck")

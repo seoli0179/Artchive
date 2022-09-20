@@ -34,4 +34,5 @@ public interface IReviewNoteService {
 	void updateReviewNoteLikeUp (int reviewNoteId);
 	
 	void updateReviewNoteLikeDown (int reviewNoteId);
+	
 }

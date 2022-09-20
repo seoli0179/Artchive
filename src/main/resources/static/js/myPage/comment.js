@@ -6,7 +6,7 @@
 });
 function deleteComment(commentId) {
 
-    if (confirm("해당 게시글을 삭제하시겠습니까?")) {
+    if (confirm("해당 댓글을 삭제하시겠습니까?")) {
         $.ajax({
             type: "POST",
             url: "/myPage/deleteMpComment",

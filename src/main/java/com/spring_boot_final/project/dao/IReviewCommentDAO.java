@@ -14,4 +14,10 @@ public interface IReviewCommentDAO {
 	
 	// 리뷰게시판 댓글 삭제
 	void deleteReviewComment (ReviewCommentVO vo);
+	
+	// 마이 페이지 리뷰 댓글 조회
+	public ArrayList<ReviewCommentVO> selectMpReviewComment(String userId);
+	
+	// 마이 페이지 리뷰 댓글 삭제
+	public void deleteMpReviewComment(int reviewNoteId);
 }

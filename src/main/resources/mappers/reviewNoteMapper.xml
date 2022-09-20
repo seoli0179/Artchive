@@ -26,8 +26,6 @@
 		   r.userId
 	FROM reviewNote r, course c, user u, exhbn e
 	WHERE c.courseId = r.courseId and r.userId = u.userId and r.exhbnId = e.exhbnId and r.reviewPageViewState = 'POST'
-	ORDER by r.reviewNoteCreatedDate DESC
-	
 	</select>
 	
 	<select id="selectReviewNote" parameterType="int" resultType="com.spring_boot_final.project.model.ReviewNoteVO">
@@ -122,7 +120,7 @@
 	
 	<!-- 리뷰게시판 검색 -->
 	<select id="reviewNoteSearch" parameterType="string" resultType="com.spring_boot_final.project.model.ReviewNoteVO">
-		SELECT r.reviewNoteId,
+		SELECT DISTINCT r.reviewNoteId,
 			   r.reviewNoteTitle,
 			   r.reviewNote,
 			   r.reviewNoteLike,
@@ -139,8 +137,22 @@
 			   u.userNickname,
 			   u.userId
 		FROM reviewNote r, course c, user u, exhbn e
-		WHERE reviewNoteTitle like CONCAT ('%',#{title},'%')
-		and  r.courseId = c.courseId and r.userId = u.userId and r.exhbnId = e.exhbnId and r.reviewPageViewState = 'POST'
+		WHERE r.courseId = c.courseId and r.userId = u.userId and r.exhbnId = e.exhbnId and r.reviewPageViewState = 'POST'
+		and (reviewNoteTitle like CONCAT ('%',#{title},'%') or courseTag like CONCAT ('%',#{title},'%')) 
+		<choose>
+            <when test="sort == 'lateView'">
+                order by r.reviewNoteCreatedDate DESC
+            </when>
+            <when test="sort == 'mostView'">
+                order by r.reviewNoteCommentNum DESC
+            </when>
+            <when test="sort == 'likeView'">
+                order by r.reviewNoteLike DESC
+            </when>
+            <otherwise>
+                order by r.reviewNoteCreatedDate DESC
+            </otherwise>
+        </choose> 
 
 	</select>
 	
@@ -210,5 +222,17 @@
 		WHERE r.courseId = c.courseId and r.userId = u.userId and r.exhbnId = e.exhbnId and r.reviewPageViewState = 'POST'
 		ORDER by r.reviewNoteCommentNum DESC
 	</select>
+	
+	
+	<!-- 마이페이지 리뷰 노트 게시글 조회 -->
+	<select id="selectMpReview" parameterType="string" resultType="com.spring_boot_final.project.model.ReviewNoteVO">
+        <![CDATA[
+        select *
+        from reviewnote
+        where userId = #{userId}
+        and reviewPageViewState = 'POST' 
+        ORDER by reviewNoteCreatedDate DESC
+        ]]>
+    </select>
 	
 </mapper>

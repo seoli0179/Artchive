@@ -23,8 +23,10 @@ $(document).ready(function (){
 	$("#keyword_search").on("click",function (){
 		searchPlaces();
 	});
-	$("#keyword_search").on("Enter",function (){
-		searchPlaces();
+	$("#keyword_search").onkeyup(function (el){
+		if (el.key==="enter") {
+			searchPlaces();
+		}
 	});
 
 	var mapContainer = document.getElementById('courseMap'), // 지도를 표시할 div
@@ -107,8 +109,8 @@ $(document).ready(function (){
 				phone :data[0].phone,
 				address_name :data[0].address_name,
 				road_address_name : firstAddr,
-				x : data[0].x,
-				y : data[0].y,
+				x : $('#gpsX').val(),
+				y : $('#gpsY').val(),
 				place_url : data[0].place_url,
 				place_memo : "",
 			}
@@ -126,7 +128,25 @@ $(document).ready(function (){
 
 		} else if (status === kakao.maps.services.Status.ZERO_RESULT) {
 
-			alert('검색 결과가 존재하지 않습니다.');
+			let temp = {
+				place_name: firstExhbn,
+				category_group_name : "문화시설",
+				phone :"",
+				address_name : "",
+				road_address_name : firstAddr,
+				x : $('#gpsX').val(),
+				y : $('#gpsY').val(),
+				place_url : $('#place_url_0').val(),
+				place_memo : "",
+			}
+			positions.push(temp);
+
+			var marker = new kakao.maps.Marker({
+				positions: new kakao.maps.LatLng(positions[0].y, positions[0].x)
+			});
+
+			panTo(positions[0].y, positions[0].x);
+			addCourseMarker(new kakao.maps.LatLng(positions[0].y,positions[0].x),0);
 			return;
 
 		} else if (status === kakao.maps.services.Status.ERROR) {
@@ -345,7 +365,7 @@ $(document).ready(function (){
 
 // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
 function addCourseMarker(position, idx, title) {
-	var imageSrc = '/image/map_markers_black.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+	var imageSrc = '/image/map/map_markers_black.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
 		imageSize = new kakao.maps.Size(37, 37),  // 마커 이미지의 크기
 		imgOptions =  {
 			spriteSize : new kakao.maps.Size(36, 691), // 스프라이트 이미지의 크기
@@ -367,7 +387,7 @@ function addCourseMarker(position, idx, title) {
 }
 /** y좌표값, x좌표값, 인덱스 입력시 마크 그리기 */
 function addCourseMarker2(y,x, idx, title) {
-	var imageSrc = '/image/map_markers_black.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+	var imageSrc = '/image/map/map_markers_black.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
 		imageSize = new kakao.maps.Size(37, 37),  // 마커 이미지의 크기
 		imgOptions =  {
 			spriteSize : new kakao.maps.Size(36, 691), // 스프라이트 이미지의 크기

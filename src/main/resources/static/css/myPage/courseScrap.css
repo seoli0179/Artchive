@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* myPageEdit.css */
+/* courseScrap.css */
 
 @font-face {
 	font-family: 'establishRetrosansOTF';
@@ -59,7 +59,7 @@
 }
 
 .tabMenu li {
-	margin-top:15%;
+	margin-top:10%;
 }
 
 .tabMenu li:first-child {
@@ -72,9 +72,10 @@
 }
 
 
-.tabMenu li:nth-child(4) a, .tabMenu li a:hover {
+.tabMenu li:nth-child(3) a, .tabMenu li a:hover {
 	color:#000;
 	font-weight:bold;
+	font-size:22px;
 }
 
 .titleBox a {
@@ -90,7 +91,7 @@
 	margin-top:3%;
 }
 
-.titleBox a:first-child {
+.titleBox a:nth-child(2) {
 	color:#000;
 }
 

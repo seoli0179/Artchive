@@ -15,6 +15,9 @@
 
         <script src="<c:url value='/js/course/course.js'/>"></script>
         <script src="<c:url value='/js/course/autocomplete.js'/>"></script>
+        
+        <!-- reviewList -->
+        <script src="<c:url value='/js/course/courseMainSearch.js'/>"></script>
 
         <link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
         <link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>"/>
@@ -84,9 +87,11 @@
                                 <span class="big-text"><strong>${sessionScope.username}</strong> 님이
                                 </span>
                             </c:if>
-                            <span class="big-text">선택한<strong id="selectedExhbn">{전시명}</strong>부터 &nbsp;</span></div>
+                            <span class="big-text">선택한<strong id="selectedExhbn">{전시명}</strong>부터 &nbsp;</span>
+                            <input id="exhbnId" name="exhbnId" hidden>
+                        </div>
                     <c:if test="${not empty sessionScope.sid}">
-                        <div><a href="<c:url value='/course/newPost/217601'/>"><button type="submit" class="black-btn">코스짜러 가기</button></a></div>
+                        <div><a id="coursePostpage" href="<c:url value='/course/newPost/217601'/>"><button type="submit" class="black-btn">코스짜러 가기</button></a></div>
                     </c:if>
                     <c:if test="${empty sessionScope.sid}">
                         <div><button type="submit" class="black-btn notLogin" onclick="alert('로그인이 필요한 기능입니다.');">코스짜러 가기</button></div>
@@ -108,7 +113,7 @@
                             <input class="inner-searchbar" id="inner-searchbar" type="text" placeholder="검색 태그를 입력하세요.">
                         </ul>
                     </div>
-                    <input class="black-btn searchbar-btn" type="button" value="검색">
+                    <input id="reviewNoteSearch" class="black-btn searchbar-btn" type="button" value="검색">
                 </div>
                 <div id="tag-caution" class="vibration">태그는 3개까지만 선택할 수 있습니다.</div>
             </section>

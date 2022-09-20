@@ -76,6 +76,7 @@
 	}));
 	
 	$(".submit").on('click',(function(){
+		alert("기능 미구현");
 		return false;
 	}));
 

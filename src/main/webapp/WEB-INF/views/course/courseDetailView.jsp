@@ -7,7 +7,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>arTchive / ${course.courseTitle}</title>
+		<title id="pageTitle">Artchive / ${course.courseTitle}</title>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
 		<!-- icon-kit -->
@@ -18,13 +18,16 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/toggle.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/note/detail.css'/>">
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
-		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f62ace4deff6b141114cc8499d76cb47&libraries=services"></script>
-		
+		<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script> <!-- sns 공유 -->
+		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f62ace4deff6b141114cc8499d76cb47&libraries=services"></script> <!-- 지도 -->
+
+
 		<script src="<c:url value='/js/note/detail.js'/>"></script> <!-- 글 삭제 -->
 		<script src="<c:url value='/js/course/courseDelete.js'/>"></script> <!-- 코스 아이템 삭제 -->
 		<script src="<c:url value='/js/course/comment.js'/>"></script> <!-- 코멘트 ajax -->
 		<script src="<c:url value='/js/course/mapView2.js'/>"></script>
 		<script src="<c:url value='/js/course/timelineEdit.js'/>"></script>
+		<script src="<c:url value='/js/course/shareSNS.js'/>"></script> <!-- sns공유 -->
 
 	</head>
 	<body>
@@ -35,12 +38,12 @@
 			<!-- headerTextBox -->
 			<section id="courseHeader" class="courseHeaderImg">
 				<div class="headerTextBox" style="background-image : url('${course.exhbnImgUrl}');">
+					<input id="courseThumnail" value="${course.exhbnImgUrl}" hidden>
 					<div id="header-exhbnTitle" class="headerText">
 						<ul><li>${course.exhbnTitle}</li></ul>
 					</div>
 					<div id="header-postTitle" class="headerText">
-						<h1>${course.courseTitle}</h1>
-						<input type="text" id="courseId" name="courseId" value="${course.courseId}" hidden>
+						<h1 id="courseTitle" style="text-align: center; margin:0 auto;">${course.courseTitle}</h1>
 					</div>
 					<div id="header-postDate" class="headerText">
 						<ul><li>by. ${course.userNickname} / <fmt:formatDate value="${course.createdAt}" pattern="yyyy. MM. dd. E"></fmt:formatDate></li></ul>
@@ -55,11 +58,17 @@
 				</div>
            		<div id="courseMainBtn-Box">
 					<c:if test="${sessionScope.sid == course.userId}">
-						<input type="button" id="editCourseBtn"  class="white-btn" value="수정" onclick="location.href='<c:url value="/course/${course.courseId}/edit"/>'">
-						<button id="deleteBtn_view"  class="white-btn">삭제</button>
+							<input type="button" id="editCourseBtn"  class="white-btn" value="수정" onclick="location.href='<c:url value="/course/${course.courseId}/edit"/>'">
+							<button id="deleteBtn_view"  class="white-btn">삭제</button>
 					</c:if>
-					<button id="scrapCourse"  class="black-btn">스크랩</button>
-					<input type="button" id="createReview" value="리뷰작성하기" onclick="location.href='<c:url value="/review/reviewNoteWrite/${course.courseId}"/>'" class="black-btn">
+					
+					<form method="post" action="<c:url value='/insertBookMarkCourse' /> ">
+						<input type="submit" id="insertBookMarkCourse" class="black-btn" value="스크랩">
+						<input type="hidden" id="courseId" name="courseId" value=${course.courseId} >
+					</form>	
+					
+					<input type="button" id="createReview" value="리뷰 작성" onclick="location.href='<c:url value="/review/reviewNoteWrite/${course.courseId}"/>'" class="black-btn">
+					
            		</div><!-- courseMainText -->
 			</section><!-- courseMenu -->
 
@@ -132,9 +141,7 @@
 						    </div>
 						</div>	
 	   						
-	   						<button id="centerMove">지도 중심좌표 이동시키기</button>
-  							<button id="show">마커 보이기</button>
-  							<button id="hide">마커 감추기</button>
+						<button id="centerMove" onclick="pan();">코스 보기</button>
 					</section><!-- courseMap -->
 					 	
 					</section><!-- Course -->
@@ -157,10 +164,21 @@
 					</div>
 				</div>
 				<div>
-					<i class="fa-solid fa-envelope fa-xl"></i>
-					<i class="fa-brands fa-twitter fa-xl"></i>
-					<i class="fa-brands fa-facebook fa-xl"></i>
-					<i class="fa-solid fa-share-nodes fa-xl"></i>
+					<a id="btnTwitter" class="link-icon twitter" href="javascript:shareTwitter();">
+						<img src="https://cdn.icon-icons.com/icons2/2428/PNG/512/twitter_black_logo_icon_147062.png" style="width: 30px;">
+					</a>
+					&nbsp;
+					<a id="btnFacebook" class="link-icon facebook" href="javascript:shareFacebook();">
+						<img src="https://cdn.icon-icons.com/icons2/2428/PNG/512/facebook_black_logo_icon_147136.png" style="width: 30px;">
+					</a>
+					&nbsp;
+					<a id="btnKakao" class="link-icon kakao" href="javascript:shareKakao();">
+						<img src="https://cdn.icon-icons.com/icons2/2973/PNG/512/kakaotalk_logo_icon_186920.png" style="width: 30px">
+					</a>
+					&nbsp;
+					<a id="clipBtn" class="link-icon kakao" href="javascript:clip();">
+						<img src="https://cdn.icon-icons.com/icons2/1233/PNG/512/1492718748-share_83604.png" style="width: 30px;">
+					</a>
 				</div>
 			</section>
 

@@ -4,7 +4,7 @@
 
 <html>
     <head>
-        <title>arTchive / 전시 코스 게시판</title>
+        <title>Artchive / 전시 코스 게시판</title>
         <!-- jquery -->
         <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
         <!-- jquery-ui -->
@@ -66,21 +66,6 @@
                             </ul>
                         </div>
                     </div><!-- searchArea -->
-                    <!-- .tablist -->
-                    <!-- <div class="courseboard-search-box">
-                        <div class="searchbar-box">
-                            <div class="searchbar-border tag-box" type="text">
-                                <ul id="tagList">
-                                    <input class="inner-searchbar" id="inner-searchbar" type="text" placeholder="검색 태그를 입력하세요.">
-                                </ul>
-                                <div id="filterList" style="position: relative;">
-
-                                </div>
-                            </div>
-                            <input class="black-btn courseBoard-searchBtn" type="button" value="검색">
-                        </div>
-                        <div id="tag-caution" class="vibration">태그는 3개까지만 선택할 수 있습니다.</div>
-                    </div> -->
                 </section>
                 <!-- .searchAreaBox -->
                 <!-- borad-gallery -->
@@ -98,7 +83,12 @@
                             </div>
                             <div class="post-tag-box">
                                 <c:forTokens var="taglist" items="${li.courseTag}" delims=";;">
-                                    <div class="post-tag"><c:out value="${taglist}"/></div>
+                                    <span class="tooltip">
+                                        <span class="tooltip-text"><c:out value="${taglist}"/></span>
+                                        <div class="post-tag">
+                                        <c:out value="${taglist}"/>
+                                        </div>
+                                    </span>
                                 </c:forTokens>
                             </div>
                             <div class="post-footer-box">

@@ -90,7 +90,7 @@
 								<div class="left">
 									<div class="dot"></div>
 								</div>
-								<div class="content explain">Start ...</div>
+								<div class="content explain"></div>
 							</div>
 						</div>
 						<ul id="sortable" class="timeline-course-container">
@@ -113,6 +113,8 @@
 													<textarea id="memo_0" class="place-memo-input" placeholder="메모를 입력하세요.">${positions[i].place_memo}</textarea>
 													<input id="place_url_0" class="place_url" value="${positions[i].place_url}" hidden>
 												</div>
+												<input id="gpsX" value="${exhbn.gpsX}" hidden>
+												<input id="gpsY" value="${exhbn.gpsY}" hidden>
 											</div>
 										</div>
 									</div>

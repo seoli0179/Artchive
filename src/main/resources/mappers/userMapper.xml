@@ -76,10 +76,11 @@
         SELECT *
         FROM user
         WHERE userId = #{userId}
+        		
         ]]>
 
         <!--  1:정상 2:탈퇴 -->
-        <!-- and userState !=2 -->
+        <!--  -->
     </select>
 
     <select id="selectUserFormEmail" parameterType="string" resultType="com.spring_boot_final.project.model.UserVO">
@@ -116,10 +117,8 @@
     <update id="updateUser" parameterType="com.spring_boot_final.project.model.UserVO">
         UPDATE user
         SET userName=#{userName},
-            userNum=#{userNum},
             userNickname=#{userNickname},
-            userEmail=#{userEmail},
-            userGender=#{userGender}
+            userEmail=#{userEmail}
         WHERE userId = #{userId}
     </update>
 
@@ -150,7 +149,6 @@
     <!-- Delete -->
 
     <!-- 마이페이지 회원 탈퇴 -->
-
     <update id="quitUser" parameterType="string">
         update user
         set userState = 2

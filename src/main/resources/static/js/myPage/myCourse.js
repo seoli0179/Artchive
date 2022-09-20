@@ -1,25 +1,24 @@
 /**
- * bookMark.js
+ * actHistory.js
  */
  
  $(document).ready(function () {
 });
 
-function deleteBookMark(bookmarkId) {
+function deleteCourse(courseId) {
 
-    if (confirm("해당 전시를 삭제하시겠습니까?")) {
+    if (confirm("해당 게시글을 삭제하시겠습니까?")) {
         $.ajax({
             type: "POST",
-            url: "/deleteBookMark",
+            url: "/course/deleteCourse",
             data: {
-                 "bookmarkId": bookmarkId
+                 "courseId": courseId
             }, success: function (data) {
                 if (data == "SUCCESS") {
                     alert("삭제 완료!");
-                    window.open('http://localhost:8080/myPage/scrap');
-                   
+                   location.href="/myPage/coursePost/" 
                 } else {
-                    alert("삭제 실패!");
+                	alert("삭제 실패");
                 }
 
             }, error: function (request,status,error) {

@@ -111,8 +111,9 @@
         <![CDATA[
         select *
         from course
+           inner join exhbn on course.exhbnId = exhbn.exhbnId
         WHERE userId=#{userId}
-        and courseState = 1
+        and courseState = "1"
         ]]>
     </select>
 

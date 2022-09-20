@@ -24,14 +24,12 @@ public class OCRService {
 	@Value("${ocr.secretKey}")
 	private String secretKey;
 	
-	public TicketVO ocrTemplate() {
+	public TicketVO ocrTemplate(String filePathName) {
 		
 		String apiURL = "https://czefermjqo.apigw.ntruss.com/custom/v1/18163/212e90ddf7c592e40bf845c892158621fd9645e3c9701159605f93b28bad2311/infer";
 	
-		
-		String result = "";
-		String imageFile = "/Library/images/ticket.png";
-		
+		// String imageFile = "/usr/local/project/images/ticket.png";
+		String imageFile = filePathName;
 
 		try {
 			URL url = new URL(apiURL);
@@ -102,7 +100,6 @@ public class OCRService {
 
 	out.write(sb.toString().getBytes("UTF-8"));
 	out.flush();
-
 	if (file != null && file.isFile()) {
 		out.write(("--" + boundary + "\r\n").getBytes("UTF-8"));
 		StringBuilder fileString = new StringBuilder();
@@ -124,7 +121,7 @@ public class OCRService {
 
 		out.write(("--" + boundary + "--\r\n").getBytes("UTF-8"));
 	}
-out.flush();
+		out.flush();
 }
 	
 	
@@ -142,15 +139,13 @@ out.flush();
 		 TicketVO vo = new TicketVO();
 		 
 		String place = fieldObj.getJSONObject(0).getString("inferText");
-		String date = fieldObj.getJSONObject(1).getString("inferText");
-		String number = fieldObj.getJSONObject(2).getString("inferText");
-		
+		String number = fieldObj.getJSONObject(1).getString("inferText");
+		String date = fieldObj.getJSONObject(2).getString("inferText");
 		
 		 vo.setTitle(titleObj);
 		 vo.setPlace(place);
-		 vo.setDate(date);
 		 vo.setNumber(number);
-		
+		 vo.setDate(date);
 		
 		System.out.println(vo);
 		return vo;

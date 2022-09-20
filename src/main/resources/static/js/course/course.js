@@ -15,6 +15,8 @@ $( function() {
     const selectBtn = document.getElementsByClassName("courseSelect");
     const textBox = document.getElementById("selectedExhbn");
     const selectedBox = document.getElementById("selected");
+    const selectIdBox = document.getElementById('exhbnId');
+    const coursePostpage = document.getElementById('coursePostpage');
 
     for (let i=0; i<selectBtn.length; i++) {
         selectBtn[i].addEventListener('click', function (){
@@ -23,6 +25,8 @@ $( function() {
             const text = document.querySelector(query).innerHTML;
             textBox.innerHTML = text;
             selectedBox.style.visibility = "visible";
+            selectIdBox.setAttribute('value',selectBtn[i].id.replace('courseExhbnSelect-',''));
+            coursePostpage.setAttribute('href','/course/newPost/'+selectIdBox.value)
         });
     }
 

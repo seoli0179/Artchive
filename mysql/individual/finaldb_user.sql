@@ -25,17 +25,17 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user` (
-  `userId` varchar(20) NOT NULL,
-  `userPw` varchar(100) NOT NULL,
-   `userName` varchar(50),
-  `userEmail` varchar(50) NOT NULL,
-  `userNickname` varchar(50) DEFAULT NULL,
-  `userGender` varchar(1) NOT NULL,
-  `userBirth` date NOT NULL,
-  `userRoll` varchar(10) DEFAULT 'USER',
-  `createdAt` datetime DEFAULT CURRENT_TIMESTAMP,
-  `updatedAt` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-`userState` varchar(50) NOT NULL DEFAULT 1, -- userState 1: 정상 2: 탈퇴 3:밴 
+	`userId` varchar(20) NOT NULL,
+	`userPw` varchar(100) NOT NULL,
+	`userName` varchar(50),
+	`userEmail` varchar(50) NOT NULL,
+	`userNickname` varchar(50) DEFAULT NULL,
+	`userGender` varchar(1) NOT NULL,
+	`userBirth` date NOT NULL,
+	`userRoll` varchar(10) DEFAULT 'USER',
+	`createdAt` datetime DEFAULT CURRENT_TIMESTAMP,
+	`updatedAt` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	`userState` varchar(50) NOT NULL DEFAULT 1, -- userState 1: 정상 2: 탈퇴 3:밴 
   PRIMARY KEY (`userId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
