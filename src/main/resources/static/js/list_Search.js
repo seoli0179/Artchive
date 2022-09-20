@@ -1,5 +1,3 @@
-
- 
  $(document).ready(function(){
 
  	$('#exhbnSearchFrm').on('click', function(){
@@ -26,17 +24,32 @@
         });
  		
  	}); // submit 끝 
- 	
- 	$('.typeMove').on('click', function(){
-	 	$('.typeMove').each(function (index, item) {
-	     	alert(item);
-		});
- 	});
- 	
- });  // ready 끝
- 
 
-	 $(document).ready(function(){
+ /*	$('#exhbnSearchFrm-detail').on('click', function(){
+ 		//alert($('#inner-searchbar').val());
+ 		var title = $('#inner-searchbar').val();
+ 		// 기본 기능 중단
+ 		//event.preventDefault();
+ 		$.ajax({
+            type: "post",
+            url: "/exhbn/searchResult333",
+            data: {
+                "exhbnTitle": title
+                
+            },
+            success: function (result) {
+            // alert("검색 결과를 보여드릴게요");
+            $('#searchResultl2').empty();
+            $('#searchResultl2').append(result);
+            
+			            },
+            error: function () {
+                alert('검색어를 확인하세요')
+            },
+        });
+ 		
+ 	}); // submit 끝 */
+
 	
 	$('ul.tabs li').click(function(){
 		var tab_id = $(this).attr('data-tab');
@@ -47,12 +60,10 @@
 		$(this).addClass('current');
 		$("#"+tab_id).addClass('current');
 		
-	})
+	});
 
-})
 
 // 박물관 탭
- $(document).ready(function(){
 
  	$('#Museum').on('click', function(){
  		var type = $('#Museum').on('click').val();
@@ -76,9 +87,7 @@
         
  		
  	}); // submit 끝 
- });  // ready 끝
  
-  $(document).ready(function(){
 
  	$('#Art_Exhbn').on('click', function(){
  		var type = $('#Art_Exhbn').on('click').val();
@@ -103,9 +112,7 @@
         
  		
  	}); // submit 끝 
- });  // ready 끝
  
-   $(document).ready(function(){
 
  	$('#Festival').on('click', function(){
  		var type = $('#Festival').on('click').val();
@@ -129,9 +136,7 @@
         
  		
  	}); // submit 끝 
- });  // ready 끝
  
-    $(document).ready(function(){
 
  	$('#Edu_Ex').on('click', function(){
  		var type = $('#Edu_Ex').on('click').val();
@@ -155,12 +160,11 @@
         
  		
  	}); // submit 끝 
- });  // ready 끝
  
-     $(document).ready(function(){
 
  	$('#Etc_Ex').on('click', function(){
  		var type = $('#Etc_Ex').on('click').val();
+ 		
  		$.ajax({
             type: "post",
             url: "/exhbn/tab_exhbnSearch5",
@@ -175,41 +179,61 @@
 			},
             error: function () {
             alert("오류");
-            },
+            }
         });
-        
-        
  		
  	}); // submit 끝 
- });  // ready 끝
- 
-     $(document).ready(function(){
 
- 	$('#allArea').on('click', function(){
- 		var type = $('#allArea').on('click').val();
+ 	$('#exhbnSearchFrm-detail').on('click', function(){
+ 		// alert($('#inner-searchbar2').val();
+ 		// 검색어 받아지는 것 됨 
+ 		var title2 = $('#inner-searchbar2').val();
+ 		//var exWhen = $('#result5').text();
+ 		var exWhere = $('#result4').text();
+ 		var exPrice = $('#result2').text();
+		// 기본 기능 중단
+ 		//event.preventDefault();
  		$.ajax({
             type: "post",
-            url: "/exhbn/tab_exhbnSearch6",
-           	dataType : "html",
+            url: "/exhbn/searchResult333",
             data: {
-                "exhbnType": type
-                
-            },
-           success: function (result_Edu_Ex) {
-            $('#searchResultl').html(result_Edu_Ex);
-            
-			},
+                "exhbnTitle": title2,
+                "exhbnArea" : exWhere,
+              //  "exhbnPrice": exPrice
+               },
+
+            success: function (result_detail) {
+            // alert("검색 결과를 보여드릴게요");
+            $('#searchResultl2').empty();
+            $('#searchResultl2').append(result_detail);
+            console.log(exhbnTitle);
+			            },
             error: function () {
-            alert("오류");
-            },
-        });
-        
-        
+                alert('dsafdsfa')
+            }
+        }); //ajax 마지막
+ 		
  		
  	}); // submit 끝 
  });  // ready 끝
  
+ 
+ 
+ 
+ 
+  /* $(document).ready(function (){
+    $('.arrayBtn').each(function (i) {
+        $(this).click(function (e) {
+            e.preventDefault();
+            //alert(i + '번 버튼 ');
+            $('.arrayBtn:not(' + i + ')').removeClass('arrayBtnActive');
+            $('.arrayBtn:eq(' + i + ')').addClass('arrayBtnActive');
+            alert($('.arrayBtn:eq(' + i + ')').data('type'))
+        });
+    });
 
- 
- 
+    $('#check').on('click',function (){
+        alert($('.arrayBtnActive').data('type'));
+    });
+}); */
  

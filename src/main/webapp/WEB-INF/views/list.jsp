@@ -21,22 +21,16 @@
 	<script src="<c:url value='/js/list_Search.js' />"></script>
 
 	<%-- <script src="<c:url value='/js/list.js' />"></script>
-     --%></head>
-
+	--%>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+     
+     </head>
 
 
-<!-- //제이쿼리 ui css
- --> <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
- 
-<!--  //제이쿼리 style css
- --> <link rel="stylesheet" href="/resources/demos/style.css">
- 
-<!--  //제이쿼리 js
- --> <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
- 
-<!--  //제이쿼리 ui js
- --> <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 
 <body>
 <!-- top -->
@@ -62,48 +56,51 @@
 	                        <div id="tag-caution" class="vibration">태그는 3개까지만 선택할 수 있습니다.</div>
 	                    </div>
                 </div>
-			<!-- 팝업 시작 -->
+			
+			<c:import url="/WEB-INF/views/detail-searchlist.jsp" />
+			
+			<!-- <!-- 팝업 시작
 	<div class="background">
 		<div class="window">
 			<div class="popup">
 				<div id="exhbnSearchFrm">
 			
-				<!-- <button id="close" class="close-btn"> -->
+				<button id="close" class="close-btn">
 					<div class ="searchTitleLine">
 						<h1 id="subTitle-ex">Artchive 전시 상세 검색</h1>
 						<img src="../image/close.png" alt="" class="close-btn" id="close">
 					</div>
  				
- 				<!-- Close icons created by ariefstudio - Flaticon -->
+ 				Close icons created by ariefstudio - Flaticon
 				
-<!-- 				</button>
+				</button>
 
-<!--  -->				
-     <span>관심있는 전시를 검색해보세요.</span>
-	                    <div class="courseboard-search-box">
-	                        <div class="searchbar-box">
-	                            <div class="searchbar-border tag-box" type="text">
-	                                <ul id="tagList">
-	                                    <input class="inner-searchbar" id="inner-searchbar" type="text" placeholder="검색어를 입력하세요.">
-	                                </ul>
-	                                <div id="filterList" style="position: relative;">
-	
-	                                </div>
-	                            </div>
-	                            <input class="black-btn courseBoard-searchBtn" type="button" id="exhbnSearchFrm" value="검색">
-	                            <input id="show" class="white-btn detailSearch courseBoard-searchBtn" type="button" value="상세검색">
-	                        </div>
-	                        <div id="tag-caution" class="vibration">태그는 3개까지만 선택할 수 있습니다.</div>
-	                    </div>
-                </div>					<!-- 상세 검색 라디오 버튼 -->
+				
+					
+					<div id="container-deatil-search">
+ 							<span class="subttitle">관심있는 전시를 검색해보세요.</span>
+	                    		<div class="courseboard-search-box">
+	                      			 <div class="searchbar-box">
+	                          			  <div class="searchbar-border tag-box" type="text">
+	                               			 <ul id="tagList">
+	                                    				<input class="inner-searchbar" id="inner-searchbar" type="text" placeholder="검색어를 입력하세요.">
+	                               				</ul>
+	                               			 <div id="filterList" style="position: relative;">
+	                               		 	 </div>
+	                            			</div>
+	                       			 </div>
+	                        		<div id="tag-caution" class="vibration">태그는 3개까지만 선택할 수 있습니다.</div>
+	                  		  </div>
+						</div>
+					상세 검색 라디오 버튼
 						
 					
 								<div class="container-list">
 									<div class="exsearchcontainer">
 										<div class="exsearch item1">
 
-<!-- 												<fieldset id="extrip-day">
- -->													<p class="subttitle">언제 가실건가요?</p>
+												<fieldset id="extrip-day">
+													<p class="subttitle">언제 가실건가요?</p>
 														<br>
 														<div class="list-radio">
 															<input type="radio" id="today" onclick='getRadioText(event)'
@@ -126,14 +123,13 @@
 												
 													<p class="subttitle"></p>
 														<br>
-													<label for="from"></label>
+													<label for="from">From</label>
 													<input type="text" id="fromex" name="from" class="hasDatepicker">
-													<label for="list-to"> - </label>
+													<label for="list-to"> To </label>
 													<input type="text" id="toex" name="to" class="hasDatepicker">
 										
-<!-- 												</fieldset>
- -->										</div>
-												<!-- 기간 설정 -->
+										</div>
+												기간 설정
 														<br>
 												<div class="exsearch item2">
 													<form method="get" action="form-action.html">
@@ -200,9 +196,9 @@
 							
 		<div class="exsearchcontainer2">
 				<div class="exsearch item5">
-				<!-- <p> -->
+				<p>
 					<p id="firstTxt">어떤 전시관람이 궁금하신가요?</p>
-						<!-- </p> -->
+						</p>
 							<ul class="barList" id="search-view">
 								<li class="barlist-result">
 									<div id='result'>  </div>
@@ -222,37 +218,23 @@
 
 			</div>
 								
-																	
+											<div class="exsearch item6">
+													<p>
+	                            							<input class="black-btn courseBoard-searchBtn" type="button" id="exhbnSearchFrm" value="검색">
+														<input type="submit" id="SearchBtn" value="검색"> 
+<!-- 											<input type="reset" class="white-btn2" value="초기화">
+ 														</p>
+											</div>							
 						</div>
 								</div>
-					</div>	<!-- 컨테이너 종료 -->	
-				</div><!-- 리스트 종료 -->
-				<div id="searchResultl">
-<div class="list-con">
-	<ul class="row">
-		<c:forEach var="exhbn" items="${exhbnList}" varStatus="status">
-			<li class="cell">
-				<div class="img-box">
-					<a href="/exhbn/detail/${exhbn.exhbnId}"><img src="${exhbn.exhbnImgUrl}" alt=""></a>
-				</div>
-				<section id="ex-all">
-					<div class="ex-place">${exhbn.exhbnPlace}</div>
-					<div class="ex-title">${exhbn.exhbnTitle}</div>
-					<div class="ex-period"><fmt:formatDate value = "${exhbn.exhbnStartDate}" 
-					type ="date" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate 
-					value = "${exhbn.exhbnEndDate}" type ="date" pattern="yyyy.MM.dd"/></div>
-				</section>
-			</li>
-		</c:forEach>
-	</ul>
-</div>
-</div>
-			</div><!-- 팝업 -->					
-					<!-- 제출 리셋 -->
+					</div>	컨테이너 종료	
+				</div>리스트 종료
+			</div>팝업					
+					제출 리셋
 
 
 	
-<!-- 팝업 끝 -->
+팝업 끝 -->
 
 
 <!-- area -->
@@ -260,12 +242,13 @@
 	<div id="searchArea">
 		<div id="allArea" class="AREA tabTag">
 			<ul>
-				<li><a href="#AllExhbn"><i class="fa-solid fa-border-all"></i>전체</a></li>
+				<li><a type="button" href="#" onclick="typeClick('전체')"><i class="fa-solid fa-border-all"></i>전체</a></li>
+			
 			</ul>
 		</div>
 		<div id="Museum" class="AREA tabTag">
 			<ul>
-				<li><a href="#Museum"><i class="fa-solid fa-Museum"></i>박물관</a></li>
+				<li><a type="button" href="#" onclick="typeClick('박물관')"><i class="fa-solid fa-Museum"></i>박물관</a></li>
 			</ul>
 		</div>
 		<div id="Art_Exhbn" class="AREA tabTag">
@@ -275,17 +258,17 @@
 		</div>
 		<div id="Festival" class="AREA tabTag">
 			<ul>
-				<li><a href="#Festival"><i class="fa-solid fa-Festival"></i>축제</a></li>
+				<li><a type="button" href="#" onclick="typeClick('축제')"><i class="fa-solid fa-Festival"></i>축제</a></li>
 			</ul>
 		</div>
 		<div id="Edu_Ex" class="AREA tabTag">
 			<ul>
-				<li><a href="#Edu_Ex"><i class="fa-solid fa-apple-Edu_Ex"></i>교육·체험</a></li>
+				<li><a type="button" href="#" onclick="typeClick('교육')"><i class="fa-solid fa-apple-Edu_Ex"></i>교육·체험</a></li>
 			</ul>
 		</div>
 		<div id="Etc_Ex" class="AREA tabTag">
 			<ul>
-				<li><a href="#Etc_Ex"><i class="fa-solid fa-list-Etc_Ex"></i>기타</a></li>
+				<li><a type="button" href="#" onclick="typeClick('기타')"><i class="fa-solid fa-list-Etc_Ex"></i>기타</a></li>
 			</ul>
 		</div>
 	</div><!-- searchArea -->
@@ -300,6 +283,8 @@
 
 <!-- 전시 리스트 -->
 <div id="searchResultl">
+        <input type="hidden" id="maxDataNum" value="${maxDataNum}">
+
 <div class="list-con">
 	<ul class="row">
 		<c:forEach var="exhbn" items="${exhbnList}" varStatus="status">
@@ -315,10 +300,12 @@
 			</li>
 		</c:forEach>
 	</ul>
+<%-- 	<jsp:include page="paging.jsp" flush="true">
+ --%>
 </div>
 </div>
 <!-- .list-wrap -->
-
+		<div class="page" id="page-box"></div>
 <!-- footer -->
 <c:import url="/WEB-INF/views/layout/bottom.jsp" />
 <!-- footer -->
@@ -338,28 +325,11 @@
 
 
 </script>
-<script>
-
-
-	function show() {
-		document.querySelector(".background").className = "background show";
-	}
-
-	function close() {
-		document.querySelector(".background").className = "background";
-	}
-
-	document.querySelector("#popup-searchresult").addEventListener("click", show);
-	document.querySelector("#close").addEventListener("click", close);
-
-
-</script>
   <script>
    //datepicker//
   $( function() {
     var dateFormat = "yy/mm/dd",
-      fromex = $( "#fromex" )
-        .datepicker({
+      from = $( "#fromex" ).datepicker({
           defaultDate: "+1w",
           changeMonth: true,
           numberOfMonths: 1
@@ -395,7 +365,7 @@
 	  const text = 
 	        document.querySelector(query).innerText;
 	  
-	  document.getElementById('result').innerText = text;
+	  document.getElementById('result5').innerText = text;
 	}
   </script>
   <script type="text/javascript">
@@ -408,18 +378,7 @@
 	  document.getElementById('result2').innerText = text;
 	}
   </script>
-<!--     <script type="text/javascript">
-  function getRadioText3(event)  {
-	  const radioId = event.target.id;
-	  const query = 'label[for="'+ radioId + '"]'
-	  const text = 
-	        document.querySelector(query).innerText;
-	  
-	  document.getElementById('result3').innerText = text;
-	}
-  
 
-  </script> -->
   
   
       <script type="text/javascript">

@@ -50,17 +50,22 @@ public class ExhbnViewController {
 	// detail search
 	@RequestMapping("/exhbn/searchResult222")
 	public String ExhbitonSearch(@RequestParam("exhbnTitle") String title, Model model) {
-		ArrayList<ExhbnVO> exhbnSearch = service.exhbnSearch(title);
-		model.addAttribute("exhbnSearchList", exhbnSearch);
+		ArrayList<ExhbnVO> ExhbitonSearch = service.exhbnSearch(title);
+		model.addAttribute("exhbnSearchList", ExhbitonSearch);
 
 		// System.out.println(title);
 
-		for (int i = 0; i < exhbnSearch.size(); i++) {
-			System.out.println(exhbnSearch.get(i).getExhbnId());
+		for (int i = 0; i < ExhbitonSearch.size(); i++) {
+			System.out.println(ExhbitonSearch.get(i).getExhbnId());
 		}
 
 		return "searchResult";
 	}
+	
+	
+
+	
+	
 
 	@RequestMapping("/exhbn/tab_exhbnSearch")
 	public String tab_ExhbitonSearch(@RequestParam("exhbnType") String type, Model model) {
@@ -137,9 +142,10 @@ public class ExhbnViewController {
 	}
 	@RequestMapping("/exhbn/tab_exhbnSearch6")
 	public String tab_ExhbitonSearch6(@RequestParam("exhbnType") String type, Model model) {
-		ArrayList<ExhbnVO> tab_exhbnSearch = service.TabSearch5(type);
+		ArrayList<ExhbnVO> tab_exhbnSearch = service.TabSearch6(type);
 		model.addAttribute("exhbnSearchList", tab_exhbnSearch);
-
+		
+		
 		System.out.println(type);
 
 		for (int i = 0; i < tab_exhbnSearch.size(); i++) {
@@ -149,18 +155,48 @@ public class ExhbnViewController {
 		return "searchResult";
 
 	}
-	/*
-	 * @RequestMapping("/exhbn/tab_exhbnSearch_total") public String
-	 * tab_ExhbitonSearch_total(@RequestParam("exhbnTitle") String
-	 * title,@RequestParam("exhbnType") String type) { HashMap<String,Object> map =
-	 * new HashMap<String,Object>(); System.out.println(title);
-	 * System.out.println(type);
-	 * 
-	 * map.put("Title", title); map.put("Type", type);
-	 * 
-	 * 
-	 * 
-	 * return "searchResult"; //스프링이 자동으로 JSON타입으로 반환해서 전달한다. }
-	 */
+	@RequestMapping("/exhbn/tab_exhbnSearch_total")
+	public String tab_ExhbitonSearch_total(
+			@RequestParam("exhbnTitle") String title,
+			@RequestParam("exhbnType") String type) {
+		  HashMap<String,Object> map = new HashMap<String,Object>();
+		  System.out.println(title);
+		  System.out.println(type);
+		  
+		  map.put("Title", title);
+		  map.put("Type",  type);
+		  
+		 
+		  
+		  return "searchResult"; //스프링이 자동으로 JSON타입으로 반환해서 전달한다.
+		}
 	
+	//디테일
+	@RequestMapping("/exhbn/searchResult333")
+	public String ExhbitonSearch_detail	(
+			@RequestParam("exhbnTitle") String title, 
+			@RequestParam("exhbnArea") String exWhere,
+			@RequestParam("exhbnPrice") String exPrice,
+
+	// @RequestParam("exhbnPrice") String exPrice,
+			 Model model) {
+		
+		System.out.println(title);
+		System.out.println(exWhere);
+		
+	ArrayList<ExhbnVO> exhbnSearch22 = service.exhbnSearch2(title, exWhere);
+		  
+	model.addAttribute("exhbnSearchList", exhbnSearch22);
+		 
+	  for (int i = 0; i <exhbnSearch22.size(); i++) {
+	  System.out.println(exhbnSearch22.get(i).getExhbnId());
+		}
+	
+		
+			 
+		  return "searchResult";
+	}
+
 }
+
+

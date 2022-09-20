@@ -26,7 +26,9 @@ public interface IExhbnDAO {
     
     // Search
 	public ArrayList<ExhbnVO> ExhbnSearch(String title); // 상품 검색
-	
+	// 디테일 상품 검색
+	public ArrayList<ExhbnVO> ExhbnSearch22(String title, String Area);
+
 
 	 //tab Search
 	public ArrayList<ExhbnVO> tab_ExhbnSearch(String type); 
@@ -35,9 +37,7 @@ public interface IExhbnDAO {
 	public ArrayList<ExhbnVO> tab_ExhbnSearch4(String type); 
 	public ArrayList<ExhbnVO> tab_ExhbnSearch5(String type); 
 	public ArrayList<ExhbnVO> tab_ExhbnSearch6(String type); 
-	/*
-	 * public ArrayList<ExhbnVO> tab_ExhbnSearch_total(HashMap<String, Object> map);
-	 */
+	public ArrayList<ExhbnVO> tab_ExhbnSearch_total(HashMap<String, Object> map); 
 
 
 

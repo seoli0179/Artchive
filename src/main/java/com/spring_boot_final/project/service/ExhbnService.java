@@ -9,12 +9,10 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 import org.xml.sax.SAXException;
 
 import com.spring_boot_final.project.dao.IExhbnDAO;
 import com.spring_boot_final.project.model.ExhbnVO;
-import com.spring_boot_final.project.model.NoteVO;
 
 @Service
 public class ExhbnService {
@@ -41,6 +39,11 @@ public class ExhbnService {
     public ArrayList<ExhbnVO> exhbnSearch(String title) {
 		return dao.ExhbnSearch(title);
 }
+
+
+  public ArrayList<ExhbnVO> exhbnSearch2(String title, String exWhere) {
+  return dao.ExhbnSearch22(title, exWhere); }
+ 
     public ArrayList<ExhbnVO> TabSearch(String type) {
   		return dao.tab_ExhbnSearch(type);
 }
@@ -59,12 +62,19 @@ public class ExhbnService {
     public ArrayList<ExhbnVO> TabSearch6(String type) {
   		return dao.tab_ExhbnSearch6(type);
 }
+    public ArrayList<ExhbnVO> TabSearch_total(String title,String type) {
+  		HashMap<String, Object> map= new HashMap<String, Object>();
+  		map.put("Title", title);
+  		map.put("Type", type);
+    	return dao.tab_ExhbnSearch_total(map);
+  		
+}
 /*
- * public ArrayList<ExhbnVO> TabSearch_total(String title,String type) {
- * HashMap<String, Object> map= new HashMap<String, Object>(); map.put("Title",
- * title); map.put("Type", type); return dao.tab_ExhbnSearch_total(map);
+ * public ArrayList<ExhbnVO> ExhbitonSearch_detail(String title2,String exWhere)
+ * { HashMap<String, Object> map= new HashMap<String, Object>();
+ * map.put("Title", title2); map.put("Area", exWhere); return
+ * dao.ExhbnSearch22(map);
  * 
  * }
  */
-
 }
