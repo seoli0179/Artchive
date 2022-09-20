@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring_boot_final.project.dao.admin.IAdminUserDAO">
+
+    <select id="SelectUserRoll" parameterType="string"
+            resultType="string">
+        <![CDATA[
+        SELECT userRoll
+        FROM user
+        WHERE userId = #{userId}
+        ]]>
+    </select>
+
+
+    <!-- Update -->
+
+    <!-- 마이페이지 수정 -->
+    <update id="UpdateUserState" parameterType="com.spring_boot_final.project.model.UserVO">
+        UPDATE user
+        SET userState = #{userState}
+        WHERE userId = #{userId}
+    </update>
+
+</mapper>
