@@ -16,43 +16,32 @@ body {
     color:#ffffff;
 }
 
-/***** login *****/
-#login-container {
-    width: 100%;
+#sidebar {
+    position:absolute;
+    background-color: #1c1c1c;
     height: 100%;
+    width: 10%;
+    min-width: 150px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
-#login-header {
-    margin-top: 100px;
+#logoBox {
     text-align: center;
-    align-items: end;
-    padding: 20px;
+    width: 100%;
+    /*border: 1px red solid;*/
+    padding: 30px 0;
 }
 
-#login-header a {
+#logoBox a {
     color: #03DAC6;
     font-size: 1.6rem;
     font-family: 'establishRetrosansOTF';
     line-height: 2.0rem;
 }
-#login-header span {
+#logoBox span {
     color: #03DAC6;
     font-size: 1.2rem;
     font-family: 'establishRetrosansOTF';
     line-height: 2.0rem;
 }
-.input-box {
-    display: flex;
-    flex-direction: column;
-}
-.input-box input {
-    margin: 5px 0 15px 0;
-}
-
-
-
-/****************************/

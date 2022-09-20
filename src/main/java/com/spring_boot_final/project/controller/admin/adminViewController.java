@@ -12,6 +12,6 @@ public class adminViewController {
 
     @RequestMapping ("/adminMain")
     public String adminMain() {
-        return "admin/admin";
+        return "admin/adminMain";
     }
 }
