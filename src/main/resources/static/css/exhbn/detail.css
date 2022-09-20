@@ -206,6 +206,7 @@
 	width:100%;
 	justify-content:center;
 	align-items: center;
+	padding-top: 40px;
 }
 
 #button-box button, input {
@@ -215,8 +216,8 @@
 
 #map-box {
 	margin: 40px 0;
-	border-bottom: 1px solid black;
-	padding: 0 0 40px 0;
+	/*border-bottom: 1px solid black;*/
+	/*padding: 0 0 40px 0;*/
 }
 #map-box .map {
 	width:80%;
@@ -281,6 +282,7 @@
 	padding:10px 0;
 	padding-bottom:30px;
 	border-bottom: 1px solid black;
+	justify-content: right;
 }
 
 .tag-box h3 {
