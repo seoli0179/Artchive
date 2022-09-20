@@ -21,5 +21,17 @@ public class AdminNoteService {
         return dao.NoteSelectAll();
     }
 
+    public boolean UpdateNote(NoteVO vo){
+
+        try {
+            dao.UpdateNote(vo);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return false;
+        }
+        return true;
+
+    }
+
 
 }

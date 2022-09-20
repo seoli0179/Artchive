@@ -10,4 +10,5 @@ import java.util.ArrayList;
 public interface IAdminNoteDAO {
 
     ArrayList<NoteVO> NoteSelectAll();
+    void UpdateNote(NoteVO vo);
 }
