@@ -66,7 +66,7 @@
             <div class="summary">
                 <div class="title">
                     <div style="width: 70%;">
-                        <div class="scrap" style="display: inline-block;">
+                        <div class="tags" style="display: inline-block; margin-left: 3px;">
                             <div class="head-tag" style="
                         float:none; margin:0 auto; background-color: #E5E7EB; padding: 5px 15px; width: fit-content; border-radius: 70px; font-size: 0.9rem; display: inline-block">
                                 <fmt:formatDate value="${note.eventEndDate}" pattern="yyyy-MM-dd" var="endDate" />

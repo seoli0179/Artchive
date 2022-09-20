@@ -87,9 +87,11 @@
                                 <span class="big-text"><strong>${sessionScope.username}</strong> 님이
                                 </span>
                             </c:if>
-                            <span class="big-text">선택한<strong id="selectedExhbn">{전시명}</strong>부터 &nbsp;</span></div>
+                            <span class="big-text">선택한<strong id="selectedExhbn">{전시명}</strong>부터 &nbsp;</span>
+                            <input id="exhbnId" name="exhbnId" hidden>
+                        </div>
                     <c:if test="${not empty sessionScope.sid}">
-                        <div><a href="<c:url value='/course/newPost/217601'/>"><button type="submit" class="black-btn">코스짜러 가기</button></a></div>
+                        <div><a id="coursePostpage" href="<c:url value='/course/newPost/217601'/>"><button type="submit" class="black-btn">코스짜러 가기</button></a></div>
                     </c:if>
                     <c:if test="${empty sessionScope.sid}">
                         <div><button type="submit" class="black-btn notLogin" onclick="alert('로그인이 필요한 기능입니다.');">코스짜러 가기</button></div>

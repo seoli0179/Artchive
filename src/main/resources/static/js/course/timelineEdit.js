@@ -365,4 +365,10 @@ function saveMemo() {
     });
 }
 
-
+// 지도 위에 표시되고 있는 코스 마커를 모두 제거합니다
+function removeCourseMarker() {
+    for ( var i = 0; i < courseMarkers.length; i++ ) {
+        courseMarkers[i].setMap(null);
+    }
+    courseMarkers = [];
+}

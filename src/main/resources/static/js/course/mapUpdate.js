@@ -1,4 +1,4 @@
-document.write('<script type=\"text/javascript\" src=\"<c:url value=\'/js/course/timelineEdit.js\'/>\"><\/script>');
+document.write('<script type=\"text/javascript\" src=\"/js/course/timelineEdit.js\"><\/script>');
 document.write('<script type=\"text/javascript\" src=\"/js/course/dialog.js\"><\/script>');
 // 코스에 저장된 장소 마커를 담을 배열입니다.
 var courseMarkers = [];
@@ -9,13 +9,14 @@ var map;
 
 var result;
 
+// 장소 검색 객체를 생성합니다
+var ps = new kakao.maps.services.Places();
+
 $(document).ready(function (){
 
     let firstExhbn = $("#firstExhbnTitle").text();
     let firstAddr = $("#firstExhbnAddr").text();
 
-    // 장소 검색 객체를 생성합니다
-    var ps = new kakao.maps.services.Places();
     ps.keywordSearch(firstAddr, firstSearch);
     createList();
 
@@ -67,9 +68,6 @@ $(document).ready(function (){
             image : markerImage // 마커 이미지
         });
     }
-
-    // 장소 검색 객체를 생성합니다
-    var ps = new kakao.maps.services.Places();
 
     // 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 인포윈도우를 생성합니다
     var infowindow = new kakao.maps.InfoWindow({zIndex:10});
@@ -126,7 +124,28 @@ $(document).ready(function (){
 
         } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
 
-            alert('검색 결과가 존재하지 않습니다.');
+            // 정상적으로 검색이 완료됐으면
+            let temp = {
+                place_name: firstExhbn,
+                category_group_name : "문화시설",
+                phone :data[0].phone,
+                address_name :data[0].address_name,
+                road_address_name : firstAddr,
+                x : data[0].x,
+                y : data[0].y,
+                place_url : data[0].place_url,
+                place_memo : "",
+            }
+
+            positions.push(temp);
+
+            var marker = new kakao.maps.Marker({
+                positions: new kakao.maps.LatLng(positions[0].y, positions[0].x)
+            });
+
+            panTo(positions[0].y, positions[0].x);
+            addCourseMarker(new kakao.maps.LatLng(positions[0].y,positions[0].x),0);
+
             return;
 
         } else if (status === kakao.maps.services.Status.ERROR) {
@@ -353,7 +372,7 @@ $(document).ready(function (){
 
 // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
 function addCourseMarker(position, idx, title) {
-    var imageSrc = '/image/map_markers_black.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+    var imageSrc = '/image/map/map_markers_black.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
         imageSize = new kakao.maps.Size(37, 37),  // 마커 이미지의 크기
         imgOptions =  {
             spriteSize : new kakao.maps.Size(36, 691), // 스프라이트 이미지의 크기
@@ -442,7 +461,7 @@ function panTo(y,x) {
 
 /** y좌표값, x좌표값, 인덱스 입력시 마크 그리기 */
 function addCourseMarker2(y,x, idx, title) {
-    var imageSrc = '/image/map_markers_black.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+    var imageSrc = '/image/map/map_markers_black.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
         imageSize = new kakao.maps.Size(37, 37),  // 마커 이미지의 크기
         imgOptions =  {
             spriteSize : new kakao.maps.Size(36, 691), // 스프라이트 이미지의 크기

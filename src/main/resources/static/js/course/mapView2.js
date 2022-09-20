@@ -42,7 +42,7 @@ function panTo(y,x) {
 
 /** y좌표값, x좌표값, 인덱스 입력시 마크 그리기 */
 function addCourseMarker2(y,x, idx, title) {
-    var imageSrc = '/image/map_markers_black.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+    var imageSrc = '/image/map/map_markers_black.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
         imageSize = new kakao.maps.Size(37, 37),  // 마커 이미지의 크기
         imgOptions =  {
             spriteSize : new kakao.maps.Size(36, 691), // 스프라이트 이미지의 크기
@@ -87,4 +87,8 @@ function addCourseItem(data, idx) {
         let newMarker = new kakao.maps.LatLng(positions[positions.length-1].y, positions[positions.length-1].x)
         addCourseMarker(newMarker, positions.length-1);
     }
+}
+
+function pan() {
+
 }
