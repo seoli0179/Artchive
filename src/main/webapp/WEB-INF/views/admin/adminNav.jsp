@@ -3,13 +3,27 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <nav id="sidebar">
-  <div id="logoBox">
-    <a href="<c:url value='/adminMain'/>">Artchive</a>
-    <span>Admin</span>
+  <div>
+    <div id="logoBox">
+      <a href="<c:url value='/adminMain'/>">Artchive</a>
+      <span>Admin</span>
+    </div>
+    <ul class="menu-list">
+      <li class="sub-title">회원</li>
+      <li><a href="#">회원 관리</a></li>
+      <li class="sub-title">데이터베이스</li>
+      <li><a href="#">전시 관리</a></li>
+      <li class="sub-title">게시판</li>
+      <li><a href="#">공지 작성</a></li>
+      <li><a href="#">이벤트 작성</a></li>
+      <li><a href="#">게시글 관리</a></li>
+    </ul>
   </div>
-  <ul>
-    <li><a href="#">회원관리</a></li>
-    <li><a href="#">전시관리</a></li>
-    <li><a href="#">게시글관리</a></li>
-  </ul>
+  <div>
+    <ul class="menu-footer">
+      <li><a href="#">Artchive 이동</a></li>
+      <li><a href="#">웹페이지 관리</a></li>
+      <li><a href="#">로그아웃</a></li>
+    </ul>
+  </div>
 </nav>

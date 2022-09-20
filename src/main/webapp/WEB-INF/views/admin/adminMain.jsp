@@ -24,7 +24,9 @@
 
     </header>
     <section id="mainSection">
+        <!-- nav 삽입 -->
         <c:import url="adminNav.jsp"/>
+        <!-- nav 삽입완료 -->
         <main>
 
         </main>

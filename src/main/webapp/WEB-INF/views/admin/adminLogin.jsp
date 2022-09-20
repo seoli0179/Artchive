@@ -17,6 +17,7 @@
 
     <link type="text/css" rel="stylesheet" href="<c:url value='/tools/reset.css'/>">
     <link type="text/css" rel="stylesheet" href="<c:url value='/css/admin/adminMain.css'/>">
+    <link type="text/css" rel="stylesheet" href="<c:url value='/css/admin/adminLogin.css'/>">
 </head>
 <body>
     <div id="login-container">

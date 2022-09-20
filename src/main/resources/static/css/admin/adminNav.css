@@ -24,6 +24,7 @@ body {
     min-width: 150px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 #logoBox {
@@ -44,4 +45,42 @@ body {
     font-size: 1.2rem;
     font-family: 'establishRetrosansOTF';
     line-height: 2.0rem;
+}
+
+.menu-list li {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    color: #7d7d7d;
+}
+
+.menu-list li:hover {
+    background-color: #E5E7EB;
+}
+.menu-list li:hover a {
+    color: #1c1c1c;
+}
+
+.menu-list a {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: normal;
+}
+
+.menu-list .sub-title {
+    padding: 20px 15px 5px 15px;
+}
+
+/* 메뉴 footer */
+
+.menu-footer {
+    margin: 20px 0;
+}
+
+.menu-footer li {
+    padding: 5px 15px;
+}
+
+.menu-footer a {
+    color: #7d7d7d;
+    font-size: 0.9rem;
 }
