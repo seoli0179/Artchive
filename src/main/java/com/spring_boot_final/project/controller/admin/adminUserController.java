@@ -34,8 +34,8 @@ public class adminUserController {
         return "/admin/result/user/userTable";
     }
 
-    @RequestMapping("/admin/user/update/state")
-    public boolean UserUpdateState(
+    @RequestMapping("/admin/user/update")
+    public boolean UserUpdate(
             @RequestParam("userId") String userId,
             @RequestParam String userState,
             HttpSession session
@@ -46,10 +46,11 @@ public class adminUserController {
         }
 
         UserVO vo = new UserVO();
+
         vo.setUserId(userId);
         vo.setUserState(userState);
 
-        return adminUserService.UpdateUserState(vo);
+        return adminUserService.UpdateUser(vo);
 
     }
 

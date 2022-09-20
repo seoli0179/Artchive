@@ -11,5 +11,5 @@ public interface IAdminUserDAO {
     ArrayList<UserVO> UserSelectAll();
 
     String SelectUserRoll(String userId);
-    void UpdateUserState(UserVO vo);
+    void UpdateUser(UserVO vo);
 }

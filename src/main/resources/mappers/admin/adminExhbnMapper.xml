@@ -20,9 +20,15 @@
         SELECT *
         FROM exhbn
         order by createdAt
-            LIMIT #{limit}
-        OFFSET #{page}
+        LIMIT #{limit} OFFSET #{page}
         ]]>
     </select>
+
+    <update id="ExhbnUpdate" parameterType="com.spring_boot_final.project.model.ExhbnVO">
+        update exhbn
+        set exhbnTitle = #{exhbnTitle},
+            exhbnImgUrl = #{exhbnImgUrl}
+        where exhbnId = #{exhbnId}
+    </update>
 
 </mapper>

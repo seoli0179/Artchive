@@ -1,5 +1,6 @@
 package com.spring_boot_final.project.controller.admin;
 
+import com.spring_boot_final.project.model.ExhbnVO;
 import com.spring_boot_final.project.model.UserVO;
 import com.spring_boot_final.project.service.UserService;
 import com.spring_boot_final.project.service.admin.AdminExhbnService;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 
@@ -34,7 +36,7 @@ public class adminExhbnController {
     }
 
     @RequestMapping("/admin/exhbn/select")
-    public String UserSelectFilter(
+    public String ExhbnSelectFilter(
             @RequestParam("page") int page,
             HttpSession session,
             Model model) {
@@ -46,6 +48,21 @@ public class adminExhbnController {
         model.addAttribute("exhbns", adminExhbnService.ExhbnSelectFilter(page, 10));
 
         return "/admin/result/exhbn/exhbnTable";
+    }
+
+    @RequestMapping("/admin/exhbn/update")
+    @ResponseBody
+    public boolean ExhbnUpdate(
+            @RequestParam("page") int page,
+            HttpSession session) {
+
+        if (!adminCheck(session)) {
+            return false;
+        }
+
+        ExhbnVO vo = new ExhbnVO();
+
+        return adminExhbnService.ExhbnUpdate(vo);
     }
 
 

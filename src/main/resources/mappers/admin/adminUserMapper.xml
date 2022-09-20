@@ -25,8 +25,7 @@
 
     <!-- Update -->
 
-    <!-- 마이페이지 수정 -->
-    <update id="UpdateUserState" parameterType="com.spring_boot_final.project.model.UserVO">
+    <update id="UpdateUser" parameterType="com.spring_boot_final.project.model.UserVO">
         UPDATE user
         SET userState = #{userState}
         WHERE userId = #{userId}

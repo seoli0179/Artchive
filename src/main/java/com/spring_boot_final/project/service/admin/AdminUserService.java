@@ -28,10 +28,10 @@ public class AdminUserService {
         return false;
     }
 
-    public boolean UpdateUserState(UserVO vo){
+    public boolean UpdateUser(UserVO vo){
         // 1 : 정상 / 2 : 삭제 / 3 : 임시비밀번호 / 4: 차단
         try {
-            dao.UpdateUserState(vo);
+            dao.UpdateUser(vo);
         }catch (Exception e){
             System.out.println(e.getMessage());
             return false;

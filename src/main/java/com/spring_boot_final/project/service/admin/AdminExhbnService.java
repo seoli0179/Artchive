@@ -32,5 +32,15 @@ public class AdminExhbnService {
         return dao.ExhbnSelectFilter(map);
     }
 
+    public boolean ExhbnUpdate(ExhbnVO vo) {
+        try {
+            dao.ExhbnUpdate(vo);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return false;
+        }
+        return true;
+    }
+
 
 }

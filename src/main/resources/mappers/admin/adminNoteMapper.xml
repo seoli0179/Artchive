@@ -12,4 +12,10 @@
         ]]>
     </select>
 
+    <update id="UpdateNote" parameterType="com.spring_boot_final.project.model.NoteVO">
+        UPDATE note
+        SET noteTitle = #{noteTitle}
+        WHERE noteId = #{noteId}
+    </update>
+
 </mapper>
