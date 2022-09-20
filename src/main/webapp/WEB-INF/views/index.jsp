@@ -205,46 +205,47 @@
     </div><!-- exhibitionAll -->
 
     <div id="recommended">
-        <div id="recommended1">
+    
+        <div id="recommended1" onclick="location.href='<c:url value='/review/reviewNote/8'/>';">
             <ul>
                 <li>
-                    <img src="<c:url value='/image/recommended1.jpg'/>">
+                    <img src="<c:url value='http://grynaszstudio.com/content/1.projects/027.ekspozycja_CMIELOW/008_Cmielow_LRes.jpg'/>">
                 </li>
             </ul>
             <div id="description1" class="description">
                 <ul>
-                    <li><a>@userName</a></li>
-                    <li>간단한 설명</li>
+                    <li><a>@user</a></li>
+                    <li>포개어 자라는 숲</li>
                     <li>에디터픽 추천 코스</li>
                 </ul>
             </div>
         </div>
 
-        <div id="recommended2">
+        <div id="recommended2" onclick="location.href='<c:url value='/review/reviewNote/9'/>';">
             <ul>
                 <li>
-                    <img src="<c:url value='/image/recommended2.jpg'/>">
+                    <img src="<c:url value='http://grynaszstudio.com/content/1.projects/027.ekspozycja_CMIELOW/007_Cmielow_LRes.jpg'/>">
                 </li>
             </ul>
             <div id="description2" class="description">
                 <ul>
-                    <li><a>@userName</a></li>
-                    <li>간단한 설명</li>
+                    <li><a>@user</a></li>
+                    <li>이지원 : DRAWER</li>
                     <li>에디터픽 추천 코스</li>
                 </ul>
             </div>
         </div>
 
-        <div id="recommended3">
+        <div id="recommended3" onclick="location.href='<c:url value='/review/reviewNote/10'/>';">
             <ul>
                 <li>
-                    <img src="<c:url value='/image/recommended3.jpg'/>">
+                    <img src="<c:url value='http://grynaszstudio.com/content/1.projects/027.ekspozycja_CMIELOW/005_Cmielow_LRes.jpg'/>">
                 </li>
             </ul>
             <div id="description3" class="description">
                 <ul>
-                    <li><a>@userName</a></li>
-                    <li>간단한 설명</li>
+                    <li><a>@user</a></li>
+                    <li>한국문화센터 연합회 작품전</li>
                     <li>에디터픽 추천 코스</li>
                 </ul>
             </div>
