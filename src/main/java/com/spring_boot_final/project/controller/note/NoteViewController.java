@@ -1,10 +1,9 @@
 package com.spring_boot_final.project.controller.note;
 
-import com.spring_boot_final.project.model.NoteCommentVO;
-import com.spring_boot_final.project.model.NoteVO;
-import com.spring_boot_final.project.service.CommentService;
-import com.spring_boot_final.project.service.NoteService;
-import com.spring_boot_final.project.state.ViewState;
+import java.util.ArrayList;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,8 +11,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
+import com.spring_boot_final.project.model.NoteCommentVO;
+import com.spring_boot_final.project.model.NoteVO;
+import com.spring_boot_final.project.model.summary.DocumentVO;
+import com.spring_boot_final.project.model.summary.OptionVO;
+import com.spring_boot_final.project.model.summary.TotalVO;
+import com.spring_boot_final.project.service.CommentService;
+import com.spring_boot_final.project.service.NoteService;
+import com.spring_boot_final.project.service.SummaryService;
+import com.spring_boot_final.project.state.ViewState;
 
 @Controller
 public class NoteViewController {
@@ -23,6 +29,10 @@ public class NoteViewController {
 
     @Autowired
     CommentService commentService;
+    
+    @Autowired
+	SummaryService summaryService;
+	
 
     @RequestMapping("/note/list")
     public String list(
@@ -33,9 +43,8 @@ public class NoteViewController {
             HttpSession session,
             Model model
     ) {
-
-        category = category.toUpperCase();
-
+    	
+    	
         System.out.println(category + " " + page);
         System.out.println(sort + " " + keyword);
 
@@ -43,8 +52,37 @@ public class NoteViewController {
 
         for (int i = 0; i < vo.size(); i++) {
             String tagRemove = vo.get(i).getNote().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
-            vo.get(i).setNote(tagRemove.substring(0, (tagRemove.length() < 120 ? tagRemove.length() : 120)));
+            // vo.get(i).setNote(tagRemove.substring(0, (tagRemove.length() < 120 ? tagRemove.length() : 120)));
+            
+            TotalVO totalVo = new TotalVO();
+           
+    		DocumentVO docVo = new DocumentVO();
+    		docVo.setTitle(vo.get(i).getNoteTitle());
+    		
+    		// html 태그 제거
+    		docVo.setContent(tagRemove.substring(0, (tagRemove.length() < 120 ? tagRemove.length() : 120)));
+    		
+    		OptionVO optVo = new OptionVO();
+    		optVo.setLanguage("ko");
+    		optVo.setModel("general");
+    		optVo.setTone(1);
+    		optVo.setSummaryCount(3);
+    		
+    		totalVo.setDocument(docVo);
+    		totalVo.setOption(optVo);
+    		String textSum = summaryService.textSummary(totalVo);
+    		
+    		
+    		if(textSum != null) {
+    			vo.get(i).setNote(summaryService.textSummary(totalVo));
+    		} else  {
+    			vo.get(i).setNote(tagRemove.substring(0, (tagRemove.length() < 120 ? tagRemove.length() : 120)));
+    		}
+    		
+    		
+            category = category.toUpperCase();
 
+            
             if (session.getAttribute("sid") != null)
                 vo.get(i).setNoteLikeCheck(noteService.noteLikeCheck(vo.get(i), session.getAttribute("sid").toString()));
         }
