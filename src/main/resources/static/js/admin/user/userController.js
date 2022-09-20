@@ -3,7 +3,7 @@ $(document).ready(function () {
     $.ajax({
         type: "post",
         url: "/admin/user/select/all",
-        dataType:"HTML",
+        dataType: "HTML",
         success: function (result) {
             $('#userResult').html(result);
         },
