@@ -140,20 +140,6 @@
 		FROM reviewNote r, course c, user u, exhbn e
 		WHERE r.courseId = c.courseId and r.userId = u.userId and r.exhbnId = e.exhbnId and r.reviewPageViewState = 'POST'
 		and (reviewNoteTitle like CONCAT ('%',#{title},'%') or courseTag like CONCAT ('%',#{title},'%')) 
-		<choose>
-            <when test="sort == 'lateView'">
-                order by r.reviewNoteCreatedDate DESC
-            </when>
-            <when test="sort == 'mostView'">
-                order by r.reviewNoteCommentNum DESC
-            </when>
-            <when test="sort == 'likeView'">
-                order by r.reviewNoteLike DESC
-            </when>
-            <otherwise>
-                order by r.reviewNoteCreatedDate DESC
-            </otherwise>
-        </choose> 
 
 	</select>
 	
@@ -231,31 +217,21 @@
         select *
         from reviewNote
         where userId = #{userId}
-        and reviewPageViewState = 'POST' 
+        and reviewPageViewState = 'POST'
         ORDER by reviewNoteCreatedDate DESC
         ]]>
     </select>
 
 	<!-- 리뷰게시판 목록 출력하기 -->
 	<select id="exhbnReviewNoteList" parameterType="int" resultType="com.spring_boot_final.project.model.ReviewNoteVO">
-		SELECT r.reviewNoteId,
-			   r.reviewNoteTitle,
---			   r.reviewNote,
-			   r.reviewNoteLike,
---			   r.reviewNoteCommentNum,
---			   r.reviewNoteCreatedDate,
---			   r.reviewPageViewState,
-			   c.courseId,
---			   c.placeNames,
---			   c.addressNames,
---			   c.courseTitle,
---			   c.courseTag,
-			   e.exhbnId,
-			   e.exhbnImgUrl,
-			   u.userNickname
---			   r.userId
-		FROM reviewNote r inner join course c inner join user u inner join exhbn e
-		WHERE c.courseId = r.courseId and r.userId = u.userId and r.exhbnId = e.exhbnId and r.reviewPageViewState = 'POST' and r.exhbnId = #{exhbnId}
+		SELECT
+		    e.exhbnId,
+			e.exhbnImgUrl,
+			r.reviewNoteTitle,
+			r.reviewNote
+		    FROM reviewNote r
+	  		inner join exhbn e on e.exhbnId = r.exhbnId
+		WHERE r.reviewPageViewState = 'POST' and e.exhbnId = #{exhbnId}
 		order by r.reviewNoteLike DESC;
 	</select>
 

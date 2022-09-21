@@ -1,6 +1,7 @@
 package com.spring_boot_final.project.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -101,5 +102,7 @@ public class ReviewNoteService{
 	}
 
 
-
+	public List<ReviewNoteVO> exhbnReviewNoteList(int exhbnId) {
+		return dao.exhbnReviewNoteList(exhbnId);
+	}
 }

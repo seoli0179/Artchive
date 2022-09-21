@@ -74,13 +74,22 @@ public class reviewViewController {
     
         if (session.getAttribute("sid") != null)
         	reviewNoteList.get(i).setReviewNoteLikeCheck(reviewnoteService.reviewNoteLikeCheck(reviewNoteList.get(i), session.getAttribute("sid").toString()));
-    }
-        
-       
- 	
- 	model.addAttribute("reviewNoteList", reviewNoteList);
- 	System.out.println(reviewNoteList.size());
- 	
+
+		// thumbnail test 새힘
+		int begin = reviewNoteList.get(i).getReviewNote().indexOf("<img");
+		if (begin > 0) {
+			int begin1 = reviewNoteList.get(i).getReviewNote().indexOf("src", begin) + 5;
+			int end = reviewNoteList.get(i).getReviewNote().indexOf("\"", begin1);
+			reviewNoteList.get(i).setPreView(reviewNoteList.get(i).getReviewNote().substring(begin1, end));
+		}
+		if (reviewNoteList.get(i).getPreView()==null) {
+			reviewNoteList.get(i).setPreView(reviewNoteList.get(i).getExhbnImgUrl());
+		}
+		// thumbnail end
+	 }
+
+		model.addAttribute("reviewNoteList", reviewNoteList);
+
  	/*
  	 * for(int i=0; i<reviewNoteList.size();i++) {
  	 * System.out.println(reviewNoteList.get(i).getReviewNoteId()); }
@@ -108,7 +117,8 @@ public class reviewViewController {
  		System.out.println(siteName);
  		
  		ArrayList<ReviewCommentVO> reviewComment = reviewcommentService.selectReviewCommentList(reviewNoteId);
- 		
+
+
  		model.addAttribute("reviewNoteList", reviewNoteList);
  		model.addAttribute("reviewNote", vo);
  		model.addAttribute("siteName", siteName);

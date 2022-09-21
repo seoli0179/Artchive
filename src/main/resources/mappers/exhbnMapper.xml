@@ -97,6 +97,21 @@
 	exhbnTitle like CONCAT('%',#{title},'%')
 	</select>
 
+		<select id="tab_ExhbnSearch0" parameterType="String" resultType="com.spring_boot_final.project.model.ExhbnVO">
+	select
+	exhbnID,
+	exhbnTitle,
+	exhbnPlace,
+	exhbnArea,
+	exhbnImgUrl,
+	exhbnStartDate,
+	exhbnEndDate,
+	exhbnUrl,
+	exhbnPrice
+	From exhbn
+	 ORDER BY exhbnId limit 9
+	 
+	</select>
 	
 	<select id="tab_ExhbnSearch" parameterType="String" resultType="com.spring_boot_final.project.model.ExhbnVO">
 	select
@@ -126,7 +141,7 @@
 	exhbnUrl,
 	exhbnPrice
 	From exhbn
-	WHERE exhbnType = "미술" 
+	WHERE exhbnType = "미술전시" 
 	 ORDER BY exhbnId DESC limit 9
 	</select>
 	
@@ -213,9 +228,20 @@
 		exhbnTitle like CONCAT('%',#{Title},'%')
 		and
 		exhbnArea like CONCAT('%',#{ExWhere},'%')
-
-		<!-- exhbnPrice = '무료' -->
-
+		<choose>
+            <when test="ExPrice == '무료'">
+				and exhbnPrice1 = 0
+            </when>
+             <when test="ExPrice == '유료'">
+				and exhbnPrice1 != 0
+            </when>
+            <otherwise>
+				and exhbnArea like CONCAT('%',#{ExWhere},'%')
+            </otherwise>
+       	</choose>
+     
+       	 	
+		
 		ORDER BY exhbnId DESC limit 9
 	</select>
 </mapper>
