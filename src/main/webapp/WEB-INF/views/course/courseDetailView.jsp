@@ -165,19 +165,19 @@
 				</div>
 				<div>
 					<a id="btnTwitter" class="link-icon twitter" href="javascript:shareTwitter();">
-						<img src="https://cdn.icon-icons.com/icons2/2428/PNG/512/twitter_black_logo_icon_147062.png" style="width: 30px;">
+						<img src="https://user-images.githubusercontent.com/103120173/191396551-9cfea0f9-f7ba-40a7-a1c5-c2475123ed53.png" style="width: 30px;">
 					</a>
 					&nbsp;
 					<a id="btnFacebook" class="link-icon facebook" href="javascript:shareFacebook();">
-						<img src="https://cdn.icon-icons.com/icons2/2428/PNG/512/facebook_black_logo_icon_147136.png" style="width: 30px;">
+						<img src="https://user-images.githubusercontent.com/103120173/191396557-07eff686-1f80-485f-8249-72ff04e4c0f6.png" style="width: 30px;">
 					</a>
 					&nbsp;
 					<a id="btnKakao" class="link-icon kakao" href="javascript:shareKakao();">
-						<img src="https://cdn.icon-icons.com/icons2/2973/PNG/512/kakaotalk_logo_icon_186920.png" style="width: 30px">
+						<img src="https://user-images.githubusercontent.com/103120173/191396555-1dcf0b0f-b747-4556-8bad-d476e74cd254.png" style="width: 30px">
 					</a>
 					&nbsp;
-					<a id="clipBtn" class="link-icon kakao" href="javascript:clip();">
-						<img src="https://cdn.icon-icons.com/icons2/1233/PNG/512/1492718748-share_83604.png" style="width: 30px;">
+					<a id="clipBtn" class="link-icon linkcopy" href="javascript:clip();">
+						<img src="https://user-images.githubusercontent.com/103120173/191397285-6b630a0e-08cc-412d-9506-de86adadcb61.png" style="width: 30px;">
 					</a>
 				</div>
 			</section>

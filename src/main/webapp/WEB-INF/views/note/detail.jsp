@@ -66,7 +66,7 @@
                 </div>
                 <div class="info">
                     <br><div class="username"> ${note.userNickname}</div>&nbsp;&nbsp;<div class="createdAt">
-                    <fmt:formatDate pattern="MM-dd" value="${note.noteCreatedDate }"/></div>
+                    <fmt:formatDate pattern="yy. MM. dd" value="${note.noteCreatedDate }"/></div>
                 </div>
                 <div class="content-body">
                     <article class="content-text" itemprop="articleBody">
