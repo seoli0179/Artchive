@@ -5,6 +5,7 @@ import com.spring_boot_final.project.model.UserVO;
 import com.spring_boot_final.project.service.UserService;
 import com.spring_boot_final.project.service.admin.AdminExhbnService;
 import com.spring_boot_final.project.service.admin.AdminNoteService;
+import com.spring_boot_final.project.state.ViewState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -69,9 +70,13 @@ public class adminNoteController {
         return "/admin/result/note/noteTable";
     }
 
-    @RequestMapping("/admin/note/update")
+    @RequestMapping("/admin/notice/update")
+    @ResponseBody
     public boolean NoteUpdate(
-            @RequestParam("noteId") String noteId,
+            @RequestParam("noteId") int noteId,
+            @RequestParam("noteTitle") String noteTitle,
+            @RequestParam("note") String note,
+            @RequestParam("pageViewState") String pageViewState,
             HttpSession session
     ) {
 
@@ -81,7 +86,12 @@ public class adminNoteController {
 
         NoteVO vo = new NoteVO();
 
-        return adminNoteService.UpdateNote(vo);
+        vo.setNoteId(noteId);
+        vo.setNoteTitle(noteTitle);
+        vo.setNote(note);
+        vo.setPageViewState(ViewState.valueOf(pageViewState));
+
+        return adminNoteService.UpdateNotice(vo);
 
     }
 
@@ -141,7 +151,7 @@ public class adminNoteController {
         model.addAttribute("note", adminNoteService.selectNote(noteId));
 
         if (adminCheck(session))
-            return "admin/result/exhbn/adminUpdateExhbn";
+            return "admin/result/note/adminUpdateNotice";
         else
             return "error";
     }

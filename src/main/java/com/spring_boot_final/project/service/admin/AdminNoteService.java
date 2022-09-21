@@ -58,10 +58,10 @@ public class AdminNoteService {
 
     }
 
-    public boolean UpdateNote(NoteVO vo){
+    public boolean UpdateNotice(NoteVO vo){
 
         try {
-            dao.UpdateNote(vo);
+            dao.UpdateNotice(vo);
         }catch (Exception e){
             System.out.println(e.getMessage());
             return false;

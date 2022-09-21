@@ -57,6 +57,12 @@
         OFFSET #{page}
     </select>
 
+    <select id="selectNote" parameterType="int" resultType="com.spring_boot_final.project.model.NoteVO">
+        select *
+        from note
+        where noteId = #{noteId}
+    </select>
+
     <select id="NoteMaxCount"
             parameterType="hashmap"
             resultType="int">
@@ -81,5 +87,13 @@
         </choose>
         and category = #{category}
     </select>
+
+    <update id="UpdateNotice" parameterType="com.spring_boot_final.project.model.NoteVO">
+        update note
+        set noteTitle     = #{noteTitle},
+            note          = #{note},
+            pageViewState = #{pageViewState}
+        where noteId = #{noteId}
+    </update>
 
 </mapper>

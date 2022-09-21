@@ -10,8 +10,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <link type="text/css" rel="stylesheet" href="<c:url value='/js/admin/module/userTable1.css'/>">
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/admin/adminModal.css'/>">
 <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
-<script src="<c:url value='/js/admin/module/userTable1.js' />"></script>
+<script src="<c:url value='/js/admin/note/noticeDialog.js' />"></script>
 <script src="<c:url value='/js/admin/note/noticeSearch.js' />"></script>
 
 <h1>공지 게시글 관리</h1>
@@ -56,12 +57,22 @@
 <%--      <td>${note.eventEndDate}</td>--%>
       <td>${note.pageViewState}</td>
       <td class="btnBox">
-        <button id="bannBtn_${status.index}" class="editBtn">차단</button>
+        <button data-id="${note.noteId}" id="editBtn_${status.index}" class="editBtn">수정</button>
       </td>
     </tr>
   </c:forEach>
   </table>
 </section>
+
+<div id="modal" class="modal">
+  <div class="modal_body">
+    <div style="display: flex; justify-content: right;">
+      <button id="closeBtn">close</button>
+    </div>
+    <div id="iframe-box" class="iframe-box">
+    </div>
+  </div>
+</div>
 
 <section class="pageNumBox">
   <input type="hidden" id="maxCount" value="${maxCount}">
