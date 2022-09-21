@@ -124,7 +124,7 @@
                         <span>최근 ArTchive 유저들이 좋아한 코스를 살펴보세요!</span>
                     </div>
                     <div class="viewmore-box">
-                        <a href="<c:url value='/course/list'/>"><span class="viewmore">더보기 ></span></a>
+                        <a href="<c:url value='/review/reviewNoteList'/>"><span class="viewmore">더보기 ></span></a>
                     </div>
                 </div>
                 <div class="courseList-box">
