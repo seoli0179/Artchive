@@ -38,15 +38,6 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.cover-heading {
-	color:#fff;
-	left:13%;
-	top: 30%;
-	width: 80%;
-	height:40%;
-	position:relative;
-}
-
 .upper-cover {
 	width:fit-content;
 	border-bottom: #fff 1px solid;
@@ -85,16 +76,19 @@
 } */
 
 .cover-heading {
-	top: 30%;
-	overflow: visible;
-	width: 156px;
-	white-space: nowrap;
+	top:50px;
 	text-align: left;
 	font-family: Noto Sans CJK KR;
 	font-style: normal;
 	font-weight: bold;
 	font-size: 4rem;
-	color: rgba(255,255,255,1);
+	color:#fff;
+	left:13%;
+	max-width: 1390px;
+	width: 80%;
+	min-width: 1080px;
+	height:40%;
+	position:relative;
 }
 
 .cover-date {
