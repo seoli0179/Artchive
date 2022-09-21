@@ -4,7 +4,11 @@
 
 
 document.addEventListener("DOMContentLoaded",function(){
-
+	
+	 $('#back').on('click', function () {
+        window.location.href = "/exhbn/list";
+    });
+	
     // 슬라이드쇼 구현 기능
     const slides = document.querySelector('.sliding-box');
     const slide = document.querySelectorAll('.review-box');
