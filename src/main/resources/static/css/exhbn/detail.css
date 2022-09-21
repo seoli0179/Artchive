@@ -263,7 +263,7 @@
 .review {
 	width:360px;
 	height:360px;
-	background-size: 140%;
+	background-size: cover;
 	background-blend-mode: multiply;
     background-color: rgba(0, 0, 0, 0.5);
     background-position: 50% 50%;

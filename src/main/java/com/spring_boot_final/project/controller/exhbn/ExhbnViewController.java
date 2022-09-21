@@ -80,8 +80,22 @@ public class ExhbnViewController {
         if (session.getAttribute("sid") != null)
             service.insertInteractionDAS(session.getAttribute("sid").toString(), id);
 
-        List<ReviewNoteVO> reviewnoteVo = reviewService.exhbnReviewNoteList(id);
-        model.addAttribute("reviewList", reviewnoteVo);
+        List<ReviewNoteVO> reviewNoteList = reviewService.exhbnReviewNoteList(id);
+
+        for (ReviewNoteVO reviewNoteVO : reviewNoteList) {
+            // thumbnail test 새힘
+            int begin = reviewNoteVO.getReviewNote().indexOf("<img");
+            if (begin > 0) {
+                int begin1 = reviewNoteVO.getReviewNote().indexOf("src", begin) + 5;
+                int end = reviewNoteVO.getReviewNote().indexOf("\"", begin1);
+                reviewNoteVO.setPreView(reviewNoteVO.getReviewNote().substring(begin1, end));
+            }
+            if (reviewNoteVO.getPreView() == null) {
+                reviewNoteVO.setPreView(reviewNoteVO.getExhbnImgUrl());
+            }
+            // thumbnail end
+        }
+        model.addAttribute("reviewList", reviewNoteList);
 
         return "detail";
     }
