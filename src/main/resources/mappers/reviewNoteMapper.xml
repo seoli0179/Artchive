@@ -26,6 +26,7 @@
 		   r.userId
 	FROM reviewNote r, course c, user u, exhbn e
 	WHERE c.courseId = r.courseId and r.userId = u.userId and r.exhbnId = e.exhbnId and r.reviewPageViewState = 'POST'
+	order by r.reviewNoteCreatedDate DESC
 	</select>
 	
 	<select id="selectReviewNote" parameterType="int" resultType="com.spring_boot_final.project.model.ReviewNoteVO">
