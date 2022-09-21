@@ -11,8 +11,9 @@
 <link type="text/css" rel="stylesheet" href="<c:url value='/js/admin/module/userTable1.css'/>">
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/admin/adminModal.css'/>">
 <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
-<script src="<c:url value='/js/admin/module/userTable1.js' />"></script>
+<%--<script src="<c:url value='/js/admin/module/userTable1.js' />"></script>--%>
 <script src="<c:url value='/js/admin/exhbn/dialog.js' />"></script>
+<script src="<c:url value='/js/admin/exhbn/search.js' />"></script>
 
 <h1><a href="<c:url value="/admin/exhbn/view"/>">전시 관리</a></h1>
 
@@ -55,30 +56,30 @@
 <%--          <td>${exhbn.exhbnLike}</td>--%>
           <td>${exhbn.exhbnType}</td>
           <td class="btnBox">
-            <button id="editBtn_${status.index}" class="editBtn">수정</button>
+            <button data-id="${exhbn.exhbnId}" id="editBtn_${status.index}" class="editBtn">수정</button>
             <button id="resetBtn_${status.index}" class="resetBtn" style="display: none;">취소</button>
           </td>
         </tr>
-        <tr class="displayBox" id="displayBox_${status.index}">
-          <td colspan="8">
-            <h2>전시 정보 수정</h2>
-            <table class="editTable">
-              <tr><th>아이디</th><td><input type="text" value="${exhbn.exhbnId}" readonly></td></tr>
-              <tr><th>제목</th><td><input type="text" value="${exhbn.exhbnTitle}"></td></tr>
-              <tr><th>지역</th><td><input type="text" value="${exhbn.exhbnArea}"></td></tr>
-              <tr><th>시작일</th><td><input type="date" value="<fmt:formatDate value="${exhbn.exhbnStartDate}" pattern="yy-MM-dd"/>"></td></tr>
-              <tr><th>종료일</th><td><input type="date" value="<fmt:formatDate value="${exhbn.exhbnEndDate}" pattern="yy-MM-dd"/>"></td></tr>
-<%--              <tr><th>좋아요</th><td><input type="text" value="${exhbn.exhbnLike}" readonly></td></tr>--%>
-              <tr><th>Type</th><td>
-                <select>
-                  <option>${exhbn.exhbnType}</option>
-                  <option>2</option>
-                  <option>3</option>
-                </select>
-              <tr><td colspan="2"><button id="saveBtnBox_${status.index}" class="saveBtn">저장</button><button id="deleteBtn_${status.index}" class="deleteBtn">삭제</button></td></tr>
-            </table>
-          </td>
-        </tr>
+<%--        <tr class="displayBox" id="displayBox_${status.index}">--%>
+<%--          <td colspan="8">--%>
+<%--            <h2>전시 정보 수정</h2>--%>
+<%--            <table class="editTable">--%>
+<%--              <tr><th>아이디</th><td><input type="text" value="${exhbn.exhbnId}" readonly></td></tr>--%>
+<%--              <tr><th>제목</th><td><input type="text" value="${exhbn.exhbnTitle}"></td></tr>--%>
+<%--              <tr><th>지역</th><td><input type="text" value="${exhbn.exhbnArea}"></td></tr>--%>
+<%--              <tr><th>시작일</th><td><input type="date" value="<fmt:formatDate value="${exhbn.exhbnStartDate}" pattern="yy-MM-dd"/>"></td></tr>--%>
+<%--              <tr><th>종료일</th><td><input type="date" value="<fmt:formatDate value="${exhbn.exhbnEndDate}" pattern="yy-MM-dd"/>"></td></tr>--%>
+<%--&lt;%&ndash;              <tr><th>좋아요</th><td><input type="text" value="${exhbn.exhbnLike}" readonly></td></tr>&ndash;%&gt;--%>
+<%--              <tr><th>Type</th><td>--%>
+<%--                <select>--%>
+<%--                  <option>${exhbn.exhbnType}</option>--%>
+<%--                  <option>2</option>--%>
+<%--                  <option>3</option>--%>
+<%--                </select>--%>
+<%--              <tr><td colspan="2"><button id="saveBtnBox_${status.index}" class="saveBtn">저장</button><button id="deleteBtn_${status.index}" class="deleteBtn">삭제</button></td></tr>--%>
+<%--            </table>--%>
+<%--          </td>--%>
+<%--        </tr>--%>
       </c:forEach>
     </tbody>
   </table>

@@ -1,16 +1,23 @@
-$( function() {
+$(function () {
 
     const modal = $('#modal');
 
-    for (let i = 0; i < 10; i++) {
-        $("#editBtn_" + i).on("click", function (el) {
-            modal.css('display','block');
-            $("#iframe-box").html(`<iframe class="updateExhbnForm" src="/admin/exhbn/updateview" />`);
-        });
-    }
+    $('.editBtn').each(function (i) {
+        $(this).click(function (e) {
+            e.preventDefault();
+            //alert(i + '번 버튼 ');
+            console.log($('#editBtn_' + i).data('id'));
+            var url = "/admin/exhbn/updateview?exhbnId=" + $('#editBtn_' + i).data('id');
+            modal.css('display', 'block');
+            $('#iframe-box').html("<iframe class=\"updateExhbnForm\" src=\"" + url + "\" />");
 
-    $('#closeBtn').on('click', function (){
-        modal.css('display','none');
+        });
     });
 
-} );
+    $('#closeBtn').on('click', function () {
+        modal.css('display', 'none');
+    });
+
+
+
+});

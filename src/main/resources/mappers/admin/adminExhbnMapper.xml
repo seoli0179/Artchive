@@ -32,7 +32,8 @@
                 where exhbnType = #{searchValue}
             </when>
             <when test="searchType=='내용'">
-                where exhbnDetail like CONCAT('%', #{searchValue}, '%')
+                <!--where exhbnDetail like CONCAT('%', #{searchValue}, '%')-->
+                where exhbnDetail is null
             </when>
         </choose>
         order by exhbnId desc
@@ -58,15 +59,18 @@
                 where exhbnType = #{searchValue}
             </when>
             <when test="searchType=='내용'">
-                where exhbnDetail like CONCAT('%', #{searchValue}, '%')
+                <!--where exhbnDetail like CONCAT('%', #{searchValue}, '%')-->
+                where exhbnDetail is null
             </when>
         </choose>
     </select>
 
     <update id="ExhbnUpdate" parameterType="com.spring_boot_final.project.model.ExhbnVO">
         update exhbn
-        set exhbnTitle  = #{exhbnTitle},
-            exhbnImgUrl = #{exhbnImgUrl}
+        set exhbnTitle = #{exhbnTitle}, exhbnImgUrl = #{exhbnImgUrl}, exhbnUrl = #{exhbnUrl}, exhbnPlaceUrl = #{exhbnPlaceUrl}, exhbnArea = #{exhbnArea}, exhbnPlace = #{exhbnPlace},
+            exhbnPlaceAddr = #{exhbnPlaceAddr}, exhbnStartDate = #{exhbnStartDate}, exhbnEndDate = #{exhbnEndDate}, exhbnPrice = #{exhbnPrice}, exhbnPrice1 = #{exhbnPrice1},
+            exhbnPhone = #{exhbnPhone}, exhbnNum = #{exhbnNum}, gpsX = #{gpsX}, gpsY = #{gpsY},
+            exhbnDetail = #{exhbnDetail}, exhbnType = #{exhbnType}
         where exhbnId = #{exhbnId}
     </update>
 
@@ -80,5 +84,13 @@
                 #{exhbnPhone}, #{gpsX}, #{gpsY}, #{exhbnView},
                 #{exhbnDetail}, #{exhbnType});
     </insert>
+
+    <select id="selectExhbn" parameterType="int" resultType="com.spring_boot_final.project.model.ExhbnVO">
+        <![CDATA[
+        SELECT *
+        FROM exhbn
+        WHERE exhbnId = #{exhbnId}
+        ]]>
+    </select>
 
 </mapper>

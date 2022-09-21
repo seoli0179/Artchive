@@ -18,4 +18,6 @@ public interface IAdminExhbnDAO {
     void ExhbnInsert(ExhbnVO vo);
 
     int ExhbnMaxCount(HashMap<String, Object> map);
+
+    ExhbnVO selectExhbn(int exhbnId);
 }

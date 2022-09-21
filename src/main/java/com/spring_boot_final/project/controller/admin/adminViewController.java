@@ -132,13 +132,6 @@ public class adminViewController {
             return "error";
     }
 
-    @RequestMapping("/admin/exhbn/updateview")
-    public String adminExhbnUpdate(HttpSession session) {
-        if (adminCheck(session))
-            return "admin/adminUpdateExhbn";
-        else
-            return "error";
-    }
 
     @RequestMapping("/admin/notice/write")
     public String noticeWrite(HttpSession session) {

@@ -61,5 +61,9 @@ public class AdminExhbnService {
         return dao.ExhbnMaxCount(map);
     }
 
+    public ExhbnVO selectExhbn(int exhbnId){
+        return dao.selectExhbn(exhbnId);
+    }
+
 
 }
