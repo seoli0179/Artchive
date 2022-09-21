@@ -11,6 +11,7 @@
 <link type="text/css" rel="stylesheet" href="<c:url value='/js/admin/module/userTable1.css'/>">
 <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 <script src="<c:url value='/js/admin/module/userTable1.js' />"></script>
+<script src="<c:url value='/js/admin/exhbn/search.js' />"></script>
 
 <h1>전시 관리</h1>
 
@@ -23,7 +24,7 @@
     <option value="전체" <c:if test="${searchType=='내용'}">selected</c:if>>내용</option>
   </select>
   <input id="searchValue" type="text" value="${searchValue}" placeholder="검색어를 입력하세요">
-  <button id="searchButton" onclick="searchClick()" class="searchBtn">검색</button>
+  <button id="searchButton" class="searchBtn">검색</button>
 </section>
 
 <section class="table-container">
@@ -64,8 +65,8 @@
               <tr><th>아이디</th><td><input type="text" value="${exhbn.exhbnId}" readonly></td></tr>
               <tr><th>제목</th><td><input type="text" value="${exhbn.exhbnTitle}"></td></tr>
               <tr><th>지역</th><td><input type="text" value="${exhbn.exhbnArea}"></td></tr>
-              <tr><th>시작일</th><td><input type="date" value="<fmt:formatDate value="${exhbn.exhbnStartDate}" pattern="yy-MM-dd"/>"></td></tr>
-              <tr><th>종료일</th><td><input type="date" value="<fmt:formatDate value="${exhbn.exhbnEndDate}" pattern="yy-MM-dd"/>"></td></tr>
+              <tr><th>시작일</th><td><input type="date" value="<fmt:formatDate value="${exhbn.exhbnStartDate}" pattern="yyyy-MM-dd"/>"></td></tr>
+              <tr><th>종료일</th><td><input type="date" value="<fmt:formatDate value="${exhbn.exhbnEndDate}" pattern="yyyy-MM-dd"/>"></td></tr>
 <%--              <tr><th>좋아요</th><td><input type="text" value="${exhbn.exhbnLike}" readonly></td></tr>--%>
               <tr><th>Type</th><td>
                 <select>

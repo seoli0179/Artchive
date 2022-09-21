@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+
+
     $.ajax({
         type: "post",
         url: "/admin/exhbn/select",
@@ -60,25 +62,6 @@ function pagemove(page) {
             $('.pageNumList').append("<li onclick='pagemove(" + maxCount + ")'>" + ">>" + "</li>");
 
 
-        },
-        error: function () {
-            alert('오류!');
-        },
-    });
-}
-
-function searchClick(){
-    $.ajax({
-        type: "post",
-        url: "/admin/exhbn/select",
-        data: {
-            "page": $('#currentPage').val(),
-            "searchType" : $('#searchType option:selected').val(),
-            "searchValue" : $('#searchValue').val()
-        },
-        dataType: "HTML",
-        success: function (result) {
-            $('#exhbnResult').html(result);
         },
         error: function () {
             alert('오류!');
