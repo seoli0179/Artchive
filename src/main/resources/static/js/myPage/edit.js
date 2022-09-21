@@ -199,7 +199,7 @@ $('#emailBtn').on('click', function () {
 				  } else {
 					  $('#emailInput').attr("readonly", false);
 				  }
-				  alert(result);
+				  // alert(result);
 			  },
 			  error: function () {
 				  alert('오류!')
@@ -219,10 +219,12 @@ $('#emailBtn').on('click', function () {
 				  email_check=true;
 					  $('.emailNumBox').slideToggle();
 					  $('#emailBtn').attr("disabled", false);
+					  alert("사용 가능한 이메일입니다."); // 결과 창 반환
 				  } else {
 					  $('#emailInput').attr("readonly", false);
+					  alert("중복된 이메일입니다.");
 				  }
-				  alert(result);
+				  // alert(result);
 			  },
 			  error: function () {
 				  alert('오류!')

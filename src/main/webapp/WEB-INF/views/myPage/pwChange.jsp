@@ -67,19 +67,21 @@
 
 								<div class="newPwBox">
 									<div class="pwBox">
-										<input type="password" class="pwInput" id="userPw"
-											name="userPw" placeholder="새 비밀번호" required>
+										<input type="password" class="pwInput" id="userPw" name="userPw" placeholder="새 비밀번호" required>
+										<div class="show"><i class="fa-solid fa-eye" id="fa-eye-pw"></i><i class="fa-solid fa-eye-slash" id="eye-slash-pw"></i></div>	
 									</div>
-									<div class="red">영문, 숫자, 특수문자 8~20자로 입력해주세요</div>
+									
+										<div class="red">영문, 숫자, 특수문자 8~20자로 입력해주세요</div>
 
 									<div class="pwCfmBox">
-										<input type="password" class="pwCfmInput" id="userPwCfm"
-											name="userPwCfm" placeholder="새 비밀번호 확인" required>
+										<input type="password" class="pwCfmInput" id="userPwCfm" name="userPwCfm" placeholder="새 비밀번호 확인" required>
+										<div class="show"><i class="fa-solid fa-eye" id="fa-eye"></i><i class="fa-solid fa-eye-slash" id="fa-eye-slash"></i></div>	
+									</div>
+									
 										<div class="explain">
 											비밀번호는 8~20자 이내로 영문(대,소문자), 숫자, 특수문자 3가지 조합 중 <br> 2가지
 											이상을 조합하셔서 만드시면 됩니다.
 										</div>
-									</div>
 								</div>
 								<div class="buttonBox">
 									<input type="button" id="editBtn" class="submitBtn black-btn" value="확인"> 
