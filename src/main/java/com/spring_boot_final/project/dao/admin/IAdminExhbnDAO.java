@@ -14,4 +14,6 @@ public interface IAdminExhbnDAO {
     ArrayList<ExhbnVO> ExhbnSelectFilter(HashMap<String, Object> map);
 
     void ExhbnUpdate(ExhbnVO vo);
+
+    void ExhbnInsert(ExhbnVO vo);
 }

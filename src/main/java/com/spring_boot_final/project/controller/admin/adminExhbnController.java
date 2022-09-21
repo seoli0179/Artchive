@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 @Controller
 public class adminExhbnController {
@@ -63,6 +65,51 @@ public class adminExhbnController {
         ExhbnVO vo = new ExhbnVO();
 
         return adminExhbnService.ExhbnUpdate(vo);
+    }
+
+    @RequestMapping("/admin/exhbn/insert")
+    @ResponseBody
+    public boolean ExhbnInsert(
+            @RequestParam("exhbnId") int exhbnId,
+            @RequestParam("exhbnTitle") String exhbnTitle,
+            @RequestParam("exhbnImgUrl") String exhbnImgUrl,
+            @RequestParam("exhbnUrl") String exhbnUrl,
+            @RequestParam("exhbnPlaceUrl") String exhbnPlaceUrl,
+            @RequestParam("exhbnArea") String exhbnArea,
+            @RequestParam("exhbnPlace") String exhbnPlace,
+            @RequestParam("exhbnPlaceAddr") String exhbnPlaceAddr,
+            @RequestParam("exhbnStartDate") String exhbnStartDate,
+            @RequestParam("exhbnEndDate") String exhbnEndDate,
+            @RequestParam("exhbnPrice") String exhbnPrice,
+            @RequestParam("exhbnPrice1") int exhbnPrice1,
+            @RequestParam("exhbnPhone") String exhbnPhone,
+            @RequestParam("gpsX") double gpsX,
+            @RequestParam("gpsY") double gpsY,
+            @RequestParam("exhbnDetail") String exhbnDetail,
+            @RequestParam("exhbnType") String exhbnType,
+            HttpSession session
+    ) throws ParseException {
+
+        ExhbnVO vo = new ExhbnVO();
+        vo.setExhbnId(exhbnId);
+        vo.setExhbnTitle(exhbnTitle);
+        vo.setExhbnImgUrl(exhbnImgUrl);
+        vo.setExhbnUrl(exhbnUrl);
+        vo.setExhbnPlaceUrl(exhbnPlaceUrl);
+        vo.setExhbnArea(exhbnArea);
+        vo.setExhbnPlace(exhbnPlace);
+        vo.setExhbnPlaceAddr(exhbnPlaceAddr);
+        vo.setExhbnStartDate(new SimpleDateFormat("yyyy-MM-dd").parse(exhbnStartDate));
+        vo.setExhbnEndDate(new SimpleDateFormat("yyyy-MM-dd").parse(exhbnEndDate));
+        vo.setExhbnPrice(exhbnPrice);
+        vo.setExhbnPrice1(exhbnPrice1);
+        vo.setExhbnPhone(exhbnPhone);
+        vo.setGpsX(gpsX);
+        vo.setGpsY(gpsY);
+        vo.setExhbnDetail(exhbnDetail);
+        vo.setExhbnType(exhbnType);
+
+        return adminExhbnService.ExhbnInsert(vo);
     }
 
 

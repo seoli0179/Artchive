@@ -26,9 +26,20 @@
 
     <update id="ExhbnUpdate" parameterType="com.spring_boot_final.project.model.ExhbnVO">
         update exhbn
-        set exhbnTitle = #{exhbnTitle},
+        set exhbnTitle  = #{exhbnTitle},
             exhbnImgUrl = #{exhbnImgUrl}
         where exhbnId = #{exhbnId}
     </update>
+
+    <insert id="ExhbnInsert" parameterType="com.spring_boot_final.project.model.ExhbnVO">
+        insert into exhbn (exhbnId, exhbnTitle, exhbnImgUrl, exhbnUrl, exhbnPlaceUrl, exhbnArea, exhbnPlace,
+                                   exhbnPlaceAddr, exhbnStartDate, exhbnEndDate, exhbnPrice, exhbnPrice1,
+                                   exhbnPhone, exhbnNum, gpsX, gpsY,
+                                   exhbnDetail,exhbnType)
+        values (#{exhbnId}, #{exhbnTitle}, #{exhbnImgUrl}, #{exhbnUrl}, #{exhbnPlaceUrl}, #{exhbnArea}, #{exhbnPlace},
+                #{exhbnPlaceAddr}, #{exhbnStartDate}, #{exhbnEndDate}, #{exhbnPrice}, #{exhbnPrice1},
+                #{exhbnPhone}, #{gpsX}, #{gpsY}, #{exhbnView},
+                #{exhbnDetail},#{exhbnType});
+    </insert>
 
 </mapper>

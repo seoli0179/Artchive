@@ -42,5 +42,15 @@ public class AdminExhbnService {
         return true;
     }
 
+    public boolean ExhbnInsert(ExhbnVO vo) {
+        try {
+            dao.ExhbnInsert(vo);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return false;
+        }
+        return true;
+    }
+
 
 }

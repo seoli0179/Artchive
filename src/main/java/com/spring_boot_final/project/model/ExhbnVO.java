@@ -38,6 +38,16 @@ public class ExhbnVO {
 
     private String exhbnType;
 
+    private String exhbnDetail;
+
+    public String getExhbnDetail() {
+        return exhbnDetail;
+    }
+
+    public void setExhbnDetail(String exhbnDetail) {
+        this.exhbnDetail = exhbnDetail;
+    }
+
     public ExhbnVO(){
 
     }
