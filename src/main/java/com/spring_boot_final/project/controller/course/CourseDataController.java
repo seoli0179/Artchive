@@ -64,6 +64,7 @@ public class CourseDataController {
         String positionY = "";
         String placeUrls = "";
         String placeMemos = "";
+        String courseState = "1";
 
         for (CourseListItemVO clvo : vo.getCourseListItem()) {
             System.out.println(clvo.getPlace_memo());
@@ -87,6 +88,7 @@ public class CourseDataController {
         vo.setPositionY(positionY);
         vo.setPlaceUrls(placeUrls);
         vo.setPlaceMemos(placeMemos);
+        vo.setCourseState(courseState);
         // service
         courseService.insertCourse(vo);
         return "SUCCESS";
