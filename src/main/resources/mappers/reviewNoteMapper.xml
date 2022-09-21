@@ -228,7 +228,8 @@
 		    e.exhbnId,
 			e.exhbnImgUrl,
 			r.reviewNoteTitle,
-			r.reviewNote
+			r.reviewNote,
+			r.reviewNoteId
 		    FROM reviewNote r
 	  		inner join exhbn e on e.exhbnId = r.exhbnId
 		WHERE r.reviewPageViewState = 'POST' and e.exhbnId = #{exhbnId}
