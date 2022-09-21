@@ -36,7 +36,7 @@
                 <div class="course-box board-gallery-view">
                     <c:forEach var="reviewNote" items="${reviewNoteList}">
                         <div class="post-container" style="cursor: pointer;" onclick="location.href='/review/reviewNote/${reviewNote.reviewNoteId}';">
-                            <div class="post-img-box" style="background-image: url('${reviewNote.exhbnImgUrl}');">
+                            <div class="post-img-box" style="background-image: url('${reviewNote.preView}');">
 
                             </div>
                             <div class="post-title-box">

@@ -245,7 +245,21 @@ public class reviewViewController {
 	  	 for(int i=0; i<reviewNoteSearch.size();i++) {
 	  	 System.out.println(reviewNoteSearch.get(i).getReviewNoteId()); }
 	  	 
+	  	for (int i = 0; i < reviewNoteSearch.size(); i++) {
+	    String tagRemove = reviewNoteSearch.get(i).getReviewNote().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
 	  	 
+	  	 // thumbnail test 새힘
+		int begin = reviewNoteSearch.get(i).getReviewNote().indexOf("<img");
+		if (begin > 0) {
+			int begin1 = reviewNoteSearch.get(i).getReviewNote().indexOf("src", begin) + 5;
+			int end = reviewNoteSearch.get(i).getReviewNote().indexOf("\"", begin1);
+			reviewNoteSearch.get(i).setPreView(reviewNoteSearch.get(i).getReviewNote().substring(begin1, end));
+		}
+		if (reviewNoteSearch.get(i).getPreView()==null) {
+			reviewNoteSearch.get(i).setPreView(reviewNoteSearch.get(i).getExhbnImgUrl());
+		}
+		// thumbnail end
+	  	}
 	  	
 	  	return "review/reviewNoteList";
 	  	}
@@ -265,6 +279,22 @@ public class reviewViewController {
 		 * for(int i=0; i<reviewNoteNew.size();i++) {
 		 * System.out.println(reviewNoteNew.get(i).getReviewNoteId()); }
 		 */
+	 	
+	 	for (int i = 0; i < reviewNoteNew.size(); i++) {
+	    String tagRemove = reviewNoteNew.get(i).getReviewNote().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
+	  	 
+	  	 // thumbnail test 새힘
+		int begin = reviewNoteNew.get(i).getReviewNote().indexOf("<img");
+		if (begin > 0) {
+			int begin1 = reviewNoteNew.get(i).getReviewNote().indexOf("src", begin) + 5;
+			int end = reviewNoteNew.get(i).getReviewNote().indexOf("\"", begin1);
+			reviewNoteNew.get(i).setPreView(reviewNoteNew.get(i).getReviewNote().substring(begin1, end));
+		}
+		if (reviewNoteNew.get(i).getPreView()==null) {
+			reviewNoteNew.get(i).setPreView(reviewNoteNew.get(i).getExhbnImgUrl());
+		}
+		// thumbnail end
+	  	}
 
 	  	
 	  	return "review/reviewSearch";
@@ -283,6 +313,22 @@ public class reviewViewController {
 		 * for(int i=0; i<reviewNotePopular.size();i++) {
 		 * System.out.println(reviewNotePopular.get(i).getReviewNoteId()); }
 		 */
+	 	
+	 	for (int i = 0; i < reviewNotePopular.size(); i++) {
+	    String tagRemove = reviewNotePopular.get(i).getReviewNote().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
+	  	 
+	  	 // thumbnail test 새힘
+		int begin = reviewNotePopular.get(i).getReviewNote().indexOf("<img");
+		if (begin > 0) {
+			int begin1 = reviewNotePopular.get(i).getReviewNote().indexOf("src", begin) + 5;
+			int end = reviewNotePopular.get(i).getReviewNote().indexOf("\"", begin1);
+			reviewNotePopular.get(i).setPreView(reviewNotePopular.get(i).getReviewNote().substring(begin1, end));
+		}
+		if (reviewNotePopular.get(i).getPreView()==null) {
+			reviewNotePopular.get(i).setPreView(reviewNotePopular.get(i).getExhbnImgUrl());
+		}
+		// thumbnail end
+	  	}
 	  	
 	  	return "review/reviewSearch";
 	  	}
@@ -299,6 +345,22 @@ public class reviewViewController {
 		 * for(int i=0; i<reviewNoteComment.size();i++) {
 		 * System.out.println(reviewNoteComment.get(i).getReviewNoteId()); }
 		 */
+	 	
+	 	for (int i = 0; i < reviewNoteComment.size(); i++) {
+	    String tagRemove = reviewNoteComment.get(i).getReviewNote().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
+	  	 
+	  	 // thumbnail test 새힘
+		int begin = reviewNoteComment.get(i).getReviewNote().indexOf("<img");
+		if (begin > 0) {
+			int begin1 = reviewNoteComment.get(i).getReviewNote().indexOf("src", begin) + 5;
+			int end = reviewNoteComment.get(i).getReviewNote().indexOf("\"", begin1);
+			reviewNoteComment.get(i).setPreView(reviewNoteComment.get(i).getReviewNote().substring(begin1, end));
+		}
+		if (reviewNoteComment.get(i).getPreView()==null) {
+			reviewNoteComment.get(i).setPreView(reviewNoteComment.get(i).getExhbnImgUrl());
+		}
+		// thumbnail end
+	  	}
 	  	
 	  	return "review/reviewSearch";
 	  	}
