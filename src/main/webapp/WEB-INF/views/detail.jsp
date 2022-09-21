@@ -128,7 +128,7 @@
 				<!-- tag -->
 				<div class="tag-box">
 					<a id="btnTwitter" class="link-icon twitter" href="javascript:shareTwitter();">
-						<img src="<c:url value="/image/social/social_kakao.png"/>" style="width: 30px;">
+						<img src="<c:url value="/image/social/social_twitter.png"/>" style="width: 30px;">
 					</a>
 					&nbsp;
 					<a id="btnFacebook" class="link-icon facebook" href="javascript:shareFacebook();">
@@ -136,7 +136,7 @@
 					</a>
 					&nbsp;
 					<a id="btnKakao" class="link-icon kakao" href="javascript:shareKakao();">
-						<img src="<c:url value="/image/social/social_twitter.png"/>" style="width: 30px">
+						<img src="<c:url value="/image/social/social_kakao.png"/>" style="width: 30px">
 					</a>
 					&nbsp;
 					<a id="clipBtn" class="link-icon linkcopy" href="javascript:clip();">
