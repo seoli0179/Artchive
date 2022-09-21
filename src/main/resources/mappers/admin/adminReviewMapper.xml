@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring_boot_final.project.dao.admin.IAdminReviewDAO">
+
+    <select id="ReviewSelectFilter"
+            parameterType="hashmap"
+            resultType="com.spring_boot_final.project.model.ReviewNoteVO">
+        SELECT *
+        FROM reviewNote
+        <choose>
+            <when test="searchType=='전체'">
+                where reviewNoteTitle like CONCAT('%', #{searchValue}, '%')
+            </when>
+            <when test="searchType=='번호'">
+                where reviewNoteId = #{searchValue}
+            </when>
+            <when test="searchType=='제목'">
+                where reviewNoteTitle like CONCAT('%', #{searchValue}, '%')
+            </when>
+            <when test="searchType=='내용'">
+                where reviewNote like CONCAT('%', #{searchValue}, '%')
+            </when>
+        </choose>
+        order by reviewNoteId desc
+        LIMIT #{limit}
+        OFFSET #{page}
+    </select>
+
+    <select id="ReviewMaxCount"
+            resultType="int">
+        <![CDATA[
+        SELECT count(*)
+        FROM reviewNote
+        ]]>
+    </select>
+
+</mapper>

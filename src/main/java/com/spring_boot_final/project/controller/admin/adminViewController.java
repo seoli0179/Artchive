@@ -87,6 +87,14 @@ public class adminViewController {
             return "error";
     }
 
+    @RequestMapping("/admin/review/view")
+    public String adminReview(HttpSession session) {
+        if (adminCheck(session))
+            return "admin/adminReview";
+        else
+            return "error";
+    }
+
     public boolean adminCheck(HttpSession session) {
 
         if (session.getAttribute("sid") == null)

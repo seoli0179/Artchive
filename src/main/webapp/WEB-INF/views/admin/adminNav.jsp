@@ -18,6 +18,7 @@
             <li><a href="<c:url value="/admin/notice/write"/>">공지 작성</a></li>
             <li><a href="<c:url value="/admin/event/write"/>">이벤트 작성</a></li>
             <li><a href="<c:url value="/admin/note/view"/> ">게시글 관리</a></li>
+            <li><a href="<c:url value="/admin/review/view"/> ">리뷰 관리</a></li>
         </ul>
     </div>
     <div>

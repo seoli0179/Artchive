@@ -1,10 +1,8 @@
 $(document).ready(function () {
 
-
-
     $.ajax({
         type: "post",
-        url: "/admin/exhbn/select",
+        url: "/admin/review/select",
         data: {
             "page": 1,
             "searchType" : "전체",
@@ -12,7 +10,7 @@ $(document).ready(function () {
         },
         dataType: "HTML",
         success: function (result) {
-            $('#exhbnResult').html(result);
+            $('#reviewResult').html(result);
 
             var page = 1;
 
@@ -53,7 +51,7 @@ $(document).ready(function () {
 function pagemove(page) {
     $.ajax({
         type: "post",
-        url: "/admin/exhbn/select",
+        url: "/admin/review/select",
         data: {
             "page": page,
             "searchType" : $('#searchType option:selected').val(),
@@ -62,7 +60,7 @@ function pagemove(page) {
         dataType: "HTML",
         success: function (result) {
 
-            $('#exhbnResult').html(result);
+            $('#reviewResult').html(result);
             $('.pageNumList').empty();
             var maxCount = $('#maxCount').val();
 
