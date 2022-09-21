@@ -46,7 +46,7 @@
 						<h1 id="courseTitle" style="text-align: center; margin:0 auto;">${course.courseTitle}</h1>
 					</div>
 					<div id="header-postDate" class="headerText">
-						<ul><li>by. ${course.userNickname} / <fmt:formatDate value="${course.createdAt}" pattern="yyyy. MM. dd. E"></fmt:formatDate></li></ul>
+						<ul><li>${course.userNickname} / <fmt:formatDate value="${course.createdAt}" pattern="yyyy. MM. dd. E"></fmt:formatDate></li></ul>
 					</div>
            		</div><!-- .headerTextBox -->
 			</section><!-- .courseHeader -->
@@ -61,11 +61,6 @@
 							<input type="button" id="editCourseBtn"  class="white-btn" value="수정" onclick="location.href='<c:url value="/course/${course.courseId}/edit"/>'">
 							<button id="deleteBtn_view"  class="white-btn">삭제</button>
 					</c:if>
-					
-					<form method="post" action="<c:url value='/insertBookMarkCourse' /> ">
-						<input type="submit" id="insertBookMarkCourse" class="black-btn" value="스크랩">
-						<input type="hidden" id="courseId" name="courseId" value=${course.courseId} >
-					</form>	
 					
 					<input type="button" id="createReview" value="리뷰 작성" onclick="location.href='<c:url value="/review/reviewNoteWrite/${course.courseId}"/>'" class="black-btn">
 					
