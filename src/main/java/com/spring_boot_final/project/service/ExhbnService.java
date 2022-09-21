@@ -88,8 +88,10 @@ public class ExhbnService {
 
   public ArrayList<ExhbnVO> ExhbitonSearch_detail(String title2,String exWhere)
   { HashMap<String, Object> map= new HashMap<String, Object>();
-  map.put("Title", title2); map.put("Area", exWhere); return
-  dao.ExhbnSearch22(map);
+  map.put("Title", title2); 
+  map.put("Area", exWhere); 
+  
+  return dao.ExhbnSearch22(map);
   
   }
  

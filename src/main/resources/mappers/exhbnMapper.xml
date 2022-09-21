@@ -212,8 +212,5 @@
 	exhbnTitle like CONCAT('%',#{Title},'%')  and
 	exhbnArea like CONCAT('%',#{ExWhere},'%')  and
 	exhbnPrice = "무료" 
-
- 
-	
 	</select>
 </mapper>

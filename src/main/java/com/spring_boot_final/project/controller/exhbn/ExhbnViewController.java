@@ -221,6 +221,7 @@ public class ExhbnViewController {
 		System.out.println("Controller");
 		 System.out.println(title); 
 		 System.out.println(exWhere+"/");
+		 System.out.println(exPrice);
 			/*
 			 * System.out.println(exWhen);
 			 */		
