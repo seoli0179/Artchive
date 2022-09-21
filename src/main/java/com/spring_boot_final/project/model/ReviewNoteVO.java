@@ -25,8 +25,7 @@ public class ReviewNoteVO {
     private String courseTag;
     private String exhbnImgUrl;
     private String userNickname;
-    
-    
+	private String preView;
     
     public String getPlaceNames() {
 		return placeNames;
@@ -148,8 +147,12 @@ public class ReviewNoteVO {
 	public void setCourseTitle(String courseTitle) {
 		this.courseTitle = courseTitle;
 	}
-    
-    
-	
-	
+
+	public String getPreView() {
+		return preView;
+	}
+
+	public void setPreView(String preView) {
+		this.preView = preView;
+	}
 }

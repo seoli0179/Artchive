@@ -66,6 +66,8 @@
 // 박물관 탭
 
  	$('#Museum').on('click', function(){
+ 		$('.AREA').removeClass('selected');
+	 	$('#Museum').addClass('selected');
  		var type = $('#Museum').on('click').val();
  		$.ajax({
             type: "post",
@@ -90,6 +92,8 @@
  
 
  	$('#Art_Exhbn').on('click', function(){
+ 		$('.AREA').removeClass('selected');
+	 	$('#Art_Exhbn').addClass('selected');
  		var type = $('#Art_Exhbn').on('click').val();
  		$.ajax({
             type: "post",
@@ -112,9 +116,33 @@
         
  		
  	}); // submit 끝 
- 
+$('#allArea').on('click', function(){
+ 		$('.AREA').removeClass('selected');
+	 	$('#allArea').addClass('selected');
+ 		var type = $('#allArea').on('click').val();
+ 		$.ajax({
+            type: "post",
+            url: "/exhbn/tab_exhbnSearch0",
+           	dataType : "html",
+            data: {
+                "exhbnType": type
+                
+            },
+           success: function (result_Festival) {
+            $('#searchResultl').html(result_Festival);
+            
+			},
+            error: function () {
+            alert("오류");
+            },
+        });
+                
+ 		
+ 	}); // submit 끝  
 
  	$('#Festival').on('click', function(){
+ 		$('.AREA').removeClass('selected');
+	 	$('#Festival').addClass('selected');
  		var type = $('#Festival').on('click').val();
  		$.ajax({
             type: "post",
@@ -139,6 +167,8 @@
  
 
  	$('#Edu_Ex').on('click', function(){
+ 		$('.AREA').removeClass('selected');
+	 	$('#Edu_Ex').addClass('selected');
  		var type = $('#Edu_Ex').on('click').val();
  		$.ajax({
             type: "post",
@@ -163,6 +193,8 @@
  
 
  	$('#Etc_Ex').on('click', function(){
+ 		$('.AREA').removeClass('selected');
+	 	$('#Etc_Ex').addClass('selected');
  		var type = $('#Etc_Ex').on('click').val();
  		
  		$.ajax({
@@ -190,7 +222,7 @@
  		var title2 = $('#inner-searchbar2').val();
  		var exWhere = $('#result4').text();
  		var exPrice = $('#result2').text();
-// 		var exWhen = $('#result5').text();
+ 		//var exWhen = $('#result5').text();
 		// 기본 기능 중단
  		//event.preventDefault();
  		$.ajax({
@@ -200,8 +232,10 @@
             data: {
                 "exhbnTitle": title2,
                 "exhbnArea" : exWhere,
-                "exhbnPrice": exPrice
+                "exhbnPrice": exPrice,
+          //      "exWhen" : exWhen
                },
+               
 
             success: function (result_detail) {
             // alert("검색 결과를 보여드릴게요");

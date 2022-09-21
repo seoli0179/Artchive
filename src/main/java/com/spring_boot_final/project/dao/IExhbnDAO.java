@@ -30,6 +30,7 @@ public interface IExhbnDAO {
 	public ArrayList<ExhbnVO> ExhbnSearch22(HashMap<String, Object> map);
 
 	 //tab Search
+	public ArrayList<ExhbnVO> tab_ExhbnSearch0(String type); 
 	public ArrayList<ExhbnVO> tab_ExhbnSearch(String type); 
 	public ArrayList<ExhbnVO> tab_ExhbnSearch2(String type); 
 	public ArrayList<ExhbnVO> tab_ExhbnSearch3(String type); 

@@ -11,7 +11,7 @@
         select * from course
             inner join exhbn on course.exhbnId = exhbn.exhbnId
             inner join user on course.userId = user.userId
-        WHERE courseState != "DELETE"
+        WHERE courseState = 'POST'
         ORDER BY courseId DESC;
         ]]>
     </select>
@@ -55,7 +55,8 @@
              -- CourseListItemVO
              placeNames, categoryNames, phones, addressNames, roadAddressNames,
              postionX, positionY, placeUrls, placeMemos)
-        VALUES (#{userId}, #{exhbnId}, #{courseTitle}, #{courseTag}, #{courseState},
+        VALUES (#{userId}, #{exhbnId}, #{courseTitle}, #{courseTag},'POST',
+
                 -- CourseListItemVO
                 #{placeNames}, #{categoryNames}, #{phones}, #{addressNames}, #{roadAddressNames},
                 #{postionX}, #{positionY}, #{placeUrls}, #{placeMemos});
@@ -67,7 +68,7 @@
     <update id="deleteCourse" parameterType="hashmap">
         <![CDATA[
         UPDATE course
-        SET courseState = "DELETE"
+        SET courseState = 'DELETE'
         WHERE courseId = #{courseId} AND userId = #{userId};
         ]]>
     </update>
@@ -113,7 +114,8 @@
         from course
            inner join exhbn on course.exhbnId = exhbn.exhbnId
         WHERE userId=#{userId}
-        and courseState = "1"
+        and courseState = 'POST'
+        order by course.createdAt desc;
         ]]>
     </select>
 

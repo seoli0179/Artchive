@@ -2,7 +2,10 @@ package com.spring_boot_final.project.controller.exhbn;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
+import com.spring_boot_final.project.model.ReviewNoteVO;
+import com.spring_boot_final.project.service.ReviewNoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,17 +23,35 @@ public class ExhbnViewController {
 
 	@Autowired
 	ExhbnService service;
-	
- 
+
+    @Autowired
+    ReviewNoteService reviewService;
 
 
-	// detail page view
+
+    // detail page view
 	@GetMapping("/exhbn/detail/{id}")
 	public String detailTestView(@PathVariable int id, Model model) {
 
 		ExhbnVO vo = service.selectDetailData(id);
 		model.addAttribute("exhbn", vo);
 
+        List<ReviewNoteVO> reviewNoteList = reviewService.exhbnReviewNoteList(id);
+
+        for (ReviewNoteVO reviewNoteVO : reviewNoteList) {
+            // thumbnail test 새힘
+            int begin = reviewNoteVO.getReviewNote().indexOf("<img");
+            if (begin > 0) {
+                int begin1 = reviewNoteVO.getReviewNote().indexOf("src", begin) + 5;
+                int end = reviewNoteVO.getReviewNote().indexOf("\"", begin1);
+                reviewNoteVO.setPreView(reviewNoteVO.getReviewNote().substring(begin1, end));
+            }
+            if (reviewNoteVO.getPreView() == null) {
+                reviewNoteVO.setPreView(reviewNoteVO.getExhbnImgUrl());
+            }
+            // thumbnail end
+        }
+        model.addAttribute("reviewList", reviewNoteList);
 		return "detail";
 	}
 
@@ -62,7 +83,19 @@ public class ExhbnViewController {
 
 		return "searchResult";
 	}
-	
+	@RequestMapping("/exhbn/tab_exhbnSearch0")
+	public String tab_ExhbitonSearch0(@RequestParam("exhbnType") String type, Model model) {
+		ArrayList<ExhbnVO> tab_exhbnSearch = service.TabSearch0(type);
+		model.addAttribute("exhbnSearchList", tab_exhbnSearch);
+
+		System.out.println(type);
+
+		for (int i = 0; i < tab_exhbnSearch.size(); i++) {
+			System.out.println(tab_exhbnSearch.get(i).getExhbnId());
+		}
+		return "searchResult";
+
+	}
 
 	@RequestMapping("/exhbn/tab_exhbnSearch")
 	public String tab_ExhbitonSearch(@RequestParam("exhbnType") String type, Model model) {
@@ -203,14 +236,12 @@ public class ExhbnViewController {
 			@RequestParam("exhbnTitle") String title, 
 			@RequestParam("exhbnArea") String exWhere,
 			@RequestParam("exhbnPrice") String exPrice,
-
-			/*
-			 * @RequestParam("exWhen") String exWhen,
-			 */
+			@RequestParam("exWhen") String exWhen,
+			 
 			Model model
 			 ) {
 		
-		ArrayList<ExhbnVO> voList = service.exhbnSearch2(title, exWhere.trim(), exPrice);
+		ArrayList<ExhbnVO> voList = service.exhbnSearch2(title, exWhere.trim(), exPrice, exWhen);
 		System.out.println(voList.size());
 		System.out.println(voList.get(0).getExhbnTitle());
 		
@@ -218,6 +249,8 @@ public class ExhbnViewController {
 		 System.out.println(title); 
 		 System.out.println(exWhere+"/");
 		 System.out.println(exPrice);
+		 System.out.println(exWhen);
+		 
 		 
 		model.addAttribute("exhbnSearch2", voList);
 		  

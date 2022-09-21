@@ -630,10 +630,16 @@ input[type='date']:valid::before {
 		position: relative;
 		height : 50px;
 		line-height : 50px;
-		
+		align-items:center;
 		/* margin-left : 135px;
 		margin-right : 135px; */
+		
 	}
+	
+	.white-btn{
+		margin-right:2%;
+	} 
+	
 	.toggle {
 		margin-top : 0;
 		margin-left : 11%;
@@ -707,7 +713,13 @@ input[type='date']:valid::before {
 #courseMainBtn-Box {
 	position: absolute;
 	right: 0;
+	display:flex;
+	align-items:center;
 	/* border : 1px blue solid; */
+}
+
+#editCourseBtn, #like-btn, #deleteBtn_view, #insertBookMarkReview {
+    margin-right: 5px;
 }
 
 /* course timeline	*/
