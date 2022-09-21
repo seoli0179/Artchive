@@ -5,6 +5,7 @@ import com.spring_boot_final.project.model.CourseListItemVO;
 import com.spring_boot_final.project.model.CourseVO;
 import com.spring_boot_final.project.model.ExhbnVO;
 import com.spring_boot_final.project.service.CourseService;
+import com.spring_boot_final.project.service.ExhbnService;
 import org.apache.tomcat.util.json.JSONParser;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.json.JSONArray;
@@ -28,6 +29,8 @@ public class CourseDataController {
     @Autowired
     CourseService courseService;
 
+    @Autowired
+    ExhbnService exhbnService;
 
     @ResponseBody
     @RequestMapping("/course/insertCourse")
@@ -65,6 +68,9 @@ public class CourseDataController {
         String placeUrls = "";
         String placeMemos = "";
 
+        ExhbnVO exhbnVO = exhbnService.selectDetailData(Integer.parseInt(vo.getExhbnId()));
+
+
         for (CourseListItemVO clvo : vo.getCourseListItem()) {
             System.out.println(clvo.getPlace_memo());
             placeNames += clvo.getPlace_name() + ";;";
@@ -74,7 +80,11 @@ public class CourseDataController {
             roadAddressNames += clvo.getRoad_address_name()+";;";
             postionX += clvo.getX()+";;";
             positionY += clvo.getY()+";;";
-            placeUrls += clvo.getPlace_url()+";;";
+            if (clvo.getPlace_url().equals("")) {
+                placeUrls += exhbnVO.getExhbnPlaceUrl() +";;";
+            } else {
+                placeUrls += clvo.getPlace_url()+";;";
+            }
             placeMemos += clvo.getPlace_memo()+";;";
         }
         vo.setUserId(session.getAttribute("sid").toString());
@@ -92,19 +102,6 @@ public class CourseDataController {
         return "SUCCESS";
     }
 
-//    @ResponseBody
-//    @RequestMapping("/course/updateCourse")
-//    public String updateCourse(HttpSession session, @RequestParam CourseVO vo){
-//        if (session.getAttribute("sid") == null) {
-//            return "FAIL";
-//        }
-//
-//        vo.setUserId(session.getAttribute("sid").toString());
-//        courseService.updateCourse(vo);
-//
-//        return "SUCCESS";
-//    }
-//
     @ResponseBody
     @RequestMapping("/course/updateCourse")
     public String updateCourse(HttpSession session,
@@ -126,6 +123,7 @@ public class CourseDataController {
         String positionY = "";
         String placeUrls = "";
         String placeMemos = "";
+
 
         for (CourseListItemVO clvo : vo.getCourseListItem()) {
             System.out.println(clvo.getPlace_memo());
