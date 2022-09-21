@@ -198,8 +198,8 @@
 							</div>
 							<div class="comment-summary">
 								<div class="info">
-									<div class="username">${c.userNickname}</div>&nbsp;&middot;&nbsp;
-									<div class="createdAt"><fmt:formatDate value="${c.commentCreatedDate}" pattern="MM/dd hh:mm"/> </div>
+									<div class="username">${c.userNickname}</div>&nbsp;&nbsp;
+									<div class="createdAt"><fmt:formatDate value="${c.commentCreatedDate}" pattern="MM/dd"/> </div>
 								</div>
 								<div class="comment-body">
 									${c.comment}
