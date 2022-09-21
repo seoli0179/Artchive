@@ -136,7 +136,7 @@ public class MpDataController {
  		model.addAttribute("userNickname", vo.getUserNickname());
  		model.addAttribute("userEmail", vo.getUserEmail()); 
  		
- 		
+ 		session.setAttribute("username", vo.getUserNickname());
  		System.out.println(userId);
  		System.out.println(userNickname);
  		
