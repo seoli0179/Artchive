@@ -15,7 +15,7 @@
 
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/courseDetail.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/mapView.css'/>">
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/toggle.css'/>">
+<%--		<link rel="stylesheet" type="text/css" href="<c:url value='/css/toggle.css'/>">--%>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/note/detail.css'/>">
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script> <!-- sns 공유 -->
@@ -44,6 +44,7 @@
 					</div>
 					<div id="header-postTitle" class="headerText">
 						<h1 id="courseTitle" style="text-align: center; margin:0 auto;">${course.courseTitle}</h1>
+						<input id="courseId" value="${course.courseId}" hidden>
 					</div>
 					<div id="header-postDate" class="headerText">
 						<ul><li>${course.userNickname} / <fmt:formatDate value="${course.createdAt}" pattern="yyyy. MM. dd. E"></fmt:formatDate></li></ul>
