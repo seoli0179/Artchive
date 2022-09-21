@@ -108,8 +108,11 @@ public class reviewViewController {
  		
  		 if (vo.getReviewPageViewState() != ViewState.POST) { return "error"; }
 
- 		if (session.getAttribute("sid") != null)
- 			vo.setReviewNoteLikeCheck(reviewnoteService.reviewNoteLikeCheck(vo, session.getAttribute("sid").toString()));
+			/*
+			 * if (session.getAttribute("sid") != null)
+			 * vo.setReviewNoteLikeCheck(reviewnoteService.reviewNoteLikeCheck(vo,
+			 * session.getAttribute("sid").toString()));
+			 */
  		 
  		 
  		String[] siteName = vo.getPlaceNames().split(";;");
