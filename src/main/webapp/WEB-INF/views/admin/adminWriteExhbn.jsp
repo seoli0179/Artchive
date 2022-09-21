@@ -53,9 +53,11 @@
                             <th>전시관분류</th>
                             <td>
                                 <select id="exhbnType">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
+                                    <option value="박물관">박물관</option>
+                                    <option value="축제">축제</option>
+                                    <option value="미술전시">미술전시</option>
+                                    <option value="교육">교육</option>
+                                    <option value="기타">기타</option>
                                 </select></td>
                         </tr>
                         <tr>
