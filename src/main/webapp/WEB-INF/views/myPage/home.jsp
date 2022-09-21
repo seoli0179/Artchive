@@ -72,9 +72,9 @@
 					<div class="guide-img-box">
 
 						<div class="guide-contents">
-							<a class="items" href="<c:url value='/myPage/review'/>"> 
+							<a class="items" href="<c:url value='/myPage/reviewScrap'/>"> 
 							<img class="guide-img" alt="전시 리뷰" src="<c:url value='/image/review.png'/>">
-								<p class="h3">전시 리뷰</p> <span class="small-text">리뷰 작성을 통해 티켓 <br> 할인 쿠폰을 받아보세요.
+								<p class="h3">전시 리뷰</p> <span class="small-text">리뷰 작성을 통해 <br> 할인 쿠폰을 받아보세요.
 							</span>
 							</a>
 						</div>
