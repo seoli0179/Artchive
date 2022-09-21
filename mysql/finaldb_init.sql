@@ -159,7 +159,7 @@ DROP TABLE IF EXISTS `course`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `course` (
-  `courseId` int NOT NULL AUTO_INCREMENT,
+  `courseId` int NOT NULL AUTO_INCREMENT ,
   `userId` varchar(20) NOT NULL,
   `exhbnId` int NOT NULL,
   `courseTitle` varchar(100) DEFAULT NULL,
@@ -216,7 +216,7 @@ CREATE TABLE `courseComment` (
   PRIMARY KEY (`commentId`),
   KEY `FK_courseComment_corseId` (`courseId`),
   KEY `FK_courseComment_userId` (`userId`),
-  CONSTRAINT `FK_courseComment_corseId` FOREIGN KEY (`courseId`) REFERENCES `course` (`courseId`),
+  CONSTRAINT `FK_courseComment_corseId` FOREIGN KEY (`courseId`) REFERENCES `course` (`courseId`) ON DELETE CASCADE,
   CONSTRAINT `FK_courseComment_userId` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;

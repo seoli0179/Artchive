@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.spring_boot_final.project.model.CourseCommentVO;
 import com.spring_boot_final.project.model.CourseVO;
 import com.spring_boot_final.project.model.NoteCommentVO;
 import com.spring_boot_final.project.model.NoteVO;
@@ -245,7 +246,7 @@ public class MpDataController {
      }
    	
    	
- // 마이페이지 리뷰 댓글 조회 
+   	// 마이페이지 리뷰 댓글 조회 
    	@RequestMapping("myPage/reviewComment")
    	public String reviewComment(HttpSession session, 
    									Model model){
@@ -329,6 +330,20 @@ public class MpDataController {
      	courseService.deleteMpCourse(courseId);
      	
    		return "SUCCESS";
+  	}
+   	
+   	// 마이페이지 코스 댓글 조회 
+   	@RequestMapping("myPage/courseComment")
+   	public String myPageCourseComment(HttpSession session, 
+   									Model model){
+   		
+     String userId = session.getAttribute("sid").toString();
+     	
+     ArrayList<CourseCommentVO> vo = cmtService.selectCourseComment(userId);
+   		
+    	model.addAttribute("courseComment", vo);
+     	
+   		return "myPage/courseComment";
   	}
    	
  	// 마이페이지 회원 탈퇴 view
