@@ -14,7 +14,7 @@
 <script src="<c:url value='/js/admin/module/userTable1.js' />"></script>
 <script src="<c:url value='/js/admin/module/noteStatus.js' />"></script>
 
-<h1><a href="<c:url value="/admin/note/view"/>">게시글 관리</a></h1>
+<h1><a href="<c:url value="/admin/note/view"/>">리뷰 게시글 관리</a></h1>
 
 <section class="search-container">
   <select>
@@ -49,7 +49,7 @@
       <td>${note.noteId}</td>
       <td>${note.userId}</td>
       <td>${note.category}</td>
-      <td><a href="<c:url value="/note/detail/${note.noteId}"/>" target="_blank">${note.noteTitle}</a></td>
+      <td><a href="<c:url value="/review/reviewNote/${note.reviewNoteId}"/>" target="_blank">${note.noteTitle}</a></td>
 <%--      <td>${note.noteCommentNum}</td>--%>
       <td><fmt:formatDate value="${note.noteCreatedDate}" pattern="yy-MM-dd hh:mm"/></td>
   <%--    <td>${note.noteUpdatedDate}</td>--%>

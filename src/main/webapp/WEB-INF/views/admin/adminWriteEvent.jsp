@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="title">
-                    <h1>New event</h1>
+                    <h1><a href="<c:url value="/admin/event/write"/>">New event</a></h1>
                 </div>
 
                 <div class="write-box">

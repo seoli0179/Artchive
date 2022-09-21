@@ -1,0 +1,49 @@
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal.show {
+    display: block;
+}
+
+.modal_body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1080px;
+    height: 400px;
+    overflow-y:scroll;
+
+    padding: 20px;
+
+    text-align: center;
+
+    background-color: #121212;
+    border-radius: 10px;
+    box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+
+    transform: translateX(-50%) translateY(-50%);
+    color: #1A1A1A;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.form-btn-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.iframe-box {
+    width: 100%;
+    height: 90%;
+}

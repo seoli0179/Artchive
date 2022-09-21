@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="title">
-                    <h1>New notice</h1>
+                    <h1><a href="<c:url value="/admin/notice/write"/>">New notice</a></h1>
                 </div>
 
                 <div class="write-box">

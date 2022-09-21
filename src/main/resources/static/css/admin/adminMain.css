@@ -16,6 +16,14 @@ body {
     color:#ffffff;
 }
 
+a {
+    color:#ffffff;
+}
+
+table a {
+    color: #1A1A1A;
+}
+
 main {
     height: 90vh;
     margin-left: 150px;
@@ -143,4 +151,8 @@ h1 {
 .pageNumList .pageOn {
     background-color: #1A1A1A;
     color: #E5E7EB;
+}
+
+.dialog-form {
+    display: none;
 }
