@@ -1,5 +1,6 @@
 package com.spring_boot_final.project.controller.exhbn;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -10,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring_boot_final.project.model.ExhbnVO;
 import com.spring_boot_final.project.service.ExhbnService;
@@ -215,21 +215,25 @@ public class ExhbnViewController {
 			@RequestParam("exhbnTitle") String title, 
 			@RequestParam("exhbnArea") String exWhere,
 			@RequestParam("exhbnPrice") String exPrice,
-			@RequestParam("exWhen") String exWhen,
+			@RequestParam("exhbnDate") String exDate,
+			/*
+			 * @RequestParam("dateType") String dateType,
+			 */
 			 
 			Model model
-			 ) {
+			 ) throws ParseException {
 		
-		ArrayList<ExhbnVO> voList = service.exhbnSearch2(title, exWhere.trim(), exPrice, exWhen);
+					ArrayList<ExhbnVO> voList = service.exhbnSearch2(title, exWhere.trim(), exPrice,
+							exDate/* , dateType */);
 		System.out.println(voList.size());
-		System.out.println(voList.get(0).getExhbnTitle());
+		//System.out.println(voList.get(0).getExhbnTitle());
 		
 		System.out.println("Controller");
 		 System.out.println(title); 
 		 System.out.println(exWhere+"/");
 		 System.out.println(exPrice);
-		 System.out.println(exWhen);
-		 
+		 System.out.println(exDate);
+
 		 
 		model.addAttribute("exhbnSearch2", voList);
 		  

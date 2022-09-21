@@ -1,7 +1,10 @@
 package com.spring_boot_final.project.service;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -41,7 +44,8 @@ public class ExhbnService {
 		return dao.ExhbnSearch(title);
 	}
 
-	public ArrayList<ExhbnVO> exhbnSearch2(String title, String exWhere, String exPrice, String exWhen) {
+	public ArrayList<ExhbnVO> exhbnSearch2(String title, String exWhere, String exPrice,
+			String exDate){
 		HashMap<String, Object> map = new HashMap<String, Object>();
 //  		map.put("Title", title);
 //  		map.put("ExWhere", exWhere);
@@ -49,17 +53,21 @@ public class ExhbnService {
 		map.put("Title", title);
 		map.put("ExWhere", exWhere);
 		map.put("ExPrice", exPrice);
-		map.put("ExWhen", exWhen);
-
-
+		map.put("exDate", exDate);
+	
+		 
+		
 		/*
-		 * map.put("ExPrice", exWhen);
-		 */
+		 * map.put("exDate", new SimpleDateFormat("yyyy-MM-dd").parse(exDate));
+		 * 
+		 * map.put("dateType", "현재");
+		 */	//string -> date 예외 처리 throws ParseException
 		System.out.println(map.toString());
 
 		return dao.ExhbnSearch22(map);
 
 	}
+
 	public ArrayList<ExhbnVO> TabSearch0(String type) {
 		return dao.tab_ExhbnSearch0(type);
 	}

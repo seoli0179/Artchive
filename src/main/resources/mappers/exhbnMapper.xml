@@ -221,6 +221,7 @@
 	
 		<select parameterType="hashmap" id="ExhbnSearch22"
 		resultType="com.spring_boot_final.project.model.ExhbnVO">
+		
 		select
 		*
 		from exhbn
@@ -235,13 +236,17 @@
              <when test="ExPrice == '유료'">
 				and exhbnPrice1 != 0
             </when>
-            <otherwise>
-				and exhbnArea like CONCAT('%',#{ExWhere},'%')
-            </otherwise>
-       	</choose>
-     
-       	 	
-		
+            
+            </choose>
+            <choose>
+            <when test="exDate == '예전 전시'">
+				 <![CDATA[ and exhbnStartDate <= now() ]]>
+            </when>
+             <when test="exDate == '예정된 전시'">
+				<![CDATA[ and exhbnEndDate >= now()  ]]>
+            </when>
+           </choose>		
 		ORDER BY exhbnId DESC limit 9
+		
 	</select>
 </mapper>
