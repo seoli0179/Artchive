@@ -21,10 +21,6 @@ public class ReviewNoteService{
 		return dao.reviewNoteList();
 	}
 
-	public ArrayList<ReviewNoteVO> exhbnReviewNoteList(int exhbnId){
-		return dao.exhbnReviewNoteList(exhbnId);
-	};
-
 	public ReviewNoteVO selectReviewNote(int reviewNoteId) {
 		return dao.selectReviewNote(reviewNoteId);
 	}

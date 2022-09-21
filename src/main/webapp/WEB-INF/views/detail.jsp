@@ -188,17 +188,13 @@
 					<div class="sliding-box animate">
 						<c:forEach items="${reviewList}" var="rv" end="9">
 							<article class="review-box">
-								<a href="<c:url value="/review/reviewNote/${rv.reviewNoteId}"/>">
-									<div class="review" style="background-image: url('${rv.exhbnImgUrl}');">
-									</div>
-									<div class="post-meta">
-										${rv.reviewNoteTitle}
-									</div>
-								</a>
+								<div class="review" style="background-image: url('${rv.exhbnImgUrl}');">
+								</div>
+								<div class="post-meta">
+								</div>
 							</article>
 						</c:forEach>
 					</div>
-					<div style="height: 390px;"></div>
 				</c:if>
 			</div>
 		</main>

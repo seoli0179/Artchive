@@ -258,4 +258,5 @@
 		WHERE c.courseId = r.courseId and r.userId = u.userId and r.exhbnId = e.exhbnId and r.reviewPageViewState = 'POST' and r.exhbnId = #{exhbnId}
 		order by r.reviewNoteLike DESC;
 	</select>
+
 </mapper>

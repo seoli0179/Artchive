@@ -10,8 +10,6 @@ import com.spring_boot_final.project.model.ReviewNoteVO;
 public interface IReviewNoteDAO {
 	// 리뷰게시판 리스트 보여주기
 	public ArrayList<ReviewNoteVO> reviewNoteList();
-
-	public ArrayList<ReviewNoteVO> exhbnReviewNoteList(int exhbnId);
 	
 	ReviewNoteVO selectReviewNote(int reviewNoteId);
 	
