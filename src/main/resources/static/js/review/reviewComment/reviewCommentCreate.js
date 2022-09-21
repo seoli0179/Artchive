@@ -15,7 +15,7 @@
             success: function (data) {
                 if (data == "SUCCESS") {
                     alert("작성 완료!");
-                    $("#comment").val("");
+                    $("#reviewComment").val("");
                     $("#comment-box").load(window.location.href + " #comment-box > *"); //띄어쓰기 주의!!!
 
                     var commentNum = $('#commentNumMain').text();

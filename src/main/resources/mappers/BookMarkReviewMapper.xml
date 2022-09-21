@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.spring_boot_final.project.dao.IBookMarkReviewDAO">
+	 
+	<!--  (1) 북마크 목록 출력 -->
+	<select id="bookMarkReviewList" parameterType="String" resultType="com.spring_boot_final.project.model.BookMarkReviewVO">
+		SELECT b.bookMarkReviewId, b.bookMarkReviewDate, r.reviewNoteTitle, b.reviewNoteId, 
+				r.reviewNoteId, r.reviewPageViewState, b.userId
+		fROM bookmarkReview b, reviewNote r
+		WHERE b.reviewNoteId = r.reviewNoteId 
+		AND b.userId=#{userId}
+		and r.reviewPageViewState != "DELETE" 
+		ORDER BY b.reviewNoteId
+	</select>
+	
+	<!-- (2) 북마크에 추가 -->
+	<insert id="insertBookMarkReview" parameterType="com.spring_boot_final.project.model.BookMarkReviewVO">
+		INSERT INTO bookmarkReview (userId, reviewNoteId)
+		VALUES (#{userId}, #{reviewNoteId})
+	</insert>
+	
+	<!-- (3) 북마크 목록에 동일한 전시가 있는지 확인 -->
+	<select id="checkBookMarkReview" parameterType="hashmap" resultType="int">
+		SELECT COUNT(*)
+		FROM bookmarkReview b, reviewNote r
+		WHERE b.reviewNoteId=#{reviewNoteId} 
+		AND b.userId=#{userId}
+		and r.reviewPageViewState != "DELETE" 
+	</select>
+
+  
+    <delete id="deleteBookMarkReview" parameterType="com.spring_boot_final.project.model.BookMarkReviewVO">
+        <![CDATA[
+        delete 
+        from bookmarkReview
+        where bookMarkReviewId = #{bookMarkReviewId}
+         and userId = #{userId};
+        ]]>
+    </delete>
+    
+    <select id="selectBookMarkReview" parameterType="int" resultType="com.spring_boot_final.project.model.BookMarkReviewVO">
+        <![CDATA[
+        select *
+        from bookmarkReview
+        where bookMarkReviewId = #{bookMarkReviewId}
+        ]]>
+    </select>
+     
+</mapper> 

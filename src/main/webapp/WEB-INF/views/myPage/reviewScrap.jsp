@@ -6,18 +6,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>arTchive / 마이페이지 - 전시 리뷰(댓글)</title>
+<title>arTchive / 마이페이지 - 전시 리뷰(스크랩)</title>
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/tools/reset.css'/>" />
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/common.css'/>" />
 <link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/myPage/reviewComment.css'/>" />
+	href="<c:url value='/css/myPage/reviewScrap.css'/>" />
 <script src="https://kit.fontawesome.com/50d21a2bed.js"
 	crossorigin="anonymous"></script>
 <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
-<script src="<c:url value='/js/myPage/reviewComment.js'/>"></script>
-
+<script src="<c:url value='/js/myPage/bookMarkReview.js'/>"></script>
 </head>
 <body>
 	<div class="wrapper">
@@ -50,17 +49,17 @@
 						<h2>전시 리뷰</h2>
 						<p class="line">
 						<div class="titleBox">
-							<a href="<c:url value='/myPage/reviewScrap'/>">스크랩</a>
+							<a href="<c:url value='/myPage/reviewScrap'/>">스크랩</a> 
 							<a href="<c:url value='/myPage/review'/>">게시글</a> 
 							<a href="<c:url value='/myPage/reviewComment'/>">댓글</a> 
 						</div>
 						<!-- titleBox -->
-						
+
 						<div class="tableBox">
 							<table>
 								<thead>
 									<tr>
-										<th>내용</th>
+										<th>제목</th>
 										<th>등록일</th>
 										<th>상태</th>
 									</tr>
@@ -68,29 +67,32 @@
 								</thead>
 								<tbody>
 									<c:choose>
-										<c:when test="${empty reviewCmtList}">
+
+										<c:when test="${empty bookMarkReviewList}">
 											<tr>
-												<td colspan="3">작성한 댓글 내역이 없습니다.</td>
+												<td colspan="3">작성한 전시 리뷰가 없습니다.</td>
 											</tr>
 										</c:when>
+
+
 										<c:otherwise>
-											<c:forEach items="${reviewCmtList}" var="reviewCmtList"
-												varStatus="status">
+											<c:forEach items="${bookMarkReviewList}" var="bookMarkReviewList" varStatus="status">
 												<tr>
 													<td><a
-														href="<c:url value='/review/reviewNote/${reviewCmtList.reviewNoteId}'/>">${reviewCmtList.reviewComment}</a></td>
-													<td><fmt:formatDate
-															value="${reviewCmtList.reviewCommentCreatedDate}"
+														href="<c:url value='/review/reviewNote/${bookMarkReviewList.reviewNoteId}'/>">${bookMarkReviewList.reviewNoteTitle}</a></td>
+													<td><fmt:formatDate value="${bookMarkReviewList.bookMarkReviewDate}"
 															pattern="yyyy-MM-dd" /></td>
 													<td><input type="button" id="submitBtn"
 														name="submitBtn" class="white-btn"
-														onclick="deleteMpReviewComment(${reviewCmtList.reviewCommentId})" value="삭제"></td>
+														onclick="deleteBookMarkReview(${bookMarkReviewList.bookMarkReviewId})" value="삭제"></td>
 												</tr>
 											</c:forEach>
 										</c:otherwise>
+
 									</c:choose>
 								</tbody>
 							</table>
+
 						</div>
 						<!--tableBox -->
 					</div>

@@ -3,7 +3,10 @@ package com.spring_boot_final.project.controller.exhbn;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
+import com.spring_boot_final.project.model.ReviewNoteVO;
+import com.spring_boot_final.project.service.ReviewNoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,17 +23,35 @@ public class ExhbnViewController {
 
 	@Autowired
 	ExhbnService service;
-	
- 
+
+    @Autowired
+    ReviewNoteService reviewService;
 
 
-	// detail page view
+
+    // detail page view
 	@GetMapping("/exhbn/detail/{id}")
 	public String detailTestView(@PathVariable int id, Model model) {
 
 		ExhbnVO vo = service.selectDetailData(id);
 		model.addAttribute("exhbn", vo);
 
+        List<ReviewNoteVO> reviewNoteList = reviewService.exhbnReviewNoteList(id);
+
+        for (ReviewNoteVO reviewNoteVO : reviewNoteList) {
+            // thumbnail test 새힘
+            int begin = reviewNoteVO.getReviewNote().indexOf("<img");
+            if (begin > 0) {
+                int begin1 = reviewNoteVO.getReviewNote().indexOf("src", begin) + 5;
+                int end = reviewNoteVO.getReviewNote().indexOf("\"", begin1);
+                reviewNoteVO.setPreView(reviewNoteVO.getReviewNote().substring(begin1, end));
+            }
+            if (reviewNoteVO.getPreView() == null) {
+                reviewNoteVO.setPreView(reviewNoteVO.getExhbnImgUrl());
+            }
+            // thumbnail end
+        }
+        model.addAttribute("reviewList", reviewNoteList);
 		return "detail";
 	}
 

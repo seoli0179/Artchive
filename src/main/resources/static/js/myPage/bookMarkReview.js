@@ -5,18 +5,18 @@
  $(document).ready(function () {
 });
 
-function deleteBookMarkCourse(bookmarkCourseId) {
+function deleteBookMarkReview(bookMarkReviewId) {
 
-    if (confirm("해당 코스를 삭제하시겠습니까?")) {
+    if (confirm("해당 코스 리뷰를 삭제하시겠습니까?")) {
         $.ajax({
             type: "POST",
-            url: "/deleteBookMarkCourse",
+            url: "/deleteBookMarkReview",
             data: {
-                 "bookmarkCourseId": bookmarkCourseId
+                 "bookMarkReviewId": bookMarkReviewId
             }, success: function (data) {
                 if (data == "SUCCESS") {
                     alert("삭제 완료!");
-                    location.href="/myPage/courseScrap" 
+                    location.href="/myPage/reviewScrap" 
                    
                 } else {
                     alert("삭제 실패!");

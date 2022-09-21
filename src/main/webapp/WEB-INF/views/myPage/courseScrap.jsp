@@ -38,7 +38,7 @@
 							<li><a href="<c:url value='/myPage/myCourse'/>"><i class="fa-solid fa-route"></i> 내 코스</a></li>
 							<li><a href="<c:url value='/myPage/recmd'/>"> <i class="fa-solid fa-thumbs-up"></i> 추천 콘텐츠</a></li>
 							<li><a href="<c:url value='/myPage/post'/>"><i class="fa-solid fa-pen"></i> 게시판</a></li>
-							<li><a href="<c:url value='/myPage/review'/>"><i class="fa-solid fa-star"></i> 전시 리뷰</a></li>
+							<li><a href="<c:url value='/myPage/reviewScrap'/>"><i class="fa-solid fa-star"></i> 전시 리뷰</a></li>
 							<li><a href="<c:url value='/myPage/check'/>"><i class="fa-solid fa-gears"></i> 개인정보 수정</a></li>
 							<li><a href="<c:url value='/myPage/check2'/>"><i class="fa-solid fa-unlock-keyhole"></i> 비밀번호 설정</a></li>
 							<li><a href="<c:url value='/myPage/withdraw'/>"><i class="fa-solid fa-right-from-bracket"></i> 회원 탈퇴</a></li>
@@ -47,7 +47,7 @@
 
 					<div class="myPageBox">
 
-						<h2>내 전시</h2>
+						<h2>전시 리뷰</h2>
 						<p class="line">
 						<div class="titleBox">
 							<a href="<c:url value='/myPage/myCourse'/>">작성한 코스</a> 
@@ -72,7 +72,7 @@
 
 										<c:when test="${empty bookMarkCourseList}">
 											<tr>
-												<td colspan="3">관심 등록한 코스가 없습니다.</td>
+												<td colspan="3">관심 등록한 리뷰가 없습니다.</td>
 											</tr>
 										</c:when>
 
