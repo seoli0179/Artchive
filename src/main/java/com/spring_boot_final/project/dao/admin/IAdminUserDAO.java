@@ -10,6 +10,7 @@ public interface IAdminUserDAO {
 
     ArrayList<UserVO> UserSelectAll();
 
+    UserVO selectUser(String userId);
     String SelectUserRoll(String userId);
     void UpdateUser(UserVO vo);
 }

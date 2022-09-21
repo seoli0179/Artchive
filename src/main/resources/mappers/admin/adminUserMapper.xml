@@ -14,6 +14,12 @@
         ]]>
     </select>
 
+    <select id="selectUser" parameterType="string" resultType="com.spring_boot_final.project.model.UserVO">
+        select *
+        from user
+        where userId = #{userId}
+    </select>
+
     <select id="UserSelectAll"
             resultType="com.spring_boot_final.project.model.UserVO">
         <![CDATA[
@@ -27,10 +33,11 @@
 
     <update id="UpdateUser" parameterType="com.spring_boot_final.project.model.UserVO">
         UPDATE user
-        SET userState = #{userState},
-            userEmail = #{userEmail},
-            userRoll = #{userRoll},
-            userNickname = #{userNickname}
+        SET userState    = #{userState},
+            userEmail    = #{userEmail},
+            userRoll     = #{userRoll},
+            userNickname = #{userNickname},
+            userName = #{userName}
         WHERE userId = #{userId}
     </update>
 

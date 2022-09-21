@@ -58,7 +58,7 @@ public class adminViewController {
     @RequestMapping("/admin/index")
     public String adminMain(HttpSession session) {
         if (adminCheck(session))
-            return "admin/adminMain";
+            return "admin/adminUser";
         else
             return "error";
     }
@@ -147,6 +147,12 @@ public class adminViewController {
             return "admin/adminWriteEvent";
         else
             return "error";
+    }
+
+    @RequestMapping("/admin/logout")
+    public String adminLogout(HttpSession session) {
+        session.invalidate();
+        return "/index";
     }
 
 }

@@ -35,6 +35,21 @@ public class adminUserController {
         return "/admin/result/user/userTable";
     }
 
+    @RequestMapping("/admin/user/updateview")
+    public String adminUserUpdate(
+            @RequestParam("userId") String userId,
+            Model model,
+            HttpSession session
+    ) {
+
+        model.addAttribute("user", adminUserService.selectUser(userId));
+
+        if (adminCheck(session))
+            return "admin/result/user/adminUpdateUser";
+        else
+            return "error";
+    }
+
     @RequestMapping("/admin/user/update")
     @ResponseBody
     public boolean UserUpdate(
@@ -43,6 +58,7 @@ public class adminUserController {
             @RequestParam("userRoll") String userRoll,
             @RequestParam("userState") String userState,
             @RequestParam("userNickname") String userNickname,
+            @RequestParam("userName") String userName,
             HttpSession session
     ) {
 
@@ -57,6 +73,7 @@ public class adminUserController {
         vo.setUserRoll(RollState.valueOf(userRoll));
         vo.setUserState(userState);
         vo.setUserNickname(userNickname);
+        vo.setUserName(userName);
 
         return adminUserService.UpdateUser(vo);
 

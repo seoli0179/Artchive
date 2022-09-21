@@ -21,6 +21,10 @@ public class AdminUserService {
         return dao.UserSelectAll();
     }
 
+    public UserVO selectUser(String userId){
+        return dao.selectUser(userId);
+    }
+
     public boolean SelectUserRoll(String userId){
         if(dao.SelectUserRoll(userId).equals("ADMIN")){
             return true;

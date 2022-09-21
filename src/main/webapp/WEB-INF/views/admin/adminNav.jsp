@@ -26,8 +26,7 @@
     <div>
         <ul class="menu-footer">
             <li><a href="<c:url value='/'/>">Artchive 이동</a></li>
-            <li><a href="#">웹페이지 관리</a></li>
-            <li><a href="#">로그아웃</a></li>
+            <li><a href="<c:url value='/admin/logout'/>">로그아웃</a></li>
         </ul>
     </div>
 </nav>
