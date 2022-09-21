@@ -203,6 +203,7 @@ public class ExhbnViewController {
 			@RequestParam("exhbnTitle") String title, 
 			@RequestParam("exhbnArea") String exWhere,
 			@RequestParam("exhbnPrice") String exPrice,
+			@RequestParam("exWhen") String exWhen,
 
 			/*
 			 * @RequestParam("exWhen") String exWhen,
@@ -210,7 +211,7 @@ public class ExhbnViewController {
 			Model model
 			 ) {
 		
-		ArrayList<ExhbnVO> voList = service.exhbnSearch2(title, exWhere.trim(), exPrice);
+		ArrayList<ExhbnVO> voList = service.exhbnSearch2(title, exWhere.trim(), exPrice, exWhen);
 		System.out.println(voList.size());
 		System.out.println(voList.get(0).getExhbnTitle());
 		
@@ -218,6 +219,7 @@ public class ExhbnViewController {
 		 System.out.println(title); 
 		 System.out.println(exWhere+"/");
 		 System.out.println(exPrice);
+		 System.out.println(exWhen);
 		 
 		model.addAttribute("exhbnSearch2", voList);
 		  

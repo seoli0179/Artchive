@@ -190,7 +190,7 @@
  		var title2 = $('#inner-searchbar2').val();
  		var exWhere = $('#result4').text();
  		var exPrice = $('#result2').text();
-// 		var exWhen = $('#result5').text();
+ 		var exWhen = $('#result5').text();
 		// 기본 기능 중단
  		//event.preventDefault();
  		$.ajax({
@@ -200,7 +200,8 @@
             data: {
                 "exhbnTitle": title2,
                 "exhbnArea" : exWhere,
-                "exhbnPrice": exPrice
+                "exhbnPrice": exPrice,
+                "exWhen" : exWhen
                },
 
             success: function (result_detail) {

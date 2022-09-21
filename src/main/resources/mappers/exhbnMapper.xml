@@ -213,9 +213,19 @@
 		exhbnTitle like CONCAT('%',#{Title},'%')
 		and
 		exhbnArea like CONCAT('%',#{ExWhere},'%')
-		<!-- and
-		 exhbnPrice = '무료' -->
-
+		<choose>
+            <when test="ExPrice == '무료'">
+				and exhbnPrice1 = 0
+            </when>
+             <when test="ExPrice == '유료'">
+				and exhbnPrice1 != 0
+            </when>
+            <otherwise>
+				and exhbnArea like CONCAT('%',#{ExWhere},'%')
+            </otherwise>
+       	</choose>
+       	 	
+		
 		ORDER BY exhbnId DESC limit 9
 	</select>
 </mapper>
