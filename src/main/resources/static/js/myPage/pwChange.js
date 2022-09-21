@@ -4,7 +4,37 @@
  
  $(document).ready(function(){
  	
+ 	// 비밀번호 view
+ 	$('#fa-eye-pw').show();
+    $('#eye-slash-pw').hide();
+
+    $('#fa-eye-pw').on('click', function () {
+        $('#fa-eye-pw').hide();
+        $('#eye-slash-pw').show();
+        $('#userPw').prop('type', 'text');
+    });
+
+    $('#eye-slash-pw').on('click', function () {
+        $('#fa-eye-pw').show();
+        $('#eye-slash-pw').hide();
+        $('#userPw').prop('type', 'password');
+    });
  	
+ 	// 비밀번호 확인 view
+ 	$('#fa-eye').show();
+    $('#fa-eye-slash').hide();
+
+    $('#fa-eye').on('click', function () {
+        $('#fa-eye').hide();
+        $('#fa-eye-slash').show();
+        $('#userPwCfm').prop('type', 'text');
+    });
+
+    $('#fa-eye-slash').on('click', function () {
+        $('#fa-eye').show();
+        $('#fa-eye-slash').hide();
+        $('#userPwCfm').prop('type', 'password');
+    });
  	
  	// 버튼 클릭시
 	$('#editBtn').on('click', function () {
