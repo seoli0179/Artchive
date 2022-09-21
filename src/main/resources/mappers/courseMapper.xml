@@ -51,11 +51,11 @@
     <insert id="insertCourse" parameterType="com.spring_boot_final.project.model.CourseVO">
         <![CDATA[
         INSERT INTO course
-            (userId, exhbnId, courseTitle, courseTag, courseState,
+            (userId, exhbnId, courseTitle, courseTag,
              -- CourseListItemVO
              placeNames, categoryNames, phones, addressNames, roadAddressNames,
              postionX, positionY, placeUrls, placeMemos)
-        VALUES (#{userId}, #{exhbnId}, #{courseTitle}, #{courseTag}, 'POST',
+        VALUES (#{userId}, #{exhbnId}, #{courseTitle}, #{courseTag},
                 -- CourseListItemVO
                 #{placeNames}, #{categoryNames}, #{phones}, #{addressNames}, #{roadAddressNames},
                 #{postionX}, #{positionY}, #{placeUrls}, #{placeMemos});
