@@ -37,6 +37,8 @@
         </div>
         <div class="category">
             <select name="category" id="category">
+                <option value="NOTICE">공지</option>
+                <option value="EVENT">이벤트</option>
                 <option value="FREE">잡담</option>
                 <option value="REVIEW">후기</option>
             </select>

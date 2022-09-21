@@ -10,6 +10,7 @@
 	body {
 		margin:0 auto;
 		height:100%;
+		width:100%;
 	}
 	
 	.uplaodBox {
@@ -69,17 +70,19 @@
 	body {
 		margin:0 auto;
 		height:100%;
+		width:100%;
 	}
 	
 	.uplaodBox {
-		margin:10% auto;
+		/* margin:10% auto; */
+		margin:5% 6% 5%;
 		background: #fff;
 		border: 0 none;
 		border-radius: 3px;
 		box-shadow: 0 0 15px 1px rgb(0 0 0/ 40%);
 		padding: 40px 100px;
 		box-sizing: border-box;
-		width: 40%;
+		width: 60%;
 		height:100%;
 	}
 	span {

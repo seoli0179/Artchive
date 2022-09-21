@@ -30,7 +30,10 @@
     <div id="slideShowBox">
         <div id="slidePanel">
             <div id="slideImage-box1" class="slideImage-box" style="background-color: #AEA2E4;">
-                <img src="<c:url value="/image/banners/banner_ex0.png"/>" class="slideImage">
+                <a href="<c:url value='/myPage/OCRForm'/>" target="blank"
+					onClick="window.open(this.href, '', 'width=800, height=800'); return false;">
+					 <img src="<c:url value="/image/banners/banner_ex0.png"/>" class="slideImage">	
+				</a>
             </div>
             <div id="slideImage-box2" class="slideImage-box">
                 <img src="<c:url value="/image/banners/banner_ex1.png"/>" class="slideImage">
@@ -110,9 +113,10 @@
                                 ${note.note}
                         </div>
                         <div class="info">
-                            by&nbsp;<div class="userName">${note.userNickname}</div>&nbsp;&middot;&nbsp;<div
-                                class="createdAt"><fmt:formatDate pattern="MM-dd" value="${note.noteCreatedDate }"/>
-                        </div>
+                            <div class="userName">${note.userNickname}</div>&nbsp;&nbsp;
+                            
+                        </div><br>
+                        	<div class="createdAt"><fmt:formatDate pattern="MM-dd" value="${note.noteCreatedDate }"/>
                         </div>
                     </div>
                 </div>

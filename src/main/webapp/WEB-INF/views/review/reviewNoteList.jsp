@@ -20,6 +20,8 @@
         
         <!-- reviewList -->
         <script src="<c:url value='/js/review/reviewList.js'/>"></script>
+        <script src="<c:url value='/js/course/courseMainSearch.js'/>"></script>
+        <script src="<c:url value='/js/review/reviewLike.js'/>"></script>
 
         <link rel="stylesheet" type="text/css" href="<c:url value='/tools/reset.css'/>"/>
         <link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>"/>
@@ -56,17 +58,17 @@
                 <!-- area -->
                 <section id="searchAreaBox">
                     <div id="searchArea">
-                        <div id="lateView" class="AREA selected">
+                        <div id="lateView" class="AREA selected" onclick="sortMove('lateView')">
                             <ul>
                                 <li><a href="#">최신순</a></li>
                             </ul>
                         </div>
-                        <div id="mostView" class="AREA">
+                        <div id="mostView" class="AREA" onclick="sortMove('mostView')">
                             <ul>
                                 <li><a href="#">댓글순</a></li>
                             </ul>
                         </div>
-                        <div id="likeView" class="AREA">
+                        <div id="likeView" class="AREA" onclick="sortMove('likeView')">
                             <ul>
                                 <li><a href="#">좋아요순</a></li>
                             </ul>

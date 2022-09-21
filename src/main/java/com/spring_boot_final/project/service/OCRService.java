@@ -48,7 +48,8 @@ public class OCRService {
 			json.put("requestId", UUID.randomUUID().toString());
 			json.put("timestamp", System.currentTimeMillis());
 			JSONObject image = new JSONObject();
-			image.put("format", "jpg");
+			// image.put("format", "jpg");
+			image.put("format", "png");
 			image.put("name", "demo");
 			JSONArray images = new JSONArray();
 			images.put(image);
@@ -139,15 +140,13 @@ public class OCRService {
 		 TicketVO vo = new TicketVO();
 		 
 		String place = fieldObj.getJSONObject(0).getString("inferText");
-		String date = fieldObj.getJSONObject(1).getString("inferText");
-		String number = fieldObj.getJSONObject(2).getString("inferText");
-		
+		String number = fieldObj.getJSONObject(1).getString("inferText");
+		String date = fieldObj.getJSONObject(2).getString("inferText");
 		
 		 vo.setTitle(titleObj);
 		 vo.setPlace(place);
-		 vo.setDate(date);
 		 vo.setNumber(number);
-		
+		 vo.setDate(date);
 		
 		System.out.println(vo);
 		return vo;

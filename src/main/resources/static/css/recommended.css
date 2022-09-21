@@ -10,9 +10,10 @@
 	list-style: none;
 }
 
-#recommended div > ul > li > img {
+#recommended >  div > ul > li > img {
 	width: 100%;
 	height: 900px;
+	filter: brightness(80%); 
 }
 
 #recommended1{

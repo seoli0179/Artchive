@@ -15,8 +15,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.spring_boot_final.project.model.CourseCommentVO;
 import com.spring_boot_final.project.model.CourseListItemVO;
 import com.spring_boot_final.project.model.CourseVO;
+import com.spring_boot_final.project.model.NoteVO;
 import com.spring_boot_final.project.model.ReviewCommentVO;
 import com.spring_boot_final.project.model.ReviewNoteVO;
+import com.spring_boot_final.project.model.summary.DocumentVO;
+import com.spring_boot_final.project.model.summary.TotalVO;
 import com.spring_boot_final.project.service.CourseService;
 import com.spring_boot_final.project.service.ExhbnService;
 import com.spring_boot_final.project.service.ReviewCommentService;
@@ -58,7 +61,23 @@ public class reviewViewController {
 		
  		
  	ArrayList<ReviewNoteVO> reviewNoteList = reviewnoteService.reviewNoteList();
+ 	
+ 	for (int i = 0; i < reviewNoteList.size(); i++) {
+        String tagRemove = reviewNoteList.get(i).getReviewNote().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
+        
 
+        DocumentVO docVo = new DocumentVO();
+        docVo.setTitle(reviewNoteList.get(i).getReviewNoteTitle());
+
+        // html 태그 제거
+        docVo.setContent(tagRemove);    
+    
+        if (session.getAttribute("sid") != null)
+        	reviewNoteList.get(i).setReviewNoteLikeCheck(reviewnoteService.reviewNoteLikeCheck(reviewNoteList.get(i), session.getAttribute("sid").toString()));
+    }
+        
+       
+ 	
  	model.addAttribute("reviewNoteList", reviewNoteList);
  	System.out.println(reviewNoteList.size());
  	
@@ -79,7 +98,11 @@ public class reviewViewController {
  		ReviewNoteVO vo = reviewnoteService.selectReviewNote(reviewNoteId);
  		
  		 if (vo.getReviewPageViewState() != ViewState.POST) { return "error"; }
- 		
+
+ 		if (session.getAttribute("sid") != null)
+ 			vo.setReviewNoteLikeCheck(reviewnoteService.reviewNoteLikeCheck(vo, session.getAttribute("sid").toString()));
+ 		 
+ 		 
  		String[] siteName = vo.getPlaceNames().split(";;");
  		
  		System.out.println(siteName);
@@ -197,6 +220,24 @@ public class reviewViewController {
 	  	 
 	  	
 	  	return "review/reviewSearch";
+	  	}
+	  	
+	  	//코스에서 리뷰게시판 검색
+	  	@RequestMapping("/review/courseReviewNoteSearch")
+	  	public String courseReviewNoteSearch(@RequestParam("reviewNoteTitle") String reviewNoteTitle, Model model) {
+	 		
+	  		
+	  	ArrayList<ReviewNoteVO> reviewNoteSearch = reviewnoteService.reviewNoteSearch(reviewNoteTitle);
+	
+	  	model.addAttribute("reviewNoteList", reviewNoteSearch);
+	  	
+	  	
+	  	 for(int i=0; i<reviewNoteSearch.size();i++) {
+	  	 System.out.println(reviewNoteSearch.get(i).getReviewNoteId()); }
+	  	 
+	  	 
+	  	
+	  	return "review/reviewNoteList";
 	  	}
 	  	
 	  	// 리뷰게시판 탭 메뉴 정렬

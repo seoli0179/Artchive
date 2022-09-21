@@ -69,10 +69,10 @@
 		
 		 <div class="container">
 	        <ul class="progressbar">
-	            <li id="start">start</li>
+	            <li id="start" >start</li>
 	            
 	            <c:forEach var="site" items="${siteName}" varStatus="status">
-	            <li class="courseBox">${site}</li>
+	            <li class="courseBox"><div id="span">${site}</div></li>
 	            
 	         	</c:forEach>
 	         	

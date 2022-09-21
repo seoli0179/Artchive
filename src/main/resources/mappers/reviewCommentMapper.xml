@@ -46,9 +46,11 @@
 	<select id="selectMpReviewComment" parameterType="string" resultType="com.spring_boot_final.project.model.ReviewCommentVO">
         <![CDATA[
         select *
-        from reviewComment
-        where userId = #{userId}
-        and reviewPageViewState = 'POST'
+        from reviewComment c, reviewNote n
+        where c.userId = #{userId}
+        and c.reviewPageViewState = 'POST'
+        and n.reviewPageViewState = 'POST'
+        and c.reviewNoteId = n.reviewNoteId
         ORDER by reviewCommentCreatedDate DESC
         ]]>
     </select>
