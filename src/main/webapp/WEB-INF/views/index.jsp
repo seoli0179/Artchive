@@ -116,7 +116,7 @@
                 <div class="exMaintext">
                     <ul>
                         <li class="MainText">추천하는 전시</li>
-                        <li class="exhibitionMore"><a href="#">더보기 ></a></li>
+                        <li class="exhibitionMore"><a href="#"></a></li>
                     </ul>
                 </div>
 
@@ -135,7 +135,7 @@
                     <ul>
                         <li class="exUserName">${sessionScope.username}</li>
                         <li class="MainText">님에게 추천하는 전시</li>
-                        <li class="exhibitionMore"><a href="#">더보기 ></a></li>
+                        <li class="exhibitionMore"><a href="#"></a></li>
                     </ul>
                 </div>
 
