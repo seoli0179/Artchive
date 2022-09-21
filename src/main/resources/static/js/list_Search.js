@@ -213,6 +213,7 @@
                 "exhbnPrice": exPrice,
                 "exWhen" : exWhen
                },
+               
 
             success: function (result_detail) {
             // alert("검색 결과를 보여드릴게요");

@@ -62,7 +62,20 @@ public class ExhbnViewController {
 
 		return "searchResult";
 	}
-	
+	@RequestMapping("/exhbn/tab_exhbnSearch0")
+	public String tab_ExhbitonSearch0(@RequestParam("exhbnType") String type, Model model) {
+		ArrayList<ExhbnVO> tab_exhbnSearch = service.TabSearch(type);
+		model.addAttribute("exhbnSearchList", tab_exhbnSearch);
+
+		System.out.println(type);
+
+		for (int i = 0; i < tab_exhbnSearch.size(); i++) {
+			System.out.println(tab_exhbnSearch.get(i).getExhbnId());
+		}
+
+		return "searchResult";
+
+	}
 
 	@RequestMapping("/exhbn/tab_exhbnSearch")
 	public String tab_ExhbitonSearch(@RequestParam("exhbnType") String type, Model model) {
@@ -219,7 +232,8 @@ public class ExhbnViewController {
 		 System.out.println(title); 
 		 System.out.println(exWhere+"/");
 		 System.out.println(exPrice);
-		 System.out.println(exWhen);
+	//	 System.out.println(exWhen);
+		 
 		 
 		model.addAttribute("exhbnSearch2", voList);
 		  

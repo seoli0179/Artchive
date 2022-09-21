@@ -97,6 +97,20 @@
 	exhbnTitle like CONCAT('%',#{title},'%')
 	</select>
 
+		<select id="tab_ExhbnSearch0" parameterType="String" resultType="com.spring_boot_final.project.model.ExhbnVO">
+	select
+	exhbnID,
+	exhbnTitle,
+	exhbnPlace,
+	exhbnArea,
+	exhbnImgUrl,
+	exhbnStartDate,
+	exhbnEndDate,
+	exhbnUrl,
+	exhbnPrice
+	From exhbn
+	 ORDER BY exhbnId DESC limit 9
+	</select>
 	
 	<select id="tab_ExhbnSearch" parameterType="String" resultType="com.spring_boot_final.project.model.ExhbnVO">
 	select
