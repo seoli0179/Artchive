@@ -29,4 +29,57 @@
         values (#{userId}, #{noteTitle}, #{note}, 'EVENT', #{eventStartDate}, #{eventEndDate})
     </insert>
 
+    <select id="NoteSelectFilter"
+            parameterType="hashmap"
+            resultType="com.spring_boot_final.project.model.NoteVO">
+        SELECT *
+        FROM note
+        <choose>
+            <when test="searchType=='전체'">
+                where noteTitle like CONCAT('%', #{searchValue}, '%')
+            </when>
+            <when test="searchType=='번호'">
+                where noteId = #{searchValue}
+            </when>
+            <when test="searchType=='유저'">
+                where userId like CONCAT('%', #{searchValue}, '%')
+            </when>
+            <when test="searchType=='제목'">
+                where noteTitle like CONCAT('%', #{searchValue}, '%')
+            </when>
+            <when test="searchType=='내용'">
+                where note like CONCAT('%', #{searchValue}, '%')
+            </when>
+        </choose>
+        and category = #{category}
+        order by noteId desc
+        LIMIT #{limit}
+        OFFSET #{page}
+    </select>
+
+    <select id="NoteMaxCount"
+            parameterType="hashmap"
+            resultType="int">
+        SELECT count(*)
+        FROM note
+        <choose>
+            <when test="searchType=='전체'">
+                where noteTitle like CONCAT('%', #{searchValue}, '%')
+            </when>
+            <when test="searchType=='번호'">
+                where noteId = #{searchValue}
+            </when>
+            <when test="searchType=='유저'">
+                where userId = #{searchValue}
+            </when>
+            <when test="searchType=='제목'">
+                where noteTitle like CONCAT('%', #{searchValue}, '%')
+            </when>
+            <when test="searchType=='내용'">
+                where note like CONCAT('%', #{searchValue}, '%')
+            </when>
+        </choose>
+        and category = #{category}
+    </select>
+
 </mapper>

@@ -54,8 +54,11 @@ public class AdminExhbnService {
         return true;
     }
 
-    public int ExhbnMaxCount() {
-        return dao.ExhbnMaxCount();
+    public int ExhbnMaxCount(String searchType, String searchValue) {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("searchType", searchType);
+        map.put("searchValue", searchValue);
+        return dao.ExhbnMaxCount(map);
     }
 
 

@@ -30,8 +30,11 @@ public class AdminReviewService {
         return dao.ReviewSelectFilter(map);
     }
 
-    public int ReviewMaxCount() {
-        return dao.ReviewMaxCount();
+    public int ReviewMaxCount(String searchType, String searchValue) {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("searchType", searchType);
+        map.put("searchValue", searchValue);
+        return dao.ReviewMaxCount(map);
     }
 
 

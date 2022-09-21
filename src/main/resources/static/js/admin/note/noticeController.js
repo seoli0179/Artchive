@@ -9,7 +9,7 @@ $(document).ready(function () {
             "page": 1,
             "searchType" : "전체",
             "searchValue" : "",
-            "category" : "FREE"
+            "category" : "NOTICE"
         },
         dataType: "HTML",
         success: function (result) {
@@ -60,7 +60,7 @@ function pagemove(page) {
             "page": page,
             "searchType" : $('#searchType option:selected').val(),
             "searchValue" : $('#searchValue').val(),
-            "category" : "FREE"
+            "category" : "NOTICE"
         },
         dataType: "HTML",
         success: function (result) {

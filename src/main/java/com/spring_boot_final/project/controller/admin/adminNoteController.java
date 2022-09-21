@@ -36,6 +36,32 @@ public class adminNoteController {
         return "/admin/result/note/noteTable";
     }
 
+    @RequestMapping("/admin/note/select")
+    public String NoteSelectFilter(
+            @RequestParam("page") int page,
+            @RequestParam("searchType") String searchType,
+            @RequestParam("searchValue") String searchValue,
+            @RequestParam("category") String category,
+            HttpSession session,
+            Model model) {
+
+        System.out.println(searchType + "/" + searchValue + "/");
+
+        if (!adminCheck(session)) {
+            return null;
+        }
+
+        System.out.println(category);
+
+        model.addAttribute("notes", adminNoteService.NoteSelectFilter(page, 10, searchType, searchValue, category));
+        model.addAttribute("maxCount", adminNoteService.NoteMaxCount(searchType, searchValue, category) / 10 + 2);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("searchType", searchType);
+        model.addAttribute("searchValue", searchValue);
+
+        return "/admin/result/note/noticeTable";
+    }
+
     @RequestMapping("/admin/note/update")
     public boolean NoteUpdate(
             @RequestParam("noteId") String noteId,

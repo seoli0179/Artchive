@@ -12,5 +12,5 @@ public interface IAdminReviewDAO {
 
     ArrayList<ReviewNoteVO> ReviewSelectFilter(HashMap<String, Object> map);
 
-    int ReviewMaxCount();
+    int ReviewMaxCount(HashMap<String, Object> map);
 }

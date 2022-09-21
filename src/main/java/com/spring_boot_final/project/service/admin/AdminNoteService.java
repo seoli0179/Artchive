@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 @Service
 public class AdminNoteService {
@@ -21,6 +22,18 @@ public class AdminNoteService {
         return dao.NoteSelectAll();
     }
 
+    public ArrayList<ExhbnVO> NoteSelectFilter(int page, int limit, String searchType, String searchValue, String category) {
+
+        HashMap<String, Object> map = new HashMap<>();
+        System.out.println(page + "/" + limit);
+        map.put("page", --page * limit);
+        map.put("limit", limit);
+        map.put("searchType", searchType);
+        map.put("searchValue", searchValue);
+        map.put("category", category);
+
+        return dao.NoteSelectFilter(map);
+    }
     public boolean InsertNotice(NoteVO vo){
 
         try {
@@ -55,6 +68,17 @@ public class AdminNoteService {
         }
         return true;
 
+    }
+
+    public int NoteMaxCount(String searchType, String searchValue, String category) {
+
+        HashMap<String,Object> map = new HashMap<>();
+
+        map.put("searchType", searchType);
+        map.put("searchValue", searchValue);
+        map.put("category", category);
+
+        return dao.NoteMaxCount(map);
     }
 
 

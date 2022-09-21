@@ -20,8 +20,8 @@
     <option value="전체" <c:if test="${searchType=='전체'}">selected</c:if>>전체</option>
     <option value="번호" <c:if test="${searchType=='번호'}">selected</c:if>>번호</option>
     <option value="제목" <c:if test="${searchType=='제목'}">selected</c:if>>제목</option>
-    <option value="전체" <c:if test="${searchType=='타입'}">selected</c:if>>타입</option>
-    <option value="전체" <c:if test="${searchType=='내용'}">selected</c:if>>내용</option>
+    <option value="타입" <c:if test="${searchType=='타입'}">selected</c:if>>타입</option>
+    <option value="내용" <c:if test="${searchType=='내용'}">selected</c:if>>내용</option>
   </select>
   <input id="searchValue" type="text" value="${searchValue}" placeholder="검색어를 입력하세요">
   <button id="searchButton" class="searchBtn">검색</button>
@@ -37,7 +37,7 @@
   <%--      <th>전시장</th>--%>
         <th>전시 시작일</th>
         <th>전시 종료일</th>
-        <th>좋아요</th>
+<%--        <th>좋아요</th>--%>
         <th>Type</th>
         <th>관리</th>
       </tr>
@@ -51,7 +51,7 @@
     <%--      <td>${exhbn.exhbnPlace}</td>--%>
           <td><fmt:formatDate value="${exhbn.exhbnStartDate}" pattern="yy-MM-dd"/></td>
           <td><fmt:formatDate value="${exhbn.exhbnEndDate}" pattern="yy-MM-dd"/></td>
-          <td>${exhbn.exhbnLike}</td>
+<%--          <td>${exhbn.exhbnLike}</td>--%>
           <td>${exhbn.exhbnType}</td>
           <td class="btnBox">
             <button id="editBtn_${status.index}" class="editBtn">수정</button>

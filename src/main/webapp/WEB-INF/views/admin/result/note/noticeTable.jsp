@@ -12,9 +12,9 @@
 <link type="text/css" rel="stylesheet" href="<c:url value='/js/admin/module/userTable1.css'/>">
 <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 <script src="<c:url value='/js/admin/module/userTable1.js' />"></script>
-<script src="<c:url value='/js/admin/note/noteSearch.js' />"></script>
+<script src="<c:url value='/js/admin/note/noticeSearch.js' />"></script>
 
-<h1>자유 게시글 관리</h1>
+<h1>공지 게시글 관리</h1>
 
 <section class="search-container">
   <select id="searchType">
@@ -31,35 +31,35 @@
 <section class="table-container">
   <table class="resultTable">
     <thead>
-    <tr>
-      <th>번호</th>
-      <th>유저</th>
-      <th style="width: 50%;">제목</th>
-      <%--        <th>좋아요</th>--%>
-      <th>생성일</th>
-      <%--    <th>수정일</th>--%>
-      <%--        <th>이벤트 시작일</th>--%>
-      <%--        <th>이벤트 종료일</th>--%>
-      <th>상태</th>
-      <th>관리</th>
-    </tr>
-    </thead>
-    <c:forEach items="${notes}" var="note" varStatus="status">
       <tr>
-        <td>${note.noteId}</td>
-        <td>${note.userId}</td>
-        <td>${note.noteTitle}</td>
-          <%--      <td>${note.noteCommentNum}</td>--%>
-        <td><fmt:formatDate value="${note.noteCreatedDate}" pattern="yy-MM-dd hh:mm"/></td>
-          <%--    <td>${note.noteUpdatedDate}</td>--%>
-          <%--      <td>${note.eventStartDate}</td>--%>
-          <%--      <td>${note.eventEndDate}</td>--%>
-        <td>${note.pageViewState}</td>
-        <td class="btnBox">
-          <button id="bannBtn_${status.index}" class="editBtn">차단</button>
-        </td>
+        <th>번호</th>
+        <th>유저</th>
+        <th style="width: 50%;">제목</th>
+<%--        <th>좋아요</th>--%>
+        <th>생성일</th>
+    <%--    <th>수정일</th>--%>
+<%--        <th>이벤트 시작일</th>--%>
+<%--        <th>이벤트 종료일</th>--%>
+        <th>상태</th>
+        <th>관리</th>
       </tr>
-    </c:forEach>
+    </thead>
+  <c:forEach items="${notes}" var="note" varStatus="status">
+    <tr>
+      <td>${note.noteId}</td>
+      <td>${note.userId}</td>
+      <td>${note.noteTitle}</td>
+<%--      <td>${note.noteCommentNum}</td>--%>
+      <td><fmt:formatDate value="${note.noteCreatedDate}" pattern="yy-MM-dd hh:mm"/></td>
+  <%--    <td>${note.noteUpdatedDate}</td>--%>
+<%--      <td>${note.eventStartDate}</td>--%>
+<%--      <td>${note.eventEndDate}</td>--%>
+      <td>${note.pageViewState}</td>
+      <td class="btnBox">
+        <button id="bannBtn_${status.index}" class="editBtn">차단</button>
+      </td>
+    </tr>
+  </c:forEach>
   </table>
 </section>
 

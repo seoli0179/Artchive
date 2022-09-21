@@ -29,7 +29,7 @@
                 where exhbnTitle like CONCAT('%', #{searchValue}, '%')
             </when>
             <when test="searchType=='타입'">
-                where exhbnType = #{exhbnType}
+                where exhbnType = #{searchValue}
             </when>
             <when test="searchType=='내용'">
                 where exhbnDetail like CONCAT('%', #{searchValue}, '%')
@@ -40,12 +40,27 @@
         OFFSET #{page}
     </select>
 
-    <select id="ExhbnMaxCount"
+    <select id="ExhbnMaxCount" parameterType="hashmap"
             resultType="int">
-        <![CDATA[
         SELECT count(*)
         FROM exhbn
-        ]]>
+        <choose>
+            <when test="searchType=='전체'">
+                where exhbnTitle like CONCAT('%', #{searchValue}, '%')
+            </when>
+            <when test="searchType=='번호'">
+                where exhbnId = #{searchValue}
+            </when>
+            <when test="searchType=='제목'">
+                where exhbnTitle like CONCAT('%', #{searchValue}, '%')
+            </when>
+            <when test="searchType=='타입'">
+                where exhbnType = #{searchValue}
+            </when>
+            <when test="searchType=='내용'">
+                where exhbnDetail like CONCAT('%', #{searchValue}, '%')
+            </when>
+        </choose>
     </select>
 
     <update id="ExhbnUpdate" parameterType="com.spring_boot_final.project.model.ExhbnVO">

@@ -29,12 +29,24 @@
         OFFSET #{page}
     </select>
 
-    <select id="ReviewMaxCount"
+    <select id="ReviewMaxCount" parameterType="hashmap"
             resultType="int">
-        <![CDATA[
         SELECT count(*)
         FROM reviewNote
-        ]]>
+        <choose>
+            <when test="searchType=='전체'">
+                where reviewNoteTitle like CONCAT('%', #{searchValue}, '%')
+            </when>
+            <when test="searchType=='번호'">
+                where reviewNoteId = #{searchValue}
+            </when>
+            <when test="searchType=='제목'">
+                where reviewNoteTitle like CONCAT('%', #{searchValue}, '%')
+            </when>
+            <when test="searchType=='내용'">
+                where reviewNote like CONCAT('%', #{searchValue}, '%')
+            </when>
+        </choose>
     </select>
 
 </mapper>

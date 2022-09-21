@@ -4,19 +4,21 @@ $(document).ready(function () {
         if (key.keyCode == 13) {
             $.ajax({
                 type: "post",
-                url: "/admin/exhbn/select",
+                url: "/admin/note/select",
                 data: {
                     "page": 1,
                     "searchType": $('#searchType option:selected').val(),
-                    "searchValue": $('#searchValue').val()
+                    "searchValue": $('#searchValue').val(),
+                    "category" : "NOTICE"
                 },
                 dataType: "HTML",
                 success: function (result) {
-                    $('#exhbnResult').html(result);
+                    $('#noteResult').html(result);
                     var page = 1;
 
                     $('.pageNumList').empty();
                     var maxCount = $('#maxCount').val();
+                    console.log("max"+maxCount);
 
                     page *= 1;
                     page--;
@@ -52,19 +54,21 @@ $(document).ready(function () {
     $('#searchButton').on('click', function () {
         $.ajax({
             type: "post",
-            url: "/admin/exhbn/select",
+            url: "/admin/note/select",
             data: {
                 "page": 1,
                 "searchType": $('#searchType option:selected').val(),
-                "searchValue": $('#searchValue').val()
+                "searchValue": $('#searchValue').val(),
+                "category" : "NOTICE"
             },
             dataType: "HTML",
             success: function (result) {
-                $('#exhbnResult').html(result);
+                $('#noteResult').html(result);
                 var page = 1;
 
                 $('.pageNumList').empty();
                 var maxCount = $('#maxCount').val();
+                console.log("max"+maxCount);
 
                 page *= 1;
                 page--;
