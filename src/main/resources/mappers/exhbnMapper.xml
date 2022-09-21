@@ -10,25 +10,10 @@
     <insert id="insertExhbn" parameterType="com.spring_boot_final.project.model.ExhbnVO">
         <![CDATA[
         INSERT INTO exhbn (exhbnId, exhbnTitle, exhbnStartDate, exhbnEndDate, exhbnPlace, exhbnArea, exhbnPrice,
-                           exhbnUrl, exhbnPhone, exhbnImgUrl, gpsX, gpsY, exhbnPlaceUrl, exhbnPlaceAddr, exhbnType)
+                           exhbnUrl, exhbnPhone, exhbnImgUrl, gpsX, gpsY, exhbnPlaceUrl, exhbnPlaceAddr)
         VALUES (#{exhbnId}, #{exhbnTitle}, #{exhbnStartDate}, #{exhbnEndDate}, #{exhbnPlace}, #{exhbnArea},
                 #{exhbnPrice}, #{exhbnUrl}, #{exhbnPhone}, #{exhbnImgUrl}, #{gpsX}, #{gpsY}, #{exhbnPlaceUrl},
-                #{exhbnPlaceAddr}, #{exhbnType})
-        ]]>
-    </insert>
-
-    <insert id="insertInteractionDAS" parameterType="hashmap">
-        <![CDATA[
-        INSERT INTO interaction_das (USER_ID, ITEM_ID, TIMESTAMP)
-        select #{USER_ID}, #{ITEM_ID}, #{TIMESTAMP}
-        from dual
-        where not exists(
-                select *
-                from interaction_das
-                where USER_ID = #{USER_ID}
-                  and ITEM_ID = #{ITEM_ID}
-                  and TIMESTAMP = #{TIMESTAMP}
-            )
+                #{exhbnPlaceAddr})
         ]]>
     </insert>
 
@@ -40,8 +25,7 @@
         SELECT *
         FROM exhbn
         WHERE exhbnPrice1 = 0
-        ORDER BY exhbnId DESC
-        limit 9
+        ORDER BY exhbnId DESC limit 9
         ]]>
     </select>
 
@@ -97,19 +81,141 @@
         WHERE exhbnId = #{exhbnId}
         ]]>
     </update>
-    <!-- Search -->
-    <select id="ExhbnSearch" parameterType="string" resultType="com.spring_boot_final.project.model.ExhbnVO">
-        select exhbnID,
-               exhbnTitle,
-               exhbnPlace,
-               exhbnArea,
-               exhbnImgUrl,
-               exhbnStartDate,
-               exhbnEndDate,
-               exhbnUrl,
-               exhbnPrice
-        From exhbn
-        where exhbnTitle like CONCAT('%', #{title}, '%')
-    </select>
+ 	<!-- Search -->
+	<select id="ExhbnSearch" parameterType="string" resultType="com.spring_boot_final.project.model.ExhbnVO">
+	select exhbnID,
+	exhbnTitle,
+	exhbnPlace,
+	exhbnArea,
+	exhbnImgUrl,
+	exhbnStartDate,
+	exhbnEndDate,
+	exhbnUrl,
+	exhbnPrice
+	From exhbn
+	where
+	exhbnTitle like CONCAT('%',#{title},'%')
+	</select>
 
+	
+	<select id="tab_ExhbnSearch" parameterType="String" resultType="com.spring_boot_final.project.model.ExhbnVO">
+	select
+	exhbnID,
+	exhbnTitle,
+	exhbnPlace,
+	exhbnArea,
+	exhbnImgUrl,
+	exhbnStartDate,
+	exhbnEndDate,
+	exhbnUrl,
+	exhbnPrice
+	From exhbn
+	WHERE exhbnType = "박물관" 
+	 ORDER BY exhbnId DESC limit 9
+	</select>
+	
+		<select id="tab_ExhbnSearch2" parameterType="String" resultType="com.spring_boot_final.project.model.ExhbnVO">
+	select
+	exhbnID,
+	exhbnTitle,
+	exhbnPlace,
+	exhbnArea,
+	exhbnImgUrl,
+	exhbnStartDate,
+	exhbnEndDate,
+	exhbnUrl,
+	exhbnPrice
+	From exhbn
+	WHERE exhbnType = "미술" 
+	 ORDER BY exhbnId DESC limit 9
+	</select>
+	
+		<select id="tab_ExhbnSearch3" parameterType="String" resultType="com.spring_boot_final.project.model.ExhbnVO">
+	select
+	exhbnID,
+	exhbnTitle,
+	exhbnPlace,
+	exhbnArea,
+	exhbnImgUrl,
+	exhbnStartDate,
+	exhbnEndDate,
+	exhbnUrl,
+	exhbnPrice
+	From exhbn
+	WHERE exhbnType = "축제" 
+	 ORDER BY exhbnId DESC limit 9
+	</select>
+
+		<select id="tab_ExhbnSearch4" parameterType="String" resultType="com.spring_boot_final.project.model.ExhbnVO">
+	select
+	exhbnID,
+	exhbnTitle,
+	exhbnPlace,
+	exhbnArea,
+	exhbnImgUrl,
+	exhbnStartDate,
+	exhbnEndDate,
+	exhbnUrl,
+	exhbnPrice
+	From exhbn
+	WHERE exhbnType = "교육" 
+	 ORDER BY exhbnId DESC limit 9
+	</select>
+	
+	
+	<select id="tab_ExhbnSearch5" parameterType="String" resultType="com.spring_boot_final.project.model.ExhbnVO">
+	select
+	exhbnID,
+	exhbnTitle,
+	exhbnPlace,
+	exhbnArea,
+	exhbnImgUrl,
+	exhbnStartDate,
+	exhbnEndDate,
+	exhbnUrl,
+	exhbnPrice
+	From exhbn
+	WHERE exhbnType = "기타" 
+	 ORDER BY exhbnId DESC limit 9
+	</select>
+
+	
+	<select id="tab_ExhbnSearch6" parameterType="String" resultType="com.spring_boot_final.project.model.ExhbnVO">
+	select
+	exhbnID,
+	exhbnTitle,
+	exhbnPlace,
+	exhbnArea,
+	exhbnImgUrl,
+	exhbnStartDate,
+	exhbnEndDate,
+	exhbnUrl,
+	exhbnPrice
+	From exhbn 
+	WHERE exhbnType = "기타" 
+	
+	ORDER BY exhbnId DESC limit 9
+	</select>
+	
+		<select id="tab_ExhbnSearch_total" parameterType="hashmap" resultType="com.spring_boot_final.project.model.ExhbnVO">
+		select *
+		From exhbn 
+		where exhbnType = #{Type} and title=#{Title}
+		</select>
+
+	
+		<select parameterType="hashmap" id="ExhbnSearch22"
+		resultType="com.spring_boot_final.project.model.ExhbnVO">
+		select
+		*
+		from exhbn
+		where
+		exhbnTitle like CONCAT('%',#{Title},'%')
+		and
+		exhbnArea like CONCAT('%',#{ExWhere},'%')
+
+		<!-- exhbnPrice = '무료' -->
+
+		ORDER BY exhbnId DESC limit 9
+	</select>
 </mapper>
