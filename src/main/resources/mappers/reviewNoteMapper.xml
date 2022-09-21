@@ -235,5 +235,28 @@
         ORDER by reviewNoteCreatedDate DESC
         ]]>
     </select>
-	
+
+	<!-- 리뷰게시판 목록 출력하기 -->
+	<select id="exhbnReviewNoteList" parameterType="int" resultType="com.spring_boot_final.project.model.ReviewNoteVO">
+		SELECT r.reviewNoteId,
+			   r.reviewNoteTitle,
+--			   r.reviewNote,
+			   r.reviewNoteLike,
+--			   r.reviewNoteCommentNum,
+--			   r.reviewNoteCreatedDate,
+--			   r.reviewPageViewState,
+			   c.courseId,
+--			   c.placeNames,
+--			   c.addressNames,
+--			   c.courseTitle,
+--			   c.courseTag,
+			   e.exhbnId,
+			   e.exhbnImgUrl,
+			   u.userNickname
+--			   r.userId
+		FROM reviewNote r inner join course c inner join user u inner join exhbn e
+		WHERE c.courseId = r.courseId and r.userId = u.userId and r.exhbnId = e.exhbnId and r.reviewPageViewState = 'POST' and r.exhbnId = #{exhbnId}
+		order by r.reviewNoteLike DESC;
+	</select>
+
 </mapper>
