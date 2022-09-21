@@ -96,6 +96,7 @@
 	where
 	exhbnTitle like CONCAT('%',#{title},'%')
 	</select>
+
 	
 	<select id="tab_ExhbnSearch" parameterType="String" resultType="com.spring_boot_final.project.model.ExhbnVO">
 	select
@@ -125,7 +126,7 @@
 	exhbnUrl,
 	exhbnPrice
 	From exhbn
-	WHERE exhbnType = "미술전시" 
+	WHERE exhbnType = "미술" 
 	 ORDER BY exhbnId DESC limit 9
 	</select>
 	
@@ -179,7 +180,7 @@
 	</select>
 
 	
-	<select id="tab_exhbnSearch6" parameterType="String" resultType="com.spring_boot_final.project.model.ExhbnVO">
+	<select id="tab_ExhbnSearch6" parameterType="String" resultType="com.spring_boot_final.project.model.ExhbnVO">
 	select
 	exhbnID,
 	exhbnTitle,
@@ -190,15 +191,29 @@
 	exhbnEndDate,
 	exhbnUrl,
 	exhbnPrice
-	From exhbn
-	Where exhbnType = *
-	 ORDER BY exhbnId DESC limit 9
+	From exhbn 
+	WHERE exhbnType = "기타" 
+	
+	ORDER BY exhbnId DESC limit 9
 	</select>
 	
-		<!-- <select id="tab_ExhbnSearch_total" parameterType="hashmap" resultType="com.spring_boot_final.project.model.ExhbnVO">
+		<select id="tab_ExhbnSearch_total" parameterType="hashmap" resultType="com.spring_boot_final.project.model.ExhbnVO">
 		select *
 		From exhbn 
 		where exhbnType = #{Type} and title=#{Title}
 		</select>
- -->
+
+	
+	<select id="ExhbnSearch22" parameterType="hashmap" resultType="com.spring_boot_final.project.model.ExhbnVO">
+	select 
+	*
+	from exhbn
+	where
+	exhbnTitle like CONCAT('%',#{Title},'%')  and
+	exhbnArea like CONCAT('%',#{ExWhere},'%')  and
+	exhbnPrice = "무료" 
+
+ 
+	
+	</select>
 </mapper>

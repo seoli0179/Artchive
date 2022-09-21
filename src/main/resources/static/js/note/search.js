@@ -25,7 +25,7 @@ $(document).ready(function () {
     // console.log((parseInt(test / 5) + 1) * 5);
     // console.log((parseInt(test / 5) + 1) * 5 + 1);
 
-    var temp = parseInt(test / 5) * 5;
+    var temp = parseInt(test / 5) * 5; 
     temp = (temp == 0) ? 1 : temp;
     $('#page-box').append("<div class='nav_btn' onclick='pagemove(" + temp + ")'>" + "<" + "</div>");
 
