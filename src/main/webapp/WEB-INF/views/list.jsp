@@ -240,9 +240,9 @@
 <!-- area -->
 <div id="searchAreaBox">
 	<div id="searchArea">
-		<div id="allArea" class="AREA tabTag">
+		<div id="allArea" class="AREA tabTag selected">
 			<ul>
-				<li><a type="button" href="#" onclick="typeClick('전체')"><i class="fa-solid fa-border-all"></i>전체</a></li>
+				<li><a type="button" href="#" onclick="typeClick('전체')"><i class="fa-solid fa-border-all "></i>전체</a></li>
 			
 			</ul>
 		</div>

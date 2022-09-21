@@ -66,6 +66,8 @@
 // 박물관 탭
 
  	$('#Museum').on('click', function(){
+ 		$('.AREA').removeClass('selected');
+	 	$('#Museum').addClass('selected');
  		var type = $('#Museum').on('click').val();
  		$.ajax({
             type: "post",
@@ -90,6 +92,8 @@
  
 
  	$('#Art_Exhbn').on('click', function(){
+ 		$('.AREA').removeClass('selected');
+	 	$('#Art_Exhbn').addClass('selected');
  		var type = $('#Art_Exhbn').on('click').val();
  		$.ajax({
             type: "post",
@@ -115,6 +119,8 @@
  
 
  	$('#Festival').on('click', function(){
+ 		$('.AREA').removeClass('selected');
+	 	$('#Festival').addClass('selected');
  		var type = $('#Festival').on('click').val();
  		$.ajax({
             type: "post",
@@ -139,6 +145,8 @@
  
 
  	$('#Edu_Ex').on('click', function(){
+ 		$('.AREA').removeClass('selected');
+	 	$('#Edu_Ex').addClass('selected');
  		var type = $('#Edu_Ex').on('click').val();
  		$.ajax({
             type: "post",
@@ -163,6 +171,8 @@
  
 
  	$('#Etc_Ex').on('click', function(){
+ 		$('.AREA').removeClass('selected');
+	 	$('#Etc_Ex').addClass('selected');
  		var type = $('#Etc_Ex').on('click').val();
  		
  		$.ajax({
