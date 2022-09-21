@@ -35,6 +35,15 @@
                 <th colspan="4" class="table-title">기본 정보</th>
             </tr>
             <tr>
+                <th>상태</th>
+                <td>
+                    <select id="viewState">
+                        <option value="POST" <c:if test="${exhbn.viewState == 'POST'}">selected</c:if>>개시</option>
+                        <option value="DELETE" <c:if test="${exhbn.viewState == 'DELETE'}">selected</c:if>>삭제</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <th>전시 아이디</th>
                 <td style="color: white;">${exhbn.exhbnId}</td>
                 <th>전시관분류</th>
@@ -45,7 +54,8 @@
                         <option value="미술전시" <c:if test="${exhbn.exhbnType == '미술전시'}">selected</c:if>>미술전시</option>
                         <option value="교육" <c:if test="${exhbn.exhbnType == '교육'}">selected</c:if>>교육</option>
                         <option value="기타" <c:if test="${exhbn.exhbnType == '기타'}">selected</c:if>>기타</option>
-                    </select></td>
+                    </select>
+                </td>
             </tr>
             <tr>
                 <th>전시 제목</th>
@@ -59,7 +69,7 @@
                 <td colspan="3"><input type="text" id="exhbnImgUrl" placeholder="포스터 이미지 url 입력하세요." value="${exhbn.exhbnImgUrl}"></td>
             </tr>
             <tr>
-                <th>전시 url</th>
+                <th><a style="color: #03DAC6; cursor: pointer;" onclick="window.open('${exhbn.exhbnUrl}')">전시 url</a></th>
                 <td colspan="3"><input type="text" id="exhbnUrl" placeholder="전시 상세정보 url 입력하세요." value="${exhbn.exhbnUrl}" ></td>
             </tr>
             <tr>
@@ -114,6 +124,7 @@
     </div>
     <div class="btn-box">
         <input type="button" id="write" value="등록">
+        <input type="button" id="delete" value="삭제">
     </div>
 </body>
 </html>

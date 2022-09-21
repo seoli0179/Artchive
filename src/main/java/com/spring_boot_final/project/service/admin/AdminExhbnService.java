@@ -44,6 +44,16 @@ public class AdminExhbnService {
         return true;
     }
 
+    public boolean ExhbnDelete(int exhbnId) {
+        try {
+            dao.ExhbnDelete(exhbnId);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+        return true;
+    }
+
     public boolean ExhbnInsert(ExhbnVO vo) {
         try {
             dao.ExhbnInsert(vo);

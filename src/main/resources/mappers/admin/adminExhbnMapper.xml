@@ -70,7 +70,13 @@
         set exhbnTitle = #{exhbnTitle}, exhbnImgUrl = #{exhbnImgUrl}, exhbnUrl = #{exhbnUrl}, exhbnPlaceUrl = #{exhbnPlaceUrl}, exhbnArea = #{exhbnArea}, exhbnPlace = #{exhbnPlace},
             exhbnPlaceAddr = #{exhbnPlaceAddr}, exhbnStartDate = #{exhbnStartDate}, exhbnEndDate = #{exhbnEndDate}, exhbnPrice = #{exhbnPrice}, exhbnPrice1 = #{exhbnPrice1},
             exhbnPhone = #{exhbnPhone}, exhbnNum = #{exhbnNum}, gpsX = #{gpsX}, gpsY = #{gpsY},
-            exhbnDetail = #{exhbnDetail}, exhbnType = #{exhbnType}
+            exhbnDetail = #{exhbnDetail}, exhbnType = #{exhbnType}, viewState = #{viewState}
+        where exhbnId = #{exhbnId}
+    </update>
+
+    <update id="ExhbnDelete" parameterType="int">
+        update exhbn
+        set viewState = 'DELETE'
         where exhbnId = #{exhbnId}
     </update>
 

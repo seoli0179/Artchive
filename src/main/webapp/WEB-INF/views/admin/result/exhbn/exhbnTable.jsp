@@ -41,6 +41,7 @@
         <th>전시 종료일</th>
 <%--        <th>좋아요</th>--%>
         <th>Type</th>
+        <th>상태</th>
         <th>관리</th>
       </tr>
     </thead>
@@ -55,6 +56,7 @@
           <td><fmt:formatDate value="${exhbn.exhbnEndDate}" pattern="yy-MM-dd"/></td>
 <%--          <td>${exhbn.exhbnLike}</td>--%>
           <td>${exhbn.exhbnType}</td>
+          <td>${exhbn.viewState}</td>
           <td class="btnBox">
             <button data-id="${exhbn.exhbnId}" id="editBtn_${status.index}" class="editBtn">수정</button>
             <button id="resetBtn_${status.index}" class="resetBtn" style="display: none;">취소</button>

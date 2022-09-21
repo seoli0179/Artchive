@@ -39,11 +39,13 @@ $(document).ready(function () {
                 "gpsX" : $('#gpsX').val(),
                 "gpsY" : $('#gpsY').val(),
                 "exhbnDetail" : $('#summernote').summernote('code'),
-                "exhbnType" : $('#exhbnType option:selected').val()
+                "exhbnType" : $('#exhbnType option:selected').val(),
+                "viewState" : $('#viewState option:selected').val()
             },
             success: function (result) {
                 if (result){
                     alert("수정 성공!");
+                    window.close();
                 }else {
                     alert("수정 실패!");
                 }
@@ -54,6 +56,27 @@ $(document).ready(function () {
         });
 
     });
+
+    $('#delete').on('click',function (){
+        $.ajax({
+            type: "post",
+            url: "/admin/exhbn/delete",
+            data: {
+                "exhbnId" : $('#exhbnId').val()
+            },
+            success: function (result) {
+                if (result){
+                    alert("삭제 성공!");
+                    window.close();
+                }else {
+                    alert("삭제 실패!");
+                }
+            },
+            error: function () {
+                alert("전송 실패");
+            },
+        });
+    })
 
 });
 

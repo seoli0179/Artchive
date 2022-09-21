@@ -5,6 +5,7 @@ import com.spring_boot_final.project.model.UserVO;
 import com.spring_boot_final.project.service.ExhbnService;
 import com.spring_boot_final.project.service.UserService;
 import com.spring_boot_final.project.service.admin.AdminExhbnService;
+import com.spring_boot_final.project.state.ViewState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -80,6 +81,7 @@ public class adminExhbnController {
             @RequestParam("gpsY") double gpsY,
             @RequestParam("exhbnDetail") String exhbnDetail,
             @RequestParam("exhbnType") String exhbnType,
+            @RequestParam("viewState") String viewState,
             HttpSession session) throws ParseException {
 
         if (!adminCheck(session)) {
@@ -105,8 +107,23 @@ public class adminExhbnController {
         vo.setGpsY(gpsY);
         vo.setExhbnDetail(exhbnDetail);
         vo.setExhbnType(exhbnType);
+        vo.setViewState(ViewState.valueOf(viewState));
 
         return adminExhbnService.ExhbnUpdate(vo);
+    }
+
+    @RequestMapping("/admin/exhbn/delete")
+    @ResponseBody
+    public boolean ExhbnDelete(
+            @RequestParam("exhbnId") int exhbnId,
+            HttpSession session
+    ){
+
+        if (!adminCheck(session)) {
+            return false;
+        }
+
+        return adminExhbnService.ExhbnDelete(exhbnId);
     }
 
     @RequestMapping("/admin/exhbn/insert")
