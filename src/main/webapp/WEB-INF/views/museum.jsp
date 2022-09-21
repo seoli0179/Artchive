@@ -29,7 +29,7 @@
 
 
 <!-- 전시 리스트 -->
-<div id="result">
+<div id="searchResultl2">
 <div class="list-con">
 	<ul class="row">
 		<c:forEach var="exhbn" items="${exhbnSearchList}" varStatus="status">
