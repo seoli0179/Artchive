@@ -69,31 +69,15 @@
 						</div>
 
 						<div class="wholeExpbnBox">
-							<div class="courseBox">
-								<div class="imageBox">
-									<img src="<c:url value='/image/banner.jpg'/>">
+							<c:forEach items="${items}" var="item">
+								<div class="courseBox">
+									<div class="imageBox">
+										<img src="${item.exhbnImgUrl}">
+									</div>
+									<!-- imageBox -->
+									<a>${item.exhbnArea}</a> <a>${item.exhbnTitle}</a> <a><fmt:formatDate value="${item.exhbnStartDate}" pattern="yyyy-MM-dd"></fmt:formatDate> ~ <fmt:formatDate value="${item.exhbnEndDate}" pattern="yyyy-MM-dd"></fmt:formatDate></a>
 								</div>
-								<!-- imageBox -->
-								<a>서울</a> <a>히토 슈타이얼 - 데이터의 바다</a> <a>2022-08-14</a>
-							</div>
-							<!-- courseBox -->
-
-							<div class="courseBox">
-								<div class="imageBox">
-									<img src="<c:url value='/image/banner.jpg'/>">
-								</div>
-								<!-- imageBox -->
-								<a>서울</a> <a>히토 슈타이얼 - 데이터의 바다</a> <a>2022-08-14</a>
-							</div>
-							<!-- courseBox -->
-
-							<div class="courseBox">
-								<div class="imageBox">
-									<img src="<c:url value='/image/banner.jpg'/>">
-								</div>
-								<!-- imageBox -->
-								<a>서울</a> <a>히토 슈타이얼 - 데이터의 바다</a> <a>2022-08-14</a>
-							</div>
+							</c:forEach>
 							<!-- courseBox -->
 						</div>
 						<!-- wholeExpbnBox -->
