@@ -197,7 +197,7 @@ function insertCourse() {
                     alert("다시 로그인 해주세요.")
                 } else {
                     alert("작성 완료!");
-                    window.location.href = "/course/list";
+                    window.location.href = "/myPage/myCourse";
                 }
             },
             error: function (request, status, error) {
