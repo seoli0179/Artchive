@@ -10,7 +10,7 @@
 		SELECT b.bookmarkId, b.bookmarkAt, e.exhbnId, e.exhbnTitle, e.exhbnImgUrl, b.userId
 		fROM bookmark b, exhbn e
 		WHERE e.exhbnId = b.exhbnId AND b.userId=#{userId}
-		ORDER BY b.exhbnId
+		ORDER BY b.bookmarkAt DESC;
 		
 	</select>
 	
