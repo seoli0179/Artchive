@@ -165,19 +165,19 @@
 				</div>
 				<div>
 					<a id="btnTwitter" class="link-icon twitter" href="javascript:shareTwitter();">
-						<img src="https://user-images.githubusercontent.com/103120173/191396551-9cfea0f9-f7ba-40a7-a1c5-c2475123ed53.png" style="width: 30px;">
+						<img src="<c:url value="/image/social/social_kakao.png"/>" style="width: 30px;">
 					</a>
 					&nbsp;
 					<a id="btnFacebook" class="link-icon facebook" href="javascript:shareFacebook();">
-						<img src="https://user-images.githubusercontent.com/103120173/191396557-07eff686-1f80-485f-8249-72ff04e4c0f6.png" style="width: 30px;">
+						<img src="<c:url value="/image/social/social_facebook.png"/>" style="width: 30px;">
 					</a>
 					&nbsp;
 					<a id="btnKakao" class="link-icon kakao" href="javascript:shareKakao();">
-						<img src="https://user-images.githubusercontent.com/103120173/191396555-1dcf0b0f-b747-4556-8bad-d476e74cd254.png" style="width: 30px">
+						<img src="<c:url value="/image/social/social_twitter.png"/>" style="width: 30px">
 					</a>
 					&nbsp;
 					<a id="clipBtn" class="link-icon linkcopy" href="javascript:clip();">
-						<img src="https://user-images.githubusercontent.com/103120173/191397285-6b630a0e-08cc-412d-9506-de86adadcb61.png" style="width: 30px;">
+						<img src="<c:url value="/image/social/social_link.png"/>" style="width: 30px;">
 					</a>
 				</div>
 			</section>

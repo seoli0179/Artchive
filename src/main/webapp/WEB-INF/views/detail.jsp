@@ -128,19 +128,19 @@
 				<!-- tag -->
 				<div class="tag-box">
 					<a id="btnTwitter" class="link-icon twitter" href="javascript:shareTwitter();">
-						<img src="https://cdn.icon-icons.com/icons2/2428/PNG/512/twitter_black_logo_icon_147062.png" style="width: 30px;">
+						<img src="<c:url value="/image/social/social_kakao.png"/>" style="width: 30px;">
 					</a>
 					&nbsp;
 					<a id="btnFacebook" class="link-icon facebook" href="javascript:shareFacebook();">
-						<img src="https://cdn.icon-icons.com/icons2/2428/PNG/512/facebook_black_logo_icon_147136.png" style="width: 30px;">
+						<img src="<c:url value="/image/social/social_facebook.png"/>" style="width: 30px;">
 					</a>
 					&nbsp;
 					<a id="btnKakao" class="link-icon kakao" href="javascript:shareKakao();">
-						<img src="https://cdn.icon-icons.com/icons2/2973/PNG/512/kakaotalk_logo_icon_186920.png" style="width: 30px">
+						<img src="<c:url value="/image/social/social_twitter.png"/>" style="width: 30px">
 					</a>
 					&nbsp;
-					<a id="clipBtn" class="link-icon kakao" href="javascript:clip();">
-						<img src="https://cdn.icon-icons.com/icons2/1233/PNG/512/1492718748-share_83604.png" style="width: 30px;">
+					<a id="clipBtn" class="link-icon linkcopy" href="javascript:clip();">
+						<img src="<c:url value="/image/social/social_link.png"/>" style="width: 30px;">
 					</a>
 				</div>
 				<div id="button-box">
