@@ -1,15 +1,15 @@
 $(document).ready(function () {
 
-    $('.editBtn').each(function (index, item) {
-        $(this).on('click', function (e) {
-
-            e.preventDefault();
-            $('#displayBox_' + index).slideDown();
-            $('#editBtn_' + index).css('display', 'none');
-            $('#resetBtn_' + index).css('display', 'inline-block');
-        });
-
-    });
+    // $('.editBtn').each(function (index, item) {
+    //     $(this).on('click', function (e) {
+    //
+    //         e.preventDefault();
+    //         $('#displayBox_' + index).slideDown();
+    //         $('#editBtn_' + index).css('display', 'none');
+    //         $('#resetBtn_' + index).css('display', 'inline-block');
+    //     });
+    //
+    // });
 
     $('.saveBtn').each(function (index, item) {
         $(this).on('click', function (e) {

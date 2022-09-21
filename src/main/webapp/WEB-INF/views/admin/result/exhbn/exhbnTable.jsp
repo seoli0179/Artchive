@@ -9,8 +9,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <link type="text/css" rel="stylesheet" href="<c:url value='/js/admin/module/userTable1.css'/>">
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/admin/adminModal.css'/>">
 <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 <script src="<c:url value='/js/admin/module/userTable1.js' />"></script>
+<script src="<c:url value='/js/admin/exhbn/dialog.js' />"></script>
 
 <h1><a href="<c:url value="/admin/exhbn/view"/>">전시 관리</a></h1>
 
