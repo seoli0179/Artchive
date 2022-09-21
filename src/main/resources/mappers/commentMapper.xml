@@ -70,6 +70,17 @@
     </select>
 	
 	
+	<!-- 마이페이지 코스 댓글 조회-->
+	<select id="selectCourseComment" parameterType="string" resultType="com.spring_boot_final.project.model.CourseCommentVO">
+        <![CDATA[
+        select *
+        from courseComment
+        where userId = #{userId}
+        and pageViewState = 'POST'
+        ORDER by commentCreatedDate ASC
+        ]]>
+    </select>
+	
 	
     <!-- Update -->
 
