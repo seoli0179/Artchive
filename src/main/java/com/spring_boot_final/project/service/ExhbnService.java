@@ -29,6 +29,13 @@ public class ExhbnService {
 	public ArrayList<ExhbnVO> selectAllData() {
 		return dao.selectAllExhbn();
 	}
+	
+	
+	
+	public ArrayList<ExhbnVO> selectAllDateType(String dateType){
+		System.out.println(dateType);
+		return dao.selectAllExhbnType(dateType);
+	}
 
 	public ExhbnVO selectDetailData(int id) {
 		return dao.selectExhbn(id);
@@ -44,8 +51,8 @@ public class ExhbnService {
 		return dao.ExhbnSearch(title);
 	}
 
-	public ArrayList<ExhbnVO> exhbnSearch2(String title, String exWhere, String exPrice,
-			String exDate){
+	public ArrayList<ExhbnVO> exhbnSearch2(String title, String exWhere, String exPrice, String exDate
+			/*String exWhen*/) /*throws ParseException*/{
 		HashMap<String, Object> map = new HashMap<String, Object>();
 //  		map.put("Title", title);
 //  		map.put("ExWhere", exWhere);
@@ -53,8 +60,10 @@ public class ExhbnService {
 		map.put("Title", title);
 		map.put("ExWhere", exWhere);
 		map.put("ExPrice", exPrice);
-		map.put("exDate", exDate);
-	
+		/*
+		 * map.put("Page", Page);
+		 *//*		map.put("ExWhen", new SimpleDateFormat("yyyy-MM-dd").parse(exWhen));
+*/	
 		 
 		
 		/*

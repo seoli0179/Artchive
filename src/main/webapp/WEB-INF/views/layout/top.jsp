@@ -28,9 +28,9 @@
 <%--						<li class="dropdown"><a class="color" href="<c:url value='/exhbn/list'/>">Search<i class="fa-solid fa-angle-down"></i></a>--%>
 						<li class="dropdown"><a class="color">Search<i class="fa-solid fa-angle-down"></i></a>
 							<ul class="dropdownMenu">
-								<li><a href="/exhbn/list">현재전시</a></li>
-								<li><a href="#">지난전시</a></li>
-								<li><a href="#">예정전시</a></li>
+								<li><a href="/exhbn/list?dateType=현재">현재전시</a></li>
+								<li><a href="/exhbn/list?dateType=지난">지난전시</a></li>
+								<li><a href="/exhbn/list?dateType=예정">예정전시</a></li>
 							</ul>
 						</li>
 <%--						<li class="dropdown"><a class="color" href="<c:url value="/note/list?category=free&page=1&sort=new&keyword="/> ">Board<i class="fa-solid fa-angle-down"></i></a>--%>

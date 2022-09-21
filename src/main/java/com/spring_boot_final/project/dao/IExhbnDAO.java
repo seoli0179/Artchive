@@ -18,7 +18,12 @@ public interface IExhbnDAO {
     ExhbnVO selectExhbn(int exhbnId);
     ArrayList<ExhbnVO> selectAllExhbn();
     int existExhbn(int exhbnId);
-
+    
+    // Read 예전 전시
+    ExhbnVO selectExhbnEx(int exhbnId);
+    ArrayList<ExhbnVO> selectAllExhbnType(String dateType);
+    int existExhbnEx(int exhbnId);
+    
     //Update
     void updateExhbn(ExhbnVO vo);
 
@@ -28,7 +33,8 @@ public interface IExhbnDAO {
     // Search
 	public ArrayList<ExhbnVO> ExhbnSearch(String title); // 상품 검색
 	// 디테일 상품 검색
-	public ArrayList<ExhbnVO> ExhbnSearch22(HashMap<String, Object> map);
+
+	public ArrayList<ExhbnVO> ExhbnSearch22(HashMap<String, Object> map)/* throws ParseException */;
 
 	 //tab Search
 	public ArrayList<ExhbnVO> tab_ExhbnSearch0(String type); 

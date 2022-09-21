@@ -224,8 +224,7 @@ $('#allArea').on('click', function(){
  		var exWhere = $('#result4').text();
  		var exPrice = $('#result2').text();
  		var exDate = $('#result3').text();
- 		
- 		//var exWhen = $('#result5').text();
+ 		var exWhen = $('#result5').text();
 		// 기본 기능 중단
  		//event.preventDefault();
  		$.ajax({
@@ -236,12 +235,11 @@ $('#allArea').on('click', function(){
                 "exhbnTitle": title,
                 "exhbnArea" : exWhere,
                 "exhbnDate" : exDate,
-                "exhbnPrice": exPrice
-                
-               },
+                "exhbnPrice": exPrice,
+                "exhbnWhen": exWhen
+                },
                
             success: function (result_detail) {
-        console.log(result_detail);   
             // alert("검색 결과를 보여드릴게요");
             $('#searchResultl2').empty();
             $('#searchResultl2').html(result_detail);
@@ -256,7 +254,7 @@ $('#allArea').on('click', function(){
  	}); // submit 끝 
  });  // ready 끝
  
- 
+
  
  
  

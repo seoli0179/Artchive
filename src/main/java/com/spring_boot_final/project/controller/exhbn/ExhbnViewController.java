@@ -58,15 +58,19 @@ public class ExhbnViewController {
 	
 	  // all page view
 	  
-	  @RequestMapping("/exhbn/list") public String listTestView
-	  (Model model) {
+	  @RequestMapping("/exhbn/list") 
+	  public String listTestView(
+			  @RequestParam("dateType") String dateType,
+			  Model model
+			  ) {
 	  
-	  ArrayList<ExhbnVO> vo = service.selectAllData();
+	  ArrayList<ExhbnVO> vo = service.selectAllDateType(dateType);
 	  model.addAttribute("exhbnList", vo);
 	  
-	  return "list"; }
-	 
+	  return "list"; 
 	  
+	  }
+
 	
 	 
 	// detail search
@@ -238,14 +242,14 @@ public class ExhbnViewController {
 			@RequestParam("exhbnPrice") String exPrice,
 			@RequestParam("exhbnDate") String exDate,
 			/*
-			 * @RequestParam("dateType") String dateType,
-			 */
+			 * @RequestParam("exhbnWhen") String exWhen,
+			 */			 
 			 
 			Model model
 			 ) throws ParseException {
 		
 					ArrayList<ExhbnVO> voList = service.exhbnSearch2(title, exWhere.trim(), exPrice,
-							exDate/* , dateType */);
+							exDate/* , exWhen */);
 		System.out.println(voList.size());
 		//System.out.println(voList.get(0).getExhbnTitle());
 		
@@ -255,6 +259,9 @@ public class ExhbnViewController {
 		 System.out.println(exPrice);
 		 System.out.println(exDate);
 
+			/*
+			 * System.out.println(exWhen);
+			 */
 		 
 		model.addAttribute("exhbnSearch2", voList);
 		  
