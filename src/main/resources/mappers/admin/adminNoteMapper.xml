@@ -96,4 +96,14 @@
         where noteId = #{noteId}
     </update>
 
+    <update id="UpdateEvent" parameterType="com.spring_boot_final.project.model.NoteVO">
+        update note
+        set noteTitle     = #{noteTitle},
+            note          = #{note},
+            pageViewState = #{pageViewState},
+            eventStartDate = #{eventStartDate},
+            eventEndDate = #{eventEndDate}
+        where noteId = #{noteId}
+    </update>
+
 </mapper>

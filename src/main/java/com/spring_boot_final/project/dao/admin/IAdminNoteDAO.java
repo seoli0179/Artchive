@@ -15,6 +15,7 @@ public interface IAdminNoteDAO {
 
     int NoteMaxCount(HashMap<String, Object> map);
     void UpdateNotice(NoteVO vo);
+    void UpdateEvent(NoteVO vo);
     void InsertNotice(NoteVO vo);
     void InsertEvent(NoteVO vo);
     NoteVO selectNote(int noteId);

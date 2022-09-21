@@ -19,12 +19,12 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script src="https://kit.fontawesome.com/8ab5776cfb.js" crossorigin="anonymous"></script>
     <link type="text/css" rel="stylesheet" href="<c:url value='/css/admin/adminBoard.css'/>">
-    <script src="<c:url value='/js/admin/note/noticeUpdate.js'/>"></script>
+    <script src="<c:url value='/js/admin/note/eventUpdate.js'/>"></script>
     <title>Artchive / 공지 수정 하기</title>
 </head>
 <body>
 <div class="title">
-    <h1><a href="<c:url value="/admin/notice/updateview"/>">Update Notice</a></h1>
+    <h1><a href="<c:url value="/admin/event/updateview"/>">Update Event</a></h1>
 </div>
 
 <div class="write-box">
@@ -47,11 +47,17 @@
                 </td>
             </tr>
             <tr>
-                <th>공지 제목</th>
+                <th>이벤트 제목</th>
                 <td colspan="3"><input type="text" id="noteTitle" placeholder="전시관 제목을 입력하세요." value="${note.noteTitle}"></td>
             </tr>
             <tr>
                 <th colspan="4" class="table-title">날짜 정보</th>
+            </tr>
+            <tr>
+                <th>시작일</th>
+                <td><input type="date" id="eventStartDate" placeholder="제목 입력" value="<fmt:formatDate value="${note.eventStartDate}" pattern="yyyy-MM-dd"></fmt:formatDate>"></td>
+                <th>종료일</th>
+                <td><input type="date" id="eventEndDate" placeholder="제목 입력" value="<fmt:formatDate value="${note.eventEndDate}" pattern="yyyy-MM-dd"></fmt:formatDate>"></td>
             </tr>
             <tr>
                 <th>작성일</th>
@@ -64,7 +70,7 @@
             </tr>
         </table>
     </div>
-    <div class="table-title">공지에 대한 상세 설명을 적어주세요.</div>
+    <div class="table-title">이벤트에 대한 상세 설명을 적어주세요.</div>
     <div class="summernote-box">
         <div id="summernote">${note.note}</div>
     </div>

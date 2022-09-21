@@ -95,6 +95,35 @@ public class adminNoteController {
 
     }
 
+    @RequestMapping("/admin/event/update")
+    @ResponseBody
+    public boolean EventUpdate(
+            @RequestParam("noteId") int noteId,
+            @RequestParam("noteTitle") String noteTitle,
+            @RequestParam("note") String note,
+            @RequestParam("eventStartDate") String eventStartDate,
+            @RequestParam("eventEndDate") String eventEndDate,
+            @RequestParam("pageViewState") String pageViewState,
+            HttpSession session
+    ) throws ParseException {
+
+        if (!adminCheck(session)) {
+            return false;
+        }
+
+        NoteVO vo = new NoteVO();
+
+        vo.setNoteId(noteId);
+        vo.setNoteTitle(noteTitle);
+        vo.setNote(note);
+        vo.setPageViewState(ViewState.valueOf(pageViewState));
+        vo.setEventStartDate(new SimpleDateFormat("yyyy-MM-dd").parse(eventStartDate));
+        vo.setEventEndDate(new SimpleDateFormat("yyyy-MM-dd").parse(eventEndDate));
+
+        return adminNoteService.UpdateEvent(vo);
+
+    }
+
     @RequestMapping("/admin/note/insert/notice")
     @ResponseBody
     public boolean InsertNotice(
@@ -152,6 +181,21 @@ public class adminNoteController {
 
         if (adminCheck(session))
             return "admin/result/note/adminUpdateNotice";
+        else
+            return "error";
+    }
+
+    @RequestMapping("/admin/event/updateview")
+    public String adminEventUpdateView(
+            @RequestParam("noteId") int noteId,
+            Model model,
+            HttpSession session
+    ) {
+
+        model.addAttribute("note", adminNoteService.selectNote(noteId));
+
+        if (adminCheck(session))
+            return "admin/result/note/adminUpdateEvent";
         else
             return "error";
     }

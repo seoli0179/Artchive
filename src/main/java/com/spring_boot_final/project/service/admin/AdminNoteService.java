@@ -70,6 +70,18 @@ public class AdminNoteService {
 
     }
 
+    public boolean UpdateEvent(NoteVO vo){
+
+        try {
+            dao.UpdateEvent(vo);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return false;
+        }
+        return true;
+
+    }
+
     public int NoteMaxCount(String searchType, String searchValue, String category) {
 
         HashMap<String,Object> map = new HashMap<>();
