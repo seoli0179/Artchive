@@ -51,6 +51,10 @@
           		<div id="courseMainBtn-Box">
 				<input type="button" id="editCourseBtn"  class="white-btn" value="코스 수정" onclick="location.href='<c:url value="/course/${reviewNote.courseId}/edit"/>'">
 				<input type="button" id="like-btn"  class="white-btn" value="게시글 수정" onclick="location.href='<c:url value="/review/reviewNoteEdit/${reviewNote.reviewNoteId}"/>'">
+				<form method="post" action="<c:url value='/insertBookMarkReview' /> ">
+					<input type="submit" id="insertBookMarkReview" class="black-btn" value="스크랩">
+					<input type="hidden" id="reviewNoteId" name="reviewNoteId" value=${reviewNote.reviewNoteId} >
+				</form>	
 				<input type="button" id="reviewDelete"  class="black-btn" value="삭제">
           		</div><!-- courseMainText -->
 		</section><!-- courseMenu -->

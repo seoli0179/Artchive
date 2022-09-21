@@ -707,7 +707,13 @@ input[type='date']:valid::before {
 #courseMainBtn-Box {
 	position: absolute;
 	right: 0;
+	display:flex;
+	align-items:center;
 	/* border : 1px blue solid; */
+}
+
+#editCourseBtn, #like-btn, #deleteBtn_view, #insertBookMarkReview {
+    margin-right: 5px;
 }
 
 /* course timeline	*/
