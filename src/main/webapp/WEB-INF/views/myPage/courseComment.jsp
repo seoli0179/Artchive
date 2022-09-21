@@ -60,7 +60,7 @@
 							<table>
 								<thead>
 									<tr>
-										<th>제목</th>
+										<th>내용</th>
 										<th>등록일</th>
 										<th>상태</th>
 									</tr>
@@ -70,23 +70,23 @@
 								<tbody>
 									<c:choose>
 
-										<c:when test="${empty bookMarkCourseList}">
+										<c:when test="${empty courseComment}">
 											<tr>
 												<td colspan="3">작성한 댓글이 없습니다.</td>
 											</tr>
 										</c:when>
 
 										<c:otherwise>
-											<c:forEach items="${bookMarkCourseList}" var="bookmarkCourse"
+											<c:forEach items="${courseComment}" var="courseComment"
 												varStatus="status">
 												<tr>
 													<td><a
-														href="<c:url value='/course/${bookmarkCourse.courseId}'/>">${bookmarkCourse.courseTitle}</a></td>
-													<td><fmt:formatDate value="${bookmarkCourse.bookMarkCourseDate}"
+														href="<c:url value='/course/${courseComment.courseId}'/>">${courseComment.comment}</a></td>
+													<td><fmt:formatDate value="${courseComment.commentCreatedDate}"
 															pattern="yyyy-MM-dd" /></td>
 													<td><input type="button"
 														class="deleteBookMarkBtn white-btn"
-														onclick="deleteBookMarkCourse(${bookmarkCourse.bookMarkCourseId})"
+														onclick="deleteBookMarkCourse(${courseComment.commentId})"
 														value="삭제"></td>
 												</tr>
 											</c:forEach>
