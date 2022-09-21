@@ -41,8 +41,24 @@ public class ExhbnService {
 }
 
 
-  public ArrayList<ExhbnVO> exhbnSearch2(String title, String exWhere) {
-  return dao.ExhbnSearch22(title, exWhere); }
+  public ArrayList<ExhbnVO> exhbnSearch2(String title, String exWhere, String exPrice) {
+		HashMap<String, Object> map= new HashMap<String, Object>();
+//  		map.put("Title", title);
+//  		map.put("ExWhere", exWhere);
+//  		map.put("ExPrice", exPrice);
+		map.put("Title", title);
+  		map.put("ExWhere", exWhere);
+  		map.put("ExPrice", exPrice);
+  		
+		/*
+		 * map.put("ExPrice", exWhen);
+		 */
+  		System.out.println(map.toString());
+  		
+  		
+	  return dao.ExhbnSearch22(map); 
+  
+  }
  
     public ArrayList<ExhbnVO> TabSearch(String type) {
   		return dao.tab_ExhbnSearch(type);
@@ -69,12 +85,12 @@ public class ExhbnService {
     	return dao.tab_ExhbnSearch_total(map);
   		
 }
-/*
- * public ArrayList<ExhbnVO> ExhbitonSearch_detail(String title2,String exWhere)
- * { HashMap<String, Object> map= new HashMap<String, Object>();
- * map.put("Title", title2); map.put("Area", exWhere); return
- * dao.ExhbnSearch22(map);
- * 
- * }
- */
+
+  public ArrayList<ExhbnVO> ExhbitonSearch_detail(String title2,String exWhere)
+  { HashMap<String, Object> map= new HashMap<String, Object>();
+  map.put("Title", title2); map.put("Area", exWhere); return
+  dao.ExhbnSearch22(map);
+  
+  }
+ 
 }

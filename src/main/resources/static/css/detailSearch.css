@@ -115,6 +115,7 @@
 	/* 숨기기 */
 	z-index: -1;
 	opacity: 0;
+	overflow: visible;
 }
 
 .show {
@@ -139,6 +140,7 @@
 	border-width: 0px;
 	padding: 20px;
 	border-radius: 10px;
+	style="overflow:auto;"
 }
 
 .show .popup {

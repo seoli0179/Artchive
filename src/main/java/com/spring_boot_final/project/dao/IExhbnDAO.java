@@ -27,7 +27,7 @@ public interface IExhbnDAO {
     // Search
 	public ArrayList<ExhbnVO> ExhbnSearch(String title); // 상품 검색
 	// 디테일 상품 검색
-	public ArrayList<ExhbnVO> ExhbnSearch22(String title, String Area);
+	public ArrayList<ExhbnVO> ExhbnSearch22(HashMap<String, Object> map);
 
 
 	 //tab Search

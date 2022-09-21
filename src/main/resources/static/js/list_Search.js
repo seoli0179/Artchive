@@ -188,7 +188,6 @@
  		// alert($('#inner-searchbar2').val();
  		// 검색어 받아지는 것 됨 
  		var title2 = $('#inner-searchbar2').val();
- 		//var exWhen = $('#result5').text();
  		var exWhere = $('#result4').text();
  		var exPrice = $('#result2').text();
 		// 기본 기능 중단
@@ -196,20 +195,22 @@
  		$.ajax({
             type: "post",
             url: "/exhbn/searchResult333",
+            dataType:"HTML",
             data: {
                 "exhbnTitle": title2,
                 "exhbnArea" : exWhere,
-                "exhbnPrice": exPrice
+                "exhbnPrice": exPrice,
                },
 
             success: function (result_detail) {
+            //console.log(result_detail);
             // alert("검색 결과를 보여드릴게요");
-            $('#searchResultl2').empty();
-            $('#searchResultl2').append(result_detail);
-            console.log(exhbnTitle);
+            //$('#searchResultl2').empty();
+            //$('#searchResultl2').append(result_detail);
+            $('#searchResultl2').html(result_detail);
 			            },
             error: function () {
-                alert('dsafdsfa')
+                alert('');
             }
         }); //ajax 마지막
  		

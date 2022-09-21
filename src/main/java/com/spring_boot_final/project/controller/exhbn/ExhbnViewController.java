@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring_boot_final.project.model.ExhbnVO;
 import com.spring_boot_final.project.service.ExhbnService;
@@ -158,11 +159,15 @@ public class ExhbnViewController {
 	@RequestMapping("/exhbn/tab_exhbnSearch_total")
 	public String tab_ExhbitonSearch_total(
 			@RequestParam("exhbnTitle") String title,
-			@RequestParam("exhbnType") String type) {
+			@RequestParam("exhbnType") String type,
+			Model model) {
 		  HashMap<String,Object> map = new HashMap<String,Object>();
 		  System.out.println(title);
 		  System.out.println(type);
 		  
+		  
+		  model.addAttribute("ExhbitonSearch_detail", service.ExhbitonSearch_detail(title, type));
+
 		  map.put("Title", title);
 		  map.put("Type",  type);
 		  
@@ -172,31 +177,61 @@ public class ExhbnViewController {
 		}
 	
 	//디테일
+	/*
+	 * @RequestMapping("/exhbn/searchResult333") public String ExhbitonSearch_detail
+	 * (
+	 * 
+	 * @RequestParam("exhbnTitle") String title,
+	 * 
+	 * @RequestParam("exhbnArea") String exWhere,
+	 * 
+	 * @RequestParam("exhbnPrice") String exPrice,
+	 * 
+	 * // @RequestParam("exhbnPrice") String exPrice, Model model) {
+	 * 
+	 * System.out.println(title); System.out.println(exWhere);
+	 * 
+	 * ArrayList<ExhbnVO> exhbnSearch22 = service.exhbnSearch2(title, exWhere);
+	 * 
+	 * model.addAttribute("exhbnSearchList", exhbnSearch22);
+	 * 
+	 * for (int i = 0; i <exhbnSearch22.size(); i++) {
+	 * System.out.println(exhbnSearch22.get(i).getExhbnId()); }
+	 * 
+	 * 
+	 * 
+	 * return "searchResult"; }
+	 */
 	@RequestMapping("/exhbn/searchResult333")
 	public String ExhbitonSearch_detail	(
 			@RequestParam("exhbnTitle") String title, 
 			@RequestParam("exhbnArea") String exWhere,
 			@RequestParam("exhbnPrice") String exPrice,
 
-	// @RequestParam("exhbnPrice") String exPrice,
-			 Model model) {
+			/*
+			 * @RequestParam("exWhen") String exWhen,
+			 */
+			Model model
+			 ) {
 		
-		System.out.println(title);
-		System.out.println(exWhere);
+		ArrayList<ExhbnVO> voList = service.exhbnSearch2(title, exWhere.trim(), exPrice);
+		System.out.println(voList.size());
+		System.out.println(voList.get(0).getExhbnTitle());
 		
-	ArrayList<ExhbnVO> exhbnSearch22 = service.exhbnSearch2(title, exWhere);
+		System.out.println("Controller");
+		 System.out.println(title); 
+		 System.out.println(exWhere+"/");
+			/*
+			 * System.out.println(exWhen);
+			 */		
+		 model.addAttribute("exhbnSearch2", voList);
 		  
-	model.addAttribute("exhbnSearchList", exhbnSearch22);
-		 
-	  for (int i = 0; i <exhbnSearch22.size(); i++) {
-	  System.out.println(exhbnSearch22.get(i).getExhbnId());
-		}
-	
 		
-			 
-		  return "searchResult";
-	}
-
+		 for (int i = 0; i < voList.size(); i++) {
+		  System.out.println(voList.get(i).getExhbnId()); }
+		 
+		return "detail-searchlist2"; //스프링이 자동으로 JSON타입으로 반환해서 전달한다.
+		}
 }
 
 

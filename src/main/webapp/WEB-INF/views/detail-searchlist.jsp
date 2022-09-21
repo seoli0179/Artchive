@@ -185,33 +185,33 @@
 
 							<input type="reset" class="white-btn2" value="초기화">
 						</div>
-
+						<!-- 검색을 누르기 전 안 나오게 만들어야 함  -->
+					<div id="searchResultl2">
+				        <input type="hidden" id="maxDataNum" value="${maxDataNum}">
+				
+						<div class="list-con">
+							<ul class="row">
+								<c:forEach var="exhbn" items="${exhbnSearch2}" varStatus="status">
+									<li class="cell">
+										<div class="img-box">
+											<a href="/exhbn/detail/${exhbn.exhbnId}">
+											<img src="${exhbn.exhbnImgUrl}" alt=""></a>
+										</div>
+										<section id="ex-all">
+											<div class="ex-place">${exhbn.exhbnPlace}</div>
+											<div class="ex-title">${exhbn.exhbnTitle}</div>
+											<div class="ex-period"><fmt:formatDate value = "${exhbn.exhbnStartDate}" type ="date" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value = "${exhbn.exhbnEndDate}" type ="date" pattern="yyyy.MM.dd"/></div>
+										</section>
+									</li>
+								</c:forEach>
+							</ul>
+						
+						</div>
+				</div>
 					</div>
 				</div>
 			</div>
-			<!-- 검색을 누르기 전 안 나오게 만들어야 함  -->
-					<div id="searchResultl2">
-        <input type="hidden" id="maxDataNum" value="${maxDataNum}">
-
-<div class="list-con">
-	<ul class="row">
-		<c:forEach var="exhbn" items="${exhbnList}" varStatus="status">
-			<li class="cell">
-				<div class="img-box">
-					<a href="/exhbn/detail/${exhbn.exhbnId}"><img src="${exhbn.exhbnImgUrl}" alt=""></a>
-				</div>
-				<section id="ex-all">
-					<div class="ex-place">${exhbn.exhbnPlace}</div>
-					<div class="ex-title">${exhbn.exhbnTitle}</div>
-					<div class="ex-period"><fmt:formatDate value = "${exhbn.exhbnStartDate}" type ="date" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value = "${exhbn.exhbnEndDate}" type ="date" pattern="yyyy.MM.dd"/></div>
-				</section>
-			</li>
-		</c:forEach>
-	</ul>
-
-</div>
-</div>
-		
+				
 			</div>
 			<!-- 컨테이너 종료 -->
 				
@@ -332,5 +332,6 @@
 	    = result;
 	}
   </script>
+
 </body>
 </html>

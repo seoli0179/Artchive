@@ -204,23 +204,16 @@
 		</select>
 
 	
-	<select id="ExhbnSearch22" parameterType="string" resultType="com.spring_boot_final.project.model.ExhbnVO">
+	<select id="ExhbnSearch22" parameterType="hashmap" resultType="com.spring_boot_final.project.model.ExhbnVO">
 	select 
-	exhbnID,
-	exhbnTitle,
-	exhbnPlace,
-	exhbnArea,
-	exhbnImgUrl,
-	exhbnStartDate,
-	exhbnEndDate,
-	exhbnUrl,
-	exhbnPrice
-	From exhbn
+	*
+	from exhbn
 	where
-	exhbnTitle like CONCAT('%',#{title},'%')<!--   or 
-	exhbnArea like CONCAT('%',#{Area},'%')  or
-	exhbnPrice like CONCAT('%',#{Price},'%') -->
-		ORDER BY exhbnId DESC limit 9
+	exhbnTitle like CONCAT('%',#{Title},'%')  and
+	exhbnArea like CONCAT('%',#{ExWhere},'%')  and
+	exhbnPrice = "무료" 
+
+ 
 	
 	</select>
 </mapper>
