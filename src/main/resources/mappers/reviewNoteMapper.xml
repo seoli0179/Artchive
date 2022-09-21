@@ -140,20 +140,6 @@
 		FROM reviewNote r, course c, user u, exhbn e
 		WHERE r.courseId = c.courseId and r.userId = u.userId and r.exhbnId = e.exhbnId and r.reviewPageViewState = 'POST'
 		and (reviewNoteTitle like CONCAT ('%',#{title},'%') or courseTag like CONCAT ('%',#{title},'%')) 
-		<choose>
-            <when test="sort == 'lateView'">
-                order by r.reviewNoteCreatedDate DESC
-            </when>
-            <when test="sort == 'mostView'">
-                order by r.reviewNoteCommentNum DESC
-            </when>
-            <when test="sort == 'likeView'">
-                order by r.reviewNoteLike DESC
-            </when>
-            <otherwise>
-                order by r.reviewNoteCreatedDate DESC
-            </otherwise>
-        </choose> 
 
 	</select>
 	
