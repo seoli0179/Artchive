@@ -130,7 +130,7 @@
                 <div class="courseList-box">
                     <c:forEach items="${reviewList}" var="rv" end="3">
                         <div class="course-item">
-                            <a href="<c:url value='/course/${rv.reviewNoteId}'/>">
+                            <a href="<c:url value='/review/reviewNote/${rv.reviewNoteId}'/>">
                                 <div>
                                     <img class="coursepost-thumb" src="${rv.exhbnImgUrl}" alt="전시포스터">
                                 </div>
