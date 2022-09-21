@@ -12,16 +12,15 @@
 <link type="text/css" rel="stylesheet" href="<c:url value='/js/admin/module/userTable1.css'/>">
 <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 <script src="<c:url value='/js/admin/module/userTable1.js' />"></script>
-<script src="<c:url value='/js/admin/note/noteSearch.js' />"></script>
+<script src="<c:url value='/js/admin/note/eventSearch.js' />"></script>
 
-<h1>자유 게시글 관리</h1>
+<h1>이벤트 게시글 관리</h1>
 
 <section class="search-container">
   <select id="searchType">
     <option value="전체" <c:if test="${searchType=='전체'}">selected</c:if>>전체</option>
     <option value="번호" <c:if test="${searchType=='번호'}">selected</c:if>>번호</option>
     <option value="제목" <c:if test="${searchType=='제목'}">selected</c:if>>제목</option>
-    <option value="유저" <c:if test="${searchType=='유저'}">selected</c:if>>유저</option>
     <option value="내용" <c:if test="${searchType=='내용'}">selected</c:if>>내용</option>
   </select>
   <input id="searchValue" value="${searchValue}" type="text" placeholder="검색어를 입력하세요">

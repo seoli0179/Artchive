@@ -59,7 +59,14 @@ public class adminNoteController {
         model.addAttribute("searchType", searchType);
         model.addAttribute("searchValue", searchValue);
 
-        return "/admin/result/note/noticeTable";
+        if(category.equals("NOTE"))
+            return "/admin/result/note/noteTable";
+        if(category.equals("NOTICE"))
+            return "/admin/result/note/noticeTable";
+        if(category.equals("EVENT"))
+            return "/admin/result/note/eventTable";
+
+        return "/admin/result/note/noteTable";
     }
 
     @RequestMapping("/admin/note/update")

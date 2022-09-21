@@ -95,6 +95,14 @@ public class adminViewController {
             return "error";
     }
 
+    @RequestMapping("/admin/event/view")
+    public String adminEvent(HttpSession session) {
+        if (adminCheck(session))
+            return "admin/adminEvent";
+        else
+            return "error";
+    }
+
     @RequestMapping("/admin/review/view")
     public String adminReview(HttpSession session) {
         if (adminCheck(session))

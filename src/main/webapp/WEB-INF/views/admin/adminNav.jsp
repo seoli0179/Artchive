@@ -19,6 +19,7 @@
             <li><a href="<c:url value="/admin/exhbn/view"/> ">전시 관리</a></li>
             <li><a href="<c:url value="/admin/note/view"/> ">자유 관리</a></li>
             <li><a href="<c:url value="/admin/notice/view"/> ">공지 관리</a></li>
+            <li><a href="<c:url value="/admin/event/view"/> ">이벤트 관리</a></li>
             <li><a href="<c:url value="/admin/review/view"/> ">리뷰 관리</a></li>
         </ul>
     </div>
