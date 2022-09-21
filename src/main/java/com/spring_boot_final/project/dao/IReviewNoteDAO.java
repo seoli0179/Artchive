@@ -1,6 +1,7 @@
 package com.spring_boot_final.project.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.stereotype.Component;
 
@@ -52,5 +53,6 @@ public interface IReviewNoteDAO {
 	
 	// 마이 페이지 리뷰 게시글 삭제
 	public void deleteMpReviewNote(int reviewNoteId);
-	
+
+	List<ReviewNoteVO> exhbnReviewNoteList(int exhbnId);
 }
