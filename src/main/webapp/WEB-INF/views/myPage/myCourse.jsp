@@ -59,9 +59,9 @@
 						<h2>내 코스</h2>
 						<p class="line">
 						<div class="titleBox">
-							<a href="<c:url value='/myPage/myCourse'/>">작성한 코스</a> <a
-								href="<c:url value='/myPage/courseScrap'/>">스크랩</a> <a
-								href="<c:url value='/myPage/courseComment'/>">댓글</a>
+							<a href="<c:url value='/myPage/courseScrap'/>">스크랩</a> 
+							<a href="<c:url value='/myPage/myCourse'/>">작성한 코스</a>
+							<a href="<c:url value='/myPage/courseComment'/>">댓글</a>
 						</div>
 						<!-- titleBox -->
 
