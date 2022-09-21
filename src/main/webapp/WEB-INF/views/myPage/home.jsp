@@ -61,8 +61,8 @@
 
 						<div class="guide-contents">
 							<a class="items" href="<c:url value='/myPage/post'/>"> 
-							<img class="guide-img" alt="활동 내역" src="<c:url value='/image/post.png'/>">
-								<p class="h3">활동 내역</p> <span class="small-text">내가 쓴 게시글과 댓글을 <br>확인할 수 있어요.
+							<img class="guide-img" alt="게시판" src="<c:url value='/image/post.png'/>">
+								<p class="h3">게시판</p> <span class="small-text">내가 쓴 게시글과 댓글을 <br>확인할 수 있어요.
 							</span>
 							</a>
 						</div>
@@ -74,7 +74,7 @@
 						<div class="guide-contents">
 							<a class="items" href="<c:url value='/myPage/review'/>"> 
 							<img class="guide-img" alt="전시 리뷰" src="<c:url value='/image/review.png'/>">
-								<p class="h3">전시 리뷰</p> <span class="small-text">리뷰 작성을 통해 휴대폰 번호<br> 등 내 정보를 수정하세요.
+								<p class="h3">전시 리뷰</p> <span class="small-text">리뷰 작성을 통해 티켓 <br> 할인 쿠폰을 받아보세요.
 							</span>
 							</a>
 						</div>

@@ -248,4 +248,5 @@
 		WHERE r.reviewPageViewState = 'POST' and e.exhbnId = #{exhbnId}
 		order by r.reviewNoteLike DESC;
 	</select>
+
 </mapper>
