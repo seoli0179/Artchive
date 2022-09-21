@@ -19,7 +19,7 @@ public interface IExhbnDAO {
     ArrayList<ExhbnVO> selectAllExhbn();
     int existExhbn(int exhbnId);
     
-    // Read 예전 전시
+    // Read 예전 예정 현재 전시
     ExhbnVO selectExhbnEx(int exhbnId);
     ArrayList<ExhbnVO> selectAllExhbnType(String dateType);
     int existExhbnEx(int exhbnId);
@@ -44,9 +44,9 @@ public interface IExhbnDAO {
 	public ArrayList<ExhbnVO> tab_ExhbnSearch4(String type); 
 	public ArrayList<ExhbnVO> tab_ExhbnSearch5(String type); 
 	public ArrayList<ExhbnVO> tab_ExhbnSearch6(String type); 
-	public ArrayList<ExhbnVO> tab_ExhbnSearch_total(HashMap<String, Object> map); 
+	/*
+	 * public ArrayList<ExhbnVO> tab_ExhbnSearch_total(HashMap<String, Object> map);
+	 */
 
-
-
-	 
+  
 }
