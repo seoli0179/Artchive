@@ -248,27 +248,27 @@
 		</div>
 		<div id="Museum" class="AREA tabTag">
 			<ul>
-				<li><a type="button" href="#" onclick="typeClick('박물관')"><i class="fa-solid fa-Museum"></i>박물관</a></li>
+				<li><a type="button" href="#" onclick="typeClick('박물관')"><i class="fa-solid fa-building-columns"></i>박물관</a></li>
 			</ul>
 		</div>
 		<div id="Art_Exhbn" class="AREA tabTag">
 			<ul>
-				<li><a href="#Art_Exhbn"><i class="fa-solid fa-Art_Exhbn"></i>미술전시</a></li>
+				<li><a href="#Art_Exhbn"><i class="fa-solid fa-palette"></i>미술전시</a></li>
 			</ul>
 		</div>
 		<div id="Festival" class="AREA tabTag">
 			<ul>
-				<li><a type="button" href="#" onclick="typeClick('축제')"><i class="fa-solid fa-Festival"></i>축제</a></li>
+				<li><a type="button" href="#" onclick="typeClick('축제')"><i class="fa-solid fa-icons"></i>축제</a></li>
 			</ul>
 		</div>
 		<div id="Edu_Ex" class="AREA tabTag">
 			<ul>
-				<li><a type="button" href="#" onclick="typeClick('교육')"><i class="fa-solid fa-apple-Edu_Ex"></i>교육·체험</a></li>
+				<li><a type="button" href="#" onclick="typeClick('교육')"><i class="fa-solid fa-school"></i>교육·체험</a></li>
 			</ul>
 		</div>
 		<div id="Etc_Ex" class="AREA tabTag">
 			<ul>
-				<li><a type="button" href="#" onclick="typeClick('기타')"><i class="fa-solid fa-list-Etc_Ex"></i>기타</a></li>
+				<li><a type="button" href="#" onclick="typeClick('기타')"><i class="fa-solid fa-list"></i>기타</a></li>
 			</ul>
 		</div>
 	</div><!-- searchArea -->
