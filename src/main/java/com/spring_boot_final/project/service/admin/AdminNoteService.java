@@ -81,5 +81,9 @@ public class AdminNoteService {
         return dao.NoteMaxCount(map);
     }
 
+    public NoteVO selectNote(int noteId){
+        return dao.selectNote(noteId);
+    }
+
 
 }

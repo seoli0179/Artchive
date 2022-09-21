@@ -131,6 +131,21 @@ public class adminNoteController {
 
     }
 
+    @RequestMapping("/admin/notice/updateview")
+    public String adminExhbnUpdate(
+            @RequestParam("noteId") int noteId,
+            Model model,
+            HttpSession session
+    ) {
+
+        model.addAttribute("note", adminNoteService.selectNote(noteId));
+
+        if (adminCheck(session))
+            return "admin/result/exhbn/adminUpdateExhbn";
+        else
+            return "error";
+    }
+
     public boolean adminCheck(HttpSession session) {
 
         if (session.getAttribute("sid") == null)
