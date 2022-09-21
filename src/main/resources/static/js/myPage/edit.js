@@ -17,14 +17,6 @@
 	  var userEmail2 = $('#userEmail2').val();
 	  var userEmail = userEmail1 + userEmail2;
 	  
-	  // 이름 유효성 검사
-	  if(!userName){
-		 alert("이름을 입력해주세요.");
-		 return ;
-	 } else if(!validNameCheck(userName)){
-		 alert("이름은 한글과 영문으로만 입력해주세요.");
-		 return ;
-	 }
 	  
 	   $.ajax({
 		   type:"post",
@@ -102,7 +94,14 @@ $('#nicknameBtn').on('click', function () {
 	  $('.nicknameBox').slideToggle();
 	  $('#nicknameBtn').val("확인");
   }else if ($('#nicknameBtn').val() == "확인") {
-		  
+	// 닉네임 유효성 검사
+	  if(!userNickname){
+		 alert("닉네임을 입력해주세요.");
+		 return ;
+	 } else if(!validNickNameCheck(userNickname)){
+		 alert("유효하지 않은 닉네임입니다. 한글, 영문, 숫자만 가능하며 2~10자 내로 입력해주세요.");
+		 return ;
+	 } else {
 	  $.ajax({
 		  type: "post",
 		  url: "/user/nicknameCheck",
@@ -142,6 +141,7 @@ $('#nicknameBtn').on('click', function () {
 			  alert('오류!')
 		  }
 	  });
+	  }
   }
 });
 
@@ -161,7 +161,14 @@ $('#emailBtn').on('click', function () {
 	  $('.emailBox').slideToggle();
 	  $('#emailBtn').val("확인");
   } else if ($('#emailBtn').val() == "확인") {
-	  
+	  // 이메일 유효성 검사
+	  if(!userEmail1){
+		 alert("이메일을 입력해주세요.");
+		 return ;
+	 } else if(!validEmailCheck(userEmail1)){
+		 alert("유효하지 않은 이메일입니다. 영문과 숫자를 조합하여 6~14자 내로 입력해주세요.");
+		 return ;
+	 } else { 
 	  if (email_check) {
 		  if (!$('#userEmailNum').val()) {
 		  alert("인증 번호를 입력하세요.");
@@ -230,12 +237,54 @@ $('#emailBtn').on('click', function () {
 				  alert('오류!')
 			  },
 		  });
-	  } // else       
+	  } // else      
+	 } // else  
   }
 });
 
-   
-   
+  
+  // 글자 수 제한
+   	$('#userName').on('keyup', function(){
+		$(this).attr('maxlength', '12');
+	});
+	
+	$('#userNickname').on('keyup', function(){
+		$(this).attr('maxlength', '12');
+	});
+	
+	$('#userEmail1').on('keyup', function(){
+		$(this).attr('maxlength', '12');
+	});
+
+
+// 이메일 유효성 검사
+function validEmailCheck(email) {
+	var reg = /^[a-z]+[a-z0-9]{5,14}$/g;
+	
+	if (false === reg.test(email)) {
+	  console.log('유효하지 않은 이메일입니다. 영문과 숫자를 조합하여 6~14자 내로 입력해주세요.');
+	  return false;
+  } else {
+	  console.log("통과");
+	  return true;
+  }
+  
+}
+
+
+// 닉네임 유효성 검사
+function validNickNameCheck(nickname) {
+	var reg = /^[ㄱ-ㅎ|가-힣|a-z|A-Z|0-9|]{2,10}$/g;
+	
+	if (false === reg.test(nickname)) {
+	  console.log('유효하지 않은 닉네임입니다. 한글, 영문, 숫자만 가능하며 2~10자 내로 입력해주세요.');
+	  return false;
+  } else {
+	  console.log("통과");
+	  return true;
+  }
+  
+}
 
 
 // 이름 유효성 검사
