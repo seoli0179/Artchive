@@ -14,11 +14,11 @@
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/admin/adminNav.css'/>">
     <link type="text/css" rel="stylesheet" href="<c:url value='/css/admin/adminMain.css'/>">
     <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
-    <script src="<c:url value='/js/admin/module/write.js'/>"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script src="https://kit.fontawesome.com/8ab5776cfb.js" crossorigin="anonymous"></script>
     <link type="text/css" rel="stylesheet" href="<c:url value='/css/admin/adminBoard.css'/>">
+    <script src="<c:url value='/js/admin/note/noticeWrite.js'/>"></script>
     <title>Artchive / 새 공지 작성하기</title>
 </head>
 <body>

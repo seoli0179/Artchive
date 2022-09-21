@@ -21,6 +21,18 @@ public class AdminNoteService {
         return dao.NoteSelectAll();
     }
 
+    public boolean InsertNotice(NoteVO vo){
+
+        try {
+            dao.InsertNotice(vo);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return false;
+        }
+        return true;
+
+    }
+
     public boolean UpdateNote(NoteVO vo){
 
         try {

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 
@@ -46,6 +47,27 @@ public class adminNoteController {
         NoteVO vo = new NoteVO();
 
         return adminNoteService.UpdateNote(vo);
+
+    }
+
+    @RequestMapping("/admin/note/insert/notice")
+    @ResponseBody
+    public boolean InsertNotice(
+            @RequestParam("title") String title,
+            @RequestParam("content") String content,
+            HttpSession session
+    ) {
+
+        if (!adminCheck(session)) {
+            return false;
+        }
+
+        NoteVO vo = new NoteVO();
+        vo.setUserId(session.getAttribute("sid").toString());
+        vo.setNoteTitle(title);
+        vo.setNote(content);
+
+        return adminNoteService.InsertNotice(vo);
 
     }
 

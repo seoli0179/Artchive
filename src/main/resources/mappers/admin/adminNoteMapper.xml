@@ -9,6 +9,7 @@
         <![CDATA[
         SELECT *
         FROM note
+        order by noteId desc;
         ]]>
     </select>
 
@@ -17,5 +18,10 @@
         SET noteTitle = #{noteTitle}
         WHERE noteId = #{noteId}
     </update>
+
+    <insert id="InsertNotice" parameterType="com.spring_boot_final.project.model.NoteVO">
+        insert into note(userId, noteTitle, note, category)
+        values (#{userId}, #{noteTitle}, #{note}, 'NOTICE')
+    </insert>
 
 </mapper>
