@@ -1,12 +1,14 @@
 package com.spring_boot_final.project.service;
 
-import com.spring_boot_final.project.dao.ICommentDAO;
-import com.spring_boot_final.project.model.NoteCommentVO;
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import com.spring_boot_final.project.dao.ICommentDAO;
+import com.spring_boot_final.project.model.CourseCommentVO;
+import com.spring_boot_final.project.model.NoteCommentVO;
 
 @Service
 public class CommentService {
@@ -66,5 +68,10 @@ public class CommentService {
     public void deleteMpComment(int commentId) {
     	dao.deleteMpComment(commentId);
     }
-
+    
+    // 마이페이지 코스 댓글 조회
+    public ArrayList<CourseCommentVO> selectCourseComment(String userId){
+    	return dao.selectCourseComment(userId);
+    }
+    
 }
