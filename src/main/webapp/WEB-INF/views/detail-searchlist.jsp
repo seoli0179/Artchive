@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 <meta charset="UTF-8">
 <title>리스트 페이지</title>
-
+	<script src="<c:url value='/js/list_Search.js' />"></script>
 </head>
 <body>
 	<!-- 팝업 시작 -->
@@ -183,9 +183,11 @@
 							<input class="black-btn courseBoard-searchBtn" type="button"
 								id="exhbnSearchFrm-detail" value="검색">
 
-							<input type="reset" class="white-btn2" value="초기화">
+							<input type="button" id="reset" class="white-btn" onClick="window.location.reload()" value="초기화">
 						</div>
 						<!-- 검색을 누르기 전 안 나오게 만들어야 함  -->
+					
+					</div> <!-- exsearchcontainer2 -->
 					<div id="searchResultl2">
 				        <input type="hidden" id="maxDataNum" value="${maxDataNum}">
 				
@@ -207,8 +209,7 @@
 							</ul>
 						
 						</div>
-				</div>
-					</div>
+				</div><!-- searchResultl2 -->
 				</div>
 			</div>
 				
@@ -229,8 +230,6 @@
 	<!-- 팝업 끝 -->
 
 	<script>
-
-
 	function show() {
 		document.querySelector(".background").className = "background show";
 	}
