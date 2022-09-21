@@ -630,10 +630,16 @@ input[type='date']:valid::before {
 		position: relative;
 		height : 50px;
 		line-height : 50px;
-		
+		align-items:center;
 		/* margin-left : 135px;
 		margin-right : 135px; */
+		
 	}
+	
+	.white-btn{
+		margin-right:2%;
+	} 
+	
 	.toggle {
 		margin-top : 0;
 		margin-left : 11%;
