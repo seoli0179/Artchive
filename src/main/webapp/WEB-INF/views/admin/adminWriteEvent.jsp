@@ -38,35 +38,20 @@
                 </div>
 
                 <div class="title">
-                    <h1>New exhibition</h1>
+                    <h1>New event</h1>
                 </div>
 
                 <div class="write-box">
                     <div class="column-box">
                         <table CLASS="info-table">
                             <tr><th colspan="4" class="table-title">기본 정보</th></tr>
-                            <tr><th>전시 아이디</th><td><input type="text" id="#" placeholder="전시아이디를 입력하세요."></td>
-                                <th>전시관분류</th><td><select>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                </select></td></tr>
-                            <tr><th>전시 제목</th><td colspan="3"><input type="text" id="title" placeholder="전시관 제목을 입력하세요."></td></tr>
-                            <tr><th colspan="4" class="table-title">이미지 주소</th></tr>
-                            <tr><th>포스터 url</th><td colspan="3"><input type="text" id="title" placeholder="포스터 이미지 url 입력하세요."></td></tr>
-                            <tr><th>전시 url</th><td colspan="3"><input type="text" id="title" placeholder="전시 상세정보 url 입력하세요."></td></tr>
-                            <tr><th>전시관 url</th><td colspan="3"><input type="text" id="title" placeholder="전시관 웹페이지 url 입력하세요."></td></tr>
-                            <tr><th colspan="4" class="table-title">전시 정보</th></tr>
+                            <tr><th>이벤트 제목</th><td colspan="3"><input type="text" id="title" placeholder="전시관 제목을 입력하세요."></td></tr>
+                            <tr><th>웹페이지 url</th><td colspan="3"><input type="text" id="title" placeholder="전시 상세정보 url 입력하세요."></td></tr>
                             <tr><th>시작일</th><td><input type="date" id="title" placeholder="제목 입력"></td><th>종료일</th><td><input type="date" id="title" placeholder="제목 입력"></td></tr>
-                            <tr><th>가격(설명)</th><td><input type="text" id="title" placeholder="제목 입력"></td><th>가격(원)</th><td><input type="text" id="title" placeholder="제목 입력"></td></tr>
-                            <tr><th colspan="4" class="table-title">지역 정보</th></tr>
-                            <tr><th>전시 지역</th><td><input type="text" id="title" placeholder="제목 입력"></td><th>주소</th><td><input type="text" id="title" placeholder="제목 입력"></td></tr>
-                            <tr><th>전시관</th><td><input type="text" id="title" placeholder="제목 입력"></td><th>연락처</th><td><input type="text" id="title" placeholder="제목 입력"></td></tr>
-                            <tr><th>gps X좌표</th><td><input type="text" id="title" placeholder="제목 입력"></td><th>gps Y좌표</th><td><input type="text" id="title" placeholder="제목 입력"></td></tr>
                             <tr><td colspan="4" class="table-title"></td></tr>
                         </table>
                     </div>
-                    <div class="table-title">전시에 대한 상세 설명을 적어주세요.</div>
+                    <div class="table-title">이벤트에 대한 상세 설명을 적어주세요.</div>
                     <div class="summernote-box">
                         <div id="summernote"></div>
                     </div>

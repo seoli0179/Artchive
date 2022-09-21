@@ -22,6 +22,7 @@
         <option>메일</option>
     </select>
     <input type="text" placeholder="검색어를 입력하세요">
+    <button class="searchBtn">검색</button>
 </section>
 <section class="table-container">
     <table class="resultTable">
@@ -145,4 +146,18 @@
         </tbody>
     </table>
 
+</section>
+<section class="pageNumBox">
+    <ul class="pageNumList">
+        <li><<</li>
+        <li><</li>
+        <li><</li>
+        <li class="pageOn">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>></li>
+        <li>>></li>
+    </ul>
 </section>

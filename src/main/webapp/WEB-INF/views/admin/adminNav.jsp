@@ -15,8 +15,8 @@
             <li><a href="<c:url value="/admin/exhbn/write"/>">전시 작성</a></li>
             <li><a href="<c:url value="/admin/exhbn/view"/> ">전시 관리</a></li>
             <li class="sub-title" draggable="false">게시판</li>
-            <li><a href="#">공지 작성</a></li>
-            <li><a href="#">이벤트 작성</a></li>
+            <li><a href="<c:url value="/admin/notice/write"/>">공지 작성</a></li>
+            <li><a href="<c:url value="/admin/event/write"/>">이벤트 작성</a></li>
             <li><a href="<c:url value="/admin/note/view"/> ">게시글 관리</a></li>
         </ul>
     </div>
