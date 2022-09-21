@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Component;
 
+import com.spring_boot_final.project.model.CourseCommentVO;
 import com.spring_boot_final.project.model.NoteCommentVO;
 
 @Component
@@ -28,5 +29,8 @@ public interface ICommentDAO {
     
     // 마이페이지 댓글 삭제
     void deleteMpComment(int commentId);
+    
+    // 마이 페이지 코스 댓글 조회
+    ArrayList<CourseCommentVO> selectCourseComment(String userId);
     
 }

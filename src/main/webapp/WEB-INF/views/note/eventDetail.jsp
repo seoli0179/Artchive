@@ -82,14 +82,14 @@
                             ${note.noteTitle}
                         </div>
                     </div>
-                    <div style="font-weight: normal; font-size: small;">
-                        <fmt:formatDate pattern="MM-dd" value="${note.eventStartDate }"/> ~
-                        <fmt:formatDate pattern="MM-dd" value="${note.eventEndDate }"/>
+                    <div style="font-size:1.0rem; font-weight: normal; background-color: #E5E7EB; padding: 5px 15px; border-radius: 70px;">
+                        <fmt:formatDate pattern="yy. MM. dd" value="${note.eventStartDate }"/> ~
+                        <fmt:formatDate pattern="yy. MM. dd" value="${note.eventEndDate }"/>
                     </div>
                 </div>
                 <div class="info">
                     <br><div class="username"> ${note.userNickname}</div>&nbsp;&nbsp;<div class="createdAt">
-                    <fmt:formatDate pattern="MM-dd" value="${note.noteCreatedDate }"/></div>
+                    <fmt:formatDate pattern="yy. MM. dd" value="${note.noteCreatedDate }"/></div>
                 </div>
                 <div class="content-body">
                     <article class="content-text" itemprop="articleBody">
