@@ -14,11 +14,11 @@
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/admin/adminNav.css'/>">
     <link type="text/css" rel="stylesheet" href="<c:url value='/css/admin/adminMain.css'/>">
     <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
-    <script src="<c:url value='/js/admin/module/write.js'/>"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script src="https://kit.fontawesome.com/8ab5776cfb.js" crossorigin="anonymous"></script>
     <link type="text/css" rel="stylesheet" href="<c:url value='/css/admin/adminBoard.css'/>">
+    <script src="<c:url value='/js/admin/note/eventWrite.js'/>"></script>
     <title>Artchive / 새 전시 작성하기</title>
 </head>
 <body>
@@ -46,8 +46,8 @@
                         <table CLASS="info-table">
                             <tr><th colspan="4" class="table-title">기본 정보</th></tr>
                             <tr><th>이벤트 제목</th><td colspan="3"><input type="text" id="title" placeholder="전시관 제목을 입력하세요."></td></tr>
-                            <tr><th>웹페이지 url</th><td colspan="3"><input type="text" id="title" placeholder="전시 상세정보 url 입력하세요."></td></tr>
-                            <tr><th>시작일</th><td><input type="date" id="title" placeholder="제목 입력"></td><th>종료일</th><td><input type="date" id="title" placeholder="제목 입력"></td></tr>
+<%--                            <tr><th>웹페이지 url</th><td colspan="3"><input type="text" id="title" placeholder="전시 상세정보 url 입력하세요."></td></tr>--%>
+                            <tr><th>시작일</th><td><input type="date" id="startDate" placeholder="제목 입력"></td><th>종료일</th><td><input type="date" id="endDate" placeholder="제목 입력"></td></tr>
                             <tr><td colspan="4" class="table-title"></td></tr>
                         </table>
                     </div>

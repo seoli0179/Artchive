@@ -12,4 +12,5 @@ public interface IAdminNoteDAO {
     ArrayList<NoteVO> NoteSelectAll();
     void UpdateNote(NoteVO vo);
     void InsertNotice(NoteVO vo);
+    void InsertEvent(NoteVO vo);
 }

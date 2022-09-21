@@ -24,4 +24,9 @@
         values (#{userId}, #{noteTitle}, #{note}, 'NOTICE')
     </insert>
 
+    <insert id="InsertEvent" parameterType="com.spring_boot_final.project.model.NoteVO">
+        insert into note(userId, noteTitle, note, category, eventStartDate, eventEndDate)
+        values (#{userId}, #{noteTitle}, #{note}, 'EVENT', #{eventStartDate}, #{eventEndDate})
+    </insert>
+
 </mapper>

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 @Controller
 public class adminNoteController {
@@ -68,6 +70,31 @@ public class adminNoteController {
         vo.setNote(content);
 
         return adminNoteService.InsertNotice(vo);
+
+    }
+
+    @RequestMapping("/admin/note/insert/event")
+    @ResponseBody
+    public boolean InsertEvent(
+            @RequestParam("title") String title,
+            @RequestParam("startDate") String startDate,
+            @RequestParam("endDate") String endDate,
+            @RequestParam("content") String content,
+            HttpSession session
+    ) throws ParseException {
+
+        if (!adminCheck(session)) {
+            return false;
+        }
+
+        NoteVO vo = new NoteVO();
+        vo.setUserId(session.getAttribute("sid").toString());
+        vo.setNoteTitle(title);
+        vo.setNote(content);
+        vo.setEventStartDate(new SimpleDateFormat("yyyy-MM-dd").parse(startDate));
+        vo.setEventEndDate(new SimpleDateFormat("yyyy-MM-dd").parse(endDate));
+
+        return adminNoteService.InsertEvent(vo);
 
     }
 

@@ -33,6 +33,18 @@ public class AdminNoteService {
 
     }
 
+    public boolean InsertEvent(NoteVO vo){
+
+        try {
+            dao.InsertEvent(vo);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return false;
+        }
+        return true;
+
+    }
+
     public boolean UpdateNote(NoteVO vo){
 
         try {
