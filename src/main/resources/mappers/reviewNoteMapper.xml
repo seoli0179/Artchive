@@ -40,7 +40,6 @@
 		   r.reviewPageViewState,
 		   c.courseId,
 		   c.placeNames,
-		   c.addressNames,
 		   c.courseTitle,
 		   c.courseTag,
 		   e.exhbnId,
