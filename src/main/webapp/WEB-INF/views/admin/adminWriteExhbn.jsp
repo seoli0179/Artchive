@@ -38,7 +38,7 @@
             </div>
 
             <div class="title">
-                <h1>New exhibition</h1>
+                <h1><a href="<c:url value="/admin/exhbn/write"/>">New exhibition</a></h1>
             </div>
 
             <div class="write-box">

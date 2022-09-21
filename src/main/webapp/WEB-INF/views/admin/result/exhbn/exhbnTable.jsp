@@ -11,9 +11,8 @@
 <link type="text/css" rel="stylesheet" href="<c:url value='/js/admin/module/userTable1.css'/>">
 <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 <script src="<c:url value='/js/admin/module/userTable1.js' />"></script>
-<script src="<c:url value='/js/admin/exhbn/search.js' />"></script>
 
-<h1>전시 관리</h1>
+<h1><a href="<c:url value="/admin/exhbn/view"/>">전시 관리</a></h1>
 
 <section class="search-container">
   <select id="searchType">
@@ -46,7 +45,7 @@
       <c:forEach items="${exhbns}" var="exhbn" varStatus="status">
         <tr>
           <td>${exhbn.exhbnId}</td>
-          <td>${exhbn.exhbnTitle}</td>
+          <td><a href="<c:url value="/exhbn/detail/${exhbn.exhbnId}"/>" target="_blank">${exhbn.exhbnTitle}</a></td>
           <td>${exhbn.exhbnArea}</td>
     <%--      <td>${exhbn.exhbnPlace}</td>--%>
           <td><fmt:formatDate value="${exhbn.exhbnStartDate}" pattern="yy-MM-dd"/></td>
@@ -65,8 +64,8 @@
               <tr><th>아이디</th><td><input type="text" value="${exhbn.exhbnId}" readonly></td></tr>
               <tr><th>제목</th><td><input type="text" value="${exhbn.exhbnTitle}"></td></tr>
               <tr><th>지역</th><td><input type="text" value="${exhbn.exhbnArea}"></td></tr>
-              <tr><th>시작일</th><td><input type="date" value="<fmt:formatDate value="${exhbn.exhbnStartDate}" pattern="yyyy-MM-dd"/>"></td></tr>
-              <tr><th>종료일</th><td><input type="date" value="<fmt:formatDate value="${exhbn.exhbnEndDate}" pattern="yyyy-MM-dd"/>"></td></tr>
+              <tr><th>시작일</th><td><input type="date" value="<fmt:formatDate value="${exhbn.exhbnStartDate}" pattern="yy-MM-dd"/>"></td></tr>
+              <tr><th>종료일</th><td><input type="date" value="<fmt:formatDate value="${exhbn.exhbnEndDate}" pattern="yy-MM-dd"/>"></td></tr>
 <%--              <tr><th>좋아요</th><td><input type="text" value="${exhbn.exhbnLike}" readonly></td></tr>--%>
               <tr><th>Type</th><td>
                 <select>
@@ -82,6 +81,16 @@
     </tbody>
   </table>
 </section>
+
+<div id="modal" class="modal">
+  <div class="modal_body">
+    <div style="display: flex; justify-content: right;">
+      <button id="closeBtn">close</button>
+    </div>
+    <div id="iframe-box" class="iframe-box">
+    </div>
+  </div>
+</div>
 
 <section class="pageNumBox">
   <input type="hidden" id="maxCount" value="${maxCount}">
