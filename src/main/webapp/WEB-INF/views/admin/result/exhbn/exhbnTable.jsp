@@ -15,14 +15,15 @@
 <h1>전시 관리</h1>
 
 <section class="search-container">
-  <select>
-    <option selected>전체</option>
-    <option>아이디</option>
-    <option>이름</option>
-    <option>메일</option>
+  <select id="searchType">
+    <option value="전체" <c:if test="${searchType=='전체'}">selected</c:if>>전체</option>
+    <option value="번호" <c:if test="${searchType=='번호'}">selected</c:if>>번호</option>
+    <option value="제목" <c:if test="${searchType=='제목'}">selected</c:if>>제목</option>
+    <option value="전체" <c:if test="${searchType=='타입'}">selected</c:if>>타입</option>
+    <option value="전체" <c:if test="${searchType=='내용'}">selected</c:if>>내용</option>
   </select>
-  <input type="text" placeholder="검색어를 입력하세요">
-  <button class="searchBtn">검색</button>
+  <input id="searchValue" type="text" value="${searchValue}" placeholder="검색어를 입력하세요">
+  <button id="searchButton" onclick="searchClick()" class="searchBtn">검색</button>
 </section>
 
 <section class="table-container">
@@ -82,16 +83,17 @@
 </section>
 
 <section class="pageNumBox">
+  <input type="hidden" id="maxCount" value="${maxCount}">
+  <input type="hidden" id="currentPage" value="${currentPage}">
   <ul class="pageNumList">
-    <li><<</li>
+    <li onclick="pagemove(1)"><<</li>
     <li><</li>
-    <li><</li>
-    <li class="pageOn">1</li>
-    <li>2</li>
-    <li>3</li>
-    <li>4</li>
-    <li>5</li>
+    <li class="pageOn" onclick="pagemove(1)">1</li>
+    <li onclick="pagemove(2)">2</li>
+    <li onclick="pagemove(3)">3</li>
+    <li onclick="pagemove(2)">4</li>
+    <li onclick="pagemove(5)">5</li>
     <li>></li>
-    <li>>></li>
+    <li onclick="pagemove(${maxCount})">>></li>
   </ul>
 </section>

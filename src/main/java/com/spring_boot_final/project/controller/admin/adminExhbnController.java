@@ -40,14 +40,22 @@ public class adminExhbnController {
     @RequestMapping("/admin/exhbn/select")
     public String ExhbnSelectFilter(
             @RequestParam("page") int page,
+            @RequestParam("searchType") String searchType,
+            @RequestParam("searchValue") String searchValue,
             HttpSession session,
             Model model) {
+
+        System.out.println(searchType + "/" + searchValue + "/");
 
         if (!adminCheck(session)) {
             return null;
         }
 
-        model.addAttribute("exhbns", adminExhbnService.ExhbnSelectFilter(page, 10));
+        model.addAttribute("exhbns", adminExhbnService.ExhbnSelectFilter(page, 10, searchType, searchValue));
+        model.addAttribute("maxCount", adminExhbnService.ExhbnMaxCount() / 10);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("searchType", searchType);
+        model.addAttribute("searchValue", searchValue);
 
         return "/admin/result/exhbn/exhbnTable";
     }

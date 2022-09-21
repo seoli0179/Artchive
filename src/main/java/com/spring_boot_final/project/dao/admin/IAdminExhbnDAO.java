@@ -16,4 +16,6 @@ public interface IAdminExhbnDAO {
     void ExhbnUpdate(ExhbnVO vo);
 
     void ExhbnInsert(ExhbnVO vo);
+
+    int ExhbnMaxCount();
 }

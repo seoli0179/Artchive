@@ -22,12 +22,14 @@ public class AdminExhbnService {
         return dao.ExhbnSelectAll();
     }
 
-    public ArrayList<ExhbnVO> ExhbnSelectFilter(int page, int limit) {
+    public ArrayList<ExhbnVO> ExhbnSelectFilter(int page, int limit, String searchType, String searchValue) {
 
         HashMap<String, Object> map = new HashMap<>();
         System.out.println(page + "/" + limit);
         map.put("page", --page * limit);
         map.put("limit", limit);
+        map.put("searchType", searchType);
+        map.put("searchValue", searchValue);
 
         return dao.ExhbnSelectFilter(map);
     }
@@ -35,7 +37,7 @@ public class AdminExhbnService {
     public boolean ExhbnUpdate(ExhbnVO vo) {
         try {
             dao.ExhbnUpdate(vo);
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             return false;
         }
@@ -45,11 +47,15 @@ public class AdminExhbnService {
     public boolean ExhbnInsert(ExhbnVO vo) {
         try {
             dao.ExhbnInsert(vo);
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             return false;
         }
         return true;
+    }
+
+    public int ExhbnMaxCount() {
+        return dao.ExhbnMaxCount();
     }
 
 

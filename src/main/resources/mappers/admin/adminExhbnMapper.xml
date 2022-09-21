@@ -16,11 +16,35 @@
     <select id="ExhbnSelectFilter"
             parameterType="hashmap"
             resultType="com.spring_boot_final.project.model.ExhbnVO">
-        <![CDATA[
         SELECT *
         FROM exhbn
-        order by createdAt
-        LIMIT #{limit} OFFSET #{page}
+        <choose>
+            <when test="searchType=='전체'">
+                where exhbnTitle like CONCAT('%', #{searchValue}, '%')
+            </when>
+            <when test="searchType=='번호'">
+                where exhbnId = #{searchValue}
+            </when>
+            <when test="searchType=='제목'">
+                where exhbnTitle like CONCAT('%', #{searchValue}, '%')
+            </when>
+            <when test="searchType=='타입'">
+                where exhbnType = #{exhbnType}
+            </when>
+            <when test="searchType=='내용'">
+                where exhbnDetail like CONCAT('%', #{searchValue}, '%')
+            </when>
+        </choose>
+        order by exhbnId desc
+        LIMIT #{limit}
+        OFFSET #{page}
+    </select>
+
+    <select id="ExhbnMaxCount"
+            resultType="int">
+        <![CDATA[
+        SELECT count(*)
+        FROM exhbn
         ]]>
     </select>
 
@@ -33,13 +57,13 @@
 
     <insert id="ExhbnInsert" parameterType="com.spring_boot_final.project.model.ExhbnVO">
         insert into exhbn (exhbnId, exhbnTitle, exhbnImgUrl, exhbnUrl, exhbnPlaceUrl, exhbnArea, exhbnPlace,
-                                   exhbnPlaceAddr, exhbnStartDate, exhbnEndDate, exhbnPrice, exhbnPrice1,
-                                   exhbnPhone, exhbnNum, gpsX, gpsY,
-                                   exhbnDetail,exhbnType)
+                           exhbnPlaceAddr, exhbnStartDate, exhbnEndDate, exhbnPrice, exhbnPrice1,
+                           exhbnPhone, exhbnNum, gpsX, gpsY,
+                           exhbnDetail, exhbnType)
         values (#{exhbnId}, #{exhbnTitle}, #{exhbnImgUrl}, #{exhbnUrl}, #{exhbnPlaceUrl}, #{exhbnArea}, #{exhbnPlace},
                 #{exhbnPlaceAddr}, #{exhbnStartDate}, #{exhbnEndDate}, #{exhbnPrice}, #{exhbnPrice1},
                 #{exhbnPhone}, #{gpsX}, #{gpsY}, #{exhbnView},
-                #{exhbnDetail},#{exhbnType});
+                #{exhbnDetail}, #{exhbnType});
     </insert>
 
 </mapper>
