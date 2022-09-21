@@ -63,10 +63,6 @@ public class ExhbnViewController {
 		return "searchResult";
 	}
 	
-	
-
-	
-	
 
 	@RequestMapping("/exhbn/tab_exhbnSearch")
 	public String tab_ExhbitonSearch(@RequestParam("exhbnType") String type, Model model) {
