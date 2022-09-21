@@ -64,7 +64,7 @@ public class ExhbnViewController {
 	}
 	@RequestMapping("/exhbn/tab_exhbnSearch0")
 	public String tab_ExhbitonSearch0(@RequestParam("exhbnType") String type, Model model) {
-		ArrayList<ExhbnVO> tab_exhbnSearch = service.TabSearch(type);
+		ArrayList<ExhbnVO> tab_exhbnSearch = service.TabSearch0(type);
 		model.addAttribute("exhbnSearchList", tab_exhbnSearch);
 
 		System.out.println(type);
@@ -215,14 +215,12 @@ public class ExhbnViewController {
 			@RequestParam("exhbnTitle") String title, 
 			@RequestParam("exhbnArea") String exWhere,
 			@RequestParam("exhbnPrice") String exPrice,
-
-			/*
-			 * @RequestParam("exWhen") String exWhen,
-			 */
+			@RequestParam("exWhen") String exWhen,
+			 
 			Model model
 			 ) {
 		
-		ArrayList<ExhbnVO> voList = service.exhbnSearch2(title, exWhere.trim(), exPrice);
+		ArrayList<ExhbnVO> voList = service.exhbnSearch2(title, exWhere.trim(), exPrice, exWhen);
 		System.out.println(voList.size());
 		System.out.println(voList.get(0).getExhbnTitle());
 		
@@ -230,7 +228,7 @@ public class ExhbnViewController {
 		 System.out.println(title); 
 		 System.out.println(exWhere+"/");
 		 System.out.println(exPrice);
-	//	 System.out.println(exWhen);
+		 System.out.println(exWhen);
 		 
 		 
 		model.addAttribute("exhbnSearch2", voList);

@@ -109,7 +109,7 @@
 	exhbnUrl,
 	exhbnPrice
 	From exhbn
-	 ORDER BY exhbnId DESC limit 9
+	 ORDER BY exhbnId limit 9
 	 
 	</select>
 	
@@ -239,6 +239,7 @@
 				and exhbnArea like CONCAT('%',#{ExWhere},'%')
             </otherwise>
        	</choose>
+     
        	 	
 		
 		ORDER BY exhbnId DESC limit 9
