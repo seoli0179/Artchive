@@ -18,14 +18,14 @@
 <h1>회원 관리</h1>
 
 <section class="search-container">
-    <select>
-        <option selected>전체</option>
-        <option>아이디</option>
-        <option>이름</option>
-        <option>메일</option>
+    <select id="searchType">
+        <option value="전체" <c:if test="${searchType == '전체'}">selected</c:if>>전체</option>
+        <option value="아이디" <c:if test="${searchType == '아이디'}">selected</c:if>>아이디</option>
+        <option value="이름" <c:if test="${searchType == '이름'}">selected</c:if>>이름</option>
+        <option value="메일" <c:if test="${searchType == '메일'}">selected</c:if>>메일</option>
     </select>
-    <input type="text" placeholder="검색어를 입력하세요">
-    <button class="searchBtn">검색</button>
+    <input id="searchValue" type="text" placeholder="검색어를 입력하세요" value="${searchValue}">
+    <button id="searchButton" class="searchBtn">검색</button>
 </section>
 <section class="table-container">
     <table class="resultTable">
@@ -94,6 +94,8 @@
 </div>
 
 <section class="pageNumBox">
+    <input type="hidden" id="maxCount" value="${maxCount}">
+    <input type="hidden" id="currentPage" value="${currentPage}">
     <ul class="pageNumList">
         <li><<</li>
         <li><</li>

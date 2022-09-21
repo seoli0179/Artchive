@@ -41,4 +41,49 @@
         WHERE userId = #{userId}
     </update>
 
+    <select id="UserSelect"
+            parameterType="hashmap"
+            resultType="com.spring_boot_final.project.model.UserVO">
+        SELECT *
+        FROM user
+        <choose>
+            <when test="searchType=='전체'">
+                where userId like CONCAT('%', #{searchValue}, '%')
+            </when>
+            <when test="searchType=='아이디'">
+                where userId like CONCAT('%', #{searchValue}, '%')
+            </when>
+            <when test="searchType=='이름'">
+                where userName like CONCAT('%', #{searchValue}, '%')
+            </when>
+            <when test="searchType=='메일'">
+                where userEmail like CONCAT('%', #{searchValue}, '%')
+            </when>
+        </choose>
+        order by userId desc
+        LIMIT #{limit}
+        OFFSET #{page}
+    </select>
+
+    <select id="UserMaxCount"
+            parameterType="hashmap"
+            resultType="int">
+        SELECT count(*)
+        FROM user
+        <choose>
+            <when test="searchType=='전체'">
+                where userId like CONCAT('%', #{searchValue}, '%')
+            </when>
+            <when test="searchType=='아이디'">
+                where userId like CONCAT('%', #{searchValue}, '%')
+            </when>
+            <when test="searchType=='이름'">
+                where userName like CONCAT('%', #{searchValue}, '%')
+            </when>
+            <when test="searchType=='메일'">
+                where userEmail like CONCAT('%', #{searchValue}, '%')
+            </when>
+        </choose>
+    </select>
+
 </mapper>

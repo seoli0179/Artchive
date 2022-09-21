@@ -24,13 +24,35 @@ public class adminUserController {
     AdminUserService adminUserService;
 
     @RequestMapping("/admin/user/select/all")
-    public String UserSelectAll(HttpSession session, Model model){
+    public String UserSelectAll(HttpSession session, Model model) {
 
         if (!adminCheck(session)) {
             return "error";
         }
 
         model.addAttribute("users", adminUserService.UserSelectAll());
+
+        return "/admin/result/user/userTable";
+    }
+
+    @RequestMapping("/admin/user/select")
+    public String UserSelect(
+            @RequestParam("page") int page,
+            @RequestParam("searchType") String searchType,
+            @RequestParam("searchValue") String searchValue,
+            HttpSession session,
+            Model model
+    ) {
+
+        if (!adminCheck(session)) {
+            return "error";
+        }
+
+        model.addAttribute("users", adminUserService.UserSelect(page, 10, searchType, searchValue));
+        model.addAttribute("maxCount", (adminUserService.UserMaxCount(searchType, searchValue) - 1) / 10 + 2);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("searchType", searchType);
+        model.addAttribute("searchValue", searchValue);
 
         return "/admin/result/user/userTable";
     }

@@ -40,7 +40,7 @@ public class adminReviewController {
         }
 
         model.addAttribute("reviews", adminReviewService.ReviewSelectFilter(page, 10, searchType, searchValue));
-        System.out.println(adminReviewService.ReviewMaxCount(searchType, searchValue) / 10);
+        System.out.println((adminReviewService.ReviewMaxCount(searchType, searchValue) - 1) / 10);
         model.addAttribute("maxCount", adminReviewService.ReviewMaxCount(searchType, searchValue) / 10 + 2);
         model.addAttribute("currentPage", page);
         model.addAttribute("searchType", searchType);

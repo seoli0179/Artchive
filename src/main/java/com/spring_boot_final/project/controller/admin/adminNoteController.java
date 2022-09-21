@@ -26,7 +26,7 @@ public class adminNoteController {
     AdminNoteService adminNoteService;
 
     @RequestMapping("/admin/note/select/all")
-    public String NoteSelectAll(HttpSession session, Model model){
+    public String NoteSelectAll(HttpSession session, Model model) {
 
         if (!adminCheck(session)) {
             return null;
@@ -55,16 +55,16 @@ public class adminNoteController {
         System.out.println(category);
 
         model.addAttribute("notes", adminNoteService.NoteSelectFilter(page, 10, searchType, searchValue, category));
-        model.addAttribute("maxCount", adminNoteService.NoteMaxCount(searchType, searchValue, category) / 10 + 2);
+        model.addAttribute("maxCount", (adminNoteService.NoteMaxCount(searchType, searchValue, category) - 1) / 10 + 2);
         model.addAttribute("currentPage", page);
         model.addAttribute("searchType", searchType);
         model.addAttribute("searchValue", searchValue);
 
-        if(category.equals("NOTE"))
+        if (category.equals("NOTE"))
             return "/admin/result/note/noteTable";
-        if(category.equals("NOTICE"))
+        if (category.equals("NOTICE"))
             return "/admin/result/note/noticeTable";
-        if(category.equals("EVENT"))
+        if (category.equals("EVENT"))
             return "/admin/result/note/eventTable";
 
         return "/admin/result/note/noteTable";

@@ -53,7 +53,7 @@ public class adminExhbnController {
         }
 
         model.addAttribute("exhbns", adminExhbnService.ExhbnSelectFilter(page, 10, searchType, searchValue));
-        model.addAttribute("maxCount", adminExhbnService.ExhbnMaxCount(searchType, searchValue) / 10 + 2);
+        model.addAttribute("maxCount", (adminExhbnService.ExhbnMaxCount(searchType, searchValue) - 1) / 10 + 2);
         model.addAttribute("currentPage", page);
         model.addAttribute("searchType", searchType);
         model.addAttribute("searchValue", searchValue);
@@ -117,7 +117,7 @@ public class adminExhbnController {
     public boolean ExhbnDelete(
             @RequestParam("exhbnId") int exhbnId,
             HttpSession session
-    ){
+    ) {
 
         if (!adminCheck(session)) {
             return false;
