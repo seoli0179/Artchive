@@ -80,7 +80,7 @@ public class ExhbnViewController {
         if (session.getAttribute("sid") != null)
             service.insertInteractionDAS(session.getAttribute("sid").toString(), id);
 
-        List<ReviewNoteVO> reviewnoteVo = reviewService.reviewNoteList();
+        List<ReviewNoteVO> reviewnoteVo = reviewService.exhbnReviewNoteList(id);
         model.addAttribute("reviewList", reviewnoteVo);
 
         return "detail";
