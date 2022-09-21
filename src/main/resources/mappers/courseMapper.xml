@@ -55,7 +55,7 @@
              -- CourseListItemVO
              placeNames, categoryNames, phones, addressNames, roadAddressNames,
              postionX, positionY, placeUrls, placeMemos)
-        VALUES (#{userId}, #{exhbnId}, #{courseTitle}, #{courseTag}, #{courseState},
+        VALUES (#{userId}, #{exhbnId}, #{courseTitle}, #{courseTag}, 'POST',
                 -- CourseListItemVO
                 #{placeNames}, #{categoryNames}, #{phones}, #{addressNames}, #{roadAddressNames},
                 #{postionX}, #{positionY}, #{placeUrls}, #{placeMemos});
