@@ -221,7 +221,7 @@
             </div>
         </div>
 
-        <div id="recommended2" onclick="location.href='<c:url value='/review/reviewNote/9'/>';">
+        <div id="recommended2" onclick="location.href='<c:url value='/review/reviewNote/11'/>';">
             <ul>
                 <li>
                     <img src="<c:url value='http://grynaszstudio.com/content/1.projects/027.ekspozycja_CMIELOW/007_Cmielow_LRes.jpg'/>">
@@ -236,7 +236,7 @@
             </div>
         </div>
 
-        <div id="recommended3" onclick="location.href='<c:url value='/review/reviewNote/10'/>';">
+        <div id="recommended3" onclick="location.href='<c:url value='/review/reviewNote/12'/>';">
             <ul>
                 <li>
                     <img src="<c:url value='http://grynaszstudio.com/content/1.projects/027.ekspozycja_CMIELOW/005_Cmielow_LRes.jpg'/>">
