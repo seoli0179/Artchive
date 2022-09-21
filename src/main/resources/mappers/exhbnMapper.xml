@@ -126,7 +126,7 @@
 	exhbnUrl,
 	exhbnPrice
 	From exhbn
-	WHERE exhbnType = "미술" 
+	WHERE exhbnType = "미술전시" 
 	 ORDER BY exhbnId DESC limit 9
 	</select>
 	
@@ -213,8 +213,8 @@
 		exhbnTitle like CONCAT('%',#{Title},'%')
 		and
 		exhbnArea like CONCAT('%',#{ExWhere},'%')
-
-		<!-- exhbnPrice = '무료' -->
+		<!-- and
+		 exhbnPrice = '무료' -->
 
 		ORDER BY exhbnId DESC limit 9
 	</select>
