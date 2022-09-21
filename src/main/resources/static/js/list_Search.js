@@ -116,7 +116,29 @@
         
  		
  	}); // submit 끝 
- 
+$('#allArea').on('click', function(){
+ 		$('.AREA').removeClass('selected');
+	 	$('#allArea').addClass('selected');
+ 		var type = $('#allArea').on('click').val();
+ 		$.ajax({
+            type: "post",
+            url: "/exhbn/tab_exhbnSearch0",
+           	dataType : "html",
+            data: {
+                "exhbnType": type
+                
+            },
+           success: function (result_Festival) {
+            $('#searchResultl').html(result_Festival);
+            
+			},
+            error: function () {
+            alert("오류");
+            },
+        });
+                
+ 		
+ 	}); // submit 끝  
 
  	$('#Festival').on('click', function(){
  		$('.AREA').removeClass('selected');
@@ -200,7 +222,7 @@
  		var title2 = $('#inner-searchbar2').val();
  		var exWhere = $('#result4').text();
  		var exPrice = $('#result2').text();
- 		var exWhen = $('#result5').text();
+ 		//var exWhen = $('#result5').text();
 		// 기본 기능 중단
  		//event.preventDefault();
  		$.ajax({
@@ -211,7 +233,7 @@
                 "exhbnTitle": title2,
                 "exhbnArea" : exWhere,
                 "exhbnPrice": exPrice,
-                "exWhen" : exWhen
+          //      "exWhen" : exWhen
                },
                
 

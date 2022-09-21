@@ -41,7 +41,7 @@ public class ExhbnService {
 		return dao.ExhbnSearch(title);
 	}
 
-	public ArrayList<ExhbnVO> exhbnSearch2(String title, String exWhere, String exPrice, String exWhen) {
+	public ArrayList<ExhbnVO> exhbnSearch2(String title, String exWhere, String exPrice) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 //  		map.put("Title", title);
 //  		map.put("ExWhere", exWhere);
@@ -63,6 +63,7 @@ public class ExhbnService {
 	public ArrayList<ExhbnVO> TabSearch0(String type) {
 		return dao.tab_ExhbnSearch0(type);
 	}
+	
 	public ArrayList<ExhbnVO> TabSearch(String type) {
 		return dao.tab_ExhbnSearch(type);
 	}

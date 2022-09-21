@@ -72,7 +72,6 @@ public class ExhbnViewController {
 		for (int i = 0; i < tab_exhbnSearch.size(); i++) {
 			System.out.println(tab_exhbnSearch.get(i).getExhbnId());
 		}
-
 		return "searchResult";
 
 	}
@@ -216,7 +215,6 @@ public class ExhbnViewController {
 			@RequestParam("exhbnTitle") String title, 
 			@RequestParam("exhbnArea") String exWhere,
 			@RequestParam("exhbnPrice") String exPrice,
-			@RequestParam("exWhen") String exWhen,
 
 			/*
 			 * @RequestParam("exWhen") String exWhen,
@@ -224,7 +222,7 @@ public class ExhbnViewController {
 			Model model
 			 ) {
 		
-		ArrayList<ExhbnVO> voList = service.exhbnSearch2(title, exWhere.trim(), exPrice, exWhen);
+		ArrayList<ExhbnVO> voList = service.exhbnSearch2(title, exWhere.trim(), exPrice);
 		System.out.println(voList.size());
 		System.out.println(voList.get(0).getExhbnTitle());
 		
