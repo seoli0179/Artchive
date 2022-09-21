@@ -157,7 +157,7 @@
 										<option value="gmail.com"
 											<c:if test="${email2 eq 'gmail.com'}">selected</c:if>>@gmail.com</option>
 									</select>
-									<div class="warning">이메일을 입력해주세요.</div>
+									<!-- <div class="warning">이메일을 입력해주세요.</div> -->
 								</div>
 
 								<div class="emailNumBox">
@@ -199,11 +199,11 @@
 								</div>
 								<!-- infoBox -->
 
-								<div class="buttonBox">
+							<!-- 	<div class="buttonBox">
 									<input type="submit" id="editBtn" class="editBtn black-btn"
 										value="확인"> <input type="reset"
 										class="resetBtn white-btn" value="취소">
-								</div>
+								</div> -->
 								<!--buttonBox-->
 
 							</div>
