@@ -78,7 +78,7 @@ public class CourseViewController {
             temp.setPlace_name(placeName[i]);
             temp.setCategory_group_name(vo.getCategoryNames().split(";;")[i]);
 //            temp.setPhone(vo.getPhones().split(";;")[i]);
-            temp.setAddress_name(vo.getAddressNames().split(";;")[i]);
+//            temp.setAddress_name(vo.getAddressNames().split(";;")[i]);
             temp.setRoad_address_name(vo.getRoadAddressNames().split(";;")[i]);
             temp.setX(vo.getPostionX().split(";;")[i]);
             temp.setY(vo.getPositionY().split(";;")[i]);

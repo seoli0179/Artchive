@@ -99,7 +99,8 @@
 											</div>
 											<div class="content">
 												<div class="where">
-													<h3 class="where-title">${site.place_name}</h3>
+													<h3 class="where-title"><a href="${site.place_url}" target="_blank">${site.place_name}</a></h3>
+<%--													<div class="siteAddress">${site.road_address_name}</div>--%>
 													<div class="siteAddress">${site.road_address_name}</div>
 													<div class="memo-box">
 														<span id="memo_${status.count}" class="small-text" placeholder="메모를 입력하세요.">${site.place_memo}</span>
