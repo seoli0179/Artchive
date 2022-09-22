@@ -108,8 +108,11 @@ public class reviewViewController {
  		
  		 if (vo.getReviewPageViewState() != ViewState.POST) { return "error"; }
 
- 		if (session.getAttribute("sid") != null)
- 			vo.setReviewNoteLikeCheck(reviewnoteService.reviewNoteLikeCheck(vo, session.getAttribute("sid").toString()));
+			/*
+			 * if (session.getAttribute("sid") != null)
+			 * vo.setReviewNoteLikeCheck(reviewnoteService.reviewNoteLikeCheck(vo,
+			 * session.getAttribute("sid").toString()));
+			 */
  		 
  		 
  		String[] siteName = vo.getPlaceNames().split(";;");
@@ -168,7 +171,7 @@ public class reviewViewController {
 			 * temp.setPhone(vo.getPhones().split(";;")[i]==null ? "" :
 			 * vo.getPhones().split(";;")[i]);
 			 */
-            temp.setAddress_name(vo.getAddressNames().split(";;")[i]);
+			/* temp.setAddress_name(vo.getAddressNames().split(";;")[i]); */
             temp.setRoad_address_name(vo.getRoadAddressNames().split(";;")[i]);
             temp.setX(vo.getPostionX().split(";;")[i]);
             temp.setY(vo.getPositionY().split(";;")[i]);

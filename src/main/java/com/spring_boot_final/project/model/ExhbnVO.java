@@ -37,20 +37,18 @@ public class ExhbnVO {
     private Date updatedAt;
 
     private String exhbnType;
-    
+
     private String exhbnDetail;
-    
-    
 
     public String getExhbnDetail() {
-		return exhbnDetail;
-	}
+        return exhbnDetail;
+    }
 
-	public void setExhbnDetail(String exhbnDetail) {
-		this.exhbnDetail = exhbnDetail;
-	}
+    public void setExhbnDetail(String exhbnDetail) {
+        this.exhbnDetail = exhbnDetail;
+    }
 
-	public ExhbnVO(){
+    public ExhbnVO(){
 
     }
 

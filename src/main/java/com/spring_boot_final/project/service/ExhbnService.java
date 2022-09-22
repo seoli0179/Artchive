@@ -29,7 +29,10 @@ public class ExhbnService {
 	public ArrayList<ExhbnVO> selectAllData() {
 		return dao.selectAllExhbn();
 	}
-	
+
+	public ArrayList<ExhbnVO> selectCurrentExhbn(){
+		return dao.selectCurrentExhbn();
+	}
 	
 	
 	public ArrayList<ExhbnVO> selectAllDateType(String dateType){

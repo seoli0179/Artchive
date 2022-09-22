@@ -44,52 +44,69 @@
 						</ul>
 					</nav>
 
-                <div class="myPageBox">
-                    <div class="contentsBox">
-                        <div class="contents">
-                            <h2>추천 콘텐츠</h2>
-                        </div>
-                        <div class="setting">
-                            <a class="white-btn" href="<c:url value='/myPage/custom'/>">설정</a>
-                        </div>
-                    </div>
-                    <!-- contentsBox -->
+					<div class="myPageBox">
+						<div class="contentsBox">
+							<div class="contents">
+								<h2>추천 콘텐츠</h2>
+							</div>
+							<div class="setting">
+								<a class="white-btn" href="<c:url value='/myPage/custom'/>">설정</a>
+							</div>
+						</div>
+						<!-- contentsBox -->
 
-                    <p class="line">
-                    <div class="titleBox">
-                        <a>${sessionScope.username}님에게 추천하는 전시</a>
-                    </div>
-                    <!-- titleBox -->
+						<p class="line">
+						<div class="titleBox">
+							<a href="<c:url value='/myPage/recmd'/>">전시</a>
+						</div>
+						<!-- titleBox -->
+
+						<div class="area">
+							<a class="white-btn" href="<c:url value=''/>">전체</a> <a
+								class="white-btn" href="<c:url value=''/>">서울</a> <a
+								class="white-btn" href="<c:url value=''/>">경기</a> <a
+								class="white-btn" href="<c:url value=''/>">청주</a>
+						</div>
+
+						<div class="wholeExpbnBox">
+							<div class="courseBox">
+								<div class="imageBox">
+									<img src="<c:url value='/image/banner.jpg'/>">
+								</div>
+								<!-- imageBox -->
+								<a>서울</a> <a>히토 슈타이얼 - 데이터의 바다</a> <a>2022-08-14</a>
+							</div>
+							<!-- courseBox -->
+
+							<div class="courseBox">
+								<div class="imageBox">
+									<img src="<c:url value='/image/banner.jpg'/>">
+								</div>
+								<!-- imageBox -->
+								<a>서울</a> <a>히토 슈타이얼 - 데이터의 바다</a> <a>2022-08-14</a>
+							</div>
+							<!-- courseBox -->
+
+							<div class="courseBox">
+								<div class="imageBox">
+									<img src="<c:url value='/image/banner.jpg'/>">
+								</div>
+								<!-- imageBox -->
+								<a>서울</a> <a>히토 슈타이얼 - 데이터의 바다</a> <a>2022-08-14</a>
+							</div>
+							<!-- courseBox -->
+						</div>
+						<!-- wholeExpbnBox -->
 
 
-                    <div class="wholeExpbnBox">
-                        <c:forEach items="${items}" var="item" varStatus="status">
-                            <input type="hidden" id="exhbnId_${status.index}" value="${item.exhbnId}">
-                            <div class="courseBox">
-                                <div class="imageBox">
-                                    <img style="cursor: pointer;" class="exhbnImgClick" src="${item.exhbnImgUrl}">
-                                </div>
-                                <!-- imageBox -->
-                                <a>${item.exhbnArea}</a>
-                                <a href="<c:url value="/exhbn/detail/${item.exhbnId}"/> ">${item.exhbnTitle}</a>
-                                <a><fmt:formatDate value="${item.exhbnStartDate}" pattern="yyyy-MM-dd"></fmt:formatDate>
-                                    ~ <fmt:formatDate value="${item.exhbnEndDate}"
-                                                      pattern="yyyy-MM-dd"></fmt:formatDate></a>
-                            </div>
-                        </c:forEach>
-                        <!-- courseBox -->
-                    </div>
-                    <!-- wholeExpbnBox -->
+					</div>
+					<!-- myPageBox -->
+				</div>
+			</main>
 
-
-                </div>
-                <!-- myPageBox -->
-            </div>
-        </main>
-
-    </section>
-</div>
-<!-- wrapper -->
-<c:import url="/WEB-INF/views/layout/bottom.jsp"/>
+		</section>
+	</div>
+	<!-- wrapper -->
+	<c:import url="/WEB-INF/views/layout/bottom.jsp" />
 </body>
 </html>
