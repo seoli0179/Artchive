@@ -1,32 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+         pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>arTchive / 마이페이지 - 추천콘텐츠(전시)</title>
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/tools/reset.css'/>" />
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/common.css'/>" />
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/myPage/recmd.css'/>" />
-<script src="https://kit.fontawesome.com/50d21a2bed.js"
-	crossorigin="anonymous"></script>
-<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
+    <meta charset="UTF-8">
+    <title>arTchive / 마이페이지 - 추천콘텐츠(전시)</title>
+    <link rel="stylesheet" type="text/css"
+          href="<c:url value='/tools/reset.css'/>"/>
+    <link rel="stylesheet" type="text/css"
+          href="<c:url value='/css/common.css'/>"/>
+    <link rel="stylesheet" type="text/css"
+          href="<c:url value='/css/myPage/recmd.css'/>"/>
+    <script src="https://kit.fontawesome.com/50d21a2bed.js"
+            crossorigin="anonymous"></script>
+    <script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
+    <script src="<c:url value='/js/myPage/recmdImgClick.js'/>"></script>
 
 </head>
 <body>
-	<div class="wrapper">
-		<c:import url="/WEB-INF/views/layout/top.jsp" />
+<div class="wrapper">
+    <c:import url="/WEB-INF/views/layout/top.jsp"/>
 
-		<section>
+    <section>
 
-			<main id="course-container">
-				<div class="course-box main-title-box">
-					<h1 class="h1">MyPage</h1>
+        <main id="course-container">
+            <div class="course-box main-title-box">
+                <h1 class="h1">MyPage</h1>
 
 				</div>
 				<div class="course-box guide-box">

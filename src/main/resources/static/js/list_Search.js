@@ -217,6 +217,7 @@ $('#allArea').on('click', function(){
  	}); // submit 끝 
 
  	$('#exhbnSearchFrm-detail').on('click', function(){
+
  		// alert($('#inner-searchbar2').val();
  		// 검색어 받아지는 것 됨 
  		var title = $('#inner-searchbar2').val();
@@ -225,6 +226,8 @@ $('#allArea').on('click', function(){
  		var exPrice = $('#result2').text();
  		var exDate = $('#result3').text();
  		var exWhen = $('#result5').text();
+ 		//var page = $('#page-box').text();
+ 		var page = $('#page-box1').text();
 		// 기본 기능 중단
  		//event.preventDefault();
  		$.ajax({
@@ -236,14 +239,18 @@ $('#allArea').on('click', function(){
                 "exhbnArea" : exWhere,
                 "exhbnDate" : exDate,
                 "exhbnPrice": exPrice,
-                "exhbnWhen": exWhen
+                "exhbnWhen": exWhen,
+                "expage" : page
                 },
                
             success: function (result_detail) {
             // alert("검색 결과를 보여드릴게요");
+            console.log(result_detail);
             $('#searchResultl2').empty();
             $('#searchResultl2').html(result_detail);
            // $('#searchResultl2').html(result_detail);
+           // 스크롤 가장 아래로 내리기									   
+			$(".popup").scrollTop($(".popup")[0].scrollHeight);
 			            },
             error: function () {
                 alert('aa1');
@@ -252,6 +259,9 @@ $('#allArea').on('click', function(){
  		
  		
  	}); // submit 끝 
+
+
+ 	
  });  // ready 끝
  
 

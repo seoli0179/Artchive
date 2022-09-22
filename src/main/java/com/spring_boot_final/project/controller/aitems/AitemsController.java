@@ -47,12 +47,16 @@ public class AitemsController {
 //        userId = "user1001";
 
         ArrayList<String> items = service.getPersonalRecommend(userId, 4);
+        ArrayList<String> temps = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            temps.add(items.get(i));
+        }
 
         for (String str : items) {
             System.out.println(str);
         }
 
-        ArrayList<ExhbnVO> vo = service.getExhbnItems(items);
+        ArrayList<ExhbnVO> vo = service.getExhbnItems(temps);
 
 
         System.out.println(vo.size());

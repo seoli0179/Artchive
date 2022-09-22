@@ -16,8 +16,7 @@
 	<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/list.css'/>">
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/detailSearch.css'/>"/>
-		<script src="<c:url value='/tools/jquery-3.6.0.min.js' /> "></script>
-	
+	<script src="<c:url value='/tools/jquery-3.6.0.min.js' /> "></script>
 	<script src="<c:url value='/js/list_Search.js' />"></script>
 
 	<%-- <script src="<c:url value='/js/list.js' />"></script>
@@ -41,6 +40,7 @@
 					<div class="ex-place">${exhbn.exhbnPlace}</div>
 					<div class="ex-title">${exhbn.exhbnTitle}</div>
 					<div class="ex-period"><fmt:formatDate value = "${exhbn.exhbnStartDate}" type ="date" pattern="yyyy.MM.dd"/> ~ 
+					
 					<fmt:formatDate value = "${exhbn.exhbnEndDate}" type ="date" pattern="yyyy.MM.dd"/></div>
 				</section>
 			</li>

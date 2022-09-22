@@ -189,25 +189,26 @@ public class ExhbnViewController {
 		return "searchResult";
 
 	}
-	@RequestMapping("/exhbn/tab_exhbnSearch_total")
-	public String tab_ExhbitonSearch_total(
-			@RequestParam("exhbnTitle") String title,
-			@RequestParam("exhbnType") String type,
-			Model model) {
-		  HashMap<String,Object> map = new HashMap<String,Object>();
-		  System.out.println(title);
-		  System.out.println(type);
-		  
-		  
-		  model.addAttribute("ExhbitonSearch_detail", service.TabSearch_total(title, type));
-
-		  map.put("Title", title);
-		  map.put("Type",  type);
-		  
-		 
-		  
-		  return "searchResult"; //스프링이 자동으로 JSON타입으로 반환해서 전달한다.
-		}
+	/*
+	 * @RequestMapping("/exhbn/tab_exhbnSearch_total") public String
+	 * tab_ExhbitonSearch_total(
+	 * 
+	 * @RequestParam("exhbnTitle") String title,
+	 * 
+	 * @RequestParam("exhbnType") String type, Model model) { HashMap<String,Object>
+	 * map = new HashMap<String,Object>(); System.out.println(title);
+	 * System.out.println(type);
+	 * 
+	 * 
+	 * model.addAttribute("ExhbitonSearch_detail", service.TabSearch_total(title,
+	 * type));
+	 * 
+	 * map.put("Title", title); map.put("Type", type);
+	 * 
+	 * 
+	 * 
+	 * return "searchResult"; //스프링이 자동으로 JSON타입으로 반환해서 전달한다. }
+	 */
 	
 	//디테일
 	/*
@@ -241,6 +242,8 @@ public class ExhbnViewController {
 			@RequestParam("exhbnArea") String exWhere,
 			@RequestParam("exhbnPrice") String exPrice,
 			@RequestParam("exhbnDate") String exDate,
+			@RequestParam("expage") String page,
+			
 			/*
 			 * @RequestParam("exhbnWhen") String exWhen,
 			 */			 
@@ -248,8 +251,7 @@ public class ExhbnViewController {
 			Model model
 			 ) throws ParseException {
 		
-					ArrayList<ExhbnVO> voList = service.exhbnSearch2(title, exWhere.trim(), exPrice,
-							exDate/* , exWhen */);
+					ArrayList<ExhbnVO> voList = service.exhbnSearch2(title, exWhere.trim(), exPrice, exDate, page/* , exWhen */);
 		System.out.println(voList.size());
 		//System.out.println(voList.get(0).getExhbnTitle());
 		
@@ -258,6 +260,8 @@ public class ExhbnViewController {
 		 System.out.println(exWhere+"/");
 		 System.out.println(exPrice);
 		 System.out.println(exDate);
+		 System.out.println(page);
+
 
 			/*
 			 * System.out.println(exWhen);
