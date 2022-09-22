@@ -64,8 +64,10 @@ public class ReviewNoteService{
 	}
 		
 	public boolean reviewNoteLikeCheck (ReviewNoteVO vo, String userId) {
-		vo.setUserId(userId);
-		if (dao.selectReviewNoteLike(vo) > 0) {
+		ReviewNoteVO temp = new ReviewNoteVO();
+		temp.setUserId(userId);
+		temp.setReviewNoteId(vo.getReviewNoteId());
+		if (dao.selectReviewNoteLike(temp) > 0) {
             return true;
         } else {
             return false;
