@@ -161,7 +161,7 @@
 					</div>
 				</div>
 				<div>
-					<a id="btnTwitter" class="link-icon twitter" href="javascript:shareTwitter();">
+					<a id="btnTwitter" class="link-icon kakao" href="javascript:shareKakao();">
 						<img src="<c:url value="/image/social/social_kakao.png"/>" style="width: 30px;">
 					</a>
 					&nbsp;
@@ -169,7 +169,7 @@
 						<img src="<c:url value="/image/social/social_facebook.png"/>" style="width: 30px;">
 					</a>
 					&nbsp;
-					<a id="btnKakao" class="link-icon kakao" href="javascript:shareKakao();">
+					<a id="btnKakao" class="link-icon twitter" href="javascript:shareTwitter();">
 						<img src="<c:url value="/image/social/social_twitter.png"/>" style="width: 30px">
 					</a>
 					&nbsp;
