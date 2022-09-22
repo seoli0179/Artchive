@@ -54,7 +54,7 @@ public class ExhbnService {
 		return dao.ExhbnSearch(title);
 	}
 
-	public ArrayList<ExhbnVO> exhbnSearch2(String title, String exWhere, String exPrice, String exDate
+	public ArrayList<ExhbnVO> exhbnSearch2(String title, String exWhere, String exPrice, String exDate, String page
 			/*String exWhen*/) /*throws ParseException*/{
 		HashMap<String, Object> map = new HashMap<String, Object>();
 //  		map.put("Title", title);
@@ -108,13 +108,13 @@ public class ExhbnService {
 		return dao.tab_ExhbnSearch6(type);
 	}
 
-	public ArrayList<ExhbnVO> TabSearch_total(String title, String type) {
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("Title", title);
-		map.put("Type", type);
-		//return dao.tab_ExhbnSearch_total(map);
-		return null;
-	}
+//	public ArrayList<ExhbnVO> TabSearch_total(String title, String type) {
+//		HashMap<String, Object> map = new HashMap<String, Object>();
+//		map.put("Title", title);
+//		map.put("Type", type);
+//		//return dao.tab_ExhbnSearch_total(map);
+//		return null;
+//	}
 
 	/*
 	 * public ArrayList<ExhbnVO> ExhbitonSearch_detail(String title, String exWhere)

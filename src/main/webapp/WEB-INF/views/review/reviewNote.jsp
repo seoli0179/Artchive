@@ -50,42 +50,24 @@
 			</div>
           		<div id="courseMainBtn-Box">
           		
-          		<!-- 코스수정 -->
-          		<c:if test="${not empty sessionScope.sid}">
-					<input type="button" id="editCourseBtn"  class="white-btn" value="코스 수정" onclick="location.href='<c:url value="/course/${reviewNote.courseId}/edit"/>'">
-				</c:if>
-				<c:if test="${empty sessionScope.sid}">
-					<input type="button" class="white-btn" onclick="alert('로그인이 필요한 기능입니다.');" value="코스 수정">
-				</c:if>
 				
-				<!-- 게시글 수정 -->
-				<c:if test="${not empty sessionScope.sid}">
+				<!-- 로그인 되어 있을 때만 보임 게시글 유저 -->
+				<c:if test="${sessionScope.sid == reviewNote.userId}">
 					<input type="button" id="like-btn"  class="white-btn" value="게시글 수정" onclick="location.href='<c:url value="/review/reviewNoteEdit/${reviewNote.reviewNoteId}"/>'">
-					
+					<input type="button" id="editCourseBtn"  class="white-btn" value="코스 수정" onclick="location.href='<c:url value="/course/${reviewNote.courseId}/edit"/>'">
+				</c:if>	
+				
+				<c:if test="${not empty sessionScope.sid}">
 					<form method="post" action="<c:url value='/insertBookMarkReview' /> ">
 						<input type="submit" id="insertBookMarkReview" class="white-btn" value="스크랩">
 						<input type="hidden" id="reviewNoteId" name="reviewNoteId" value=${reviewNote.reviewNoteId} >
 					</form>
+				</c:if>	
 					
+				<c:if test="${sessionScope.sid == reviewNote.userId}">	
+						<input type="button" id="reviewDelete"  class="black-btn" value="삭제">
 				</c:if>
 				
-				<c:if test="${empty sessionScope.sid}">
-					<input type="button" class="white-btn" onclick="alert('로그인이 필요한 기능입니다.');" value="게시글 수정">
-				</c:if>
-				
-					
-				<!-- 삭제 -->
-				<c:if test="${not empty sessionScope.sid}">
-					<input type="button" id="reviewDelete"  class="black-btn" value="삭제">
-				</c:if>
-				<c:if test="${empty sessionScope.sid}">
-					<input type="button" class="black-btn" onclick="alert('로그인이 필요한 기능입니다.');" value="삭제">
-				</c:if>
-				
-				<%-- <input type="button" id="editCourseBtn"  class="white-btn" value="코스 수정" onclick="location.href='<c:url value="/course/${reviewNote.courseId}/edit"/>'">
-				<input type="button" id="like-btn"  class="white-btn" value="게시글 수정" onclick="location.href='<c:url value="/review/reviewNoteEdit/${reviewNote.reviewNoteId}"/>'">
-				
-				<input type="button" id="reviewDelete"  class="black-btn" value="삭제"> --%>
 				
           		</div><!-- courseMainText -->
 		</section><!-- courseMenu -->

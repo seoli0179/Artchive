@@ -18,7 +18,6 @@
     left: 50%;
     width: 1080px;
     height: 80vh;
-    overflow-y:scroll;
 
     padding: 20px;
 
@@ -35,6 +34,14 @@
 iframe {
     width: 100%;
     height: 100%;
+}
+
+iframe {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+iframe::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
 }
 
 .form-btn-box {
