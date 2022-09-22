@@ -6,16 +6,25 @@ import com.spring_boot_final.project.service.UserService;
 import com.spring_boot_final.project.service.admin.AdminExhbnService;
 import com.spring_boot_final.project.service.admin.AdminNoteService;
 import com.spring_boot_final.project.state.ViewState;
+import org.apache.commons.io.FileUtils;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.UUID;
 
 @Controller
 public class adminNoteController {
@@ -93,6 +102,38 @@ public class adminNoteController {
 
         return adminNoteService.UpdateNotice(vo);
 
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/upload/summernote/image", produces = "application/json")
+    public String uploadSummernoteImageFile(@RequestParam("file") MultipartFile multipartFile) {
+
+        String json = "";
+
+        String fileRoot = "/usr/local/project/images/";
+        //String fileRoot = "C://image/";
+        String originalFileName = multipartFile.getOriginalFilename(); // 오리지날 파일명
+        String extension = originalFileName.substring(originalFileName.lastIndexOf(".")); // 파일 확장자
+
+        String savedFileName = UUID.randomUUID() + extension; // 저장될 파일 명
+
+        System.out.println(fileRoot + savedFileName);
+
+        File targetFile = new File(fileRoot + "/" + savedFileName);
+
+        try {
+            InputStream fileStream = multipartFile.getInputStream();
+            FileUtils.copyInputStreamToFile(fileStream, targetFile); // 파일 저장
+            json = "{\"url\": \"http://49.50.160.205:8080/images/" + savedFileName + "\","+
+                    "\"responseCode\": \"success\"}";
+
+        } catch (IOException e) {
+            FileUtils.deleteQuietly(targetFile); // 저장된 파일 삭제
+            json = "{\"responseCode\": \"error\"}";
+            e.printStackTrace();
+        }
+
+        return json;
     }
 
     @RequestMapping("/admin/event/update")
