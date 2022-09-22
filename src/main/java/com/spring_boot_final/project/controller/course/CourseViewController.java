@@ -1,6 +1,7 @@
 package com.spring_boot_final.project.controller.course;
 
 import com.spring_boot_final.project.model.*;
+import com.spring_boot_final.project.model.summary.DocumentVO;
 import com.spring_boot_final.project.service.AitemsService;
 import com.spring_boot_final.project.service.CourseService;
 import com.spring_boot_final.project.service.ExhbnService;
@@ -48,8 +49,33 @@ public class CourseViewController {
 
         model.addAttribute("exhbnList", vo);
 
-        ArrayList<ReviewNoteVO> reviewVo = reviewService.reviewNoteList();
-        model.addAttribute("reviewList", reviewVo);
+        ArrayList<ReviewNoteVO> reviewNoteList = reviewService.reviewNoteList();
+
+        for (int i = 0; i < reviewNoteList.size(); i++) {
+            String tagRemove = reviewNoteList.get(i).getReviewNote().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
+
+
+            DocumentVO docVo = new DocumentVO();
+            docVo.setTitle(reviewNoteList.get(i).getReviewNoteTitle());
+
+            // html 태그 제거
+            docVo.setContent(tagRemove);
+
+            // thumbnail test 새힘
+            int begin = reviewNoteList.get(i).getReviewNote().indexOf("<img");
+            if (begin > 0) {
+                int begin1 = reviewNoteList.get(i).getReviewNote().indexOf("src", begin) + 5;
+                int end = reviewNoteList.get(i).getReviewNote().indexOf("\"", begin1);
+                reviewNoteList.get(i).setPreView(reviewNoteList.get(i).getReviewNote().substring(begin1, end));
+            }
+            if (reviewNoteList.get(i).getPreView()==null) {
+                reviewNoteList.get(i).setPreView(reviewNoteList.get(i).getExhbnImgUrl());
+            }
+
+            // thumbnail end
+        }
+
+        model.addAttribute("reviewList", reviewNoteList);
 
         return "course/courseMain";
 

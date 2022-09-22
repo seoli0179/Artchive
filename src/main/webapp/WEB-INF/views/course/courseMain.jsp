@@ -65,7 +65,7 @@
                         <span>가고싶은 전시의 이름을 눌러 선택하세요. 포스터를 누르면 상세 정보를 확인할 수 있습니다.</span>
                     </div>
                     <div class="viewmore-box">
-                        <a href="<c:url value='/exhbn/list'/>"><span class="viewmore">더보기 ></span></a>
+                        <a href="<c:url value='/exhbn/list?dateType=현재'/>"><span class="viewmore">더보기 ></span></a>
                     </div>
                 </div>
                 <section class="exhbnList-box">
@@ -132,7 +132,7 @@
                         <div class="course-item">
                             <a href="<c:url value='/review/reviewNote/${rv.reviewNoteId}'/>">
                                 <div>
-                                    <img class="coursepost-thumb" src="${rv.exhbnImgUrl}" alt="전시포스터">
+                                    <img class="coursepost-thumb" src="${rv.preView}" alt="전시포스터">
                                 </div>
                                 <div class="coursepost-box">
                                     <span class="ex-title">${rv.reviewNoteTitle}</span>

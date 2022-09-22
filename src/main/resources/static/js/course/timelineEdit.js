@@ -322,7 +322,7 @@ function createList() {
                                             <span class="siteCategory">${positions[i].category_group_name}</span>&nbsp;
                                     </c:if>
                                     <h3 class="siteName">
-                                        ${positions[i].place_name}
+                                        <a href="${positions[i].place_url}" target="_blank">${positions[i].place_name}</a>
                                     </h3>
                                     <div class="siteAddress">${positions[i].road_address_name}</div>
                                     <div class="memo-box">             
