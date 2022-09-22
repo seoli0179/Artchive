@@ -16,6 +16,8 @@
 		<script src="<c:url value='/js/review/reviewLike.js'/>"></script>
 		<script src="<c:url value='/js/review/reviewNote.js'/>"></script>
 		<script src="<c:url value='/js/review/reviewDelete.js'/>"></script>
+		<script src="<c:url value='/js/review/shareSNS.js'/>"></script> <!-- sns공유 -->
+		<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script> <!-- sns 공유 -->
 	</head>
 	<body>
 		<!-- top으로 이동 -->
@@ -31,8 +33,9 @@
 					</div>
 					<div id="header-postTitle" class="headerText">
 						<%-- <h1>${course.courseTitle}</h1> --%>
-						<h1>${reviewNote.reviewNoteTitle}</h1>
-						<input type="text" value="${reviewNote.reviewNoteId}" hidden>
+						<h1 id="reviewNoteTitle">${reviewNote.reviewNoteTitle}</h1>
+						<input id="reviewNoteId" type="text" value="${reviewNote.reviewNoteId}" hidden>
+						<input id="exhbnImgUrl" type="text" value="${reviewNote.exhbnImgUrl}" hidden>
 					</div>
 					<div id="header-postDate" class="headerText">
 						<ul><li><fmt:formatDate value="${reviewNote.reviewNoteCreatedDate}" pattern="yyyy. MM. dd. E"></fmt:formatDate></li></ul>
@@ -148,6 +151,41 @@
 	                    </article>
 	                </div>
 	              
+	              <section class="share">
+				<%-- <div class="post-react-box">
+					<div class="post-like-box">
+						<i class="fa-solid fa-heart fa-xl" style="color:black;"></i>
+						<span>${course.courseLike}</span>
+					</div>
+					<div class="post-comment-box">
+						<i class="fa-solid fa-message fa-xl" style="color:black;"></i>
+						<span>${course.courseComment}</span>
+					</div>
+					<div class="post-view-box">
+						<i class="fa-solid fa-eye fa-xl" style="color:black;"></i>
+						<span>${course.courseView}</span>
+					</div>
+				</div> --%>
+				<div>
+					<a id="btnKakao" class="link-icon kakao" href="javascript:shareKakao();">
+						<img src="<c:url value="/image/social/social_kakao.png"/>" style="width: 30px;">
+					</a>
+					&nbsp;
+					<a id="btnFacebook" class="link-icon facebook" href="javascript:shareFacebook();">
+						<img src="<c:url value="/image/social/social_facebook.png"/>" style="width: 30px;">
+					</a>
+					&nbsp;
+					<a id="btnTwitter" class="link-icon twitter" href="javascript:shareTwitter();">
+						<img src="<c:url value="/image/social/social_twitter.png"/>" style="width: 30px">
+					</a>
+					&nbsp;
+					<a id="clipBtn" class="link-icon linkcopy" href="javascript:clip();">
+						<img src="<c:url value="/image/social/social_link.png"/>" style="width: 30px;">
+					</a>
+				</div>
+			</section>
+	              
+	             
 	                <c:if test="${not empty sessionScope.sid}">
 	                    <div class="comment-write">
 	                        <textarea id="reviewComment" name="story"
