@@ -25,6 +25,9 @@ import java.util.ArrayList;
 @Service
 public class AitemsService {
 
+    //private String serviceId = "456332lr6qf"; //artchive
+    private String serviceId = "fd1vb0un437"; //AIItems
+
     @Autowired
     @Qualifier("IAitemsDAO")
     IAitemsDAO dao;
@@ -39,8 +42,8 @@ public class AitemsService {
 
         try {
 
-            String apiURL = "https://aitems.apigw.ntruss.com/api/v1/services/456332lr6qf/infers/lookup?targetId=" + itemId + "&type=relatedItem";
-            String url1 = "/api/v1/services/456332lr6qf/infers/lookup?targetId=" + itemId + "&type=relatedItem";
+            String apiURL = "https://aitems.apigw.ntruss.com/api/v1/services/" + serviceId + "/infers/lookup?targetId=" + itemId + "&type=relatedItem";
+            String url1 = "/api/v1/services/" + serviceId + "/infers/lookup?targetId=" + itemId + "&type=relatedItem";
             URL url = new URL(apiURL);
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -87,8 +90,8 @@ public class AitemsService {
 
         try {
 
-            String apiURL = "https://aitems.apigw.ntruss.com/api/v1/services/456332lr6qf/infers/lookup?targetId=" + userId + "&type=personalRecommend";
-            String url1 = "/api/v1/services/456332lr6qf/infers/lookup?targetId=" + userId + "&type=personalRecommend";
+            String apiURL = "https://aitems.apigw.ntruss.com/api/v1/services/" + serviceId + "/infers/lookup?targetId=" + userId + "&type=personalRecommend";
+            String url1 = "/api/v1/services/" + serviceId + "/infers/lookup?targetId=" + userId + "&type=personalRecommend";
             URL url = new URL(apiURL);
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -131,7 +134,7 @@ public class AitemsService {
         return null;
     }
 
-    public ArrayList<ExhbnVO> getExhbnItems(ArrayList<String> items){
+    public ArrayList<ExhbnVO> getExhbnItems(ArrayList<String> items) {
         return dao.selectExhbn(items);
     }
 

@@ -33,7 +33,7 @@ public class OCRViewController {
 		
 		// String uploadPath = "/Library/upload/";
 		
-		String uploadPath = "/file://usr/local/project/images/";
+		String uploadPath = "/usr/local/project/images/";
 		
 		String originalFileName = file.getOriginalFilename();
 		String filePathName = uploadPath + originalFileName;
