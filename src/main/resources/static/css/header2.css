@@ -96,7 +96,7 @@ header #loginBox > ul li a {
 .userName{
 	white-space: nowrap; 	/* 아래줄로 내려가는걸 막음 */
 	text-overflow: ellipsis;  /*... 만들기 */
-	overflow: hidden;  		/* 영역을 감춤 */
+	/* overflow: hidden;  	 영역을 감춤 */
 	color : #000;
 	font-weight : bold;
 }
