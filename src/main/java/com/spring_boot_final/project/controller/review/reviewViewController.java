@@ -85,6 +85,7 @@ public class reviewViewController {
 		if (reviewNoteList.get(i).getPreView()==null) {
 			reviewNoteList.get(i).setPreView(reviewNoteList.get(i).getExhbnImgUrl());
 		}
+
 		// thumbnail end
 	 }
 
