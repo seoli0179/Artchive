@@ -27,7 +27,6 @@
         limit 4;
     </select>
 
-
     <!-- Read -->
 
     <select id="selectAllExhbn" resultType="com.spring_boot_final.project.model.ExhbnVO">
