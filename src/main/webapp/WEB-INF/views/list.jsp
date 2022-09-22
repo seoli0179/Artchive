@@ -18,8 +18,8 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/detailSearch.css'/>"/>
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js' /> "></script>
 	
-	<script src="<c:url value='/js/list_Search.js' />"></script>
-
+	
+	<script src="/js/list_Search.js"></script>
 	<%-- <script src="<c:url value='/js/list.js' />"></script>
 	--%>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
@@ -253,7 +253,7 @@
 		</div>
 		<div id="Art_Exhbn" class="AREA tabTag">
 			<ul>
-				<li><a href="#Art_Exhbn"><i class="fa-solid fa-palette"></i>미술전시</a></li>
+				<li><a href="#"><i class="fa-solid fa-palette"></i>미술전시</a></li>
 			</ul>
 		</div>
 		<div id="Festival" class="AREA tabTag">
@@ -305,7 +305,7 @@
 </div>
 </div>
 <!-- .list-wrap -->
-		<div class="page" id="page-box"></div>
+		<div class="page" id="page-box" value='${page-box}'></div>
 <!-- footer -->
 <c:import url="/WEB-INF/views/layout/bottom.jsp" />
 <!-- footer -->

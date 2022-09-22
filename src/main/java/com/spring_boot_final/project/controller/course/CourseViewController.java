@@ -2,6 +2,7 @@ package com.spring_boot_final.project.controller.course;
 
 import com.spring_boot_final.project.model.*;
 import com.spring_boot_final.project.model.summary.DocumentVO;
+import com.spring_boot_final.project.service.AitemsService;
 import com.spring_boot_final.project.service.CourseService;
 import com.spring_boot_final.project.service.ExhbnService;
 import com.spring_boot_final.project.service.ReviewNoteService;
@@ -31,11 +32,21 @@ public class CourseViewController {
     @Autowired
     ReviewNoteService reviewService;
 
+    @Autowired
+    AitemsService aitemsService;
+
     // course page view
     @RequestMapping("/course")
-    public String courseView(Model model) {
+    public String courseView(Model model,HttpSession session) {
 
         ArrayList<ExhbnVO> vo = service.selectAllData();
+
+        if(session.getAttribute("sid") == null){
+            vo = service.selectAllData();
+        }else {
+            vo = aitemsService.getExhbnItems(aitemsService.getPersonalRecommend(session.getAttribute("sid").toString(),5));
+        }
+
         model.addAttribute("exhbnList", vo);
 
         ArrayList<ReviewNoteVO> reviewNoteList = reviewService.reviewNoteList();
