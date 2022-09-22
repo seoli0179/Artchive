@@ -20,7 +20,7 @@ public class indexExhbnViewController {
     @RequestMapping("/")
     public String listTestView(Model model) {
 
-        ArrayList<ExhbnVO> vo = service.selectCurrentExhbn();
+        ArrayList<ExhbnVO> vo = service.selectAllData();
         model.addAttribute("exhbnList",vo);
 
         return "index";

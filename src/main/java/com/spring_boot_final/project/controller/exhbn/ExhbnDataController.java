@@ -1,16 +1,22 @@
 package com.spring_boot_final.project.controller.exhbn;
 
-import com.spring_boot_final.project.service.ExhbnService;
-import com.spring_boot_final.project.model.ExhbnVO;
-import lombok.extern.slf4j.Slf4j;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.xml.parsers.ParserConfigurationException;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.xml.sax.SAXException;
 
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.IOException;
-import java.util.ArrayList;
+import com.spring_boot_final.project.model.ExhbnVO;
+import com.spring_boot_final.project.service.ExhbnService;
+
+import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
@@ -30,5 +36,5 @@ public class ExhbnDataController {
         ArrayList<ExhbnVO> allData = service.selectAllData();
         return allData;
     }
+}   
 
-}

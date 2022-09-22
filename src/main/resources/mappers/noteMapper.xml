@@ -116,7 +116,7 @@
         from note
         where userId = #{userId}
         and pageViewState = 'POST' 
-        ORDER by noteCreatedDate DESC
+        ORDER by noteCreatedDate ASC
         ]]>
     </select>
 	

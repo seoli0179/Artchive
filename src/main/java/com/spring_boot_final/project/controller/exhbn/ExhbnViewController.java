@@ -1,6 +1,5 @@
 package com.spring_boot_final.project.controller.exhbn;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring_boot_final.project.model.ExhbnVO;
 import com.spring_boot_final.project.service.ExhbnService;
@@ -58,19 +58,15 @@ public class ExhbnViewController {
 	
 	  // all page view
 	  
-	  @RequestMapping("/exhbn/list") 
-	  public String listTestView(
-			  @RequestParam("dateType") String dateType,
-			  Model model
-			  ) {
+	  @RequestMapping("/exhbn/list") public String listTestView
+	  (Model model) {
 	  
-	  ArrayList<ExhbnVO> vo = service.selectAllDateType(dateType);
+	  ArrayList<ExhbnVO> vo = service.selectAllData();
 	  model.addAttribute("exhbnList", vo);
 	  
-	  return "list"; 
+	  return "list"; }
+	 
 	  
-	  }
-
 	
 	 
 	// detail search
@@ -189,26 +185,25 @@ public class ExhbnViewController {
 		return "searchResult";
 
 	}
-	/*
-	 * @RequestMapping("/exhbn/tab_exhbnSearch_total") public String
-	 * tab_ExhbitonSearch_total(
-	 * 
-	 * @RequestParam("exhbnTitle") String title,
-	 * 
-	 * @RequestParam("exhbnType") String type, Model model) { HashMap<String,Object>
-	 * map = new HashMap<String,Object>(); System.out.println(title);
-	 * System.out.println(type);
-	 * 
-	 * 
-	 * model.addAttribute("ExhbitonSearch_detail", service.TabSearch_total(title,
-	 * type));
-	 * 
-	 * map.put("Title", title); map.put("Type", type);
-	 * 
-	 * 
-	 * 
-	 * return "searchResult"; //스프링이 자동으로 JSON타입으로 반환해서 전달한다. }
-	 */
+	@RequestMapping("/exhbn/tab_exhbnSearch_total")
+	public String tab_ExhbitonSearch_total(
+			@RequestParam("exhbnTitle") String title,
+			@RequestParam("exhbnType") String type,
+			Model model) {
+		  HashMap<String,Object> map = new HashMap<String,Object>();
+		  System.out.println(title);
+		  System.out.println(type);
+		  
+		  
+		  model.addAttribute("ExhbitonSearch_detail", service.TabSearch_total(title, type));
+
+		  map.put("Title", title);
+		  map.put("Type",  type);
+		  
+		 
+		  
+		  return "searchResult"; //스프링이 자동으로 JSON타입으로 반환해서 전달한다.
+		}
 	
 	//디테일
 	/*
@@ -241,15 +236,10 @@ public class ExhbnViewController {
 			@RequestParam("exhbnTitle") String title, 
 			@RequestParam("exhbnArea") String exWhere,
 			@RequestParam("exhbnPrice") String exPrice,
-			@RequestParam("exhbnDate") String exDate,
-			@RequestParam("expage") String page,
-			
-			/*
-			 * @RequestParam("exhbnWhen") String exWhen,
-			 */			 
+			@RequestParam("exWhen") String exWhen,
 			 
 			Model model
-			 ) throws ParseException {
+			 ) {
 		
 					//ArrayList<ExhbnVO> voList = service.exhbnSearch2(title, exWhere.trim(), exPrice, exDate, page/* , exWhen */);
 		//System.out.println(voList.size());
@@ -259,13 +249,8 @@ public class ExhbnViewController {
 		 System.out.println(title); 
 		 System.out.println(exWhere+"/");
 		 System.out.println(exPrice);
-		 System.out.println(exDate);
-		 System.out.println(page);
-
-
-			/*
-			 * System.out.println(exWhen);
-			 */
+		 System.out.println(exWhen);
+		 
 		 
 		//model.addAttribute("exhbnSearch2", voList);
 		  

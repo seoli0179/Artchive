@@ -77,13 +77,13 @@
             <div class="exMaintext">
                 <ul>
                     <li class="MainText">지금 하고 있는 전시</li>
-                    <li class="exhibitionMore"><a href="<c:url value='/exhbn/list?dateType=현재'/>">더보기 ></a></li>
+                    <li class="exhibitionMore"><a href="<c:url value='/exhbn/list'/>">더보기 ></a></li>
                 </ul>
             </div>
 
 
             <div class="exhbnBox">
-                <c:forEach var="exhbn" items="${exhbnList}" varStatus="status">
+                <c:forEach var="exhbn" items="${exhbnList}" varStatus="status" begin="1" end="4">
                     <a href="/exhbn/detail/${exhbn.exhbnId}">
                         <div id="exhibitionBox1" class="exhibitionBox" style="cursor:pointer;">
                             <div id="exhibitionImg1" class="exhibitionImg">
@@ -111,7 +111,7 @@
 
         </div><!-- exhibition -->
 
-        <c:if test="${not empty sessionScope.sid }">
+        <c:if test="${empty sessionScope.sid }">
             <div id="exhibition2">
                 <div class="exMaintext">
                     <ul>
@@ -129,7 +129,7 @@
             <!-- exhibition2 -->
         </c:if>
 
-        <c:if test="${empty sessionScope.sid }">
+        <c:if test="${not empty sessionScope.sid }">
             <div id="exhibition2">
                 <div class="exMaintext">
                     <ul>
@@ -140,7 +140,7 @@
                 </div>
 
                 <div class="exhbnBox">
-                    <c:forEach var="exhbn" items="${exhbnList}" varStatus="status" begin="1" end="4" step="1">
+                    <c:forEach var="exhbn" items="${exhbnList}" varStatus="status" begin="5" end="9" step="1">
                         <a href="/exhbn/detail/${exhbn.exhbnId}">
                             <div id="exhibitionBox1" class="exhibitionBox" style="cursor:pointer;">
                                 <div id="exhibitionImg1" class="exhibitionImg">

@@ -13,7 +13,7 @@
 		WHERE b.reviewNoteId = r.reviewNoteId 
 		AND b.userId=#{userId}
 		and r.reviewPageViewState != "DELETE" 
-		ORDER BY b.bookMarkReviewDate DESC
+		ORDER BY b.reviewNoteId
 	</select>
 	
 	<!-- (2) 북마크에 추가 -->

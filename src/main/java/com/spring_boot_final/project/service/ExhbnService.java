@@ -1,10 +1,7 @@
 package com.spring_boot_final.project.service;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -30,16 +27,6 @@ public class ExhbnService {
 		return dao.selectAllExhbn();
 	}
 
-	public ArrayList<ExhbnVO> selectCurrentExhbn(){
-		return dao.selectCurrentExhbn();
-	}
-	
-	
-	public ArrayList<ExhbnVO> selectAllDateType(String dateType){
-		System.out.println(dateType);
-		return dao.selectAllExhbnType(dateType);
-	}
-
 	public ExhbnVO selectDetailData(int id) {
 		return dao.selectExhbn(id);
 	}
@@ -54,8 +41,7 @@ public class ExhbnService {
 		return dao.ExhbnSearch(title);
 	}
 
-	public ArrayList<ExhbnVO> exhbnSearch2(String title, String exWhere, String exPrice, String exDate
-			/*String exWhen*/) /*throws ParseException*/{
+	public ArrayList<ExhbnVO> exhbnSearch2(String title, String exWhere, String exPrice, String exWhen) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 //  		map.put("Title", title);
 //  		map.put("ExWhere", exWhere);
@@ -63,23 +49,17 @@ public class ExhbnService {
 		map.put("Title", title);
 		map.put("ExWhere", exWhere);
 		map.put("ExPrice", exPrice);
+		map.put("ExWhen", exWhen);
+
+
 		/*
-		 * map.put("Page", Page);
-		 *//*		map.put("ExWhen", new SimpleDateFormat("yyyy-MM-dd").parse(exWhen));
-*/	
-		 
-		
-		/*
-		 * map.put("exDate", new SimpleDateFormat("yyyy-MM-dd").parse(exDate));
-		 * 
-		 * map.put("dateType", "현재");
-		 */	//string -> date 예외 처리 throws ParseException
+		 * map.put("ExPrice", exWhen);
+		 */
 		System.out.println(map.toString());
 
 		return dao.ExhbnSearch22(map);
 
 	}
-
 	public ArrayList<ExhbnVO> TabSearch0(String type) {
 		return dao.tab_ExhbnSearch0(type);
 	}
