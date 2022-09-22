@@ -132,7 +132,6 @@ public class adminViewController {
             return "error";
     }
 
-
     @RequestMapping("/admin/notice/write")
     public String noticeWrite(HttpSession session) {
         if (adminCheck(session))
