@@ -251,7 +251,7 @@ public class ExhbnViewController {
 			Model model
 			 ) throws ParseException {
 		
-					ArrayList<ExhbnVO> voList = service.exhbnSearch2(title, exWhere.trim(), exPrice, exDate, page/* , exWhen */);
+		ArrayList<ExhbnVO> voList = service.exhbnSearch2(title, exWhere.trim(), exPrice, exDate, page/* , exWhen */);
 		System.out.println(voList.size());
 		//System.out.println(voList.get(0).getExhbnTitle());
 		
