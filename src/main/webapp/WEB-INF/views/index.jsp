@@ -111,7 +111,7 @@
 
         </div><!-- exhibition -->
 
-        <c:if test="${not empty sessionScope.sid }">
+        <c:if test="${empty sessionScope.sid }">
             <div id="exhibition2">
                 <div class="exMaintext">
                     <ul>
@@ -129,7 +129,7 @@
             <!-- exhibition2 -->
         </c:if>
 
-        <c:if test="${empty sessionScope.sid }">
+        <c:if test="${not empty sessionScope.sid }">
             <div id="exhibition2">
                 <div class="exMaintext">
                     <ul>
