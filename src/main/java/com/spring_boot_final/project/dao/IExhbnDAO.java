@@ -18,6 +18,8 @@ public interface IExhbnDAO {
     ExhbnVO selectExhbn(int exhbnId);
     ArrayList<ExhbnVO> selectAllExhbn();
     int existExhbn(int exhbnId);
+
+    ArrayList<ExhbnVO> selectCurrentExhbn();
     
     // Read 예전 전시
     ExhbnVO selectExhbnEx(int exhbnId);

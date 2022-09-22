@@ -83,7 +83,7 @@
 
 
             <div class="exhbnBox">
-                <c:forEach var="exhbn" items="${exhbnList}" varStatus="status" begin="1" end="4">
+                <c:forEach var="exhbn" items="${exhbnList}" varStatus="status">
                     <a href="/exhbn/detail/${exhbn.exhbnId}">
                         <div id="exhibitionBox1" class="exhibitionBox" style="cursor:pointer;">
                             <div id="exhibitionImg1" class="exhibitionImg">
@@ -111,7 +111,7 @@
 
         </div><!-- exhibition -->
 
-        <c:if test="${empty sessionScope.sid }">
+        <c:if test="${not empty sessionScope.sid }">
             <div id="exhibition2">
                 <div class="exMaintext">
                     <ul>
@@ -129,7 +129,7 @@
             <!-- exhibition2 -->
         </c:if>
 
-        <c:if test="${not empty sessionScope.sid }">
+        <c:if test="${empty sessionScope.sid }">
             <div id="exhibition2">
                 <div class="exMaintext">
                     <ul>
@@ -140,7 +140,7 @@
                 </div>
 
                 <div class="exhbnBox">
-                    <c:forEach var="exhbn" items="${exhbnList}" varStatus="status" begin="5" end="9" step="1">
+                    <c:forEach var="exhbn" items="${exhbnList}" varStatus="status" begin="1" end="4" step="1">
                         <a href="/exhbn/detail/${exhbn.exhbnId}">
                             <div id="exhibitionBox1" class="exhibitionBox" style="cursor:pointer;">
                                 <div id="exhibitionImg1" class="exhibitionImg">
