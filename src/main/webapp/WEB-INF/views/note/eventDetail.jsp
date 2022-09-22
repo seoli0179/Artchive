@@ -67,8 +67,8 @@
                 <div class="title">
                     <div style="width: 70%;">
                         <div class="tags" style="display: inline-block; margin-left: 3px;">
-                            <div class="head-tag" style="
-                        float:none; margin:0 auto; background-color: #E5E7EB; padding: 5px 15px; width: fit-content; border-radius: 70px; font-size: 0.9rem; display: inline-block">
+                            <div class="head-tag" style="height: 20px; line-height: 20px;
+                        float:none; margin:5px auto; background-color: #E5E7EB; padding: 5px 15px; width: fit-content; border-radius: 70px; font-size: 0.9rem; display: inline-block">
                                 <fmt:formatDate value="${note.eventEndDate}" pattern="yyyy-MM-dd" var="endDate" />
                                 <c:if test="${endDate >= today}"> <!-- 진행 전 이벤트일 경우 -->
                                     <span id="head-tag" style="font-weight: bold">진행중</span>
@@ -78,11 +78,11 @@
                                 </c:if>
                             </div>
                         </div>
-                        <div style="display: inline-block;">
+                        <div style="display: inline-block; line-height: 2.0rem;">
                             ${note.noteTitle}
                         </div>
                     </div>
-                    <div style="font-size:1.0rem; font-weight: normal; background-color: #E5E7EB; padding: 5px 15px; border-radius: 70px;">
+                    <div style="font-size:1.0rem; font-weight: normal; background-color: #E5E7EB; padding: 5px 15px; border-radius: 70px; height: 20px; line-height: 20px;">
                         <fmt:formatDate pattern="yy. MM. dd" value="${note.eventStartDate }"/> ~
                         <fmt:formatDate pattern="yy. MM. dd" value="${note.eventEndDate }"/>
                     </div>

@@ -16,8 +16,7 @@
 	<script src="https://kit.fontawesome.com/50d21a2bed.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/list.css'/>">
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/detailSearch.css'/>"/>
-		<script src="<c:url value='/tools/jquery-3.6.0.min.js' /> "></script>
-	
+	<script src="<c:url value='/tools/jquery-3.6.0.min.js' /> "></script>
 	<script src="<c:url value='/js/list_Search.js' />"></script>
 
 	<%-- <script src="<c:url value='/js/list.js' />"></script>

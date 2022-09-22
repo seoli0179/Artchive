@@ -1,5 +1,5 @@
 /**
- * search.js
+ * noticeSearch.js
  */
  
  $(document).ready(function() {

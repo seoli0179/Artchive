@@ -1,6 +1,7 @@
 package com.spring_boot_final.project.controller.course;
 
 import com.spring_boot_final.project.model.*;
+import com.spring_boot_final.project.service.AitemsService;
 import com.spring_boot_final.project.service.CourseService;
 import com.spring_boot_final.project.service.ExhbnService;
 import com.spring_boot_final.project.service.ReviewNoteService;
@@ -30,11 +31,21 @@ public class CourseViewController {
     @Autowired
     ReviewNoteService reviewService;
 
+    @Autowired
+    AitemsService aitemsService;
+
     // course page view
     @RequestMapping("/course")
-    public String courseView(Model model) {
+    public String courseView(Model model,HttpSession session) {
 
         ArrayList<ExhbnVO> vo = service.selectAllData();
+
+        if(session.getAttribute("sid") == null){
+            vo = service.selectAllData();
+        }else {
+            vo = aitemsService.getExhbnItems(aitemsService.getPersonalRecommend(session.getAttribute("sid").toString(),5));
+        }
+
         model.addAttribute("exhbnList", vo);
 
         ArrayList<ReviewNoteVO> reviewVo = reviewService.reviewNoteList();
@@ -78,7 +89,7 @@ public class CourseViewController {
             temp.setPlace_name(placeName[i]);
             temp.setCategory_group_name(vo.getCategoryNames().split(";;")[i]);
 //            temp.setPhone(vo.getPhones().split(";;")[i]);
-            temp.setAddress_name(vo.getAddressNames().split(";;")[i]);
+//            temp.setAddress_name(vo.getAddressNames().split(";;")[i]);
             temp.setRoad_address_name(vo.getRoadAddressNames().split(";;")[i]);
             temp.setX(vo.getPostionX().split(";;")[i]);
             temp.setY(vo.getPositionY().split(";;")[i]);

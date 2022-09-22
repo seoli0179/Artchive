@@ -65,7 +65,7 @@
         from comment
         where userId = #{userId}
         and pageViewState = 'POST'
-        ORDER by commentCreatedDate ASC
+        ORDER by commentCreatedDate DESC
         ]]>
     </select>
 	
@@ -77,7 +77,7 @@
         from courseComment
         where userId = #{userId}
         and pageViewState = 'POST'
-        ORDER by commentCreatedDate ASC
+        ORDER by commentCreatedDate DESC
         ]]>
     </select>
 	

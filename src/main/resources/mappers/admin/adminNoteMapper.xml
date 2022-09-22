@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring_boot_final.project.dao.admin.IAdminNoteDAO">
+
+    <select id="NoteSelectAll" resultType="com.spring_boot_final.project.model.NoteVO">
+        <![CDATA[
+        SELECT *
+        FROM note
+        order by noteId desc;
+        ]]>
+    </select>
+
+    <update id="UpdateNote" parameterType="com.spring_boot_final.project.model.NoteVO">
+        UPDATE note
+        SET noteTitle = #{noteTitle}
+        WHERE noteId = #{noteId}
+    </update>
+
+    <insert id="InsertNotice" parameterType="com.spring_boot_final.project.model.NoteVO">
+        insert into note(userId, noteTitle, note, category)
+        values (#{userId}, #{noteTitle}, #{note}, 'NOTICE')
+    </insert>
+
+    <insert id="InsertEvent" parameterType="com.spring_boot_final.project.model.NoteVO">
+        insert into note(userId, noteTitle, note, category, eventStartDate, eventEndDate)
+        values (#{userId}, #{noteTitle}, #{note}, 'EVENT', #{eventStartDate}, #{eventEndDate})
+    </insert>
+
+    <select id="NoteSelectFilter"
+            parameterType="hashmap"
+            resultType="com.spring_boot_final.project.model.NoteVO">
+        SELECT *
+        FROM note
+        <choose>
+            <when test="searchType=='전체'">
+                where noteTitle like CONCAT('%', #{searchValue}, '%')
+            </when>
+            <when test="searchType=='번호'">
+                where noteId = #{searchValue}
+            </when>
+            <when test="searchType=='유저'">
+                where userId like CONCAT('%', #{searchValue}, '%')
+            </when>
+            <when test="searchType=='제목'">
+                where noteTitle like CONCAT('%', #{searchValue}, '%')
+            </when>
+            <when test="searchType=='내용'">
+                where note like CONCAT('%', #{searchValue}, '%')
+            </when>
+        </choose>
+        and category = #{category}
+        order by noteId desc
+        LIMIT #{limit}
+        OFFSET #{page}
+    </select>
+
+    <select id="selectNote" parameterType="int" resultType="com.spring_boot_final.project.model.NoteVO">
+        select *
+        from note
+        where noteId = #{noteId}
+    </select>
+
+    <select id="NoteMaxCount"
+            parameterType="hashmap"
+            resultType="int">
+        SELECT count(*)
+        FROM note
+        <choose>
+            <when test="searchType=='전체'">
+                where noteTitle like CONCAT('%', #{searchValue}, '%')
+            </when>
+            <when test="searchType=='번호'">
+                where noteId = #{searchValue}
+            </when>
+            <when test="searchType=='유저'">
+                where userId = #{searchValue}
+            </when>
+            <when test="searchType=='제목'">
+                where noteTitle like CONCAT('%', #{searchValue}, '%')
+            </when>
+            <when test="searchType=='내용'">
+                where note like CONCAT('%', #{searchValue}, '%')
+            </when>
+        </choose>
+        and category = #{category}
+    </select>
+
+    <update id="UpdateNotice" parameterType="com.spring_boot_final.project.model.NoteVO">
+        update note
+        set noteTitle     = #{noteTitle},
+            note          = #{note},
+            pageViewState = #{pageViewState}
+        where noteId = #{noteId}
+    </update>
+
+    <update id="UpdateEvent" parameterType="com.spring_boot_final.project.model.NoteVO">
+        update note
+        set noteTitle     = #{noteTitle},
+            note          = #{note},
+            pageViewState = #{pageViewState},
+            eventStartDate = #{eventStartDate},
+            eventEndDate = #{eventEndDate}
+        where noteId = #{noteId}
+    </update>
+
+</mapper>

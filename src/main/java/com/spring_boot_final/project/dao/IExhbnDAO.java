@@ -1,5 +1,6 @@
 package com.spring_boot_final.project.dao;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -18,6 +19,13 @@ public interface IExhbnDAO {
     ArrayList<ExhbnVO> selectAllExhbn();
     int existExhbn(int exhbnId);
 
+    ArrayList<ExhbnVO> selectCurrentExhbn();
+    
+    // Read 예전 예정 현재 전시
+    ExhbnVO selectExhbnEx(int exhbnId);
+    ArrayList<ExhbnVO> selectAllExhbnType(String dateType);
+    int existExhbnEx(int exhbnId);
+    
     //Update
     void updateExhbn(ExhbnVO vo);
 
@@ -27,7 +35,8 @@ public interface IExhbnDAO {
     // Search
 	public ArrayList<ExhbnVO> ExhbnSearch(String title); // 상품 검색
 	// 디테일 상품 검색
-	public ArrayList<ExhbnVO> ExhbnSearch22(HashMap<String, Object> map);
+
+	public ArrayList<ExhbnVO> ExhbnSearch22(HashMap<String, Object> map)/* throws ParseException */;
 
 	 //tab Search
 	public ArrayList<ExhbnVO> tab_ExhbnSearch0(String type); 
@@ -37,9 +46,9 @@ public interface IExhbnDAO {
 	public ArrayList<ExhbnVO> tab_ExhbnSearch4(String type); 
 	public ArrayList<ExhbnVO> tab_ExhbnSearch5(String type); 
 	public ArrayList<ExhbnVO> tab_ExhbnSearch6(String type); 
-	public ArrayList<ExhbnVO> tab_ExhbnSearch_total(HashMap<String, Object> map); 
+	/*
+	 * public ArrayList<ExhbnVO> tab_ExhbnSearch_total(HashMap<String, Object> map);
+	 */
 
-
-
-	 
+  
 }

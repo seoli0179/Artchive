@@ -184,12 +184,12 @@
 						첫 리뷰를 작성해주세요!<br>
 					</div>
 				</c:if>
-				<c:if test="${reviewList.size() > 0 && reviewList.size() <= 5}">
+				<c:if test="${reviewList.size() > 0 && reviewList.size() <= 4}">
 					<div style="display: flex; justify-content: center">
 						<c:forEach items="${reviewList}" var="rv" end="9">
 							<article class="review-box">
 								<a href="<c:url value="/review/reviewNote/${rv.reviewNoteId}"/>">
-									<div class="review" style="background-image: url('${rv.exhbnImgUrl}');">
+									<div class="review" style="background-image: url('${rv.preView}');">
 									</div>
 									<div class="post-meta">
 											${rv.reviewNoteTitle}
@@ -199,7 +199,7 @@
 						</c:forEach>
 					</div>
 				</c:if>
-				<c:if test="${reviewList.size() > 5}">
+				<c:if test="${reviewList.size() > 4}">
 					<div class="sliding-box animate">
 						<c:forEach items="${reviewList}" var="rv" end="9">
 							<article class="review-box">
