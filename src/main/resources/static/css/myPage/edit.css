@@ -106,7 +106,6 @@
 	height:auto;
 	min-height:100%;
 	margin-left:2%;
-	margin-bottom: 10%;
 }
 
 /* 기본 정보, 맞춤 정보 */
@@ -147,7 +146,6 @@
     line-height: 14px;
     font-size: 13px;
     color: #ef3e42;
-    display:none;
 }
 /* 항목 */
 .itemsBox {

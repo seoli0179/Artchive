@@ -79,7 +79,7 @@
 												<tr>
 													<td><a
 														href="<c:url value='/note/detail/${note.noteId}'/>">${note.noteTitle}</a></td>
-													<td><fmt:formatDate value="${note.noteCreatedDate}"
+													<td><fmt:formatDate value="${note.noteUpdatedDate}"
 															pattern="yyyy-MM-dd" /></td>
 													<td><input type="button" id="submitBtn"
 														name="submitBtn" class="white-btn"

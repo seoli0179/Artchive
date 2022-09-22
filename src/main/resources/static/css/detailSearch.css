@@ -130,32 +130,15 @@
 }
 
 .popup {
-	margin:4% auto;
+	margin:7% auto;
 	background-color: #ffffff;
 	box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
 	width: 1150px;
-	min-height: 600px;
+	min-height: 550px;
 	height: 65vh;
 	border-width: 0px;
 	padding: 20px;
 	border-radius: 10px;
-	overflow : auto;
-}
-
-.popup::-webkit-scrollbar {
-    width: 8px;  /* 스크롤바의 너비 */
-}
-
-.popup::-webkit-scrollbar-thumb {
-    height: 30%; /* 스크롤바의 길이 */
-    background: #D1D5DB; /* 스크롤바의 색상 */
-    
-    border-radius: 10px;
-}
-
-.popup::-webkit-scrollbar-track {
-    background: #fff;  /*스크롤바 뒷 배경 색상*/
-     border-radius: 10px;
 }
 
 .show .popup {

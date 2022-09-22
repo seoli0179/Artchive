@@ -6,17 +6,15 @@ $(document).ready(function (){
                 type: "POST",
                 url: "/course/insertComment",
                 data: {
-                    "courseId":$("#courseId").val(),
+                    "courseId": $("#courseId").val(),
                     "comment": $('#story').val()
                 },
                 success: function (data) {
-                    alert("작성 완료!");
                     $("#story").val("");
-                    $('#comment').load(window.location.href +  " #comment > *");
+                    $('#comment').load(document.URL +  ' #comment > *');
                 },
-                error: function (request, status, error) {
-                    alert("error!");
-                    console.log("code=" + request.status + "message=" + request.responseText + "error=" + error); //실패시처리
+                error: function () {
+                    alert("오류 발생!");
                 }
             })
         }

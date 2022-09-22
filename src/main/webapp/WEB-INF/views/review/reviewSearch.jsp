@@ -36,7 +36,7 @@
                 <div class="course-box board-gallery-view">
                     <c:forEach var="reviewNote" items="${reviewNoteList}">
                         <div class="post-container" style="cursor: pointer;" onclick="location.href='/review/reviewNote/${reviewNote.reviewNoteId}';">
-                            <div class="post-img-box" style="background-image: url('${reviewNote.preView}');">
+                            <div class="post-img-box" style="background-image: url('${reviewNote.exhbnImgUrl}');">
 
                             </div>
                             <div class="post-title-box">
@@ -52,7 +52,7 @@
                             </div>
                             <div class="post-footer-box">
                                 <div class="post-writer-box">
-                                    <span class="userName"> ${reviewNote.userNickname}</span>&nbsp;&nbsp;<fmt:formatDate pattern="MM-dd" value="${reviewNote.reviewNoteCreatedDate}"/>
+                                    by&nbsp;<span class="userName"> ${reviewNote.userNickname}</span>&nbsp;·&nbsp;<fmt:formatDate pattern="MM-dd" value="${reviewNote.reviewNoteCreatedDate}"/>
                                 </div>
                                 <div class="post-react-box">
                                     <div class="post-view-box">

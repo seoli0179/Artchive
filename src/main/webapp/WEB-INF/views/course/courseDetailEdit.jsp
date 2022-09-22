@@ -15,7 +15,7 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/courseDetail.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/tagBox.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/map.css'/>">
-<%--		<link rel="stylesheet" type="text/css" href="<c:url value='/css/module/toggle.css'/>">--%>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/module/toggle.css'/>">
 		<script src="<c:url value='/tools/jquery-3.6.0.min.js'/>"></script>
 		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
@@ -54,10 +54,10 @@
 			<!-- courseMain -->
 			<section id="courseMenu">
 				<div id="courseToggle">
-<%--					<input type="checkbox" class="toggle" id="courseStatus" hidden checked>--%>
-<%--					<label for="courseStatus" class="toggleSwitch">--%>
-<%--						<span class="toggleButton"></span>--%>
-<%--					</label>--%>
+					<input type="checkbox" class="toggle" id="courseStatus" hidden checked>
+					<label for="courseStatus" class="toggleSwitch">
+						<span class="toggleButton"></span>
+					</label>
 <%--						<span id="toggleText">공개</span>--%>
 				</div>
            		<div id="courseMainText">

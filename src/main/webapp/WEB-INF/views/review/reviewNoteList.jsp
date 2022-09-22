@@ -113,7 +113,7 @@
                             </div>
                             <div class="post-footer-box">
                                 <div class="post-writer-box">
-                                   <span class="userName"> ${reviewNote.userNickname}</span>&nbsp;&nbsp;<fmt:formatDate pattern="MM-dd" value="${reviewNote.reviewNoteCreatedDate}"/>
+                                    by&nbsp;<span class="userName"> ${reviewNote.userNickname}</span>&nbsp;·&nbsp;<fmt:formatDate pattern="MM-dd" value="${reviewNote.reviewNoteCreatedDate}"/>
                                 </div>
                                 <div class="post-react-box">
                                     <div class="post-view-box">
