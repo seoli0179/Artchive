@@ -77,7 +77,7 @@
             <div class="exMaintext">
                 <ul>
                     <li class="MainText">지금 하고 있는 전시</li>
-                    <li class="exhibitionMore"><a href="<c:url value='/exhbn/list'/>">더보기 ></a></li>
+                    <li class="exhibitionMore"><a href="<c:url value='/exhbn/list?dateType=현재'/>">더보기 ></a></li>
                 </ul>
             </div>
 
