@@ -15,7 +15,6 @@ public class HelloController {
 	 * System.out.println("index 페이지 열림"); return "index"; }
 	 */
 
-
 	// detail 페이지 열기 요청 처리
 	@RequestMapping("/detail")
 	public String viewDetail() {
