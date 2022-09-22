@@ -112,8 +112,8 @@ public class ExhbnService {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("Title", title);
 		map.put("Type", type);
-		return dao.tab_ExhbnSearch_total(map);
-
+		//return dao.tab_ExhbnSearch_total(map);
+		return null;
 	}
 
 	/*

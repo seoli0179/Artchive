@@ -152,7 +152,7 @@ public class adminViewController {
     @RequestMapping("/admin/logout")
     public String adminLogout(HttpSession session) {
         session.invalidate();
-        return "/index";
+        return "redirect:/ll";
     }
 
 }
