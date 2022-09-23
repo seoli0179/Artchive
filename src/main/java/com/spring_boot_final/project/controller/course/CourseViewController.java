@@ -49,7 +49,7 @@ public class CourseViewController {
 
         model.addAttribute("exhbnList", vo);
 
-        ArrayList<ReviewNoteVO> reviewNoteList = reviewService.reviewNoteList();
+        ArrayList<ReviewNoteVO> reviewNoteList = reviewService.reviewNoteLikeList();
 
         for (int i = 0; i < reviewNoteList.size(); i++) {
             String tagRemove = reviewNoteList.get(i).getReviewNote().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");

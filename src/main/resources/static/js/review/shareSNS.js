@@ -1,26 +1,26 @@
 
-const domain = "http://49.50.160.205:8080"
+const domain = "http://49.50.160.205:8080";
+const data = "review/reviewNote";
 
 function shareTwitter() {
-    let sendText = "Artchive에서 작성한 " + document.getElementById('courseTitle').innerText + "입니다."; // 전달할 텍스트
-    let courseId = document.getElementById('courseId').value;
-    let sendUrl = domain + "/course/"+courseId; // 전달할 URL
+    let reviewNoteId = document.getElementById('reviewNoteId').value;
+    let sendUrl = domain + "/"+data+"/"+reviewNoteId; // 전달할 URL
+    let sendText = "Artchive에서 작성한 " + document.getElementById('reviewNoteTitle').innerText + "입니다."; // 전달할 텍스트
     window.open("https://twitter.com/intent/tweet?text=" + sendText + "&url=" + sendUrl);
 }
 
 
 function shareFacebook() {
-    let courseId = document.getElementById('courseId').value;
-    let sendUrl = "http://49.50.160.205:8080/course/"+courseId; // 전달할 URL
+    let reviewNoteId = document.getElementById('reviewNoteId').value;
+    let sendUrl = domain + "/"+data+"/"+reviewNoteId; // 전달할 URL
     window.open("http://www.facebook.com/sharer/sharer.php?u=" + sendUrl);
 }
 
 function shareKakao() {
-
-    let courseTitle = document.getElementById('courseTitle').innerText // 전달할 텍스트
-    let courseId = document.getElementById('courseId').value;
-    let sendUrl = domain + "/course/"+courseId; // 전달할 URL
-    let imgUrl = document.getElementById('courseThumnail').value;
+    let reviewNoteId = document.getElementById('reviewNoteId').value;
+    let sendUrl = domain + "/"+data+"/"+reviewNoteId; // 전달할 URL
+    let reviewNoteTitle = document.getElementById('reviewNoteTitle').innerText // 전달할 텍스트
+    let imgUrl = document.getElementById('exhbnImgUrl').value;
     console.log(imgUrl);
 
     // Kakao 버튼 생성
@@ -28,8 +28,8 @@ function shareKakao() {
         container : '#btnKakao',            // kakao button
         objectType : 'feed',
         content : {
-            title : courseTitle,
-            description : "Artchive에서 작성된 코스입니다.",
+            title : reviewNoteTitle,
+            description : "Artchive에서 공유된 리뷰입니다.",
             imageUrl : imgUrl,
             link : {
                 // mobileWebUrl : "포스트 링크 (모바일)",
@@ -40,10 +40,10 @@ function shareKakao() {
 }
 
 function clip(){
-    let courseId = document.getElementById('courseId').value;
-    let sendUrl = domain + "/course/"+courseId; // 전달할 URL
     var textarea = document.createElement("textarea");
     document.body.appendChild(textarea);
+    let reviewNoteId = document.getElementById('reviewNoteId').value;
+    let sendUrl = domain + "/"+data+"/"+reviewNoteId; // 전달할 URL
     url = window.document.location.href;
     textarea.value = sendUrl;
     textarea.select();
