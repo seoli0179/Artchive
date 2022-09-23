@@ -24,6 +24,12 @@ $(document).ready(function (){
 		searchPlaces();
 	});
 
+	// $("#keyword_search").onkeyup(function (el){
+	// 	if (el.key==="enter") {
+	// 		searchPlaces();
+	// 	}
+	// });
+
 	var mapContainer = document.getElementById('courseMap'), // 지도를 표시할 div
 		mapOption = {
 			center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
@@ -62,11 +68,11 @@ $(document).ready(function (){
 			position: new kakao.maps.LatLng(positions[0].y,positions[0].x), // 마커를 표시할 위치
 			title : positions[i].place_name, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
 			image : markerImage // 마커 이미지
-
 		});
-		console.log(positions[i].category_group_name);
 	}
 
+	// 장소 검색 객체를 생성합니다
+	var ps = new kakao.maps.services.Places();
 
 	// 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 인포윈도우를 생성합니다
 	var infowindow = new kakao.maps.InfoWindow({zIndex:10});
@@ -131,10 +137,9 @@ $(document).ready(function (){
 				road_address_name : firstAddr,
 				x : $('#gpsX').val(),
 				y : $('#gpsY').val(),
-				place_url : $('#exhbnUrl').val(),
+				place_url : $('#place_url_0').val(),
 				place_memo : "",
 			}
-
 			positions.push(temp);
 
 			var marker = new kakao.maps.Marker({
@@ -379,30 +384,8 @@ function addCourseMarker(position, idx, title) {
 	marker.setMap(map); // 지도 위에 마커를 표출합니다
 	courseMarkers.push(marker);  // 배열에 생성된 마커를 추가합니다
 
-	// 마커에 커서가 오버됐을 때 마커 위에 표시할 인포윈도우를 생성합니다
-	var iwContent = '<div style="padding:5px;">'+positions[idx].place_name+'</div>'; // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-
-// 인포윈도우를 생성합니다
-	var infowindow = new kakao.maps.InfoWindow({
-		content : iwContent
-	});
-
-// 마커에 마우스오버 이벤트를 등록합니다
-	kakao.maps.event.addListener(marker, 'mouseover', function() {
-		// 마커에 마우스오버 이벤트가 발생하면 인포윈도우를 마커위에 표시합니다
-		infowindow.open(map, marker);
-	});
-
-// 마커에 마우스아웃 이벤트를 등록합니다
-	kakao.maps.event.addListener(marker, 'mous∂eout', function() {
-		// 마커에 마우스아웃 이벤트가 발생하면 인포윈도우를 제거합니다
-		infowindow.close();
-	});
-
 	return marker;
 }
-
-
 /** y좌표값, x좌표값, 인덱스 입력시 마크 그리기 */
 function addCourseMarker2(y,x, idx, title) {
 	var imageSrc = '/image/map/map_markers_black.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
@@ -418,27 +401,6 @@ function addCourseMarker2(y,x, idx, title) {
 		position: new kakao.maps.LatLng(y, x), // 마커를 표시할 위치
 		// title : positions[idx].place_name, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
 		image : markerImage // 마커 이미지
-	});
-
-
-	// 마커에 커서가 오버됐을 때 마커 위에 표시할 인포윈도우를 생성합니다
-	var iwContent = '<div style="padding:5px;">'+positions[idx].place_name+'</div>'; // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-
-// 인포윈도우를 생성합니다
-	var infowindow = new kakao.maps.InfoWindow({
-		content : iwContent
-	});
-
-// 마커에 마우스오버 이벤트를 등록합니다
-	kakao.maps.event.addListener(marker, 'mouseover', function() {
-		// 마커에 마우스오버 이벤트가 발생하면 인포윈도우를 마커위에 표시합니다
-		infowindow.open(map, marker);
-	});
-
-// 마커에 마우스아웃 이벤트를 등록합니다
-	kakao.maps.event.addListener(marker, 'mouseout', function() {
-		// 마커에 마우스아웃 이벤트가 발생하면 인포윈도우를 제거합니다
-		infowindow.close();
 	});
 
 	marker.setMap(map); // 지도 위에 마커를 표출합니다
