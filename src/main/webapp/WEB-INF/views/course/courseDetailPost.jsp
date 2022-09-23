@@ -29,10 +29,7 @@
 		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f62ace4deff6b141114cc8499d76cb47&libraries=services,clusterer,drawing"></script>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/map.css'/>">
 		<script type="text/javascript" src="<c:url value='/js/course/mapEdit.js'/>"></script>
-		<script type="text/javascript" src="<c:url value='/js/course/mapExhnMarker.js'/>"></script>
 		<script type="text/javascript" src="<c:url value='/js/course/dialog.js'/>"></script>
-		<script type="text/javascript" src="<c:url value='/js/course/mapLine.js'/>"></script>
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/mapline.css'/>">
 
 
 	</head>
@@ -47,7 +44,6 @@
 					<div id="header-exhbnTitle" class="headerText">
 						<input class="exhbn-title editInput" id="exhbnTitle" name="exhbnTitle" type="text" value="${exhbn.exhbnTitle}" readonly>
 						<input class="exhbn-title editInput" id="exhbnId" name="exhbnId" type="text" value="${exhbn.exhbnId}" hidden>
-						<input id="exhbnUrl" class="exhbnUrl" value="${exhbn.exhbnUrl}" hidden>
 						<a href="/exhbn/detail/${exhbn.exhbnId}" target="_blank" class="btn-example">
 							<i class="fa-solid fa-magnifying-glass" style="color: #ffffff"></i>
 						</a>
@@ -86,8 +82,6 @@
 						</ul>
 					</div>
 				</section> <!-- editCourseBtn -->
-				<div style="text-align: right; font-size: 0.8rem; color: #aaaaaa; margin:3px 0;">지도를 마우스로 클릭하면 이동거리 그리기가 시작,
-					오른쪽 마우스를 클릭하면 이동거리 그리기가 종료됩니다</div>
 				<section id="course">
 					<section id="timeline-container">
 						<div class="route-row" id="startPoint">
@@ -137,7 +131,7 @@
 								<div class="left">
 									<div class="dot"></div>
 								</div>
-								<div class="content explain"></div>
+								<div class="content explain">End ...</div>
 							</div>
 						</div>
 					</section>

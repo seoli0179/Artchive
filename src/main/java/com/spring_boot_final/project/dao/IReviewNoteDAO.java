@@ -12,6 +12,8 @@ public interface IReviewNoteDAO {
 	// 리뷰게시판 리스트 보여주기
 	public ArrayList<ReviewNoteVO> reviewNoteList();
 	
+	public ArrayList<ReviewNoteVO> reviewNoteLikeList();
+	
 	ReviewNoteVO selectReviewNote(int reviewNoteId);
 	
 	// 리뷰 게시판 작성
