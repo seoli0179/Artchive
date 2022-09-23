@@ -136,9 +136,7 @@
 <%--						        <span class="title">지도중심기준 행정동 주소정보</span>--%>
 						        <span id="centerAddr"></span>
 						    </div>
-						</div>	
-	   						
-						<button id="centerMove" onclick="pan();">코스 보기</button>
+						</div>
 					</section><!-- courseMap -->
 					 	
 					</section><!-- Course -->
