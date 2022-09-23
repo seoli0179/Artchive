@@ -86,6 +86,8 @@ function addCourseItem(data, idx) {
         createList();
         let newMarker = new kakao.maps.LatLng(positions[positions.length-1].y, positions[positions.length-1].x)
         addCourseMarker(newMarker, positions.length-1);
+
+
     }
 }
 

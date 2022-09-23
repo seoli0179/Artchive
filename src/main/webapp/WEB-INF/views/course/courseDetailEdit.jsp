@@ -28,6 +28,8 @@
 		<script type="text/javascript" src="<c:url value='/js/course/timelineEdit.js'/>"></script>
 		<script type="text/javascript" src="<c:url value='/js/course/mapUpdate.js'/>"></script>
 		<script type="text/javascript" src="<c:url value='/js/course/dialog.js'/>"></script>
+		<script type="text/javascript" src="<c:url value='/js/course/mapLine.js'/>"></script>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/course/mapline.css'/>">
 	</head>
 	<body id="courseDetailEdit">
 		<!-- top으로 이동 -->
@@ -79,6 +81,8 @@
 						</ul>
 					</div>
 				</section> <!-- editCourseBtn -->
+				<div style="text-align: right; font-size: 0.8rem; color: #aaaaaa; margin:3px 0;">지도를 마우스로 클릭하면 이동거리 그리기가 시작,
+					오른쪽 마우스를 클릭하면 이동거리 그리기가 종료됩니다</div>
 				<section id="course">
 					<section id="timeline-container">
 						<div class="route-row" id="startPoint">
