@@ -29,6 +29,30 @@
 	order by r.reviewNoteCreatedDate DESC
 	</select>
 	
+	<select id="reviewNoteLikeList" parameterType="int" resultType="com.spring_boot_final.project.model.ReviewNoteVO">
+	
+	SELECT r.reviewNoteId,
+		   r.reviewNoteTitle,
+		   r.reviewNote,
+		   r.reviewNoteLike,
+		   r.reviewNoteCommentNum,
+		   r.reviewNoteCreatedDate,
+		   r.reviewPageViewState,
+		   c.courseId,
+		   c.placeNames,
+		   c.addressNames,
+		   c.courseTitle,
+		   c.courseTag,
+		   e.exhbnId,
+		   e.exhbnImgUrl,
+		   u.userNickname,
+		   r.userId
+	FROM reviewNote r, course c, user u, exhbn e
+	WHERE c.courseId = r.courseId and r.userId = u.userId and r.exhbnId = e.exhbnId and r.reviewPageViewState = 'POST'
+	AND r.reviewNoteCreatedDate BETWEEN DATE_ADD(NOW(),INTERVAL -1 WEEK ) AND NOW()
+	order by r.reviewNoteLike DESC;
+	</select>
+	
 	<select id="selectReviewNote" parameterType="int" resultType="com.spring_boot_final.project.model.ReviewNoteVO">
 	
 	SELECT r.reviewNoteId,
