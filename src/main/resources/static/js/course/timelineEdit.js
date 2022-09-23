@@ -372,3 +372,7 @@ function removeCourseMarker() {
     }
     courseMarkers = [];
 }
+
+function drawCircle () {
+
+}
