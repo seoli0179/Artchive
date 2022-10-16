@@ -32,13 +32,13 @@
 
 ## 👫 팀원 소개
 
-|  팀원  |                  Github                  |
-| :----: | :--------------------------------------: |
-| 김상훈 |  [Github](https://github.com/ksh950609)  |
-| 김유나 | [Github](https://github.com/astrophilex) |
-| 김태수 |  [Github](https://github.com/seoli0179)  |
-| 이새힘 |   [Github](https://github.com/new-pow)   |
-| 최상종 |  [Github](https://github.com/xangjong)   |
+|  팀원  |                            Github                            |
+| :----: | :----------------------------------------------------------: |
+| 김상훈 | <a href="https://github.com/ksh950609" target="_blank">Github</a> |
+| 김유나 |           [Github](https://github.com/astrophilex)           |
+| 김태수 |            [Github](https://github.com/seoli0179)            |
+| 이새힘 |             [Github](https://github.com/new-pow)             |
+| 최상종 |            [Github](https://github.com/xangjong)             |
 
 <br>
 
