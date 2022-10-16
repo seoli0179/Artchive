@@ -1,12 +1,8 @@
 # [MultiCampus Team Project] 
 
+<br>
 
-
-
-
-![logo1](https://user-images.githubusercontent.com/101630615/196031067-dcde0d77-fb77-4e4e-9ec4-a28267ca789a.png)
-
-
+<img src="https://user-images.githubusercontent.com/101630615/196031067-dcde0d77-fb77-4e4e-9ec4-a28267ca789a.png" align="center">
 
 
 
@@ -14,9 +10,9 @@
 
 ---
 
+<br>
 
-
-
+<br>
 
 
 
@@ -28,13 +24,9 @@
 
 ---
 
+<br>
 
-
-
-
-
-
-
+<br>
 
 ## 👫 팀원 소개
 
