@@ -2,7 +2,9 @@
 
 <br>
 
-<img src="https://user-images.githubusercontent.com/101630615/196031067-dcde0d77-fb77-4e4e-9ec4-a28267ca789a.png" align="center">
+<br>
+
+<p align="center"><img src="https://user-images.githubusercontent.com/101630615/196031067-dcde0d77-fb77-4e4e-9ec4-a28267ca789a.png"></p>
 
 
 
@@ -38,9 +40,9 @@
 | 이새힘 |   [Github](https://github.com/new-pow)   |
 | 최상종 |  [Github](https://github.com/xangjong)   |
 
+<br>
 
-
-
+<br>
 
 
 
@@ -96,11 +98,9 @@
 
 ---
 
+<br>
 
-
-
-
-
+<br>
 
 ## 🔍 핵심 기능
 
@@ -111,11 +111,9 @@
 
 ---
 
+<br>
 
-
-
-
-
+<br>
 
 ## 📆 수행 일정
 
@@ -125,7 +123,9 @@
 
 ---
 
+<br>
 
+<br>
 
 
 
@@ -135,7 +135,9 @@
 
 ---
 
+<br>
 
+<br>
 
 
 
@@ -145,11 +147,9 @@
 
 ---
 
+<br>
 
-
-
-
-
+<br>
 
 ## 📚 Entity 설계
 
@@ -165,9 +165,9 @@
 
 ---
 
+<br>
 
-
-
+<br>
 
 
 
