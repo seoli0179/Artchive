@@ -34,7 +34,7 @@
 
 |  팀원  |                            Github                            |
 | :----: | :----------------------------------------------------------: |
-| 김상훈 | <a href="https://github.com/ksh950609" target="_blank">Github</a> |
+| 김상훈 | <a href="https://github.com/ksh950609" target="_blank">Github</a> <br> |
 | 김유나 |           [Github](https://github.com/astrophilex)           |
 | 김태수 |            [Github](https://github.com/seoli0179)            |
 | 이새힘 |             [Github](https://github.com/new-pow)             |
