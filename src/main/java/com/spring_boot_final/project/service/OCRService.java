@@ -27,6 +27,7 @@ public class OCRService {
 	public TicketVO ocrTemplate(String filePathName) {
 		
 		String apiURL = "https://o1h8w00vgr.apigw.ntruss.com/custom/v1/18662/cf81f8bc47993dedaddade0189b32b1bf59bde03206c521b141128b50494d522/infer";
+	
 		String imageFile = filePathName;
 
 		try {
