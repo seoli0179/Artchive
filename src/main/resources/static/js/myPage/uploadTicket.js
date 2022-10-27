@@ -52,13 +52,18 @@
  			contentType:false,
  			data:formData,
 			success:function(result){
-				
+				// console.log(result["title"]);
 				console.log(result.title);
- 				
+ 				// imageBox에 이미지 출력
+ 				// var imgHtml = `<img src="/images/${fileName}" />`;
+ 				//$('#imageBox').html(imgHtml);
+ 				//$('#imageBox').append('<img src="/images/'+fileName+'">');
  				
  				$('#ticketBox').empty();
  				$('#ticketBox').html('<img src="/images/'+fileName+'">');
  				
+ 				// resultBox에 출력
+ 				//$('#resultBox').html(result);
  				$('#resultBoxTitle').text("전시회명 : " + result.title);
  				$('#resultBoxPlace').text("장 소 : " + result.place);
  				$('#resultBoxNumber').text("예약번호 : " + result.number);
