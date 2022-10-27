@@ -129,7 +129,6 @@
 
 <img width="850" alt="architecture" src="https://user-images.githubusercontent.com/101630615/198191536-a2563bcf-17a4-4009-a736-a62dfbbc8325.png">
 
-
 ---
 
 <br>
@@ -140,7 +139,7 @@
 
 ## 💡 기술 스택
 
-<img width="550" alt="stack" src="https://user-images.githubusercontent.com/101630615/196031068-afefd93a-7de6-4f24-a2ba-2dc4e2d22625.png">
+<p align="center"><img width="550" alt="stack" src="https://user-images.githubusercontent.com/101630615/196031068-afefd93a-7de6-4f24-a2ba-2dc4e2d22625.png"></p>
 
 ---
 
