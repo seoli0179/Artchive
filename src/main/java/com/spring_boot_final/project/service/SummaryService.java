@@ -68,11 +68,9 @@ public class SummaryService {
 	
 	// json 형식으로 변환
 	public String JsonConverter(TotalVO vo ) throws JsonProcessingException {
+		
 		ObjectMapper mapper = new ObjectMapper();
-		
 		return mapper.writeValueAsString(vo);
-		
-		
 		
 	}
 	
