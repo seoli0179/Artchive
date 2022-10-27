@@ -1,9 +1,5 @@
 # [MultiCampus Team Project] 
 
-<br>
-
-<br>
-
 <p align="center"><img src="https://user-images.githubusercontent.com/101630615/196031067-dcde0d77-fb77-4e4e-9ec4-a28267ca789a.png"></p>
 
 
@@ -131,7 +127,8 @@
 
 ## 💻 프로젝트 구조
 
-<img width="800" alt="architecture" src="https://user-images.githubusercontent.com/101630615/196031063-db276f16-00f7-4845-a9d6-5fe4776b2cad.png">
+<img width="850" alt="architecture" src="https://user-images.githubusercontent.com/101630615/198191536-a2563bcf-17a4-4009-a736-a62dfbbc8325.png">
+fe4776b2cad.png">
 
 ---
 
