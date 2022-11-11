@@ -12,7 +12,7 @@
 
 <br>
 
-![Artchive](README.assets/Artchive.gif)
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/101630615/201294104-515c4901-95b8-46fc-9bb9-a7ecacc96188.gif)
 
 <br>
 
