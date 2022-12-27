@@ -1,5 +1,6 @@
 # [MultiCampus Team Project] 
-
+<br>
+<br>
 <p align="center"><img src="https://user-images.githubusercontent.com/101630615/196031067-dcde0d77-fb77-4e4e-9ec4-a28267ca789a.png"></p>
 
 
@@ -14,9 +15,6 @@
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/101630615/201294104-515c4901-95b8-46fc-9bb9-a7ecacc96188.gif)
 
 <br>
-<br>
-
-
 
 ## 🖼 서비스 소개
 
@@ -26,7 +24,6 @@
 
 ---
 
-<br>
 <br>
 
 ## 👫 팀원 소개
@@ -40,9 +37,6 @@
 | 최상종 |  [Github](https://github.com/xangjong)   |
 
 <br>
-<br>
-
-
 
 ## 📝 팀 규칙
 **1. 말하기 전에 생각했나요**?
@@ -96,7 +90,6 @@
 ---
 
 <br>
-<br>
 
 ## 🔍 핵심 기능
 
@@ -108,17 +101,13 @@
 ---
 
 <br>
-<br>
 
 ## 📆 수행 일정
 
 <img width="800" alt="timeline" src="https://user-images.githubusercontent.com/101630615/196031069-9dea2254-828a-46e7-93dc-e2ba74b03094.png">
 
-<br>
-
 ---
 
-<br>
 <br>
 
 
@@ -129,7 +118,6 @@
 
 ---
 
-<br>
 <br>
 
 
@@ -152,11 +140,10 @@
 <img src="https://img.shields.io/badge/GITHUB-181717?style=for-the-badge&logo=GITHUB&logoColor=white">
 <img src="https://img.shields.io/badge/NOTION-181717?style=for-the-badge&logo=NOTION&logoColor=white">
 </div>
-<br><br>
+<br>
 
 ---
 
-<br>
 <br>
 
 ## 📚 Entity 설계
@@ -174,8 +161,6 @@
 ---
 
 <br>
-<br>
-
 
 
 ## ✏️ 업데이트 내역 (버그 리포트)
@@ -227,7 +212,7 @@
   courseTag varchar(100)
   ```
 
-
+<br>
 
 ---
 
