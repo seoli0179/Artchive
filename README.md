@@ -9,13 +9,11 @@
 ---
 
 <br>
-
 <br>
 
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/101630615/201294104-515c4901-95b8-46fc-9bb9-a7ecacc96188.gif)
 
 <br>
-
 <br>
 
 
@@ -29,7 +27,6 @@
 ---
 
 <br>
-
 <br>
 
 ## 👫 팀원 소개
@@ -43,13 +40,11 @@
 | 최상종 |  [Github](https://github.com/xangjong)   |
 
 <br>
-
 <br>
 
 
 
 ## 📝 팀 규칙
-
 **1. 말하기 전에 생각했나요**?
 
 - 공격적인 언행은 삼가해요.
@@ -101,7 +96,6 @@
 ---
 
 <br>
-
 <br>
 
 ## 🔍 핵심 기능
@@ -114,19 +108,17 @@
 ---
 
 <br>
-
 <br>
 
 ## 📆 수행 일정
 
 <img width="800" alt="timeline" src="https://user-images.githubusercontent.com/101630615/196031069-9dea2254-828a-46e7-93dc-e2ba74b03094.png">
 
-
+<br>
 
 ---
 
 <br>
-
 <br>
 
 
@@ -138,19 +130,33 @@
 ---
 
 <br>
-
 <br>
 
 
 
 ## 💡 기술 스택
-
-<p align="center"><img width="550" alt="stack" src="https://user-images.githubusercontent.com/101630615/196031068-afefd93a-7de6-4f24-a2ba-2dc4e2d22625.png"></p>
+<br>
+<div align="center">
+<img src="https://img.shields.io/badge/JAVA-007396?style=for-the-badge&logo=JAVA&logoColor=white">
+<img src="https://img.shields.io/badge/SPRING-6DB33F?style=for-the-badge&logo=SPRING&logoColor=white">
+<img src="https://img.shields.io/badge/SPRINGBOOT-6DB33F?style=for-the-badge&logo=SPRINGBOOT&logoColor=white">
+<img src="https://img.shields.io/badge/ORACLE-F80000?style=for-the-badge&logo=ORACLE&logoColor=white">
+<img src="https://img.shields.io/badge/MYSQL-4479A1?style=for-the-badge&logo=MYSQL&logoColor=white">
+<br><br>
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=MYSQL&logoColor=white">
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=white">
+<img src="https://img.shields.io/badge/JAVASCRIPT-F7DF1E?style=for-the-badge&logo=JAVASCRIPT&logoColor=white">
+<img src="https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jQuery&logoColor=white">
+<br><br>
+<img src="https://img.shields.io/badge/GIT-F05032?style=for-the-badge&logo=GIT&logoColor=white">
+<img src="https://img.shields.io/badge/GITHUB-181717?style=for-the-badge&logo=GITHUB&logoColor=white">
+<img src="https://img.shields.io/badge/NOTION-181717?style=for-the-badge&logo=NOTION&logoColor=white">
+</div>
+<br><br>
 
 ---
 
 <br>
-
 <br>
 
 ## 📚 Entity 설계
@@ -168,7 +174,6 @@
 ---
 
 <br>
-
 <br>
 
 
